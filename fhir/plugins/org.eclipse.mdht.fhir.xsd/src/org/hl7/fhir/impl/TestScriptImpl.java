@@ -54,9 +54,9 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -149,6 +149,16 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,16 +177,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -663,6 +663,49 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -711,49 +754,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.TEST_SCRIPT__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT__DATE, newDate, newDate));
 	}
 
 	/**
@@ -1156,12 +1156,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.TEST_SCRIPT__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.TEST_SCRIPT__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.TEST_SCRIPT__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.TEST_SCRIPT__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TEST_SCRIPT__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.TEST_SCRIPT__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.TEST_SCRIPT__USE_CONTEXT:
@@ -1220,12 +1220,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return getStatus();
 			case FhirPackage.TEST_SCRIPT__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.TEST_SCRIPT__DATE:
+				return getDate();
 			case FhirPackage.TEST_SCRIPT__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.TEST_SCRIPT__CONTACT:
 				return getContact();
-			case FhirPackage.TEST_SCRIPT__DATE:
-				return getDate();
 			case FhirPackage.TEST_SCRIPT__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.TEST_SCRIPT__USE_CONTEXT:
@@ -1292,15 +1292,15 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.TEST_SCRIPT__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.TEST_SCRIPT__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.TEST_SCRIPT__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1393,14 +1393,14 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.TEST_SCRIPT__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.TEST_SCRIPT__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.TEST_SCRIPT__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.TEST_SCRIPT__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.TEST_SCRIPT__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1476,12 +1476,12 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return status != null;
 			case FhirPackage.TEST_SCRIPT__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.TEST_SCRIPT__DATE:
+				return date != null;
 			case FhirPackage.TEST_SCRIPT__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.TEST_SCRIPT__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.TEST_SCRIPT__DATE:
-				return date != null;
 			case FhirPackage.TEST_SCRIPT__DESCRIPTION:
 				return description != null;
 			case FhirPackage.TEST_SCRIPT__USE_CONTEXT:

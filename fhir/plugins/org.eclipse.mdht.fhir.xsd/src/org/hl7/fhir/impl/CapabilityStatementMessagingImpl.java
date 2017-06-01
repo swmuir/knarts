@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.CapabilityStatementEvent;
 import org.hl7.fhir.CapabilityStatementMessaging;
+import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.UnsignedInt;
 
@@ -34,6 +35,7 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementMessagingImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementMessagingImpl#getReliableCache <em>Reliable Cache</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementMessagingImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CapabilityStatementMessagingImpl#getSupportedMessage <em>Supported Message</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementMessagingImpl#getEvent <em>Event</em>}</li>
  * </ul>
  *
@@ -69,6 +71,16 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String documentation;
+
+	/**
+	 * The cached value of the '{@link #getSupportedMessage() <em>Supported Message</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupportedMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CapabilityStatementSupportedMessage> supportedMessage;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
@@ -202,6 +214,18 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CapabilityStatementSupportedMessage> getSupportedMessage() {
+		if (supportedMessage == null) {
+			supportedMessage = new EObjectContainmentEList<CapabilityStatementSupportedMessage>(CapabilityStatementSupportedMessage.class, this, FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE);
+		}
+		return supportedMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CapabilityStatementEvent> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<CapabilityStatementEvent>(CapabilityStatementEvent.class, this, FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT);
@@ -223,6 +247,8 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				return basicSetReliableCache(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
 				return basicSetDocumentation(null, msgs);
+			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
+				return ((InternalEList<?>)getSupportedMessage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 		}
@@ -243,6 +269,8 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				return getReliableCache();
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
 				return getDocumentation();
+			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
+				return getSupportedMessage();
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT:
 				return getEvent();
 		}
@@ -267,6 +295,10 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
+				getSupportedMessage().clear();
+				getSupportedMessage().addAll((Collection<? extends CapabilityStatementSupportedMessage>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT:
 				getEvent().clear();
@@ -293,6 +325,9 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
 				setDocumentation((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
+				getSupportedMessage().clear();
+				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT:
 				getEvent().clear();
 				return;
@@ -314,6 +349,8 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				return reliableCache != null;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
 				return documentation != null;
+			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
+				return supportedMessage != null && !supportedMessage.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__EVENT:
 				return event != null && !event.isEmpty();
 		}

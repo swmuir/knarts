@@ -22,13 +22,13 @@ import org.hl7.fhir.ClaimResponseAddItem;
 import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
-import org.hl7.fhir.ClaimResponseNote;
 import org.hl7.fhir.ClaimResponsePayment;
-import org.hl7.fhir.Code;
+import org.hl7.fhir.ClaimResponseProcessNote;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Reference;
@@ -43,6 +43,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
@@ -60,7 +61,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getReserved <em>Reserved</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getCommunicationRequest <em>Communication Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseImpl#getInsurance <em>Insurance</em>}</li>
  * </ul>
@@ -86,7 +87,17 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
+
+	/**
+	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference patient;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -259,14 +270,14 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	protected CodeableConcept form;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcessNote() <em>Process Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNote()
+	 * @see #getProcessNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ClaimResponseNote> note;
+	protected EList<ClaimResponseProcessNote> processNote;
 
 	/**
 	 * The cached value of the '{@link #getCommunicationRequest() <em>Communication Request</em>}' containment reference list.
@@ -324,7 +335,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -333,8 +344,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__STATUS, oldStatus, newStatus);
@@ -348,7 +359,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -360,6 +371,49 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPatient() {
+		return patient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
+		Reference oldPatient = patient;
+		patient = newPatient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PATIENT, oldPatient, newPatient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPatient(Reference newPatient) {
+		if (newPatient != patient) {
+			NotificationChain msgs = null;
+			if (patient != null)
+				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PATIENT, null, msgs);
+			if (newPatient != null)
+				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE__PATIENT, null, msgs);
+			msgs = basicSetPatient(newPatient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__PATIENT, newPatient, newPatient));
 	}
 
 	/**
@@ -1005,11 +1059,11 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ClaimResponseNote> getNote() {
-		if (note == null) {
-			note = new EObjectContainmentEList<ClaimResponseNote>(ClaimResponseNote.class, this, FhirPackage.CLAIM_RESPONSE__NOTE);
+	public EList<ClaimResponseProcessNote> getProcessNote() {
+		if (processNote == null) {
+			processNote = new EObjectContainmentEList<ClaimResponseProcessNote>(ClaimResponseProcessNote.class, this, FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE);
 		}
-		return note;
+		return processNote;
 	}
 
 	/**
@@ -1048,6 +1102,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_RESPONSE__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE__PATIENT:
+				return basicSetPatient(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return basicSetCreated(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__INSURER:
@@ -1082,8 +1138,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return basicSetReserved(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return basicSetForm(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE__NOTE:
-				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE:
+				return ((InternalEList<?>)getProcessNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
 				return ((InternalEList<?>)getCommunicationRequest()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
@@ -1104,6 +1160,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return getIdentifier();
 			case FhirPackage.CLAIM_RESPONSE__STATUS:
 				return getStatus();
+			case FhirPackage.CLAIM_RESPONSE__PATIENT:
+				return getPatient();
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return getCreated();
 			case FhirPackage.CLAIM_RESPONSE__INSURER:
@@ -1138,8 +1196,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return getReserved();
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return getForm();
-			case FhirPackage.CLAIM_RESPONSE__NOTE:
-				return getNote();
+			case FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE:
+				return getProcessNote();
 			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
 				return getCommunicationRequest();
 			case FhirPackage.CLAIM_RESPONSE__INSURANCE:
@@ -1162,7 +1220,10 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
+				return;
+			case FhirPackage.CLAIM_RESPONSE__PATIENT:
+				setPatient((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
@@ -1218,9 +1279,9 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				setForm((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends ClaimResponseNote>)newValue);
+			case FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE:
+				getProcessNote().clear();
+				getProcessNote().addAll((Collection<? extends ClaimResponseProcessNote>)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
 				getCommunicationRequest().clear();
@@ -1246,7 +1307,10 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				getIdentifier().clear();
 				return;
 			case FhirPackage.CLAIM_RESPONSE__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
+				return;
+			case FhirPackage.CLAIM_RESPONSE__PATIENT:
+				setPatient((Reference)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				setCreated((DateTime)null);
@@ -1299,8 +1363,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				setForm((CodeableConcept)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE__NOTE:
-				getNote().clear();
+			case FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE:
+				getProcessNote().clear();
 				return;
 			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
 				getCommunicationRequest().clear();
@@ -1324,6 +1388,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.CLAIM_RESPONSE__STATUS:
 				return status != null;
+			case FhirPackage.CLAIM_RESPONSE__PATIENT:
+				return patient != null;
 			case FhirPackage.CLAIM_RESPONSE__CREATED:
 				return created != null;
 			case FhirPackage.CLAIM_RESPONSE__INSURER:
@@ -1358,8 +1424,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				return reserved != null;
 			case FhirPackage.CLAIM_RESPONSE__FORM:
 				return form != null;
-			case FhirPackage.CLAIM_RESPONSE__NOTE:
-				return note != null && !note.isEmpty();
+			case FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE:
+				return processNote != null && !processNote.isEmpty();
 			case FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST:
 				return communicationRequest != null && !communicationRequest.isEmpty();
 			case FhirPackage.CLAIM_RESPONSE__INSURANCE:

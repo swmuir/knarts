@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getActive <em>Active</em>}</li>
+ *   <li>{@link org.hl7.fhir.PractitionerRole#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getPractitioner <em>Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getCode <em>Code</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PractitionerRole#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getHealthcareService <em>Healthcare Service</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getTelecom <em>Telecom</em>}</li>
- *   <li>{@link org.hl7.fhir.PractitionerRole#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getAvailableTime <em>Available Time</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getNotAvailable <em>Not Available</em>}</li>
  *   <li>{@link org.hl7.fhir.PractitionerRole#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
@@ -80,6 +80,32 @@ public interface PractitionerRole extends DomainResource {
 	 * @generated
 	 */
 	void setActive(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period</em>' containment reference.
+	 * @see #setPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_Period()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PractitionerRole#getPeriod <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Period</em>' containment reference.
+	 * @see #getPeriod()
+	 * @generated
+	 */
+	void setPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference.
@@ -212,32 +238,6 @@ public interface PractitionerRole extends DomainResource {
 	 * @generated
 	 */
 	EList<ContactPoint> getTelecom();
-
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_Period()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getPeriod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PractitionerRole#getPeriod <em>Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
-	 * @generated
-	 */
-	void setPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Available Time</b></em>' containment reference list.

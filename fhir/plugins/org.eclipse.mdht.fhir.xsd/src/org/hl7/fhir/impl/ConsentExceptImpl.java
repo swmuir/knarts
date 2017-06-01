@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
-import org.hl7.fhir.ConsentActor;
-import org.hl7.fhir.ConsentData;
+import org.hl7.fhir.ConsentActor1;
+import org.hl7.fhir.ConsentData1;
 import org.hl7.fhir.ConsentExcept;
 import org.hl7.fhir.ConsentExceptType;
 import org.hl7.fhir.FhirPackage;
@@ -42,6 +42,7 @@ import org.hl7.fhir.Period;
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getDataPeriod <em>Data Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConsentExceptImpl#getData <em>Data</em>}</li>
  * </ul>
  *
@@ -76,7 +77,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConsentActor> actor;
+	protected EList<ConsentActor1> actor;
 
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
@@ -129,6 +130,16 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	protected EList<Coding> code;
 
 	/**
+	 * The cached value of the '{@link #getDataPeriod() <em>Data Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period dataPeriod;
+
+	/**
 	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,7 +147,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConsentData> data;
+	protected EList<ConsentData1> data;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,9 +259,9 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConsentActor> getActor() {
+	public EList<ConsentActor1> getActor() {
 		if (actor == null) {
-			actor = new EObjectContainmentEList<ConsentActor>(ConsentActor.class, this, FhirPackage.CONSENT_EXCEPT__ACTOR);
+			actor = new EObjectContainmentEList<ConsentActor1>(ConsentActor1.class, this, FhirPackage.CONSENT_EXCEPT__ACTOR);
 		}
 		return actor;
 	}
@@ -320,9 +331,52 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConsentData> getData() {
+	public Period getDataPeriod() {
+		return dataPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDataPeriod(Period newDataPeriod, NotificationChain msgs) {
+		Period oldDataPeriod = dataPeriod;
+		dataPeriod = newDataPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__DATA_PERIOD, oldDataPeriod, newDataPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDataPeriod(Period newDataPeriod) {
+		if (newDataPeriod != dataPeriod) {
+			NotificationChain msgs = null;
+			if (dataPeriod != null)
+				msgs = ((InternalEObject)dataPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__DATA_PERIOD, null, msgs);
+			if (newDataPeriod != null)
+				msgs = ((InternalEObject)newDataPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONSENT_EXCEPT__DATA_PERIOD, null, msgs);
+			msgs = basicSetDataPeriod(newDataPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONSENT_EXCEPT__DATA_PERIOD, newDataPeriod, newDataPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConsentData1> getData() {
 		if (data == null) {
-			data = new EObjectContainmentEList<ConsentData>(ConsentData.class, this, FhirPackage.CONSENT_EXCEPT__DATA);
+			data = new EObjectContainmentEList<ConsentData1>(ConsentData1.class, this, FhirPackage.CONSENT_EXCEPT__DATA);
 		}
 		return data;
 	}
@@ -351,6 +405,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 				return ((InternalEList<?>)getClass_()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONSENT_EXCEPT__CODE:
 				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONSENT_EXCEPT__DATA_PERIOD:
+				return basicSetDataPeriod(null, msgs);
 			case FhirPackage.CONSENT_EXCEPT__DATA:
 				return ((InternalEList<?>)getData()).basicRemove(otherEnd, msgs);
 		}
@@ -381,6 +437,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 				return getClass_();
 			case FhirPackage.CONSENT_EXCEPT__CODE:
 				return getCode();
+			case FhirPackage.CONSENT_EXCEPT__DATA_PERIOD:
+				return getDataPeriod();
 			case FhirPackage.CONSENT_EXCEPT__DATA:
 				return getData();
 		}
@@ -404,7 +462,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 				return;
 			case FhirPackage.CONSENT_EXCEPT__ACTOR:
 				getActor().clear();
-				getActor().addAll((Collection<? extends ConsentActor>)newValue);
+				getActor().addAll((Collection<? extends ConsentActor1>)newValue);
 				return;
 			case FhirPackage.CONSENT_EXCEPT__ACTION:
 				getAction().clear();
@@ -426,9 +484,12 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 				getCode().clear();
 				getCode().addAll((Collection<? extends Coding>)newValue);
 				return;
+			case FhirPackage.CONSENT_EXCEPT__DATA_PERIOD:
+				setDataPeriod((Period)newValue);
+				return;
 			case FhirPackage.CONSENT_EXCEPT__DATA:
 				getData().clear();
-				getData().addAll((Collection<? extends ConsentData>)newValue);
+				getData().addAll((Collection<? extends ConsentData1>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -466,6 +527,9 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 			case FhirPackage.CONSENT_EXCEPT__CODE:
 				getCode().clear();
 				return;
+			case FhirPackage.CONSENT_EXCEPT__DATA_PERIOD:
+				setDataPeriod((Period)null);
+				return;
 			case FhirPackage.CONSENT_EXCEPT__DATA:
 				getData().clear();
 				return;
@@ -497,6 +561,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 				return class_ != null && !class_.isEmpty();
 			case FhirPackage.CONSENT_EXCEPT__CODE:
 				return code != null && !code.isEmpty();
+			case FhirPackage.CONSENT_EXCEPT__DATA_PERIOD:
+				return dataPeriod != null;
 			case FhirPackage.CONSENT_EXCEPT__DATA:
 				return data != null && !data.isEmpty();
 		}

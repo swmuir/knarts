@@ -2,19 +2,28 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Medication;
+import org.hl7.fhir.MedicationIngredient;
 import org.hl7.fhir.MedicationPackage;
-import org.hl7.fhir.MedicationProduct;
+import org.hl7.fhir.MedicationStatus;
 import org.hl7.fhir.Reference;
 
 /**
@@ -26,10 +35,14 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsBrand <em>Is Brand</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getManufacturer <em>Manufacturer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getProduct <em>Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getPackage <em>Package</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getImage <em>Image</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +59,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected CodeableConcept code;
 
 	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected MedicationStatus status;
+
+	/**
 	 * The cached value of the '{@link #getIsBrand() <em>Is Brand</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,6 +77,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean isBrand;
+
+	/**
+	 * The cached value of the '{@link #getIsOverTheCounter() <em>Is Over The Counter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsOverTheCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean isOverTheCounter;
 
 	/**
 	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference.
@@ -66,14 +99,24 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected Reference manufacturer;
 
 	/**
-	 * The cached value of the '{@link #getProduct() <em>Product</em>}' containment reference.
+	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProduct()
+	 * @see #getForm()
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationProduct product;
+	protected CodeableConcept form;
+
+	/**
+	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIngredient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicationIngredient> ingredient;
 
 	/**
 	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
@@ -84,6 +127,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * @ordered
 	 */
 	protected MedicationPackage package_;
+
+	/**
+	 * The cached value of the '{@link #getImage() <em>Image</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Attachment> image;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +205,49 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MedicationStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(MedicationStatus newStatus, NotificationChain msgs) {
+		MedicationStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(MedicationStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Boolean getIsBrand() {
 		return isBrand;
 	}
@@ -188,6 +284,49 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_BRAND, newIsBrand, newIsBrand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getIsOverTheCounter() {
+		return isOverTheCounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIsOverTheCounter(org.hl7.fhir.Boolean newIsOverTheCounter, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldIsOverTheCounter = isOverTheCounter;
+		isOverTheCounter = newIsOverTheCounter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, oldIsOverTheCounter, newIsOverTheCounter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsOverTheCounter(org.hl7.fhir.Boolean newIsOverTheCounter) {
+		if (newIsOverTheCounter != isOverTheCounter) {
+			NotificationChain msgs = null;
+			if (isOverTheCounter != null)
+				msgs = ((InternalEObject)isOverTheCounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, null, msgs);
+			if (newIsOverTheCounter != null)
+				msgs = ((InternalEObject)newIsOverTheCounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, null, msgs);
+			msgs = basicSetIsOverTheCounter(newIsOverTheCounter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, newIsOverTheCounter, newIsOverTheCounter));
 	}
 
 	/**
@@ -238,8 +377,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationProduct getProduct() {
-		return product;
+	public CodeableConcept getForm() {
+		return form;
 	}
 
 	/**
@@ -247,11 +386,11 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProduct(MedicationProduct newProduct, NotificationChain msgs) {
-		MedicationProduct oldProduct = product;
-		product = newProduct;
+	public NotificationChain basicSetForm(CodeableConcept newForm, NotificationChain msgs) {
+		CodeableConcept oldForm = form;
+		form = newForm;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PRODUCT, oldProduct, newProduct);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__FORM, oldForm, newForm);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -262,18 +401,30 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProduct(MedicationProduct newProduct) {
-		if (newProduct != product) {
+	public void setForm(CodeableConcept newForm) {
+		if (newForm != form) {
 			NotificationChain msgs = null;
-			if (product != null)
-				msgs = ((InternalEObject)product).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PRODUCT, null, msgs);
-			if (newProduct != null)
-				msgs = ((InternalEObject)newProduct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PRODUCT, null, msgs);
-			msgs = basicSetProduct(newProduct, msgs);
+			if (form != null)
+				msgs = ((InternalEObject)form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__FORM, null, msgs);
+			if (newForm != null)
+				msgs = ((InternalEObject)newForm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__FORM, null, msgs);
+			msgs = basicSetForm(newForm, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PRODUCT, newProduct, newProduct));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__FORM, newForm, newForm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<MedicationIngredient> getIngredient() {
+		if (ingredient == null) {
+			ingredient = new EObjectContainmentEList<MedicationIngredient>(MedicationIngredient.class, this, FhirPackage.MEDICATION__INGREDIENT);
+		}
+		return ingredient;
 	}
 
 	/**
@@ -324,19 +475,39 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Attachment> getImage() {
+		if (image == null) {
+			image = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.MEDICATION__IMAGE);
+		}
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MEDICATION__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.MEDICATION__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.MEDICATION__IS_BRAND:
 				return basicSetIsBrand(null, msgs);
+			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
+				return basicSetIsOverTheCounter(null, msgs);
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return basicSetManufacturer(null, msgs);
-			case FhirPackage.MEDICATION__PRODUCT:
-				return basicSetProduct(null, msgs);
+			case FhirPackage.MEDICATION__FORM:
+				return basicSetForm(null, msgs);
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION__PACKAGE:
 				return basicSetPackage(null, msgs);
+			case FhirPackage.MEDICATION__IMAGE:
+				return ((InternalEList<?>)getImage()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -351,14 +522,22 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 		switch (featureID) {
 			case FhirPackage.MEDICATION__CODE:
 				return getCode();
+			case FhirPackage.MEDICATION__STATUS:
+				return getStatus();
 			case FhirPackage.MEDICATION__IS_BRAND:
 				return getIsBrand();
+			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
+				return getIsOverTheCounter();
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return getManufacturer();
-			case FhirPackage.MEDICATION__PRODUCT:
-				return getProduct();
+			case FhirPackage.MEDICATION__FORM:
+				return getForm();
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return getIngredient();
 			case FhirPackage.MEDICATION__PACKAGE:
 				return getPackage();
+			case FhirPackage.MEDICATION__IMAGE:
+				return getImage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,23 +547,38 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MEDICATION__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
+			case FhirPackage.MEDICATION__STATUS:
+				setStatus((MedicationStatus)newValue);
+				return;
 			case FhirPackage.MEDICATION__IS_BRAND:
 				setIsBrand((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
+				setIsOverTheCounter((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)newValue);
 				return;
-			case FhirPackage.MEDICATION__PRODUCT:
-				setProduct((MedicationProduct)newValue);
+			case FhirPackage.MEDICATION__FORM:
+				setForm((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				getIngredient().clear();
+				getIngredient().addAll((Collection<? extends MedicationIngredient>)newValue);
 				return;
 			case FhirPackage.MEDICATION__PACKAGE:
 				setPackage((MedicationPackage)newValue);
+				return;
+			case FhirPackage.MEDICATION__IMAGE:
+				getImage().clear();
+				getImage().addAll((Collection<? extends Attachment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -401,17 +595,29 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 			case FhirPackage.MEDICATION__CODE:
 				setCode((CodeableConcept)null);
 				return;
+			case FhirPackage.MEDICATION__STATUS:
+				setStatus((MedicationStatus)null);
+				return;
 			case FhirPackage.MEDICATION__IS_BRAND:
 				setIsBrand((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
+				setIsOverTheCounter((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)null);
 				return;
-			case FhirPackage.MEDICATION__PRODUCT:
-				setProduct((MedicationProduct)null);
+			case FhirPackage.MEDICATION__FORM:
+				setForm((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				getIngredient().clear();
 				return;
 			case FhirPackage.MEDICATION__PACKAGE:
 				setPackage((MedicationPackage)null);
+				return;
+			case FhirPackage.MEDICATION__IMAGE:
+				getImage().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -427,14 +633,22 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 		switch (featureID) {
 			case FhirPackage.MEDICATION__CODE:
 				return code != null;
+			case FhirPackage.MEDICATION__STATUS:
+				return status != null;
 			case FhirPackage.MEDICATION__IS_BRAND:
 				return isBrand != null;
+			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
+				return isOverTheCounter != null;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return manufacturer != null;
-			case FhirPackage.MEDICATION__PRODUCT:
-				return product != null;
+			case FhirPackage.MEDICATION__FORM:
+				return form != null;
+			case FhirPackage.MEDICATION__INGREDIENT:
+				return ingredient != null && !ingredient.isEmpty();
 			case FhirPackage.MEDICATION__PACKAGE:
 				return package_ != null;
+			case FhirPackage.MEDICATION__IMAGE:
+				return image != null && !image.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

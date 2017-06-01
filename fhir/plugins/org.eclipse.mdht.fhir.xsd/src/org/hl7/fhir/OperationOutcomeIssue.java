@@ -140,7 +140,7 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+	 * For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be "http." + the parameter name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationOutcomeIssue_Location()
@@ -156,7 +156,7 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+	 * A simple FHIRPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationOutcomeIssue_Expression()

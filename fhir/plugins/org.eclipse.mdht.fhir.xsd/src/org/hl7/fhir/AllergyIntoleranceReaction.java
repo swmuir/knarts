@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.AllergyIntoleranceReaction#getSubstance <em>Substance</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntoleranceReaction#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntoleranceReaction#getManifestation <em>Manifestation</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntoleranceReaction#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntoleranceReaction#getOnset <em>Onset</em>}</li>
@@ -57,32 +56,6 @@ public interface AllergyIntoleranceReaction extends BackboneElement {
 	 * @generated
 	 */
 	void setSubstance(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Certainty</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Certainty</em>' containment reference.
-	 * @see #setCertainty(AllergyIntoleranceCertainty)
-	 * @see org.hl7.fhir.FhirPackage#getAllergyIntoleranceReaction_Certainty()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='certainty' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	AllergyIntoleranceCertainty getCertainty();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntoleranceReaction#getCertainty <em>Certainty</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Certainty</em>' containment reference.
-	 * @see #getCertainty()
-	 * @generated
-	 */
-	void setCertainty(AllergyIntoleranceCertainty value);
 
 	/**
 	 * Returns the value of the '<em><b>Manifestation</b></em>' containment reference list.

@@ -96,14 +96,14 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	protected EList<CodeableConcept> specialty;
 
 	/**
-	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference.
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActor()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference actor;
+	protected EList<Reference> actor;
 
 	/**
 	 * The cached value of the '{@link #getPlanningHorizon() <em>Planning Horizon</em>}' containment reference.
@@ -271,42 +271,11 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getActor() {
+	public EList<Reference> getActor() {
+		if (actor == null) {
+			actor = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SCHEDULE__ACTOR);
+		}
 		return actor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetActor(Reference newActor, NotificationChain msgs) {
-		Reference oldActor = actor;
-		actor = newActor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__ACTOR, oldActor, newActor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActor(Reference newActor) {
-		if (newActor != actor) {
-			NotificationChain msgs = null;
-			if (actor != null)
-				msgs = ((InternalEObject)actor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__ACTOR, null, msgs);
-			if (newActor != null)
-				msgs = ((InternalEObject)newActor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__ACTOR, null, msgs);
-			msgs = basicSetActor(newActor, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__ACTOR, newActor, newActor));
 	}
 
 	/**
@@ -414,7 +383,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__SPECIALTY:
 				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SCHEDULE__ACTOR:
-				return basicSetActor(null, msgs);
+				return ((InternalEList<?>)getActor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
 				return basicSetPlanningHorizon(null, msgs);
 			case FhirPackage.SCHEDULE__COMMENT:
@@ -479,7 +448,8 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 				getSpecialty().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SCHEDULE__ACTOR:
-				setActor((Reference)newValue);
+				getActor().clear();
+				getActor().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
 				setPlanningHorizon((Period)newValue);
@@ -515,7 +485,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 				getSpecialty().clear();
 				return;
 			case FhirPackage.SCHEDULE__ACTOR:
-				setActor((Reference)null);
+				getActor().clear();
 				return;
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
 				setPlanningHorizon((Period)null);
@@ -546,7 +516,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__SPECIALTY:
 				return specialty != null && !specialty.isEmpty();
 			case FhirPackage.SCHEDULE__ACTOR:
-				return actor != null;
+				return actor != null && !actor.isEmpty();
 			case FhirPackage.SCHEDULE__PLANNING_HORIZON:
 				return planningHorizon != null;
 			case FhirPackage.SCHEDULE__COMMENT:

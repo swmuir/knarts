@@ -23,7 +23,6 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ImagingStudy;
-import org.hl7.fhir.ImagingStudyBaseLocation;
 import org.hl7.fhir.ImagingStudySeries;
 import org.hl7.fhir.InstanceAvailability;
 import org.hl7.fhir.Oid;
@@ -49,10 +48,11 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReferrer <em>Referrer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getInterpreter <em>Interpreter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNumberOfSeries <em>Number Of Series</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedure <em>Procedure</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedureReference <em>Procedure Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedureCode <em>Procedure Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getSeries <em>Series</em>}</li>
@@ -172,14 +172,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected EList<Reference> interpreter;
 
 	/**
-	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' containment reference list.
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseLocation()
+	 * @see #getEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImagingStudyBaseLocation> baseLocation;
+	protected EList<Reference> endpoint;
 
 	/**
 	 * The cached value of the '{@link #getNumberOfSeries() <em>Number Of Series</em>}' containment reference.
@@ -202,14 +202,24 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected UnsignedInt numberOfInstances;
 
 	/**
-	 * The cached value of the '{@link #getProcedure() <em>Procedure</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcedureReference() <em>Procedure Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcedure()
+	 * @see #getProcedureReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> procedure;
+	protected EList<Reference> procedureReference;
+
+	/**
+	 * The cached value of the '{@link #getProcedureCode() <em>Procedure Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcedureCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> procedureCode;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
@@ -614,11 +624,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImagingStudyBaseLocation> getBaseLocation() {
-		if (baseLocation == null) {
-			baseLocation = new EObjectContainmentEList<ImagingStudyBaseLocation>(ImagingStudyBaseLocation.class, this, FhirPackage.IMAGING_STUDY__BASE_LOCATION);
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__ENDPOINT);
 		}
-		return baseLocation;
+		return endpoint;
 	}
 
 	/**
@@ -712,11 +722,23 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getProcedure() {
-		if (procedure == null) {
-			procedure = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE);
+	public EList<Reference> getProcedureReference() {
+		if (procedureReference == null) {
+			procedureReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE);
 		}
-		return procedure;
+		return procedureReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getProcedureCode() {
+		if (procedureCode == null) {
+			procedureCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE_CODE);
+		}
+		return procedureCode;
 	}
 
 	/**
@@ -847,14 +869,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return basicSetReferrer(null, msgs);
 			case FhirPackage.IMAGING_STUDY__INTERPRETER:
 				return ((InternalEList<?>)getInterpreter()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__BASE_LOCATION:
-				return ((InternalEList<?>)getBaseLocation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
 				return basicSetNumberOfSeries(null, msgs);
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				return basicSetNumberOfInstances(null, msgs);
-			case FhirPackage.IMAGING_STUDY__PROCEDURE:
-				return ((InternalEList<?>)getProcedure()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
+				return ((InternalEList<?>)getProcedureReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
+				return ((InternalEList<?>)getProcedureCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY__REASON:
 				return basicSetReason(null, msgs);
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
@@ -895,14 +919,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return getReferrer();
 			case FhirPackage.IMAGING_STUDY__INTERPRETER:
 				return getInterpreter();
-			case FhirPackage.IMAGING_STUDY__BASE_LOCATION:
-				return getBaseLocation();
+			case FhirPackage.IMAGING_STUDY__ENDPOINT:
+				return getEndpoint();
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
 				return getNumberOfSeries();
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				return getNumberOfInstances();
-			case FhirPackage.IMAGING_STUDY__PROCEDURE:
-				return getProcedure();
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
+				return getProcedureReference();
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
+				return getProcedureCode();
 			case FhirPackage.IMAGING_STUDY__REASON:
 				return getReason();
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
@@ -959,9 +985,9 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				getInterpreter().clear();
 				getInterpreter().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__BASE_LOCATION:
-				getBaseLocation().clear();
-				getBaseLocation().addAll((Collection<? extends ImagingStudyBaseLocation>)newValue);
+			case FhirPackage.IMAGING_STUDY__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
 				setNumberOfSeries((UnsignedInt)newValue);
@@ -969,9 +995,13 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				setNumberOfInstances((UnsignedInt)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__PROCEDURE:
-				getProcedure().clear();
-				getProcedure().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
+				getProcedureReference().clear();
+				getProcedureReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
+				getProcedureCode().clear();
+				getProcedureCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__REASON:
 				setReason((CodeableConcept)newValue);
@@ -1028,8 +1058,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__INTERPRETER:
 				getInterpreter().clear();
 				return;
-			case FhirPackage.IMAGING_STUDY__BASE_LOCATION:
-				getBaseLocation().clear();
+			case FhirPackage.IMAGING_STUDY__ENDPOINT:
+				getEndpoint().clear();
 				return;
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
 				setNumberOfSeries((UnsignedInt)null);
@@ -1037,8 +1067,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				setNumberOfInstances((UnsignedInt)null);
 				return;
-			case FhirPackage.IMAGING_STUDY__PROCEDURE:
-				getProcedure().clear();
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
+				getProcedureReference().clear();
+				return;
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
+				getProcedureCode().clear();
 				return;
 			case FhirPackage.IMAGING_STUDY__REASON:
 				setReason((CodeableConcept)null);
@@ -1083,14 +1116,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return referrer != null;
 			case FhirPackage.IMAGING_STUDY__INTERPRETER:
 				return interpreter != null && !interpreter.isEmpty();
-			case FhirPackage.IMAGING_STUDY__BASE_LOCATION:
-				return baseLocation != null && !baseLocation.isEmpty();
+			case FhirPackage.IMAGING_STUDY__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_SERIES:
 				return numberOfSeries != null;
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				return numberOfInstances != null;
-			case FhirPackage.IMAGING_STUDY__PROCEDURE:
-				return procedure != null && !procedure.isEmpty();
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
+				return procedureReference != null && !procedureReference.isEmpty();
+			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
+				return procedureCode != null && !procedureCode.isEmpty();
 			case FhirPackage.IMAGING_STUDY__REASON:
 				return reason != null;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:

@@ -24,6 +24,7 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
+import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.SearchComparator;
 import org.hl7.fhir.SearchModifierCode;
 import org.hl7.fhir.SearchParamType;
@@ -198,7 +199,7 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> base;
+	protected EList<ResourceType> base;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -268,7 +269,7 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> target;
+	protected EList<ResourceType> target;
 
 	/**
 	 * The cached value of the '{@link #getComparator() <em>Comparator</em>}' containment reference list.
@@ -757,9 +758,9 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getBase() {
+	public EList<ResourceType> getBase() {
 		if (base == null) {
-			base = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.SEARCH_PARAMETER__BASE);
+			base = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.SEARCH_PARAMETER__BASE);
 		}
 		return base;
 	}
@@ -1027,9 +1028,9 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getTarget() {
+	public EList<ResourceType> getTarget() {
 		if (target == null) {
-			target = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.SEARCH_PARAMETER__TARGET);
+			target = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.SEARCH_PARAMETER__TARGET);
 		}
 		return target;
 	}
@@ -1252,7 +1253,7 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 				return;
 			case FhirPackage.SEARCH_PARAMETER__BASE:
 				getBase().clear();
-				getBase().addAll((Collection<? extends Code>)newValue);
+				getBase().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.SEARCH_PARAMETER__TYPE:
 				setType((SearchParamType)newValue);
@@ -1274,7 +1275,7 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 				return;
 			case FhirPackage.SEARCH_PARAMETER__TARGET:
 				getTarget().clear();
-				getTarget().addAll((Collection<? extends Code>)newValue);
+				getTarget().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.SEARCH_PARAMETER__COMPARATOR:
 				getComparator().clear();

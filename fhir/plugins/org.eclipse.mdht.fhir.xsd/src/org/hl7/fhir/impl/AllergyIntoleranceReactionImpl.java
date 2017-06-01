@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.AllergyIntoleranceCertainty;
 import org.hl7.fhir.AllergyIntoleranceReaction;
 import org.hl7.fhir.AllergyIntoleranceSeverity;
 import org.hl7.fhir.Annotation;
@@ -34,7 +33,6 @@ import org.hl7.fhir.FhirPackage;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceReactionImpl#getSubstance <em>Substance</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceReactionImpl#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceReactionImpl#getManifestation <em>Manifestation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceReactionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceReactionImpl#getOnset <em>Onset</em>}</li>
@@ -55,16 +53,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 	 * @ordered
 	 */
 	protected CodeableConcept substance;
-
-	/**
-	 * The cached value of the '{@link #getCertainty() <em>Certainty</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCertainty()
-	 * @generated
-	 * @ordered
-	 */
-	protected AllergyIntoleranceCertainty certainty;
 
 	/**
 	 * The cached value of the '{@link #getManifestation() <em>Manifestation</em>}' containment reference list.
@@ -186,49 +174,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE, newSubstance, newSubstance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceCertainty getCertainty() {
-		return certainty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCertainty(AllergyIntoleranceCertainty newCertainty, NotificationChain msgs) {
-		AllergyIntoleranceCertainty oldCertainty = certainty;
-		certainty = newCertainty;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY, oldCertainty, newCertainty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCertainty(AllergyIntoleranceCertainty newCertainty) {
-		if (newCertainty != certainty) {
-			NotificationChain msgs = null;
-			if (certainty != null)
-				msgs = ((InternalEObject)certainty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY, null, msgs);
-			if (newCertainty != null)
-				msgs = ((InternalEObject)newCertainty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY, null, msgs);
-			msgs = basicSetCertainty(newCertainty, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY, newCertainty, newCertainty));
 	}
 
 	/**
@@ -437,8 +382,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE:
 				return basicSetSubstance(null, msgs);
-			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY:
-				return basicSetCertainty(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION:
 				return ((InternalEList<?>)getManifestation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__DESCRIPTION:
@@ -465,8 +408,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE:
 				return getSubstance();
-			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY:
-				return getCertainty();
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION:
 				return getManifestation();
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__DESCRIPTION:
@@ -494,9 +435,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE:
 				setSubstance((CodeableConcept)newValue);
-				return;
-			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY:
-				setCertainty((AllergyIntoleranceCertainty)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION:
 				getManifestation().clear();
@@ -533,9 +471,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE:
 				setSubstance((CodeableConcept)null);
 				return;
-			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY:
-				setCertainty((AllergyIntoleranceCertainty)null);
-				return;
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION:
 				getManifestation().clear();
 				return;
@@ -568,8 +503,6 @@ public class AllergyIntoleranceReactionImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__SUBSTANCE:
 				return substance != null;
-			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__CERTAINTY:
-				return certainty != null;
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__MANIFESTATION:
 				return manifestation != null && !manifestation.isEmpty();
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION__DESCRIPTION:

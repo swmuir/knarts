@@ -138,7 +138,7 @@ public interface StructureMapTarget extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>List Mode</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.StructureMapListMode}.
+	 * The list contents are of type {@link org.hl7.fhir.StructureMapTargetListMode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -150,7 +150,7 @@ public interface StructureMapTarget extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='listMode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<StructureMapListMode> getListMode();
+	EList<StructureMapTargetListMode> getListMode();
 
 	/**
 	 * Returns the value of the '<em><b>List Rule Id</b></em>' containment reference.

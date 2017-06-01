@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
+import org.hl7.fhir.TestReportActionResult;
 import org.hl7.fhir.TestReportOperation;
-import org.hl7.fhir.TestReportResultCodes;
 import org.hl7.fhir.Uri;
 
 /**
@@ -40,7 +40,7 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	 * @generated
 	 * @ordered
 	 */
-	protected TestReportResultCodes result;
+	protected TestReportActionResult result;
 
 	/**
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
@@ -86,7 +86,7 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TestReportResultCodes getResult() {
+	public TestReportActionResult getResult() {
 		return result;
 	}
 
@@ -95,8 +95,8 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResult(TestReportResultCodes newResult, NotificationChain msgs) {
-		TestReportResultCodes oldResult = result;
+	public NotificationChain basicSetResult(TestReportActionResult newResult, NotificationChain msgs) {
+		TestReportActionResult oldResult = result;
 		result = newResult;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT_OPERATION__RESULT, oldResult, newResult);
@@ -110,7 +110,7 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResult(TestReportResultCodes newResult) {
+	public void setResult(TestReportActionResult newResult) {
 		if (newResult != result) {
 			NotificationChain msgs = null;
 			if (result != null)
@@ -255,7 +255,7 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.TEST_REPORT_OPERATION__RESULT:
-				setResult((TestReportResultCodes)newValue);
+				setResult((TestReportActionResult)newValue);
 				return;
 			case FhirPackage.TEST_REPORT_OPERATION__MESSAGE:
 				setMessage((Markdown)newValue);
@@ -276,7 +276,7 @@ public class TestReportOperationImpl extends BackboneElementImpl implements Test
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.TEST_REPORT_OPERATION__RESULT:
-				setResult((TestReportResultCodes)null);
+				setResult((TestReportActionResult)null);
 				return;
 			case FhirPackage.TEST_REPORT_OPERATION__MESSAGE:
 				setMessage((Markdown)null);

@@ -30,7 +30,7 @@ public interface EncounterStatusHistory extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error.
+	 * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(EncounterStatus)

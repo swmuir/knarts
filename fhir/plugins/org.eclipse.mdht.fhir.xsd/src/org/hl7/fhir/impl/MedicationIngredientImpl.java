@@ -26,6 +26,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getItemCodeableConcept <em>Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getItemReference <em>Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getIsActive <em>Is Active</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getAmount <em>Amount</em>}</li>
  * </ul>
  *
@@ -51,6 +52,16 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	 * @ordered
 	 */
 	protected Reference itemReference;
+
+	/**
+	 * The cached value of the '{@link #getIsActive() <em>Is Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean isActive;
 
 	/**
 	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
@@ -172,6 +183,49 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getIsActive() {
+		return isActive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIsActive(org.hl7.fhir.Boolean newIsActive, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldIsActive = isActive;
+		isActive = newIsActive;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE, oldIsActive, newIsActive);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsActive(org.hl7.fhir.Boolean newIsActive) {
+		if (newIsActive != isActive) {
+			NotificationChain msgs = null;
+			if (isActive != null)
+				msgs = ((InternalEObject)isActive).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE, null, msgs);
+			if (newIsActive != null)
+				msgs = ((InternalEObject)newIsActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE, null, msgs);
+			msgs = basicSetIsActive(newIsActive, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE, newIsActive, newIsActive));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Ratio getAmount() {
 		return amount;
 	}
@@ -222,6 +276,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return basicSetItemCodeableConcept(null, msgs);
 			case FhirPackage.MEDICATION_INGREDIENT__ITEM_REFERENCE:
 				return basicSetItemReference(null, msgs);
+			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
+				return basicSetIsActive(null, msgs);
 			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
 				return basicSetAmount(null, msgs);
 		}
@@ -240,6 +296,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return getItemCodeableConcept();
 			case FhirPackage.MEDICATION_INGREDIENT__ITEM_REFERENCE:
 				return getItemReference();
+			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
+				return getIsActive();
 			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
 				return getAmount();
 		}
@@ -259,6 +317,9 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return;
 			case FhirPackage.MEDICATION_INGREDIENT__ITEM_REFERENCE:
 				setItemReference((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
+				setIsActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
 				setAmount((Ratio)newValue);
@@ -281,6 +342,9 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 			case FhirPackage.MEDICATION_INGREDIENT__ITEM_REFERENCE:
 				setItemReference((Reference)null);
 				return;
+			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
+				setIsActive((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
 				setAmount((Ratio)null);
 				return;
@@ -300,6 +364,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return itemCodeableConcept != null;
 			case FhirPackage.MEDICATION_INGREDIENT__ITEM_REFERENCE:
 				return itemReference != null;
+			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
+				return isActive != null;
 			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
 				return amount != null;
 		}

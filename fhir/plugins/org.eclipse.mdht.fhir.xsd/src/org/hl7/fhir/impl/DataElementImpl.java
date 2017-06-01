@@ -44,8 +44,8 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getExperimental <em>Experimental</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataElementImpl#getContact <em>Contact</em>}</li>
@@ -111,16 +111,6 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
-
-	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,6 +119,16 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -428,49 +428,6 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DateTime getDate() {
 		return date;
 	}
@@ -507,6 +464,49 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_ELEMENT__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_ELEMENT__PUBLISHER, newPublisher, newPublisher));
 	}
 
 	/**
@@ -759,10 +759,10 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
-			case FhirPackage.DATA_ELEMENT__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.DATA_ELEMENT__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.DATA_ELEMENT__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.DATA_ELEMENT__TITLE:
@@ -803,10 +803,10 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return getStatus();
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				return getExperimental();
-			case FhirPackage.DATA_ELEMENT__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.DATA_ELEMENT__DATE:
 				return getDate();
+			case FhirPackage.DATA_ELEMENT__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return getName();
 			case FhirPackage.DATA_ELEMENT__TITLE:
@@ -854,11 +854,11 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.DATA_ELEMENT__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.DATA_ELEMENT__DATE:
 				setDate((DateTime)newValue);
+				return;
+			case FhirPackage.DATA_ELEMENT__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DATA_ELEMENT__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -919,11 +919,11 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.DATA_ELEMENT__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.DATA_ELEMENT__DATE:
 				setDate((DateTime)null);
+				return;
+			case FhirPackage.DATA_ELEMENT__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.DATA_ELEMENT__NAME:
 				setName((org.hl7.fhir.String)null);
@@ -974,10 +974,10 @@ public class DataElementImpl extends DomainResourceImpl implements DataElement {
 				return status != null;
 			case FhirPackage.DATA_ELEMENT__EXPERIMENTAL:
 				return experimental != null;
-			case FhirPackage.DATA_ELEMENT__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.DATA_ELEMENT__DATE:
 				return date != null;
+			case FhirPackage.DATA_ELEMENT__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.DATA_ELEMENT__NAME:
 				return name != null;
 			case FhirPackage.DATA_ELEMENT__TITLE:

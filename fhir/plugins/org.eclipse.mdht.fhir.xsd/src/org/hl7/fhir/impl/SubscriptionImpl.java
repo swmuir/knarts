@@ -33,13 +33,13 @@ import org.hl7.fhir.SubscriptionStatus;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getEnd <em>End</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getChannel <em>Channel</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getEnd <em>End</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getTag <em>Tag</em>}</li>
  * </ul>
  *
@@ -47,14 +47,14 @@ import org.hl7.fhir.SubscriptionStatus;
  */
 public class SubscriptionImpl extends DomainResourceImpl implements Subscription {
 	/**
-	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCriteria()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String criteria;
+	protected SubscriptionStatus status;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
@@ -67,6 +67,16 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	protected EList<ContactPoint> contact;
 
 	/**
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnd()
+	 * @generated
+	 * @ordered
+	 */
+	protected Instant end;
+
+	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,14 +87,14 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	protected org.hl7.fhir.String reason;
 
 	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getCriteria()
 	 * @generated
 	 * @ordered
 	 */
-	protected SubscriptionStatus status;
+	protected org.hl7.fhir.String criteria;
 
 	/**
 	 * The cached value of the '{@link #getError() <em>Error</em>}' containment reference.
@@ -105,16 +115,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * @ordered
 	 */
 	protected SubscriptionChannel channel;
-
-	/**
-	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnd()
-	 * @generated
-	 * @ordered
-	 */
-	protected Instant end;
 
 	/**
 	 * The cached value of the '{@link #getTag() <em>Tag</em>}' containment reference list.
@@ -150,8 +150,8 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCriteria() {
-		return criteria;
+	public SubscriptionStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -159,11 +159,11 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCriteria(org.hl7.fhir.String newCriteria, NotificationChain msgs) {
-		org.hl7.fhir.String oldCriteria = criteria;
-		criteria = newCriteria;
+	public NotificationChain basicSetStatus(SubscriptionStatus newStatus, NotificationChain msgs) {
+		SubscriptionStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__CRITERIA, oldCriteria, newCriteria);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -174,18 +174,18 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriteria(org.hl7.fhir.String newCriteria) {
-		if (newCriteria != criteria) {
+	public void setStatus(SubscriptionStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (criteria != null)
-				msgs = ((InternalEObject)criteria).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__CRITERIA, null, msgs);
-			if (newCriteria != null)
-				msgs = ((InternalEObject)newCriteria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__CRITERIA, null, msgs);
-			msgs = basicSetCriteria(newCriteria, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__CRITERIA, newCriteria, newCriteria));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -198,6 +198,49 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 			contact = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.SUBSCRIPTION__CONTACT);
 		}
 		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Instant getEnd() {
+		return end;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEnd(Instant newEnd, NotificationChain msgs) {
+		Instant oldEnd = end;
+		end = newEnd;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__END, oldEnd, newEnd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnd(Instant newEnd) {
+		if (newEnd != end) {
+			NotificationChain msgs = null;
+			if (end != null)
+				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__END, null, msgs);
+			if (newEnd != null)
+				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__END, null, msgs);
+			msgs = basicSetEnd(newEnd, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__END, newEnd, newEnd));
 	}
 
 	/**
@@ -248,8 +291,8 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubscriptionStatus getStatus() {
-		return status;
+	public org.hl7.fhir.String getCriteria() {
+		return criteria;
 	}
 
 	/**
@@ -257,11 +300,11 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(SubscriptionStatus newStatus, NotificationChain msgs) {
-		SubscriptionStatus oldStatus = status;
-		status = newStatus;
+	public NotificationChain basicSetCriteria(org.hl7.fhir.String newCriteria, NotificationChain msgs) {
+		org.hl7.fhir.String oldCriteria = criteria;
+		criteria = newCriteria;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__CRITERIA, oldCriteria, newCriteria);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -272,18 +315,18 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(SubscriptionStatus newStatus) {
-		if (newStatus != status) {
+	public void setCriteria(org.hl7.fhir.String newCriteria) {
+		if (newCriteria != criteria) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (criteria != null)
+				msgs = ((InternalEObject)criteria).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__CRITERIA, null, msgs);
+			if (newCriteria != null)
+				msgs = ((InternalEObject)newCriteria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__CRITERIA, null, msgs);
+			msgs = basicSetCriteria(newCriteria, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__CRITERIA, newCriteria, newCriteria));
 	}
 
 	/**
@@ -377,49 +420,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instant getEnd() {
-		return end;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEnd(Instant newEnd, NotificationChain msgs) {
-		Instant oldEnd = end;
-		end = newEnd;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__END, oldEnd, newEnd);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnd(Instant newEnd) {
-		if (newEnd != end) {
-			NotificationChain msgs = null;
-			if (end != null)
-				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__END, null, msgs);
-			if (newEnd != null)
-				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION__END, null, msgs);
-			msgs = basicSetEnd(newEnd, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION__END, newEnd, newEnd));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Coding> getTag() {
 		if (tag == null) {
 			tag = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.SUBSCRIPTION__TAG);
@@ -435,20 +435,20 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.SUBSCRIPTION__CRITERIA:
-				return basicSetCriteria(null, msgs);
-			case FhirPackage.SUBSCRIPTION__CONTACT:
-				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SUBSCRIPTION__REASON:
-				return basicSetReason(null, msgs);
 			case FhirPackage.SUBSCRIPTION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.SUBSCRIPTION__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SUBSCRIPTION__END:
+				return basicSetEnd(null, msgs);
+			case FhirPackage.SUBSCRIPTION__REASON:
+				return basicSetReason(null, msgs);
+			case FhirPackage.SUBSCRIPTION__CRITERIA:
+				return basicSetCriteria(null, msgs);
 			case FhirPackage.SUBSCRIPTION__ERROR:
 				return basicSetError(null, msgs);
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return basicSetChannel(null, msgs);
-			case FhirPackage.SUBSCRIPTION__END:
-				return basicSetEnd(null, msgs);
 			case FhirPackage.SUBSCRIPTION__TAG:
 				return ((InternalEList<?>)getTag()).basicRemove(otherEnd, msgs);
 		}
@@ -463,20 +463,20 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.SUBSCRIPTION__CRITERIA:
-				return getCriteria();
-			case FhirPackage.SUBSCRIPTION__CONTACT:
-				return getContact();
-			case FhirPackage.SUBSCRIPTION__REASON:
-				return getReason();
 			case FhirPackage.SUBSCRIPTION__STATUS:
 				return getStatus();
+			case FhirPackage.SUBSCRIPTION__CONTACT:
+				return getContact();
+			case FhirPackage.SUBSCRIPTION__END:
+				return getEnd();
+			case FhirPackage.SUBSCRIPTION__REASON:
+				return getReason();
+			case FhirPackage.SUBSCRIPTION__CRITERIA:
+				return getCriteria();
 			case FhirPackage.SUBSCRIPTION__ERROR:
 				return getError();
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return getChannel();
-			case FhirPackage.SUBSCRIPTION__END:
-				return getEnd();
 			case FhirPackage.SUBSCRIPTION__TAG:
 				return getTag();
 		}
@@ -492,27 +492,27 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.SUBSCRIPTION__CRITERIA:
-				setCriteria((org.hl7.fhir.String)newValue);
+			case FhirPackage.SUBSCRIPTION__STATUS:
+				setStatus((SubscriptionStatus)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactPoint>)newValue);
 				return;
+			case FhirPackage.SUBSCRIPTION__END:
+				setEnd((Instant)newValue);
+				return;
 			case FhirPackage.SUBSCRIPTION__REASON:
 				setReason((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.SUBSCRIPTION__STATUS:
-				setStatus((SubscriptionStatus)newValue);
+			case FhirPackage.SUBSCRIPTION__CRITERIA:
+				setCriteria((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION__ERROR:
 				setError((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				setChannel((SubscriptionChannel)newValue);
-				return;
-			case FhirPackage.SUBSCRIPTION__END:
-				setEnd((Instant)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION__TAG:
 				getTag().clear();
@@ -530,26 +530,26 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSCRIPTION__CRITERIA:
-				setCriteria((org.hl7.fhir.String)null);
+			case FhirPackage.SUBSCRIPTION__STATUS:
+				setStatus((SubscriptionStatus)null);
 				return;
 			case FhirPackage.SUBSCRIPTION__CONTACT:
 				getContact().clear();
 				return;
+			case FhirPackage.SUBSCRIPTION__END:
+				setEnd((Instant)null);
+				return;
 			case FhirPackage.SUBSCRIPTION__REASON:
 				setReason((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.SUBSCRIPTION__STATUS:
-				setStatus((SubscriptionStatus)null);
+			case FhirPackage.SUBSCRIPTION__CRITERIA:
+				setCriteria((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SUBSCRIPTION__ERROR:
 				setError((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				setChannel((SubscriptionChannel)null);
-				return;
-			case FhirPackage.SUBSCRIPTION__END:
-				setEnd((Instant)null);
 				return;
 			case FhirPackage.SUBSCRIPTION__TAG:
 				getTag().clear();
@@ -566,20 +566,20 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSCRIPTION__CRITERIA:
-				return criteria != null;
-			case FhirPackage.SUBSCRIPTION__CONTACT:
-				return contact != null && !contact.isEmpty();
-			case FhirPackage.SUBSCRIPTION__REASON:
-				return reason != null;
 			case FhirPackage.SUBSCRIPTION__STATUS:
 				return status != null;
+			case FhirPackage.SUBSCRIPTION__CONTACT:
+				return contact != null && !contact.isEmpty();
+			case FhirPackage.SUBSCRIPTION__END:
+				return end != null;
+			case FhirPackage.SUBSCRIPTION__REASON:
+				return reason != null;
+			case FhirPackage.SUBSCRIPTION__CRITERIA:
+				return criteria != null;
 			case FhirPackage.SUBSCRIPTION__ERROR:
 				return error != null;
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return channel != null;
-			case FhirPackage.SUBSCRIPTION__END:
-				return end != null;
 			case FhirPackage.SUBSCRIPTION__TAG:
 				return tag != null && !tag.isEmpty();
 		}

@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ProcessResponse#getRequestProvider <em>Request Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcessResponse#getRequestOrganization <em>Request Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcessResponse#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.ProcessResponse#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProcessResponse#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcessResponse#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcessResponse#getCommunicationRequest <em>Communication Request</em>}</li>
  * </ul>
@@ -62,13 +62,13 @@ public interface ProcessResponse extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getProcessResponse_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcessResponse#getStatus <em>Status</em>}' containment reference.
@@ -78,7 +78,7 @@ public interface ProcessResponse extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
@@ -289,20 +289,20 @@ public interface ProcessResponse extends DomainResource {
 	void setForm(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ProcessResponseNote}.
+	 * Returns the value of the '<em><b>Process Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ProcessResponseProcessNote}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suite of processing note or additional requirements is the processing has been held.
+	 * Suite of processing notes or additional requirements if the processing has been held.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcessResponse_Note()
+	 * @return the value of the '<em>Process Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcessResponse_ProcessNote()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='processNote' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ProcessResponseNote> getNote();
+	EList<ProcessResponseProcessNote> getProcessNote();
 
 	/**
 	 * Returns the value of the '<em><b>Error</b></em>' containment reference list.

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.CompositeMeasureScoring;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Date;
@@ -28,9 +27,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Measure;
 import org.hl7.fhir.MeasureGroup;
-import org.hl7.fhir.MeasureScoring;
 import org.hl7.fhir.MeasureSupplementalData;
-import org.hl7.fhir.MeasureType;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
@@ -54,6 +51,7 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getUsage <em>Usage</em>}</li>
@@ -64,7 +62,6 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -169,6 +166,16 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	protected DateTime date;
 
 	/**
+	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPublisher()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String publisher;
+
+	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,16 +276,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	protected EList<Contributor> contributor;
 
 	/**
-	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPublisher()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String publisher;
-
-	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,7 +333,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected MeasureScoring scoring;
+	protected CodeableConcept scoring;
 
 	/**
 	 * The cached value of the '{@link #getCompositeScoring() <em>Composite Scoring</em>}' containment reference.
@@ -346,7 +343,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected CompositeMeasureScoring compositeScoring;
+	protected CodeableConcept compositeScoring;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -356,7 +353,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MeasureType> type;
+	protected EList<CodeableConcept> type;
 
 	/**
 	 * The cached value of the '{@link #getRiskAdjustment() <em>Risk Adjustment</em>}' containment reference.
@@ -409,14 +406,14 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	protected org.hl7.fhir.String improvementNotation;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
 	 */
-	protected Markdown definition;
+	protected EList<Markdown> definition;
 
 	/**
 	 * The cached value of the '{@link #getGuidance() <em>Guidance</em>}' containment reference.
@@ -795,6 +792,49 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
+		org.hl7.fhir.String oldPublisher = publisher;
+		publisher = newPublisher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__PUBLISHER, oldPublisher, newPublisher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPublisher(org.hl7.fhir.String newPublisher) {
+		if (newPublisher != publisher) {
+			NotificationChain msgs = null;
+			if (publisher != null)
+				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__PUBLISHER, null, msgs);
+			if (newPublisher != null)
+				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__PUBLISHER, null, msgs);
+			msgs = basicSetPublisher(newPublisher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__PUBLISHER, newPublisher, newPublisher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Markdown getDescription() {
 		return description;
 	}
@@ -1101,49 +1141,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPublisher(org.hl7.fhir.String newPublisher, NotificationChain msgs) {
-		org.hl7.fhir.String oldPublisher = publisher;
-		publisher = newPublisher;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__PUBLISHER, oldPublisher, newPublisher);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPublisher(org.hl7.fhir.String newPublisher) {
-		if (newPublisher != publisher) {
-			NotificationChain msgs = null;
-			if (publisher != null)
-				msgs = ((InternalEObject)publisher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__PUBLISHER, null, msgs);
-			if (newPublisher != null)
-				msgs = ((InternalEObject)newPublisher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__PUBLISHER, null, msgs);
-			msgs = basicSetPublisher(newPublisher, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__PUBLISHER, newPublisher, newPublisher));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.MEASURE__CONTACT);
@@ -1266,7 +1263,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasureScoring getScoring() {
+	public CodeableConcept getScoring() {
 		return scoring;
 	}
 
@@ -1275,8 +1272,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScoring(MeasureScoring newScoring, NotificationChain msgs) {
-		MeasureScoring oldScoring = scoring;
+	public NotificationChain basicSetScoring(CodeableConcept newScoring, NotificationChain msgs) {
+		CodeableConcept oldScoring = scoring;
 		scoring = newScoring;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__SCORING, oldScoring, newScoring);
@@ -1290,7 +1287,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScoring(MeasureScoring newScoring) {
+	public void setScoring(CodeableConcept newScoring) {
 		if (newScoring != scoring) {
 			NotificationChain msgs = null;
 			if (scoring != null)
@@ -1309,7 +1306,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompositeMeasureScoring getCompositeScoring() {
+	public CodeableConcept getCompositeScoring() {
 		return compositeScoring;
 	}
 
@@ -1318,8 +1315,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCompositeScoring(CompositeMeasureScoring newCompositeScoring, NotificationChain msgs) {
-		CompositeMeasureScoring oldCompositeScoring = compositeScoring;
+	public NotificationChain basicSetCompositeScoring(CodeableConcept newCompositeScoring, NotificationChain msgs) {
+		CodeableConcept oldCompositeScoring = compositeScoring;
 		compositeScoring = newCompositeScoring;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__COMPOSITE_SCORING, oldCompositeScoring, newCompositeScoring);
@@ -1333,7 +1330,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCompositeScoring(CompositeMeasureScoring newCompositeScoring) {
+	public void setCompositeScoring(CodeableConcept newCompositeScoring) {
 		if (newCompositeScoring != compositeScoring) {
 			NotificationChain msgs = null;
 			if (compositeScoring != null)
@@ -1352,9 +1349,9 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MeasureType> getType() {
+	public EList<CodeableConcept> getType() {
 		if (type == null) {
-			type = new EObjectContainmentEList<MeasureType>(MeasureType.class, this, FhirPackage.MEASURE__TYPE);
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE__TYPE);
 		}
 		return type;
 	}
@@ -1579,42 +1576,11 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Markdown getDefinition() {
+	public EList<Markdown> getDefinition() {
+		if (definition == null) {
+			definition = new EObjectContainmentEList<Markdown>(Markdown.class, this, FhirPackage.MEASURE__DEFINITION);
+		}
 		return definition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefinition(Markdown newDefinition, NotificationChain msgs) {
-		Markdown oldDefinition = definition;
-		definition = newDefinition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__DEFINITION, oldDefinition, newDefinition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefinition(Markdown newDefinition) {
-		if (newDefinition != definition) {
-			NotificationChain msgs = null;
-			if (definition != null)
-				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__DEFINITION, null, msgs);
-			if (newDefinition != null)
-				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__DEFINITION, null, msgs);
-			msgs = basicSetDefinition(newDefinition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -1751,6 +1717,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return basicSetExperimental(null, msgs);
 			case FhirPackage.MEASURE__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.MEASURE__PUBLISHER:
+				return basicSetPublisher(null, msgs);
 			case FhirPackage.MEASURE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.MEASURE__PURPOSE:
@@ -1771,8 +1739,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE__CONTRIBUTOR:
 				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEASURE__PUBLISHER:
-				return basicSetPublisher(null, msgs);
 			case FhirPackage.MEASURE__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE__COPYRIGHT:
@@ -1800,7 +1766,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__IMPROVEMENT_NOTATION:
 				return basicSetImprovementNotation(null, msgs);
 			case FhirPackage.MEASURE__DEFINITION:
-				return basicSetDefinition(null, msgs);
+				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE__GUIDANCE:
 				return basicSetGuidance(null, msgs);
 			case FhirPackage.MEASURE__SET:
@@ -1837,6 +1803,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return getExperimental();
 			case FhirPackage.MEASURE__DATE:
 				return getDate();
+			case FhirPackage.MEASURE__PUBLISHER:
+				return getPublisher();
 			case FhirPackage.MEASURE__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.MEASURE__PURPOSE:
@@ -1857,8 +1825,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return getTopic();
 			case FhirPackage.MEASURE__CONTRIBUTOR:
 				return getContributor();
-			case FhirPackage.MEASURE__PUBLISHER:
-				return getPublisher();
 			case FhirPackage.MEASURE__CONTACT:
 				return getContact();
 			case FhirPackage.MEASURE__COPYRIGHT:
@@ -1933,6 +1899,9 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__DATE:
 				setDate((DateTime)newValue);
 				return;
+			case FhirPackage.MEASURE__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.MEASURE__DESCRIPTION:
 				setDescription((Markdown)newValue);
 				return;
@@ -1967,9 +1936,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				getContributor().clear();
 				getContributor().addAll((Collection<? extends Contributor>)newValue);
 				return;
-			case FhirPackage.MEASURE__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.MEASURE__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
@@ -1989,14 +1955,14 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setDisclaimer((Markdown)newValue);
 				return;
 			case FhirPackage.MEASURE__SCORING:
-				setScoring((MeasureScoring)newValue);
+				setScoring((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE__COMPOSITE_SCORING:
-				setCompositeScoring((CompositeMeasureScoring)newValue);
+				setCompositeScoring((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE__TYPE:
 				getType().clear();
-				getType().addAll((Collection<? extends MeasureType>)newValue);
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEASURE__RISK_ADJUSTMENT:
 				setRiskAdjustment((org.hl7.fhir.String)newValue);
@@ -2014,7 +1980,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setImprovementNotation((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE__DEFINITION:
-				setDefinition((Markdown)newValue);
+				getDefinition().clear();
+				getDefinition().addAll((Collection<? extends Markdown>)newValue);
 				return;
 			case FhirPackage.MEASURE__GUIDANCE:
 				setGuidance((Markdown)newValue);
@@ -2066,6 +2033,9 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__DATE:
 				setDate((DateTime)null);
 				return;
+			case FhirPackage.MEASURE__PUBLISHER:
+				setPublisher((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.MEASURE__DESCRIPTION:
 				setDescription((Markdown)null);
 				return;
@@ -2096,9 +2066,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__CONTRIBUTOR:
 				getContributor().clear();
 				return;
-			case FhirPackage.MEASURE__PUBLISHER:
-				setPublisher((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.MEASURE__CONTACT:
 				getContact().clear();
 				return;
@@ -2115,10 +2082,10 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setDisclaimer((Markdown)null);
 				return;
 			case FhirPackage.MEASURE__SCORING:
-				setScoring((MeasureScoring)null);
+				setScoring((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE__COMPOSITE_SCORING:
-				setCompositeScoring((CompositeMeasureScoring)null);
+				setCompositeScoring((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE__TYPE:
 				getType().clear();
@@ -2139,7 +2106,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				setImprovementNotation((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE__DEFINITION:
-				setDefinition((Markdown)null);
+				getDefinition().clear();
 				return;
 			case FhirPackage.MEASURE__GUIDANCE:
 				setGuidance((Markdown)null);
@@ -2181,6 +2148,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return experimental != null;
 			case FhirPackage.MEASURE__DATE:
 				return date != null;
+			case FhirPackage.MEASURE__PUBLISHER:
+				return publisher != null;
 			case FhirPackage.MEASURE__DESCRIPTION:
 				return description != null;
 			case FhirPackage.MEASURE__PURPOSE:
@@ -2201,8 +2170,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.MEASURE__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.MEASURE__PUBLISHER:
-				return publisher != null;
 			case FhirPackage.MEASURE__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.MEASURE__COPYRIGHT:
@@ -2230,7 +2197,7 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__IMPROVEMENT_NOTATION:
 				return improvementNotation != null;
 			case FhirPackage.MEASURE__DEFINITION:
-				return definition != null;
+				return definition != null && !definition.isEmpty();
 			case FhirPackage.MEASURE__GUIDANCE:
 				return guidance != null;
 			case FhirPackage.MEASURE__SET:

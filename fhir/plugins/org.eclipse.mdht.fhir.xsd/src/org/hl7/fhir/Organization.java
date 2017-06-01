@@ -78,30 +78,20 @@ public interface Organization extends DomainResource {
 	void setActive(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The kind of organization that this is.
+	 * The kind(s) of organization that this is.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
+	 * @return the value of the '<em>Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOrganization_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Organization#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(CodeableConcept value);
+	EList<CodeableConcept> getType();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -135,7 +125,7 @@ public interface Organization extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list ofÂ alternate names that the organization is known as, or was known as in the past.
+	 * A list of alternate names that the organization is known as, or was known as in the past.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alias</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOrganization_Alias()

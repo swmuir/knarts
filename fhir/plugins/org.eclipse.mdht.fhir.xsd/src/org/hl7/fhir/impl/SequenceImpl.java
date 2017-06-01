@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Quantity;
@@ -25,8 +26,6 @@ import org.hl7.fhir.Sequence;
 import org.hl7.fhir.SequenceQuality;
 import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
-import org.hl7.fhir.SequenceStructureVariant;
-import org.hl7.fhir.SequenceType;
 import org.hl7.fhir.SequenceVariant;
 
 /**
@@ -52,7 +51,6 @@ import org.hl7.fhir.SequenceVariant;
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getReadCoverage <em>Read Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getRepository <em>Repository</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getPointer <em>Pointer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SequenceImpl#getStructureVariant <em>Structure Variant</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,7 +74,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected SequenceType type;
+	protected Code type;
 
 	/**
 	 * The cached value of the '{@link #getCoordinateSystem() <em>Coordinate System</em>}' containment reference.
@@ -209,16 +207,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	protected EList<Reference> pointer;
 
 	/**
-	 * The cached value of the '{@link #getStructureVariant() <em>Structure Variant</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStructureVariant()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SequenceStructureVariant> structureVariant;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -254,7 +242,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SequenceType getType() {
+	public Code getType() {
 		return type;
 	}
 
@@ -263,8 +251,8 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(SequenceType newType, NotificationChain msgs) {
-		SequenceType oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE__TYPE, oldType, newType);
@@ -278,7 +266,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(SequenceType newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -732,18 +720,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SequenceStructureVariant> getStructureVariant() {
-		if (structureVariant == null) {
-			structureVariant = new EObjectContainmentEList<SequenceStructureVariant>(SequenceStructureVariant.class, this, FhirPackage.SEQUENCE__STRUCTURE_VARIANT);
-		}
-		return structureVariant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -777,8 +753,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return ((InternalEList<?>)getRepository()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SEQUENCE__POINTER:
 				return ((InternalEList<?>)getPointer()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SEQUENCE__STRUCTURE_VARIANT:
-				return ((InternalEList<?>)getStructureVariant()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -821,8 +795,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return getRepository();
 			case FhirPackage.SEQUENCE__POINTER:
 				return getPointer();
-			case FhirPackage.SEQUENCE__STRUCTURE_VARIANT:
-				return getStructureVariant();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -841,7 +813,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.SEQUENCE__TYPE:
-				setType((SequenceType)newValue);
+				setType((Code)newValue);
 				return;
 			case FhirPackage.SEQUENCE__COORDINATE_SYSTEM:
 				setCoordinateSystem((org.hl7.fhir.Integer)newValue);
@@ -886,10 +858,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				getPointer().clear();
 				getPointer().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.SEQUENCE__STRUCTURE_VARIANT:
-				getStructureVariant().clear();
-				getStructureVariant().addAll((Collection<? extends SequenceStructureVariant>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -906,7 +874,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.SEQUENCE__TYPE:
-				setType((SequenceType)null);
+				setType((Code)null);
 				return;
 			case FhirPackage.SEQUENCE__COORDINATE_SYSTEM:
 				setCoordinateSystem((org.hl7.fhir.Integer)null);
@@ -946,9 +914,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return;
 			case FhirPackage.SEQUENCE__POINTER:
 				getPointer().clear();
-				return;
-			case FhirPackage.SEQUENCE__STRUCTURE_VARIANT:
-				getStructureVariant().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -992,8 +957,6 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 				return repository != null && !repository.isEmpty();
 			case FhirPackage.SEQUENCE__POINTER:
 				return pointer != null && !pointer.isEmpty();
-			case FhirPackage.SEQUENCE__STRUCTURE_VARIANT:
-				return structureVariant != null && !structureVariant.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

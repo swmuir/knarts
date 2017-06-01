@@ -76,7 +76,7 @@ public interface ClaimResponseItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The adjudications results.
+	 * The adjudication results.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjudication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseItem_Adjudication()

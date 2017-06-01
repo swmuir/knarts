@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TestReport is a resource that includes summary information on the results of executing a TestScript.
+ * A summary of information based on the results of executing a TestScript.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -34,13 +34,13 @@ public interface TestReportOperation extends BackboneElement {
 	 * The result of this operation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Result</em>' containment reference.
-	 * @see #setResult(TestReportResultCodes)
+	 * @see #setResult(TestReportActionResult)
 	 * @see org.hl7.fhir.FhirPackage#getTestReportOperation_Result()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='result' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	TestReportResultCodes getResult();
+	TestReportActionResult getResult();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestReportOperation#getResult <em>Result</em>}' containment reference.
@@ -50,7 +50,7 @@ public interface TestReportOperation extends BackboneElement {
 	 * @see #getResult()
 	 * @generated
 	 */
-	void setResult(TestReportResultCodes value);
+	void setResult(TestReportActionResult value);
 
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' containment reference.

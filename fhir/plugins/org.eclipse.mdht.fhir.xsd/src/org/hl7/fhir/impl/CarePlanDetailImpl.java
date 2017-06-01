@@ -136,7 +136,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept statusReason;
+	protected org.hl7.fhir.String statusReason;
 
 	/**
 	 * The cached value of the '{@link #getProhibited() <em>Prohibited</em>}' containment reference.
@@ -480,7 +480,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getStatusReason() {
+	public org.hl7.fhir.String getStatusReason() {
 		return statusReason;
 	}
 
@@ -489,8 +489,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
-		CodeableConcept oldStatusReason = statusReason;
+	public NotificationChain basicSetStatusReason(org.hl7.fhir.String newStatusReason, NotificationChain msgs) {
+		org.hl7.fhir.String oldStatusReason = statusReason;
 		statusReason = newStatusReason;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON, oldStatusReason, newStatusReason);
@@ -504,7 +504,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatusReason(CodeableConcept newStatusReason) {
+	public void setStatusReason(org.hl7.fhir.String newStatusReason) {
 		if (newStatusReason != statusReason) {
 			NotificationChain msgs = null;
 			if (statusReason != null)
@@ -1094,7 +1094,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				setStatus((CarePlanActivityStatus)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
-				setStatusReason((CodeableConcept)newValue);
+				setStatusReason((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
 				setProhibited((org.hl7.fhir.Boolean)newValue);
@@ -1164,7 +1164,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				setStatus((CarePlanActivityStatus)null);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
-				setStatusReason((CodeableConcept)null);
+				setStatusReason((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
 				setProhibited((org.hl7.fhir.Boolean)null);

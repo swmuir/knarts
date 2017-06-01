@@ -21,6 +21,16 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum MedicationDispenseStatusList implements Enumerator {
 	/**
+	 * The '<em><b>Preparation</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PREPARATION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PREPARATION(0, "preparation", "preparation"),
+
+	/**
 	 * The '<em><b>In Progress</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28,7 +38,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN_PROGRESS(0, "inProgress", "in-progress"),
+	IN_PROGRESS(1, "inProgress", "in-progress"),
 
 	/**
 	 * The '<em><b>On Hold</b></em>' literal object.
@@ -38,7 +48,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ON_HOLD(1, "onHold", "on-hold"),
+	ON_HOLD(2, "onHold", "on-hold"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -48,7 +58,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(2, "completed", "completed"),
+	COMPLETED(3, "completed", "completed"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Stopped</b></em>' literal object.
@@ -68,7 +78,21 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STOPPED(4, "stopped", "stopped");
+	STOPPED(5, "stopped", "stopped");
+
+	/**
+	 * The '<em><b>Preparation</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Preparation
+	 * <!-- end-model-doc -->
+	 * @see #PREPARATION
+	 * @model name="preparation"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PREPARATION_VALUE = 0;
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -82,7 +106,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_PROGRESS_VALUE = 0;
+	public static final int IN_PROGRESS_VALUE = 1;
 
 	/**
 	 * The '<em><b>On Hold</b></em>' literal value.
@@ -96,7 +120,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ON_HOLD_VALUE = 1;
+	public static final int ON_HOLD_VALUE = 2;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -110,7 +134,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 2;
+	public static final int COMPLETED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -124,7 +148,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 3;
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
 
 	/**
 	 * The '<em><b>Stopped</b></em>' literal value.
@@ -138,7 +162,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STOPPED_VALUE = 4;
+	public static final int STOPPED_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Medication Dispense Status List</b></em>' enumerators.
@@ -148,6 +172,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 */
 	private static final MedicationDispenseStatusList[] VALUES_ARRAY =
 		new MedicationDispenseStatusList[] {
+			PREPARATION,
 			IN_PROGRESS,
 			ON_HOLD,
 			COMPLETED,
@@ -209,6 +234,7 @@ public enum MedicationDispenseStatusList implements Enumerator {
 	 */
 	public static MedicationDispenseStatusList get(int value) {
 		switch (value) {
+			case PREPARATION_VALUE: return PREPARATION;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case COMPLETED_VALUE: return COMPLETED;

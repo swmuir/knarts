@@ -58,7 +58,17 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Stopped</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STOPPED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STOPPED(4, "stopped", "stopped");
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -107,7 +117,7 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Entered In Error
+	 * Entered in Error
 	 * <!-- end-model-doc -->
 	 * @see #ENTERED_IN_ERROR
 	 * @model name="enteredInError" literal="entered-in-error"
@@ -115,6 +125,20 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 	 * @ordered
 	 */
 	public static final int ENTERED_IN_ERROR_VALUE = 3;
+
+	/**
+	 * The '<em><b>Stopped</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Stopped
+	 * <!-- end-model-doc -->
+	 * @see #STOPPED
+	 * @model name="stopped"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STOPPED_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Questionnaire Response Status List</b></em>' enumerators.
@@ -128,6 +152,7 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 			COMPLETED,
 			AMENDED,
 			ENTERED_IN_ERROR,
+			STOPPED,
 		};
 
 	/**
@@ -188,6 +213,7 @@ public enum QuestionnaireResponseStatusList implements Enumerator {
 			case COMPLETED_VALUE: return COMPLETED;
 			case AMENDED_VALUE: return AMENDED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case STOPPED_VALUE: return STOPPED;
 		}
 		return null;
 	}

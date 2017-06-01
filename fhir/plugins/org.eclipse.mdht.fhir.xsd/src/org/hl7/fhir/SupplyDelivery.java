@@ -19,15 +19,16 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyDelivery#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyDelivery#getSuppliedItemCodeableConcept <em>Supplied Item Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyDelivery#getSuppliedItemReference <em>Supplied Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getSuppliedItem <em>Supplied Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.SupplyDelivery#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getSupplier <em>Supplier</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyDelivery#getWhenPrepared <em>When Prepared</em>}</li>
- *   <li>{@link org.hl7.fhir.SupplyDelivery#getTime <em>Time</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.SupplyDelivery#getReceiver <em>Receiver</em>}</li>
  * </ul>
@@ -62,6 +63,38 @@ public interface SupplyDelivery extends DomainResource {
 	 * @generated
 	 */
 	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan, proposal or order that is fulfilled in whole or in part by this event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A larger event of which this particular event is a component or step.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Part Of</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_PartOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getPartOf();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -142,84 +175,111 @@ public interface SupplyDelivery extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Supplied Item</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The amount of supply that has been dispensed. Includes unit of measure.
+	 * The item that is being delivered or has been supplied.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Quantity</em>' containment reference.
-	 * @see #setQuantity(Quantity)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_Quantity()
+	 * @return the value of the '<em>Supplied Item</em>' containment reference.
+	 * @see #setSuppliedItem(SupplyDeliverySuppliedItem)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_SuppliedItem()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='quantity' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='suppliedItem' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Quantity getQuantity();
+	SupplyDeliverySuppliedItem getSuppliedItem();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getQuantity <em>Quantity</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getSuppliedItem <em>Supplied Item</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantity</em>' containment reference.
-	 * @see #getQuantity()
+	 * @param value the new value of the '<em>Supplied Item</em>' containment reference.
+	 * @see #getSuppliedItem()
 	 * @generated
 	 */
-	void setQuantity(Quantity value);
+	void setSuppliedItem(SupplyDeliverySuppliedItem value);
 
 	/**
-	 * Returns the value of the '<em><b>Supplied Item Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supplied Item Codeable Concept</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Occurrence Date Time</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supplied Item Codeable Concept</em>' containment reference.
-	 * @see #setSuppliedItemCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_SuppliedItemCodeableConcept()
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_OccurrenceDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='suppliedItemCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getSuppliedItemCodeableConcept();
+	DateTime getOccurrenceDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getSuppliedItemCodeableConcept <em>Supplied Item Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supplied Item Codeable Concept</em>' containment reference.
-	 * @see #getSuppliedItemCodeableConcept()
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 */
-	void setSuppliedItemCodeableConcept(CodeableConcept value);
+	void setOccurrenceDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Supplied Item Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supplied Item Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Occurrence Period</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supplied Item Reference</em>' containment reference.
-	 * @see #setSuppliedItemReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_SuppliedItemReference()
+	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #setOccurrencePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_OccurrencePeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='suppliedItemReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSuppliedItemReference();
+	Period getOccurrencePeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getSuppliedItemReference <em>Supplied Item Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supplied Item Reference</em>' containment reference.
-	 * @see #getSuppliedItemReference()
+	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
+	 * @see #getOccurrencePeriod()
 	 * @generated
 	 */
-	void setSuppliedItemReference(Reference value);
+	void setOccurrencePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence Timing</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Occurrence Timing</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Occurrence Timing</em>' containment reference.
+	 * @see #setOccurrenceTiming(Timing)
+	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_OccurrenceTiming()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceTiming' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Timing getOccurrenceTiming();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getOccurrenceTiming <em>Occurrence Timing</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Timing</em>' containment reference.
+	 * @see #getOccurrenceTiming()
+	 * @generated
+	 */
+	void setOccurrenceTiming(Timing value);
 
 	/**
 	 * Returns the value of the '<em><b>Supplier</b></em>' containment reference.
@@ -246,58 +306,6 @@ public interface SupplyDelivery extends DomainResource {
 	 * @generated
 	 */
 	void setSupplier(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>When Prepared</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The time the dispense event occurred.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>When Prepared</em>' containment reference.
-	 * @see #setWhenPrepared(Period)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_WhenPrepared()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='whenPrepared' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getWhenPrepared();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getWhenPrepared <em>When Prepared</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>When Prepared</em>' containment reference.
-	 * @see #getWhenPrepared()
-	 * @generated
-	 */
-	void setWhenPrepared(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Time</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The time the dispensed item was sent or handed to the patient (or agent).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Time</em>' containment reference.
-	 * @see #setTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getSupplyDelivery_Time()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='time' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getTime();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SupplyDelivery#getTime <em>Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time</em>' containment reference.
-	 * @see #getTime()
-	 * @generated
-	 */
-	void setTime(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Destination</b></em>' containment reference.

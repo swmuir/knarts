@@ -18,12 +18,13 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.BodySite#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.BodySite#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.BodySite#getActive <em>Active</em>}</li>
  *   <li>{@link org.hl7.fhir.BodySite#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.BodySite#getModifier <em>Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.BodySite#getQualifier <em>Qualifier</em>}</li>
  *   <li>{@link org.hl7.fhir.BodySite#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.BodySite#getImage <em>Image</em>}</li>
+ *   <li>{@link org.hl7.fhir.BodySite#getPatient <em>Patient</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getBodySite()
@@ -31,32 +32,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface BodySite extends DomainResource {
-	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The person to which the body site belongs.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getBodySite_Patient()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getPatient();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.BodySite#getPatient <em>Patient</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
-	 * @generated
-	 */
-	void setPatient(Reference value);
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
@@ -72,6 +47,32 @@ public interface BodySite extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Active</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether this body site is in active use.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Active</em>' containment reference.
+	 * @see #setActive(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getBodySite_Active()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='active' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getActive();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.BodySite#getActive <em>Active</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Active</em>' containment reference.
+	 * @see #getActive()
+	 * @generated
+	 */
+	void setActive(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -100,27 +101,27 @@ public interface BodySite extends DomainResource {
 	void setCode(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Qualifier</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
+	 * Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Modifier</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getBodySite_Modifier()
+	 * @return the value of the '<em>Qualifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getBodySite_Qualifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='modifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='qualifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getModifier();
+	EList<CodeableConcept> getQualifier();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Description of anatomical location.
+	 * A summary, charactarization or explanation of the anatomic location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -156,5 +157,31 @@ public interface BodySite extends DomainResource {
 	 * @generated
 	 */
 	EList<Attachment> getImage();
+
+	/**
+	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The person to which the body site belongs.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient</em>' containment reference.
+	 * @see #setPatient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getBodySite_Patient()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPatient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.BodySite#getPatient <em>Patient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient</em>' containment reference.
+	 * @see #getPatient()
+	 * @generated
+	 */
+	void setPatient(Reference value);
 
 } // BodySite

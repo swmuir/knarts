@@ -55,7 +55,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getTotalBenefit <em>Total Benefit</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getPayment <em>Payment</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefit#getBenefitBalance <em>Benefit Balance</em>}</li>
  * </ul>
  *
@@ -937,20 +937,20 @@ public interface ExplanationOfBenefit extends DomainResource {
 	void setForm(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitNote}.
+	 * Returns the value of the '<em><b>Process Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExplanationOfBenefitProcessNote}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Note text.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Note()
+	 * @return the value of the '<em>Process Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_ProcessNote()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='processNote' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ExplanationOfBenefitNote> getNote();
+	EList<ExplanationOfBenefitProcessNote> getProcessNote();
 
 	/**
 	 * Returns the value of the '<em><b>Benefit Balance</b></em>' containment reference list.

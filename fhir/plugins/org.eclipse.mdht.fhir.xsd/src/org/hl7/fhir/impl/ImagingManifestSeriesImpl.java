@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.ImagingManifestBaseLocation1;
 import org.hl7.fhir.ImagingManifestInstance;
 import org.hl7.fhir.ImagingManifestSeries;
 import org.hl7.fhir.Oid;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import org.hl7.fhir.Oid;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestSeriesImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingManifestSeriesImpl#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingManifestSeriesImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingManifestSeriesImpl#getInstance <em>Instance</em>}</li>
  * </ul>
  *
@@ -50,14 +50,14 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 	protected Oid uid;
 
 	/**
-	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' containment reference list.
+	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseLocation()
+	 * @see #getEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImagingManifestBaseLocation1> baseLocation;
+	protected EList<Reference> endpoint;
 
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' containment reference list.
@@ -136,11 +136,11 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImagingManifestBaseLocation1> getBaseLocation() {
-		if (baseLocation == null) {
-			baseLocation = new EObjectContainmentEList<ImagingManifestBaseLocation1>(ImagingManifestBaseLocation1.class, this, FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION);
+	public EList<Reference> getEndpoint() {
+		if (endpoint == null) {
+			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT);
 		}
-		return baseLocation;
+		return endpoint;
 	}
 
 	/**
@@ -165,8 +165,8 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 		switch (featureID) {
 			case FhirPackage.IMAGING_MANIFEST_SERIES__UID:
 				return basicSetUid(null, msgs);
-			case FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION:
-				return ((InternalEList<?>)getBaseLocation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT:
+				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE:
 				return ((InternalEList<?>)getInstance()).basicRemove(otherEnd, msgs);
 		}
@@ -183,8 +183,8 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 		switch (featureID) {
 			case FhirPackage.IMAGING_MANIFEST_SERIES__UID:
 				return getUid();
-			case FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION:
-				return getBaseLocation();
+			case FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT:
+				return getEndpoint();
 			case FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE:
 				return getInstance();
 		}
@@ -203,9 +203,9 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 			case FhirPackage.IMAGING_MANIFEST_SERIES__UID:
 				setUid((Oid)newValue);
 				return;
-			case FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION:
-				getBaseLocation().clear();
-				getBaseLocation().addAll((Collection<? extends ImagingManifestBaseLocation1>)newValue);
+			case FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT:
+				getEndpoint().clear();
+				getEndpoint().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE:
 				getInstance().clear();
@@ -226,8 +226,8 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 			case FhirPackage.IMAGING_MANIFEST_SERIES__UID:
 				setUid((Oid)null);
 				return;
-			case FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION:
-				getBaseLocation().clear();
+			case FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT:
+				getEndpoint().clear();
 				return;
 			case FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE:
 				getInstance().clear();
@@ -246,8 +246,8 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 		switch (featureID) {
 			case FhirPackage.IMAGING_MANIFEST_SERIES__UID:
 				return uid != null;
-			case FhirPackage.IMAGING_MANIFEST_SERIES__BASE_LOCATION:
-				return baseLocation != null && !baseLocation.isEmpty();
+			case FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT:
+				return endpoint != null && !endpoint.isEmpty();
 			case FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE:
 				return instance != null && !instance.isEmpty();
 		}

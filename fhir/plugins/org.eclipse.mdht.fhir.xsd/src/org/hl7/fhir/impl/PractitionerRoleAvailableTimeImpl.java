@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
+import org.hl7.fhir.DaysOfWeek;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PractitionerRoleAvailableTime;
 import org.hl7.fhir.Time;
@@ -47,7 +47,7 @@ public class PractitionerRoleAvailableTimeImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> daysOfWeek;
+	protected EList<DaysOfWeek> daysOfWeek;
 
 	/**
 	 * The cached value of the '{@link #getAllDay() <em>All Day</em>}' containment reference.
@@ -103,9 +103,9 @@ public class PractitionerRoleAvailableTimeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Code> getDaysOfWeek() {
+	public EList<DaysOfWeek> getDaysOfWeek() {
 		if (daysOfWeek == null) {
-			daysOfWeek = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.PRACTITIONER_ROLE_AVAILABLE_TIME__DAYS_OF_WEEK);
+			daysOfWeek = new EObjectContainmentEList<DaysOfWeek>(DaysOfWeek.class, this, FhirPackage.PRACTITIONER_ROLE_AVAILABLE_TIME__DAYS_OF_WEEK);
 		}
 		return daysOfWeek;
 	}
@@ -290,7 +290,7 @@ public class PractitionerRoleAvailableTimeImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.PRACTITIONER_ROLE_AVAILABLE_TIME__DAYS_OF_WEEK:
 				getDaysOfWeek().clear();
-				getDaysOfWeek().addAll((Collection<? extends Code>)newValue);
+				getDaysOfWeek().addAll((Collection<? extends DaysOfWeek>)newValue);
 				return;
 			case FhirPackage.PRACTITIONER_ROLE_AVAILABLE_TIME__ALL_DAY:
 				setAllDay((org.hl7.fhir.Boolean)newValue);

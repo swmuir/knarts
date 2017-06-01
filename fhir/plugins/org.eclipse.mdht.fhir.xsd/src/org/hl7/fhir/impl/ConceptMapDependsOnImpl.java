@@ -25,6 +25,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ConceptMapDependsOnImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapDependsOnImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapDependsOnImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapDependsOnImpl#getDisplay <em>Display</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,16 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String code;
+
+	/**
+	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String display;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,6 +224,49 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getDisplay() {
+		return display;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDisplay(org.hl7.fhir.String newDisplay, NotificationChain msgs) {
+		org.hl7.fhir.String oldDisplay = display;
+		display = newDisplay;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY, oldDisplay, newDisplay);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDisplay(org.hl7.fhir.String newDisplay) {
+		if (newDisplay != display) {
+			NotificationChain msgs = null;
+			if (display != null)
+				msgs = ((InternalEObject)display).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY, null, msgs);
+			if (newDisplay != null)
+				msgs = ((InternalEObject)newDisplay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY, null, msgs);
+			msgs = basicSetDisplay(newDisplay, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY, newDisplay, newDisplay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -222,6 +276,8 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 				return basicSetSystem(null, msgs);
 			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY:
+				return basicSetDisplay(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -240,6 +296,8 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 				return getSystem();
 			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__CODE:
 				return getCode();
+			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY:
+				return getDisplay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,6 +318,9 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 				return;
 			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__CODE:
 				setCode((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY:
+				setDisplay((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,6 +343,9 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__CODE:
 				setCode((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY:
+				setDisplay((org.hl7.fhir.String)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +364,8 @@ public class ConceptMapDependsOnImpl extends BackboneElementImpl implements Conc
 				return system != null;
 			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__CODE:
 				return code != null;
+			case FhirPackage.CONCEPT_MAP_DEPENDS_ON__DISPLAY:
+				return display != null;
 		}
 		return super.eIsSet(featureID);
 	}

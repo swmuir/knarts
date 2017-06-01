@@ -39,10 +39,10 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getRecorded <em>Recorded</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getPolicy <em>Policy</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getActivity <em>Activity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getSignature <em>Signature</em>}</li>
@@ -82,6 +82,26 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	protected Instant recorded;
 
 	/**
+	 * The cached value of the '{@link #getPolicy() <em>Policy</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> policy;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference location;
+
+	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,26 +120,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * @ordered
 	 */
 	protected Coding activity;
-
-	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference location;
-
-	/**
-	 * The cached value of the '{@link #getPolicy() <em>Policy</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPolicy()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Uri> policy;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -273,6 +273,61 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Uri> getPolicy() {
+		if (policy == null) {
+			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROVENANCE__POLICY);
+		}
+		return policy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
+		Reference oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__LOCATION, oldLocation, newLocation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocation(Reference newLocation) {
+		if (newLocation != location) {
+			NotificationChain msgs = null;
+			if (location != null)
+				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__LOCATION, null, msgs);
+			if (newLocation != null)
+				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__LOCATION, null, msgs);
+			msgs = basicSetLocation(newLocation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__LOCATION, newLocation, newLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Coding> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.PROVENANCE__REASON);
@@ -328,61 +383,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
-		Reference oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__LOCATION, oldLocation, newLocation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocation(Reference newLocation) {
-		if (newLocation != location) {
-			NotificationChain msgs = null;
-			if (location != null)
-				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__LOCATION, null, msgs);
-			if (newLocation != null)
-				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__LOCATION, null, msgs);
-			msgs = basicSetLocation(newLocation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__LOCATION, newLocation, newLocation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Uri> getPolicy() {
-		if (policy == null) {
-			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROVENANCE__POLICY);
-		}
-		return policy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ProvenanceAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ProvenanceAgent>(ProvenanceAgent.class, this, FhirPackage.PROVENANCE__AGENT);
@@ -428,14 +428,14 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.PROVENANCE__RECORDED:
 				return basicSetRecorded(null, msgs);
+			case FhirPackage.PROVENANCE__POLICY:
+				return ((InternalEList<?>)getPolicy()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PROVENANCE__LOCATION:
+				return basicSetLocation(null, msgs);
 			case FhirPackage.PROVENANCE__REASON:
 				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROVENANCE__ACTIVITY:
 				return basicSetActivity(null, msgs);
-			case FhirPackage.PROVENANCE__LOCATION:
-				return basicSetLocation(null, msgs);
-			case FhirPackage.PROVENANCE__POLICY:
-				return ((InternalEList<?>)getPolicy()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROVENANCE__AGENT:
 				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROVENANCE__ENTITY:
@@ -460,14 +460,14 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				return getPeriod();
 			case FhirPackage.PROVENANCE__RECORDED:
 				return getRecorded();
+			case FhirPackage.PROVENANCE__POLICY:
+				return getPolicy();
+			case FhirPackage.PROVENANCE__LOCATION:
+				return getLocation();
 			case FhirPackage.PROVENANCE__REASON:
 				return getReason();
 			case FhirPackage.PROVENANCE__ACTIVITY:
 				return getActivity();
-			case FhirPackage.PROVENANCE__LOCATION:
-				return getLocation();
-			case FhirPackage.PROVENANCE__POLICY:
-				return getPolicy();
 			case FhirPackage.PROVENANCE__AGENT:
 				return getAgent();
 			case FhirPackage.PROVENANCE__ENTITY:
@@ -497,19 +497,19 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 			case FhirPackage.PROVENANCE__RECORDED:
 				setRecorded((Instant)newValue);
 				return;
+			case FhirPackage.PROVENANCE__POLICY:
+				getPolicy().clear();
+				getPolicy().addAll((Collection<? extends Uri>)newValue);
+				return;
+			case FhirPackage.PROVENANCE__LOCATION:
+				setLocation((Reference)newValue);
+				return;
 			case FhirPackage.PROVENANCE__REASON:
 				getReason().clear();
 				getReason().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.PROVENANCE__ACTIVITY:
 				setActivity((Coding)newValue);
-				return;
-			case FhirPackage.PROVENANCE__LOCATION:
-				setLocation((Reference)newValue);
-				return;
-			case FhirPackage.PROVENANCE__POLICY:
-				getPolicy().clear();
-				getPolicy().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.PROVENANCE__AGENT:
 				getAgent().clear();
@@ -544,17 +544,17 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 			case FhirPackage.PROVENANCE__RECORDED:
 				setRecorded((Instant)null);
 				return;
+			case FhirPackage.PROVENANCE__POLICY:
+				getPolicy().clear();
+				return;
+			case FhirPackage.PROVENANCE__LOCATION:
+				setLocation((Reference)null);
+				return;
 			case FhirPackage.PROVENANCE__REASON:
 				getReason().clear();
 				return;
 			case FhirPackage.PROVENANCE__ACTIVITY:
 				setActivity((Coding)null);
-				return;
-			case FhirPackage.PROVENANCE__LOCATION:
-				setLocation((Reference)null);
-				return;
-			case FhirPackage.PROVENANCE__POLICY:
-				getPolicy().clear();
 				return;
 			case FhirPackage.PROVENANCE__AGENT:
 				getAgent().clear();
@@ -583,14 +583,14 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				return period != null;
 			case FhirPackage.PROVENANCE__RECORDED:
 				return recorded != null;
+			case FhirPackage.PROVENANCE__POLICY:
+				return policy != null && !policy.isEmpty();
+			case FhirPackage.PROVENANCE__LOCATION:
+				return location != null;
 			case FhirPackage.PROVENANCE__REASON:
 				return reason != null && !reason.isEmpty();
 			case FhirPackage.PROVENANCE__ACTIVITY:
 				return activity != null;
-			case FhirPackage.PROVENANCE__LOCATION:
-				return location != null;
-			case FhirPackage.PROVENANCE__POLICY:
-				return policy != null && !policy.isEmpty();
 			case FhirPackage.PROVENANCE__AGENT:
 				return agent != null && !agent.isEmpty();
 			case FhirPackage.PROVENANCE__ENTITY:

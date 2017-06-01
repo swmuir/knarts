@@ -34,13 +34,13 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FlagImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FlagImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FlagImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FlagImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FlagImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FlagImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FlagImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FlagImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FlagImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FlagImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FlagImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,16 +57,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept category;
-
-	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,14 +67,24 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	protected FlagStatus status;
 
 	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period period;
+	protected CodeableConcept category;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept code;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -95,6 +95,16 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * @ordered
 	 */
 	protected Reference subject;
+
+	/**
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
@@ -115,16 +125,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * @ordered
 	 */
 	protected Reference author;
-
-	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept code;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,49 +155,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.FLAG__IDENTIFIER);
 		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getCategory() {
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -248,8 +205,8 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getPeriod() {
-		return period;
+	public CodeableConcept getCategory() {
+		return category;
 	}
 
 	/**
@@ -257,11 +214,11 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
-		Period oldPeriod = period;
-		period = newPeriod;
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__PERIOD, oldPeriod, newPeriod);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, oldCategory, newCategory);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -272,18 +229,61 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPeriod(Period newPeriod) {
-		if (newPeriod != period) {
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
 			NotificationChain msgs = null;
-			if (period != null)
-				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__PERIOD, null, msgs);
-			if (newPeriod != null)
-				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__PERIOD, null, msgs);
-			msgs = basicSetPeriod(newPeriod, msgs);
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__PERIOD, newPeriod, newPeriod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, newCategory, newCategory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
+			NotificationChain msgs = null;
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CODE, newCode, newCode));
 	}
 
 	/**
@@ -327,6 +327,49 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__PERIOD, oldPeriod, newPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
+			NotificationChain msgs = null;
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__PERIOD, newPeriod, newPeriod));
 	}
 
 	/**
@@ -420,68 +463,25 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCode() {
-		return code;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
-		CodeableConcept oldCode = code;
-		code = newCode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CODE, oldCode, newCode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCode(CodeableConcept newCode) {
-		if (newCode != code) {
-			NotificationChain msgs = null;
-			if (code != null)
-				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CODE, null, msgs);
-			if (newCode != null)
-				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CODE, null, msgs);
-			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CODE, newCode, newCode));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.FLAG__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.FLAG__CATEGORY:
-				return basicSetCategory(null, msgs);
 			case FhirPackage.FLAG__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.FLAG__PERIOD:
-				return basicSetPeriod(null, msgs);
+			case FhirPackage.FLAG__CATEGORY:
+				return basicSetCategory(null, msgs);
+			case FhirPackage.FLAG__CODE:
+				return basicSetCode(null, msgs);
 			case FhirPackage.FLAG__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.FLAG__PERIOD:
+				return basicSetPeriod(null, msgs);
 			case FhirPackage.FLAG__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
 			case FhirPackage.FLAG__AUTHOR:
 				return basicSetAuthor(null, msgs);
-			case FhirPackage.FLAG__CODE:
-				return basicSetCode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -496,20 +496,20 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 		switch (featureID) {
 			case FhirPackage.FLAG__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.FLAG__CATEGORY:
-				return getCategory();
 			case FhirPackage.FLAG__STATUS:
 				return getStatus();
-			case FhirPackage.FLAG__PERIOD:
-				return getPeriod();
+			case FhirPackage.FLAG__CATEGORY:
+				return getCategory();
+			case FhirPackage.FLAG__CODE:
+				return getCode();
 			case FhirPackage.FLAG__SUBJECT:
 				return getSubject();
+			case FhirPackage.FLAG__PERIOD:
+				return getPeriod();
 			case FhirPackage.FLAG__ENCOUNTER:
 				return getEncounter();
 			case FhirPackage.FLAG__AUTHOR:
 				return getAuthor();
-			case FhirPackage.FLAG__CODE:
-				return getCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -527,26 +527,26 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.FLAG__CATEGORY:
-				setCategory((CodeableConcept)newValue);
-				return;
 			case FhirPackage.FLAG__STATUS:
 				setStatus((FlagStatus)newValue);
 				return;
-			case FhirPackage.FLAG__PERIOD:
-				setPeriod((Period)newValue);
+			case FhirPackage.FLAG__CATEGORY:
+				setCategory((CodeableConcept)newValue);
+				return;
+			case FhirPackage.FLAG__CODE:
+				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.FLAG__SUBJECT:
 				setSubject((Reference)newValue);
+				return;
+			case FhirPackage.FLAG__PERIOD:
+				setPeriod((Period)newValue);
 				return;
 			case FhirPackage.FLAG__ENCOUNTER:
 				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.FLAG__AUTHOR:
 				setAuthor((Reference)newValue);
-				return;
-			case FhirPackage.FLAG__CODE:
-				setCode((CodeableConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -563,26 +563,26 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 			case FhirPackage.FLAG__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.FLAG__CATEGORY:
-				setCategory((CodeableConcept)null);
-				return;
 			case FhirPackage.FLAG__STATUS:
 				setStatus((FlagStatus)null);
 				return;
-			case FhirPackage.FLAG__PERIOD:
-				setPeriod((Period)null);
+			case FhirPackage.FLAG__CATEGORY:
+				setCategory((CodeableConcept)null);
+				return;
+			case FhirPackage.FLAG__CODE:
+				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.FLAG__SUBJECT:
 				setSubject((Reference)null);
+				return;
+			case FhirPackage.FLAG__PERIOD:
+				setPeriod((Period)null);
 				return;
 			case FhirPackage.FLAG__ENCOUNTER:
 				setEncounter((Reference)null);
 				return;
 			case FhirPackage.FLAG__AUTHOR:
 				setAuthor((Reference)null);
-				return;
-			case FhirPackage.FLAG__CODE:
-				setCode((CodeableConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -598,20 +598,20 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 		switch (featureID) {
 			case FhirPackage.FLAG__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.FLAG__CATEGORY:
-				return category != null;
 			case FhirPackage.FLAG__STATUS:
 				return status != null;
-			case FhirPackage.FLAG__PERIOD:
-				return period != null;
+			case FhirPackage.FLAG__CATEGORY:
+				return category != null;
+			case FhirPackage.FLAG__CODE:
+				return code != null;
 			case FhirPackage.FLAG__SUBJECT:
 				return subject != null;
+			case FhirPackage.FLAG__PERIOD:
+				return period != null;
 			case FhirPackage.FLAG__ENCOUNTER:
 				return encounter != null;
 			case FhirPackage.FLAG__AUTHOR:
 				return author != null;
-			case FhirPackage.FLAG__CODE:
-				return code != null;
 		}
 		return super.eIsSet(featureID);
 	}

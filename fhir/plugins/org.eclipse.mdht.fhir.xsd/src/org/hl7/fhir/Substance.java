@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Substance#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Substance#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Substance#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Substance#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Substance#getDescription <em>Description</em>}</li>
@@ -46,6 +47,32 @@ public interface Substance extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code to indicate if the substance is actively used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(FHIRSubstanceStatus)
+	 * @see org.hl7.fhir.FhirPackage#getSubstance_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	FHIRSubstanceStatus getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Substance#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(FHIRSubstanceStatus value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.

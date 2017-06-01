@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ProcessResponse;
-import org.hl7.fhir.ProcessResponseNote;
+import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.Reference;
 
 /**
@@ -44,7 +44,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getRequestOrganization <em>Request Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getProcessNote <em>Process Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcessResponseImpl#getCommunicationRequest <em>Communication Request</em>}</li>
  * </ul>
@@ -70,7 +70,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * @generated
 	 * @ordered
 	 */
-	protected Code status;
+	protected FinancialResourceStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
@@ -153,14 +153,14 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	protected CodeableConcept form;
 
 	/**
-	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcessNote() <em>Process Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNote()
+	 * @see #getProcessNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProcessResponseNote> note;
+	protected EList<ProcessResponseProcessNote> processNote;
 
 	/**
 	 * The cached value of the '{@link #getError() <em>Error</em>}' containment reference list.
@@ -218,7 +218,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getStatus() {
+	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
 
@@ -227,8 +227,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
-		Code oldStatus = status;
+	public NotificationChain basicSetStatus(FinancialResourceStatusCodes newStatus, NotificationChain msgs) {
+		FinancialResourceStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_RESPONSE__STATUS, oldStatus, newStatus);
@@ -242,7 +242,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(Code newStatus) {
+	public void setStatus(FinancialResourceStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -605,11 +605,11 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProcessResponseNote> getNote() {
-		if (note == null) {
-			note = new EObjectContainmentEList<ProcessResponseNote>(ProcessResponseNote.class, this, FhirPackage.PROCESS_RESPONSE__NOTE);
+	public EList<ProcessResponseProcessNote> getProcessNote() {
+		if (processNote == null) {
+			processNote = new EObjectContainmentEList<ProcessResponseProcessNote>(ProcessResponseProcessNote.class, this, FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE);
 		}
-		return note;
+		return processNote;
 	}
 
 	/**
@@ -664,8 +664,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				return basicSetRequestOrganization(null, msgs);
 			case FhirPackage.PROCESS_RESPONSE__FORM:
 				return basicSetForm(null, msgs);
-			case FhirPackage.PROCESS_RESPONSE__NOTE:
-				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE:
+				return ((InternalEList<?>)getProcessNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCESS_RESPONSE__ERROR:
 				return ((InternalEList<?>)getError()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCESS_RESPONSE__COMMUNICATION_REQUEST:
@@ -702,8 +702,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				return getRequestOrganization();
 			case FhirPackage.PROCESS_RESPONSE__FORM:
 				return getForm();
-			case FhirPackage.PROCESS_RESPONSE__NOTE:
-				return getNote();
+			case FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE:
+				return getProcessNote();
 			case FhirPackage.PROCESS_RESPONSE__ERROR:
 				return getError();
 			case FhirPackage.PROCESS_RESPONSE__COMMUNICATION_REQUEST:
@@ -726,7 +726,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__STATUS:
-				setStatus((Code)newValue);
+				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__CREATED:
 				setCreated((DateTime)newValue);
@@ -752,9 +752,9 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 			case FhirPackage.PROCESS_RESPONSE__FORM:
 				setForm((CodeableConcept)newValue);
 				return;
-			case FhirPackage.PROCESS_RESPONSE__NOTE:
-				getNote().clear();
-				getNote().addAll((Collection<? extends ProcessResponseNote>)newValue);
+			case FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE:
+				getProcessNote().clear();
+				getProcessNote().addAll((Collection<? extends ProcessResponseProcessNote>)newValue);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__ERROR:
 				getError().clear();
@@ -780,7 +780,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				getIdentifier().clear();
 				return;
 			case FhirPackage.PROCESS_RESPONSE__STATUS:
-				setStatus((Code)null);
+				setStatus((FinancialResourceStatusCodes)null);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__CREATED:
 				setCreated((DateTime)null);
@@ -806,8 +806,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 			case FhirPackage.PROCESS_RESPONSE__FORM:
 				setForm((CodeableConcept)null);
 				return;
-			case FhirPackage.PROCESS_RESPONSE__NOTE:
-				getNote().clear();
+			case FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE:
+				getProcessNote().clear();
 				return;
 			case FhirPackage.PROCESS_RESPONSE__ERROR:
 				getError().clear();
@@ -847,8 +847,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				return requestOrganization != null;
 			case FhirPackage.PROCESS_RESPONSE__FORM:
 				return form != null;
-			case FhirPackage.PROCESS_RESPONSE__NOTE:
-				return note != null && !note.isEmpty();
+			case FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE:
+				return processNote != null && !processNote.isEmpty();
 			case FhirPackage.PROCESS_RESPONSE__ERROR:
 				return error != null && !error.isEmpty();
 			case FhirPackage.PROCESS_RESPONSE__COMMUNICATION_REQUEST:

@@ -45,9 +45,9 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getJurisdiction <em>Jurisdiction</em>}</li>
@@ -114,6 +114,16 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	protected org.hl7.fhir.Boolean experimental;
 
 	/**
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime date;
+
+	/**
 	 * The cached value of the '{@link #getPublisher() <em>Publisher</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,16 +142,6 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @ordered
 	 */
 	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -482,6 +482,49 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateTime getDate() {
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
+		DateTime oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DATE, oldDate, newDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDate(DateTime newDate) {
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -530,49 +573,6 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.IMPLEMENTATION_GUIDE__CONTACT);
 		}
 		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DATE, newDate, newDate));
 	}
 
 	/**
@@ -837,12 +837,12 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return basicSetStatus(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
+				return basicSetDate(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__PUBLISHER:
 				return basicSetPublisher(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
@@ -885,12 +885,12 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return getStatus();
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
+				return getDate();
 			case FhirPackage.IMPLEMENTATION_GUIDE__PUBLISHER:
 				return getPublisher();
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				return getContact();
-			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
-				return getDate();
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:
@@ -939,15 +939,15 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
 				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
+				setDate((DateTime)newValue);
+				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
-				setDate((DateTime)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -1012,14 +1012,14 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
+				setDate((DateTime)null);
+				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				getContact().clear();
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
-				setDate((DateTime)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1073,12 +1073,12 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return status != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
+				return date != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__PUBLISHER:
 				return publisher != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE__DATE:
-				return date != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__DESCRIPTION:
 				return description != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__USE_CONTEXT:

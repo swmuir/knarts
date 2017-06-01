@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
+ * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -74,13 +74,13 @@ public interface Condition extends DomainResource {
 	 * The clinical status of the condition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Clinical Status</em>' containment reference.
-	 * @see #setClinicalStatus(Code)
+	 * @see #setClinicalStatus(ConditionClinicalStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getCondition_ClinicalStatus()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='clinicalStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getClinicalStatus();
+	ConditionClinicalStatusCodes getClinicalStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Condition#getClinicalStatus <em>Clinical Status</em>}' containment reference.
@@ -90,7 +90,7 @@ public interface Condition extends DomainResource {
 	 * @see #getClinicalStatus()
 	 * @generated
 	 */
-	void setClinicalStatus(Code value);
+	void setClinicalStatus(ConditionClinicalStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Verification Status</b></em>' containment reference.
@@ -170,7 +170,7 @@ public interface Condition extends DomainResource {
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getCondition_Code()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -559,13 +559,13 @@ public interface Condition extends DomainResource {
 	 * The date on which the existance of the Condition was first asserted or acknowledged.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Asserted Date</em>' containment reference.
-	 * @see #setAssertedDate(Date)
+	 * @see #setAssertedDate(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getCondition_AssertedDate()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='assertedDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getAssertedDate();
+	DateTime getAssertedDate();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAssertedDate <em>Asserted Date</em>}' containment reference.
@@ -575,7 +575,7 @@ public interface Condition extends DomainResource {
 	 * @see #getAssertedDate()
 	 * @generated
 	 */
-	void setAssertedDate(Date value);
+	void setAssertedDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Asserter</b></em>' containment reference.

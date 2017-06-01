@@ -35,13 +35,13 @@ public interface PlanDefinitionCondition extends BackboneElement {
 	 * The kind of condition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' containment reference.
-	 * @see #setKind(PlanActionConditionKind)
+	 * @see #setKind(ActionConditionKind)
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionCondition_Kind()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PlanActionConditionKind getKind();
+	ActionConditionKind getKind();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionCondition#getKind <em>Kind</em>}' containment reference.
@@ -51,7 +51,7 @@ public interface PlanDefinitionCondition extends BackboneElement {
 	 * @see #getKind()
 	 * @generated
 	 */
-	void setKind(PlanActionConditionKind value);
+	void setKind(ActionConditionKind value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

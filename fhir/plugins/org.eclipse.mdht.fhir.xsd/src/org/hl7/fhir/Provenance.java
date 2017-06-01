@@ -21,10 +21,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Provenance#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getRecorded <em>Recorded</em>}</li>
+ *   <li>{@link org.hl7.fhir.Provenance#getPolicy <em>Policy</em>}</li>
+ *   <li>{@link org.hl7.fhir.Provenance#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getActivity <em>Activity</em>}</li>
- *   <li>{@link org.hl7.fhir.Provenance#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.Provenance#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getEntity <em>Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getSignature <em>Signature</em>}</li>
@@ -104,6 +104,48 @@ public interface Provenance extends DomainResource {
 	void setRecorded(Instant value);
 
 	/**
+	 * Returns the value of the '<em><b>Policy</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Policy</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProvenance_Policy()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='policy' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getPolicy();
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Where the activity occurred, if relevant.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Location</em>' containment reference.
+	 * @see #setLocation(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProvenance_Location()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getLocation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getLocation <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' containment reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Coding}.
 	 * <!-- begin-user-doc -->
@@ -144,48 +186,6 @@ public interface Provenance extends DomainResource {
 	 * @generated
 	 */
 	void setActivity(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Where the activity occurred, if relevant.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Location</em>' containment reference.
-	 * @see #setLocation(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProvenance_Location()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getLocation();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getLocation <em>Location</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' containment reference.
-	 * @see #getLocation()
-	 * @generated
-	 */
-	void setLocation(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Policy</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Policy</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProvenance_Policy()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='policy' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Uri> getPolicy();
 
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.

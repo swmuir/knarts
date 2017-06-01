@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A manifest that defines a set of documents.
+ * A collection of documents compiled for a purpose together with metadata that applies to the collection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -56,7 +56,7 @@ public interface DocumentManifestRelated extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Related Resource to this DocumentManifest. For example, Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
+	 * Related Resource to this DocumentManifest. For example, Order, ProcedureRequest,  Procedure, EligibilityRequest, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' containment reference.
 	 * @see #setRef(Reference)

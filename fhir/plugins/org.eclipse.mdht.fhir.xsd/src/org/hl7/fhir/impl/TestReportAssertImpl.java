@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
+import org.hl7.fhir.TestReportActionResult;
 import org.hl7.fhir.TestReportAssert;
-import org.hl7.fhir.TestReportResultCodes;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * @generated
 	 * @ordered
 	 */
-	protected TestReportResultCodes result;
+	protected TestReportActionResult result;
 
 	/**
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
@@ -85,7 +85,7 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TestReportResultCodes getResult() {
+	public TestReportActionResult getResult() {
 		return result;
 	}
 
@@ -94,8 +94,8 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResult(TestReportResultCodes newResult, NotificationChain msgs) {
-		TestReportResultCodes oldResult = result;
+	public NotificationChain basicSetResult(TestReportActionResult newResult, NotificationChain msgs) {
+		TestReportActionResult oldResult = result;
 		result = newResult;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_REPORT_ASSERT__RESULT, oldResult, newResult);
@@ -109,7 +109,7 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResult(TestReportResultCodes newResult) {
+	public void setResult(TestReportActionResult newResult) {
 		if (newResult != result) {
 			NotificationChain msgs = null;
 			if (result != null)
@@ -254,7 +254,7 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.TEST_REPORT_ASSERT__RESULT:
-				setResult((TestReportResultCodes)newValue);
+				setResult((TestReportActionResult)newValue);
 				return;
 			case FhirPackage.TEST_REPORT_ASSERT__MESSAGE:
 				setMessage((Markdown)newValue);
@@ -275,7 +275,7 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.TEST_REPORT_ASSERT__RESULT:
-				setResult((TestReportResultCodes)null);
+				setResult((TestReportActionResult)null);
 				return;
 			case FhirPackage.TEST_REPORT_ASSERT__MESSAGE:
 				setMessage((Markdown)null);

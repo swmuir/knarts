@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CompartmentDefinitionResource;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.ResourceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Code code;
+	protected ResourceType code;
 
 	/**
 	 * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
@@ -91,7 +91,7 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getCode() {
+	public ResourceType getCode() {
 		return code;
 	}
 
@@ -100,8 +100,8 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Code newCode, NotificationChain msgs) {
-		Code oldCode = code;
+	public NotificationChain basicSetCode(ResourceType newCode, NotificationChain msgs) {
+		ResourceType oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPARTMENT_DEFINITION_RESOURCE__CODE, oldCode, newCode);
@@ -115,7 +115,7 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Code newCode) {
+	public void setCode(ResourceType newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null)
@@ -230,7 +230,7 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.COMPARTMENT_DEFINITION_RESOURCE__CODE:
-				setCode((Code)newValue);
+				setCode((ResourceType)newValue);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION_RESOURCE__PARAM:
 				getParam().clear();
@@ -252,7 +252,7 @@ public class CompartmentDefinitionResourceImpl extends BackboneElementImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.COMPARTMENT_DEFINITION_RESOURCE__CODE:
-				setCode((Code)null);
+				setCode((ResourceType)null);
 				return;
 			case FhirPackage.COMPARTMENT_DEFINITION_RESOURCE__PARAM:
 				getParam().clear();

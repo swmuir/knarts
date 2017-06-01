@@ -4,15 +4,12 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,14 +35,14 @@ import org.hl7.fhir.Reference;
  */
 public class ConditionEvidenceImpl extends BackboneElementImpl implements ConditionEvidence {
 	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept code;
+	protected EList<CodeableConcept> code;
 
 	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
@@ -81,42 +78,11 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCode() {
+	public EList<CodeableConcept> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION_EVIDENCE__CODE);
+		}
 		return code;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
-		CodeableConcept oldCode = code;
-		code = newCode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION_EVIDENCE__CODE, oldCode, newCode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCode(CodeableConcept newCode) {
-		if (newCode != code) {
-			NotificationChain msgs = null;
-			if (code != null)
-				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION_EVIDENCE__CODE, null, msgs);
-			if (newCode != null)
-				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION_EVIDENCE__CODE, null, msgs);
-			msgs = basicSetCode(newCode, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION_EVIDENCE__CODE, newCode, newCode));
 	}
 
 	/**
@@ -140,7 +106,7 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.CONDITION_EVIDENCE__CODE:
-				return basicSetCode(null, msgs);
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONDITION_EVIDENCE__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
 		}
@@ -173,7 +139,8 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CONDITION_EVIDENCE__CODE:
-				setCode((CodeableConcept)newValue);
+				getCode().clear();
+				getCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CONDITION_EVIDENCE__DETAIL:
 				getDetail().clear();
@@ -192,7 +159,7 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CONDITION_EVIDENCE__CODE:
-				setCode((CodeableConcept)null);
+				getCode().clear();
 				return;
 			case FhirPackage.CONDITION_EVIDENCE__DETAIL:
 				getDetail().clear();
@@ -210,7 +177,7 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CONDITION_EVIDENCE__CODE:
-				return code != null;
+				return code != null && !code.isEmpty();
 			case FhirPackage.CONDITION_EVIDENCE__DETAIL:
 				return detail != null && !detail.isEmpty();
 		}

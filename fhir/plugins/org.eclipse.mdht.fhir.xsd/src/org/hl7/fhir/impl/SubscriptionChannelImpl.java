@@ -2,13 +2,20 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SubscriptionChannel;
@@ -63,14 +70,14 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	protected org.hl7.fhir.String payload;
 
 	/**
-	 * The cached value of the '{@link #getHeader() <em>Header</em>}' containment reference.
+	 * The cached value of the '{@link #getHeader() <em>Header</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String header;
+	protected EList<org.hl7.fhir.String> header;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,42 +232,11 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getHeader() {
+	public EList<org.hl7.fhir.String> getHeader() {
+		if (header == null) {
+			header = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.SUBSCRIPTION_CHANNEL__HEADER);
+		}
 		return header;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHeader(org.hl7.fhir.String newHeader, NotificationChain msgs) {
-		org.hl7.fhir.String oldHeader = header;
-		header = newHeader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION_CHANNEL__HEADER, oldHeader, newHeader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHeader(org.hl7.fhir.String newHeader) {
-		if (newHeader != header) {
-			NotificationChain msgs = null;
-			if (header != null)
-				msgs = ((InternalEObject)header).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION_CHANNEL__HEADER, null, msgs);
-			if (newHeader != null)
-				msgs = ((InternalEObject)newHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSCRIPTION_CHANNEL__HEADER, null, msgs);
-			msgs = basicSetHeader(newHeader, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION_CHANNEL__HEADER, newHeader, newHeader));
 	}
 
 	/**
@@ -278,7 +254,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 			case FhirPackage.SUBSCRIPTION_CHANNEL__PAYLOAD:
 				return basicSetPayload(null, msgs);
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
-				return basicSetHeader(null, msgs);
+				return ((InternalEList<?>)getHeader()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -308,6 +284,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -321,7 +298,8 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 				setPayload((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
-				setHeader((org.hl7.fhir.String)newValue);
+				getHeader().clear();
+				getHeader().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,7 +323,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 				setPayload((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
-				setHeader((org.hl7.fhir.String)null);
+				getHeader().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,7 +344,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 			case FhirPackage.SUBSCRIPTION_CHANNEL__PAYLOAD:
 				return payload != null;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
-				return header != null;
+				return header != null && !header.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

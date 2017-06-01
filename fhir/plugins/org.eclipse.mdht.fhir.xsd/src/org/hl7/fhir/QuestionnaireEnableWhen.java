@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -23,7 +23,6 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerInteger <em>Answer Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerDate <em>Answer Date</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerDateTime <em>Answer Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerInstant <em>Answer Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerTime <em>Answer Time</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerString <em>Answer String</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerUri <em>Answer Uri</em>}</li>
@@ -69,7 +68,7 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If present, indicates that this item should be enabled only if the specified question is answered or not answered.
+	 * An indication that this item should be enabled only if the specified question is answered (hasAnswer=true) or not answered (hasAnswer=false).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Has Answer</em>' containment reference.
 	 * @see #setHasAnswer(org.hl7.fhir.Boolean)
@@ -224,33 +223,6 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * @generated
 	 */
 	void setAnswerDateTime(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Answer Instant</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Answer Instant</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Answer Instant</em>' containment reference.
-	 * @see #setAnswerInstant(Instant)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireEnableWhen_AnswerInstant()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='answerInstant' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Instant getAnswerInstant();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerInstant <em>Answer Instant</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Answer Instant</em>' containment reference.
-	 * @see #getAnswerInstant()
-	 * @generated
-	 */
-	void setAnswerInstant(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Answer Time</b></em>' containment reference.

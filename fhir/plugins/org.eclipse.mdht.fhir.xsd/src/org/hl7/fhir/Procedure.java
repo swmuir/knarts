@@ -19,30 +19,32 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Procedure#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformedDateTime <em>Performed Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformedPeriod <em>Performed Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getLocation <em>Location</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getReasonCode <em>Reason Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getNotPerformed <em>Not Performed</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getReasonNotPerformed <em>Reason Not Performed</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getReport <em>Report</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getComplication <em>Complication</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getComplicationDetail <em>Complication Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getFollowUp <em>Follow Up</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getRequest <em>Request</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getNotes <em>Notes</em>}</li>
+ *   <li>{@link org.hl7.fhir.Procedure#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getFocalDevice <em>Focal Device</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getUsedReference <em>Used Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Procedure#getUsedCode <em>Used Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Procedure#getComponent <em>Component</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getProcedure()
@@ -67,6 +69,54 @@ public interface Procedure extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this procedure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getDefinition();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to a resource that contains details of the request for this procedure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A larger event of which this particular procedure is a component or step.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Part Of</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_PartOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getPartOf();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,13 +124,13 @@ public interface Procedure extends DomainResource {
 	 * A code specifying the state of the procedure. Generally this will be in-progress or completed state.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(ProcedureStatus)
+	 * @see #setStatus(EventStatus)
 	 * @see org.hl7.fhir.FhirPackage#getProcedure_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ProcedureStatus getStatus();
+	EventStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getStatus <em>Status</em>}' containment reference.
@@ -90,7 +140,59 @@ public interface Procedure extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(ProcedureStatus value);
+	void setStatus(EventStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Set this to true if the record is saying that the procedure was NOT performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Done</em>' containment reference.
+	 * @see #setNotDone(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDone()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getNotDone();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDone <em>Not Done</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not Done</em>' containment reference.
+	 * @see #getNotDone()
+	 * @generated
+	 */
+	void setNotDone(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Not Done Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code indicating why the procedure was not performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Not Done Reason</em>' containment reference.
+	 * @see #setNotDoneReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotDoneReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='notDoneReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getNotDoneReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotDoneReason <em>Not Done Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not Done Reason</em>' containment reference.
+	 * @see #getNotDoneReason()
+	 * @generated
+	 */
+	void setNotDoneReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
@@ -128,7 +230,7 @@ public interface Procedure extends DomainResource {
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getProcedure_Code()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -171,30 +273,30 @@ public interface Procedure extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The encounter during which the procedure was performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_Encounter()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_Context()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEncounter();
+	Reference getContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getEncounter <em>Encounter</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setEncounter(Reference value);
+	void setContext(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Performed Date Time</b></em>' containment reference.
@@ -293,22 +395,6 @@ public interface Procedure extends DomainResource {
 	void setLocation(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The condition that is the reason why the procedure was performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_ReasonReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getReasonReference();
-
-	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -325,46 +411,20 @@ public interface Procedure extends DomainResource {
 	EList<CodeableConcept> getReasonCode();
 
 	/**
-	 * Returns the value of the '<em><b>Not Performed</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Set this to true if the record is saying that the procedure was NOT performed.
+	 * The condition that is the reason why the procedure was performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Performed</em>' containment reference.
-	 * @see #setNotPerformed(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_NotPerformed()
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_ReasonReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notPerformed' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getNotPerformed();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getNotPerformed <em>Not Performed</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Performed</em>' containment reference.
-	 * @see #getNotPerformed()
-	 * @generated
-	 */
-	void setNotPerformed(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Not Performed</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A code indicating why the procedure was not performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Not Performed</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_ReasonNotPerformed()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonNotPerformed' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getReasonNotPerformed();
+	EList<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference list.
@@ -441,6 +501,22 @@ public interface Procedure extends DomainResource {
 	EList<CodeableConcept> getComplication();
 
 	/**
+	 * Returns the value of the '<em><b>Complication Detail</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Any complications that occurred during the procedure, or in the immediate post-performance period.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Complication Detail</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_ComplicationDetail()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='complicationDetail' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getComplicationDetail();
+
+	/**
 	 * Returns the value of the '<em><b>Follow Up</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -457,46 +533,20 @@ public interface Procedure extends DomainResource {
 	EList<CodeableConcept> getFollowUp();
 
 	/**
-	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A reference to a resource that contains details of the request for this procedure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request</em>' containment reference.
-	 * @see #setRequest(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_Request()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getRequest();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Procedure#getRequest <em>Request</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request</em>' containment reference.
-	 * @see #getRequest()
-	 * @generated
-	 */
-	void setRequest(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Notes</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Any other notes about the procedure.  E.g. the operative notes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Notes</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_Notes()
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getProcedure_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notes' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Annotation> getNotes();
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Focal Device</b></em>' containment reference list.
@@ -545,21 +595,5 @@ public interface Procedure extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getUsedCode();
-
-	/**
-	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies medication administrations, other procedures or observations that are related to this procedure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Component</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getProcedure_Component()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getComponent();
 
 } // Procedure

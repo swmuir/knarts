@@ -17,8 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CareTeam;
 import org.hl7.fhir.CareTeamParticipant;
+import org.hl7.fhir.CareTeamStatus;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -38,9 +40,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getManagingOrganization <em>Managing Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,7 +70,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept status;
+	protected CareTeamStatus status;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -97,6 +103,16 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	protected Reference subject;
 
 	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference context;
+
+	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,6 +133,26 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	protected EList<CareTeamParticipant> participant;
 
 	/**
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
 	 * The cached value of the '{@link #getManagingOrganization() <em>Managing Organization</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,6 +161,16 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * @ordered
 	 */
 	protected EList<Reference> managingOrganization;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,7 +208,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getStatus() {
+	public CareTeamStatus getStatus() {
 		return status;
 	}
 
@@ -171,8 +217,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(CodeableConcept newStatus, NotificationChain msgs) {
-		CodeableConcept oldStatus = status;
+	public NotificationChain basicSetStatus(CareTeamStatus newStatus, NotificationChain msgs) {
+		CareTeamStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__STATUS, oldStatus, newStatus);
@@ -186,7 +232,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(CodeableConcept newStatus) {
+	public void setStatus(CareTeamStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -303,6 +349,49 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Period getPeriod() {
 		return period;
 	}
@@ -358,11 +447,47 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM__REASON_CODE);
+		}
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getManagingOrganization() {
 		if (managingOrganization == null) {
 			managingOrganization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION);
 		}
 		return managingOrganization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_TEAM__NOTE);
+		}
+		return note;
 	}
 
 	/**
@@ -383,12 +508,20 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return basicSetName(null, msgs);
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.CARE_TEAM__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
 				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_TEAM__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_TEAM__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return ((InternalEList<?>)getManagingOrganization()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_TEAM__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -411,12 +544,20 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return getName();
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return getSubject();
+			case FhirPackage.CARE_TEAM__CONTEXT:
+				return getContext();
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return getPeriod();
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
 				return getParticipant();
+			case FhirPackage.CARE_TEAM__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.CARE_TEAM__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return getManagingOrganization();
+			case FhirPackage.CARE_TEAM__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -435,7 +576,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CARE_TEAM__STATUS:
-				setStatus((CodeableConcept)newValue);
+				setStatus((CareTeamStatus)newValue);
 				return;
 			case FhirPackage.CARE_TEAM__CATEGORY:
 				getCategory().clear();
@@ -447,6 +588,9 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
+			case FhirPackage.CARE_TEAM__CONTEXT:
+				setContext((Reference)newValue);
+				return;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				setPeriod((Period)newValue);
 				return;
@@ -454,9 +598,21 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				getParticipant().clear();
 				getParticipant().addAll((Collection<? extends CareTeamParticipant>)newValue);
 				return;
+			case FhirPackage.CARE_TEAM__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CARE_TEAM__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				getManagingOrganization().clear();
 				getManagingOrganization().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.CARE_TEAM__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -474,7 +630,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.CARE_TEAM__STATUS:
-				setStatus((CodeableConcept)null);
+				setStatus((CareTeamStatus)null);
 				return;
 			case FhirPackage.CARE_TEAM__CATEGORY:
 				getCategory().clear();
@@ -485,14 +641,26 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				setSubject((Reference)null);
 				return;
+			case FhirPackage.CARE_TEAM__CONTEXT:
+				setContext((Reference)null);
+				return;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				setPeriod((Period)null);
 				return;
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
 				getParticipant().clear();
 				return;
+			case FhirPackage.CARE_TEAM__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.CARE_TEAM__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				getManagingOrganization().clear();
+				return;
+			case FhirPackage.CARE_TEAM__NOTE:
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -516,12 +684,20 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return name != null;
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return subject != null;
+			case FhirPackage.CARE_TEAM__CONTEXT:
+				return context != null;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return period != null;
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
 				return participant != null && !participant.isEmpty();
+			case FhirPackage.CARE_TEAM__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.CARE_TEAM__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return managingOrganization != null && !managingOrganization.isEmpty();
+			case FhirPackage.CARE_TEAM__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

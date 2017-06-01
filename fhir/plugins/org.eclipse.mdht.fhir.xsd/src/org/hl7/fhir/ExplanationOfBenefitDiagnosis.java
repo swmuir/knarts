@@ -34,7 +34,7 @@ public interface ExplanationOfBenefitDiagnosis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of diagnosis which serves to order and provide a link.
+	 * Sequence of diagnosis which serves to provide a link.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -115,7 +115,7 @@ public interface ExplanationOfBenefitDiagnosis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the Diagnosis, for example: admitting,.
+	 * The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDiagnosis_Type()

@@ -18,8 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.Bundle#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Bundle#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getLink <em>Link</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getEntry <em>Entry</em>}</li>
@@ -31,32 +31,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Bundle extends Resource {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates the purpose of this bundle- how it was intended to be used.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(BundleType)
-	 * @see org.hl7.fhir.FhirPackage#getBundle_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	BundleType getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Bundle#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(BundleType value);
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -82,6 +56,32 @@ public interface Bundle extends Resource {
 	 * @generated
 	 */
 	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the purpose of this bundle - how it was intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(BundleType)
+	 * @see org.hl7.fhir.FhirPackage#getBundle_Type()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	BundleType getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Bundle#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(BundleType value);
 
 	/**
 	 * Returns the value of the '<em><b>Total</b></em>' containment reference.
@@ -146,7 +146,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Digital Signature - base64 encoded. XML DigSIg or a JWT.
+	 * Digital Signature - base64 encoded. XML-DSIg or a JWT.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature</em>' containment reference.
 	 * @see #setSignature(Signature)

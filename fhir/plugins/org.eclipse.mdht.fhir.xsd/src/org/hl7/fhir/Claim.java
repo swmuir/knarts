@@ -79,13 +79,13 @@ public interface Claim extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Claim#getStatus <em>Status</em>}' containment reference.
@@ -95,7 +95,7 @@ public interface Claim extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -583,7 +583,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Ordered list of patient diagnosis for which care is sought.
+	 * List of patient diagnosis for which care is sought.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnosis</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Diagnosis()

@@ -34,7 +34,7 @@ public class MedicationDispenseStatusImpl extends ElementImpl implements Medicat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MedicationDispenseStatusList VALUE_EDEFAULT = MedicationDispenseStatusList.IN_PROGRESS;
+	protected static final MedicationDispenseStatusList VALUE_EDEFAULT = MedicationDispenseStatusList.PREPARATION;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,13 +73,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * The eye for which the lens applies.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Eye</em>' containment reference.
-	 * @see #setEye(CodeableConcept)
+	 * @see #setEye(VisionEyes)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Eye()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='eye' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getEye();
+	VisionEyes getEye();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getEye <em>Eye</em>}' containment reference.
@@ -88,7 +89,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getEye()
 	 * @generated
 	 */
-	void setEye(CodeableConcept value);
+	void setEye(VisionEyes value);
 
 	/**
 	 * Returns the value of the '<em><b>Sphere</b></em>' containment reference.
@@ -202,13 +203,13 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * The relative base, or reference lens edge, for the prism.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(CodeableConcept)
+	 * @see #setBase(VisionBase)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Base()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getBase();
+	VisionBase getBase();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getBase <em>Base</em>}' containment reference.
@@ -218,7 +219,7 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	 * @see #getBase()
 	 * @generated
 	 */
-	void setBase(CodeableConcept value);
+	void setBase(VisionBase value);
 
 	/**
 	 * Returns the value of the '<em><b>Add</b></em>' containment reference.
@@ -403,29 +404,19 @@ public interface VisionPrescriptionDispense extends BackboneElement {
 	void setBrand(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Notes for special requirements such as coatings and lens materials.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Note</em>' containment reference.
-	 * @see #setNote(org.hl7.fhir.String)
+	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescriptionDispense_Note()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescriptionDispense#getNote <em>Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Note</em>' containment reference.
-	 * @see #getNote()
-	 * @generated
-	 */
-	void setNote(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 } // VisionPrescriptionDispense

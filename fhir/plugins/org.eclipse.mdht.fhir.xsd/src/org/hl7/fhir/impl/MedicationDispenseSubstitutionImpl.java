@@ -30,6 +30,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.MedicationDispenseSubstitutionImpl#getWasSubstituted <em>Was Substituted</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseSubstitutionImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseSubstitutionImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseSubstitutionImpl#getResponsibleParty <em>Responsible Party</em>}</li>
@@ -38,6 +39,16 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl implements MedicationDispenseSubstitution {
+	/**
+	 * The cached value of the '{@link #getWasSubstituted() <em>Was Substituted</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWasSubstituted()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean wasSubstituted;
+
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -85,6 +96,49 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedicationDispenseSubstitution();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getWasSubstituted() {
+		return wasSubstituted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWasSubstituted(org.hl7.fhir.Boolean newWasSubstituted, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldWasSubstituted = wasSubstituted;
+		wasSubstituted = newWasSubstituted;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED, oldWasSubstituted, newWasSubstituted);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWasSubstituted(org.hl7.fhir.Boolean newWasSubstituted) {
+		if (newWasSubstituted != wasSubstituted) {
+			NotificationChain msgs = null;
+			if (wasSubstituted != null)
+				msgs = ((InternalEObject)wasSubstituted).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED, null, msgs);
+			if (newWasSubstituted != null)
+				msgs = ((InternalEObject)newWasSubstituted).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED, null, msgs);
+			msgs = basicSetWasSubstituted(newWasSubstituted, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED, newWasSubstituted, newWasSubstituted));
 	}
 
 	/**
@@ -162,6 +216,8 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED:
+				return basicSetWasSubstituted(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__REASON:
@@ -180,6 +236,8 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED:
+				return getWasSubstituted();
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__TYPE:
 				return getType();
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__REASON:
@@ -199,6 +257,9 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED:
+				setWasSubstituted((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
@@ -222,6 +283,9 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED:
+				setWasSubstituted((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__TYPE:
 				setType((CodeableConcept)null);
 				return;
@@ -243,6 +307,8 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__WAS_SUBSTITUTED:
+				return wasSubstituted != null;
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__TYPE:
 				return type != null;
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__REASON:

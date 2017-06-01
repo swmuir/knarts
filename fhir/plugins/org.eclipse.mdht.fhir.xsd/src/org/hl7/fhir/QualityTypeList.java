@@ -21,72 +21,72 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum QualityTypeList implements Enumerator {
 	/**
-	 * The '<em><b>INDEL</b></em>' literal object.
+	 * The '<em><b>Indel</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #INDEL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	INDEL(0, "INDEL", "INDEL"),
+	INDEL(0, "indel", "indel"),
 
 	/**
-	 * The '<em><b>SNP</b></em>' literal object.
+	 * The '<em><b>Snp</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #SNP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SNP(1, "SNP", "SNP"),
+	SNP(1, "snp", "snp"),
 
 	/**
-	 * The '<em><b>UNKNOWN</b></em>' literal object.
+	 * The '<em><b>Unknown</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #UNKNOWN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(2, "UNKNOWN", "UNKNOWN");
+	UNKNOWN(2, "unknown", "unknown");
 
 	/**
-	 * The '<em><b>INDEL</b></em>' literal value.
+	 * The '<em><b>Indel</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * INDEL Comparison
 	 * <!-- end-model-doc -->
 	 * @see #INDEL
-	 * @model
+	 * @model name="indel"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int INDEL_VALUE = 0;
 
 	/**
-	 * The '<em><b>SNP</b></em>' literal value.
+	 * The '<em><b>Snp</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * SNP Comparison
 	 * <!-- end-model-doc -->
 	 * @see #SNP
-	 * @model
+	 * @model name="snp"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int SNP_VALUE = 1;
 
 	/**
-	 * The '<em><b>UNKNOWN</b></em>' literal value.
+	 * The '<em><b>Unknown</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * UNKNOWN Comparison
 	 * <!-- end-model-doc -->
 	 * @see #UNKNOWN
-	 * @model
+	 * @model name="unknown"
 	 * @generated
 	 * @ordered
 	 */

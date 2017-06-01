@@ -203,13 +203,13 @@ public interface CarePlanDetail extends BackboneElement {
 	 * Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status Reason</em>' containment reference.
-	 * @see #setStatusReason(CodeableConcept)
+	 * @see #setStatusReason(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_StatusReason()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getStatusReason();
+	org.hl7.fhir.String getStatusReason();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getStatusReason <em>Status Reason</em>}' containment reference.
@@ -219,7 +219,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * @see #getStatusReason()
 	 * @generated
 	 */
-	void setStatusReason(CodeableConcept value);
+	void setStatusReason(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Prohibited</b></em>' containment reference.

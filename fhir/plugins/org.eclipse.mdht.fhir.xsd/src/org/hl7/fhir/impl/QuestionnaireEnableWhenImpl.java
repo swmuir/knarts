@@ -16,7 +16,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Instant;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuestionnaireEnableWhen;
 import org.hl7.fhir.Reference;
@@ -38,7 +37,6 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerInteger <em>Answer Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerDate <em>Answer Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerDateTime <em>Answer Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerInstant <em>Answer Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerTime <em>Answer Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerString <em>Answer String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerUri <em>Answer Uri</em>}</li>
@@ -120,16 +118,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * @ordered
 	 */
 	protected DateTime answerDateTime;
-
-	/**
-	 * The cached value of the '{@link #getAnswerInstant() <em>Answer Instant</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnswerInstant()
-	 * @generated
-	 * @ordered
-	 */
-	protected Instant answerInstant;
 
 	/**
 	 * The cached value of the '{@link #getAnswerTime() <em>Answer Time</em>}' containment reference.
@@ -526,49 +514,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Instant getAnswerInstant() {
-		return answerInstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnswerInstant(Instant newAnswerInstant, NotificationChain msgs) {
-		Instant oldAnswerInstant = answerInstant;
-		answerInstant = newAnswerInstant;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT, oldAnswerInstant, newAnswerInstant);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAnswerInstant(Instant newAnswerInstant) {
-		if (newAnswerInstant != answerInstant) {
-			NotificationChain msgs = null;
-			if (answerInstant != null)
-				msgs = ((InternalEObject)answerInstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT, null, msgs);
-			if (newAnswerInstant != null)
-				msgs = ((InternalEObject)newAnswerInstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT, null, msgs);
-			msgs = basicSetAnswerInstant(newAnswerInstant, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT, newAnswerInstant, newAnswerInstant));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Time getAnswerTime() {
 		return answerTime;
 	}
@@ -887,8 +832,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return basicSetAnswerDate(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DATE_TIME:
 				return basicSetAnswerDateTime(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT:
-				return basicSetAnswerInstant(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_TIME:
 				return basicSetAnswerTime(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
@@ -929,8 +872,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return getAnswerDate();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DATE_TIME:
 				return getAnswerDateTime();
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT:
-				return getAnswerInstant();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_TIME:
 				return getAnswerTime();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
@@ -977,9 +918,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DATE_TIME:
 				setAnswerDateTime((DateTime)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT:
-				setAnswerInstant((Instant)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_TIME:
 				setAnswerTime((Time)newValue);
@@ -1035,9 +973,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DATE_TIME:
 				setAnswerDateTime((DateTime)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT:
-				setAnswerInstant((Instant)null);
-				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_TIME:
 				setAnswerTime((Time)null);
 				return;
@@ -1085,8 +1020,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return answerDate != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DATE_TIME:
 				return answerDateTime != null;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_INSTANT:
-				return answerInstant != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_TIME:
 				return answerTime != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:

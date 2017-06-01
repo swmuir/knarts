@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.CareTeamParticipant#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeamParticipant#getMember <em>Member</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeamParticipant#getOnBehalfOf <em>On Behalf Of</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeamParticipant#getPeriod <em>Period</em>}</li>
  * </ul>
  *
@@ -77,6 +78,32 @@ public interface CareTeamParticipant extends BackboneElement {
 	 * @generated
 	 */
 	void setMember(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>On Behalf Of</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The organization of the practitioner.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #setOnBehalfOf(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCareTeamParticipant_OnBehalfOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='onBehalfOf' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOnBehalfOf();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CareTeamParticipant#getOnBehalfOf <em>On Behalf Of</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #getOnBehalfOf()
+	 * @generated
+	 */
+	void setOnBehalfOf(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.

@@ -23,10 +23,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudySeries#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getLaterality <em>Laterality</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getStarted <em>Started</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudySeries#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getInstance <em>Instance</em>}</li>
  * </ul>
  *
@@ -66,7 +67,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Numeric identifier of this series in the study.
+	 * The numeric identifier of this series in the study.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number</em>' containment reference.
 	 * @see #setNumber(UnsignedInt)
@@ -144,12 +145,12 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Number of SOP Instances in Series.
+	 * Number of SOP Instances in the Study. The value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Instances</em>' containment reference.
 	 * @see #setNumberOfInstances(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_NumberOfInstances()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='numberOfInstances' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -192,27 +193,27 @@ public interface ImagingStudySeries extends BackboneElement {
 	void setAvailability(InstanceAvailability value);
 
 	/**
-	 * Returns the value of the '<em><b>Base Location</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyBaseLocation1}.
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Methods of accessing (e.g. retrieving) the series.
+	 * The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base Location</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_BaseLocation()
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Endpoint()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='baseLocation' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImagingStudyBaseLocation1> getBaseLocation();
+	EList<Reference> getEndpoint();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.
+	 * The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(Coding)
@@ -238,7 +239,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.
+	 * The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, shall be consistent with any laterality information indicated in ImagingStudy.series.bodySite.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Laterality</em>' containment reference.
 	 * @see #setLaterality(Coding)
@@ -286,12 +287,28 @@ public interface ImagingStudySeries extends BackboneElement {
 	void setStarted(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The physician or operator (often the radiology technician)  who performed the series. The performer is recorded at the series level, since each series in a study may be performed by a different practitioner, at different times, and using different devices. A series may be performed by multiple practitioners.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Performer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Performer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getPerformer();
+
+	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyInstance}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A single SOP Instance within the series, e.g. an image, or presentation state.
+	 * A single SOP instance within the series, e.g. an image, or presentation state.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instance</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Instance()

@@ -22,6 +22,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DiagnosticReport;
 import org.hl7.fhir.DiagnosticReportImage;
+import org.hl7.fhir.DiagnosticReportPerformer;
 import org.hl7.fhir.DiagnosticReportStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -38,16 +39,16 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEncounter <em>Encounter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getImagingStudy <em>Imaging Study</em>}</li>
@@ -69,6 +70,16 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -111,14 +122,14 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEncounter()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference encounter;
+	protected Reference context;
 
 	/**
 	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
@@ -158,17 +169,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> performer;
-
-	/**
-	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequest()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> request;
+	protected EList<DiagnosticReportPerformer> performer;
 
 	/**
 	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference list.
@@ -269,6 +270,18 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__BASED_ON);
+		}
+		return basedOn;
 	}
 
 	/**
@@ -448,8 +461,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEncounter() {
-		return encounter;
+	public Reference getContext() {
+		return context;
 	}
 
 	/**
@@ -457,11 +470,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
+	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
+		Reference oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, oldEncounter, newEncounter);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -472,18 +485,18 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
+	public void setContext(Reference newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, newEncounter, newEncounter));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -620,23 +633,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getPerformer() {
+	public EList<DiagnosticReportPerformer> getPerformer() {
 		if (performer == null) {
-			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__PERFORMER);
+			performer = new EObjectContainmentEList<DiagnosticReportPerformer>(DiagnosticReportPerformer.class, this, FhirPackage.DIAGNOSTIC_REPORT__PERFORMER);
 		}
 		return performer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getRequest() {
-		if (request == null) {
-			request = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__REQUEST);
-		}
-		return request;
 	}
 
 	/**
@@ -764,6 +765,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
@@ -772,8 +775,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return basicSetCode(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -782,8 +785,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return basicSetIssued(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT__REQUEST:
-				return ((InternalEList<?>)getRequest()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:
@@ -812,6 +813,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.DIAGNOSTIC_REPORT__BASED_ON:
+				return getBasedOn();
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				return getStatus();
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
@@ -820,8 +823,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return getCode();
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return getSubject();
-			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
-				return getEncounter();
+			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
+				return getContext();
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return getEffectiveDateTime();
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -830,8 +833,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return getIssued();
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return getPerformer();
-			case FhirPackage.DIAGNOSTIC_REPORT__REQUEST:
-				return getRequest();
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return getSpecimen();
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:
@@ -863,6 +864,10 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.DIAGNOSTIC_REPORT__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				setStatus((DiagnosticReportStatus)newValue);
 				return;
@@ -875,8 +880,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
-				setEncounter((Reference)newValue);
+			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
+				setContext((Reference)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)newValue);
@@ -889,11 +894,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				getPerformer().clear();
-				getPerformer().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__REQUEST:
-				getRequest().clear();
-				getRequest().addAll((Collection<? extends Reference>)newValue);
+				getPerformer().addAll((Collection<? extends DiagnosticReportPerformer>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				getSpecimen().clear();
@@ -937,6 +938,9 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.DIAGNOSTIC_REPORT__BASED_ON:
+				getBasedOn().clear();
+				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				setStatus((DiagnosticReportStatus)null);
 				return;
@@ -949,8 +953,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
-				setEncounter((Reference)null);
+			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
+				setContext((Reference)null);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)null);
@@ -963,9 +967,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				getPerformer().clear();
-				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__REQUEST:
-				getRequest().clear();
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				getSpecimen().clear();
@@ -1002,6 +1003,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 		switch (featureID) {
 			case FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.DIAGNOSTIC_REPORT__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				return status != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
@@ -1010,8 +1013,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return code != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return subject != null;
-			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
-				return encounter != null;
+			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
+				return context != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return effectiveDateTime != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -1020,8 +1023,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return issued != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return performer != null && !performer.isEmpty();
-			case FhirPackage.DIAGNOSTIC_REPORT__REQUEST:
-				return request != null && !request.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return specimen != null && !specimen.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:

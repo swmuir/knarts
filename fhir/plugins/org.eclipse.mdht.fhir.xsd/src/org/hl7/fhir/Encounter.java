@@ -22,9 +22,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Encounter#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getStatusHistory <em>Status History</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getClassHistory <em>Class History</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.hl7.fhir.Encounter#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getEpisodeOfCare <em>Episode Of Care</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getIncomingReferral <em>Incoming Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getParticipant <em>Participant</em>}</li>
@@ -32,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Encounter#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getLength <em>Length</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getReason <em>Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.Encounter#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getLocation <em>Location</em>}</li>
@@ -66,7 +67,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error.
+	 * planned | arrived | triaged | in-progress | onleave | finished | cancelled +.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(EncounterStatus)
@@ -130,6 +131,24 @@ public interface Encounter extends DomainResource {
 	void setClass(Coding value);
 
 	/**
+	 * Returns the value of the '<em><b>Class History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EncounterClassHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The class history permits the tracking of the encounters transitions without needing to go  through the resource history.
+	 * 
+	 * This would be used for a case where an admission starts of as an emergency encounter, then transisions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kindof discharge from emergency to inpatient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Class History</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_ClassHistory()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='classHistory' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EncounterClassHistory> getClassHistory();
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -172,30 +191,30 @@ public interface Encounter extends DomainResource {
 	void setPriority(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient present at the encounter.
+	 * The patient ro group present at the encounter.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEncounter_Patient()
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_Subject()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Reference getSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Encounter#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Encounter#getSubject <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Episode Of Care</b></em>' containment reference list.
@@ -235,7 +254,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * TheÂ list ofÂ peopleÂ responsible for providing the service.
+	 * The list of people responsible for providing the service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_Participant()
@@ -340,20 +359,20 @@ public interface Encounter extends DomainResource {
 	EList<CodeableConcept> getReason();
 
 	/**
-	 * Returns the value of the '<em><b>Indication</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EncounterDiagnosis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+	 * The list of diagnosis relevant to this encounter.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Indication</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounter_Indication()
+	 * @return the value of the '<em>Diagnosis</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_Diagnosis()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='indication' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='diagnosis' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getIndication();
+	EList<EncounterDiagnosis> getDiagnosis();
 
 	/**
 	 * Returns the value of the '<em><b>Account</b></em>' containment reference list.

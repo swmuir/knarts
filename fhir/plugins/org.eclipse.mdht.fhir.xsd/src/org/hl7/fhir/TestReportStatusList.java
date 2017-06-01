@@ -21,76 +21,124 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum TestReportStatusList implements Enumerator {
 	/**
-	 * The '<em><b>Complete</b></em>' literal object.
+	 * The '<em><b>Completed</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPLETE_VALUE
+	 * @see #COMPLETED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETE(0, "complete", "complete"),
+	COMPLETED(0, "completed", "completed"),
 
 	/**
-	 * The '<em><b>Pending</b></em>' literal object.
+	 * The '<em><b>In Progress</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PENDING_VALUE
+	 * @see #IN_PROGRESS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PENDING(1, "pending", "pending"),
+	IN_PROGRESS(1, "inProgress", "in-progress"),
 
 	/**
-	 * The '<em><b>Error</b></em>' literal object.
+	 * The '<em><b>Waiting</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ERROR_VALUE
+	 * @see #WAITING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ERROR(2, "error", "error");
+	WAITING(2, "waiting", "waiting"),
 
 	/**
-	 * The '<em><b>Complete</b></em>' literal value.
+	 * The '<em><b>Stopped</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STOPPED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STOPPED(3, "stopped", "stopped"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error");
+
+	/**
+	 * The '<em><b>Completed</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * complete
+	 * Completed
 	 * <!-- end-model-doc -->
-	 * @see #COMPLETE
-	 * @model name="complete"
+	 * @see #COMPLETED
+	 * @model name="completed"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETE_VALUE = 0;
+	public static final int COMPLETED_VALUE = 0;
 
 	/**
-	 * The '<em><b>Pending</b></em>' literal value.
+	 * The '<em><b>In Progress</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * pending
+	 * In Progress
 	 * <!-- end-model-doc -->
-	 * @see #PENDING
-	 * @model name="pending"
+	 * @see #IN_PROGRESS
+	 * @model name="inProgress" literal="in-progress"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PENDING_VALUE = 1;
+	public static final int IN_PROGRESS_VALUE = 1;
 
 	/**
-	 * The '<em><b>Error</b></em>' literal value.
+	 * The '<em><b>Waiting</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * error
+	 * Waiting
 	 * <!-- end-model-doc -->
-	 * @see #ERROR
-	 * @model name="error"
+	 * @see #WAITING
+	 * @model name="waiting"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ERROR_VALUE = 2;
+	public static final int WAITING_VALUE = 2;
+
+	/**
+	 * The '<em><b>Stopped</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Stopped
+	 * <!-- end-model-doc -->
+	 * @see #STOPPED
+	 * @model name="stopped"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STOPPED_VALUE = 3;
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered In Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Test Report Status List</b></em>' enumerators.
@@ -100,9 +148,11 @@ public enum TestReportStatusList implements Enumerator {
 	 */
 	private static final TestReportStatusList[] VALUES_ARRAY =
 		new TestReportStatusList[] {
-			COMPLETE,
-			PENDING,
-			ERROR,
+			COMPLETED,
+			IN_PROGRESS,
+			WAITING,
+			STOPPED,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -159,9 +209,11 @@ public enum TestReportStatusList implements Enumerator {
 	 */
 	public static TestReportStatusList get(int value) {
 		switch (value) {
-			case COMPLETE_VALUE: return COMPLETE;
-			case PENDING_VALUE: return PENDING;
-			case ERROR_VALUE: return ERROR;
+			case COMPLETED_VALUE: return COMPLETED;
+			case IN_PROGRESS_VALUE: return IN_PROGRESS;
+			case WAITING_VALUE: return WAITING;
+			case STOPPED_VALUE: return STOPPED;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

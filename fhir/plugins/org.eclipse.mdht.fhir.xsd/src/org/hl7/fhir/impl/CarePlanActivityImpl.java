@@ -32,8 +32,8 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getActionResulting <em>Action Resulting</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getOutcomeCodeableConcept <em>Outcome Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getOutcomeReference <em>Outcome Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getProgress <em>Progress</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanActivityImpl#getDetail <em>Detail</em>}</li>
@@ -43,24 +43,24 @@ import org.hl7.fhir.Reference;
  */
 public class CarePlanActivityImpl extends BackboneElementImpl implements CarePlanActivity {
 	/**
-	 * The cached value of the '{@link #getActionResulting() <em>Action Resulting</em>}' containment reference list.
+	 * The cached value of the '{@link #getOutcomeCodeableConcept() <em>Outcome Codeable Concept</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActionResulting()
+	 * @see #getOutcomeCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> actionResulting;
+	protected EList<CodeableConcept> outcomeCodeableConcept;
 
 	/**
-	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
+	 * The cached value of the '{@link #getOutcomeReference() <em>Outcome Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutcome()
+	 * @see #getOutcomeReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected EList<Reference> outcomeReference;
 
 	/**
 	 * The cached value of the '{@link #getProgress() <em>Progress</em>}' containment reference list.
@@ -116,11 +116,11 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getActionResulting() {
-		if (actionResulting == null) {
-			actionResulting = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING);
+	public EList<CodeableConcept> getOutcomeCodeableConcept() {
+		if (outcomeCodeableConcept == null) {
+			outcomeCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT);
 		}
-		return actionResulting;
+		return outcomeCodeableConcept;
 	}
 
 	/**
@@ -128,42 +128,11 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
-		return outcome;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
-		outcome = newOutcome;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME, oldOutcome, newOutcome);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Reference> getOutcomeReference() {
+		if (outcomeReference == null) {
+			outcomeReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutcome(CodeableConcept newOutcome) {
-		if (newOutcome != outcome) {
-			NotificationChain msgs = null;
-			if (outcome != null)
-				msgs = ((InternalEObject)outcome).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME, null, msgs);
-			if (newOutcome != null)
-				msgs = ((InternalEObject)newOutcome).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME, null, msgs);
-			msgs = basicSetOutcome(newOutcome, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME, newOutcome, newOutcome));
+		return outcomeReference;
 	}
 
 	/**
@@ -272,10 +241,10 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING:
-				return ((InternalEList<?>)getActionResulting()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME:
-				return basicSetOutcome(null, msgs);
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT:
+				return ((InternalEList<?>)getOutcomeCodeableConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE:
+				return ((InternalEList<?>)getOutcomeReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS:
 				return ((InternalEList<?>)getProgress()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN_ACTIVITY__REFERENCE:
@@ -294,10 +263,10 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING:
-				return getActionResulting();
-			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME:
-				return getOutcome();
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT:
+				return getOutcomeCodeableConcept();
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE:
+				return getOutcomeReference();
 			case FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS:
 				return getProgress();
 			case FhirPackage.CARE_PLAN_ACTIVITY__REFERENCE:
@@ -317,12 +286,13 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING:
-				getActionResulting().clear();
-				getActionResulting().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT:
+				getOutcomeCodeableConcept().clear();
+				getOutcomeCodeableConcept().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE:
+				getOutcomeReference().clear();
+				getOutcomeReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS:
 				getProgress().clear();
@@ -346,11 +316,11 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING:
-				getActionResulting().clear();
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT:
+				getOutcomeCodeableConcept().clear();
 				return;
-			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME:
-				setOutcome((CodeableConcept)null);
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE:
+				getOutcomeReference().clear();
 				return;
 			case FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS:
 				getProgress().clear();
@@ -373,10 +343,10 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CARE_PLAN_ACTIVITY__ACTION_RESULTING:
-				return actionResulting != null && !actionResulting.isEmpty();
-			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME:
-				return outcome != null;
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT:
+				return outcomeCodeableConcept != null && !outcomeCodeableConcept.isEmpty();
+			case FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE:
+				return outcomeReference != null && !outcomeReference.isEmpty();
 			case FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS:
 				return progress != null && !progress.isEmpty();
 			case FhirPackage.CARE_PLAN_ACTIVITY__REFERENCE:

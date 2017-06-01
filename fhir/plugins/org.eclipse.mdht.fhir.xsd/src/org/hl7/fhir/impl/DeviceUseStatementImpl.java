@@ -17,9 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DeviceUseStatement;
+import org.hl7.fhir.DeviceUseStatementStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
@@ -34,52 +36,24 @@ import org.hl7.fhir.Timing;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getBodySite <em>Body Site</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getWhenUsed <em>When Used</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getIndication <em>Indication</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getNotes <em>Notes</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getRecordedOn <em>Recorded On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getWhenUsed <em>When Used</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getRecordedOn <em>Recorded On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getDevice <em>Device</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceUseStatementImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DeviceUseStatementImpl extends DomainResourceImpl implements DeviceUseStatement {
-	/**
-	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBodySite()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept bodySite;
-
-	/**
-	 * The cached value of the '{@link #getWhenUsed() <em>When Used</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWhenUsed()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period whenUsed;
-
-	/**
-	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDevice()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference device;
-
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -91,34 +65,14 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getIndication() <em>Indication</em>}' containment reference list.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIndication()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> indication;
-
-	/**
-	 * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<org.hl7.fhir.String> notes;
-
-	/**
-	 * The cached value of the '{@link #getRecordedOn() <em>Recorded On</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecordedOn()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime recordedOn;
+	protected DeviceUseStatementStatus status;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -129,6 +83,16 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * @ordered
 	 */
 	protected Reference subject;
+
+	/**
+	 * The cached value of the '{@link #getWhenUsed() <em>When Used</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWhenUsed()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period whenUsed;
 
 	/**
 	 * The cached value of the '{@link #getTimingTiming() <em>Timing Timing</em>}' containment reference.
@@ -161,6 +125,66 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	protected DateTime timingDateTime;
 
 	/**
+	 * The cached value of the '{@link #getRecordedOn() <em>Recorded On</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime recordedOn;
+
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference source;
+
+	/**
+	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDevice()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference device;
+
+	/**
+	 * The cached value of the '{@link #getIndication() <em>Indication</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndication()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> indication;
+
+	/**
+	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBodySite()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept bodySite;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -184,135 +208,6 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getBodySite() {
-		return bodySite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBodySite(CodeableConcept newBodySite, NotificationChain msgs) {
-		CodeableConcept oldBodySite = bodySite;
-		bodySite = newBodySite;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, oldBodySite, newBodySite);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBodySite(CodeableConcept newBodySite) {
-		if (newBodySite != bodySite) {
-			NotificationChain msgs = null;
-			if (bodySite != null)
-				msgs = ((InternalEObject)bodySite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
-			if (newBodySite != null)
-				msgs = ((InternalEObject)newBodySite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
-			msgs = basicSetBodySite(newBodySite, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, newBodySite, newBodySite));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getWhenUsed() {
-		return whenUsed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWhenUsed(Period newWhenUsed, NotificationChain msgs) {
-		Period oldWhenUsed = whenUsed;
-		whenUsed = newWhenUsed;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, oldWhenUsed, newWhenUsed);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWhenUsed(Period newWhenUsed) {
-		if (newWhenUsed != whenUsed) {
-			NotificationChain msgs = null;
-			if (whenUsed != null)
-				msgs = ((InternalEObject)whenUsed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, null, msgs);
-			if (newWhenUsed != null)
-				msgs = ((InternalEObject)newWhenUsed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, null, msgs);
-			msgs = basicSetWhenUsed(newWhenUsed, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, newWhenUsed, newWhenUsed));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getDevice() {
-		return device;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDevice(Reference newDevice, NotificationChain msgs) {
-		Reference oldDevice = device;
-		device = newDevice;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__DEVICE, oldDevice, newDevice);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDevice(Reference newDevice) {
-		if (newDevice != device) {
-			NotificationChain msgs = null;
-			if (device != null)
-				msgs = ((InternalEObject)device).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__DEVICE, null, msgs);
-			if (newDevice != null)
-				msgs = ((InternalEObject)newDevice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__DEVICE, null, msgs);
-			msgs = basicSetDevice(newDevice, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__DEVICE, newDevice, newDevice));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER);
@@ -325,11 +220,8 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getIndication() {
-		if (indication == null) {
-			indication = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_USE_STATEMENT__INDICATION);
-		}
-		return indication;
+	public DeviceUseStatementStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -337,32 +229,11 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getNotes() {
-		if (notes == null) {
-			notes = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.DEVICE_USE_STATEMENT__NOTES);
-		}
-		return notes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getRecordedOn() {
-		return recordedOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRecordedOn(DateTime newRecordedOn, NotificationChain msgs) {
-		DateTime oldRecordedOn = recordedOn;
-		recordedOn = newRecordedOn;
+	public NotificationChain basicSetStatus(DeviceUseStatementStatus newStatus, NotificationChain msgs) {
+		DeviceUseStatementStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, oldRecordedOn, newRecordedOn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -373,18 +244,18 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRecordedOn(DateTime newRecordedOn) {
-		if (newRecordedOn != recordedOn) {
+	public void setStatus(DeviceUseStatementStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (recordedOn != null)
-				msgs = ((InternalEObject)recordedOn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, null, msgs);
-			if (newRecordedOn != null)
-				msgs = ((InternalEObject)newRecordedOn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, null, msgs);
-			msgs = basicSetRecordedOn(newRecordedOn, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, newRecordedOn, newRecordedOn));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -428,6 +299,49 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Period getWhenUsed() {
+		return whenUsed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWhenUsed(Period newWhenUsed, NotificationChain msgs) {
+		Period oldWhenUsed = whenUsed;
+		whenUsed = newWhenUsed;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, oldWhenUsed, newWhenUsed);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWhenUsed(Period newWhenUsed) {
+		if (newWhenUsed != whenUsed) {
+			NotificationChain msgs = null;
+			if (whenUsed != null)
+				msgs = ((InternalEObject)whenUsed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, null, msgs);
+			if (newWhenUsed != null)
+				msgs = ((InternalEObject)newWhenUsed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, null, msgs);
+			msgs = basicSetWhenUsed(newWhenUsed, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED, newWhenUsed, newWhenUsed));
 	}
 
 	/**
@@ -564,31 +478,231 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateTime getRecordedOn() {
+		return recordedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecordedOn(DateTime newRecordedOn, NotificationChain msgs) {
+		DateTime oldRecordedOn = recordedOn;
+		recordedOn = newRecordedOn;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, oldRecordedOn, newRecordedOn);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecordedOn(DateTime newRecordedOn) {
+		if (newRecordedOn != recordedOn) {
+			NotificationChain msgs = null;
+			if (recordedOn != null)
+				msgs = ((InternalEObject)recordedOn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, null, msgs);
+			if (newRecordedOn != null)
+				msgs = ((InternalEObject)newRecordedOn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, null, msgs);
+			msgs = basicSetRecordedOn(newRecordedOn, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON, newRecordedOn, newRecordedOn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Reference newSource, NotificationChain msgs) {
+		Reference oldSource = source;
+		source = newSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__SOURCE, oldSource, newSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSource(Reference newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__SOURCE, null, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__SOURCE, null, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getDevice() {
+		return device;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDevice(Reference newDevice, NotificationChain msgs) {
+		Reference oldDevice = device;
+		device = newDevice;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__DEVICE, oldDevice, newDevice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDevice(Reference newDevice) {
+		if (newDevice != device) {
+			NotificationChain msgs = null;
+			if (device != null)
+				msgs = ((InternalEObject)device).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__DEVICE, null, msgs);
+			if (newDevice != null)
+				msgs = ((InternalEObject)newDevice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__DEVICE, null, msgs);
+			msgs = basicSetDevice(newDevice, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__DEVICE, newDevice, newDevice));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getIndication() {
+		if (indication == null) {
+			indication = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_USE_STATEMENT__INDICATION);
+		}
+		return indication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getBodySite() {
+		return bodySite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBodySite(CodeableConcept newBodySite, NotificationChain msgs) {
+		CodeableConcept oldBodySite = bodySite;
+		bodySite = newBodySite;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, oldBodySite, newBodySite);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBodySite(CodeableConcept newBodySite) {
+		if (newBodySite != bodySite) {
+			NotificationChain msgs = null;
+			if (bodySite != null)
+				msgs = ((InternalEObject)bodySite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
+			if (newBodySite != null)
+				msgs = ((InternalEObject)newBodySite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, null, msgs);
+			msgs = basicSetBodySite(newBodySite, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE, newBodySite, newBodySite));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.DEVICE_USE_STATEMENT__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
-				return basicSetBodySite(null, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
-				return basicSetWhenUsed(null, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
-				return basicSetDevice(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
-				return ((InternalEList<?>)getIndication()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__NOTES:
-				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
-				return basicSetRecordedOn(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
+				return basicSetWhenUsed(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_TIMING:
 				return basicSetTimingTiming(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_PERIOD:
 				return basicSetTimingPeriod(null, msgs);
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_DATE_TIME:
 				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
+				return basicSetRecordedOn(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__SOURCE:
+				return basicSetSource(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
+				return basicSetDevice(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
+				return ((InternalEList<?>)getIndication()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return basicSetBodySite(null, msgs);
+			case FhirPackage.DEVICE_USE_STATEMENT__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -601,28 +715,32 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
-				return getBodySite();
-			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
-				return getWhenUsed();
-			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
-				return getDevice();
 			case FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
-				return getIndication();
-			case FhirPackage.DEVICE_USE_STATEMENT__NOTES:
-				return getNotes();
-			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
-				return getRecordedOn();
+			case FhirPackage.DEVICE_USE_STATEMENT__STATUS:
+				return getStatus();
 			case FhirPackage.DEVICE_USE_STATEMENT__SUBJECT:
 				return getSubject();
+			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
+				return getWhenUsed();
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_TIMING:
 				return getTimingTiming();
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_PERIOD:
 				return getTimingPeriod();
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_DATE_TIME:
 				return getTimingDateTime();
+			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
+				return getRecordedOn();
+			case FhirPackage.DEVICE_USE_STATEMENT__SOURCE:
+				return getSource();
+			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
+				return getDevice();
+			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
+				return getIndication();
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return getBodySite();
+			case FhirPackage.DEVICE_USE_STATEMENT__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -636,32 +754,18 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
-				setBodySite((CodeableConcept)newValue);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
-				setWhenUsed((Period)newValue);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
-				setDevice((Reference)newValue);
-				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
-				getIndication().clear();
-				getIndication().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__NOTES:
-				getNotes().clear();
-				getNotes().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
-				setRecordedOn((DateTime)newValue);
+			case FhirPackage.DEVICE_USE_STATEMENT__STATUS:
+				setStatus((DeviceUseStatementStatus)newValue);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__SUBJECT:
 				setSubject((Reference)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
+				setWhenUsed((Period)newValue);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_TIMING:
 				setTimingTiming((Timing)newValue);
@@ -671,6 +775,26 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
+				setRecordedOn((DateTime)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__SOURCE:
+				setSource((Reference)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
+				setDevice((Reference)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
+				getIndication().clear();
+				getIndication().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				setBodySite((CodeableConcept)newValue);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -684,29 +808,17 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
-				setBodySite((CodeableConcept)null);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
-				setWhenUsed((Period)null);
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
-				setDevice((Reference)null);
-				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
-				getIndication().clear();
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__NOTES:
-				getNotes().clear();
-				return;
-			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
-				setRecordedOn((DateTime)null);
+			case FhirPackage.DEVICE_USE_STATEMENT__STATUS:
+				setStatus((DeviceUseStatementStatus)null);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__SUBJECT:
 				setSubject((Reference)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
+				setWhenUsed((Period)null);
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_TIMING:
 				setTimingTiming((Timing)null);
@@ -716,6 +828,24 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 				return;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
+				setRecordedOn((DateTime)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__SOURCE:
+				setSource((Reference)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
+				setDevice((Reference)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
+				getIndication().clear();
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				setBodySite((CodeableConcept)null);
+				return;
+			case FhirPackage.DEVICE_USE_STATEMENT__NOTE:
+				getNote().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -729,28 +859,32 @@ public class DeviceUseStatementImpl extends DomainResourceImpl implements Device
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
-				return bodySite != null;
-			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
-				return whenUsed != null;
-			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
-				return device != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
-				return indication != null && !indication.isEmpty();
-			case FhirPackage.DEVICE_USE_STATEMENT__NOTES:
-				return notes != null && !notes.isEmpty();
-			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
-				return recordedOn != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__STATUS:
+				return status != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__SUBJECT:
 				return subject != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__WHEN_USED:
+				return whenUsed != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_TIMING:
 				return timingTiming != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_PERIOD:
 				return timingPeriod != null;
 			case FhirPackage.DEVICE_USE_STATEMENT__TIMING_DATE_TIME:
 				return timingDateTime != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__RECORDED_ON:
+				return recordedOn != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__SOURCE:
+				return source != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__DEVICE:
+				return device != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__INDICATION:
+				return indication != null && !indication.isEmpty();
+			case FhirPackage.DEVICE_USE_STATEMENT__BODY_SITE:
+				return bodySite != null;
+			case FhirPackage.DEVICE_USE_STATEMENT__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

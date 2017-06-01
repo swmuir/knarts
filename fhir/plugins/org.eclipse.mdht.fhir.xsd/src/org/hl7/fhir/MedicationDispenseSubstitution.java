@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.MedicationDispenseSubstitution#getWasSubstituted <em>Was Substituted</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispenseSubstitution#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispenseSubstitution#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispenseSubstitution#getResponsibleParty <em>Responsible Party</em>}</li>
@@ -28,6 +29,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MedicationDispenseSubstitution extends BackboneElement {
 	/**
+	 * Returns the value of the '<em><b>Was Substituted</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * True if the dispenser dispensed a different drug or product from what was prescribed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Was Substituted</em>' containment reference.
+	 * @see #setWasSubstituted(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispenseSubstitution_WasSubstituted()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='wasSubstituted' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getWasSubstituted();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispenseSubstitution#getWasSubstituted <em>Was Substituted</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Was Substituted</em>' containment reference.
+	 * @see #getWasSubstituted()
+	 * @generated
+	 */
+	void setWasSubstituted(org.hl7.fhir.Boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,7 +64,7 @@ public interface MedicationDispenseSubstitution extends BackboneElement {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispenseSubstitution_Type()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */

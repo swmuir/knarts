@@ -25,11 +25,11 @@ import org.hl7.fhir.UnsignedInt;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getBenefitUnsignedInt <em>Benefit Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getBenefitString <em>Benefit String</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getBenefitMoney <em>Benefit Money</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getBenefitUsedUnsignedInt <em>Benefit Used Unsigned Int</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getBenefitUsedMoney <em>Benefit Used Money</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getAllowedUnsignedInt <em>Allowed Unsigned Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getAllowedString <em>Allowed String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getAllowedMoney <em>Allowed Money</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getUsedUnsignedInt <em>Used Unsigned Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseFinancialImpl#getUsedMoney <em>Used Money</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,54 +46,54 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getBenefitUnsignedInt() <em>Benefit Unsigned Int</em>}' containment reference.
+	 * The cached value of the '{@link #getAllowedUnsignedInt() <em>Allowed Unsigned Int</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitUnsignedInt()
+	 * @see #getAllowedUnsignedInt()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnsignedInt benefitUnsignedInt;
+	protected UnsignedInt allowedUnsignedInt;
 
 	/**
-	 * The cached value of the '{@link #getBenefitString() <em>Benefit String</em>}' containment reference.
+	 * The cached value of the '{@link #getAllowedString() <em>Allowed String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitString()
+	 * @see #getAllowedString()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String benefitString;
+	protected org.hl7.fhir.String allowedString;
 
 	/**
-	 * The cached value of the '{@link #getBenefitMoney() <em>Benefit Money</em>}' containment reference.
+	 * The cached value of the '{@link #getAllowedMoney() <em>Allowed Money</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitMoney()
+	 * @see #getAllowedMoney()
 	 * @generated
 	 * @ordered
 	 */
-	protected Money benefitMoney;
+	protected Money allowedMoney;
 
 	/**
-	 * The cached value of the '{@link #getBenefitUsedUnsignedInt() <em>Benefit Used Unsigned Int</em>}' containment reference.
+	 * The cached value of the '{@link #getUsedUnsignedInt() <em>Used Unsigned Int</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitUsedUnsignedInt()
+	 * @see #getUsedUnsignedInt()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnsignedInt benefitUsedUnsignedInt;
+	protected UnsignedInt usedUnsignedInt;
 
 	/**
-	 * The cached value of the '{@link #getBenefitUsedMoney() <em>Benefit Used Money</em>}' containment reference.
+	 * The cached value of the '{@link #getUsedMoney() <em>Used Money</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBenefitUsedMoney()
+	 * @see #getUsedMoney()
 	 * @generated
 	 * @ordered
 	 */
-	protected Money benefitUsedMoney;
+	protected Money usedMoney;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,8 +162,8 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedInt getBenefitUnsignedInt() {
-		return benefitUnsignedInt;
+	public UnsignedInt getAllowedUnsignedInt() {
+		return allowedUnsignedInt;
 	}
 
 	/**
@@ -171,11 +171,11 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitUnsignedInt(UnsignedInt newBenefitUnsignedInt, NotificationChain msgs) {
-		UnsignedInt oldBenefitUnsignedInt = benefitUnsignedInt;
-		benefitUnsignedInt = newBenefitUnsignedInt;
+	public NotificationChain basicSetAllowedUnsignedInt(UnsignedInt newAllowedUnsignedInt, NotificationChain msgs) {
+		UnsignedInt oldAllowedUnsignedInt = allowedUnsignedInt;
+		allowedUnsignedInt = newAllowedUnsignedInt;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT, oldBenefitUnsignedInt, newBenefitUnsignedInt);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT, oldAllowedUnsignedInt, newAllowedUnsignedInt);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -186,18 +186,18 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitUnsignedInt(UnsignedInt newBenefitUnsignedInt) {
-		if (newBenefitUnsignedInt != benefitUnsignedInt) {
+	public void setAllowedUnsignedInt(UnsignedInt newAllowedUnsignedInt) {
+		if (newAllowedUnsignedInt != allowedUnsignedInt) {
 			NotificationChain msgs = null;
-			if (benefitUnsignedInt != null)
-				msgs = ((InternalEObject)benefitUnsignedInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT, null, msgs);
-			if (newBenefitUnsignedInt != null)
-				msgs = ((InternalEObject)newBenefitUnsignedInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT, null, msgs);
-			msgs = basicSetBenefitUnsignedInt(newBenefitUnsignedInt, msgs);
+			if (allowedUnsignedInt != null)
+				msgs = ((InternalEObject)allowedUnsignedInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT, null, msgs);
+			if (newAllowedUnsignedInt != null)
+				msgs = ((InternalEObject)newAllowedUnsignedInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT, null, msgs);
+			msgs = basicSetAllowedUnsignedInt(newAllowedUnsignedInt, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT, newBenefitUnsignedInt, newBenefitUnsignedInt));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT, newAllowedUnsignedInt, newAllowedUnsignedInt));
 	}
 
 	/**
@@ -205,8 +205,8 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getBenefitString() {
-		return benefitString;
+	public org.hl7.fhir.String getAllowedString() {
+		return allowedString;
 	}
 
 	/**
@@ -214,11 +214,11 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitString(org.hl7.fhir.String newBenefitString, NotificationChain msgs) {
-		org.hl7.fhir.String oldBenefitString = benefitString;
-		benefitString = newBenefitString;
+	public NotificationChain basicSetAllowedString(org.hl7.fhir.String newAllowedString, NotificationChain msgs) {
+		org.hl7.fhir.String oldAllowedString = allowedString;
+		allowedString = newAllowedString;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING, oldBenefitString, newBenefitString);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING, oldAllowedString, newAllowedString);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -229,18 +229,18 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitString(org.hl7.fhir.String newBenefitString) {
-		if (newBenefitString != benefitString) {
+	public void setAllowedString(org.hl7.fhir.String newAllowedString) {
+		if (newAllowedString != allowedString) {
 			NotificationChain msgs = null;
-			if (benefitString != null)
-				msgs = ((InternalEObject)benefitString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING, null, msgs);
-			if (newBenefitString != null)
-				msgs = ((InternalEObject)newBenefitString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING, null, msgs);
-			msgs = basicSetBenefitString(newBenefitString, msgs);
+			if (allowedString != null)
+				msgs = ((InternalEObject)allowedString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING, null, msgs);
+			if (newAllowedString != null)
+				msgs = ((InternalEObject)newAllowedString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING, null, msgs);
+			msgs = basicSetAllowedString(newAllowedString, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING, newBenefitString, newBenefitString));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING, newAllowedString, newAllowedString));
 	}
 
 	/**
@@ -248,8 +248,8 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getBenefitMoney() {
-		return benefitMoney;
+	public Money getAllowedMoney() {
+		return allowedMoney;
 	}
 
 	/**
@@ -257,11 +257,11 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitMoney(Money newBenefitMoney, NotificationChain msgs) {
-		Money oldBenefitMoney = benefitMoney;
-		benefitMoney = newBenefitMoney;
+	public NotificationChain basicSetAllowedMoney(Money newAllowedMoney, NotificationChain msgs) {
+		Money oldAllowedMoney = allowedMoney;
+		allowedMoney = newAllowedMoney;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY, oldBenefitMoney, newBenefitMoney);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY, oldAllowedMoney, newAllowedMoney);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -272,18 +272,18 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitMoney(Money newBenefitMoney) {
-		if (newBenefitMoney != benefitMoney) {
+	public void setAllowedMoney(Money newAllowedMoney) {
+		if (newAllowedMoney != allowedMoney) {
 			NotificationChain msgs = null;
-			if (benefitMoney != null)
-				msgs = ((InternalEObject)benefitMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY, null, msgs);
-			if (newBenefitMoney != null)
-				msgs = ((InternalEObject)newBenefitMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY, null, msgs);
-			msgs = basicSetBenefitMoney(newBenefitMoney, msgs);
+			if (allowedMoney != null)
+				msgs = ((InternalEObject)allowedMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY, null, msgs);
+			if (newAllowedMoney != null)
+				msgs = ((InternalEObject)newAllowedMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY, null, msgs);
+			msgs = basicSetAllowedMoney(newAllowedMoney, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY, newBenefitMoney, newBenefitMoney));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY, newAllowedMoney, newAllowedMoney));
 	}
 
 	/**
@@ -291,8 +291,8 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnsignedInt getBenefitUsedUnsignedInt() {
-		return benefitUsedUnsignedInt;
+	public UnsignedInt getUsedUnsignedInt() {
+		return usedUnsignedInt;
 	}
 
 	/**
@@ -300,11 +300,11 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitUsedUnsignedInt(UnsignedInt newBenefitUsedUnsignedInt, NotificationChain msgs) {
-		UnsignedInt oldBenefitUsedUnsignedInt = benefitUsedUnsignedInt;
-		benefitUsedUnsignedInt = newBenefitUsedUnsignedInt;
+	public NotificationChain basicSetUsedUnsignedInt(UnsignedInt newUsedUnsignedInt, NotificationChain msgs) {
+		UnsignedInt oldUsedUnsignedInt = usedUnsignedInt;
+		usedUnsignedInt = newUsedUnsignedInt;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT, oldBenefitUsedUnsignedInt, newBenefitUsedUnsignedInt);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT, oldUsedUnsignedInt, newUsedUnsignedInt);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -315,18 +315,18 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitUsedUnsignedInt(UnsignedInt newBenefitUsedUnsignedInt) {
-		if (newBenefitUsedUnsignedInt != benefitUsedUnsignedInt) {
+	public void setUsedUnsignedInt(UnsignedInt newUsedUnsignedInt) {
+		if (newUsedUnsignedInt != usedUnsignedInt) {
 			NotificationChain msgs = null;
-			if (benefitUsedUnsignedInt != null)
-				msgs = ((InternalEObject)benefitUsedUnsignedInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT, null, msgs);
-			if (newBenefitUsedUnsignedInt != null)
-				msgs = ((InternalEObject)newBenefitUsedUnsignedInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT, null, msgs);
-			msgs = basicSetBenefitUsedUnsignedInt(newBenefitUsedUnsignedInt, msgs);
+			if (usedUnsignedInt != null)
+				msgs = ((InternalEObject)usedUnsignedInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT, null, msgs);
+			if (newUsedUnsignedInt != null)
+				msgs = ((InternalEObject)newUsedUnsignedInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT, null, msgs);
+			msgs = basicSetUsedUnsignedInt(newUsedUnsignedInt, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT, newBenefitUsedUnsignedInt, newBenefitUsedUnsignedInt));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT, newUsedUnsignedInt, newUsedUnsignedInt));
 	}
 
 	/**
@@ -334,8 +334,8 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getBenefitUsedMoney() {
-		return benefitUsedMoney;
+	public Money getUsedMoney() {
+		return usedMoney;
 	}
 
 	/**
@@ -343,11 +343,11 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBenefitUsedMoney(Money newBenefitUsedMoney, NotificationChain msgs) {
-		Money oldBenefitUsedMoney = benefitUsedMoney;
-		benefitUsedMoney = newBenefitUsedMoney;
+	public NotificationChain basicSetUsedMoney(Money newUsedMoney, NotificationChain msgs) {
+		Money oldUsedMoney = usedMoney;
+		usedMoney = newUsedMoney;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY, oldBenefitUsedMoney, newBenefitUsedMoney);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY, oldUsedMoney, newUsedMoney);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -358,18 +358,18 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBenefitUsedMoney(Money newBenefitUsedMoney) {
-		if (newBenefitUsedMoney != benefitUsedMoney) {
+	public void setUsedMoney(Money newUsedMoney) {
+		if (newUsedMoney != usedMoney) {
 			NotificationChain msgs = null;
-			if (benefitUsedMoney != null)
-				msgs = ((InternalEObject)benefitUsedMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY, null, msgs);
-			if (newBenefitUsedMoney != null)
-				msgs = ((InternalEObject)newBenefitUsedMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY, null, msgs);
-			msgs = basicSetBenefitUsedMoney(newBenefitUsedMoney, msgs);
+			if (usedMoney != null)
+				msgs = ((InternalEObject)usedMoney).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY, null, msgs);
+			if (newUsedMoney != null)
+				msgs = ((InternalEObject)newUsedMoney).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY, null, msgs);
+			msgs = basicSetUsedMoney(newUsedMoney, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY, newBenefitUsedMoney, newBenefitUsedMoney));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY, newUsedMoney, newUsedMoney));
 	}
 
 	/**
@@ -382,16 +382,16 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT:
-				return basicSetBenefitUnsignedInt(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING:
-				return basicSetBenefitString(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY:
-				return basicSetBenefitMoney(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
-				return basicSetBenefitUsedUnsignedInt(null, msgs);
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY:
-				return basicSetBenefitUsedMoney(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT:
+				return basicSetAllowedUnsignedInt(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING:
+				return basicSetAllowedString(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY:
+				return basicSetAllowedMoney(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT:
+				return basicSetUsedUnsignedInt(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY:
+				return basicSetUsedMoney(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -406,16 +406,16 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__TYPE:
 				return getType();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT:
-				return getBenefitUnsignedInt();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING:
-				return getBenefitString();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY:
-				return getBenefitMoney();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
-				return getBenefitUsedUnsignedInt();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY:
-				return getBenefitUsedMoney();
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT:
+				return getAllowedUnsignedInt();
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING:
+				return getAllowedString();
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY:
+				return getAllowedMoney();
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT:
+				return getUsedUnsignedInt();
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY:
+				return getUsedMoney();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -431,20 +431,20 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT:
-				setBenefitUnsignedInt((UnsignedInt)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT:
+				setAllowedUnsignedInt((UnsignedInt)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING:
-				setBenefitString((org.hl7.fhir.String)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING:
+				setAllowedString((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY:
-				setBenefitMoney((Money)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY:
+				setAllowedMoney((Money)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
-				setBenefitUsedUnsignedInt((UnsignedInt)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT:
+				setUsedUnsignedInt((UnsignedInt)newValue);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY:
-				setBenefitUsedMoney((Money)newValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY:
+				setUsedMoney((Money)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -461,20 +461,20 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT:
-				setBenefitUnsignedInt((UnsignedInt)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT:
+				setAllowedUnsignedInt((UnsignedInt)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING:
-				setBenefitString((org.hl7.fhir.String)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING:
+				setAllowedString((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY:
-				setBenefitMoney((Money)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY:
+				setAllowedMoney((Money)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
-				setBenefitUsedUnsignedInt((UnsignedInt)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT:
+				setUsedUnsignedInt((UnsignedInt)null);
 				return;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY:
-				setBenefitUsedMoney((Money)null);
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY:
+				setUsedMoney((Money)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -490,16 +490,16 @@ public class EligibilityResponseFinancialImpl extends BackboneElementImpl implem
 		switch (featureID) {
 			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__TYPE:
 				return type != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_UNSIGNED_INT:
-				return benefitUnsignedInt != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_STRING:
-				return benefitString != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_MONEY:
-				return benefitMoney != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_UNSIGNED_INT:
-				return benefitUsedUnsignedInt != null;
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__BENEFIT_USED_MONEY:
-				return benefitUsedMoney != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_UNSIGNED_INT:
+				return allowedUnsignedInt != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_STRING:
+				return allowedString != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__ALLOWED_MONEY:
+				return allowedMoney != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_UNSIGNED_INT:
+				return usedUnsignedInt != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL__USED_MONEY:
+				return usedMoney != null;
 		}
 		return super.eIsSet(featureID);
 	}

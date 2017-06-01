@@ -88,7 +88,17 @@ public enum MedicationRequestStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DRAFT(6, "draft", "draft");
+	DRAFT(6, "draft", "draft"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(7, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -189,6 +199,20 @@ public enum MedicationRequestStatusList implements Enumerator {
 	public static final int DRAFT_VALUE = 6;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Medication Request Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,6 +227,7 @@ public enum MedicationRequestStatusList implements Enumerator {
 			ENTERED_IN_ERROR,
 			STOPPED,
 			DRAFT,
+			UNKNOWN,
 		};
 
 	/**
@@ -266,6 +291,7 @@ public enum MedicationRequestStatusList implements Enumerator {
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case STOPPED_VALUE: return STOPPED;
 			case DRAFT_VALUE: return DRAFT;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

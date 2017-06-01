@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a healthcare consumerâ€™s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+ * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ConsentExcept#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ConsentExcept#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.ConsentExcept#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConsentExcept#getDataPeriod <em>Data Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ConsentExcept#getData <em>Data</em>}</li>
  * </ul>
  *
@@ -64,7 +65,7 @@ public interface ConsentExcept extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The timeframe in which data is controlled by this exception.
+	 * The timeframe in this exception is valid.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Period</em>' containment reference.
 	 * @see #setPeriod(Period)
@@ -87,7 +88,7 @@ public interface ConsentExcept extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ConsentActor}.
+	 * The list contents are of type {@link org.hl7.fhir.ConsentActor1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -99,7 +100,7 @@ public interface ConsentExcept extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='actor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ConsentActor> getActor();
+	EList<ConsentActor1> getActor();
 
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
@@ -171,7 +172,7 @@ public interface ConsentExcept extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element.
+	 * If this code is found in an instance, then the exception applies.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConsentExcept_Code()
@@ -182,8 +183,34 @@ public interface ConsentExcept extends BackboneElement {
 	EList<Coding> getCode();
 
 	/**
+	 * Returns the value of the '<em><b>Data Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Clinical or Operational Relevant period of time that bounds the data controlled by this exception.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Data Period</em>' containment reference.
+	 * @see #setDataPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getConsentExcept_DataPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dataPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getDataPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConsentExcept#getDataPeriod <em>Data Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Period</em>' containment reference.
+	 * @see #getDataPeriod()
+	 * @generated
+	 */
+	void setDataPeriod(Period value);
+
+	/**
 	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ConsentData}.
+	 * The list contents are of type {@link org.hl7.fhir.ConsentData1}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -195,6 +222,6 @@ public interface ConsentExcept extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ConsentData> getData();
+	EList<ConsentData1> getData();
 
 } // ConsentExcept

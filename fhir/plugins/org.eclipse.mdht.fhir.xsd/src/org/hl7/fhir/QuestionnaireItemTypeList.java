@@ -91,16 +91,6 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	DATE_TIME(6, "dateTime", "dateTime"),
 
 	/**
-	 * The '<em><b>Instant</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INSTANT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INSTANT(7, "instant", "instant"),
-
-	/**
 	 * The '<em><b>Time</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,7 +98,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TIME(8, "time", "time"),
+	TIME(7, "time", "time"),
 
 	/**
 	 * The '<em><b>String</b></em>' literal object.
@@ -118,7 +108,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(9, "string", "string"),
+	STRING(8, "string", "string"),
 
 	/**
 	 * The '<em><b>Text</b></em>' literal object.
@@ -128,7 +118,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEXT(10, "text", "text"),
+	TEXT(9, "text", "text"),
 
 	/**
 	 * The '<em><b>Url</b></em>' literal object.
@@ -138,7 +128,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	URL(11, "url", "url"),
+	URL(10, "url", "url"),
 
 	/**
 	 * The '<em><b>Choice</b></em>' literal object.
@@ -148,7 +138,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHOICE(12, "choice", "choice"),
+	CHOICE(11, "choice", "choice"),
 
 	/**
 	 * The '<em><b>Open Choice</b></em>' literal object.
@@ -158,7 +148,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPEN_CHOICE(13, "openChoice", "open-choice"),
+	OPEN_CHOICE(12, "openChoice", "open-choice"),
 
 	/**
 	 * The '<em><b>Attachment</b></em>' literal object.
@@ -168,7 +158,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ATTACHMENT(14, "attachment", "attachment"),
+	ATTACHMENT(13, "attachment", "attachment"),
 
 	/**
 	 * The '<em><b>Reference</b></em>' literal object.
@@ -178,7 +168,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REFERENCE(15, "reference", "reference"),
+	REFERENCE(14, "reference", "reference"),
 
 	/**
 	 * The '<em><b>Quantity</b></em>' literal object.
@@ -188,7 +178,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUANTITY(16, "quantity", "quantity");
+	QUANTITY(15, "quantity", "quantity");
 
 	/**
 	 * The '<em><b>Group</b></em>' literal value.
@@ -289,20 +279,6 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	public static final int DATE_TIME_VALUE = 6;
 
 	/**
-	 * The '<em><b>Instant</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Instant
-	 * <!-- end-model-doc -->
-	 * @see #INSTANT
-	 * @model name="instant"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int INSTANT_VALUE = 7;
-
-	/**
 	 * The '<em><b>Time</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,7 +290,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TIME_VALUE = 8;
+	public static final int TIME_VALUE = 7;
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -328,7 +304,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRING_VALUE = 9;
+	public static final int STRING_VALUE = 8;
 
 	/**
 	 * The '<em><b>Text</b></em>' literal value.
@@ -342,7 +318,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TEXT_VALUE = 10;
+	public static final int TEXT_VALUE = 9;
 
 	/**
 	 * The '<em><b>Url</b></em>' literal value.
@@ -356,7 +332,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int URL_VALUE = 11;
+	public static final int URL_VALUE = 10;
 
 	/**
 	 * The '<em><b>Choice</b></em>' literal value.
@@ -370,7 +346,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CHOICE_VALUE = 12;
+	public static final int CHOICE_VALUE = 11;
 
 	/**
 	 * The '<em><b>Open Choice</b></em>' literal value.
@@ -384,7 +360,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPEN_CHOICE_VALUE = 13;
+	public static final int OPEN_CHOICE_VALUE = 12;
 
 	/**
 	 * The '<em><b>Attachment</b></em>' literal value.
@@ -398,7 +374,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTACHMENT_VALUE = 14;
+	public static final int ATTACHMENT_VALUE = 13;
 
 	/**
 	 * The '<em><b>Reference</b></em>' literal value.
@@ -412,7 +388,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REFERENCE_VALUE = 15;
+	public static final int REFERENCE_VALUE = 14;
 
 	/**
 	 * The '<em><b>Quantity</b></em>' literal value.
@@ -426,7 +402,7 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QUANTITY_VALUE = 16;
+	public static final int QUANTITY_VALUE = 15;
 
 	/**
 	 * An array of all the '<em><b>Questionnaire Item Type List</b></em>' enumerators.
@@ -443,7 +419,6 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 			INTEGER,
 			DATE,
 			DATE_TIME,
-			INSTANT,
 			TIME,
 			STRING,
 			TEXT,
@@ -516,7 +491,6 @@ public enum QuestionnaireItemTypeList implements Enumerator {
 			case INTEGER_VALUE: return INTEGER;
 			case DATE_VALUE: return DATE;
 			case DATE_TIME_VALUE: return DATE_TIME;
-			case INSTANT_VALUE: return INSTANT;
 			case TIME_VALUE: return TIME;
 			case STRING_VALUE: return STRING;
 			case TEXT_VALUE: return TEXT;

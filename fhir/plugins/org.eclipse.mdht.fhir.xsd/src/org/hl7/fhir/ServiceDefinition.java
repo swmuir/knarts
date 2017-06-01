@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getUsage <em>Usage</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.ServiceDefinition#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceDefinition#getRelatedArtifact <em>Related Artifact</em>}</li>
@@ -55,7 +55,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -97,7 +97,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+	 * The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -201,7 +201,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -227,7 +227,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
+	 * The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -249,11 +249,37 @@ public interface ServiceDefinition extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the individual or organization that published the service definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Publisher</em>' containment reference.
+	 * @see #setPublisher(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getServiceDefinition_Publisher()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPublisher();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ServiceDefinition#getPublisher <em>Publisher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Publisher</em>' containment reference.
+	 * @see #getPublisher()
+	 * @generated
+	 */
+	void setPublisher(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A free text natural language description of the service definition from the consumer's perspective.
+	 * A free text natural language description of the service definition from a consumer's perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Markdown)
@@ -279,7 +305,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explains why this service definition is needed and why it has been designed as it has.
+	 * Explaination of why this service definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -331,7 +357,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+	 * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Approval Date</em>' containment reference.
 	 * @see #setApprovalDate(Date)
@@ -357,7 +383,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)
@@ -383,7 +409,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period during which the service definition content was or is planned to be effective.
+	 * The period during which the service definition content was or is planned to be in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Effective Period</em>' containment reference.
 	 * @see #setEffectivePeriod(Period)
@@ -410,7 +436,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate service definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceDefinition_UseContext()
@@ -426,7 +452,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A jurisdiction in which the service definition is intended to be used.
+	 * A legal or geographic region in which the service definition is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceDefinition_Jurisdiction()
@@ -442,7 +468,7 @@ public interface ServiceDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinical topics related to the content of the module.
+	 * Descriptive topics related to the module. Topics provide a high-level categorization of the module that can be useful for filtering and searching.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Topic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceDefinition_Topic()
@@ -467,32 +493,6 @@ public interface ServiceDefinition extends DomainResource {
 	 * @generated
 	 */
 	EList<Contributor> getContributor();
-
-	/**
-	 * Returns the value of the '<em><b>Publisher</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the service definition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Publisher</em>' containment reference.
-	 * @see #setPublisher(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getServiceDefinition_Publisher()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publisher' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublisher();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ServiceDefinition#getPublisher <em>Publisher</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Publisher</em>' containment reference.
-	 * @see #getPublisher()
-	 * @generated
-	 */
-	void setPublisher(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.

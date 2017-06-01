@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Financial instrument which may be used to pay for or reimburse health care products and services.
+ * Financial instrument which may be used to reimburse or pay for health care products and services.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getPayor <em>Payor</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getGrouping <em>Grouping</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getOrder <em>Order</em>}</li>
@@ -65,13 +65,13 @@ public interface Coverage extends DomainResource {
 	 * The status of the resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(Code)
+	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getCoverage_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getStatus();
+	FinancialResourceStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getStatus <em>Status</em>}' containment reference.
@@ -81,7 +81,7 @@ public interface Coverage extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(Code value);
+	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -282,30 +282,30 @@ public interface Coverage extends DomainResource {
 	EList<Reference> getPayor();
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Grouping</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Group</em>' containment reference.
-	 * @see #setGroup(CoverageGroup)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Group()
+	 * @return the value of the '<em>Grouping</em>' containment reference.
+	 * @see #setGrouping(CoverageGrouping)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Grouping()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='group' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='grouping' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CoverageGroup getGroup();
+	CoverageGrouping getGrouping();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getGroup <em>Group</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getGrouping <em>Grouping</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' containment reference.
-	 * @see #getGroup()
+	 * @param value the new value of the '<em>Grouping</em>' containment reference.
+	 * @see #getGrouping()
 	 * @generated
 	 */
-	void setGroup(CoverageGroup value);
+	void setGrouping(CoverageGrouping value);
 
 	/**
 	 * Returns the value of the '<em><b>Dependent</b></em>' containment reference.

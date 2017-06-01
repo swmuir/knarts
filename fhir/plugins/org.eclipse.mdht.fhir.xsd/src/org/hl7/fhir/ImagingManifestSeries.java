@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+ * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ImagingManifestSeries#getUid <em>Uid</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingManifestSeries#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingManifestSeries#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingManifestSeries#getInstance <em>Instance</em>}</li>
  * </ul>
  *
@@ -54,20 +54,20 @@ public interface ImagingManifestSeries extends BackboneElement {
 	void setUid(Oid value);
 
 	/**
-	 * Returns the value of the '<em><b>Base Location</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImagingManifestBaseLocation1}.
+	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Methods of accessing (e.g. retrieving) the series.
+	 * The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Base Location</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImagingManifestSeries_BaseLocation()
+	 * @return the value of the '<em>Endpoint</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingManifestSeries_Endpoint()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='baseLocation' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImagingManifestBaseLocation1> getBaseLocation();
+	EList<Reference> getEndpoint();
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' containment reference list.

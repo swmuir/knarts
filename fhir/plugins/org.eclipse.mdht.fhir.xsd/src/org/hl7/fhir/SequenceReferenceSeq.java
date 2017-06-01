@@ -88,7 +88,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, â€œNG_â€ identifies reference sequence for genes, â€œNM_â€ for messenger RNA transcripts, and â€œNP_â€ for amino acid sequences.
+	 * Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference Seq Id</em>' containment reference.
 	 * @see #setReferenceSeqId(CodeableConcept)
@@ -140,7 +140,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A Reference Sequence string.
+	 * A string like "ACGT".
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference Seq String</em>' containment reference.
 	 * @see #setReferenceSeqString(org.hl7.fhir.String)

@@ -20,16 +20,15 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.Endpoint#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Endpoint#getConnectionType <em>Connection Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Endpoint#getConnectionType <em>Connection Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getPayloadType <em>Payload Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getPayloadMimeType <em>Payload Mime Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.Endpoint#getHeader <em>Header</em>}</li>
- *   <li>{@link org.hl7.fhir.Endpoint#getPublicKey <em>Public Key</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEndpoint()
@@ -78,6 +77,32 @@ public interface Endpoint extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(EndpointStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Connection Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Connection Type</em>' containment reference.
+	 * @see #setConnectionType(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getEndpoint_ConnectionType()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='connectionType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Coding getConnectionType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Endpoint#getConnectionType <em>Connection Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connection Type</em>' containment reference.
+	 * @see #getConnectionType()
+	 * @generated
+	 */
+	void setConnectionType(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -174,32 +199,6 @@ public interface Endpoint extends DomainResource {
 	void setPeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Connection Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Connection Type</em>' containment reference.
-	 * @see #setConnectionType(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getEndpoint_ConnectionType()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='connectionType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getConnectionType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Endpoint#getConnectionType <em>Connection Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connection Type</em>' containment reference.
-	 * @see #getConnectionType()
-	 * @generated
-	 */
-	void setConnectionType(Coding value);
-
-	/**
 	 * Returns the value of the '<em><b>Payload Type</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -236,7 +235,7 @@ public interface Endpoint extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The uri that describes the actual end-point to send messages to.
+	 * The uri that describes the actual end-point to connect to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference.
 	 * @see #setAddress(Uri)
@@ -272,31 +271,5 @@ public interface Endpoint extends DomainResource {
 	 * @generated
 	 */
 	EList<org.hl7.fhir.String> getHeader();
-
-	/**
-	 * Returns the value of the '<em><b>Public Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Public Key</em>' containment reference.
-	 * @see #setPublicKey(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getEndpoint_PublicKey()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='publicKey' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPublicKey();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Endpoint#getPublicKey <em>Public Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Public Key</em>' containment reference.
-	 * @see #getPublicKey()
-	 * @generated
-	 */
-	void setPublicKey(org.hl7.fhir.String value);
 
 } // Endpoint

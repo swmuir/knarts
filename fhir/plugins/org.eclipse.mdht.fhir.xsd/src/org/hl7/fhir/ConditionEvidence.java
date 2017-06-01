@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
+ * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,30 +27,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ConditionEvidence extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A manifestation or symptom that led to the recording of this condition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(CodeableConcept)
+	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConditionEvidence_Code()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCode();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConditionEvidence#getCode <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(CodeableConcept value);
+	EList<CodeableConcept> getCode();
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.

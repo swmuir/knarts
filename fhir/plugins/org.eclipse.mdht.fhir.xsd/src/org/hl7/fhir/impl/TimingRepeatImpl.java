@@ -210,14 +210,14 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	protected EList<Time> timeOfDay;
 
 	/**
-	 * The cached value of the '{@link #getWhen() <em>When</em>}' containment reference.
+	 * The cached value of the '{@link #getWhen() <em>When</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getWhen()
 	 * @generated
 	 * @ordered
 	 */
-	protected EventTiming when;
+	protected EList<EventTiming> when;
 
 	/**
 	 * The cached value of the '{@link #getOffset() <em>Offset</em>}' containment reference.
@@ -836,42 +836,11 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventTiming getWhen() {
+	public EList<EventTiming> getWhen() {
+		if (when == null) {
+			when = new EObjectContainmentEList<EventTiming>(EventTiming.class, this, FhirPackage.TIMING_REPEAT__WHEN);
+		}
 		return when;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWhen(EventTiming newWhen, NotificationChain msgs) {
-		EventTiming oldWhen = when;
-		when = newWhen;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__WHEN, oldWhen, newWhen);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWhen(EventTiming newWhen) {
-		if (newWhen != when) {
-			NotificationChain msgs = null;
-			if (when != null)
-				msgs = ((InternalEObject)when).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__WHEN, null, msgs);
-			if (newWhen != null)
-				msgs = ((InternalEObject)newWhen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TIMING_REPEAT__WHEN, null, msgs);
-			msgs = basicSetWhen(newWhen, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__WHEN, newWhen, newWhen));
 	}
 
 	/**
@@ -956,7 +925,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
 				return ((InternalEList<?>)getTimeOfDay()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TIMING_REPEAT__WHEN:
-				return basicSetWhen(null, msgs);
+				return ((InternalEList<?>)getWhen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TIMING_REPEAT__OFFSET:
 				return basicSetOffset(null, msgs);
 		}
@@ -1066,7 +1035,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				getTimeOfDay().addAll((Collection<? extends Time>)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
-				setWhen((EventTiming)newValue);
+				getWhen().clear();
+				getWhen().addAll((Collection<? extends EventTiming>)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__OFFSET:
 				setOffset((UnsignedInt)newValue);
@@ -1129,7 +1099,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				getTimeOfDay().clear();
 				return;
 			case FhirPackage.TIMING_REPEAT__WHEN:
-				setWhen((EventTiming)null);
+				getWhen().clear();
 				return;
 			case FhirPackage.TIMING_REPEAT__OFFSET:
 				setOffset((UnsignedInt)null);
@@ -1177,7 +1147,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 			case FhirPackage.TIMING_REPEAT__TIME_OF_DAY:
 				return timeOfDay != null && !timeOfDay.isEmpty();
 			case FhirPackage.TIMING_REPEAT__WHEN:
-				return when != null;
+				return when != null && !when.isEmpty();
 			case FhirPackage.TIMING_REPEAT__OFFSET:
 				return offset != null;
 		}

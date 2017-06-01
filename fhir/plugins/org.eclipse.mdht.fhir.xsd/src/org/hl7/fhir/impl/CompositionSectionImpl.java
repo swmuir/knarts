@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CompositionSection;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.ListMode;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.Reference;
 
@@ -83,7 +83,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * @generated
 	 * @ordered
 	 */
-	protected Code mode;
+	protected ListMode mode;
 
 	/**
 	 * The cached value of the '{@link #getOrderedBy() <em>Ordered By</em>}' containment reference.
@@ -278,7 +278,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getMode() {
+	public ListMode getMode() {
 		return mode;
 	}
 
@@ -287,8 +287,8 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMode(Code newMode, NotificationChain msgs) {
-		Code oldMode = mode;
+	public NotificationChain basicSetMode(ListMode newMode, NotificationChain msgs) {
+		ListMode oldMode = mode;
 		mode = newMode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_SECTION__MODE, oldMode, newMode);
@@ -302,7 +302,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMode(Code newMode) {
+	public void setMode(ListMode newMode) {
 		if (newMode != mode) {
 			NotificationChain msgs = null;
 			if (mode != null)
@@ -501,7 +501,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				setText((Narrative)newValue);
 				return;
 			case FhirPackage.COMPOSITION_SECTION__MODE:
-				setMode((Code)newValue);
+				setMode((ListMode)newValue);
 				return;
 			case FhirPackage.COMPOSITION_SECTION__ORDERED_BY:
 				setOrderedBy((CodeableConcept)newValue);
@@ -539,7 +539,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				setText((Narrative)null);
 				return;
 			case FhirPackage.COMPOSITION_SECTION__MODE:
-				setMode((Code)null);
+				setMode((ListMode)null);
 				return;
 			case FhirPackage.COMPOSITION_SECTION__ORDERED_BY:
 				setOrderedBy((CodeableConcept)null);

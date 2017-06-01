@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.FHIRSubstanceStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Substance;
@@ -33,6 +34,7 @@ import org.hl7.fhir.SubstanceInstance;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.SubstanceImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceImpl#getDescription <em>Description</em>}</li>
@@ -52,6 +54,16 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected FHIRSubstanceStatus status;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -132,6 +144,49 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SUBSTANCE__IDENTIFIER);
 		}
 		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FHIRSubstanceStatus getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatus(FHIRSubstanceStatus newStatus, NotificationChain msgs) {
+		FHIRSubstanceStatus oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE__STATUS, oldStatus, newStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(FHIRSubstanceStatus newStatus) {
+		if (newStatus != status) {
+			NotificationChain msgs = null;
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -266,6 +321,8 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 		switch (featureID) {
 			case FhirPackage.SUBSTANCE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SUBSTANCE__STATUS:
+				return basicSetStatus(null, msgs);
 			case FhirPackage.SUBSTANCE__CATEGORY:
 				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUBSTANCE__CODE:
@@ -290,6 +347,8 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 		switch (featureID) {
 			case FhirPackage.SUBSTANCE__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.SUBSTANCE__STATUS:
+				return getStatus();
 			case FhirPackage.SUBSTANCE__CATEGORY:
 				return getCategory();
 			case FhirPackage.SUBSTANCE__CODE:
@@ -316,6 +375,9 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 			case FhirPackage.SUBSTANCE__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.SUBSTANCE__STATUS:
+				setStatus((FHIRSubstanceStatus)newValue);
 				return;
 			case FhirPackage.SUBSTANCE__CATEGORY:
 				getCategory().clear();
@@ -350,6 +412,9 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 			case FhirPackage.SUBSTANCE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.SUBSTANCE__STATUS:
+				setStatus((FHIRSubstanceStatus)null);
+				return;
 			case FhirPackage.SUBSTANCE__CATEGORY:
 				getCategory().clear();
 				return;
@@ -379,6 +444,8 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 		switch (featureID) {
 			case FhirPackage.SUBSTANCE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.SUBSTANCE__STATUS:
+				return status != null;
 			case FhirPackage.SUBSTANCE__CATEGORY:
 				return category != null && !category.isEmpty();
 			case FhirPackage.SUBSTANCE__CODE:

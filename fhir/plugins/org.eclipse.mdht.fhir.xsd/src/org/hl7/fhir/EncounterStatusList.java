@@ -41,6 +41,16 @@ public enum EncounterStatusList implements Enumerator {
 	ARRIVED(1, "arrived", "arrived"),
 
 	/**
+	 * The '<em><b>Triaged</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TRIAGED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TRIAGED(2, "triaged", "triaged"),
+
+	/**
 	 * The '<em><b>In Progress</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN_PROGRESS(2, "inProgress", "in-progress"),
+	IN_PROGRESS(3, "inProgress", "in-progress"),
 
 	/**
 	 * The '<em><b>Onleave</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ONLEAVE(3, "onleave", "onleave"),
+	ONLEAVE(4, "onleave", "onleave"),
 
 	/**
 	 * The '<em><b>Finished</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FINISHED(4, "finished", "finished"),
+	FINISHED(5, "finished", "finished"),
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(5, "cancelled", "cancelled"),
+	CANCELLED(6, "cancelled", "cancelled"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -88,7 +98,17 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(6, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(7, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(8, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Planned</b></em>' literal value.
@@ -119,6 +139,20 @@ public enum EncounterStatusList implements Enumerator {
 	public static final int ARRIVED_VALUE = 1;
 
 	/**
+	 * The '<em><b>Triaged</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Triaged
+	 * <!-- end-model-doc -->
+	 * @see #TRIAGED
+	 * @model name="triaged"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TRIAGED_VALUE = 2;
+
+	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +164,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_PROGRESS_VALUE = 2;
+	public static final int IN_PROGRESS_VALUE = 3;
 
 	/**
 	 * The '<em><b>Onleave</b></em>' literal value.
@@ -144,7 +178,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONLEAVE_VALUE = 3;
+	public static final int ONLEAVE_VALUE = 4;
 
 	/**
 	 * The '<em><b>Finished</b></em>' literal value.
@@ -158,7 +192,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FINISHED_VALUE = 4;
+	public static final int FINISHED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Cancelled</b></em>' literal value.
@@ -172,7 +206,7 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 5;
+	public static final int CANCELLED_VALUE = 6;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -186,7 +220,21 @@ public enum EncounterStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 6;
+	public static final int ENTERED_IN_ERROR_VALUE = 7;
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Encounter Status List</b></em>' enumerators.
@@ -198,11 +246,13 @@ public enum EncounterStatusList implements Enumerator {
 		new EncounterStatusList[] {
 			PLANNED,
 			ARRIVED,
+			TRIAGED,
 			IN_PROGRESS,
 			ONLEAVE,
 			FINISHED,
 			CANCELLED,
 			ENTERED_IN_ERROR,
+			UNKNOWN,
 		};
 
 	/**
@@ -261,11 +311,13 @@ public enum EncounterStatusList implements Enumerator {
 		switch (value) {
 			case PLANNED_VALUE: return PLANNED;
 			case ARRIVED_VALUE: return ARRIVED;
+			case TRIAGED_VALUE: return TRIAGED;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case ONLEAVE_VALUE: return ONLEAVE;
 			case FINISHED_VALUE: return FINISHED;
 			case CANCELLED_VALUE: return CANCELLED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

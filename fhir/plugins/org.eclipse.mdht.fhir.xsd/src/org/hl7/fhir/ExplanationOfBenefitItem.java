@@ -39,10 +39,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getUdi <em>Udi</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getSubSite <em>Sub Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getDetail <em>Detail</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getProsthesis <em>Prosthesis</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem()
@@ -548,6 +548,22 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	EList<CodeableConcept> getSubSite();
 
 	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A billed item may include goods or services provided in multiple encounters.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getEncounter();
+
+	/**
 	 * Returns the value of the '<em><b>Note Number</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
@@ -594,31 +610,5 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * @generated
 	 */
 	EList<ExplanationOfBenefitDetail> getDetail();
-
-	/**
-	 * Returns the value of the '<em><b>Prosthesis</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The materials and placement date of prior fixed prosthesis.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Prosthesis</em>' containment reference.
-	 * @see #setProsthesis(ExplanationOfBenefitProsthesis)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Prosthesis()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prosthesis' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	ExplanationOfBenefitProsthesis getProsthesis();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitItem#getProsthesis <em>Prosthesis</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prosthesis</em>' containment reference.
-	 * @see #getProsthesis()
-	 * @generated
-	 */
-	void setProsthesis(ExplanationOfBenefitProsthesis value);
 
 } // ExplanationOfBenefitItem
