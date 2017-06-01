@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImplementationGuideGlobal;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.ResourceType;
  *
  * @generated
  */
+@XmlType(name = "ImplementationGuideGlobal", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImplementationGuideGlobal")
 public class ImplementationGuideGlobalImpl extends BackboneElementImpl implements ImplementationGuideGlobal {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -74,6 +82,8 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ResourceType getType() {
 		return type;
 	}
@@ -117,6 +127,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getProfile() {
 		return profile;
 	}

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,7 @@ import org.hl7.fhir.MessageHeaderDestination;
 import org.hl7.fhir.MessageHeaderResponse;
 import org.hl7.fhir.MessageHeaderSource;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +57,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MessageHeader", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MessageHeader")
 public class MessageHeaderImpl extends DomainResourceImpl implements MessageHeader {
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
@@ -196,6 +204,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getEvent() {
 		return event;
 	}
@@ -239,6 +248,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MessageHeaderDestination> getDestination() {
 		if (destination == null) {
 			destination = new EObjectContainmentEList<MessageHeaderDestination>(MessageHeaderDestination.class, this, FhirPackage.MESSAGE_HEADER__DESTINATION);
@@ -337,6 +347,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
+	@XmlElement(required = true)
 	public Instant getTimestamp() {
 		return timestamp;
 	}
@@ -466,6 +478,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public MessageHeaderSource getSource() {
 		return source;
 	}
@@ -638,6 +651,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getFocus() {
 		if (focus == null) {
 			focus = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_HEADER__FOCUS);

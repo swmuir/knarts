@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.TestScriptRulesetImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='TestScript.Ruleset' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptRulesetImplAdapter.class)
 public interface TestScriptRuleset extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.

@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +18,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DeviceComponentProductionSpecification;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +35,8 @@ import org.hl7.fhir.Identifier;
  *
  * @generated
  */
+@XmlType(name = "DeviceComponentProductionSpecification", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DeviceComponentProductionSpecification")
 public class DeviceComponentProductionSpecificationImpl extends BackboneElementImpl implements DeviceComponentProductionSpecification {
 	/**
 	 * The cached value of the '{@link #getSpecType() <em>Spec Type</em>}' containment reference.
@@ -171,6 +178,7 @@ public class DeviceComponentProductionSpecificationImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getProductionSpec() {
 		return productionSpec;
 	}

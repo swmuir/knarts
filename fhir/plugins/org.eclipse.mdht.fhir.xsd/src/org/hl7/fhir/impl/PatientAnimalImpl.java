@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +33,8 @@ import org.hl7.fhir.PatientAnimal;
  *
  * @generated
  */
+@XmlType(name = "PatientAnimal", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PatientAnimal")
 public class PatientAnimalImpl extends BackboneElementImpl implements PatientAnimal {
 	/**
 	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' containment reference.
@@ -84,6 +90,7 @@ public class PatientAnimalImpl extends BackboneElementImpl implements PatientAni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getSpecies() {
 		return species;
 	}

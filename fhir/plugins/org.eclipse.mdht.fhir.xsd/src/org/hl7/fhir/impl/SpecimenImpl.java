@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,8 @@ import org.hl7.fhir.SpecimenCollection;
 import org.hl7.fhir.SpecimenContainer;
 import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.SpecimenStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +60,8 @@ import org.hl7.fhir.SpecimenStatus;
  *
  * @generated
  */
+@XmlType(name = "Specimen", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Specimen")
 public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -198,6 +207,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SPECIMEN__IDENTIFIER);
@@ -253,6 +263,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(SpecimenStatusImplAdapter.class)
 	public SpecimenStatus getStatus() {
 		return status;
 	}
@@ -339,6 +350,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -382,6 +394,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getReceivedTime() {
 		return receivedTime;
 	}
@@ -425,6 +438,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getParent() {
 		if (parent == null) {
 			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN__PARENT);
@@ -437,6 +451,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRequest() {
 		if (request == null) {
 			request = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN__REQUEST);
@@ -492,6 +507,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SpecimenProcessing> getProcessing() {
 		if (processing == null) {
 			processing = new EObjectContainmentEList<SpecimenProcessing>(SpecimenProcessing.class, this, FhirPackage.SPECIMEN__PROCESSING);
@@ -504,6 +520,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SpecimenContainer> getContainer() {
 		if (container == null) {
 			container = new EObjectContainmentEList<SpecimenContainer>(SpecimenContainer.class, this, FhirPackage.SPECIMEN__CONTAINER);
@@ -516,6 +533,7 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.SPECIMEN__NOTE);

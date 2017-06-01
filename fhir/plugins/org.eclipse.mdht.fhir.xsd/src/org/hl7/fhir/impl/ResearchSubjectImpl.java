@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +21,8 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResearchSubject;
 import org.hl7.fhir.ResearchSubjectStatus;
+import org.hl7.fhir.jaxb.ResearchSubjectStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +44,8 @@ import org.hl7.fhir.ResearchSubjectStatus;
  *
  * @generated
  */
+@XmlType(name = "ResearchSubject", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ResearchSubject")
 public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchSubject {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -185,6 +194,8 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResearchSubjectStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ResearchSubjectStatus getStatus() {
 		return status;
 	}
@@ -271,6 +282,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getStudy() {
 		return study;
 	}
@@ -314,6 +326,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getIndividual() {
 		return individual;
 	}
@@ -357,6 +370,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAssignedArm() {
 		return assignedArm;
 	}
@@ -400,6 +414,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getActualArm() {
 		return actualArm;
 	}

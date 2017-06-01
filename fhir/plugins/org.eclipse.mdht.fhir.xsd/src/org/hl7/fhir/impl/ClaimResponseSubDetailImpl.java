@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,7 @@ import org.hl7.fhir.ClaimResponseAdjudication;
 import org.hl7.fhir.ClaimResponseSubDetail;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +43,8 @@ import org.hl7.fhir.PositiveInt;
  *
  * @generated
  */
+@XmlType(name = "ClaimResponseSubDetail", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimResponseSubDetail")
 public class ClaimResponseSubDetailImpl extends BackboneElementImpl implements ClaimResponseSubDetail {
 	/**
 	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference.
@@ -92,6 +100,8 @@ public class ClaimResponseSubDetailImpl extends BackboneElementImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequenceLinkId() {
 		return sequenceLinkId;
 	}
@@ -135,6 +145,8 @@ public class ClaimResponseSubDetailImpl extends BackboneElementImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_RESPONSE_SUB_DETAIL__NOTE_NUMBER);
@@ -147,6 +159,7 @@ public class ClaimResponseSubDetailImpl extends BackboneElementImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimResponseAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ClaimResponseAdjudication>(ClaimResponseAdjudication.class, this, FhirPackage.CLAIM_RESPONSE_SUB_DETAIL__ADJUDICATION);

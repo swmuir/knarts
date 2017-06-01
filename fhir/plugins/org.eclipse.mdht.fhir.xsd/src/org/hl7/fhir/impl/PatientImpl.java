@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,6 +38,11 @@ import org.hl7.fhir.PatientCommunication;
 import org.hl7.fhir.PatientContact;
 import org.hl7.fhir.PatientLink;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +75,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Patient", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Patient")
 public class PatientImpl extends DomainResourceImpl implements Patient {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -280,6 +292,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PATIENT__IDENTIFIER);
@@ -292,6 +305,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -335,6 +349,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<HumanName> getName() {
 		if (name == null) {
 			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.PATIENT__NAME);
@@ -347,6 +362,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PATIENT__TELECOM);
@@ -359,6 +375,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -402,6 +419,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -445,6 +463,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDeceasedBoolean() {
 		return deceasedBoolean;
 	}
@@ -488,6 +507,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDeceasedDateTime() {
 		return deceasedDateTime;
 	}
@@ -531,6 +551,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Address> getAddress() {
 		if (address == null) {
 			address = new EObjectContainmentEList<Address>(Address.class, this, FhirPackage.PATIENT__ADDRESS);
@@ -586,6 +607,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getMultipleBirthBoolean() {
 		return multipleBirthBoolean;
 	}
@@ -629,6 +651,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMultipleBirthInteger() {
 		return multipleBirthInteger;
 	}
@@ -672,6 +695,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getPhoto() {
 		if (photo == null) {
 			photo = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.PATIENT__PHOTO);
@@ -684,6 +708,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PatientContact> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<PatientContact>(PatientContact.class, this, FhirPackage.PATIENT__CONTACT);
@@ -739,6 +764,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PatientCommunication> getCommunication() {
 		if (communication == null) {
 			communication = new EObjectContainmentEList<PatientCommunication>(PatientCommunication.class, this, FhirPackage.PATIENT__COMMUNICATION);
@@ -751,6 +777,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getGeneralPractitioner() {
 		if (generalPractitioner == null) {
 			generalPractitioner = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PATIENT__GENERAL_PRACTITIONER);
@@ -806,6 +833,7 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PatientLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<PatientLink>(PatientLink.class, this, FhirPackage.PATIENT__LINK);

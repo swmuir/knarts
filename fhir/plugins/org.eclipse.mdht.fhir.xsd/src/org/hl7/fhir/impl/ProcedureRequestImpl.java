@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,6 +35,11 @@ import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +82,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "ProcedureRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ProcedureRequest")
 public class ProcedureRequestImpl extends DomainResourceImpl implements ProcedureRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -387,6 +399,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCEDURE_REQUEST__IDENTIFIER);
@@ -399,6 +412,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__DEFINITION);
@@ -411,6 +425,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__BASED_ON);
@@ -423,6 +438,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__REPLACES);
@@ -478,6 +494,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -521,6 +539,8 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestIntent getIntent() {
 		return intent;
 	}
@@ -564,6 +584,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -607,6 +628,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDoNotPerform() {
 		return doNotPerform;
 	}
@@ -650,6 +672,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCEDURE_REQUEST__CATEGORY);
@@ -662,6 +685,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -705,6 +729,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -791,6 +816,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -920,6 +946,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAsNeededBoolean() {
 		return asNeededBoolean;
 	}
@@ -1006,6 +1033,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -1178,6 +1206,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCEDURE_REQUEST__REASON_CODE);
@@ -1190,6 +1219,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__REASON_REFERENCE);
@@ -1202,6 +1232,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingInfo() {
 		if (supportingInfo == null) {
 			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__SUPPORTING_INFO);
@@ -1214,6 +1245,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSpecimen() {
 		if (specimen == null) {
 			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__SPECIMEN);
@@ -1226,6 +1258,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getBodySite() {
 		if (bodySite == null) {
 			bodySite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCEDURE_REQUEST__BODY_SITE);
@@ -1238,6 +1271,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.PROCEDURE_REQUEST__NOTE);
@@ -1250,6 +1284,7 @@ public class ProcedureRequestImpl extends DomainResourceImpl implements Procedur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRelevantHistory() {
 		if (relevantHistory == null) {
 			relevantHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCEDURE_REQUEST__RELEVANT_HISTORY);

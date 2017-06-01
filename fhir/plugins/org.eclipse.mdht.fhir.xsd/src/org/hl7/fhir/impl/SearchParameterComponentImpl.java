@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SearchParameterComponent;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +34,8 @@ import org.hl7.fhir.SearchParameterComponent;
  *
  * @generated
  */
+@XmlType(name = "SearchParameterComponent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SearchParameterComponent")
 public class SearchParameterComponentImpl extends BackboneElementImpl implements SearchParameterComponent {
 	/**
 	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
@@ -73,6 +81,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getDefinition() {
 		return definition;
 	}
@@ -116,6 +125,8 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}

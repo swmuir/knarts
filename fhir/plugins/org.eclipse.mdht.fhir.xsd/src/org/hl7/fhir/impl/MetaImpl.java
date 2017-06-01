@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,9 @@ import org.hl7.fhir.Id;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +49,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Meta", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Meta")
 public class MetaImpl extends ElementImpl implements Meta {
 	/**
 	 * The cached value of the '{@link #getVersionId() <em>Version Id</em>}' containment reference.
@@ -116,6 +126,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getVersionId() {
 		return versionId;
 	}
@@ -159,6 +170,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getLastUpdated() {
 		return lastUpdated;
 	}
@@ -202,6 +214,8 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getProfile() {
 		if (profile == null) {
 			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.META__PROFILE);
@@ -214,6 +228,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSecurity() {
 		if (security == null) {
 			security = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.META__SECURITY);
@@ -226,6 +241,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getTag() {
 		if (tag == null) {
 			tag = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.META__TAG);

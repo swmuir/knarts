@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Decimal</b></em>'.
@@ -26,6 +30,7 @@ import java.math.BigDecimal;
  * @model extendedMetaData="name='decimal' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 public interface Decimal extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

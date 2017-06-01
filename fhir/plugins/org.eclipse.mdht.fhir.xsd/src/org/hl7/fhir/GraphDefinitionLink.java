@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.GraphDefinitionLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='GraphDefinition.Link' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(GraphDefinitionLinkImplAdapter.class)
 public interface GraphDefinitionLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

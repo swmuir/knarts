@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +57,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "AuditEventAgent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AuditEventAgent")
 public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEventAgent {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
@@ -184,6 +194,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getRole() {
 		if (role == null) {
 			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT_AGENT__ROLE);
@@ -282,6 +293,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAltId() {
 		return altId;
 	}
@@ -325,6 +337,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -368,6 +381,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getRequestor() {
 		return requestor;
 	}
@@ -454,6 +469,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getPolicy() {
 		if (policy == null) {
 			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.AUDIT_EVENT_AGENT__POLICY);
@@ -552,6 +569,7 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getPurposeOfUse() {
 		if (purposeOfUse == null) {
 			purposeOfUse = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT_AGENT__PURPOSE_OF_USE);

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptAssertImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +49,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Assert' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptAssertImplAdapter.class)
 public interface TestScriptAssert extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.

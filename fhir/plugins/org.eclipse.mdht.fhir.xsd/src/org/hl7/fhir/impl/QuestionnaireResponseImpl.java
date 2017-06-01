@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,8 @@ import org.hl7.fhir.QuestionnaireResponse;
 import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.QuestionnaireResponseStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +55,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "QuestionnaireResponse", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "QuestionnaireResponse")
 public class QuestionnaireResponseImpl extends DomainResourceImpl implements QuestionnaireResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -226,6 +235,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON);
@@ -238,6 +248,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getParent() {
 		if (parent == null) {
 			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT);
@@ -293,6 +304,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(QuestionnaireResponseStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public QuestionnaireResponseStatus getStatus() {
 		return status;
 	}
@@ -422,6 +435,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthored() {
 		return authored;
 	}
@@ -551,6 +565,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<QuestionnaireResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM);

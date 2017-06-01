@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.AuditEventAgentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='AuditEvent.Agent' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AuditEventAgentImplAdapter.class)
 public interface AuditEventAgent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.

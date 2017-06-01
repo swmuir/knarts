@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.BundleResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Bundle.Response' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(BundleResponseImplAdapter.class)
 public interface BundleResponse extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.

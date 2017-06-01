@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,10 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DocumentReferenceStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +61,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "DocumentManifest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DocumentManifest")
 public class DocumentManifestImpl extends DomainResourceImpl implements DocumentManifest {
 	/**
 	 * The cached value of the '{@link #getMasterIdentifier() <em>Master Identifier</em>}' containment reference.
@@ -240,6 +251,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DOCUMENT_MANIFEST__IDENTIFIER);
@@ -252,6 +264,8 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public DocumentReferenceStatus getStatus() {
 		return status;
 	}
@@ -381,6 +395,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -424,6 +439,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAuthor() {
 		if (author == null) {
 			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__AUTHOR);
@@ -436,6 +452,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getRecipient() {
 		if (recipient == null) {
 			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__RECIPIENT);
@@ -448,6 +465,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSource() {
 		return source;
 	}
@@ -491,6 +509,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -534,6 +553,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<DocumentManifestContent> getContent() {
 		if (content == null) {
 			content = new EObjectContainmentEList<DocumentManifestContent>(DocumentManifestContent.class, this, FhirPackage.DOCUMENT_MANIFEST__CONTENT);
@@ -546,6 +566,7 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DocumentManifestRelated> getRelated() {
 		if (related == null) {
 			related = new EObjectContainmentEList<DocumentManifestRelated>(DocumentManifestRelated.class, this, FhirPackage.DOCUMENT_MANIFEST__RELATED);

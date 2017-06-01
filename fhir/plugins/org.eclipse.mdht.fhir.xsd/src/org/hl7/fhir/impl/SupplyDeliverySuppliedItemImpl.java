@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +34,8 @@ import org.hl7.fhir.SupplyDeliverySuppliedItem;
  *
  * @generated
  */
+@XmlType(name = "SupplyDeliverySuppliedItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SupplyDeliverySuppliedItem")
 public class SupplyDeliverySuppliedItemImpl extends BackboneElementImpl implements SupplyDeliverySuppliedItem {
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.

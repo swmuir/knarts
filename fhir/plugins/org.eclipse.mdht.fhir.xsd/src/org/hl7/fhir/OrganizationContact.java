@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.OrganizationContactImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Organization.Contact' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(OrganizationContactImplAdapter.class)
 public interface OrganizationContact extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.

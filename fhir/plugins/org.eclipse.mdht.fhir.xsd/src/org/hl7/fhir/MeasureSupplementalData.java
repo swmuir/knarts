@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.MeasureSupplementalDataImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Measure.SupplementalData' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MeasureSupplementalDataImplAdapter.class)
 public interface MeasureSupplementalData extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

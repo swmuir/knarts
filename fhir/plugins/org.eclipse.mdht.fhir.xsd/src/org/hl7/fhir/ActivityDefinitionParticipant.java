@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ActivityDefinitionParticipantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ActivityDefinition.Participant' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ActivityDefinitionParticipantImplAdapter.class)
 public interface ActivityDefinitionParticipant extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

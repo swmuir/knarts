@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ConsentExceptTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ConsentExceptType' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ConsentExceptTypeImplAdapter.class)
 public interface ConsentExceptType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

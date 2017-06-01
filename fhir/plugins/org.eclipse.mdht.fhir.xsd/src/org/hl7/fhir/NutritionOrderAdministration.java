@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.NutritionOrderAdministrationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='NutritionOrder.Administration' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(NutritionOrderAdministrationImplAdapter.class)
 public interface NutritionOrderAdministration extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Schedule</b></em>' containment reference.

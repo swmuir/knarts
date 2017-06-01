@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,12 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.AppointmentStatusImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +73,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "Appointment", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Appointment")
 public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -287,6 +300,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.APPOINTMENT__IDENTIFIER);
@@ -299,6 +313,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AppointmentStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public AppointmentStatus getStatus() {
 		return status;
 	}
@@ -385,6 +401,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getServiceType() {
 		if (serviceType == null) {
 			serviceType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__SERVICE_TYPE);
@@ -397,6 +414,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSpecialty() {
 		if (specialty == null) {
 			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__SPECIALTY);
@@ -452,6 +470,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__REASON);
@@ -464,6 +483,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getIndication() {
 		if (indication == null) {
 			indication = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__INDICATION);
@@ -476,6 +496,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getPriority() {
 		return priority;
 	}
@@ -519,6 +540,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -562,6 +584,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__SUPPORTING_INFORMATION);
@@ -574,6 +597,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getStart() {
 		return start;
 	}
@@ -617,6 +641,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getEnd() {
 		return end;
 	}
@@ -660,6 +685,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getMinutesDuration() {
 		return minutesDuration;
 	}
@@ -703,6 +729,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSlot() {
 		if (slot == null) {
 			slot = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__SLOT);
@@ -715,6 +742,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -758,6 +786,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}
@@ -801,6 +830,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getIncomingReferral() {
 		if (incomingReferral == null) {
 			incomingReferral = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__INCOMING_REFERRAL);
@@ -813,6 +843,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<AppointmentParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<AppointmentParticipant>(AppointmentParticipant.class, this, FhirPackage.APPOINTMENT__PARTICIPANT);
@@ -825,6 +856,7 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Period> getRequestedPeriod() {
 		if (requestedPeriod == null) {
 			requestedPeriod = new EObjectContainmentEList<Period>(Period.class, this, FhirPackage.APPOINTMENT__REQUESTED_PERIOD);

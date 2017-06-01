@@ -5,6 +5,11 @@ package org.w3._1999.xhtml.impl;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,8 @@ import org.w3._1999.xhtml.DirType;
 import org.w3._1999.xhtml.DlType;
 import org.w3._1999.xhtml.DtType;
 import org.w3._1999.xhtml.XhtmlPackage;
+import org.w3._1999.xhtml.jaxb.DdTypeImplAdapter;
+import org.w3._1999.xhtml.jaxb.DtTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +55,8 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "DlType", namespace = "http://www.w3.org/1999/xhtml")
+@XmlRootElement(name = "DlType")
 public class DlTypeImpl extends MinimalEObjectImpl.Container implements DlType {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
@@ -244,6 +253,8 @@ public class DlTypeImpl extends MinimalEObjectImpl.Container implements DlType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DtTypeImplAdapter.class)
+	@XmlElement
 	public EList<DtType> getDt() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getDlType_Dt());
 	}
@@ -253,6 +264,8 @@ public class DlTypeImpl extends MinimalEObjectImpl.Container implements DlType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DdTypeImplAdapter.class)
+	@XmlElement
 	public EList<DdType> getDd() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getDlType_Dd());
 	}

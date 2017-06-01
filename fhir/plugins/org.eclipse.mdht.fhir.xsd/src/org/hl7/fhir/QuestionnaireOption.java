@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.QuestionnaireOptionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Questionnaire.Option' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(QuestionnaireOptionImplAdapter.class)
 public interface QuestionnaireOption extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Value Integer</b></em>' containment reference.

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
  *
  * @generated
  */
+@XmlType(name = "ImmunizationRecommendationDateCriterion", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImmunizationRecommendationDateCriterion")
 public class ImmunizationRecommendationDateCriterionImpl extends BackboneElementImpl implements ImmunizationRecommendationDateCriterion {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -74,6 +82,7 @@ public class ImmunizationRecommendationDateCriterionImpl extends BackboneElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -117,6 +126,8 @@ public class ImmunizationRecommendationDateCriterionImpl extends BackboneElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	@XmlElement(required = true)
 	public DateTime getValue() {
 		return value;
 	}

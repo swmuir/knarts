@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AccountStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +59,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Account", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Account")
 public class AccountImpl extends DomainResourceImpl implements Account {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -197,6 +206,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ACCOUNT__IDENTIFIER);
@@ -209,6 +219,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AccountStatusImplAdapter.class)
 	public AccountStatus getStatus() {
 		return status;
 	}
@@ -295,6 +306,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -510,6 +522,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<AccountCoverage> getCoverage() {
 		if (coverage == null) {
 			coverage = new EObjectContainmentEList<AccountCoverage>(AccountCoverage.class, this, FhirPackage.ACCOUNT__COVERAGE);
@@ -565,6 +578,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -608,6 +622,7 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<AccountGuarantor> getGuarantor() {
 		if (guarantor == null) {
 			guarantor = new EObjectContainmentEList<AccountGuarantor>(AccountGuarantor.class, this, FhirPackage.ACCOUNT__GUARANTOR);

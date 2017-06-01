@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ConsentDataImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Consent.Data' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ConsentDataImplAdapter.class)
 public interface ConsentData extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Meaning</b></em>' containment reference.

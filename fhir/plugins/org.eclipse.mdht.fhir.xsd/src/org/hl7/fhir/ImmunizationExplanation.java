@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ImmunizationExplanationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Immunization.Explanation' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImmunizationExplanationImplAdapter.class)
 public interface ImmunizationExplanation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.

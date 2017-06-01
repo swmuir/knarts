@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.PlanDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +53,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='PlanDefinition' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(PlanDefinitionImplAdapter.class)
 public interface PlanDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='MessageHeader' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MessageHeaderImplAdapter.class)
 public interface MessageHeader extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference.

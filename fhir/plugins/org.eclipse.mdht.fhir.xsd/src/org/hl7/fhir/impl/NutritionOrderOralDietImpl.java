@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,7 @@ import org.hl7.fhir.NutritionOrderNutrient;
 import org.hl7.fhir.NutritionOrderOralDiet;
 import org.hl7.fhir.NutritionOrderTexture;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +48,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "NutritionOrderOralDiet", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "NutritionOrderOralDiet")
 public class NutritionOrderOralDietImpl extends BackboneElementImpl implements NutritionOrderOralDiet {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -127,6 +135,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NUTRITION_ORDER_ORAL_DIET__TYPE);
@@ -139,6 +148,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Timing> getSchedule() {
 		if (schedule == null) {
 			schedule = new EObjectContainmentEList<Timing>(Timing.class, this, FhirPackage.NUTRITION_ORDER_ORAL_DIET__SCHEDULE);
@@ -151,6 +161,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<NutritionOrderNutrient> getNutrient() {
 		if (nutrient == null) {
 			nutrient = new EObjectContainmentEList<NutritionOrderNutrient>(NutritionOrderNutrient.class, this, FhirPackage.NUTRITION_ORDER_ORAL_DIET__NUTRIENT);
@@ -163,6 +174,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<NutritionOrderTexture> getTexture() {
 		if (texture == null) {
 			texture = new EObjectContainmentEList<NutritionOrderTexture>(NutritionOrderTexture.class, this, FhirPackage.NUTRITION_ORDER_ORAL_DIET__TEXTURE);
@@ -175,6 +187,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getFluidConsistencyType() {
 		if (fluidConsistencyType == null) {
 			fluidConsistencyType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NUTRITION_ORDER_ORAL_DIET__FLUID_CONSISTENCY_TYPE);
@@ -187,6 +200,7 @@ public class NutritionOrderOralDietImpl extends BackboneElementImpl implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getInstruction() {
 		return instruction;
 	}

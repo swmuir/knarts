@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.ecore.EObject;
+import org.hl7.fhir.jaxb.ResourceContainerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,6 +139,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ResourceContainer' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ResourceContainerImplAdapter.class)
 public interface ResourceContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Account</b></em>' containment reference.

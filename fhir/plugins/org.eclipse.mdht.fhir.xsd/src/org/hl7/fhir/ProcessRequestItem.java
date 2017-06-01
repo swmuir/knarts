@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ProcessRequestItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ProcessRequest.Item' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ProcessRequestItemImplAdapter.class)
 public interface ProcessRequestItem extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence Link Id</b></em>' containment reference.

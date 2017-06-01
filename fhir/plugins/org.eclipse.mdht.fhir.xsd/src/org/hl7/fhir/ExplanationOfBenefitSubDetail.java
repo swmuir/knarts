@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ExplanationOfBenefitSubDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ExplanationOfBenefit.SubDetail' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExplanationOfBenefitSubDetailImplAdapter.class)
 public interface ExplanationOfBenefitSubDetail extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.

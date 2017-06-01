@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.MeasmntPrinciple;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.MeasmntPrincipleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +55,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "DeviceComponent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DeviceComponent")
 public class DeviceComponentImpl extends DomainResourceImpl implements DeviceComponent {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -173,6 +182,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -216,6 +226,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -259,6 +270,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getLastSystemChange() {
 		return lastSystemChange;
 	}
@@ -388,6 +400,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getOperationalStatus() {
 		if (operationalStatus == null) {
 			operationalStatus = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_COMPONENT__OPERATIONAL_STATUS);
@@ -443,6 +456,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MeasmntPrincipleImplAdapter.class)
 	public MeasmntPrinciple getMeasurementPrinciple() {
 		return measurementPrinciple;
 	}
@@ -486,6 +500,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DeviceComponentProductionSpecification> getProductionSpecification() {
 		if (productionSpecification == null) {
 			productionSpecification = new EObjectContainmentEList<DeviceComponentProductionSpecification>(DeviceComponentProductionSpecification.class, this, FhirPackage.DEVICE_COMPONENT__PRODUCTION_SPECIFICATION);

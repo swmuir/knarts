@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MoneyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,5 +21,6 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Money' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MoneyImplAdapter.class)
 public interface Money extends Quantity {
 } // Money

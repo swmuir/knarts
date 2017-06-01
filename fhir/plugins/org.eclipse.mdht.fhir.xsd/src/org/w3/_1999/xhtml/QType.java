@@ -4,6 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.w3._1999.xhtml.jaxb.QTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>QType</b></em>'.
@@ -27,6 +31,7 @@ import java.util.List;
  * @model extendedMetaData="name='q_._type' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(QTypeImplAdapter.class)
 public interface QType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Cite1</b></em>' attribute.

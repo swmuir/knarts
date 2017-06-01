@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,10 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
+import org.hl7.fhir.jaxb.AuditEventActionImplAdapter;
+import org.hl7.fhir.jaxb.AuditEventOutcomeImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +59,8 @@ import org.hl7.fhir.Instant;
  *
  * @generated
  */
+@XmlType(name = "AuditEvent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AuditEvent")
 public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -175,6 +186,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getType() {
 		return type;
 	}
@@ -218,6 +230,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSubtype() {
 		if (subtype == null) {
 			subtype = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT__SUBTYPE);
@@ -230,6 +243,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AuditEventActionImplAdapter.class)
 	public AuditEventAction getAction() {
 		return action;
 	}
@@ -273,6 +287,8 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
+	@XmlElement(required = true)
 	public Instant getRecorded() {
 		return recorded;
 	}
@@ -316,6 +332,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AuditEventOutcomeImplAdapter.class)
 	public AuditEventOutcome getOutcome() {
 		return outcome;
 	}
@@ -359,6 +376,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOutcomeDesc() {
 		return outcomeDesc;
 	}
@@ -402,6 +420,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getPurposeOfEvent() {
 		if (purposeOfEvent == null) {
 			purposeOfEvent = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT__PURPOSE_OF_EVENT);
@@ -414,6 +433,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<AuditEventAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<AuditEventAgent>(AuditEventAgent.class, this, FhirPackage.AUDIT_EVENT__AGENT);
@@ -426,6 +446,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public AuditEventSource getSource() {
 		return source;
 	}
@@ -469,6 +490,7 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<AuditEventEntity> getEntity() {
 		if (entity == null) {
 			entity = new EObjectContainmentEList<AuditEventEntity>(AuditEventEntity.class, this, FhirPackage.AUDIT_EVENT__ENTITY);

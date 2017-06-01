@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,6 +41,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "EligibilityResponseInsurance", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EligibilityResponseInsurance")
 public class EligibilityResponseInsuranceImpl extends BackboneElementImpl implements EligibilityResponseInsurance {
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
@@ -178,6 +184,7 @@ public class EligibilityResponseInsuranceImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EligibilityResponseBenefitBalance> getBenefitBalance() {
 		if (benefitBalance == null) {
 			benefitBalance = new EObjectContainmentEList<EligibilityResponseBenefitBalance>(EligibilityResponseBenefitBalance.class, this, FhirPackage.ELIGIBILITY_RESPONSE_INSURANCE__BENEFIT_BALANCE);

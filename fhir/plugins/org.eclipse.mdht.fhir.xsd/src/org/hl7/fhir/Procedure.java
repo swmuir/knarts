@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ProcedureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +54,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Procedure' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ProcedureImplAdapter.class)
 public interface Procedure extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

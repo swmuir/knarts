@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.AllergyIntoleranceReactionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='AllergyIntolerance.Reaction' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AllergyIntoleranceReactionImplAdapter.class)
 public interface AllergyIntoleranceReaction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Substance</b></em>' containment reference.

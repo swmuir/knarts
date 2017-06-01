@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ExplanationOfBenefitProcessNoteImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ExplanationOfBenefit.ProcessNote' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExplanationOfBenefitProcessNoteImplAdapter.class)
 public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' containment reference.

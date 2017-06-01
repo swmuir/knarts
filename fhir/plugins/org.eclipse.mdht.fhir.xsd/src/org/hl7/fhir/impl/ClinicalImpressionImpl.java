@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,10 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.ClinicalImpressionStatusImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,6 +71,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ClinicalImpression", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClinicalImpression")
 public class ClinicalImpressionImpl extends DomainResourceImpl implements ClinicalImpression {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -287,6 +298,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CLINICAL_IMPRESSION__IDENTIFIER);
@@ -299,6 +311,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ClinicalImpressionStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ClinicalImpressionStatus getStatus() {
 		return status;
 	}
@@ -385,6 +399,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -428,6 +443,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -514,6 +530,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveDateTime() {
 		return effectiveDateTime;
 	}
@@ -600,6 +617,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -729,6 +747,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getProblem() {
 		if (problem == null) {
 			problem = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION__PROBLEM);
@@ -741,6 +760,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClinicalImpressionInvestigation> getInvestigation() {
 		if (investigation == null) {
 			investigation = new EObjectContainmentEList<ClinicalImpressionInvestigation>(ClinicalImpressionInvestigation.class, this, FhirPackage.CLINICAL_IMPRESSION__INVESTIGATION);
@@ -753,6 +773,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getProtocol() {
 		if (protocol == null) {
 			protocol = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CLINICAL_IMPRESSION__PROTOCOL);
@@ -765,6 +787,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSummary() {
 		return summary;
 	}
@@ -808,6 +831,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClinicalImpressionFinding> getFinding() {
 		if (finding == null) {
 			finding = new EObjectContainmentEList<ClinicalImpressionFinding>(ClinicalImpressionFinding.class, this, FhirPackage.CLINICAL_IMPRESSION__FINDING);
@@ -820,6 +844,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getPrognosisCodeableConcept() {
 		if (prognosisCodeableConcept == null) {
 			prognosisCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_CODEABLE_CONCEPT);
@@ -832,6 +857,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPrognosisReference() {
 		if (prognosisReference == null) {
 			prognosisReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_REFERENCE);
@@ -844,6 +870,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION__ACTION);
@@ -856,6 +883,7 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CLINICAL_IMPRESSION__NOTE);

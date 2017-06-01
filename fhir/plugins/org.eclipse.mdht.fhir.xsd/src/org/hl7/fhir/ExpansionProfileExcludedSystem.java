@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ExpansionProfileExcludedSystemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ExpansionProfile.ExcludedSystem' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExpansionProfileExcludedSystemImplAdapter.class)
 public interface ExpansionProfileExcludedSystem extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.

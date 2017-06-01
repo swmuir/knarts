@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,6 +25,9 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +51,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ExplanationOfBenefitInformation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ExplanationOfBenefitInformation")
 public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl implements ExplanationOfBenefitInformation {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -168,6 +178,8 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -211,6 +223,7 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCategory() {
 		return category;
 	}
@@ -297,6 +310,7 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getTimingDate() {
 		return timingDate;
 	}
@@ -383,6 +397,7 @@ public class ExplanationOfBenefitInformationImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}

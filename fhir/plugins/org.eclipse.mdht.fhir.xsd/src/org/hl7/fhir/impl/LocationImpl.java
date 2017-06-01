@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,9 @@ import org.hl7.fhir.LocationMode;
 import org.hl7.fhir.LocationPosition;
 import org.hl7.fhir.LocationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.LocationModeImplAdapter;
+import org.hl7.fhir.jaxb.LocationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +64,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Location", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Location")
 public class LocationImpl extends DomainResourceImpl implements Location {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -231,6 +241,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.LOCATION__IDENTIFIER);
@@ -243,6 +254,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(LocationStatusImplAdapter.class)
 	public LocationStatus getStatus() {
 		return status;
 	}
@@ -329,6 +341,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -372,6 +385,8 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getAlias() {
 		if (alias == null) {
 			alias = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.LOCATION__ALIAS);
@@ -384,6 +399,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -427,6 +443,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(LocationModeImplAdapter.class)
 	public LocationMode getMode() {
 		return mode;
 	}
@@ -513,6 +530,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.LOCATION__TELECOM);
@@ -740,6 +758,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.LOCATION__ENDPOINT);

@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.DomainResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='DomainResource' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DomainResourceImplAdapter.class)
 public interface DomainResource extends Resource {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

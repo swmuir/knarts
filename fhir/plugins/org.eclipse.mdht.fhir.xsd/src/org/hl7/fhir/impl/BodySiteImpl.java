@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +50,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "BodySite", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "BodySite")
 public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -138,6 +147,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.BODY_SITE__IDENTIFIER);
@@ -150,6 +160,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -236,6 +247,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getQualifier() {
 		if (qualifier == null) {
 			qualifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.BODY_SITE__QUALIFIER);
@@ -248,6 +260,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -291,6 +304,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getImage() {
 		if (image == null) {
 			image = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.BODY_SITE__IMAGE);
@@ -303,6 +317,7 @@ public class BodySiteImpl extends DomainResourceImpl implements BodySite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}

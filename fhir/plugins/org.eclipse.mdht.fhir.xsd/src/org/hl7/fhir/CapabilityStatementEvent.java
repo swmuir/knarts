@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CapabilityStatementEventImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='CapabilityStatement.Event' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CapabilityStatementEventImplAdapter.class)
 public interface CapabilityStatementEvent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,9 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AdverseEventCategoryImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +62,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "AdverseEvent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AdverseEvent")
 public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -282,6 +292,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AdverseEventCategoryImplAdapter.class)
 	public AdverseEventCategory getCategory() {
 		return category;
 	}
@@ -411,6 +422,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -454,6 +466,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReaction() {
 		if (reaction == null) {
 			reaction = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__REACTION);
@@ -681,6 +694,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -724,6 +738,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<AdverseEventSuspectEntity> getSuspectEntity() {
 		if (suspectEntity == null) {
 			suspectEntity = new EObjectContainmentEList<AdverseEventSuspectEntity>(AdverseEventSuspectEntity.class, this, FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY);
@@ -736,6 +751,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSubjectMedicalHistory() {
 		if (subjectMedicalHistory == null) {
 			subjectMedicalHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__SUBJECT_MEDICAL_HISTORY);
@@ -748,6 +764,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReferenceDocument() {
 		if (referenceDocument == null) {
 			referenceDocument = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__REFERENCE_DOCUMENT);
@@ -760,6 +777,7 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getStudy() {
 		if (study == null) {
 			study = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__STUDY);

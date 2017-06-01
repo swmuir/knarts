@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,8 @@ import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +62,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ExplanationOfBenefitDetail", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ExplanationOfBenefitDetail")
 public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implements ExplanationOfBenefitDetail {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -230,6 +239,8 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -273,6 +284,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -445,6 +457,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__MODIFIER);
@@ -457,6 +470,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
 			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__PROGRAM_CODE);
@@ -555,6 +569,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -641,6 +656,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getUdi() {
 		if (udi == null) {
 			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__UDI);
@@ -653,6 +669,8 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__NOTE_NUMBER);
@@ -665,6 +683,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ExplanationOfBenefitAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication>(ExplanationOfBenefitAdjudication.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__ADJUDICATION);
@@ -677,6 +696,7 @@ public class ExplanationOfBenefitDetailImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ExplanationOfBenefitSubDetail> getSubDetail() {
 		if (subDetail == null) {
 			subDetail = new EObjectContainmentEList<ExplanationOfBenefitSubDetail>(ExplanationOfBenefitSubDetail.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL__SUB_DETAIL);

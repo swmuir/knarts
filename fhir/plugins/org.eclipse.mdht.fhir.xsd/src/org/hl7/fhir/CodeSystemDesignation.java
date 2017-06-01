@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CodeSystemDesignationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='CodeSystem.Designation' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CodeSystemDesignationImplAdapter.class)
 public interface CodeSystemDesignation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' containment reference.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.AdverseEventSuspectEntityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='AdverseEvent.SuspectEntity' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AdverseEventSuspectEntityImplAdapter.class)
 public interface AdverseEventSuspectEntity extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' containment reference.

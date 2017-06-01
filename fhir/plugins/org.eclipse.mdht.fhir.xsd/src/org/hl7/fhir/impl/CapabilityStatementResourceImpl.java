@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,14 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferenceHandlingPolicy;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.ConditionalDeleteStatusImplAdapter;
+import org.hl7.fhir.jaxb.ConditionalReadStatusImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.ReferenceHandlingPolicyImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.ResourceVersionPolicyImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +69,8 @@ import org.hl7.fhir.ResourceVersionPolicy;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementResource", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementResource")
 public class CapabilityStatementResourceImpl extends BackboneElementImpl implements CapabilityStatementResource {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -231,6 +246,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ResourceType getType() {
 		return type;
 	}
@@ -317,6 +334,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDocumentation() {
 		return documentation;
 	}
@@ -360,6 +378,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<CapabilityStatementInteraction> getInteraction() {
 		if (interaction == null) {
 			interaction = new EObjectContainmentEList<CapabilityStatementInteraction>(CapabilityStatementInteraction.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__INTERACTION);
@@ -372,6 +391,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceVersionPolicyImplAdapter.class)
 	public ResourceVersionPolicy getVersioning() {
 		return versioning;
 	}
@@ -415,6 +435,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getReadHistory() {
 		return readHistory;
 	}
@@ -458,6 +479,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getUpdateCreate() {
 		return updateCreate;
 	}
@@ -501,6 +523,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getConditionalCreate() {
 		return conditionalCreate;
 	}
@@ -544,6 +567,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConditionalReadStatusImplAdapter.class)
 	public ConditionalReadStatus getConditionalRead() {
 		return conditionalRead;
 	}
@@ -587,6 +611,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getConditionalUpdate() {
 		return conditionalUpdate;
 	}
@@ -630,6 +655,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConditionalDeleteStatusImplAdapter.class)
 	public ConditionalDeleteStatus getConditionalDelete() {
 		return conditionalDelete;
 	}
@@ -673,6 +699,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ReferenceHandlingPolicyImplAdapter.class)
+	@XmlElement
 	public EList<ReferenceHandlingPolicy> getReferencePolicy() {
 		if (referencePolicy == null) {
 			referencePolicy = new EObjectContainmentEList<ReferenceHandlingPolicy>(ReferenceHandlingPolicy.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__REFERENCE_POLICY);
@@ -685,6 +713,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getSearchInclude() {
 		if (searchInclude == null) {
 			searchInclude = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_INCLUDE);
@@ -697,6 +727,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getSearchRevInclude() {
 		if (searchRevInclude == null) {
 			searchRevInclude = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_REV_INCLUDE);
@@ -709,6 +741,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementSearchParam> getSearchParam() {
 		if (searchParam == null) {
 			searchParam = new EObjectContainmentEList<CapabilityStatementSearchParam>(CapabilityStatementSearchParam.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM);

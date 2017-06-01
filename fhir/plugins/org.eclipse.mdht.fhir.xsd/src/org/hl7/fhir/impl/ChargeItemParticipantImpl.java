@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +33,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ChargeItemParticipant", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ChargeItemParticipant")
 public class ChargeItemParticipantImpl extends BackboneElementImpl implements ChargeItemParticipant {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
@@ -117,6 +123,7 @@ public class ChargeItemParticipantImpl extends BackboneElementImpl implements Ch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getActor() {
 		return actor;
 	}

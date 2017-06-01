@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HealthcareServiceNotAvailable;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +34,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "HealthcareServiceNotAvailable", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "HealthcareServiceNotAvailable")
 public class HealthcareServiceNotAvailableImpl extends BackboneElementImpl implements HealthcareServiceNotAvailable {
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -73,6 +81,8 @@ public class HealthcareServiceNotAvailableImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}

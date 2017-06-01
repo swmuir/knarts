@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CodeSystemProperty1ImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='CodeSystem.Property1' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CodeSystemProperty1ImplAdapter.class)
 public interface CodeSystemProperty1 extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

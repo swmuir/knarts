@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,6 +21,7 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +40,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationRequestDispenseRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationRequestDispenseRequest")
 public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl implements MedicationRequestDispenseRequest {
 	/**
 	 * The cached value of the '{@link #getValidityPeriod() <em>Validity Period</em>}' containment reference.
@@ -153,6 +160,7 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getNumberOfRepeatsAllowed() {
 		return numberOfRepeatsAllowed;
 	}

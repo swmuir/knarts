@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementEndpoint", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementEndpoint")
 public class CapabilityStatementEndpointImpl extends BackboneElementImpl implements CapabilityStatementEndpoint {
 	/**
 	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' containment reference.
@@ -74,6 +82,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Coding getProtocol() {
 		return protocol;
 	}
@@ -117,6 +126,8 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getAddress() {
 		return address;
 	}

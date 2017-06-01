@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.PatientLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Patient.Link' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(PatientLinkImplAdapter.class)
 public interface PatientLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Other</b></em>' containment reference.

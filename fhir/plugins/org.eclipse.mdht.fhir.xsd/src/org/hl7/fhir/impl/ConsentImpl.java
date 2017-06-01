@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,6 +37,9 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.ConsentStateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +73,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Consent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Consent")
 public class ConsentImpl extends DomainResourceImpl implements Consent {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -333,6 +343,8 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConsentStateImplAdapter.class)
+	@XmlElement(required = true)
 	public ConsentState getStatus() {
 		return status;
 	}
@@ -376,6 +388,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONSENT__CATEGORY);
@@ -388,6 +401,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -474,6 +488,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDateTime() {
 		return dateTime;
 	}
@@ -517,6 +532,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getConsentingParty() {
 		if (consentingParty == null) {
 			consentingParty = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__CONSENTING_PARTY);
@@ -529,6 +545,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentActor> getActor() {
 		if (actor == null) {
 			actor = new EObjectContainmentEList<ConsentActor>(ConsentActor.class, this, FhirPackage.CONSENT__ACTOR);
@@ -541,6 +558,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONSENT__ACTION);
@@ -553,6 +571,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getOrganization() {
 		if (organization == null) {
 			organization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONSENT__ORGANIZATION);
@@ -694,6 +713,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentPolicy> getPolicy() {
 		if (policy == null) {
 			policy = new EObjectContainmentEList<ConsentPolicy>(ConsentPolicy.class, this, FhirPackage.CONSENT__POLICY);
@@ -706,6 +726,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getPolicyRule() {
 		return policyRule;
 	}
@@ -749,6 +770,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT__SECURITY_LABEL);
@@ -761,6 +783,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getPurpose() {
 		if (purpose == null) {
 			purpose = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT__PURPOSE);
@@ -816,6 +839,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentData> getData() {
 		if (data == null) {
 			data = new EObjectContainmentEList<ConsentData>(ConsentData.class, this, FhirPackage.CONSENT__DATA);
@@ -828,6 +852,7 @@ public class ConsentImpl extends DomainResourceImpl implements Consent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentExcept> getExcept() {
 		if (except == null) {
 			except = new EObjectContainmentEList<ConsentExcept>(ConsentExcept.class, this, FhirPackage.CONSENT__EXCEPT);

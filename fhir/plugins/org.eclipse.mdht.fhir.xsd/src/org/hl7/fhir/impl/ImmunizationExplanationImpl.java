@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,6 +36,8 @@ import org.hl7.fhir.ImmunizationExplanation;
  *
  * @generated
  */
+@XmlType(name = "ImmunizationExplanation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImmunizationExplanation")
 public class ImmunizationExplanationImpl extends BackboneElementImpl implements ImmunizationExplanation {
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
@@ -77,6 +83,7 @@ public class ImmunizationExplanationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_EXPLANATION__REASON);
@@ -89,6 +96,7 @@ public class ImmunizationExplanationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonNotGiven() {
 		if (reasonNotGiven == null) {
 			reasonNotGiven = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_EXPLANATION__REASON_NOT_GIVEN);

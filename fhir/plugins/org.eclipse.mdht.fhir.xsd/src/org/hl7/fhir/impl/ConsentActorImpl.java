@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +33,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ConsentActor", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ConsentActor")
 public class ConsentActorImpl extends BackboneElementImpl implements ConsentActor {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
@@ -74,6 +80,7 @@ public class ConsentActorImpl extends BackboneElementImpl implements ConsentActo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getRole() {
 		return role;
 	}
@@ -117,6 +124,7 @@ public class ConsentActorImpl extends BackboneElementImpl implements ConsentActo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getReference() {
 		return reference;
 	}

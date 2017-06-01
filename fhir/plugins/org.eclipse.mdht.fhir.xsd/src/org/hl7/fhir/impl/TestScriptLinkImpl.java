@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestScriptLink;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +35,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "TestScriptLink", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptLink")
 public class TestScriptLinkImpl extends BackboneElementImpl implements TestScriptLink {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -73,6 +82,8 @@ public class TestScriptLinkImpl extends BackboneElementImpl implements TestScrip
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -116,6 +127,7 @@ public class TestScriptLinkImpl extends BackboneElementImpl implements TestScrip
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.IdentityAssuranceLevelImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='IdentityAssuranceLevel' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(IdentityAssuranceLevelImplAdapter.class)
 public interface IdentityAssuranceLevel extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

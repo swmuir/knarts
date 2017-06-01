@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,6 +21,7 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SpecimenCollection;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +41,8 @@ import org.hl7.fhir.SpecimenCollection;
  *
  * @generated
  */
+@XmlType(name = "SpecimenCollection", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SpecimenCollection")
 public class SpecimenCollectionImpl extends BackboneElementImpl implements SpecimenCollection {
 	/**
 	 * The cached value of the '{@link #getCollector() <em>Collector</em>}' containment reference.
@@ -164,6 +171,7 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCollectedDateTime() {
 		return collectedDateTime;
 	}

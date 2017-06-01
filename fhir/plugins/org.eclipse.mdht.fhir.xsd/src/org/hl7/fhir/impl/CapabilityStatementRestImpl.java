@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,9 @@ import org.hl7.fhir.CapabilityStatementSecurity;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.RestfulCapabilityMode;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.RestfulCapabilityModeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +55,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatementRest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatementRest")
 public class CapabilityStatementRestImpl extends BackboneElementImpl implements CapabilityStatementRest {
 	/**
 	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference.
@@ -152,6 +162,8 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RestfulCapabilityModeImplAdapter.class)
+	@XmlElement(required = true)
 	public RestfulCapabilityMode getMode() {
 		return mode;
 	}
@@ -195,6 +207,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -281,6 +294,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementResource> getResource() {
 		if (resource == null) {
 			resource = new EObjectContainmentEList<CapabilityStatementResource>(CapabilityStatementResource.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__RESOURCE);
@@ -293,6 +307,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementInteraction1> getInteraction() {
 		if (interaction == null) {
 			interaction = new EObjectContainmentEList<CapabilityStatementInteraction1>(CapabilityStatementInteraction1.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__INTERACTION);
@@ -305,6 +320,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementSearchParam> getSearchParam() {
 		if (searchParam == null) {
 			searchParam = new EObjectContainmentEList<CapabilityStatementSearchParam>(CapabilityStatementSearchParam.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__SEARCH_PARAM);
@@ -317,6 +333,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementOperation> getOperation() {
 		if (operation == null) {
 			operation = new EObjectContainmentEList<CapabilityStatementOperation>(CapabilityStatementOperation.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__OPERATION);
@@ -329,6 +346,8 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getCompartment() {
 		if (compartment == null) {
 			compartment = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__COMPARTMENT);

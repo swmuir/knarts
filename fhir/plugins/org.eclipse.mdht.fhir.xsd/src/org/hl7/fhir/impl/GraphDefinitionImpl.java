@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,13 @@ import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +68,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "GraphDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "GraphDefinition")
 public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -231,6 +245,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -274,6 +289,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -317,6 +333,8 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -360,6 +378,8 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -403,6 +423,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -446,6 +467,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -489,6 +511,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -532,6 +555,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.GRAPH_DEFINITION__CONTACT);
@@ -544,6 +568,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -587,6 +612,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.GRAPH_DEFINITION__USE_CONTEXT);
@@ -599,6 +625,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.GRAPH_DEFINITION__JURISDICTION);
@@ -611,6 +638,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -654,6 +682,8 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ResourceType getStart() {
 		return start;
 	}
@@ -697,6 +727,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getProfile() {
 		return profile;
 	}
@@ -740,6 +771,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<GraphDefinitionLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<GraphDefinitionLink>(GraphDefinitionLink.class, this, FhirPackage.GRAPH_DEFINITION__LINK);

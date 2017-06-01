@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,8 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Substance;
 import org.hl7.fhir.SubstanceIngredient;
 import org.hl7.fhir.SubstanceInstance;
+import org.hl7.fhir.jaxb.FHIRSubstanceStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +51,8 @@ import org.hl7.fhir.SubstanceInstance;
  *
  * @generated
  */
+@XmlType(name = "Substance", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Substance")
 public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -139,6 +148,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SUBSTANCE__IDENTIFIER);
@@ -151,6 +161,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(FHIRSubstanceStatusImplAdapter.class)
 	public FHIRSubstanceStatus getStatus() {
 		return status;
 	}
@@ -194,6 +205,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SUBSTANCE__CATEGORY);
@@ -206,6 +218,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -249,6 +262,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -292,6 +306,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SubstanceInstance> getInstance() {
 		if (instance == null) {
 			instance = new EObjectContainmentEList<SubstanceInstance>(SubstanceInstance.class, this, FhirPackage.SUBSTANCE__INSTANCE);
@@ -304,6 +319,7 @@ public class SubstanceImpl extends DomainResourceImpl implements Substance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SubstanceIngredient> getIngredient() {
 		if (ingredient == null) {
 			ingredient = new EObjectContainmentEList<SubstanceIngredient>(SubstanceIngredient.class, this, FhirPackage.SUBSTANCE__INGREDIENT);

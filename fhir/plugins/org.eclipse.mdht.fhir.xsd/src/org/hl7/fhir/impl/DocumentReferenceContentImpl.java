@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +33,8 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
+@XmlType(name = "DocumentReferenceContent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DocumentReferenceContent")
 public class DocumentReferenceContentImpl extends BackboneElementImpl implements DocumentReferenceContent {
 	/**
 	 * The cached value of the '{@link #getAttachment() <em>Attachment</em>}' containment reference.
@@ -74,6 +80,7 @@ public class DocumentReferenceContentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Attachment getAttachment() {
 		return attachment;
 	}

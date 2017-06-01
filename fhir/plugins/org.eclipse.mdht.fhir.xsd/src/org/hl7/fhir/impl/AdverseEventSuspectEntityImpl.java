@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,8 @@ import org.hl7.fhir.AdverseEventSuspectEntity;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.AdverseEventCausalityImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +42,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "AdverseEventSuspectEntity", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AdverseEventSuspectEntity")
 public class AdverseEventSuspectEntityImpl extends BackboneElementImpl implements AdverseEventSuspectEntity {
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' containment reference.
@@ -130,6 +139,7 @@ public class AdverseEventSuspectEntityImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getInstance() {
 		return instance;
 	}
@@ -173,6 +183,7 @@ public class AdverseEventSuspectEntityImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AdverseEventCausalityImplAdapter.class)
 	public AdverseEventCausality getCausality() {
 		return causality;
 	}
@@ -259,6 +270,7 @@ public class AdverseEventSuspectEntityImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCausalityProductRelatedness() {
 		return causalityProductRelatedness;
 	}

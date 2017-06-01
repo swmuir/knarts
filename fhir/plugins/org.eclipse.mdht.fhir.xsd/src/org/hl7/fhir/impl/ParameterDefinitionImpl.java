@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,9 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +42,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ParameterDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ParameterDefinition")
 public class ParameterDefinitionImpl extends ElementImpl implements ParameterDefinition {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -129,6 +139,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getName() {
 		return name;
 	}
@@ -172,6 +183,8 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getUse() {
 		return use;
 	}
@@ -215,6 +228,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMin() {
 		return min;
 	}
@@ -258,6 +272,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}
@@ -301,6 +316,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -344,6 +360,8 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getType() {
 		return type;
 	}

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +34,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationContent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationContent")
 public class MedicationContentImpl extends BackboneElementImpl implements MedicationContent {
 	/**
 	 * The cached value of the '{@link #getItemCodeableConcept() <em>Item Codeable Concept</em>}' containment reference.

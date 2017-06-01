@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -48,6 +53,23 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.OidImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.StructureMapSourceListModeImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,6 +130,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "StructureMapSource", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "StructureMapSource")
 public class StructureMapSourceImpl extends BackboneElementImpl implements StructureMapSource {
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
@@ -603,6 +627,8 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getContext() {
 		return context;
 	}
@@ -646,6 +672,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMin() {
 		return min;
 	}
@@ -689,6 +716,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}
@@ -732,6 +760,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getType() {
 		return type;
 	}
@@ -775,6 +804,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getDefaultValueBase64Binary() {
 		return defaultValueBase64Binary;
 	}
@@ -818,6 +848,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDefaultValueBoolean() {
 		return defaultValueBoolean;
 	}
@@ -861,6 +892,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getDefaultValueCode() {
 		return defaultValueCode;
 	}
@@ -904,6 +936,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDefaultValueDate() {
 		return defaultValueDate;
 	}
@@ -947,6 +980,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDefaultValueDateTime() {
 		return defaultValueDateTime;
 	}
@@ -990,6 +1024,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDefaultValueDecimal() {
 		return defaultValueDecimal;
 	}
@@ -1033,6 +1068,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getDefaultValueId() {
 		return defaultValueId;
 	}
@@ -1076,6 +1112,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getDefaultValueInstant() {
 		return defaultValueInstant;
 	}
@@ -1119,6 +1156,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getDefaultValueInteger() {
 		return defaultValueInteger;
 	}
@@ -1162,6 +1200,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDefaultValueMarkdown() {
 		return defaultValueMarkdown;
 	}
@@ -1205,6 +1244,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getDefaultValueOid() {
 		return defaultValueOid;
 	}
@@ -1248,6 +1288,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getDefaultValuePositiveInt() {
 		return defaultValuePositiveInt;
 	}
@@ -1291,6 +1332,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDefaultValueString() {
 		return defaultValueString;
 	}
@@ -1334,6 +1376,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getDefaultValueTime() {
 		return defaultValueTime;
 	}
@@ -1377,6 +1420,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getDefaultValueUnsignedInt() {
 		return defaultValueUnsignedInt;
 	}
@@ -1420,6 +1464,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefaultValueUri() {
 		return defaultValueUri;
 	}
@@ -2409,6 +2454,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getElement() {
 		return element;
 	}
@@ -2452,6 +2498,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StructureMapSourceListModeImplAdapter.class)
 	public StructureMapSourceListMode getListMode() {
 		return listMode;
 	}
@@ -2495,6 +2542,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getVariable() {
 		return variable;
 	}
@@ -2538,6 +2586,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCondition() {
 		return condition;
 	}
@@ -2581,6 +2630,7 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCheck() {
 		return check;
 	}

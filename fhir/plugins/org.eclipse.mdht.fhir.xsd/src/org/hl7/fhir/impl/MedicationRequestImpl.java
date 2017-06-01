@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,6 +36,10 @@ import org.hl7.fhir.MedicationRequestRequester;
 import org.hl7.fhir.MedicationRequestStatus;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MedicationRequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.MedicationRequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +78,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationRequest", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationRequest")
 public class MedicationRequestImpl extends DomainResourceImpl implements MedicationRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -344,6 +355,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICATION_REQUEST__IDENTIFIER);
@@ -356,6 +368,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__DEFINITION);
@@ -368,6 +381,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__BASED_ON);
@@ -423,6 +437,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MedicationRequestStatusImplAdapter.class)
 	public MedicationRequestStatus getStatus() {
 		return status;
 	}
@@ -466,6 +481,8 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MedicationRequestIntentImplAdapter.class)
+	@XmlElement(required = true)
 	public MedicationRequestIntent getIntent() {
 		return intent;
 	}
@@ -552,6 +569,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MedicationRequestPriorityImplAdapter.class)
 	public MedicationRequestPriority getPriority() {
 		return priority;
 	}
@@ -681,6 +699,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -767,6 +786,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__SUPPORTING_INFORMATION);
@@ -779,6 +799,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -908,6 +929,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_REQUEST__REASON_CODE);
@@ -920,6 +942,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE);
@@ -932,6 +955,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_REQUEST__NOTE);
@@ -944,6 +968,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Dosage> getDosageInstruction() {
 		if (dosageInstruction == null) {
 			dosageInstruction = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION);
@@ -1085,6 +1110,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDetectedIssue() {
 		if (detectedIssue == null) {
 			detectedIssue = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__DETECTED_ISSUE);
@@ -1097,6 +1123,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
 			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__EVENT_HISTORY);

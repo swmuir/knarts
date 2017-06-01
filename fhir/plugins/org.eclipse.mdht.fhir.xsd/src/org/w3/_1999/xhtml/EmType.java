@@ -4,6 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.w3._1999.xhtml.jaxb.EmTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Em Type</b></em>'.
@@ -26,6 +30,7 @@ import java.util.List;
  * @model extendedMetaData="name='em_._type' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(EmTypeImplAdapter.class)
 public interface EmType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

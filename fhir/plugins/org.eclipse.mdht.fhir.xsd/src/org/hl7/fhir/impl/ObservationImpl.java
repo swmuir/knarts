@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,6 +40,12 @@ import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Time;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.ObservationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +91,8 @@ import org.hl7.fhir.Time;
  *
  * @generated
  */
+@XmlType(name = "Observation", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Observation")
 public class ObservationImpl extends DomainResourceImpl implements Observation {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -425,6 +438,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.OBSERVATION__IDENTIFIER);
@@ -437,6 +451,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.OBSERVATION__BASED_ON);
@@ -449,6 +464,8 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ObservationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ObservationStatus getStatus() {
 		return status;
 	}
@@ -492,6 +509,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION__CATEGORY);
@@ -504,6 +522,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -633,6 +652,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveDateTime() {
 		return effectiveDateTime;
 	}
@@ -719,6 +739,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getIssued() {
 		return issued;
 	}
@@ -762,6 +783,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.OBSERVATION__PERFORMER);
@@ -860,6 +882,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -903,6 +926,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -1118,6 +1142,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -1161,6 +1186,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -1333,6 +1359,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}
@@ -1548,6 +1575,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ObservationReferenceRange> getReferenceRange() {
 		if (referenceRange == null) {
 			referenceRange = new EObjectContainmentEList<ObservationReferenceRange>(ObservationReferenceRange.class, this, FhirPackage.OBSERVATION__REFERENCE_RANGE);
@@ -1560,6 +1588,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ObservationRelated> getRelated() {
 		if (related == null) {
 			related = new EObjectContainmentEList<ObservationRelated>(ObservationRelated.class, this, FhirPackage.OBSERVATION__RELATED);
@@ -1572,6 +1601,7 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ObservationComponent> getComponent() {
 		if (component == null) {
 			component = new EObjectContainmentEList<ObservationComponent>(ObservationComponent.class, this, FhirPackage.OBSERVATION__COMPONENT);

@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,6 +35,8 @@ import org.hl7.fhir.OperationOutcomeIssue;
  *
  * @generated
  */
+@XmlType(name = "OperationOutcome", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OperationOutcome")
 public class OperationOutcomeImpl extends DomainResourceImpl implements OperationOutcome {
 	/**
 	 * The cached value of the '{@link #getIssue() <em>Issue</em>}' containment reference list.
@@ -66,6 +72,7 @@ public class OperationOutcomeImpl extends DomainResourceImpl implements Operatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<OperationOutcomeIssue> getIssue() {
 		if (issue == null) {
 			issue = new EObjectContainmentEList<OperationOutcomeIssue>(OperationOutcomeIssue.class, this, FhirPackage.OPERATION_OUTCOME__ISSUE);

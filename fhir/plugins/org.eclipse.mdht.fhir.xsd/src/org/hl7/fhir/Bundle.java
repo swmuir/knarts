@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.BundleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Bundle' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(BundleImplAdapter.class)
 public interface Bundle extends Resource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

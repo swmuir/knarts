@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -55,6 +60,22 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.OidImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,6 +130,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ParametersParameter", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ParametersParameter")
 public class ParametersParameterImpl extends BackboneElementImpl implements ParametersParameter {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -544,6 +567,8 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -587,6 +612,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getValueBase64Binary() {
 		return valueBase64Binary;
 	}
@@ -630,6 +656,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -673,6 +700,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getValueCode() {
 		return valueCode;
 	}
@@ -716,6 +744,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getValueDate() {
 		return valueDate;
 	}
@@ -759,6 +788,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -802,6 +832,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValueDecimal() {
 		return valueDecimal;
 	}
@@ -845,6 +876,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getValueId() {
 		return valueId;
 	}
@@ -888,6 +920,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getValueInstant() {
 		return valueInstant;
 	}
@@ -931,6 +964,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -974,6 +1008,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getValueMarkdown() {
 		return valueMarkdown;
 	}
@@ -1017,6 +1052,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getValueOid() {
 		return valueOid;
 	}
@@ -1060,6 +1096,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getValuePositiveInt() {
 		return valuePositiveInt;
 	}
@@ -1103,6 +1140,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -1146,6 +1184,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -1189,6 +1228,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getValueUnsignedInt() {
 		return valueUnsignedInt;
 	}
@@ -1232,6 +1272,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueUri() {
 		return valueUri;
 	}
@@ -2264,6 +2305,7 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ParametersParameter> getPart() {
 		if (part == null) {
 			part = new EObjectContainmentEList<ParametersParameter>(ParametersParameter.class, this, FhirPackage.PARAMETERS_PARAMETER__PART);

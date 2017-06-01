@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.MessageHeaderSourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='MessageHeader.Source' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MessageHeaderSourceImplAdapter.class)
 public interface MessageHeaderSource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

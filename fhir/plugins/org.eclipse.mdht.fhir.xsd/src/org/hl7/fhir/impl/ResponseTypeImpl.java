@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +28,8 @@ import org.hl7.fhir.ResponseTypeList;
  *
  * @generated
  */
+@XmlType(name = "ResponseType", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ResponseType")
 public class ResponseTypeImpl extends ElementImpl implements ResponseType {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

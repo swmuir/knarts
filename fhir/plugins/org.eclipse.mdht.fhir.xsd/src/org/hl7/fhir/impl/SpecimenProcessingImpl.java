@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SpecimenProcessing;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +48,8 @@ import org.hl7.fhir.SpecimenProcessing;
  *
  * @generated
  */
+@XmlType(name = "SpecimenProcessing", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SpecimenProcessing")
 public class SpecimenProcessingImpl extends BackboneElementImpl implements SpecimenProcessing {
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -116,6 +125,7 @@ public class SpecimenProcessingImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -202,6 +212,7 @@ public class SpecimenProcessingImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAdditive() {
 		if (additive == null) {
 			additive = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SPECIMEN_PROCESSING__ADDITIVE);
@@ -214,6 +225,7 @@ public class SpecimenProcessingImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimeDateTime() {
 		return timeDateTime;
 	}

@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ExtensionImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Extension</b></em>'.
@@ -63,6 +67,7 @@ import java.lang.String;
  * @model extendedMetaData="name='Extension' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExtensionImplAdapter.class)
 public interface Extension extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value Base64 Binary</b></em>' containment reference.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ContractFriendlyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Contract.Friendly' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ContractFriendlyImplAdapter.class)
 public interface ContractFriendly extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Content Attachment</b></em>' containment reference.

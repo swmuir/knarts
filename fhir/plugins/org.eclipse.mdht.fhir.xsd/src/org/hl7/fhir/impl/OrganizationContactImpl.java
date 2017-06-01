@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,6 +44,8 @@ import org.hl7.fhir.OrganizationContact;
  *
  * @generated
  */
+@XmlType(name = "OrganizationContact", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OrganizationContact")
 public class OrganizationContactImpl extends BackboneElementImpl implements OrganizationContact {
 	/**
 	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
@@ -191,6 +197,7 @@ public class OrganizationContactImpl extends BackboneElementImpl implements Orga
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.ORGANIZATION_CONTACT__TELECOM);

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestScriptRequestHeader;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +33,8 @@ import org.hl7.fhir.TestScriptRequestHeader;
  *
  * @generated
  */
+@XmlType(name = "TestScriptRequestHeader", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptRequestHeader")
 public class TestScriptRequestHeaderImpl extends BackboneElementImpl implements TestScriptRequestHeader {
 	/**
 	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
@@ -72,6 +80,8 @@ public class TestScriptRequestHeaderImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getField() {
 		return field;
 	}
@@ -115,6 +125,8 @@ public class TestScriptRequestHeaderImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}

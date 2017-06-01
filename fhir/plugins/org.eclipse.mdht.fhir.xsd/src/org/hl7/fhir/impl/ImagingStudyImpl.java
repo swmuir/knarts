@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,11 @@ import org.hl7.fhir.InstanceAvailability;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.InstanceAvailabilityImplAdapter;
+import org.hl7.fhir.jaxb.OidImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +70,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "ImagingStudy", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImagingStudy")
 public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy {
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
@@ -275,6 +287,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
+	@XmlElement(required = true)
 	public Oid getUid() {
 		return uid;
 	}
@@ -361,6 +375,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.IMAGING_STUDY__IDENTIFIER);
@@ -373,6 +388,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstanceAvailabilityImplAdapter.class)
 	public InstanceAvailability getAvailability() {
 		return availability;
 	}
@@ -416,6 +432,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getModalityList() {
 		if (modalityList == null) {
 			modalityList = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.IMAGING_STUDY__MODALITY_LIST);
@@ -428,6 +445,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -514,6 +532,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getStarted() {
 		return started;
 	}
@@ -557,6 +576,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__BASED_ON);
@@ -612,6 +632,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getInterpreter() {
 		if (interpreter == null) {
 			interpreter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__INTERPRETER);
@@ -624,6 +645,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__ENDPOINT);
@@ -636,6 +658,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getNumberOfSeries() {
 		return numberOfSeries;
 	}
@@ -679,6 +702,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getNumberOfInstances() {
 		return numberOfInstances;
 	}
@@ -722,6 +746,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getProcedureReference() {
 		if (procedureReference == null) {
 			procedureReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE);
@@ -734,6 +759,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getProcedureCode() {
 		if (procedureCode == null) {
 			procedureCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE_CODE);
@@ -789,6 +815,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -832,6 +859,7 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ImagingStudySeries> getSeries() {
 		if (series == null) {
 			series = new EObjectContainmentEList<ImagingStudySeries>(ImagingStudySeries.class, this, FhirPackage.IMAGING_STUDY__SERIES);

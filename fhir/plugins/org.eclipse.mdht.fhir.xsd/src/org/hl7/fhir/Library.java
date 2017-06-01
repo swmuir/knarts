@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.LibraryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +53,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Library' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(LibraryImplAdapter.class)
 public interface Library extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

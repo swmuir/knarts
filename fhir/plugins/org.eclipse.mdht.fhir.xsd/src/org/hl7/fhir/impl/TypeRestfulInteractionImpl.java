@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,6 +28,8 @@ import org.hl7.fhir.TypeRestfulInteractionList;
  *
  * @generated
  */
+@XmlType(name = "TypeRestfulInteraction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TypeRestfulInteraction")
 public class TypeRestfulInteractionImpl extends ElementImpl implements TypeRestfulInteraction {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

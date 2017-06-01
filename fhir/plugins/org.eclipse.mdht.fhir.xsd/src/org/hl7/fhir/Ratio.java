@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.RatioImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Ratio' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(RatioImplAdapter.class)
 public interface Ratio extends Element {
 	/**
 	 * Returns the value of the '<em><b>Numerator</b></em>' containment reference.

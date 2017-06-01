@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureReportGroup;
 import org.hl7.fhir.MeasureReportPopulation;
 import org.hl7.fhir.MeasureReportStratifier;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +46,8 @@ import org.hl7.fhir.MeasureReportStratifier;
  *
  * @generated
  */
+@XmlType(name = "MeasureReportGroup", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureReportGroup")
 public class MeasureReportGroupImpl extends BackboneElementImpl implements MeasureReportGroup {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -105,6 +113,7 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -148,6 +157,7 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureReportPopulation> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasureReportPopulation>(MeasureReportPopulation.class, this, FhirPackage.MEASURE_REPORT_GROUP__POPULATION);
@@ -160,6 +170,7 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getMeasureScore() {
 		return measureScore;
 	}
@@ -203,6 +214,7 @@ public class MeasureReportGroupImpl extends BackboneElementImpl implements Measu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureReportStratifier> getStratifier() {
 		if (stratifier == null) {
 			stratifier = new EObjectContainmentEList<MeasureReportStratifier>(MeasureReportStratifier.class, this, FhirPackage.MEASURE_REPORT_GROUP__STRATIFIER);

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ImplementationGuideResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ImplementationGuide.Resource' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImplementationGuideResourceImplAdapter.class)
 public interface ImplementationGuideResource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Example</b></em>' containment reference.

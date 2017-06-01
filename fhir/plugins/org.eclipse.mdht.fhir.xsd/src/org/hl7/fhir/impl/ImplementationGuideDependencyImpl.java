@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GuideDependencyType;
 import org.hl7.fhir.ImplementationGuideDependency;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.GuideDependencyTypeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +36,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ImplementationGuideDependency", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImplementationGuideDependency")
 public class ImplementationGuideDependencyImpl extends BackboneElementImpl implements ImplementationGuideDependency {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -74,6 +83,8 @@ public class ImplementationGuideDependencyImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(GuideDependencyTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public GuideDependencyType getType() {
 		return type;
 	}
@@ -117,6 +128,8 @@ public class ImplementationGuideDependencyImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getUri() {
 		return uri;
 	}

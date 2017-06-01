@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.ConsentData;
 import org.hl7.fhir.ConsentDataMeaning;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.ConsentDataMeaningImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ConsentData", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ConsentData")
 public class ConsentDataImpl extends BackboneElementImpl implements ConsentData {
 	/**
 	 * The cached value of the '{@link #getMeaning() <em>Meaning</em>}' containment reference.
@@ -74,6 +82,8 @@ public class ConsentDataImpl extends BackboneElementImpl implements ConsentData 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConsentDataMeaningImplAdapter.class)
+	@XmlElement(required = true)
 	public ConsentDataMeaning getMeaning() {
 		return meaning;
 	}
@@ -117,6 +127,7 @@ public class ConsentDataImpl extends BackboneElementImpl implements ConsentData 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getReference() {
 		return reference;
 	}

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.EpisodeOfCareStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +57,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "EpisodeOfCare", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EpisodeOfCare")
 public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCare {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -196,6 +204,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.EPISODE_OF_CARE__IDENTIFIER);
@@ -208,6 +217,8 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(EpisodeOfCareStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public EpisodeOfCareStatus getStatus() {
 		return status;
 	}
@@ -251,6 +262,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EpisodeOfCareStatusHistory> getStatusHistory() {
 		if (statusHistory == null) {
 			statusHistory = new EObjectContainmentEList<EpisodeOfCareStatusHistory>(EpisodeOfCareStatusHistory.class, this, FhirPackage.EPISODE_OF_CARE__STATUS_HISTORY);
@@ -263,6 +275,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EPISODE_OF_CARE__TYPE);
@@ -275,6 +288,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<EpisodeOfCareDiagnosis> getDiagnosis() {
 		if (diagnosis == null) {
 			diagnosis = new EObjectContainmentEList<EpisodeOfCareDiagnosis>(EpisodeOfCareDiagnosis.class, this, FhirPackage.EPISODE_OF_CARE__DIAGNOSIS);
@@ -287,6 +301,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -416,6 +431,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReferralRequest() {
 		if (referralRequest == null) {
 			referralRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EPISODE_OF_CARE__REFERRAL_REQUEST);
@@ -471,6 +487,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getTeam() {
 		if (team == null) {
 			team = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EPISODE_OF_CARE__TEAM);
@@ -483,6 +500,7 @@ public class EpisodeOfCareImpl extends DomainResourceImpl implements EpisodeOfCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAccount() {
 		if (account == null) {
 			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EPISODE_OF_CARE__ACCOUNT);

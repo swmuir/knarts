@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ValueSetComposeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ValueSet.Compose' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ValueSetComposeImplAdapter.class)
 public interface ValueSetCompose extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Locked Date</b></em>' containment reference.

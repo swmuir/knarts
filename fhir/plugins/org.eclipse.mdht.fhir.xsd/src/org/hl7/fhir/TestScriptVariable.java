@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptVariableImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Variable' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptVariableImplAdapter.class)
 public interface TestScriptVariable extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

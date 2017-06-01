@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -12,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ProcessRequestItem;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +32,8 @@ import org.hl7.fhir.ProcessRequestItem;
  *
  * @generated
  */
+@XmlType(name = "ProcessRequestItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ProcessRequestItem")
 public class ProcessRequestItemImpl extends BackboneElementImpl implements ProcessRequestItem {
 	/**
 	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference.
@@ -61,6 +69,8 @@ public class ProcessRequestItemImpl extends BackboneElementImpl implements Proce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getSequenceLinkId() {
 		return sequenceLinkId;
 	}

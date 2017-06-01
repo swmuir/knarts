@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +44,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MedicationDispenseSubstitution", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MedicationDispenseSubstitution")
 public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl implements MedicationDispenseSubstitution {
 	/**
 	 * The cached value of the '{@link #getWasSubstituted() <em>Was Substituted</em>}' containment reference.
@@ -103,6 +111,8 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getWasSubstituted() {
 		return wasSubstituted;
 	}
@@ -189,6 +199,7 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__REASON);
@@ -201,6 +212,7 @@ public class MedicationDispenseSubstitutionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getResponsibleParty() {
 		if (responsibleParty == null) {
 			responsibleParty = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION__RESPONSIBLE_PARTY);

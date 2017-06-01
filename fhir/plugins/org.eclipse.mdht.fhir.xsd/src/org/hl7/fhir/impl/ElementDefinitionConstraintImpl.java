@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +20,10 @@ import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.ConstraintSeverityImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +44,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ElementDefinitionConstraint", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ElementDefinitionConstraint")
 public class ElementDefinitionConstraintImpl extends ElementImpl implements ElementDefinitionConstraint {
 	/**
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
@@ -130,6 +141,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getKey() {
 		return key;
 	}
@@ -173,6 +186,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRequirements() {
 		return requirements;
 	}
@@ -216,6 +230,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConstraintSeverityImplAdapter.class)
+	@XmlElement(required = true)
 	public ConstraintSeverity getSeverity() {
 		return severity;
 	}
@@ -259,6 +275,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getHuman() {
 		return human;
 	}
@@ -302,6 +320,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}
@@ -345,6 +365,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getXpath() {
 		return xpath;
 	}
@@ -388,6 +409,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSource() {
 		return source;
 	}

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,6 +37,15 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.OperationKindImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +82,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "OperationDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OperationDefinition")
 public class OperationDefinitionImpl extends DomainResourceImpl implements OperationDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -323,6 +339,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -366,6 +383,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -409,6 +427,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -452,6 +472,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -495,6 +517,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OperationKindImplAdapter.class)
+	@XmlElement(required = true)
 	public OperationKind getKind() {
 		return kind;
 	}
@@ -538,6 +562,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -581,6 +606,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -624,6 +650,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -667,6 +694,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.OPERATION_DEFINITION__CONTACT);
@@ -679,6 +707,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -722,6 +751,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.OPERATION_DEFINITION__USE_CONTEXT);
@@ -734,6 +764,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OPERATION_DEFINITION__JURISDICTION);
@@ -746,6 +777,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -789,6 +821,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIdempotent() {
 		return idempotent;
 	}
@@ -832,6 +865,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -875,6 +910,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}
@@ -961,6 +997,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement
 	public EList<ResourceType> getResource() {
 		if (resource == null) {
 			resource = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.OPERATION_DEFINITION__RESOURCE);
@@ -973,6 +1011,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getSystem() {
 		return system;
 	}
@@ -1016,6 +1056,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getType() {
 		return type;
 	}
@@ -1059,6 +1101,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getInstance() {
 		return instance;
 	}
@@ -1102,6 +1146,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<OperationDefinitionParameter> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<OperationDefinitionParameter>(OperationDefinitionParameter.class, this, FhirPackage.OPERATION_DEFINITION__PARAMETER);
@@ -1114,6 +1159,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<OperationDefinitionOverload> getOverload() {
 		if (overload == null) {
 			overload = new EObjectContainmentEList<OperationDefinitionOverload>(OperationDefinitionOverload.class, this, FhirPackage.OPERATION_DEFINITION__OVERLOAD);

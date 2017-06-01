@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -42,6 +46,8 @@ import org.hl7.fhir.RelatedArtifact;
  *
  * @generated
  */
+@XmlType(name = "PlanDefinitionGoal", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PlanDefinitionGoal")
 public class PlanDefinitionGoalImpl extends BackboneElementImpl implements PlanDefinitionGoal {
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -180,6 +186,7 @@ public class PlanDefinitionGoalImpl extends BackboneElementImpl implements PlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getDescription() {
 		return description;
 	}
@@ -309,6 +316,7 @@ public class PlanDefinitionGoalImpl extends BackboneElementImpl implements PlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getAddresses() {
 		if (addresses == null) {
 			addresses = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_GOAL__ADDRESSES);
@@ -321,6 +329,7 @@ public class PlanDefinitionGoalImpl extends BackboneElementImpl implements PlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getDocumentation() {
 		if (documentation == null) {
 			documentation = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.PLAN_DEFINITION_GOAL__DOCUMENTATION);
@@ -333,6 +342,7 @@ public class PlanDefinitionGoalImpl extends BackboneElementImpl implements PlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionTarget> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<PlanDefinitionTarget>(PlanDefinitionTarget.class, this, FhirPackage.PLAN_DEFINITION_GOAL__TARGET);

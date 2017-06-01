@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptRequestHeaderImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.RequestHeader' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptRequestHeaderImplAdapter.class)
 public interface TestScriptRequestHeader extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Field</b></em>' containment reference.

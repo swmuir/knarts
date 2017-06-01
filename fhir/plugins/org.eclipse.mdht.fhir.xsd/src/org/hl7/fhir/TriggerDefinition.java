@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TriggerDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TriggerDefinition' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TriggerDefinitionImplAdapter.class)
 public interface TriggerDefinition extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

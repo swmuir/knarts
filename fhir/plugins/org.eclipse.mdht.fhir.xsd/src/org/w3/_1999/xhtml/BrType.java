@@ -4,7 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.ecore.EObject;
+import org.w3._1999.xhtml.jaxb.BrTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='br_._type' kind='empty'"
  * @generated
  */
+@XmlJavaTypeAdapter(BrTypeImplAdapter.class)
 public interface BrType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

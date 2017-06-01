@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ConceptMapGroupImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ConceptMap.Group' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ConceptMapGroupImplAdapter.class)
 public interface ConceptMapGroup extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.

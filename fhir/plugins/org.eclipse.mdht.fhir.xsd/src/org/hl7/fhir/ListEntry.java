@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ListEntryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='List.Entry' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ListEntryImplAdapter.class)
 public interface ListEntry extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Flag</b></em>' containment reference.

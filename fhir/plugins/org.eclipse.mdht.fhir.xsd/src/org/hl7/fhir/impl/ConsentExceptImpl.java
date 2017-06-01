@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,7 @@ import org.hl7.fhir.ConsentExcept;
 import org.hl7.fhir.ConsentExceptType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.jaxb.ConsentExceptTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +54,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "ConsentExcept", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ConsentExcept")
 public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExcept {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -173,6 +181,8 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ConsentExceptTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ConsentExceptType getType() {
 		return type;
 	}
@@ -259,6 +269,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentActor1> getActor() {
 		if (actor == null) {
 			actor = new EObjectContainmentEList<ConsentActor1>(ConsentActor1.class, this, FhirPackage.CONSENT_EXCEPT__ACTOR);
@@ -271,6 +282,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONSENT_EXCEPT__ACTION);
@@ -283,6 +295,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__SECURITY_LABEL);
@@ -295,6 +308,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getPurpose() {
 		if (purpose == null) {
 			purpose = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__PURPOSE);
@@ -319,6 +333,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONSENT_EXCEPT__CODE);
@@ -374,6 +389,7 @@ public class ConsentExceptImpl extends BackboneElementImpl implements ConsentExc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ConsentData1> getData() {
 		if (data == null) {
 			data = new EObjectContainmentEList<ConsentData1>(ConsentData1.class, this, FhirPackage.CONSENT_EXCEPT__DATA);

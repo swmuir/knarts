@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ConsentPolicyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Consent.Policy' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ConsentPolicyImplAdapter.class)
 public interface ConsentPolicy extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Authority</b></em>' containment reference.

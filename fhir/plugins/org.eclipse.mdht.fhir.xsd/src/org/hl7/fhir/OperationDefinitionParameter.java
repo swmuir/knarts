@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.OperationDefinitionParameterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='OperationDefinition.Parameter' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(OperationDefinitionParameterImplAdapter.class)
 public interface OperationDefinitionParameter extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

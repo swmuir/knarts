@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.TestReportTeardownImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='TestReport.Teardown' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestReportTeardownImplAdapter.class)
 public interface TestReportTeardown extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.

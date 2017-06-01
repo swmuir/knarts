@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,6 +42,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CompositionEvent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CompositionEvent")
 public class CompositionEventImpl extends BackboneElementImpl implements CompositionEvent {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
@@ -93,6 +99,7 @@ public class CompositionEventImpl extends BackboneElementImpl implements Composi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMPOSITION_EVENT__CODE);
@@ -148,6 +155,7 @@ public class CompositionEventImpl extends BackboneElementImpl implements Composi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMPOSITION_EVENT__DETAIL);

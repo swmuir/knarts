@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,9 @@ import org.hl7.fhir.AddressType;
 import org.hl7.fhir.AddressUse;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.jaxb.AddressTypeImplAdapter;
+import org.hl7.fhir.jaxb.AddressUseImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +53,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "Address", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Address")
 public class AddressImpl extends ElementImpl implements Address {
 	/**
 	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
@@ -170,6 +180,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AddressUseImplAdapter.class)
 	public AddressUse getUse() {
 		return use;
 	}
@@ -213,6 +224,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AddressTypeImplAdapter.class)
 	public AddressType getType() {
 		return type;
 	}
@@ -256,6 +268,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -299,6 +312,8 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getLine() {
 		if (line == null) {
 			line = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ADDRESS__LINE);
@@ -311,6 +326,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCity() {
 		return city;
 	}
@@ -354,6 +370,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDistrict() {
 		return district;
 	}
@@ -397,6 +414,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getState() {
 		return state;
 	}
@@ -440,6 +458,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPostalCode() {
 		return postalCode;
 	}
@@ -483,6 +502,7 @@ public class AddressImpl extends ElementImpl implements Address {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCountry() {
 		return country;
 	}

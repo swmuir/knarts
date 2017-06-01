@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,6 +45,14 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
+import org.hl7.fhir.jaxb.ActionCardinalityBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionPrecheckBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionRequiredBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,6 +95,8 @@ import org.hl7.fhir.TriggerDefinition;
  *
  * @generated
  */
+@XmlType(name = "PlanDefinitionAction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PlanDefinitionAction")
 public class PlanDefinitionActionImpl extends BackboneElementImpl implements PlanDefinitionAction {
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
@@ -397,6 +412,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLabel() {
 		return label;
 	}
@@ -440,6 +456,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -483,6 +500,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -526,6 +544,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTextEquivalent() {
 		return textEquivalent;
 	}
@@ -569,6 +588,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_ACTION__CODE);
@@ -581,6 +601,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_ACTION__REASON);
@@ -593,6 +614,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getDocumentation() {
 		if (documentation == null) {
 			documentation = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.PLAN_DEFINITION_ACTION__DOCUMENTATION);
@@ -605,6 +627,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement
 	public EList<Id> getGoalId() {
 		if (goalId == null) {
 			goalId = new EObjectContainmentEList<Id>(Id.class, this, FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID);
@@ -617,6 +641,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TriggerDefinition> getTriggerDefinition() {
 		if (triggerDefinition == null) {
 			triggerDefinition = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION);
@@ -629,6 +654,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<PlanDefinitionCondition>(PlanDefinitionCondition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__CONDITION);
@@ -641,6 +667,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirement> getInput() {
 		if (input == null) {
 			input = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.PLAN_DEFINITION_ACTION__INPUT);
@@ -653,6 +680,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirement> getOutput() {
 		if (output == null) {
 			output = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.PLAN_DEFINITION_ACTION__OUTPUT);
@@ -665,6 +693,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionRelatedAction> getRelatedAction() {
 		if (relatedAction == null) {
 			relatedAction = new EObjectContainmentEList<PlanDefinitionRelatedAction>(PlanDefinitionRelatedAction.class, this, FhirPackage.PLAN_DEFINITION_ACTION__RELATED_ACTION);
@@ -677,6 +706,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -892,6 +922,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<PlanDefinitionParticipant>(PlanDefinitionParticipant.class, this, FhirPackage.PLAN_DEFINITION_ACTION__PARTICIPANT);
@@ -947,6 +978,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
 	public ActionGroupingBehavior getGroupingBehavior() {
 		return groupingBehavior;
 	}
@@ -990,6 +1022,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
 	public ActionSelectionBehavior getSelectionBehavior() {
 		return selectionBehavior;
 	}
@@ -1033,6 +1066,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionRequiredBehaviorImplAdapter.class)
 	public ActionRequiredBehavior getRequiredBehavior() {
 		return requiredBehavior;
 	}
@@ -1076,6 +1110,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionPrecheckBehaviorImplAdapter.class)
 	public ActionPrecheckBehavior getPrecheckBehavior() {
 		return precheckBehavior;
 	}
@@ -1119,6 +1154,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionCardinalityBehaviorImplAdapter.class)
 	public ActionCardinalityBehavior getCardinalityBehavior() {
 		return cardinalityBehavior;
 	}
@@ -1248,6 +1284,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionDynamicValue> getDynamicValue() {
 		if (dynamicValue == null) {
 			dynamicValue = new EObjectContainmentEList<PlanDefinitionDynamicValue>(PlanDefinitionDynamicValue.class, this, FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE);
@@ -1260,6 +1297,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PlanDefinitionAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<PlanDefinitionAction>(PlanDefinitionAction.class, this, FhirPackage.PLAN_DEFINITION_ACTION__ACTION);

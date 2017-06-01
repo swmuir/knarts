@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +44,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='DocumentReference' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(DocumentReferenceImplAdapter.class)
 public interface DocumentReference extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Master Identifier</b></em>' containment reference.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TestScriptActionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='TestScript.Action' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TestScriptActionImplAdapter.class)
 public interface TestScriptAction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' containment reference.

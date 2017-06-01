@@ -4,11 +4,14 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.hl7.fhir.jaxb.DocumentRootImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -145,6 +148,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(DocumentRootImplAdapter.class)
 public interface DocumentRoot extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.

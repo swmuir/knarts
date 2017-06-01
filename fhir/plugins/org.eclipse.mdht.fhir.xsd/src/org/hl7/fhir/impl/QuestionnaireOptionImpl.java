@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,6 +19,10 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QuestionnaireOption;
 import org.hl7.fhir.Time;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +41,8 @@ import org.hl7.fhir.Time;
  *
  * @generated
  */
+@XmlType(name = "QuestionnaireOption", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "QuestionnaireOption")
 public class QuestionnaireOptionImpl extends BackboneElementImpl implements QuestionnaireOption {
 	/**
 	 * The cached value of the '{@link #getValueInteger() <em>Value Integer</em>}' containment reference.
@@ -108,6 +118,7 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -151,6 +162,7 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getValueDate() {
 		return valueDate;
 	}
@@ -194,6 +206,7 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -237,6 +250,7 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}

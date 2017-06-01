@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,9 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.ParticipationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.ParticipationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +53,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "AppointmentResponse", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "AppointmentResponse")
 public class AppointmentResponseImpl extends DomainResourceImpl implements AppointmentResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -150,6 +160,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.APPOINTMENT_RESPONSE__IDENTIFIER);
@@ -162,6 +173,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getAppointment() {
 		return appointment;
 	}
@@ -205,6 +217,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getStart() {
 		return start;
 	}
@@ -248,6 +261,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getEnd() {
 		return end;
 	}
@@ -291,6 +305,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getParticipantType() {
 		if (participantType == null) {
 			participantType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT_RESPONSE__PARTICIPANT_TYPE);
@@ -346,6 +361,8 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ParticipationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public ParticipationStatus getParticipantStatus() {
 		return participantStatus;
 	}
@@ -389,6 +406,7 @@ public class AppointmentResponseImpl extends DomainResourceImpl implements Appoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

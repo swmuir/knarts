@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,6 +39,13 @@ import org.hl7.fhir.ServiceDefinition;
 import org.hl7.fhir.TriggerDefinition;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +84,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "ServiceDefinition", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ServiceDefinition")
 public class ServiceDefinitionImpl extends DomainResourceImpl implements ServiceDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -347,6 +361,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -390,6 +405,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SERVICE_DEFINITION__IDENTIFIER);
@@ -402,6 +418,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -445,6 +462,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -488,6 +506,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -531,6 +550,8 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -574,6 +595,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -617,6 +639,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -660,6 +683,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -703,6 +727,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -746,6 +771,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -789,6 +815,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -832,6 +859,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -875,6 +903,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -961,6 +990,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.SERVICE_DEFINITION__USE_CONTEXT);
@@ -973,6 +1003,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SERVICE_DEFINITION__JURISDICTION);
@@ -985,6 +1016,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SERVICE_DEFINITION__TOPIC);
@@ -997,6 +1029,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Contributor> getContributor() {
 		if (contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, FhirPackage.SERVICE_DEFINITION__CONTRIBUTOR);
@@ -1009,6 +1042,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.SERVICE_DEFINITION__CONTACT);
@@ -1021,6 +1055,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -1064,6 +1099,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.SERVICE_DEFINITION__RELATED_ARTIFACT);
@@ -1076,6 +1112,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TriggerDefinition> getTrigger() {
 		if (trigger == null) {
 			trigger = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.SERVICE_DEFINITION__TRIGGER);
@@ -1088,6 +1125,7 @@ public class ServiceDefinitionImpl extends DomainResourceImpl implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirement> getDataRequirement() {
 		if (dataRequirement == null) {
 			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.SERVICE_DEFINITION__DATA_REQUIREMENT);

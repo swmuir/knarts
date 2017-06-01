@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,8 @@ import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +48,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "QuestionnaireResponseItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "QuestionnaireResponseItem")
 public class QuestionnaireResponseItemImpl extends BackboneElementImpl implements QuestionnaireResponseItem {
 	/**
 	 * The cached value of the '{@link #getLinkId() <em>Link Id</em>}' containment reference.
@@ -126,6 +135,8 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getLinkId() {
 		return linkId;
 	}
@@ -169,6 +180,7 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefinition() {
 		return definition;
 	}
@@ -212,6 +224,7 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -298,6 +311,7 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<QuestionnaireResponseAnswer> getAnswer() {
 		if (answer == null) {
 			answer = new EObjectContainmentEList<QuestionnaireResponseAnswer>(QuestionnaireResponseAnswer.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER);
@@ -310,6 +324,7 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<QuestionnaireResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ITEM);

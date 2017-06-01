@@ -2,11 +2,14 @@
  */
 package org.w3._1999.xhtml;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.w3._1999.xhtml.jaxb.BlockImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +43,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='Block' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(BlockImplAdapter.class)
 public interface Block extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Block</b></em>' attribute list.

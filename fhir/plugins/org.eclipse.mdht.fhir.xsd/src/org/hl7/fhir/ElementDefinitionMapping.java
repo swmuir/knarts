@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ElementDefinitionMappingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Mapping' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ElementDefinitionMappingImplAdapter.class)
 public interface ElementDefinitionMapping extends Element {
 	/**
 	 * Returns the value of the '<em><b>Identity</b></em>' containment reference.

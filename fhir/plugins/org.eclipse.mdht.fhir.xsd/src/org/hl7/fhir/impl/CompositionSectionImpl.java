@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ListMode;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.ListModeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +51,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CompositionSection", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CompositionSection")
 public class CompositionSectionImpl extends BackboneElementImpl implements CompositionSection {
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -149,6 +158,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -278,6 +288,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ListModeImplAdapter.class)
 	public ListMode getMode() {
 		return mode;
 	}
@@ -364,6 +375,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEntry() {
 		if (entry == null) {
 			entry = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMPOSITION_SECTION__ENTRY);
@@ -419,6 +431,7 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CompositionSection> getSection() {
 		if (section == null) {
 			section = new EObjectContainmentEList<CompositionSection>(CompositionSection.class, this, FhirPackage.COMPOSITION_SECTION__SECTION);

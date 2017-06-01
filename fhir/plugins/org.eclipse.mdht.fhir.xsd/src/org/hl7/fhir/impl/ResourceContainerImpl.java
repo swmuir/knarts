@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -260,6 +263,8 @@ import org.hl7.fhir.VisionPrescription;
  *
  * @generated
  */
+@XmlType(name = "ResourceContainer", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ResourceContainer")
 public class ResourceContainerImpl extends MinimalEObjectImpl.Container implements ResourceContainer {
 	/**
 	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference.

@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.QuestionnaireResponseAnswerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='QuestionnaireResponse.Answer' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(QuestionnaireResponseAnswerImplAdapter.class)
 public interface QuestionnaireResponseAnswer extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Value Boolean</b></em>' containment reference.

@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +19,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.IdentityAssuranceLevel;
 import org.hl7.fhir.PersonLink;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.IdentityAssuranceLevelImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "PersonLink", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PersonLink")
 public class PersonLinkImpl extends BackboneElementImpl implements PersonLink {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
@@ -74,6 +82,7 @@ public class PersonLinkImpl extends BackboneElementImpl implements PersonLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getTarget() {
 		return target;
 	}
@@ -117,6 +126,7 @@ public class PersonLinkImpl extends BackboneElementImpl implements PersonLink {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdentityAssuranceLevelImplAdapter.class)
 	public IdentityAssuranceLevel getAssurance() {
 		return assurance;
 	}

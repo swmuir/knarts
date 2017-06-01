@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +32,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ContractFriendly", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ContractFriendly")
 public class ContractFriendlyImpl extends BackboneElementImpl implements ContractFriendly {
 	/**
 	 * The cached value of the '{@link #getContentAttachment() <em>Content Attachment</em>}' containment reference.

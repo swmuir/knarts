@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.NarrativeImplAdapter;
 import org.w3._1999.xhtml.DivType;
 
 /**
@@ -26,6 +29,7 @@ import org.w3._1999.xhtml.DivType;
  * @model extendedMetaData="name='Narrative' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(NarrativeImplAdapter.class)
 public interface Narrative extends Element {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.

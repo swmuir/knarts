@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CodingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +31,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Coding' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CodingImplAdapter.class)
 public interface Coding extends Element {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.

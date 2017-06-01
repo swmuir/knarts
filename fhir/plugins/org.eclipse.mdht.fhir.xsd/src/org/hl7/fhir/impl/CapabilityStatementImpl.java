@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +41,16 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnknownContentCode;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CapabilityStatementKindImplAdapter;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UnknownContentCodeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +91,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "CapabilityStatement", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CapabilityStatement")
 public class CapabilityStatementImpl extends DomainResourceImpl implements CapabilityStatement {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -371,6 +388,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -414,6 +432,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -457,6 +476,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -500,6 +520,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -543,6 +564,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -586,6 +609,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -629,6 +653,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -672,6 +698,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -715,6 +742,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CAPABILITY_STATEMENT__CONTACT);
@@ -727,6 +755,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -770,6 +799,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.CAPABILITY_STATEMENT__USE_CONTEXT);
@@ -782,6 +812,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CAPABILITY_STATEMENT__JURISDICTION);
@@ -794,6 +825,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -837,6 +869,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -880,6 +913,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CapabilityStatementKindImplAdapter.class)
+	@XmlElement(required = true)
 	public CapabilityStatementKind getKind() {
 		return kind;
 	}
@@ -923,6 +958,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getInstantiates() {
 		if (instantiates == null) {
 			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES);
@@ -1021,6 +1058,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getFhirVersion() {
 		return fhirVersion;
 	}
@@ -1064,6 +1103,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UnknownContentCodeImplAdapter.class)
+	@XmlElement(required = true)
 	public UnknownContentCode getAcceptUnknown() {
 		return acceptUnknown;
 	}
@@ -1107,6 +1148,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement(required = true)
 	public EList<Code> getFormat() {
 		if (format == null) {
 			format = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.CAPABILITY_STATEMENT__FORMAT);
@@ -1119,6 +1162,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
+	@XmlElement
 	public EList<Code> getPatchFormat() {
 		if (patchFormat == null) {
 			patchFormat = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.CAPABILITY_STATEMENT__PATCH_FORMAT);
@@ -1131,6 +1176,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getImplementationGuide() {
 		if (implementationGuide == null) {
 			implementationGuide = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION_GUIDE);
@@ -1143,6 +1190,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getProfile() {
 		if (profile == null) {
 			profile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CAPABILITY_STATEMENT__PROFILE);
@@ -1155,6 +1203,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementRest> getRest() {
 		if (rest == null) {
 			rest = new EObjectContainmentEList<CapabilityStatementRest>(CapabilityStatementRest.class, this, FhirPackage.CAPABILITY_STATEMENT__REST);
@@ -1167,6 +1216,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementMessaging> getMessaging() {
 		if (messaging == null) {
 			messaging = new EObjectContainmentEList<CapabilityStatementMessaging>(CapabilityStatementMessaging.class, this, FhirPackage.CAPABILITY_STATEMENT__MESSAGING);
@@ -1179,6 +1229,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CapabilityStatementDocument> getDocument() {
 		if (document == null) {
 			document = new EObjectContainmentEList<CapabilityStatementDocument>(CapabilityStatementDocument.class, this, FhirPackage.CAPABILITY_STATEMENT__DOCUMENT);

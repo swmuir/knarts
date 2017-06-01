@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.IssueSeverity;
 import org.hl7.fhir.IssueType;
 import org.hl7.fhir.OperationOutcomeIssue;
+import org.hl7.fhir.jaxb.IssueSeverityImplAdapter;
+import org.hl7.fhir.jaxb.IssueTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +49,8 @@ import org.hl7.fhir.OperationOutcomeIssue;
  *
  * @generated
  */
+@XmlType(name = "OperationOutcomeIssue", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "OperationOutcomeIssue")
 public class OperationOutcomeIssueImpl extends BackboneElementImpl implements OperationOutcomeIssue {
 	/**
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' containment reference.
@@ -126,6 +136,8 @@ public class OperationOutcomeIssueImpl extends BackboneElementImpl implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IssueSeverityImplAdapter.class)
+	@XmlElement(required = true)
 	public IssueSeverity getSeverity() {
 		return severity;
 	}
@@ -169,6 +181,8 @@ public class OperationOutcomeIssueImpl extends BackboneElementImpl implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IssueTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public IssueType getCode() {
 		return code;
 	}
@@ -255,6 +269,7 @@ public class OperationOutcomeIssueImpl extends BackboneElementImpl implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDiagnostics() {
 		return diagnostics;
 	}
@@ -298,6 +313,8 @@ public class OperationOutcomeIssueImpl extends BackboneElementImpl implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getLocation() {
 		if (location == null) {
 			location = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.OPERATION_OUTCOME_ISSUE__LOCATION);
@@ -310,6 +327,8 @@ public class OperationOutcomeIssueImpl extends BackboneElementImpl implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getExpression() {
 		if (expression == null) {
 			expression = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.OPERATION_OUTCOME_ISSUE__EXPRESSION);

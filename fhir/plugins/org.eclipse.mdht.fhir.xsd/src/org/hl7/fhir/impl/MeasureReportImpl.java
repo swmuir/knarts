@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,9 @@ import org.hl7.fhir.MeasureReportStatus;
 import org.hl7.fhir.MeasureReportType;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MeasureReportStatusImplAdapter;
+import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +57,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "MeasureReport", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureReport")
 public class MeasureReportImpl extends DomainResourceImpl implements MeasureReport {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -217,6 +227,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MeasureReportStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public MeasureReportStatus getStatus() {
 		return status;
 	}
@@ -260,6 +272,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MeasureReportTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public MeasureReportType getType() {
 		return type;
 	}
@@ -303,6 +317,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getMeasure() {
 		return measure;
 	}
@@ -389,6 +404,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -475,6 +491,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Period getPeriod() {
 		return period;
 	}
@@ -518,6 +535,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureReportGroup> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<MeasureReportGroup>(MeasureReportGroup.class, this, FhirPackage.MEASURE_REPORT__GROUP);

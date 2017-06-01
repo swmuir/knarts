@@ -6,7 +6,10 @@ import java.math.BigInteger;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.ecore.EObject;
+import org.w3._1999.xhtml.jaxb.ColTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='col_._type' kind='empty'"
  * @generated
  */
+@XmlJavaTypeAdapter(ColTypeImplAdapter.class)
 public interface ColType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Align</b></em>' attribute.

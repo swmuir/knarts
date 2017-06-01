@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.GroupTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='GroupType' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(GroupTypeImplAdapter.class)
 public interface GroupType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

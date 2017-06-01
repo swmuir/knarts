@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.MedicationDispenseSubstitutionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='MedicationDispense.Substitution' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(MedicationDispenseSubstitutionImplAdapter.class)
 public interface MedicationDispenseSubstitution extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Was Substituted</b></em>' containment reference.

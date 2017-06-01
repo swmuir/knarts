@@ -4,6 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.w3._1999.xhtml.jaxb.DfnTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Dfn Type</b></em>'.
@@ -26,6 +30,7 @@ import java.util.List;
  * @model extendedMetaData="name='dfn_._type' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(DfnTypeImplAdapter.class)
 public interface DfnType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

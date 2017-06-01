@@ -4,6 +4,10 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -33,6 +37,8 @@ import org.hl7.fhir.TestScriptMetadata;
  *
  * @generated
  */
+@XmlType(name = "TestScriptMetadata", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "TestScriptMetadata")
 public class TestScriptMetadataImpl extends BackboneElementImpl implements TestScriptMetadata {
 	/**
 	 * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference list.
@@ -78,6 +84,7 @@ public class TestScriptMetadataImpl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<TestScriptLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<TestScriptLink>(TestScriptLink.class, this, FhirPackage.TEST_SCRIPT_METADATA__LINK);
@@ -90,6 +97,7 @@ public class TestScriptMetadataImpl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<TestScriptCapability> getCapability() {
 		if (capability == null) {
 			capability = new EObjectContainmentEList<TestScriptCapability>(TestScriptCapability.class, this, FhirPackage.TEST_SCRIPT_METADATA__CAPABILITY);

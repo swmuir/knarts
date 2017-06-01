@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.GuidanceResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +42,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='GuidanceResponse' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(GuidanceResponseImplAdapter.class)
 public interface GuidanceResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Request Id</b></em>' containment reference.

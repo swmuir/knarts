@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.DeviceMetricCategoryImplAdapter;
+import org.hl7.fhir.jaxb.DeviceMetricColorImplAdapter;
+import org.hl7.fhir.jaxb.DeviceMetricOperationalStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +58,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "DeviceMetric", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "DeviceMetric")
 public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -175,6 +185,7 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -218,6 +229,7 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -390,6 +402,7 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DeviceMetricOperationalStatusImplAdapter.class)
 	public DeviceMetricOperationalStatus getOperationalStatus() {
 		return operationalStatus;
 	}
@@ -433,6 +446,7 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DeviceMetricColorImplAdapter.class)
 	public DeviceMetricColor getColor() {
 		return color;
 	}
@@ -476,6 +490,8 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DeviceMetricCategoryImplAdapter.class)
+	@XmlElement(required = true)
 	public DeviceMetricCategory getCategory() {
 		return category;
 	}
@@ -562,6 +578,7 @@ public class DeviceMetricImpl extends DomainResourceImpl implements DeviceMetric
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DeviceMetricCalibration> getCalibration() {
 		if (calibration == null) {
 			calibration = new EObjectContainmentEList<DeviceMetricCalibration>(DeviceMetricCalibration.class, this, FhirPackage.DEVICE_METRIC__CALIBRATION);

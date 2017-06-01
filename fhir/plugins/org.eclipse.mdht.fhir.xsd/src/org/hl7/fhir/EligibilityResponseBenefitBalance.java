@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.EligibilityResponseBenefitBalanceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='EligibilityResponse.BenefitBalance' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(EligibilityResponseBenefitBalanceImplAdapter.class)
 public interface EligibilityResponseBenefitBalance extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.

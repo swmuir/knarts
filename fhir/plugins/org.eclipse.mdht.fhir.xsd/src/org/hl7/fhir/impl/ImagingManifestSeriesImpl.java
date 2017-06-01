@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.ImagingManifestInstance;
 import org.hl7.fhir.ImagingManifestSeries;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.OidImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +44,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ImagingManifestSeries", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImagingManifestSeries")
 public class ImagingManifestSeriesImpl extends BackboneElementImpl implements ImagingManifestSeries {
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
@@ -93,6 +101,8 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(OidImplAdapter.class)
+	@XmlElement(required = true)
 	public Oid getUid() {
 		return uid;
 	}
@@ -136,6 +146,7 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_MANIFEST_SERIES__ENDPOINT);
@@ -148,6 +159,7 @@ public class ImagingManifestSeriesImpl extends BackboneElementImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<ImagingManifestInstance> getInstance() {
 		if (instance == null) {
 			instance = new EObjectContainmentEList<ImagingManifestInstance>(ImagingManifestInstance.class, this, FhirPackage.IMAGING_MANIFEST_SERIES__INSTANCE);

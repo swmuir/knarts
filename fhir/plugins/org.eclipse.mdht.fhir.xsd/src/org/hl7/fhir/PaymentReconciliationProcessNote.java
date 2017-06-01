@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.PaymentReconciliationProcessNoteImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='PaymentReconciliation.ProcessNote' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(PaymentReconciliationProcessNoteImplAdapter.class)
 public interface PaymentReconciliationProcessNote extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

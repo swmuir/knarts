@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,6 +29,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +52,8 @@ import org.hl7.fhir.PositiveInt;
  *
  * @generated
  */
+@XmlType(name = "ClaimResponseAddItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimResponseAddItem")
 public class ClaimResponseAddItemImpl extends BackboneElementImpl implements ClaimResponseAddItem {
 	/**
 	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference list.
@@ -161,6 +169,8 @@ public class ClaimResponseAddItemImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getSequenceLinkId() {
 		if (sequenceLinkId == null) {
 			sequenceLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_RESPONSE_ADD_ITEM__SEQUENCE_LINK_ID);
@@ -302,6 +312,7 @@ public class ClaimResponseAddItemImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM_RESPONSE_ADD_ITEM__MODIFIER);
@@ -357,6 +368,8 @@ public class ClaimResponseAddItemImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_RESPONSE_ADD_ITEM__NOTE_NUMBER);
@@ -369,6 +382,7 @@ public class ClaimResponseAddItemImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimResponseAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ClaimResponseAdjudication>(ClaimResponseAdjudication.class, this, FhirPackage.CLAIM_RESPONSE_ADD_ITEM__ADJUDICATION);
@@ -381,6 +395,7 @@ public class ClaimResponseAddItemImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimResponseDetail1> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<ClaimResponseDetail1>(ClaimResponseDetail1.class, this, FhirPackage.CLAIM_RESPONSE_ADD_ITEM__DETAIL);

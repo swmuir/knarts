@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,8 @@ import org.hl7.fhir.MedicationIngredient;
 import org.hl7.fhir.MedicationPackage;
 import org.hl7.fhir.MedicationStatus;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.MedicationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +54,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Medication", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Medication")
 public class MedicationImpl extends DomainResourceImpl implements Medication {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -205,6 +214,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MedicationStatusImplAdapter.class)
 	public MedicationStatus getStatus() {
 		return status;
 	}
@@ -248,6 +258,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIsBrand() {
 		return isBrand;
 	}
@@ -291,6 +302,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getIsOverTheCounter() {
 		return isOverTheCounter;
 	}
@@ -420,6 +432,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MedicationIngredient> getIngredient() {
 		if (ingredient == null) {
 			ingredient = new EObjectContainmentEList<MedicationIngredient>(MedicationIngredient.class, this, FhirPackage.MEDICATION__INGREDIENT);
@@ -475,6 +488,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getImage() {
 		if (image == null) {
 			image = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.MEDICATION__IMAGE);

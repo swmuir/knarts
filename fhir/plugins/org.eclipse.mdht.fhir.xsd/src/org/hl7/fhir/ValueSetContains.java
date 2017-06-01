@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ValueSetContainsImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ValueSet.Contains' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ValueSetContainsImplAdapter.class)
 public interface ValueSetContains extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.

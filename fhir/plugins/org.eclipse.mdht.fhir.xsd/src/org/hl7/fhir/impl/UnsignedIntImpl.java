@@ -4,6 +4,9 @@ package org.hl7.fhir.impl;
 
 import java.math.BigInteger;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +29,8 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
+@XmlType(name = "UnsignedInt", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "UnsignedInt")
 public class UnsignedIntImpl extends ElementImpl implements UnsignedInt {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -4,9 +4,12 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.hl7.fhir.jaxb.ElementImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Element' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ElementImplAdapter.class)
 public interface Element extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Extension</b></em>' containment reference list.

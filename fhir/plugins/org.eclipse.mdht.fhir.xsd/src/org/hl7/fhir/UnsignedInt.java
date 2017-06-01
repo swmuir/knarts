@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.math.BigInteger;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unsigned Int</b></em>'.
@@ -25,6 +29,7 @@ import java.math.BigInteger;
  * @model extendedMetaData="name='unsignedInt' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 public interface UnsignedInt extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

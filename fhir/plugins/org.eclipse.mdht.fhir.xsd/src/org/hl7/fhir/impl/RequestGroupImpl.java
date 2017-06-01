@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,10 @@ import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
+import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
+import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +66,8 @@ import org.hl7.fhir.RequestStatus;
  *
  * @generated
  */
+@XmlType(name = "RequestGroup", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "RequestGroup")
 public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -242,6 +253,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.REQUEST_GROUP__IDENTIFIER);
@@ -254,6 +266,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__DEFINITION);
@@ -266,6 +279,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__BASED_ON);
@@ -278,6 +292,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__REPLACES);
@@ -333,6 +348,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -376,6 +393,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
+	@XmlElement(required = true)
 	public RequestIntent getIntent() {
 		return intent;
 	}
@@ -419,6 +438,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -548,6 +568,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -720,6 +741,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.REQUEST_GROUP__NOTE);
@@ -732,6 +754,7 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<RequestGroupAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<RequestGroupAction>(RequestGroupAction.class, this, FhirPackage.REQUEST_GROUP__ACTION);

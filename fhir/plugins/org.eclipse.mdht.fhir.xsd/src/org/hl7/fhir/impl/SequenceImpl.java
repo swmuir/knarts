@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,9 @@ import org.hl7.fhir.SequenceQuality;
 import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
 import org.hl7.fhir.SequenceVariant;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +63,8 @@ import org.hl7.fhir.SequenceVariant;
  *
  * @generated
  */
+@XmlType(name = "Sequence", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Sequence")
 public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -230,6 +240,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SEQUENCE__IDENTIFIER);
@@ -242,6 +253,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getType() {
 		return type;
 	}
@@ -285,6 +297,8 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getCoordinateSystem() {
 		return coordinateSystem;
 	}
@@ -586,6 +600,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SequenceVariant> getVariant() {
 		if (variant == null) {
 			variant = new EObjectContainmentEList<SequenceVariant>(SequenceVariant.class, this, FhirPackage.SEQUENCE__VARIANT);
@@ -598,6 +613,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getObservedSeq() {
 		return observedSeq;
 	}
@@ -641,6 +657,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SequenceQuality> getQuality() {
 		if (quality == null) {
 			quality = new EObjectContainmentEList<SequenceQuality>(SequenceQuality.class, this, FhirPackage.SEQUENCE__QUALITY);
@@ -653,6 +670,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getReadCoverage() {
 		return readCoverage;
 	}
@@ -696,6 +714,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<SequenceRepository> getRepository() {
 		if (repository == null) {
 			repository = new EObjectContainmentEList<SequenceRepository>(SequenceRepository.class, this, FhirPackage.SEQUENCE__REPOSITORY);
@@ -708,6 +727,7 @@ public class SequenceImpl extends DomainResourceImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPointer() {
 		if (pointer == null) {
 			pointer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SEQUENCE__POINTER);

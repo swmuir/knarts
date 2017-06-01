@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +33,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "Period", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Period")
 public class PeriodImpl extends ElementImpl implements Period {
 	/**
 	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
@@ -73,6 +80,7 @@ public class PeriodImpl extends ElementImpl implements Period {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getStart() {
 		return start;
 	}
@@ -116,6 +124,7 @@ public class PeriodImpl extends ElementImpl implements Period {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEnd() {
 		return end;
 	}

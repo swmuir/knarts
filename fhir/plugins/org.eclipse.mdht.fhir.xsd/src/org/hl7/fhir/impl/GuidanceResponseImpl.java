@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,9 @@ import org.hl7.fhir.GuidanceResponseStatus;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.GuidanceResponseStatusImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +63,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "GuidanceResponse", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "GuidanceResponse")
 public class GuidanceResponseImpl extends DomainResourceImpl implements GuidanceResponse {
 	/**
 	 * The cached value of the '{@link #getRequestId() <em>Request Id</em>}' containment reference.
@@ -230,6 +240,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getRequestId() {
 		return requestId;
 	}
@@ -316,6 +327,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Reference getModule() {
 		return module;
 	}
@@ -359,6 +371,8 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(GuidanceResponseStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public GuidanceResponseStatus getStatus() {
 		return status;
 	}
@@ -488,6 +502,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -660,6 +675,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.GUIDANCE_RESPONSE__NOTE);
@@ -672,6 +688,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEvaluationMessage() {
 		if (evaluationMessage == null) {
 			evaluationMessage = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.GUIDANCE_RESPONSE__EVALUATION_MESSAGE);
@@ -770,6 +787,7 @@ public class GuidanceResponseImpl extends DomainResourceImpl implements Guidance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<DataRequirement> getDataRequirement() {
 		if (dataRequirement == null) {
 			dataRequirement = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.GUIDANCE_RESPONSE__DATA_REQUIREMENT);

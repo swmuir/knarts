@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ClaimAccidentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Claim.Accident' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ClaimAccidentImplAdapter.class)
 public interface ClaimAccident extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.

@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SequenceVariant;
+import org.hl7.fhir.jaxb.IntegerImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +38,8 @@ import org.hl7.fhir.SequenceVariant;
  *
  * @generated
  */
+@XmlType(name = "SequenceVariant", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "SequenceVariant")
 public class SequenceVariantImpl extends BackboneElementImpl implements SequenceVariant {
 	/**
 	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
@@ -117,6 +125,7 @@ public class SequenceVariantImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getStart() {
 		return start;
 	}
@@ -160,6 +169,7 @@ public class SequenceVariantImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getEnd() {
 		return end;
 	}
@@ -203,6 +213,7 @@ public class SequenceVariantImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getObservedAllele() {
 		return observedAllele;
 	}
@@ -246,6 +257,7 @@ public class SequenceVariantImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getReferenceAllele() {
 		return referenceAllele;
 	}
@@ -289,6 +301,7 @@ public class SequenceVariantImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCigar() {
 		return cigar;
 	}

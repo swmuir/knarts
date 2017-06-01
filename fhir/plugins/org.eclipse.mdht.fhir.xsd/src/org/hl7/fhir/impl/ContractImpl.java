@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,6 +39,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.ContractResourceStatusCodesImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,6 +78,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "Contract", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Contract")
 public class ContractImpl extends DomainResourceImpl implements Contract {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -379,6 +388,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ContractResourceStatusCodesImplAdapter.class)
 	public ContractResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -422,6 +432,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getIssued() {
 		return issued;
 	}
@@ -508,6 +519,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getSubject() {
 		if (subject == null) {
 			subject = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__SUBJECT);
@@ -520,6 +532,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__TOPIC);
@@ -532,6 +545,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getAuthority() {
 		if (authority == null) {
 			authority = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__AUTHORITY);
@@ -544,6 +558,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getDomain() {
 		if (domain == null) {
 			domain = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONTRACT__DOMAIN);
@@ -599,6 +614,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSubType() {
 		if (subType == null) {
 			subType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT__SUB_TYPE);
@@ -611,6 +627,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT__ACTION);
@@ -623,6 +640,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getActionReason() {
 		if (actionReason == null) {
 			actionReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT__ACTION_REASON);
@@ -721,6 +739,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.CONTRACT__SECURITY_LABEL);
@@ -733,6 +752,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ContractAgent>(ContractAgent.class, this, FhirPackage.CONTRACT__AGENT);
@@ -745,6 +765,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractSigner> getSigner() {
 		if (signer == null) {
 			signer = new EObjectContainmentEList<ContractSigner>(ContractSigner.class, this, FhirPackage.CONTRACT__SIGNER);
@@ -757,6 +778,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractValuedItem> getValuedItem() {
 		if (valuedItem == null) {
 			valuedItem = new EObjectContainmentEList<ContractValuedItem>(ContractValuedItem.class, this, FhirPackage.CONTRACT__VALUED_ITEM);
@@ -769,6 +791,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractTerm> getTerm() {
 		if (term == null) {
 			term = new EObjectContainmentEList<ContractTerm>(ContractTerm.class, this, FhirPackage.CONTRACT__TERM);
@@ -867,6 +890,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractFriendly> getFriendly() {
 		if (friendly == null) {
 			friendly = new EObjectContainmentEList<ContractFriendly>(ContractFriendly.class, this, FhirPackage.CONTRACT__FRIENDLY);
@@ -879,6 +903,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractLegal> getLegal() {
 		if (legal == null) {
 			legal = new EObjectContainmentEList<ContractLegal>(ContractLegal.class, this, FhirPackage.CONTRACT__LEGAL);
@@ -891,6 +916,7 @@ public class ContractImpl extends DomainResourceImpl implements Contract {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContractRule> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<ContractRule>(ContractRule.class, this, FhirPackage.CONTRACT__RULE);

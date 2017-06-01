@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ImmunizationPractitionerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Immunization.Practitioner' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImmunizationPractitionerImplAdapter.class)
 public interface ImmunizationPractitioner extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference.

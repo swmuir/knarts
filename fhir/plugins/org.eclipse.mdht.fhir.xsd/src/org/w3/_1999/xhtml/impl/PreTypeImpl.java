@@ -4,6 +4,9 @@ package org.w3._1999.xhtml.impl;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -36,6 +39,8 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
+@XmlType(name = "PreType", namespace = "http://www.w3.org/1999/xhtml")
+@XmlRootElement(name = "PreType")
 public class PreTypeImpl extends PreContentImpl implements PreType {
 	/**
 	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.

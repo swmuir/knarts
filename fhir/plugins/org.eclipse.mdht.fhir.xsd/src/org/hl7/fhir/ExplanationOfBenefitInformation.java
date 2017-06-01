@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ExplanationOfBenefitInformationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +35,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ExplanationOfBenefit.Information' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExplanationOfBenefitInformationImplAdapter.class)
 public interface ExplanationOfBenefitInformation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.

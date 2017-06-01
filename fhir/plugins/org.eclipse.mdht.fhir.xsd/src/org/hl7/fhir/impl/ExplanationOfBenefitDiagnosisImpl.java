@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +46,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ExplanationOfBenefitDiagnosis", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ExplanationOfBenefitDiagnosis")
 public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl implements ExplanationOfBenefitDiagnosis {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -115,6 +123,8 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -244,6 +254,7 @@ public class ExplanationOfBenefitDiagnosisImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS__TYPE);

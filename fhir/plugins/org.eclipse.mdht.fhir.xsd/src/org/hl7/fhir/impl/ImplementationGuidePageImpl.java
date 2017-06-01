@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,11 @@ import org.hl7.fhir.GuidePageKind;
 import org.hl7.fhir.ImplementationGuidePage;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.CodeImplAdapter;
+import org.hl7.fhir.jaxb.GuidePageKindImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +53,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "ImplementationGuidePage", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ImplementationGuidePage")
 public class ImplementationGuidePageImpl extends BackboneElementImpl implements ImplementationGuidePage {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -138,6 +150,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement(required = true)
 	public Uri getSource() {
 		return source;
 	}
@@ -181,6 +195,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -224,6 +240,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(GuidePageKindImplAdapter.class)
+	@XmlElement(required = true)
 	public GuidePageKind getKind() {
 		return kind;
 	}
@@ -267,6 +285,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement
 	public EList<ResourceType> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
@@ -279,6 +299,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement
 	public EList<org.hl7.fhir.String> getPackage() {
 		if (package_ == null) {
 			package_ = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE);
@@ -291,6 +313,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getFormat() {
 		return format;
 	}
@@ -334,6 +357,7 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ImplementationGuidePage> getPage() {
 		if (page == null) {
 			page = new EObjectContainmentEList<ImplementationGuidePage>(ImplementationGuidePage.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE);

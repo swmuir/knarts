@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +74,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "ClaimItem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ClaimItem")
 public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -331,6 +341,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -374,6 +386,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getCareTeamLinkId() {
 		if (careTeamLinkId == null) {
 			careTeamLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_ITEM__CARE_TEAM_LINK_ID);
@@ -386,6 +400,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getDiagnosisLinkId() {
 		if (diagnosisLinkId == null) {
 			diagnosisLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_ITEM__DIAGNOSIS_LINK_ID);
@@ -398,6 +414,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getProcedureLinkId() {
 		if (procedureLinkId == null) {
 			procedureLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_ITEM__PROCEDURE_LINK_ID);
@@ -410,6 +428,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
+	@XmlElement
 	public EList<PositiveInt> getInformationLinkId() {
 		if (informationLinkId == null) {
 			informationLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_ITEM__INFORMATION_LINK_ID);
@@ -551,6 +571,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM_ITEM__MODIFIER);
@@ -563,6 +584,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
 			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM_ITEM__PROGRAM_CODE);
@@ -575,6 +597,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getServicedDate() {
 		return servicedDate;
 	}
@@ -876,6 +899,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -962,6 +986,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getUdi() {
 		if (udi == null) {
 			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_ITEM__UDI);
@@ -1017,6 +1042,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getSubSite() {
 		if (subSite == null) {
 			subSite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM_ITEM__SUB_SITE);
@@ -1029,6 +1055,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getEncounter() {
 		if (encounter == null) {
 			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_ITEM__ENCOUNTER);
@@ -1041,6 +1068,7 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ClaimDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<ClaimDetail>(ClaimDetail.class, this, FhirPackage.CLAIM_ITEM__DETAIL);

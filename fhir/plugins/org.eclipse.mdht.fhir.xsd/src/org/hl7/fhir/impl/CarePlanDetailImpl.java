@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +30,9 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.CarePlanActivityStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +65,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "CarePlanDetail", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CarePlanDetail")
 public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanDetail {
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -401,6 +411,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_PLAN_DETAIL__REASON_CODE);
@@ -413,6 +424,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_DETAIL__REASON_REFERENCE);
@@ -425,6 +437,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getGoal() {
 		if (goal == null) {
 			goal = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_DETAIL__GOAL);
@@ -437,6 +450,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CarePlanActivityStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public CarePlanActivityStatus getStatus() {
 		return status;
 	}
@@ -480,6 +495,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getStatusReason() {
 		return statusReason;
 	}
@@ -523,6 +539,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getProhibited() {
 		return prohibited;
 	}
@@ -652,6 +669,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getScheduledString() {
 		return scheduledString;
 	}
@@ -738,6 +756,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_DETAIL__PERFORMER);
@@ -922,6 +941,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}

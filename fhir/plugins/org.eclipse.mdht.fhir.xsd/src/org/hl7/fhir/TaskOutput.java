@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.TaskOutputImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,6 +64,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Task.Output' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(TaskOutputImplAdapter.class)
 public interface TaskOutput extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.CapabilityStatementSupportedMessageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='CapabilityStatement.SupportedMessage' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(CapabilityStatementSupportedMessageImplAdapter.class)
 public interface CapabilityStatementSupportedMessage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.

@@ -4,6 +4,10 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.SampledDataDataTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sampled Data Data Type</b></em>'.
@@ -20,6 +24,7 @@ import java.lang.String;
  * @model extendedMetaData="name='SampledDataDataType' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(SampledDataDataTypeImplAdapter.class)
 public interface SampledDataDataType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

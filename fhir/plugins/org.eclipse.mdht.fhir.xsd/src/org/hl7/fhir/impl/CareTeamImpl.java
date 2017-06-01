@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +31,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.jaxb.CareTeamStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +58,8 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
+@XmlType(name = "CareTeam", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "CareTeam")
 public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -196,6 +205,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CARE_TEAM__IDENTIFIER);
@@ -208,6 +218,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(CareTeamStatusImplAdapter.class)
 	public CareTeamStatus getStatus() {
 		return status;
 	}
@@ -251,6 +262,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM__CATEGORY);
@@ -263,6 +275,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -435,6 +448,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CareTeamParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<CareTeamParticipant>(CareTeamParticipant.class, this, FhirPackage.CARE_TEAM__PARTICIPANT);
@@ -447,6 +461,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM__REASON_CODE);
@@ -459,6 +474,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__REASON_REFERENCE);
@@ -471,6 +487,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Reference> getManagingOrganization() {
 		if (managingOrganization == null) {
 			managingOrganization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION);
@@ -483,6 +500,7 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_TEAM__NOTE);

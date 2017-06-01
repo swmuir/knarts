@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ExplanationOfBenefitStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ExplanationOfBenefitStatus' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ExplanationOfBenefitStatusImplAdapter.class)
 public interface ExplanationOfBenefitStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

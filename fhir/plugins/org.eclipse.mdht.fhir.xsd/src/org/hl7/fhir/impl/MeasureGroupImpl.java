@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureGroup;
 import org.hl7.fhir.MeasurePopulation;
 import org.hl7.fhir.MeasureStratifier;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +46,8 @@ import org.hl7.fhir.MeasureStratifier;
  *
  * @generated
  */
+@XmlType(name = "MeasureGroup", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureGroup")
 public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGroup {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -115,6 +123,7 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -158,6 +167,7 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -201,6 +211,7 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -244,6 +255,7 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasurePopulation> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasurePopulation>(MeasurePopulation.class, this, FhirPackage.MEASURE_GROUP__POPULATION);
@@ -256,6 +268,7 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureStratifier> getStratifier() {
 		if (stratifier == null) {
 			stratifier = new EObjectContainmentEList<MeasureStratifier>(MeasureStratifier.class, this, FhirPackage.MEASURE_GROUP__STRATIFIER);

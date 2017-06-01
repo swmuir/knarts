@@ -2,6 +2,11 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +21,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.PlanDefinitionRelatedAction;
 import org.hl7.fhir.Range;
+import org.hl7.fhir.jaxb.ActionRelationshipTypeImplAdapter;
+import org.hl7.fhir.jaxb.IdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +40,8 @@ import org.hl7.fhir.Range;
  *
  * @generated
  */
+@XmlType(name = "PlanDefinitionRelatedAction", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "PlanDefinitionRelatedAction")
 public class PlanDefinitionRelatedActionImpl extends BackboneElementImpl implements PlanDefinitionRelatedAction {
 	/**
 	 * The cached value of the '{@link #getActionId() <em>Action Id</em>}' containment reference.
@@ -98,6 +107,8 @@ public class PlanDefinitionRelatedActionImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(IdImplAdapter.class)
+	@XmlElement(required = true)
 	public Id getActionId() {
 		return actionId;
 	}
@@ -141,6 +152,8 @@ public class PlanDefinitionRelatedActionImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ActionRelationshipTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ActionRelationshipType getRelationship() {
 		return relationship;
 	}

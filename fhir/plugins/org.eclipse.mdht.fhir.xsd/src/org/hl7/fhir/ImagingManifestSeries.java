@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.ImagingManifestSeriesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ImagingManifest.Series' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImagingManifestSeriesImplAdapter.class)
 public interface ImagingManifestSeries extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,11 @@ import org.hl7.fhir.NamingSystemUniqueId;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.NamingSystemTypeImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +65,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "NamingSystem", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "NamingSystem")
 public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -220,6 +232,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -263,6 +277,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -306,6 +322,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(NamingSystemTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public NamingSystemType getKind() {
 		return kind;
 	}
@@ -349,6 +367,8 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -392,6 +412,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -435,6 +456,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.NAMING_SYSTEM__CONTACT);
@@ -447,6 +469,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getResponsible() {
 		return responsible;
 	}
@@ -533,6 +556,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -576,6 +600,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.NAMING_SYSTEM__USE_CONTEXT);
@@ -588,6 +613,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NAMING_SYSTEM__JURISDICTION);
@@ -600,6 +626,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -643,6 +670,7 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<NamingSystemUniqueId> getUniqueId() {
 		if (uniqueId == null) {
 			uniqueId = new EObjectContainmentEList<NamingSystemUniqueId>(NamingSystemUniqueId.class, this, FhirPackage.NAMING_SYSTEM__UNIQUE_ID);

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +27,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +46,8 @@ import org.hl7.fhir.Timing;
  *
  * @generated
  */
+@XmlType(name = "NutritionOrderSupplement", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "NutritionOrderSupplement")
 public class NutritionOrderSupplementImpl extends BackboneElementImpl implements NutritionOrderSupplement {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -158,6 +166,7 @@ public class NutritionOrderSupplementImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getProductName() {
 		return productName;
 	}
@@ -201,6 +210,7 @@ public class NutritionOrderSupplementImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Timing> getSchedule() {
 		if (schedule == null) {
 			schedule = new EObjectContainmentEList<Timing>(Timing.class, this, FhirPackage.NUTRITION_ORDER_SUPPLEMENT__SCHEDULE);
@@ -256,6 +266,7 @@ public class NutritionOrderSupplementImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getInstruction() {
 		return instruction;
 	}

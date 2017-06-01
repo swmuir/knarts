@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +28,8 @@ import org.hl7.fhir.GraphDefinitionLink;
 import org.hl7.fhir.GraphDefinitionTarget;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +47,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "GraphDefinitionTarget", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "GraphDefinitionTarget")
 public class GraphDefinitionTargetImpl extends BackboneElementImpl implements GraphDefinitionTarget {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -105,6 +114,8 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement(required = true)
 	public ResourceType getType() {
 		return type;
 	}
@@ -148,6 +159,7 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getProfile() {
 		return profile;
 	}
@@ -191,6 +203,7 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<GraphDefinitionCompartment> getCompartment() {
 		if (compartment == null) {
 			compartment = new EObjectContainmentEList<GraphDefinitionCompartment>(GraphDefinitionCompartment.class, this, FhirPackage.GRAPH_DEFINITION_TARGET__COMPARTMENT);
@@ -203,6 +216,7 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<GraphDefinitionLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<GraphDefinitionLink>(GraphDefinitionLink.class, this, FhirPackage.GRAPH_DEFINITION_TARGET__LINK);

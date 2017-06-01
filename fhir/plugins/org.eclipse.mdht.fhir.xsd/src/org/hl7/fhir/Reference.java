@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ReferenceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Reference' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ReferenceImplAdapter.class)
 public interface Reference extends Element {
 	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.

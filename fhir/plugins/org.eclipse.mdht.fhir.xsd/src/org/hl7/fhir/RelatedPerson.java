@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.RelatedPersonImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='RelatedPerson' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(RelatedPersonImplAdapter.class)
 public interface RelatedPerson extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

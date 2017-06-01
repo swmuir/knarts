@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ImmunizationRecommendationProtocolImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ImmunizationRecommendation.Protocol' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ImmunizationRecommendationProtocolImplAdapter.class)
 public interface ImmunizationRecommendationProtocol extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Dose Sequence</b></em>' containment reference.

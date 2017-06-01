@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,6 +37,14 @@ import org.hl7.fhir.QuestionnaireItem;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.MarkdownImplAdapter;
+import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
+import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +79,8 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
+@XmlType(name = "Questionnaire", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Questionnaire")
 public class QuestionnaireImpl extends DomainResourceImpl implements Questionnaire {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -301,6 +316,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -344,6 +360,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.QUESTIONNAIRE__IDENTIFIER);
@@ -356,6 +373,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -399,6 +417,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -442,6 +461,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -485,6 +505,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
+	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -528,6 +550,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -571,6 +594,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -614,6 +638,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -657,6 +682,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -700,6 +726,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -743,6 +770,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -786,6 +814,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -872,6 +901,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.QUESTIONNAIRE__USE_CONTEXT);
@@ -884,6 +914,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.QUESTIONNAIRE__JURISDICTION);
@@ -896,6 +927,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.QUESTIONNAIRE__CONTACT);
@@ -908,6 +940,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -951,6 +984,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.QUESTIONNAIRE__CODE);
@@ -963,6 +997,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
+	@XmlElement
 	public EList<ResourceType> getSubjectType() {
 		if (subjectType == null) {
 			subjectType = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE);
@@ -975,6 +1011,7 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<QuestionnaireItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireItem>(QuestionnaireItem.class, this, FhirPackage.QUESTIONNAIRE__ITEM);

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +33,9 @@ import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Practitioner;
 import org.hl7.fhir.PractitionerQualification;
+import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
+import org.hl7.fhir.jaxb.BooleanImplAdapter;
+import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +59,8 @@ import org.hl7.fhir.PractitionerQualification;
  *
  * @generated
  */
+@XmlType(name = "Practitioner", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Practitioner")
 public class PractitionerImpl extends DomainResourceImpl implements Practitioner {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -176,6 +186,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PRACTITIONER__IDENTIFIER);
@@ -188,6 +199,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -231,6 +243,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<HumanName> getName() {
 		if (name == null) {
 			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.PRACTITIONER__NAME);
@@ -243,6 +256,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PRACTITIONER__TELECOM);
@@ -255,6 +269,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Address> getAddress() {
 		if (address == null) {
 			address = new EObjectContainmentEList<Address>(Address.class, this, FhirPackage.PRACTITIONER__ADDRESS);
@@ -267,6 +282,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -310,6 +326,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -353,6 +370,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Attachment> getPhoto() {
 		if (photo == null) {
 			photo = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.PRACTITIONER__PHOTO);
@@ -365,6 +383,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<PractitionerQualification> getQualification() {
 		if (qualification == null) {
 			qualification = new EObjectContainmentEList<PractitionerQualification>(PractitionerQualification.class, this, FhirPackage.PRACTITIONER__QUALIFICATION);
@@ -377,6 +396,7 @@ public class PractitionerImpl extends DomainResourceImpl implements Practitioner
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<CodeableConcept> getCommunication() {
 		if (communication == null) {
 			communication = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PRACTITIONER__COMMUNICATION);

@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ActionGroupingBehavior' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
 public interface ActionGroupingBehavior extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

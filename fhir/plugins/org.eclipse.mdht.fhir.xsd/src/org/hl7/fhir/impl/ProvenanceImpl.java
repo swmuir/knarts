@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +32,8 @@ import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +57,8 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
+@XmlType(name = "Provenance", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "Provenance")
 public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -175,6 +184,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<Reference> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROVENANCE__TARGET);
@@ -230,6 +240,8 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(InstantImplAdapter.class)
+	@XmlElement(required = true)
 	public Instant getRecorded() {
 		return recorded;
 	}
@@ -273,6 +285,8 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	@XmlElement
 	public EList<Uri> getPolicy() {
 		if (policy == null) {
 			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROVENANCE__POLICY);
@@ -328,6 +342,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Coding> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.PROVENANCE__REASON);
@@ -383,6 +398,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public EList<ProvenanceAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ProvenanceAgent>(ProvenanceAgent.class, this, FhirPackage.PROVENANCE__AGENT);
@@ -395,6 +411,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ProvenanceEntity> getEntity() {
 		if (entity == null) {
 			entity = new EObjectContainmentEList<ProvenanceEntity>(ProvenanceEntity.class, this, FhirPackage.PROVENANCE__ENTITY);
@@ -407,6 +424,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<Signature> getSignature() {
 		if (signature == null) {
 			signature = new EObjectContainmentEList<Signature>(Signature.class, this, FhirPackage.PROVENANCE__SIGNATURE);

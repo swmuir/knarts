@@ -2,7 +2,10 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.util.EList;
+import org.hl7.fhir.jaxb.AppointmentParticipantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Appointment.Participant' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(AppointmentParticipantImplAdapter.class)
 public interface AppointmentParticipant extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.

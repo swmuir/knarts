@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.BundleTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='BundleType' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(BundleTypeImplAdapter.class)
 public interface BundleType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

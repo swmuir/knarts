@@ -4,6 +4,10 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Div Type</b></em>'.
@@ -26,6 +30,7 @@ import java.util.List;
  * @model extendedMetaData="name='div_._type' kind='mixed'"
  * @generated
  */
+@XmlJavaTypeAdapter(DivTypeImplAdapter.class)
 public interface DivType extends Flow {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

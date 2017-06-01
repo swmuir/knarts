@@ -2,6 +2,9 @@
  */
 package org.hl7.fhir;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.hl7.fhir.jaxb.QuestionnaireEnableWhenImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='Questionnaire.EnableWhen' kind='elementOnly'"
  * @generated
  */
+@XmlJavaTypeAdapter(QuestionnaireEnableWhenImplAdapter.class)
 public interface QuestionnaireEnableWhen extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Question</b></em>' containment reference.

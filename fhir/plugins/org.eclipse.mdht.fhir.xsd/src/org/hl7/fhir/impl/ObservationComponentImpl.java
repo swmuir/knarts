@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +34,9 @@ import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Time;
+import org.hl7.fhir.jaxb.DateTimeImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +64,8 @@ import org.hl7.fhir.Time;
  *
  * @generated
  */
+@XmlType(name = "ObservationComponent", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "ObservationComponent")
 public class ObservationComponentImpl extends BackboneElementImpl implements ObservationComponent {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -221,6 +231,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -350,6 +361,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -565,6 +577,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -608,6 +621,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -780,6 +794,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<ObservationReferenceRange> getReferenceRange() {
 		if (referenceRange == null) {
 			referenceRange = new EObjectContainmentEList<ObservationReferenceRange>(ObservationReferenceRange.class, this, FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE);

@@ -2,6 +2,10 @@
  */
 package org.hl7.fhir.impl;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,6 +33,8 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
+@XmlType(name = "EncounterClassHistory", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "EncounterClassHistory")
 public class EncounterClassHistoryImpl extends BackboneElementImpl implements EncounterClassHistory {
 	/**
 	 * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
@@ -117,6 +123,7 @@ public class EncounterClassHistoryImpl extends BackboneElementImpl implements En
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement(required = true)
 	public Period getPeriod() {
 		return period;
 	}

@@ -4,6 +4,11 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +26,8 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MeasureReportPopulation1;
 import org.hl7.fhir.MeasureReportStratum;
+import org.hl7.fhir.jaxb.DecimalImplAdapter;
+import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +44,8 @@ import org.hl7.fhir.MeasureReportStratum;
  *
  * @generated
  */
+@XmlType(name = "MeasureReportStratum", namespace = "http://hl7.org/fhir")
+@XmlRootElement(name = "MeasureReportStratum")
 public class MeasureReportStratumImpl extends BackboneElementImpl implements MeasureReportStratum {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -92,6 +101,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	@XmlElement(required = true)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}
@@ -135,6 +146,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlElement
 	public EList<MeasureReportPopulation1> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasureReportPopulation1>(MeasureReportPopulation1.class, this, FhirPackage.MEASURE_REPORT_STRATUM__POPULATION);
@@ -147,6 +159,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getMeasureScore() {
 		return measureScore;
 	}
