@@ -714,6 +714,24 @@ public interface CDAFactory extends EFactory {
 	ObservationRange createObservationRange();
 
 	/**
+	 * Returns a new object of class '<em>In Fulfillment Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>In Fulfillment Of1</em>'.
+	 * @generated
+	 */
+	InFulfillmentOf1 createInFulfillmentOf1();
+
+	/**
+	 * Returns a new object of class '<em>Act Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Act Reference</em>'.
+	 * @generated
+	 */
+	ActReference createActReference();
+
+	/**
 	 * Returns a new object of class '<em>Observation Media</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

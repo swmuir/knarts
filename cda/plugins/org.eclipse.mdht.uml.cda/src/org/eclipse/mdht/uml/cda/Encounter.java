@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Encounter#getMoodCode <em>Mood Code</em>}</li>
@@ -441,6 +442,23 @@ public interface Encounter extends ClinicalStatement {
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();
+
+	/**
+	 * Returns the value of the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.cda.InFulfillmentOf1}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Fulfillment Of1</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Fulfillment Of1</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncounter_InFulfillmentOf1()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<InFulfillmentOf1> getInFulfillmentOf1s();
 
 	/**
 	 * Returns the value of the '<em><b>Null Flavor</b></em>' attribute.

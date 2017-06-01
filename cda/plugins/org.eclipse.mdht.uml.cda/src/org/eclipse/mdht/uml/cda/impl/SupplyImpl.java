@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Informant12;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Participant2;
@@ -81,6 +82,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SupplyImpl#getMoodCode <em>Mood Code</em>}</li>
@@ -318,6 +320,16 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 	 * @ordered
 	 */
 	protected EList<Precondition> preconditions;
+
+	/**
+	 * The cached value of the '{@link #getInFulfillmentOf1s() <em>In Fulfillment Of1</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInFulfillmentOf1s()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InFulfillmentOf1> inFulfillmentOf1s;
 
 	/**
 	 * The default value of the '{@link #getNullFlavor() <em>Null Flavor</em>}' attribute.
@@ -1144,6 +1156,19 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<InFulfillmentOf1> getInFulfillmentOf1s() {
+		if (inFulfillmentOf1s == null) {
+			inFulfillmentOf1s = new EObjectContainmentEList<InFulfillmentOf1>(
+				InFulfillmentOf1.class, this, CDAPackage.SUPPLY__IN_FULFILLMENT_OF1);
+		}
+		return inFulfillmentOf1s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NullFlavor getNullFlavor() {
 		return nullFlavor;
@@ -1371,6 +1396,8 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUPPLY__PRECONDITION:
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
+			case CDAPackage.SUPPLY__IN_FULFILLMENT_OF1:
+				return ((InternalEList<?>) getInFulfillmentOf1s()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1429,6 +1456,8 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 				return getReferences();
 			case CDAPackage.SUPPLY__PRECONDITION:
 				return getPreconditions();
+			case CDAPackage.SUPPLY__IN_FULFILLMENT_OF1:
+				return getInFulfillmentOf1s();
 			case CDAPackage.SUPPLY__NULL_FLAVOR:
 				return getNullFlavor();
 			case CDAPackage.SUPPLY__CLASS_CODE:
@@ -1530,6 +1559,10 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 				getPreconditions().clear();
 				getPreconditions().addAll((Collection<? extends Precondition>) newValue);
 				return;
+			case CDAPackage.SUPPLY__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				getInFulfillmentOf1s().addAll((Collection<? extends InFulfillmentOf1>) newValue);
+				return;
 			case CDAPackage.SUPPLY__NULL_FLAVOR:
 				setNullFlavor((NullFlavor) newValue);
 				return;
@@ -1620,6 +1653,9 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 			case CDAPackage.SUPPLY__PRECONDITION:
 				getPreconditions().clear();
 				return;
+			case CDAPackage.SUPPLY__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				return;
 			case CDAPackage.SUPPLY__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
@@ -1687,6 +1723,8 @@ public class SupplyImpl extends ClinicalStatementImpl implements Supply {
 				return references != null && !references.isEmpty();
 			case CDAPackage.SUPPLY__PRECONDITION:
 				return preconditions != null && !preconditions.isEmpty();
+			case CDAPackage.SUPPLY__IN_FULFILLMENT_OF1:
+				return inFulfillmentOf1s != null && !inFulfillmentOf1s.isEmpty();
 			case CDAPackage.SUPPLY__NULL_FLAVOR:
 				return isSetNullFlavor();
 			case CDAPackage.SUPPLY__CLASS_CODE:

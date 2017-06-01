@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.mdht.uml.cda.*;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.AssignedCustodian;
@@ -1224,6 +1225,10 @@ public class CDAValidator extends EObjectValidator {
 				return validateReferenceRange((ReferenceRange) value, diagnostics, context);
 			case CDAPackage.OBSERVATION_RANGE:
 				return validateObservationRange((ObservationRange) value, diagnostics, context);
+			case CDAPackage.IN_FULFILLMENT_OF1:
+				return validateInFulfillmentOf1((InFulfillmentOf1) value, diagnostics, context);
+			case CDAPackage.ACT_REFERENCE:
+				return validateActReference((ActReference) value, diagnostics, context);
 			case CDAPackage.OBSERVATION_MEDIA:
 				return validateObservationMedia((ObservationMedia) value, diagnostics, context);
 			case CDAPackage.ORGANIZER:
@@ -3787,6 +3792,26 @@ public class CDAValidator extends EObjectValidator {
 	public boolean validateObservationRange_validateMoodCode(ObservationRange observationRange,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return observationRange.validateMoodCode(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInFulfillmentOf1(InFulfillmentOf1 inFulfillmentOf1, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(inFulfillmentOf1, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActReference(ActReference actReference, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(actReference, diagnostics, context);
 	}
 
 	/**

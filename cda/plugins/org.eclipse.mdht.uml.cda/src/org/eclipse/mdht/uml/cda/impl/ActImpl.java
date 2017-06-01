@@ -24,6 +24,7 @@ import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Informant12;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Participant2;
@@ -70,6 +71,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentActMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getPreconditions <em>Precondition</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getNullFlavor <em>Null Flavor</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ActImpl#getNegationInd <em>Negation Ind</em>}</li>
@@ -296,6 +298,16 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 	 * @ordered
 	 */
 	protected boolean nullFlavorESet;
+
+	/**
+	 * The cached value of the '{@link #getInFulfillmentOf1s() <em>In Fulfillment Of1</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInFulfillmentOf1s()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InFulfillmentOf1> inFulfillmentOf1s;
 
 	/**
 	 * The default value of the '{@link #getClassCode() <em>Class Code</em>}' attribute.
@@ -1043,6 +1055,19 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<InFulfillmentOf1> getInFulfillmentOf1s() {
+		if (inFulfillmentOf1s == null) {
+			inFulfillmentOf1s = new EObjectContainmentEList<InFulfillmentOf1>(
+				InFulfillmentOf1.class, this, CDAPackage.ACT__IN_FULFILLMENT_OF1);
+		}
+		return inFulfillmentOf1s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public x_ActClassDocumentEntryAct getClassCode() {
 		return classCode;
@@ -1251,6 +1276,8 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 				return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 			case CDAPackage.ACT__PRECONDITION:
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
+			case CDAPackage.ACT__IN_FULFILLMENT_OF1:
+				return ((InternalEList<?>) getInFulfillmentOf1s()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1303,6 +1330,8 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 				return getPreconditions();
 			case CDAPackage.ACT__NULL_FLAVOR:
 				return getNullFlavor();
+			case CDAPackage.ACT__IN_FULFILLMENT_OF1:
+				return getInFulfillmentOf1s();
 			case CDAPackage.ACT__CLASS_CODE:
 				return getClassCode();
 			case CDAPackage.ACT__MOOD_CODE:
@@ -1393,6 +1422,10 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 			case CDAPackage.ACT__NULL_FLAVOR:
 				setNullFlavor((NullFlavor) newValue);
 				return;
+			case CDAPackage.ACT__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				getInFulfillmentOf1s().addAll((Collection<? extends InFulfillmentOf1>) newValue);
+				return;
 			case CDAPackage.ACT__CLASS_CODE:
 				setClassCode((x_ActClassDocumentEntryAct) newValue);
 				return;
@@ -1474,6 +1507,9 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 			case CDAPackage.ACT__NULL_FLAVOR:
 				unsetNullFlavor();
 				return;
+			case CDAPackage.ACT__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				return;
 			case CDAPackage.ACT__CLASS_CODE:
 				unsetClassCode();
 				return;
@@ -1535,6 +1571,8 @@ public class ActImpl extends ClinicalStatementImpl implements Act {
 				return preconditions != null && !preconditions.isEmpty();
 			case CDAPackage.ACT__NULL_FLAVOR:
 				return isSetNullFlavor();
+			case CDAPackage.ACT__IN_FULFILLMENT_OF1:
+				return inFulfillmentOf1s != null && !inFulfillmentOf1s.isEmpty();
 			case CDAPackage.ACT__CLASS_CODE:
 				return isSetClassCode();
 			case CDAPackage.ACT__MOOD_CODE:

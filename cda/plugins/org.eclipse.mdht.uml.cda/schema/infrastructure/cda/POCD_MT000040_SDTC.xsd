@@ -92,8 +92,12 @@
     </xs:documentation>
         <xs:documentation>
       2015-04-01 Added extension approved by SDWG on 2015-03-05:
-                   Person/sdtc:asPatientRelationship
+                 Person/sdtc:asPatientRelationship
     </xs:documentation>
+      <xs:documentation>
+          2016-05-12 Added extension approved by SDWG on 2016-01-28
+                     Component4/priorityNumber
+      </xs:documentation>
     
     </xs:annotation>
     <xs:include schemaLocation="../../processable/coreschemas/datatypes.xsd" />
@@ -343,6 +347,9 @@
             <xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0" />
             <xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="sequenceNumber" type="INT" minOccurs="0" />
+            <!-- Begin Extension: (SDTC) -->
+            <xs:element ref="sdtc:priorityNumber" minOccurs="0" />
+            <!-- End Extension: (SDTC) -->      
             <xs:element name="seperatableInd" type="BL" minOccurs="0" />
             <xs:choice>
                 <xs:element name="act" type="POCD_MT000040.Act" />

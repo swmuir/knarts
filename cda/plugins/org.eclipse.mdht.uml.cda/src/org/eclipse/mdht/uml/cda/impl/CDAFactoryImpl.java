@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.mdht.uml.cda.*;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.AssignedCustodian;
@@ -304,6 +305,10 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 				return createReferenceRange();
 			case CDAPackage.OBSERVATION_RANGE:
 				return createObservationRange();
+			case CDAPackage.IN_FULFILLMENT_OF1:
+				return createInFulfillmentOf1();
+			case CDAPackage.ACT_REFERENCE:
+				return createActReference();
 			case CDAPackage.OBSERVATION_MEDIA:
 				return createObservationMedia();
 			case CDAPackage.ORGANIZER:
@@ -1097,6 +1102,26 @@ public class CDAFactoryImpl extends EFactoryImpl implements CDAFactory {
 	public ObservationRange createObservationRange() {
 		ObservationRangeImpl observationRange = new ObservationRangeImpl();
 		return observationRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InFulfillmentOf1 createInFulfillmentOf1() {
+		InFulfillmentOf1Impl inFulfillmentOf1 = new InFulfillmentOf1Impl();
+		return inFulfillmentOf1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActReference createActReference() {
+		ActReferenceImpl actReference = new ActReferenceImpl();
+		return actReference;
 	}
 
 	/**

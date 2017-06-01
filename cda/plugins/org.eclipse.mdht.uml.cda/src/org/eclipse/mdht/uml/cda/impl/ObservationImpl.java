@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.EntryRelationship;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
 import org.eclipse.mdht.uml.cda.Informant12;
 import org.eclipse.mdht.uml.cda.InfrastructureRootTypeId;
 import org.eclipse.mdht.uml.cda.Observation;
@@ -84,6 +85,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_ActMoodDocumentObservation;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ObservationImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ObservationImpl#getMoodCode <em>Mood Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.ObservationImpl#getNegationInd <em>Negation Ind</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.ObservationImpl#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  * </ul>
  *
  * @generated
@@ -464,6 +466,16 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 	 * @ordered
 	 */
 	protected boolean negationIndESet;
+
+	/**
+	 * The cached value of the '{@link #getInFulfillmentOf1s() <em>In Fulfillment Of1</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInFulfillmentOf1s()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InFulfillmentOf1> inFulfillmentOf1s;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1474,6 +1486,19 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<InFulfillmentOf1> getInFulfillmentOf1s() {
+		if (inFulfillmentOf1s == null) {
+			inFulfillmentOf1s = new EObjectContainmentEList<InFulfillmentOf1>(
+				InFulfillmentOf1.class, this, CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1);
+		}
+		return inFulfillmentOf1s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1529,6 +1554,8 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 				return ((InternalEList<?>) getPreconditions()).basicRemove(otherEnd, msgs);
 			case CDAPackage.OBSERVATION__REFERENCE_RANGE:
 				return ((InternalEList<?>) getReferenceRanges()).basicRemove(otherEnd, msgs);
+			case CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1:
+				return ((InternalEList<?>) getInFulfillmentOf1s()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1601,6 +1628,8 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 				return getMoodCode();
 			case CDAPackage.OBSERVATION__NEGATION_IND:
 				return getNegationInd();
+			case CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1:
+				return getInFulfillmentOf1s();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1720,6 +1749,10 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 			case CDAPackage.OBSERVATION__NEGATION_IND:
 				setNegationInd((Boolean) newValue);
 				return;
+			case CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				getInFulfillmentOf1s().addAll((Collection<? extends InFulfillmentOf1>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1822,6 +1855,9 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 			case CDAPackage.OBSERVATION__NEGATION_IND:
 				unsetNegationInd();
 				return;
+			case CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1:
+				getInFulfillmentOf1s().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1894,6 +1930,8 @@ public class ObservationImpl extends ClinicalStatementImpl implements Observatio
 				return isSetMoodCode();
 			case CDAPackage.OBSERVATION__NEGATION_IND:
 				return isSetNegationInd();
+			case CDAPackage.OBSERVATION__IN_FULFILLMENT_OF1:
+				return inFulfillmentOf1s != null && !inFulfillmentOf1s.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

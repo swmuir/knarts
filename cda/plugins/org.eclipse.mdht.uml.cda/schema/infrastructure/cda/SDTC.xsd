@@ -92,6 +92,11 @@
                 Added extension approved by SDWG on 2015-03-05
                    asPatientRelationship
     </xs:documentation>
+    <xs:documentation>
+                2016-05-12 
+                Added extension approved by SDWG on 2016-01-28
+                priorityNumber
+    </xs:documentation>
   </xs:annotation>
 
   <xs:import namespace="urn:hl7-org:v3" schemaLocation="POCD_MT000040_SDTC.xsd" />
@@ -204,6 +209,8 @@
   <xs:element name="patient" type="SdtcPatient" />
 
   <xs:element name="asPatientRelationship" type="AsPatientRelationship" />
+  
+  <xs:element name="priorityNumber" type="hl7:INT" />  
 
   <!-- == End Elements =================================================================== -->
 

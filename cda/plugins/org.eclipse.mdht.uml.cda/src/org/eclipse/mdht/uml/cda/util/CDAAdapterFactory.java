@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.mdht.uml.cda.*;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.AssignedCustodian;
@@ -555,6 +556,16 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseObservationRange(ObservationRange object) {
 			return createObservationRangeAdapter();
+		}
+
+		@Override
+		public Adapter caseInFulfillmentOf1(InFulfillmentOf1 object) {
+			return createInFulfillmentOf1Adapter();
+		}
+
+		@Override
+		public Adapter caseActReference(ActReference object) {
+			return createActReferenceAdapter();
 		}
 
 		@Override
@@ -1781,6 +1792,34 @@ public class CDAAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObservationRangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.InFulfillmentOf1 <em>In Fulfillment Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.cda.InFulfillmentOf1
+	 * @generated
+	 */
+	public Adapter createInFulfillmentOf1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.mdht.uml.cda.ActReference <em>Act Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.mdht.uml.cda.ActReference
+	 * @generated
+	 */
+	public Adapter createActReferenceAdapter() {
 		return null;
 	}
 

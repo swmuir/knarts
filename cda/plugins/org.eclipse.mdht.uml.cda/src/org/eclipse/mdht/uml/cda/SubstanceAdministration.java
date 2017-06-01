@@ -62,6 +62,7 @@ import org.eclipse.mdht.uml.hl7.vocab.x_DocumentSubstanceMood;
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getEntryRelationships <em>Entry Relationship</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getReferences <em>Reference</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getPreconditions <em>Precondition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getInFulfillmentOf1s <em>In Fulfillment Of1</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubstanceAdministration#getMoodCode <em>Mood Code</em>}</li>
@@ -85,7 +86,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -102,7 +103,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -129,7 +130,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -146,7 +147,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -163,7 +164,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setCode(CD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CD getCode();
@@ -190,7 +191,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setText(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getText();
@@ -217,7 +218,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setStatusCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_StatusCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getStatusCode();
@@ -244,7 +245,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Effective Time</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_EffectiveTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<SXCM_TS> getEffectiveTimes();
@@ -261,7 +262,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setPriorityCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_PriorityCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getPriorityCode();
@@ -288,7 +289,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setRepeatNumber(IVL_INT)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_RepeatNumber()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_INT getRepeatNumber();
@@ -315,7 +316,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setRouteCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_RouteCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getRouteCode();
@@ -342,7 +343,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Approach Site Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_ApproachSiteCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CD> getApproachSiteCodes();
@@ -359,7 +360,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setDoseQuantity(IVL_PQ)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_DoseQuantity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_PQ getDoseQuantity();
@@ -386,7 +387,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setRateQuantity(IVL_PQ)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_RateQuantity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_PQ getRateQuantity();
@@ -413,7 +414,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setMaxDoseQuantity(RTO_PQ_PQ)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_MaxDoseQuantity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	RTO_PQ_PQ getMaxDoseQuantity();
@@ -440,7 +441,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setAdministrationUnitCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_AdministrationUnitCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getAdministrationUnitCode();
@@ -467,7 +468,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -494,7 +495,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -511,7 +512,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @see #setConsumable(Consumable)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Consumable()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Consumable getConsumable();
@@ -538,7 +539,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -555,7 +556,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -572,7 +573,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -589,7 +590,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -606,7 +607,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -623,7 +624,7 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();
@@ -640,10 +641,27 @@ public interface SubstanceAdministration extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();
+
+	/**
+	 * Returns the value of the '<em><b>In Fulfillment Of1</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.cda.InFulfillmentOf1}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Fulfillment Of1</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Fulfillment Of1</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubstanceAdministration_InFulfillmentOf1()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<InFulfillmentOf1> getInFulfillmentOf1s();
 
 	/**
 	 * Returns the value of the '<em><b>Null Flavor</b></em>' attribute.
