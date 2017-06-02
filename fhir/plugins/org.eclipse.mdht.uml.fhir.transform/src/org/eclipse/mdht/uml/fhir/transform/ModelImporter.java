@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
 import org.eclipse.mdht.uml.fhir.DerivationKind;
 import org.eclipse.mdht.uml.fhir.ElementSlicing;
+import org.eclipse.mdht.uml.fhir.FHIRFactory;
 import org.eclipse.mdht.uml.fhir.PropertyRepresentationKind;
 import org.eclipse.mdht.uml.fhir.SlicingRulesKind;
 import org.eclipse.mdht.uml.fhir.TypeChoice;
@@ -74,6 +75,11 @@ import org.hl7.fhir.Extension;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
 import org.hl7.fhir.PropertyRepresentation;
+import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.SearchComparator;
+import org.hl7.fhir.SearchModifierCode;
+import org.hl7.fhir.SearchParameter;
+import org.hl7.fhir.SearchParameterComponent;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetConcept;
@@ -127,6 +133,9 @@ public class ModelImporter implements ModelConstants {
 
 	// key = id, value = ImplementationGuide
 	private Map<String,ImplementationGuide> implementationGuideMap = new HashMap<String,ImplementationGuide>();
+	
+	// key = id, value = SearchParameter
+	private Map<String,SearchParameter> searchParameterMap = new HashMap<String,SearchParameter>();		
 	
 	private Package model;
 	private Package xmlPrimitiveTypes;
@@ -335,6 +344,11 @@ public class ModelImporter implements ModelConstants {
 				implementationGuideMap.put(implGuide.getUrl().getValue(), implGuide);
 				iterator.prune();
 			}
+			else if (child instanceof SearchParameter) {
+				SearchParameter searchParameter = (SearchParameter) child;
+				searchParameterMap.put(searchParameter.getUrl().getValue(), searchParameter);
+				iterator.prune();
+			}	
 		}
 	}
 
@@ -377,10 +391,17 @@ public class ModelImporter implements ModelConstants {
 			}
 		}
 		
+//		if (modelFilter.select(ModelFilter.DefinitionType.SearchParameter)) {
+			for (SearchParameter searchParameter : searchParameterMap.values()) {
+				importSearchParameter(searchParameter);
+			}
+//		}
+
 		valueSetMap.clear();
 		structureDefinitionMap.clear();
 		dataElementMap.clear();
 		implementationGuideMap.clear();
+		searchParameterMap.clear();
 	}
 	
 	public Package importImplementationGuide(ImplementationGuide guide) {
@@ -388,6 +409,157 @@ public class ModelImporter implements ModelConstants {
 		System.out.println("Implementation Guide: " + guide.getId().getValue() + ", " + guide.getName().getValue());
 		return umlGuide;
 	}
+	
+public Class importSearchParameter(SearchParameter searchParameter) {
+		
+		Class searchParameterClass = modelIndexer.getSearchParameterForURI(searchParameter.getUrl().getValue());
+		if (searchParameterClass != null) {
+			return searchParameterClass;
+		}
+		
+		String packageName = PACKAGE_NAME_SEARCH_PARAMETERS;
+		Package searchParametersPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
+		
+		String searchParameterName = searchParameter.getId().getValue();
+		searchParameterClass = searchParametersPkg.createOwnedClass(searchParameterName, false);
+		
+		Profile fhirUmlProfile = UMLUtil.getProfile(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getSearchParameter().getEPackage(), searchParameterClass);
+		org.eclipse.mdht.uml.fhir.SearchParameter searchParameterStereotype = null;
+		if (fhirUmlProfile != null) {
+			searchParameterStereotype = (org.eclipse.mdht.uml.fhir.SearchParameter) UMLUtil.safeApplyStereotype(searchParameterClass, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getSearchParameter().getName()));
+			if (searchParameter.getId() != null) {
+				searchParameterStereotype.setId(searchParameter.getId().getValue());
+			}
+			if (searchParameter.getExtension() != null) {
+				for (Extension extension : searchParameter.getExtension()) {
+					org.eclipse.mdht.uml.fhir.types.Extension ext = FHIRTypesFactory.eINSTANCE.createExtension();
+					if (extension.getUrl() != null) {
+						ext.setUrl(extension.getUrl());
+					}
+					if (extension.getValueInteger() != null) {
+						ext.setValueInteger(extension.getValueInteger().getValue());
+					}
+					if (extension.getValueString() != null) {
+						ext.setValueString(extension.getValueString().getValue());
+					}
+					// We do not support extensions of extensions
+					searchParameterStereotype.getExtensions().add(ext);
+				}
+			}
+			if (searchParameter.getUrl() != null) {
+				searchParameterStereotype.setUri(searchParameter.getUrl().getValue());
+			}
+			if (searchParameter.getVersion() != null) {
+				searchParameterStereotype.setVersion(searchParameter.getVersion().getValue());
+			}
+			if (searchParameter.getName() != null) {
+				searchParameterStereotype.setName(searchParameter.getName().getValue());
+			}
+			if (searchParameter.getStatus() != null) {
+				searchParameterStereotype.setStatus(searchParameter.getStatus().getValue().toString());
+			}			
+			if (searchParameter.getExperimental() != null) {
+				searchParameterStereotype.setExperimental(searchParameter.getExperimental().isValue());
+			}			
+			if (searchParameter.getPublisher() != null) {
+				searchParameterStereotype.setPublisher(searchParameter.getPublisher().getValue());
+			}
+// Skipping contacts for now
+//			if (searchParameter.getContact() != null) {
+//				for (ContactDetail contactDetail  : searchParameter.getContact()) {
+//					org.eclipse.mdht.uml.fhir.types.ContactDetail contact = FHIRTypesFactory.eINSTANCE.createContactDetail();
+//					if (contactDetail.getId() != null)
+//						contact.setId(contactDetail.getId());
+//					if (contactDetail.getName() != null)
+//						contact.setName(contactDetail.getName().getValue());
+//					if (contactDetail.getTelecom() != null) {
+//						for (org.hl7.fhir.ContactPoint contactPoint : contactDetail.getTelecom()) {
+//							ContactPoint cp = FHIRTypesFactory.eINSTANCE.createContactPoint();
+//							cp.setSystem(contactPoint.getSystem().getValue().toString());
+//							cp.setValue(contactPoint.getValue().getValue());
+//							contact.getTelecoms().add(cp);
+//						}
+//					}
+//					searchParameterStereotype.getContacts().add(contact);
+//				}
+//			}
+			if (searchParameter.getDate() != null) {
+				searchParameterStereotype.setDate(searchParameter.getDate().getValue().toGregorianCalendar().getTime());
+			}
+			// TODO Skipping UseContexts for now
+			// TODO searchParameter is missing copyright - skipping it
+			// TODO Skipping Jurisdiction for now
+			if (searchParameter.getPurpose() != null) {
+				searchParameterStereotype.setPurpose(searchParameter.getPurpose().getValue());
+			}
+			if (searchParameter.getCode() != null) {
+				searchParameterStereotype.setCode(searchParameter.getCode().getValue());
+			}
+			if (searchParameter.getBase() != null) {
+				for (ResourceType resourceType : searchParameter.getBase()) {
+					searchParameterStereotype.getBases().add(resourceType.getValue().toString());
+				}
+			}
+			if (searchParameter.getType() != null) {
+				searchParameterStereotype.setType(searchParameter.getType().getValue().toString());
+			}
+			if (searchParameter.getDerivedFrom() != null) {
+				searchParameterStereotype.setDerivedFrom(searchParameter.getDerivedFrom().getValue());
+			}
+			if (searchParameter.getDescription() != null) {
+				searchParameterStereotype.setDescription(searchParameter.getDescription().getValue());
+			}
+			if (searchParameter.getExpression() != null) {
+				searchParameterStereotype.setExpression(searchParameter.getExpression().getValue());
+			}
+			if (searchParameter.getXpath() != null) {
+				searchParameterStereotype.setXpath(searchParameter.getXpath().getValue());
+			}
+			if (searchParameter.getXpathUsage() != null) {
+				searchParameterStereotype.setXpathUsage(searchParameter.getXpathUsage().getValue().toString());
+			}
+			if (searchParameter.getTarget() != null) {
+				for (ResourceType resourceType : searchParameter.getTarget()) {
+					searchParameterStereotype.getTargets().add(resourceType.getValue().toString());
+				}
+			}
+			if (searchParameter.getComparator() != null) {
+				for (SearchComparator searchComparator : searchParameter.getComparator()) {
+					searchParameterStereotype.getComparators().add(searchComparator.getValue().toString());
+				}
+			}
+			if (searchParameter.getModifier() != null) {
+				for (SearchModifierCode searchModifierCode : searchParameter.getModifier()) {
+					searchParameterStereotype.getModifiers().add(searchModifierCode.getValue().toString());
+				}
+			}
+			if (searchParameter.getChain() != null) {
+				for (org.hl7.fhir.String string : searchParameter.getChain()) {
+					searchParameterStereotype.getChains().add(string.getValue());
+				}
+			}
+			if (searchParameter.getComponent() != null) {
+				for (SearchParameterComponent searchParameterComponent : searchParameter.getComponent()) {
+					org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass searchParameter_Component = FHIRFactory.eINSTANCE.createSearchParameter_ComponentClass();
+					if (searchParameterComponent.getExpression() != null) {
+						searchParameter_Component.setExpression(searchParameterComponent.getExpression().getValue());
+					}
+					if (searchParameterComponent.getDefinition() != null) {
+						org.eclipse.mdht.uml.fhir.types.Reference reference = FHIRTypesFactory.eINSTANCE.createReference();
+						reference.setReference(searchParameterComponent.getDefinition().getReference().getValue());
+						searchParameter_Component.setDefinition(reference);
+					}
+					searchParameterStereotype.getComponents().add(searchParameter_Component);
+				}
+			}
+		}
+		
+		if (searchParameterStereotype != null) {
+			modelIndexer.addElement(searchParameterStereotype);
+		}		
+		
+		return searchParameterClass;
+	}		
 	
 	public Enumeration importValueSet(String valueSetURI) {
 		Enumeration umlValueSet = null;

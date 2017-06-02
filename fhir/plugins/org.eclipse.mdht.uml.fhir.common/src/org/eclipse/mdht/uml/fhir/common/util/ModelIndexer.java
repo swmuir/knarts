@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.mdht.uml.fhir.DataElement;
+import org.eclipse.mdht.uml.fhir.SearchParameter;
 import org.eclipse.mdht.uml.fhir.StructureDefinition;
 import org.eclipse.mdht.uml.fhir.ValueSet;
 import org.eclipse.uml2.uml.Class;
@@ -42,6 +43,8 @@ public class ModelIndexer implements ModelConstants {
 	private Map<String,Enumeration> valueSetMap = new HashMap<String,Enumeration>();
 
 	private Map<String,Class> dataElementUriMap = new HashMap<String,Class>();
+	
+	private Map<String,Class> searchParameterUriMap = new HashMap<String,Class>();	
 
 	// key = Constraint qualified name, value = UML Constraint
 	private Map<String,Constraint> constraintMap = new HashMap<String,Constraint>();
@@ -65,6 +68,10 @@ public class ModelIndexer implements ModelConstants {
 	public Class getDataElementForURI(String uri) {
 		return dataElementUriMap.get(uri);
 	}
+	
+	public Class getSearchParameterForURI(String uri) {
+		return searchParameterUriMap.get(uri);
+	}	
 	
 	public boolean isDefinedType(Classifier classifier) {
 		return isDefinedType(classifier.getName());
@@ -211,6 +218,15 @@ public class ModelIndexer implements ModelConstants {
 			}
 		}
 	}
+	
+	public void addElement(SearchParameter searchParameter) {
+		Class baseClass = searchParameter.getBase_Class();
+		if (baseClass != null) {
+			if (searchParameter.getUri() != null) {
+				searchParameterUriMap.put(searchParameter.getUri(), baseClass);
+			}
+		}
+	}		
 
 	public void addElement(Constraint constraint) {
 		if (constraint.getName() != null) {
