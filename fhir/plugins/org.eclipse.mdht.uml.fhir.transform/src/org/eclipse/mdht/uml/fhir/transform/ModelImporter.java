@@ -137,7 +137,7 @@ public class ModelImporter implements ModelConstants {
 	
 	// key = id, value = SearchParameter
 	private Map<String,SearchParameter> searchParameterMap = new HashMap<String,SearchParameter>();		
-	
+		
 	private Package model;
 	private Package xmlPrimitiveTypes;
 	
@@ -349,7 +349,8 @@ public class ModelImporter implements ModelConstants {
 				SearchParameter searchParameter = (SearchParameter) child;
 				searchParameterMap.put(searchParameter.getUrl().getValue(), searchParameter);
 				iterator.prune();
-			}	
+			}			
+
 		}
 	}
 
@@ -397,12 +398,12 @@ public class ModelImporter implements ModelConstants {
 				importSearchParameter(searchParameter);
 			}
 //		}
-
+						
 		valueSetMap.clear();
 		structureDefinitionMap.clear();
 		dataElementMap.clear();
 		implementationGuideMap.clear();
-		searchParameterMap.clear();
+		searchParameterMap.clear();		
 	}
 	
 	public Package importImplementationGuide(ImplementationGuide guide) {
@@ -410,8 +411,8 @@ public class ModelImporter implements ModelConstants {
 		System.out.println("Implementation Guide: " + guide.getId().getValue() + ", " + guide.getName().getValue());
 		return umlGuide;
 	}
-	
-public Class importSearchParameter(SearchParameter searchParameter) {
+		
+	public Class importSearchParameter(SearchParameter searchParameter) {
 		
 		Class searchParameterClass = modelIndexer.getSearchParameterForURI(searchParameter.getUrl().getValue());
 		if (searchParameterClass != null) {
@@ -824,11 +825,6 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 		String profileClassName = profileURI.substring(profileURI.lastIndexOf("/") + 1);
 		String profileHumanName = structureDef.getName().getValue();
 		
-		if (profileClassName.contentEquals("Flag")) {
-            boolean iuy = true;
-            iuy = false;
-		}		
-		
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);
 		
@@ -1074,17 +1070,7 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 			
 			Property inheritedProperty = null;
 			String propertyName = getPropertyName(elementDef);
-			
-			if (profileClassName.contentEquals("Flag") && propertyName.equals("encounter")) {
-                boolean iuy = true;
-                iuy = false;
-			}
-			
-			if (profileClassName.contentEquals("Flag") && propertyName.equals("author")) {
-                boolean iuy = true;
-                iuy = false;
-			}						
-			
+						
 			// Look for inherited wildcard property, unless this is a wildcard (ends with [x]).
 			if (propertyName.indexOf("[x]") == -1) {
 				for (String wildcardName : wildcardProperties.keySet()) {
@@ -1158,6 +1144,10 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 				}
 				
 				addEcoreClassName(propertyType);
+				
+				if (!typeList.isEmpty() && BACKBONE_ELEMENT_CLASS_NAME.equals(typeList.get(0).getName())) {
+					typeList.remove(0);  // do not create a TypeChoice of type BackboneElement below.
+				}
 			}
 			else if (typeList.size() == 1) {
 				if (allReferences(elementDef.getType())) {
@@ -1360,7 +1350,10 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 
 			addComments(property, elementDef);
 			
-			if (typeList.size() >= 1) {
+			if (typeList.size() > 1) {
+				addTypeChoice(property, typeList);
+			}
+			else if (typeList.size() == 1 && property.getType() != typeList.get(0)) {
 				addTypeChoice(property, typeList);
 			}
 			
