@@ -4,6 +4,7 @@ package org.eclipse.mdht.uml.fhir.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -31,7 +32,7 @@ import org.eclipse.mdht.uml.fhir.types.Reference;
  */
 public class SearchParameter_ComponentClassImpl extends MinimalEObjectImpl.Container implements SearchParameter_ComponentClass {
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDefinition()
@@ -85,14 +86,6 @@ public class SearchParameter_ComponentClassImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	public Reference getDefinition() {
-		if (definition != null && definition.eIsProxy()) {
-			InternalEObject oldDefinition = (InternalEObject)definition;
-			definition = (Reference)eResolveProxy(oldDefinition);
-			if (definition != oldDefinition) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, oldDefinition, definition));
-			}
-		}
 		return definition;
 	}
 
@@ -101,8 +94,14 @@ public class SearchParameter_ComponentClassImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference basicGetDefinition() {
-		return definition;
+	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
+		Reference oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -111,10 +110,17 @@ public class SearchParameter_ComponentClassImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	public void setDefinition(Reference newDefinition) {
-		Reference oldDefinition = definition;
-		definition = newDefinition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, oldDefinition, definition));
+		if (newDefinition != definition) {
+			NotificationChain msgs = null;
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -144,11 +150,24 @@ public class SearchParameter_ComponentClassImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION:
+				return basicSetDefinition(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION:
-				if (resolve) return getDefinition();
-				return basicGetDefinition();
+				return getDefinition();
 			case FHIRPackage.SEARCH_PARAMETER_COMPONENT_CLASS__EXPRESSION:
 				return getExpression();
 		}

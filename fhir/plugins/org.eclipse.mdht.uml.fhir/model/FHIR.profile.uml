@@ -59,7 +59,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xi4a8KguEeWi07cNSG-Iag"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_PQKmkD1jEeedjZtBFyQEPg" name="telecom" type="_hM014D1iEeedjZtBFyQEPg">
+        <ownedAttribute xmi:id="_PQKmkD1jEeedjZtBFyQEPg" name="telecom" type="_hM014D1iEeedjZtBFyQEPg" aggregation="composite">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rrtb8D1jEeedjZtBFyQEPg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SStKgD1jEeedjZtBFyQEPg" value="*"/>
         </ownedAttribute>
@@ -308,6 +308,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2ZUD8KgrEeWX4p5_Z95Ffw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_fLNMUKgwEeWi07cNSG-Iag" name="useContext" type="_ujKMIKE9EeWNlunrJFMayg" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AEubMEioEeeQ-MDW9D3aUA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMkAEKgwEeWi07cNSG-Iag" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_wGVogA2NEeai5sTp20RF5Q" name="copyright">
@@ -449,15 +450,13 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tgVJEDtYEeeAFuCaRk8Orw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t5Lt8DtYEeeAFuCaRk8Orw" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_YvMlADtvEeeAFuCaRk8Orw" name="component" type="_xBP0oDtkEeeAFuCaRk8Orw" association="_GGdE8DzzEeedjZtBFyQEPg">
+      <ownedAttribute xmi:id="_YvMlADtvEeeAFuCaRk8Orw" name="component" type="_xfMLgEojEee6m5nTtgeNAw" aggregation="composite">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aMzLcDtvEeeAFuCaRk8Orw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cJwnYDtvEeeAFuCaRk8Orw" value="*"/>
       </ownedAttribute>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="_xBP0oDtkEeeAFuCaRk8Orw" name="ComponentClass">
-        <ownedAttribute xmi:id="_qUItUDttEeeAFuCaRk8Orw" name="definition" type="_1xBK4DtuEeeAFuCaRk8Orw">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DfxZ4DtvEeeAFuCaRk8Orw" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_OuQrkDtvEeeAFuCaRk8Orw" name="expression">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_xfMLgEojEee6m5nTtgeNAw" name="ComponentClass">
+        <ownedAttribute xmi:id="_028xgEojEee6m5nTtgeNAw" name="definition" type="_1xBK4DtuEeeAFuCaRk8Orw" aggregation="composite"/>
+        <ownedAttribute xmi:id="_029YkEojEee6m5nTtgeNAw" name="expression">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
       </nestedClassifier>
@@ -465,7 +464,6 @@
     <packagedElement xmi:type="uml:Extension" xmi:id="_omTYQDvKEeeHSJwQmT9jyw" name="Class_SearchParameter" memberEnd="_uQwZoDvKEeeHSJwQmT9jyw _GEf7oDvLEeeHSJwQmT9jyw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_uQwZoDvKEeeHSJwQmT9jyw" name="extension_SearchParameter" type="_NIgmYDvKEeeHSJwQmT9jyw" association="_omTYQDvKEeeHSJwQmT9jyw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_GGdE8DzzEeedjZtBFyQEPg" name="A_searchParameter_component" memberEnd="_YvMlADtvEeeAFuCaRk8Orw"/>
     <profileApplication xmi:id="_qHMGMDDmEeWn6bT0Ftydnw">
       <eAnnotations xmi:id="_qHQXoDDmEeWn6bT0Ftydnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>

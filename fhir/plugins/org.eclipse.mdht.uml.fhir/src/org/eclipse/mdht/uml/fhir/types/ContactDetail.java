@@ -52,7 +52,7 @@ public interface ContactDetail extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Telecom</b></em>' reference list.
+	 * Returns the value of the '<em><b>Telecom</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.types.ContactPoint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -60,9 +60,9 @@ public interface ContactDetail extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Telecom</em>' reference list.
+	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage#getContactDetail_Telecom()
-	 * @model ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ContactPoint> getTelecoms();

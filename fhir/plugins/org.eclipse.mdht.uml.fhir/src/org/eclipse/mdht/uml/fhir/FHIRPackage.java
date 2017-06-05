@@ -1606,7 +1606,7 @@ public interface FHIRPackage extends EPackage {
 	int SEARCH_PARAMETER__CHAIN = CONFORMANCE_RESOURCE_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Component</b></em>' reference list.
+	 * The feature id for the '<em><b>Component</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1643,7 +1643,7 @@ public interface FHIRPackage extends EPackage {
 	int SEARCH_PARAMETER_COMPONENT_CLASS = 16;
 
 	/**
-	 * The feature id for the '<em><b>Definition</b></em>' reference.
+	 * The feature id for the '<em><b>Definition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2661,11 +2661,12 @@ public interface FHIRPackage extends EPackage {
 	 */
 	EAttribute getSearchParameter_Chain();
 
+
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getComponents <em>Component</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getComponents <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Component</em>'.
+	 * @return the meta object for the containment reference list '<em>Component</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getComponents()
 	 * @see #getSearchParameter()
 	 * @generated
@@ -2683,10 +2684,10 @@ public interface FHIRPackage extends EPackage {
 	EClass getSearchParameter_ComponentClass();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getDefinition <em>Definition</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getDefinition <em>Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @return the meta object for the containment reference '<em>Definition</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass#getDefinition()
 	 * @see #getSearchParameter_ComponentClass()
 	 * @generated
@@ -3496,7 +3497,7 @@ public interface FHIRPackage extends EPackage {
 		EAttribute SEARCH_PARAMETER__CHAIN = eINSTANCE.getSearchParameter_Chain();
 
 		/**
-		 * The meta object literal for the '<em><b>Component</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Component</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3514,7 +3515,7 @@ public interface FHIRPackage extends EPackage {
 		EClass SEARCH_PARAMETER_COMPONENT_CLASS = eINSTANCE.getSearchParameter_ComponentClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Definition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

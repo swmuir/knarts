@@ -6,15 +6,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.fhir.types.ContactDetail;
 import org.eclipse.mdht.uml.fhir.types.ContactPoint;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesPackage;
@@ -56,7 +58,7 @@ public class ContactDetailImpl extends MinimalEObjectImpl.Container implements C
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTelecoms() <em>Telecom</em>}' reference list.
+	 * The cached value of the '{@link #getTelecoms() <em>Telecom</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTelecoms()
@@ -132,7 +134,7 @@ public class ContactDetailImpl extends MinimalEObjectImpl.Container implements C
 	 */
 	public EList<ContactPoint> getTelecoms() {
 		if (telecoms == null) {
-			telecoms = new EObjectResolvingEList<ContactPoint>(ContactPoint.class, this, FHIRTypesPackage.CONTACT_DETAIL__TELECOM);
+			telecoms = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FHIRTypesPackage.CONTACT_DETAIL__TELECOM);
 		}
 		return telecoms;
 	}
@@ -156,6 +158,20 @@ public class ContactDetailImpl extends MinimalEObjectImpl.Container implements C
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FHIRTypesPackage.CONTACT_DETAIL__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FHIRTypesPackage.CONTACT_DETAIL__TELECOM:
+				return ((InternalEList<?>)getTelecoms()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
