@@ -40,6 +40,7 @@ import org.eclipse.mdht.uml.fhir.common.util.ModelFilter;
 import org.eclipse.mdht.uml.fhir.common.util.ModelIndexer;
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
 import org.eclipse.mdht.uml.fhir.types.Coding;
+import org.eclipse.mdht.uml.fhir.types.ContactPoint;
 import org.eclipse.mdht.uml.fhir.types.FHIRTypesFactory;
 import org.eclipse.mdht.uml.fhir.util.ProfileUtil;
 import org.eclipse.mdht.uml.validation.Diagnostic;
@@ -65,6 +66,7 @@ import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
@@ -239,6 +241,11 @@ public class ModelImporter implements ModelConstants {
 		return importResource(URI.createURI(uriString));
 	}
 	
+	public Classifier importSearchParameterFromServer(String resourceId) {
+		String uriString = REGISTRY_SERVER + "SearchParameter/" + resourceId + "?_format=xml";
+		return importResource(URI.createURI(uriString));
+	}
+	
 	public Classifier importValueSetFromServer(String resourceId, boolean expand) {
 		String uriString = null;
 		if (resourceId.startsWith("http")) {
@@ -291,6 +298,10 @@ public class ModelImporter implements ModelConstants {
 			}
 			else if (child instanceof ValueSet) {
 				umlClassifier = importValueSet((ValueSet)child);
+				iterator.prune();
+			}
+			else if (child instanceof SearchParameter) {
+				umlClassifier = importSearchParameter((SearchParameter)child);
 				iterator.prune();
 			}
 		}
@@ -349,7 +360,7 @@ public class ModelImporter implements ModelConstants {
 				SearchParameter searchParameter = (SearchParameter) child;
 				searchParameterMap.put(searchParameter.getUrl().getValue(), searchParameter);
 				iterator.prune();
-			}			
+			}
 
 		}
 	}
@@ -411,7 +422,10 @@ public class ModelImporter implements ModelConstants {
 		System.out.println("Implementation Guide: " + guide.getId().getValue() + ", " + guide.getName().getValue());
 		return umlGuide;
 	}
-		
+	
+
+	
+	
 	public Class importSearchParameter(SearchParameter searchParameter) {
 		
 		Class searchParameterClass = modelIndexer.getSearchParameterForURI(searchParameter.getUrl().getValue());
@@ -466,25 +480,25 @@ public class ModelImporter implements ModelConstants {
 			if (searchParameter.getPublisher() != null) {
 				searchParameterStereotype.setPublisher(searchParameter.getPublisher().getValue());
 			}
-// Skipping contacts for now
-//			if (searchParameter.getContact() != null) {
-//				for (ContactDetail contactDetail  : searchParameter.getContact()) {
-//					org.eclipse.mdht.uml.fhir.types.ContactDetail contact = FHIRTypesFactory.eINSTANCE.createContactDetail();
-//					if (contactDetail.getId() != null)
-//						contact.setId(contactDetail.getId());
-//					if (contactDetail.getName() != null)
-//						contact.setName(contactDetail.getName().getValue());
-//					if (contactDetail.getTelecom() != null) {
-//						for (org.hl7.fhir.ContactPoint contactPoint : contactDetail.getTelecom()) {
-//							ContactPoint cp = FHIRTypesFactory.eINSTANCE.createContactPoint();
-//							cp.setSystem(contactPoint.getSystem().getValue().toString());
-//							cp.setValue(contactPoint.getValue().getValue());
-//							contact.getTelecoms().add(cp);
-//						}
-//					}
-//					searchParameterStereotype.getContacts().add(contact);
-//				}
-//			}
+
+			if (searchParameter.getContact() != null) {
+				for (ContactDetail contactDetail  : searchParameter.getContact()) {
+					org.eclipse.mdht.uml.fhir.types.ContactDetail contact = FHIRTypesFactory.eINSTANCE.createContactDetail();
+					if (contactDetail.getId() != null)
+						contact.setId(contactDetail.getId());
+					if (contactDetail.getName() != null)
+						contact.setName(contactDetail.getName().getValue());
+					if (contactDetail.getTelecom() != null) {
+						for (org.hl7.fhir.ContactPoint contactPoint : contactDetail.getTelecom()) {
+							ContactPoint cp = FHIRTypesFactory.eINSTANCE.createContactPoint();
+							cp.setSystem(contactPoint.getSystem().getValue().toString());
+							cp.setValue(contactPoint.getValue().getValue());
+							contact.getTelecoms().add(cp);
+						}
+					}
+					searchParameterStereotype.getContacts().add(contact);
+				}
+			}
 			if (searchParameter.getDate() != null) {
 				searchParameterStereotype.setDate(searchParameter.getDate().getValue().toGregorianCalendar().getTime());
 			}
@@ -541,15 +555,16 @@ public class ModelImporter implements ModelConstants {
 				}
 			}
 			if (searchParameter.getComponent() != null) {
+		
 				for (SearchParameterComponent searchParameterComponent : searchParameter.getComponent()) {
 					org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass searchParameter_Component = FHIRFactory.eINSTANCE.createSearchParameter_ComponentClass();
 					if (searchParameterComponent.getExpression() != null) {
-						searchParameter_Component.setExpression(searchParameterComponent.getExpression().getValue());
+						searchParameter_Component.setExpression(searchParameterComponent.getExpression().getValue());						
 					}
 					if (searchParameterComponent.getDefinition() != null) {
-						org.eclipse.mdht.uml.fhir.types.Reference reference = FHIRTypesFactory.eINSTANCE.createReference();
-						reference.setReference(searchParameterComponent.getDefinition().getReference().getValue());
-						searchParameter_Component.setDefinition(reference);
+						org.eclipse.mdht.uml.fhir.types.Reference ref = FHIRTypesFactory.eINSTANCE.createReference();
+						ref.setReference(searchParameterComponent.getDefinition().getReference().getValue());
+						searchParameter_Component.setDefinition(ref);
 					}
 					searchParameterStereotype.getComponents().add(searchParameter_Component);
 				}
@@ -824,7 +839,7 @@ public class ModelImporter implements ModelConstants {
 		String profileURI = structureDef.getUrl().getValue();
 		String profileClassName = profileURI.substring(profileURI.lastIndexOf("/") + 1);
 		String profileHumanName = structureDef.getName().getValue();
-		
+				
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);
 		
