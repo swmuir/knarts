@@ -46,6 +46,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Material;
+import org.eclipse.mdht.uml.cda.NonXMLBody;
 import org.eclipse.mdht.uml.cda.Patient;
 import org.eclipse.mdht.uml.cda.Person;
 import org.eclipse.mdht.uml.cda.PlayingEntity;
@@ -56,6 +57,9 @@ import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
+import org.eclipse.mdht.uml.hl7.datatypes.BinaryDataEncoding;
+import org.eclipse.mdht.uml.hl7.datatypes.DatatypesFactory;
+import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.EN;
 import org.eclipse.mdht.uml.hl7.datatypes.ENXP;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
@@ -233,6 +237,23 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	final HashMap<String, String> randmonIds = new HashMap<String, String>();
 
+	/**
+	 * lookForExisting checks for an existing random id ignoring the part of file name
+	 * Add file name for report purposes but want id to span files
+	 *
+	 * @param slimkey
+	 * @return
+	 */
+	private String lookForExistingAcrossFiles(String slimkey) {
+		String randomString = "";
+		for (String fatkey : randmonIds.keySet()) {
+			if (fatkey.endsWith(slimkey)) {
+				randomString = randmonIds.get(fatkey);
+			}
+		}
+		return randomString;
+	}
+
 	public void deidentifyCDA(final IFile file) throws Exception {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
@@ -259,11 +280,16 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 						ii.getExtension().trim().length() > 0) {
 					String key = getKey(file.getName(), ii);
 					if (!randmonIds.containsKey(key)) {
-						if (ii.getExtension() != null) {
-							randmonIds.put(key, RandomStringUtils.randomNumeric(ii.getExtension().length()));
-						} else {
-							randmonIds.put(key, RandomStringUtils.randomNumeric(5));
+						String randomString = lookForExistingAcrossFiles(getKey(ii));
+						if (StringUtils.isEmpty(randomString)) {
+							if (ii.getExtension() != null) {
+								randomString = RandomStringUtils.randomNumeric(ii.getExtension().length());
+							} else {
+								randomString = RandomStringUtils.randomNumeric(5);
+							}
 						}
+						randmonIds.put(key, randomString);
+
 					}
 
 					if (randmonIds.containsKey(key)) {
@@ -302,18 +328,27 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 					return false;
 				}
 
+				if (StringUtils.isEmpty(getKey(pn))) {
+					return false;
+				}
+
 				String key = getKey(file.getName(), pn);
 
 				if (!randmonIds.containsKey(key)) {
 
 					String[] randoms = key.split(" ");
 
-					String newName = key;
-					for (String n : randoms) {
-						newName = newName.replace(n, RandomStringUtils.randomAlphabetic(5));
+					String randomString = lookForExistingAcrossFiles(getKey(pn));
+
+					if (StringUtils.isEmpty(randomString)) {
+						String newName = key;
+						for (String n : randoms) {
+							newName = newName.replace(n, RandomStringUtils.randomAlphabetic(5));
+						}
+						randomString = newName;
 					}
 
-					randmonIds.put(key, newName);
+					randmonIds.put(key, randomString);
 
 				}
 
@@ -459,6 +494,22 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			}
 		};
 		query.getEObjects(Patient.class, patientFilter);
+
+		Filter<NonXMLBody> nonXMLBodyFilter = new Filter<NonXMLBody>() {
+
+			@Override
+			public boolean accept(NonXMLBody item) {
+
+				ED ed = DatatypesFactory.eINSTANCE.createED("NON XML CONTENT REMOVED AS PART OF DEINDENTIFICATION");
+				ed.setMediaType("text/plain");
+				ed.setRepresentation(BinaryDataEncoding.TXT);
+				item.setText(ed);
+
+				return false;
+			}
+
+		};
+		query.getEObjects(NonXMLBody.class, nonXMLBodyFilter);
 
 		if (file.getParent() != null) {
 			IPath p = file.getParent().getProjectRelativePath();
@@ -615,17 +666,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				DeIdentificationDialog dlg = new DeIdentificationDialog(window.getShell());
 				dlg.create();
 				dlg.open();
-
-				// try {
-
-				// } finally {
-				// try {
-				// input.close();
-				// } catch (IOException e) {
-				// //ignore
-				// }
-				// }
-				// return file;
 
 			}
 
