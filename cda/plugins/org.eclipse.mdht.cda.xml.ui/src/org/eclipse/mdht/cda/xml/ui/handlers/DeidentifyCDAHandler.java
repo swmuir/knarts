@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
@@ -85,6 +86,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import com.google.common.base.Stopwatch;
 
 public class DeidentifyCDAHandler extends AbstractHandler {
 
@@ -531,6 +534,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
 
+		int filectr = 1;
+		long currentProcessingTime = 1;
+		Stopwatch stopwatch = Stopwatch.createUnstarted();
 		for (IResource resource : folder.members()) {
 
 			if (monitor.isCanceled()) {
@@ -545,17 +551,21 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				IFile file = (IFile) resource;
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 					monitor.worked(1);
-					monitor.subTask("Processing " + file.getName());
+					monitor.subTask(
+						"Processing  " + file.getName() + "  File #  " + filectr++ + " Average Time per File " +
+								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
 					try {
+						stopwatch.reset();
+						stopwatch.start();
 						deidentifyCDA(file);
+						stopwatch.stop();
+						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
 			}
-
 		}
-
 	}
 
 	/*
