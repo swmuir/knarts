@@ -17,9 +17,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
@@ -187,7 +187,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		return prefix + "\t" + getKey(ii);
 	}
 
-	HashSet<String> names = new HashSet<String>();
+	ArrayDeque<String> names = new ArrayDeque<String>();
 
 	public String getKey(String prefix, EN pn) {
 		return prefix + "\t" + getKey(pn);
@@ -232,6 +232,10 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			}
 			names.add(e.getText());
 			b.append(e.getText());
+		}
+
+		while (names.size() > 1000) {
+			names.removeFirst();
 		}
 
 		return b.toString();
@@ -577,7 +581,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		try {
-
 			names.clear();
 			randmonIds.clear();
 
@@ -607,7 +610,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 											DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
 
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
+										// for (int ctr = 0; ctr < 500; ctr++) {
 										processFolder(folder, monitor);
+										// }
 
 									}
 									if (o instanceof IFile) {
