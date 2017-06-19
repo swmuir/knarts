@@ -16,18 +16,24 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.ui.editors;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.IOperationHistory;
 import org.eclipse.core.commands.operations.IOperationHistoryListener;
 import org.eclipse.core.commands.operations.IUndoContext;
+import org.eclipse.core.commands.operations.IUndoableOperation;
 import org.eclipse.core.commands.operations.OperationHistoryEvent;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -37,13 +43,18 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.ListenerList;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.ViewerPane;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -51,6 +62,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -65,6 +77,8 @@ import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.emf.workspace.IWorkspaceCommandStack;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
@@ -147,6 +161,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.Saveable;
 import org.eclipse.ui.SaveablesLifecycleEvent;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 import org.eclipse.ui.part.EditorPart;
@@ -1367,6 +1382,80 @@ public class UMLTableEditor extends EditorPart
 	 */
 	@Override
 	public void doSaveAs() {
+
+		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
+		saveAsDialog.open();
+		IPath path = saveAsDialog.getResult();
+		if (path != null) {
+
+		}
+
+		// FileDialog dialog = new FileDialog(getSite().getShell(), SWT.OPEN);
+		// dialog.setFilterExtensions(new String[] { "*.uml" });
+		// // dialog.setFilterPath("c:\\temp");
+		// String result = dialog.open();
+
+		// Platform.createPlatformResourceURI();
+
+		URI ecoreModelURI = URI.createPlatformResourceURI(path.toOSString());
+		// if (ecoreModelPath != null) {
+		// ecoreModelURI = URI.createFileURI(ecoreModelPath);
+		// }
+		// if (ecoreModelURI == null) {
+		// ecoreModelURI = resource.getURI();
+		// ecoreModelURI = ecoreModelURI.trimFileExtension();
+		// ecoreModelURI = ecoreModelURI.trimSegments(1).appendSegment(ecoreModelURI.lastSegment() + "_Ecore2");
+		// }
+		//
+		// String fileExtension = resource.getURI().fileExtension();
+		// if (!fileExtension.equals(ecoreModelURI.fileExtension())) {
+		// ecoreModelURI = ecoreModelURI.appendFileExtension(fileExtension);
+		// }
+
+		// org.eclipse.core
+
+		// change URI of the source model, then modify it
+		// TODO change this to create elements in a new model
+		resource.setURI(ecoreModelURI);
+
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(resource);
+
+		IUndoableOperation operation = new AbstractEMFOperation(editingDomain, "Save As...") {
+			@Override
+			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) {
+				EcoreUtil.resolveAll(resource.getResourceSet());
+
+				for (Resource controlledResource : UMLUtil.getControlledResources(resource)) {
+					EList<EObject> umlResourceContents = resource.getContents();
+
+					for (ListIterator<EObject> contents = controlledResource.getContents().listIterator(); contents.hasNext();) {
+						EObject next = contents.next();
+
+						contents.remove();
+
+						if (next.eContainer() == null) {
+							umlResourceContents.add(next);
+						}
+					}
+				}
+
+				Map<?, ?> options = new HashMap<String, String>();
+				try {
+					resource.save(options);
+				} catch (IOException e1) {
+					return Status.CANCEL_STATUS;
+				}
+				return Status.OK_STATUS;
+			}
+		};
+
+		IWorkspaceCommandStack commandStack = (IWorkspaceCommandStack) editingDomain.getCommandStack();
+		operation.addContext(commandStack.getDefaultUndoContext());
+		try {
+			commandStack.getOperationHistory().execute(operation, new NullProgressMonitor(), null);
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -1376,7 +1465,7 @@ public class UMLTableEditor extends EditorPart
 	 */
 	@Override
 	public boolean isSaveAsAllowed() {
-		return false;
+		return true;
 	}
 
 	/*
