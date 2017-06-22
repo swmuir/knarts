@@ -327,7 +327,8 @@ public class AnalyzeCDAHandler extends AbstractHandler {
 				}
 			}
 
-		} catch (Exception e) {
+			cd.eResource().unload();
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 		return cdaMetrics;

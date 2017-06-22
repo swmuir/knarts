@@ -4298,6 +4298,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 							sectionbyfile.get(section.eClass()).add(file);
 
 						}
+
+						clinicalDocument.eResource().unload();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

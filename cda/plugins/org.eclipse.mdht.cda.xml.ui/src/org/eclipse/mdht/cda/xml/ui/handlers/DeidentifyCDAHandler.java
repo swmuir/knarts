@@ -534,6 +534,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			CDAUtil.save(clinicalDocument, new FileOutputStream(df.getLocation().toOSString()));
 		}
 
+		clinicalDocument.eResource().unload();
 	}
 
 	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
