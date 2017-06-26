@@ -13,6 +13,7 @@ package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Reader;
@@ -22,7 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,20 +31,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.CellReference;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.xssf.streaming.SXSSFRow;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -60,7 +63,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -160,6 +162,7 @@ import org.openhealthtools.mdht.uml.cda.consol.VitalSignsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch;
 
 import com.google.common.base.Predicate;
+import com.google.common.base.Stopwatch;
 import com.google.common.collect.Collections2;
 
 public class GenerateCDADataHandler extends AbstractHandler {
@@ -596,16 +599,18 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			column2.setWidth(250);
 
 			for (IFile file : files) {
-				int sectionCount = 0;
-
-				for (EClass eclass : sectionbyfile.keySet()) {
-					if (sectionbyfile.get(eclass).contains(file)) {
-						sectionCount++;
-					}
-				}
-
 				final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
-				valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
+				if (errors.containsKey(file)) {
+					valueSetsUpdatedItem.setText(new String[] { file.getName(), errors.get(file).getMessage() });
+				} else {
+					int sectionCount = 0;
+					for (String eclass : sectionbyfile.keySet()) {
+						if (sectionbyfile.get(eclass).contains(file)) {
+							sectionCount++;
+						}
+					}
+					valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
+				}
 			}
 
 			return composite;
@@ -701,8 +706,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static class SectionSwitch extends ConsolSwitch<Boolean> {
 
-		static int serializeProblemObservation(HSSFRow row, int offset, ProblemObservation problemObservation) {
-			HSSFCell cell = row.createCell(offset++);
+		static int serializeProblemObservation(Row row, int offset, ProblemObservation problemObservation) {
+			Cell cell = row.createCell(offset++);
 
 			StringBuffer sb = new StringBuffer();
 			Date d;
@@ -791,7 +796,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		ServiceEvent serviceEvent = null;
 
-		HSSFSheet sheet = null;
+		Sheet sheet = null;
 
 		/**
 		 * @param query
@@ -801,7 +806,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters
 		 * @param fileName
 		 */
-		public SectionSwitch(Query query, HSSFSheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+		public SectionSwitch(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
 				List<Encounter> encounters, String fileName) {
 			super();
 			this.query = query;
@@ -812,6 +817,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			this.fileName = fileName;
 		}
 
+		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
+
 		/**
 		 * @param query2
 		 * @param sheet2
@@ -820,17 +827,17 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param section
 		 * @param fileName2
 		 */
-		private void appendEmptySection(Query query2, HSSFSheet sheet2, Section section, String fileName2) {
+		private void appendEmptySection(Query query2, Sheet sheet2, Section section, String fileName2) {
 
-			HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 			int offset = serializePatient(row, 0, patientRole);
 
 			row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
 			row.createCell(offset++).setCellValue("NO ENTRIES");
-			HSSFRow headerRow = sheet2.getRow(0);
-			serializeSectionAndFileName(row, headerRow.getPhysicalNumberOfCells() - 3, section, fileName);
+
+			serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
 		}
 
 		/**
@@ -842,7 +849,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendObservationsToSocialHistorySheet(Query query2, HSSFSheet sheet2, PatientRole patientRole2,
+		private void appendObservationsToSocialHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
 				ServiceEvent serviceEvent2, EList<Observation> observations, List<Encounter> encounters2,
 				String fileName2) {
 			Set<Observation> sets = new HashSet<Observation>();
@@ -855,7 +862,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (Observation sa : byEncouter) {
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
@@ -879,7 +886,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// int offset = 0;
 			//
-			// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
 			// offset = serializePatient(row, offset, patientRole);
 			//
@@ -897,7 +904,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			for (Observation sa : observations) {
 
 				if (sets.add(sa)) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
 					offset = serializeObservation(row, ++offset, sa, false);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -917,7 +924,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendToFamilyHistorySheet(Query query2, HSSFSheet sheet2, PatientRole patientRole2,
+		private void appendToFamilyHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
 				ServiceEvent serviceEvent2, List<Organizer> observations, List<Encounter> encounters2,
 				String fileName2) {
 
@@ -932,7 +939,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (Organizer organizer : byEncouter) {
 
 					for (Observation observation : organizer.getObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
 						offset = serializeEncounterID(row, offset, encounter);
 						offset = serializeOrganizer(row, offset, organizer, false, true);
@@ -949,7 +956,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					for (Observation observation : sa.getObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
 						offset = serializeOrganizer(row, ++offset, sa, false, true);
 						offset = serializeObservation(row, offset, observation);
@@ -970,7 +977,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendToProblemsSheet(Query query2, HSSFSheet sheet2, PatientRole patientRole2,
+		private void appendToProblemsSheet(Query query2, Sheet sheet2, PatientRole patientRole2,
 				ServiceEvent serviceEvent2, EList<ProblemConcernAct> problemConcerns, List<Encounter> encounters2,
 				String fileName2) {
 
@@ -985,7 +992,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
@@ -1009,7 +1016,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// int offset = 0;
 			//
-			// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
 			// offset = serializePatient(row, offset, patientRole);
 			//
@@ -1027,7 +1034,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			for (ProblemConcernAct sa : problemConcerns) {
 
 				if (sets.add(sa)) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
 					offset = serializeProblemConcernAct(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -1046,7 +1053,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendToProblemsSheet2(Query query2, HSSFSheet sheet2, PatientRole patientRole2,
+		private void appendToProblemsSheet2(Query query2, Sheet sheet2, PatientRole patientRole2,
 				ServiceEvent serviceEvent2, EList<ProblemObservation> problemObservations, List<Encounter> encounters2,
 				String fileName2) {
 			Set<ProblemObservation> sets = new HashSet<ProblemObservation>();
@@ -1060,7 +1067,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
@@ -1084,7 +1091,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// int offset = 0;
 			//
-			// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
 			// offset = serializePatient(row, offset, patientRole);
 			//
@@ -1102,7 +1109,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			for (ProblemObservation sa : problemObservations) {
 
 				if (sets.add(sa)) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
 					offset = serializeProblemObservation(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -1121,7 +1128,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendToVitalSignsSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+		private void appendToVitalSignsSheet(Query query, Sheet sheet, PatientRole patientRole,
 				ServiceEvent serviceEvent, List<VitalSignsOrganizer> vitalSignsOrganizers, List<Encounter> encounters,
 				String fileName) {
 
@@ -1136,7 +1143,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (VitalSignsOrganizer organizer : byEncouter) {
 
 					for (VitalSignObservation observation : organizer.getVitalSignObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
 						offset = serializeEncounterID(row, offset, encounter);
 						offset = serializeOrganizer(row, offset, organizer, false, false);
@@ -1153,7 +1160,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					for (VitalSignObservation observation : sa.getVitalSignObservations()) {
-						HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 						int offset = serializePatient(row, 0, patientRole);
 						offset = serializeOrganizer(row, ++offset, sa, false, false);
 						offset = serializeObservation(row, offset, observation);
@@ -1174,12 +1181,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseAllergiesSectionEntriesOptional(AllergiesSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
-				createAllergyHeader(row1, row2, offset);
+				offset = createAllergyHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 			}
 			if (section.getAllergyProblemActs() != null && !section.getAllergyProblemActs().isEmpty()) {
 				appendToAllergiesSheet(
@@ -1201,12 +1209,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseFamilyHistorySection(FamilyHistorySection section) {
 
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
 				offset = createFamilyHistoryHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 			}
 
 			if (section.getOrganizers() != null && !section.getOrganizers().isEmpty()) {
@@ -1228,12 +1237,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseHistoryOfPastIllnessSection(HistoryOfPastIllnessSection section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
 				offset = createProblemObservationHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 			}
 
 			if (section.getProblemObservations() != null && !section.getProblemObservations().isEmpty()) {
@@ -1258,12 +1268,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseImmunizationsSectionEntriesOptional(ImmunizationsSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
-				createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
+				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
+				emptySectionOffset.put(sheet, offset);
 			}
 			if (section.getImmunizationActivities() != null && !section.getImmunizationActivities().isEmpty()) {
 
@@ -1286,11 +1297,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseMedicationsAdministeredSection(MedicationsAdministeredSection section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
-				createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+				emptySectionOffset.put(sheet, offset);
 			}
 
 			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
@@ -1315,11 +1327,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseMedicationsSectionEntriesOptional(MedicationsSectionEntriesOptional section) {
 
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
-				createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+				emptySectionOffset.put(sheet, offset);
 			}
 
 			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
@@ -1336,12 +1349,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseProblemSectionEntriesOptional(ProblemSectionEntriesOptional section) {
 
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
 				offset = createProblemHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 
 			}
 			if (section.getProblemConcerns() != null && !section.getProblemConcerns().isEmpty()) {
@@ -1366,12 +1380,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseProceduresSectionEntriesOptional(ProceduresSectionEntriesOptional section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
-				createProcedureHeader(row1, row2, offset);
+				offset = createProcedureHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 			}
 			if (section.getProcedureActivityActs() != null && !section.getProcedureActivityActs().isEmpty()) {
 
@@ -1410,11 +1425,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseResultsSectionEntriesOptional(ResultsSectionEntriesOptional section) {
 
-			// for (Entry e : section.getEntries()) {
-			// System.out.println(e.toString());
-			// System.out.println(e.getOrganizer());
-			// }
-
 			EList<ResultOrganizer> resultOrganizers = new BasicEList<ResultOrganizer>();
 
 			for (Organizer organizer : section.getOrganizers()) {
@@ -1425,12 +1435,15 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (!resultOrganizers.isEmpty()) {
 
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				if (sheet.getPhysicalNumberOfRows() < 10) {
+					Row row1 = null; // sheet.createRow(0);
+					Row row2 = sheet.createRow(0);
 
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				createResultsHeader(row1, row2, offset);
+					int offset = createPatientHeader(row1, row2, 0);
+					offset = createEncounterIDHeader(row1, row2, offset);
+					offset = createResultsHeader(row1, row2, offset);
+					emptySectionOffset.put(sheet, offset);
+				}
 
 				appendToResultsSheet(query, sheet, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
 
@@ -1450,12 +1463,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		@Override
 		public Boolean caseSocialHistorySection(SocialHistorySection section) {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
 
 				int offset = createPatientHeader(row1, row2, 0);
 				offset = createEncounterIDHeader(row1, row2, offset);
 				offset = createSocialHistoryHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
 			}
 
 			if (section.getObservations() != null && !section.getObservations().isEmpty()) {
@@ -1472,12 +1486,15 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public Boolean caseVitalSignsSectionEntriesOptional(VitalSignsSectionEntriesOptional section) {
 			if (section.getVitalSignsOrganizers() != null && !section.getVitalSignsOrganizers().isEmpty()) {
 
-				HSSFRow row1 = null; // sheet.createRow(0);
-				HSSFRow row2 = sheet.createRow(0);
+				if (sheet.getPhysicalNumberOfRows() < 10) {
+					Row row1 = null; // sheet.createRow(0);
+					Row row2 = sheet.createRow(0);
 
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				createVitalSignsHeader(row1, row2, offset);
+					int offset = createPatientHeader(row1, row2, 0);
+					offset = createEncounterIDHeader(row1, row2, offset);
+					offset = createVitalSignsHeader(row1, row2, offset);
+					emptySectionOffset.put(sheet, offset);
+				}
 
 				appendToVitalSignsSheet(
 					query, sheet, patientRole, serviceEvent, section.getVitalSignsOrganizers(), encounters, fileName);
@@ -1493,7 +1510,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param offset
 		 * @return
 		 */
-		private int createFamilyHistoryHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		private int createFamilyHistoryHeader(Row row1, Row row2, int offset) {
 			row2.createCell(offset++).setCellValue("Organizer ID");
 			row2.createCell(offset++).setCellValue("Date");
 			offset = addCodeHeader(row2, offset, "Description");
@@ -1506,7 +1523,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			return offset;
 		}
 
-		private int createProblemHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		private int createProblemHeader(Row row1, Row row2, int offset) {
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			offset = addCodeHeader(row2, offset, "Problem");
@@ -1515,7 +1532,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-		private int createProblemObservationHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		private int createProblemObservationHeader(Row row1, Row row2, int offset) {
 			row2.createCell(offset++).setCellValue("ID");
 			row2.createCell(offset++).setCellValue("Date");
 			offset = addCodeHeader(row2, offset, "Problem");
@@ -1531,7 +1548,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param row2
 		 * @param offset
 		 */
-		private int createVitalSignsHeader(HSSFRow row1, HSSFRow row2, int offset) {
+		private int createVitalSignsHeader(Row row1, Row row2, int offset) {
 
 			row2.createCell(offset++).setCellValue("Panel ID");
 			row2.createCell(offset++).setCellValue("Date");
@@ -1564,7 +1581,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param sa
 		 * @return
 		 */
-		private int serializeProblemConcernAct(HSSFRow row, int offset, ProblemConcernAct problemConcernAct) {
+		private int serializeProblemConcernAct(Row row, int offset, ProblemConcernAct problemConcernAct) {
 			StringBuffer sb = new StringBuffer();
 
 			for (II ii : problemConcernAct.getIds()) {
@@ -1710,7 +1727,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static SigSwitch sigSwitch = new SigSwitch();
 
-	static int addCodeHeader(HSSFRow row1, int offset, String prefix) {
+	static int addCodeHeader(Row row1, int offset, String prefix) {
 		row1.createCell(offset++).setCellValue(prefix + " Text");
 		row1.createCell(offset++).setCellValue("Display Name");
 		row1.createCell(offset++).setCellValue("Code");
@@ -1722,7 +1739,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	};
 
-	static int addSectionHeader(HSSFRow row1, int offset) {
+	static int addSectionHeader(Row row1, int offset) {
 		row1.createCell(offset++).setCellValue("Section Title");
 		row1.createCell(offset++).setCellValue("File Name");
 		row1.createCell(offset++).setCellValue("Narrative");
@@ -1739,9 +1756,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendActToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, EList<ProcedureActivityAct> procedureActivityActs, List<Encounter> encounters,
-			String fileName) {
+	static void appendActToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+			EList<ProcedureActivityAct> procedureActivityActs, List<Encounter> encounters, String fileName) {
 
 		Set<ProcedureActivityAct> sets = new HashSet<ProcedureActivityAct>();
 
@@ -1754,7 +1770,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
@@ -1778,7 +1794,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -1796,7 +1812,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityAct sa : procedureActivityActs) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeProcedureActivityAct(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -1806,7 +1822,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int appendCode(HSSFRow row, int offset, Section setion, CD cd, ED ed) {
+	static int appendCode(Row row, int offset, Section setion, CD cd, ED ed) {
 
 		if (cd != null) {
 			// Text
@@ -1840,7 +1856,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendObservationToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+	static void appendObservationToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole,
 			ServiceEvent serviceEvent, EList<ProcedureActivityObservation> procedureActivityObservations,
 			List<Encounter> encounters, String fileName) {
 
@@ -1856,7 +1872,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
@@ -1873,7 +1889,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityObservation sa : procedureActivityObservations) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeProcedureActivityObservation(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -1883,7 +1899,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	};
 
-	static int appendOrganizationAndAuthor(HSSFRow row, int offset, EList<Author> authors) {
+	static int appendOrganizationAndAuthor(Row row, int offset, EList<Author> authors) {
 		String organization = getValue(authors, PorO.ORGANIZATION);
 		String person = getValue(authors, PorO.PERSON);
 		row.createCell(offset++).setCellValue(organization);
@@ -1900,7 +1916,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendProcedureToProcedureSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+	static void appendProcedureToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole,
 			ServiceEvent serviceEvent, EList<ProcedureActivityProcedure> procedureActivityProcedures,
 			List<Encounter> encounters, String fileName) {
 		Set<ProcedureActivityProcedure> sets = new HashSet<ProcedureActivityProcedure>();
@@ -1915,7 +1931,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
@@ -1932,7 +1948,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (ProcedureActivityProcedure sa : procedureActivityProcedures) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeProcedureActivityProcedure(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -1951,7 +1967,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param name
 	 */
 
-	static void appendToAllergiesSheet(Query query, HSSFSheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+	static void appendToAllergiesSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
 			List<Encounter> encounters, String fileName) {
 
 		List<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sas = query.getEObjects(
@@ -1960,7 +1976,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		appendToAllergiesSheet(query, sheet, patientRole, serviceEvent, sas, encounters, fileName);
 	}
 
-	static void appendToAllergiesSheet(Query query, HSSFSheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+	static void appendToAllergiesSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
 			List<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sas, List<Encounter> encounters,
 			String fileName) {
 
@@ -1975,7 +1991,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
@@ -1999,7 +2015,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -2017,7 +2033,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (AllergyProblemAct sa : sas) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeAllergyProblemAct(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
@@ -2033,13 +2049,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param patientRole
 	 * @param encounters
 	 */
-	static void appendToEncounterSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
-			List<Encounter> encounters, String fileName) {
+	static void appendToEncounterSheet(Query query, Sheet sheet, PatientRole patientRole, List<Encounter> encounters,
+			String fileName) {
 
 		for (Encounter encoutner : encounters) {
 
 			if (encoutner.getEffectiveTime() != null) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = serializePatient(row, 0, patientRole);
 				offset = serializeEncounter(row, offset, encoutner);
 				serializeSectionAndFileName(row, offset, encoutner.getSection(), fileName);
@@ -2047,10 +2063,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 	}
 
-	static void appendToPatientSheet(Query query, HSSFSheet sheet, PatientRole patientRole, InformationRecipient ir,
+	static void appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole, InformationRecipient ir,
 			InFulfillmentOf iffo, String fileName) {
 
-		HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 		int offset = serializePatient(row, 0, patientRole);
 
@@ -2109,11 +2125,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					name1 = getAnyValue(null, pn);
 					break;
 				}
-				for (ON on : ir.getIntendedRecipient().getReceivedOrganization().getNames()) {
-					name2 = getAnyValue(null, on);
-					break;
+				if (ir.getIntendedRecipient() != null && ir.getIntendedRecipient().getReceivedOrganization() != null &&
+						ir.getIntendedRecipient().getReceivedOrganization().getNames() != null) {
+					for (ON on : ir.getIntendedRecipient().getReceivedOrganization().getNames()) {
+						name2 = getAnyValue(null, on);
+						break;
+					}
 				}
-
 			}
 
 		}
@@ -2131,10 +2149,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row.createCell(offset++).setCellValue(orderId);
 		serializeSectionAndFileName(row, offset, null, fileName);
-
 	}
 
-	static void appendToResultsSheet(Query query, HSSFSheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+	static void appendToResultsSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
 			List<ResultOrganizer> results, List<Encounter> encounters, String fileName) {
 
 		Set<ResultOrganizer> sets = new HashSet<ResultOrganizer>();
@@ -2149,7 +2166,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				for (ResultObservation resultObservation : sa.getResultObservations()) {
 					int offset = 0;
 
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 					offset = serializePatient(row, offset, patientRole);
 
@@ -2178,7 +2195,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -2197,7 +2214,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				for (ResultObservation resultObservation : sa.getResultObservations()) {
-					HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 					int offset = serializePatient(row, 0, patientRole);
 					offset = serializeOrganizer(row, ++offset, sa, true, false);
 					offset = serializeObservation(row, offset, resultObservation);
@@ -2217,7 +2234,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param fileName
 	 */
 	// org.openhealthtools.mdht.uml.cda.consol.MedicationActivity
-	static void appendToSubstanceAdministrationSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, PatientRole patientRole,
 			ServiceEvent serviceEvent, List<Encounter> encounters, List<? extends SubstanceAdministration> sas,
 			String fileName) {
 
@@ -2235,7 +2252,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				int offset = 0;
 
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				offset = serializePatient(row, offset, patientRole);
 
@@ -2261,7 +2278,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// int offset = 0;
 		//
-		// HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
 		// offset = serializePatient(row, offset, patientRole);
 		//
@@ -2279,7 +2296,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (SubstanceAdministration sa : sas) {
 
 			if (sets.add(sa)) {
-				HSSFRow row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
 				int offset = serializePatient(row, 0, patientRole);
 
@@ -2293,7 +2310,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static void appendToSubstanceAdministrationSheet(Query query, HSSFSheet sheet, PatientRole patientRole,
+	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, PatientRole patientRole,
 			ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
 
 		// Because we were getting class cast exception - copy results to EList
@@ -2305,7 +2322,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int createAllergyHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createAllergyHeader(Row row1, Row row2, int offset) {
 		// All Des Verify Date Event Type Reaction Severity Source
 		// int firstColumn = offset;
 		// undo to go back to two rows for headers // undo to go back to two rows for headers row1.createCell(firstColumn).setCellValue("Allergy");
@@ -2326,7 +2343,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	};
 
-	static int createEncounterHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createEncounterHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Encounter");
@@ -2337,20 +2354,20 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int createEncounterIDHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createEncounterIDHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Encounter ID");
 
 		return offset;
 	};
 
-	static int createPatientHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createPatientHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("DOB");
 		return offset;
 	};
 
-	static int createPatientHeader2(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createPatientHeader2(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("CDA Specification");
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
@@ -2367,7 +2384,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param row2
 	 * @param offset
 	 */
-	static int createProcedureHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createProcedureHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Procedure");
@@ -2379,7 +2396,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	};
 
-	static int createResultsHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createResultsHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Panel ID");
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Panel");
@@ -2395,7 +2412,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int createSocialHistoryHeader(HSSFRow row1, HSSFRow row2, int offset) {
+	static int createSocialHistoryHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Observation");
@@ -2404,7 +2421,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int createSubstanceAdministrationHeader(HSSFRow row1, HSSFRow row2, int offset, String type) {
+	static int createSubstanceAdministrationHeader(Row row1, Row row2, int offset, String type) {
 		row2.createCell(offset++).setCellValue("ID");
 		offset = addCodeHeader(row2, offset, type);
 		row2.createCell(offset++).setCellValue("Status");
@@ -3149,7 +3166,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param sa
 	 * @return
 	 */
-	static int serializeAllergyProblemAct(HSSFRow row, int offset, AllergyProblemAct allergyProblemAct) {
+	static int serializeAllergyProblemAct(Row row, int offset, AllergyProblemAct allergyProblemAct) {
 
 		StringBuffer sb = new StringBuffer();
 
@@ -3245,7 +3262,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int serializeDianostic(HSSFRow row, int offset, Diagnostic diagnostic) {
+	static int serializeDianostic(Row row, int offset, Diagnostic diagnostic) {
 
 		ValidationResult vr = new ValidationResult();
 
@@ -3275,9 +3292,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializeEncounter(HSSFRow row, int offset, Encounter encounter) {
+	static int serializeEncounter(Row row, int offset, Encounter encounter) {
 
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 
 		StringBuffer sb = new StringBuffer();
 		for (II ii : encounter.getIds()) {
@@ -3337,9 +3354,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int serializeEncounterID(HSSFRow row, int offset, Encounter encounter) {
+	static int serializeEncounterID(Row row, int offset, Encounter encounter) {
 
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 
 		StringBuffer sb = new StringBuffer();
 		for (II ii : encounter.getIds()) {
@@ -3352,7 +3369,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int serializeObservation(HSSFRow row, int offset, Observation resultObservation) {
+	static int serializeObservation(Row row, int offset, Observation resultObservation) {
 		return serializeObservation(row, offset, resultObservation, true);
 	}
 
@@ -3362,7 +3379,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param resultObservation
 	 * @return
 	 */
-	static int serializeObservation(HSSFRow row, int offset, Observation resultObservation, boolean referenceRange) {
+	static int serializeObservation(Row row, int offset, Observation resultObservation, boolean referenceRange) {
 
 		/*
 		 *
@@ -3374,7 +3391,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * row2.createCell(offset++).setCellValue("Range");
 		 *
 		 */
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 
 		StringBuffer sb = new StringBuffer();
 		for (II ii : resultObservation.getIds()) {
@@ -3460,10 +3477,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param sa
 	 * @return
 	 */
-	static int serializeOrganizer(HSSFRow row, int offset, Organizer resultOrganizer, boolean serializeSpecimen,
+	static int serializeOrganizer(Row row, int offset, Organizer resultOrganizer, boolean serializeSpecimen,
 			boolean serializeSubject) {
 
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 
 		StringBuffer sb = new StringBuffer();
 		for (II ii : resultOrganizer.getIds()) {
@@ -3559,9 +3576,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatient(HSSFRow row, int offset, Patient patient) {
+	static int serializePatient(Row row, int offset, Patient patient) {
 
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 
 		if (patient.getBirthTime() != null) {
 
@@ -3576,17 +3593,18 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatient(HSSFRow row, int offset, PatientRole patientRole) {
+	static int serializePatient(Row row, int offset, PatientRole patientRole) {
 
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 		cell.setCellValue(row.getRowNum() - 1);
 
 		cell = row.createCell(offset++);
 		StringBuffer sb = new StringBuffer();
-		for (II ii : patientRole.getIds()) {
-			sb.append(getKey2(ii));
+		if (patientRole != null) {
+			for (II ii : patientRole.getIds()) {
+				sb.append(getKey2(ii));
+			}
 		}
-
 		cell.setCellValue(sb.toString());
 
 		offset = serializePatient(row, offset, patientRole.getPatient());
@@ -3599,7 +3617,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param sa
 	 * @return
 	 */
-	static int serializeProcedureActivityAct(HSSFRow row, int offset, ProcedureActivityAct procedureActivityAct) {
+	static int serializeProcedureActivityAct(Row row, int offset, ProcedureActivityAct procedureActivityAct) {
 		StringBuffer sb = new StringBuffer();
 
 		for (II ii : procedureActivityAct.getIds()) {
@@ -3653,7 +3671,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param sa
 	 * @return
 	 */
-	static int serializeProcedureActivityObservation(HSSFRow row, int offset,
+	static int serializeProcedureActivityObservation(Row row, int offset,
 			ProcedureActivityObservation procedureActivityObservation) {
 
 		StringBuffer sb = new StringBuffer();
@@ -3708,7 +3726,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param sa
 	 * @return
 	 */
-	static int serializeProcedureActivityProcedure(HSSFRow row, int offset,
+	static int serializeProcedureActivityProcedure(Row row, int offset,
 			ProcedureActivityProcedure procedureActivityProcedure) {
 		StringBuffer sb = new StringBuffer();
 		for (II ii : procedureActivityProcedure.getIds()) {
@@ -3756,12 +3774,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static void serializeSA(String prefix, SubstanceAdministration substanceAdministration, HSSFSheet sheet,
+	static void serializeSA(String prefix, SubstanceAdministration substanceAdministration, Sheet sheet,
 			int rownumber) {
 
-		HSSFRow row = sheet.createRow(rownumber);
+		Row row = sheet.createRow(rownumber);
 
-		HSSFCell cell = row.createCell(0);
+		Cell cell = row.createCell(0);
 
 		cell.setCellValue(prefix);
 
@@ -3825,7 +3843,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param section
 	 * @param encoutner
 	 */
-	static int serializeSectionAndFileName(HSSFRow row, int offset, Section section, String fileName) {
+	static int serializeSectionAndFileName(Row row, int offset, Section section, String fileName) {
 
 		String narrativeText = "";
 
@@ -3840,8 +3858,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					;
 					Section s = CDAFactory.eINSTANCE.createSection();
 					s.setText(EcoreUtil.copy(section.getText()));
-					CDAUtil.saveSnippet(EcoreUtil.copy(section.getText()), fa);
-					narrativeText = getNarrativeText(fa.toString());
+					if (section.getText() != null) {
+						CDAUtil.saveSnippet(EcoreUtil.copy(section.getText()), fa);
+						narrativeText = getNarrativeText(fa.toString());
+					} else {
+						narrativeText = "Missing Text";
+					}
+
 				}
 
 			} catch (Exception e) {
@@ -3851,7 +3874,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		// else {
 		// row.createCell(offset++).setCellValue("");
 		// }
-		HSSFCell cell = row.createCell(offset++);
+		Cell cell = row.createCell(offset++);
 		cell.setCellValue(fileName);
 
 		if (!StringUtils.isEmpty(narrativeText)) {
@@ -3866,8 +3889,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param serviceEvent
 	 * @return
 	 */
-	static int serializeServiceEvent(HSSFRow row, int offset, ServiceEvent serviceEvent) {
-		HSSFCell cell = row.createCell(offset++);
+	static int serializeServiceEvent(Row row, int offset, ServiceEvent serviceEvent) {
+		Cell cell = row.createCell(offset++);
 
 		StringBuffer sb = new StringBuffer();
 		for (II ii : serviceEvent.getIds()) {
@@ -3923,8 +3946,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static int serializeSubstanceAdministration(HSSFRow row, int offset,
-			SubstanceAdministration substanceAdministration) {
+	static int serializeSubstanceAdministration(Row row, int offset, SubstanceAdministration substanceAdministration) {
 
 		StringBuffer sb = new StringBuffer();
 
@@ -4013,11 +4035,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return true;
 	}
 
-	HashMap<IFile, ClinicalDocument> documentsbyfile = new HashMap<IFile, ClinicalDocument>();
+	HashMap<IFile, String> documentsbyfile = new HashMap<IFile, String>();
 
 	ArrayList<IFile> files = new ArrayList<IFile>();
 
-	HashMap<EClass, ArrayList<IFile>> sectionbyfile = new HashMap<EClass, ArrayList<IFile>>();
+	HashMap<String, ArrayList<IFile>> sectionbyfile = new HashMap<String, ArrayList<IFile>>();
+
+	HashMap<IFile, Exception> errors = new HashMap<IFile, Exception>();
 
 	/*
 	 * (non-Javadoc)
@@ -4054,21 +4078,23 @@ public class GenerateCDADataHandler extends AbstractHandler {
 									}
 								}
 							} catch (IOException e) {
+								e.printStackTrace();
 								throw new InvocationTargetException(e);
 							} catch (Exception e) {
-
+								e.printStackTrace();
 							}
 						}
 					});
 				} catch (InvocationTargetException e) {
+					e.printStackTrace();
 					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 					MessageBox dialog = new MessageBox(window.getShell(), SWT.ICON_ERROR | SWT.OK);
 					dialog.setText("Error processing CDA");
-					dialog.setMessage("Make sure Excel file is closed!");
+					dialog.setMessage("Make sure Excel file is closed!" + e.getMessage());
 					dialog.open();
 					completed = false;
 				} catch (InterruptedException e) {
-
+					e.printStackTrace();
 				}
 
 				if (completed) {
@@ -4083,7 +4109,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 		return null;
@@ -4101,32 +4127,32 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		ConsolPackage.eINSTANCE.eClass();
 
-		HSSFWorkbook wb = new HSSFWorkbook();
+		XSSFWorkbook wb = new XSSFWorkbook();
 		int offset = 0;
 
-		HSSFSheet patientsSheet = wb.createSheet("Documents");
+		Sheet patientsSheet = wb.createSheet("Documents");
 
-		HSSFRow row1 = null; // patientsSheet.createRow(0);
-		HSSFRow row2 = patientsSheet.createRow(0);
+		Row row1 = null; // patientsSheet.createRow(0);
+		Row row2 = patientsSheet.createRow(0);
 
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
-		HSSFSheet encountersSheet = wb.createSheet("Encounters");
+		Sheet encountersSheet = wb.createSheet("Encounters");
 
 		row1 = null; // encountersSheet.createRow(0);
 		row2 = encountersSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createEncounterHeader(row1, row2, offset);
 
-		HSSFSheet allergySheet = wb.createSheet("Allergies");
+		Sheet allergySheet = wb.createSheet("Allergies");
 		row1 = null; /// allergySheet.createRow(0);
 		row2 = allergySheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		offset = createEncounterIDHeader(row1, row2, offset);
 		createAllergyHeader(row1, row2, offset);
 
-		HSSFSheet substanceAdministrationsSheet = wb.createSheet("Medications");
+		Sheet substanceAdministrationsSheet = wb.createSheet("Medications");
 
 		row1 = null; // substanceAdministrationsSheet.createRow(0);
 		row2 = substanceAdministrationsSheet.createRow(0);
@@ -4195,8 +4221,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	}
 
 	private void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
-		HSSFWorkbook wb = new HSSFWorkbook();
-		HashMap<Integer, HSSFSheet> sheets = new HashMap<Integer, HSSFSheet>();
+
+		SXSSFWorkbook wb = new SXSSFWorkbook(100);
+		HashMap<Integer, String> sheets = new HashMap<Integer, String>();
 
 		sectionbyfile.clear();
 
@@ -4204,22 +4231,19 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		files.clear();
 
-		authors.clear();
-
-		organizations.clear();
-
+		errors.clear();
 		int offset = 0;
 
-		HSSFSheet documentsSheet = wb.createSheet("Documents");
+		SXSSFSheet documentsSheet = wb.createSheet("Documents");
 
-		HSSFSheet sectionsSheet = wb.createSheet("Sections");
+		SXSSFSheet sectionsSheet = wb.createSheet("Sections");
 
-		HSSFRow row1 = null;
-		HSSFRow row2 = documentsSheet.createRow(0);
+		SXSSFRow row1 = null;
+		SXSSFRow row2 = documentsSheet.createRow(0);
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
-		HSSFSheet encountersSheet = wb.createSheet("Encounters");
+		SXSSFSheet encountersSheet = wb.createSheet("Encounters");
 
 		row1 = null;
 		row2 = encountersSheet.createRow(0);
@@ -4237,27 +4261,49 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			org.apache.commons.io.FileUtils.touch(theFile);
 		}
 
-		for (IResource resource : folder.members()) {
+		int filectr = 1;
+		long currentProcessingTime = 1;
+		Stopwatch stopwatch = Stopwatch.createUnstarted();
 
+		int totalFiles = folder.members().length;
+		for (IResource resource : folder.members()) {
+			stopwatch.reset();
+			stopwatch.start();
 			if (monitor.isCanceled()) {
 				monitor.done();
 				break;
 			}
 
 			if (resource instanceof IFile) {
+
 				IFile file = (IFile) resource;
 
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
-
 					files.add(file);
 					monitor.worked(1);
-					monitor.subTask("Processing " + file.getName());
+					double estimatedTimeLeft = ((folder.members().length - filectr) *
+							(currentProcessingTime / filectr)) / 1000.0;
+
+					if (estimatedTimeLeft > 60) {
+						monitor.setTaskName(
+							"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
+									" Minutes ");
+					} else {
+						monitor.setTaskName(
+							"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft) +
+									" Seconds ");
+					}
+
+					monitor.subTask(
+						"Processing File " + StringUtils.leftPad(String.valueOf(filectr++), 5) + " of " +
+								StringUtils.leftPad(String.valueOf(totalFiles), 5) + " Average Time per File " +
+								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
 					try {
 						URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
 						ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
 
-						documentsbyfile.put(file, clinicalDocument);
+						documentsbyfile.put(file, clinicalDocument.eClass().getName());
 
 						List<Encounter> encounters = new ArrayList<Encounter>();
 
@@ -4277,112 +4323,148 @@ public class GenerateCDADataHandler extends AbstractHandler {
 							encounters.addAll(es.getEncounterActivitiess());
 						}
 						appendToPatientSheet(query, documentsSheet, patientRole, ir, iffo, file.getName());
+
 						appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
 
 						for (Section section : clinicalDocument.getSections()) {
 							if (!(section instanceof EncountersSectionEntriesOptional)) {
 								if (!sheets.containsKey(section.eClass().getClassifierID())) {
-									sheets.put(
-										section.eClass().getClassifierID(), wb.createSheet(section.eClass().getName()));
+									SXSSFSheet newSheet = wb.createSheet(section.eClass().getName());
+
+									sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
 								}
 								SectionSwitch sectionSwitch = new SectionSwitch(
-									query, sheets.get(section.eClass().getClassifierID()), patientRole, serviceEvent,
-									encounters, file.getName());
+									query, wb.getSheet(sheets.get(section.eClass().getClassifierID())), patientRole,
+									serviceEvent, encounters, file.getName());
 								sectionSwitch.doSwitch(section);
 							}
 
-							if (!sectionbyfile.containsKey(section.eClass())) {
-								sectionbyfile.put(section.eClass(), new ArrayList<IFile>());
+							if (!sectionbyfile.containsKey(section.eClass().getName())) {
+								sectionbyfile.put(section.eClass().getName(), new ArrayList<IFile>());
 							}
 
-							sectionbyfile.get(section.eClass()).add(file);
+							sectionbyfile.get(section.eClass().getName()).add(file);
 
 						}
 
 						clinicalDocument.eResource().unload();
-					} catch (Exception e) {
-						e.printStackTrace();
+						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
+					} catch (Exception exception) {
+						exception.printStackTrace();
+						errors.put(file, exception);
 					}
 				}
+				stopwatch.stop();
 			}
 
 		}
 
-		List<EClass> sortedKeys = new ArrayList<EClass>(sectionbyfile.keySet());
-		Comparator<? super EClass> compare = new Comparator<EClass>() {
+		monitor.beginTask("Generate Spreadsheet", folder.members().length);
 
-			@Override
-			public int compare(EClass o1, EClass o2) {
-				return o1.getName().compareTo(o2.getName());
-			}
-		};
-		Collections.sort(sortedKeys, compare);
+		List<String> sortedKeys = new ArrayList<String>(sectionbyfile.keySet());
+		Collections.sort(sortedKeys);
 
-		HSSFFont boldFont = wb.createFont();
+		Font boldFont = wb.createFont();
 		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
-		HSSFCellStyle sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
+		CellStyle sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
 		sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
 		sectionstyle.setRotation((short) -90);
 		sectionstyle.setFont(boldFont);
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+
 		offset = 0;
 		row1.createCell(offset++).setCellValue("File Name");
 		row1.createCell(offset++).setCellValue("Document");
 		// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
-		for (EClass sectionclass : sortedKeys) {
+		for (String sectionclass : sortedKeys) {
 
-			HSSFCell cell = row1.createCell(offset++);
-			cell.setCellValue(sectionclass.getName());
+			Cell cell = row1.createCell(offset++);
+			cell.setCellValue(sectionclass);
 			cell.setCellStyle(sectionstyle);
 
 		}
 
-		HSSFCellStyle style = sectionsSheet.getWorkbook().createCellStyle();
+		CellStyle style = sectionsSheet.getWorkbook().createCellStyle();
 		style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
-		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+		style.setAlignment(CellStyle.ALIGN_CENTER);
 		// style.setFont(font);
 
-		HSSFCellStyle boldstyle = wb.createCellStyle();
-		boldstyle.setUserStyleName("BOLD");
+		CellStyle boldstyle = wb.createCellStyle();
 
 		boldstyle.setFont(boldFont);
-
+		int lastRow = 0;
 		for (IFile file : files) {
-			offset = 0;
-			row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-			row1.createCell(offset++).setCellValue(file.getName());
-			row1.createCell(offset++).setCellValue(documentsbyfile.get(file).eClass().getName());
-
-			for (EClass sectionclass : sortedKeys) {
-				if (sectionbyfile.get(sectionclass).contains(file)) {
-					HSSFCell cell = row1.createCell(offset++);
-					cell.setCellValue("X");
-					cell.setCellStyle(style);
-				} else {
-					row1.createCell(offset++).setCellValue("");
+			if (documentsbyfile.containsKey(file)) {
+				offset = 0;
+				row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+				row1.createCell(offset++).setCellValue(file.getName());
+				row1.createCell(offset++).setCellValue(documentsbyfile.get(file));
+				lastRow = row1.getRowNum();
+				for (String sectionclass : sortedKeys) {
+					if (sectionbyfile.get(sectionclass).contains(file)) {
+						Cell cell = row1.createCell(offset++);
+						cell.setCellValue("X");
+						cell.setCellStyle(style);
+					} else {
+						row1.createCell(offset++).setCellValue("");
+					}
 				}
-
 			}
 		}
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 		offset = 2;
 		for (@SuppressWarnings("unused")
-		EClass sectionclass : sortedKeys) {
-			HSSFCell cell = row1.createCell(offset++);
+		String sectionclass : sortedKeys) {
+			Cell cell = row1.createCell(offset++);
 			String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
-			String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (files.size() + 1) + ",\"X\")";
-			cell.setCellType(HSSFCell.CELL_TYPE_FORMULA);
+			String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (lastRow + 1) + ",\"X\")";
+			cell.setCellType(Cell.CELL_TYPE_FORMULA);
 			cell.setCellFormula(strFormula);
 		}
 
+		monitor.subTask(
+			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+
+		FileOutputStream fileOut = new FileOutputStream(fileLocation);
+		wb.write(fileOut);
+		fileOut.close();
+		wb.close();
+		wb.dispose();
+
+		monitor.subTask(
+			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+
+		monitor.subTask(
+			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+
+		if (folder.members().length < 50) {
+			format(fileLocation, monitor);
+		}
+		monitor.subTask(
+			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+
+	}
+
+	void format(String fileLocation, IProgressMonitor monitor) throws IOException {
+
+		FileInputStream fis = new FileInputStream(fileLocation);
+		monitor.subTask("ReOpening  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.XLS");
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		monitor.subTask("Opened  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.XLS");
+		CellStyle boldstyle = wb.createCellStyle();
+		Font boldFont = wb.createFont();
+		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+		boldstyle.setFont(boldFont);
+
 		for (int sheetCtr = 0; sheetCtr < wb.getNumberOfSheets(); sheetCtr++) {
-			HSSFSheet aSheet = wb.getSheetAt(sheetCtr);
-			HSSFRow topRow = aSheet.getRow(0);
-			monitor.subTask("Formating Sheet " + aSheet.getSheetName());
+
+			Sheet aSheet = wb.getSheetAt(sheetCtr);
+			Row topRow = aSheet.getRow(0);
 			if (topRow != null) {
+				monitor.subTask("Formating Sheet  " + aSheet.getSheetName());
 				int lastcell = topRow.getLastCellNum();
 				for (int columnCtr = 0; columnCtr < lastcell; columnCtr++) {
 					aSheet.autoSizeColumn(columnCtr);
@@ -4400,15 +4482,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-		monitor.subTask(
-			"Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
-
 		FileOutputStream fileOut = new FileOutputStream(fileLocation);
 		wb.write(fileOut);
 		fileOut.close();
-		monitor.subTask(
-			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
-
+		wb.close();
 	}
-
 }
