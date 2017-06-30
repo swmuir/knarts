@@ -25,7 +25,11 @@ Require-Bundle: org.eclipse.ui;visibility:=reexport,
  org.eclipse.core.expressions,
  org.eclipse.swt,
  com.google.guava,
- org.apache.commons.io
+ org.apache.commons.io,
+ org.openhealthtools.mdht.uml.cda.ccd;resolution:=optional,
+ org.openhealthtools.mdht.uml.cda.cdt;resolution:=optional,
+ org.openhealthtools.mdht.uml.cda.hitsp;resolution:=optional,
+ org.openhealthtools.mdht.uml.cda.ihe;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
