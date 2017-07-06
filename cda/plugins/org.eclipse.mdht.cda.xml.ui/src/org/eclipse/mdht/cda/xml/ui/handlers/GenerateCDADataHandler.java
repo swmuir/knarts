@@ -57,8 +57,11 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
@@ -71,6 +74,7 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.Author;
@@ -4583,15 +4587,18 @@ public class GenerateCDADataHandler extends AbstractHandler {
 									}
 								}
 							} catch (IOException e) {
-								e.printStackTrace();
+								ILog log = Activator.getDefault().getLog();
+								log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
 								throw new InvocationTargetException(e);
 							} catch (Exception e) {
-								e.printStackTrace();
+								ILog log = Activator.getDefault().getLog();
+								log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
 							}
 						}
 					});
 				} catch (InvocationTargetException e) {
-					e.printStackTrace();
+					ILog log = Activator.getDefault().getLog();
+					log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
 					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 					MessageBox dialog = new MessageBox(window.getShell(), SWT.ICON_ERROR | SWT.OK);
 					dialog.setText("Error processing CDA");
@@ -4599,7 +4606,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					dialog.open();
 					completed = false;
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					ILog log = Activator.getDefault().getLog();
+					log.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error generating report", e));
 				}
 
 				if (completed) {
@@ -4614,7 +4622,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			ILog log = org.eclipse.mdht.cda.xml.ui.Activator.getDefault().getLog();
+			log.log(
+				new Status(
+					IStatus.ERROR, org.eclipse.mdht.cda.xml.ui.Activator.PLUGIN_ID, "Error generating report", e));
 		}
 
 		return null;
@@ -4915,7 +4926,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 						clinicalDocument.eResource().unload();
 						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
 					} catch (Exception exception) {
-						exception.printStackTrace();
 						errors.put(file, exception);
 					}
 				}
