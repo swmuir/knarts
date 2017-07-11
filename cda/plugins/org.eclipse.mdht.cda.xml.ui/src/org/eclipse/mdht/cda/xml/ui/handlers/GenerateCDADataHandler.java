@@ -4729,10 +4729,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		FileOutputStream fileOut = new FileOutputStream(
 			folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_CA.XLS");
+					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_CA.xlsx");
 
 		wb.write(fileOut);
 		fileOut.close();
+		wb.close();
 
 	}
 
@@ -4771,7 +4772,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		createEncounterHeader(row1, row2, offset);
 
 		String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS";
+				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx";
 		File theFile = new File(fileLocation);
 
 		// If the file exists, check to see if we can open it
@@ -5001,7 +5002,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 		monitor.subTask(
-			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
 		FileOutputStream fileOut = new FileOutputStream(fileLocation);
 		wb.write(fileOut);
@@ -5010,25 +5011,26 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		wb.dispose();
 
 		monitor.subTask(
-			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
 		monitor.subTask(
-			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
 		if (folder.members().length < 50) {
 			format(fileLocation, monitor);
 		}
 		monitor.subTask(
-			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.XLS");
+			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
 	}
 
 	void format(String fileLocation, IProgressMonitor monitor) throws IOException {
 
 		FileInputStream fis = new FileInputStream(fileLocation);
-		monitor.subTask("ReOpening  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.XLS");
+		monitor.subTask(
+			"ReOpening  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
-		monitor.subTask("Opened  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.XLS");
+		monitor.subTask("Opened  " + DATE_FORMAT3.format(new Date()) + "_" + fileLocation.toUpperCase() + "_SA.xlsx");
 		CellStyle boldstyle = wb.createCellStyle();
 		Font boldFont = wb.createFont();
 		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
