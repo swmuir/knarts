@@ -731,10 +731,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		Sheet sheet = null;
 
+		OrganizationAndSoftware organizationAndSoftware;
+
 		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
 
-		public CCDSectionSwitch(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-				List<Encounter> encounters, String fileName) {
+		public CCDSectionSwitch(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+				PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
 			super();
 			this.query = query;
 			this.sheet = sheet;
@@ -742,6 +744,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			this.serviceEvent = serviceEvent;
 			this.encounters = encounters;
 			this.fileName = fileName;
+			this.organizationAndSoftware = organizationAndSoftware;
 		}
 
 		/*
@@ -764,7 +767,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (section.getProcedures() != null && !section.getProcedures().isEmpty()) {
 
 				appendProcedureToProcedureSheet(
-					query, sheet, patientRole, serviceEvent, section.getProcedures(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getProcedures(),
+					encounters, fileName);
 			}
 			return Boolean.TRUE;
 		}
@@ -795,13 +799,16 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		Sheet sheet = null;
 
+		OrganizationAndSoftware organizationAndSoftware;
+
 		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
 
-		public C32SectionSwitch(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-				List<Encounter> encounters, String fileName) {
+		public C32SectionSwitch(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+				PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
 			super();
 			this.query = query;
 			this.sheet = sheet;
+			this.organizationAndSoftware = organizationAndSoftware;
 			this.patientRole = patientRole;
 			this.serviceEvent = serviceEvent;
 			this.encounters = encounters;
@@ -827,7 +834,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
 				appendToSubstanceAdministrationSheet(
-					query, sheet, patientRole, serviceEvent, encounters, section.getMedicationActivities(), fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters,
+					section.getMedicationActivities(), fileName);
 
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
@@ -855,8 +863,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (section.getSubstanceAdministrations() != null && !section.getSubstanceAdministrations().isEmpty()) {
 
 				appendToSubstanceAdministrationSheet(
-					query, sheet, patientRole, serviceEvent, encounters, section.getSubstanceAdministrations(),
-					fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters,
+					section.getSubstanceAdministrations(), fileName);
 
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
@@ -886,7 +894,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				}
 
 				appendToVitalSignsSheet(
-					query, sheet, patientRole, serviceEvent, section.getOrganizers(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getOrganizers(),
+					encounters, fileName);
 				return Boolean.TRUE;
 
 			}
@@ -921,7 +930,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					emptySectionOffset.put(sheet, offset);
 				}
 
-				appendToResultsSheet(query, sheet, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
+				appendToResultsSheet(
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, resultOrganizers, encounters,
+					fileName);
 
 			}
 
@@ -950,8 +961,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (section.getAllergyIntoleranceConcerns() != null && !section.getAllergyIntoleranceConcerns().isEmpty()) {
 				appendToAllergiesSheet(
-					query, sheet, patientRole, serviceEvent, section.getAllergyIntoleranceConcerns(), encounters,
-					fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent,
+					section.getAllergyIntoleranceConcerns(), encounters, fileName);
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
 			}
@@ -968,9 +979,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		 * @param encounters2
 		 * @param fileName2
 		 */
-		private void appendToAllergiesSheet(Query query2, Sheet sheet2, PatientRole patientRole2,
-				ServiceEvent serviceEvent2, EList<AllergyIntoleranceConcern> sas, List<Encounter> encounters2,
-				String fileName2) {
+		private void appendToAllergiesSheet(Query query2, Sheet sheet2, OrganizationAndSoftware organizationAndSoftware,
+				PatientRole patientRole2, ServiceEvent serviceEvent2, EList<AllergyIntoleranceConcern> sas,
+				List<Encounter> encounters2, String fileName2) {
 			Set<AllergyIntoleranceConcern> sets = new HashSet<AllergyIntoleranceConcern>();
 
 			for (Encounter encounter : encounters) {
@@ -984,7 +995,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -1000,7 +1011,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeAllergyProblemAct(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 					// serializeFileName(row, offset, fileName);
@@ -1067,7 +1078,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -1083,7 +1094,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeProblemConcernAct(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 				}
@@ -1315,7 +1326,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-			int offset = serializePatient(row, 0, patientRole);
+			int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 
 			row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
@@ -1420,19 +1431,23 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		Sheet sheet = null;
 
+		OrganizationAndSoftware organizationAndSoftware;
+
 		/**
 		 * @param query
 		 * @param sheet
+		 * @param organizationAndSoftware
 		 * @param patientRole
 		 * @param serviceEvent
 		 * @param encounters
 		 * @param fileName
 		 */
-		public SectionSwitch(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-				List<Encounter> encounters, String fileName) {
+		public SectionSwitch(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+				PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
 			super();
 			this.query = query;
 			this.sheet = sheet;
+			this.organizationAndSoftware = organizationAndSoftware;
 			this.patientRole = patientRole;
 			this.serviceEvent = serviceEvent;
 			this.encounters = encounters;
@@ -1453,7 +1468,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-			int offset = serializePatient(row, 0, patientRole);
+			int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 
 			row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
@@ -1488,7 +1503,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -1504,7 +1519,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeObservation(row, ++offset, sa, false);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 					// serializeFileName(row, offset, fileName);
@@ -1540,7 +1555,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					if (sets.add(organizer)) {
 						for (Observation observation : organizer.getObservations()) {
 							Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-							int offset = serializePatient(row, 0, patientRole);
+							int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 							offset = serializeEncounterID(row, offset, encounter);
 							offset = serializeOrganizer(row, offset, organizer, false, true);
 							offset = serializeObservation(row, offset, observation);
@@ -1557,7 +1572,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				if (sets.add(sa)) {
 					for (Observation observation : sa.getObservations()) {
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-						int offset = serializePatient(row, 0, patientRole);
+						int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 						offset = serializeOrganizer(row, ++offset, sa, false, true);
 						offset = serializeObservation(row, offset, observation);
 						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
@@ -1595,7 +1610,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -1619,7 +1634,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
-			// offset = serializePatient(row, offset, patientRole);
+			// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 			//
 			// offset = serializeServiceEvent(row, offset, serviceEvent);
 			//
@@ -1636,7 +1651,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeProblemConcernAct(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 				}
@@ -1671,7 +1686,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -1695,7 +1710,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			//
 			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			//
-			// offset = serializePatient(row, offset, patientRole);
+			// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 			//
 			// offset = serializeServiceEvent(row, offset, serviceEvent);
 			//
@@ -1712,7 +1727,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 				if (sets.add(sa)) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeProblemObservation(row, ++offset, sa);
 					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 				}
@@ -1740,7 +1755,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 			if (section.getAllergyProblemActs() != null && !section.getAllergyProblemActs().isEmpty()) {
 				appendToAllergiesSheet(
-					query, sheet, patientRole, serviceEvent, section.getAllergyProblemActs(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getAllergyProblemActs(),
+					encounters, fileName);
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
 			}
@@ -1828,7 +1844,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (section.getImmunizationActivities() != null && !section.getImmunizationActivities().isEmpty()) {
 
 				appendToSubstanceAdministrationSheet(
-					query, sheet, patientRole, serviceEvent, encounters, section.getImmunizationActivities(), fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters,
+					section.getImmunizationActivities(), fileName);
 
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
@@ -1856,7 +1873,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
 				appendToSubstanceAdministrationSheet(
-					query, sheet, patientRole, serviceEvent, encounters, section.getMedicationActivities(), fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters,
+					section.getMedicationActivities(), fileName);
 
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
@@ -1886,7 +1904,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
 				appendToSubstanceAdministrationSheet(
-					query, sheet, patientRole, serviceEvent, encounters, section.getMedicationActivities(), fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters,
+					section.getMedicationActivities(), fileName);
 
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
@@ -1940,7 +1959,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (section.getProcedureActivityActs() != null && !section.getProcedureActivityActs().isEmpty()) {
 
 				appendActToProcedureSheet(
-					query, sheet, patientRole, serviceEvent, section.getActs(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getActs(), encounters,
+					fileName);
 
 			}
 
@@ -1948,8 +1968,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					!section.getProcedureActivityObservations().isEmpty()) {
 
 				appendObservationToProcedureSheet(
-					query, sheet, patientRole, serviceEvent, section.getProcedureActivityObservations(), encounters,
-					fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent,
+					section.getProcedureActivityObservations(), encounters, fileName);
 
 			}
 
@@ -1957,7 +1977,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					!section.getProcedureActivityProcedures().isEmpty()) {
 
 				appendProcedureToProcedureSheet(
-					query, sheet, patientRole, serviceEvent, section.getProcedures(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getProcedures(),
+					encounters, fileName);
 
 			}
 
@@ -1993,7 +2014,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					emptySectionOffset.put(sheet, offset);
 				}
 
-				appendToResultsSheet(query, sheet, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
+				appendToResultsSheet(
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, resultOrganizers, encounters,
+					fileName);
 
 			}
 
@@ -2043,7 +2066,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				}
 
 				appendToVitalSignsSheet(
-					query, sheet, patientRole, serviceEvent, section.getOrganizers(), encounters, fileName);
+					query, sheet, organizationAndSoftware, patientRole, serviceEvent, section.getOrganizers(),
+					encounters, fileName);
 				return Boolean.TRUE;
 
 			}
@@ -2260,8 +2284,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendActToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-			EList<Act> procedureActivityActs, List<Encounter> encounters, String fileName) {
+	static void appendActToProcedureSheet(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent, EList<Act> procedureActivityActs,
+			List<Encounter> encounters, String fileName) {
 
 		Set<Act> sets = new HashSet<Act>();
 
@@ -2277,7 +2302,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					offset = serializePatient(row, offset, patientRole);
+					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 					offset = serializeEncounterID(row, offset, encounter);
 
@@ -2301,7 +2326,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
-		// offset = serializePatient(row, offset, patientRole);
+		// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 		//
 		// offset = serializeServiceEvent(row, offset, serviceEvent);
 		//
@@ -2318,7 +2343,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeProcedureActivityAct(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 			}
@@ -2361,9 +2386,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendObservationToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, EList<ProcedureActivityObservation> procedureActivityObservations,
-			List<Encounter> encounters, String fileName) {
+	static void appendObservationToProcedureSheet(Query query, Sheet sheet,
+			OrganizationAndSoftware organizationAndSoftware, PatientRole patientRole, ServiceEvent serviceEvent,
+			EList<ProcedureActivityObservation> procedureActivityObservations, List<Encounter> encounters,
+			String fileName) {
 
 		Set<ProcedureActivityObservation> sets = new HashSet<ProcedureActivityObservation>();
 
@@ -2380,7 +2406,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					offset = serializePatient(row, offset, patientRole);
+					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 					offset = serializeEncounterID(row, offset, encounter);
 
@@ -2396,7 +2422,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeProcedureActivityObservation(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 			}
@@ -2422,9 +2448,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters
 	 * @param fileName
 	 */
-	static void appendProcedureToProcedureSheet(Query query, Sheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, EList<Procedure> procedureActivityProcedures, List<Encounter> encounters,
-			String fileName) {
+	static void appendProcedureToProcedureSheet(Query query, Sheet sheet,
+			OrganizationAndSoftware organizationAndSoftware, PatientRole patientRole, ServiceEvent serviceEvent,
+			EList<Procedure> procedureActivityProcedures, List<Encounter> encounters, String fileName) {
 		Set<Procedure> sets = new HashSet<Procedure>();
 
 		for (Encounter encounter : encounters) {
@@ -2439,7 +2465,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					offset = serializePatient(row, offset, patientRole);
+					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 					offset = serializeEncounterID(row, offset, encounter);
 
@@ -2455,7 +2481,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeProcedureActivityProcedure(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 			}
@@ -2473,16 +2499,18 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param name
 	 */
 
-	static void appendToAllergiesSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-			List<Encounter> encounters, String fileName) {
+	static void appendToAllergiesSheet(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
 
 		List<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sas = query.getEObjects(
 			org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct.class);
 
-		appendToAllergiesSheet(query, sheet, patientRole, serviceEvent, sas, encounters, fileName);
+		appendToAllergiesSheet(
+			query, sheet, organizationAndSoftware, patientRole, serviceEvent, sas, encounters, fileName);
 	}
 
-	static void appendToAllergiesSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
+	static void appendToAllergiesSheet(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent,
 			List<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sas, List<Encounter> encounters,
 			String fileName) {
 
@@ -2500,7 +2528,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					offset = serializePatient(row, offset, patientRole);
+					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 					offset = serializeEncounterID(row, offset, encounter);
 
@@ -2524,7 +2552,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
-		// offset = serializePatient(row, offset, patientRole);
+		// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 		//
 		// offset = serializeServiceEvent(row, offset, serviceEvent);
 		//
@@ -2541,7 +2569,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 			if (sets.add(sa)) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeAllergyProblemAct(row, ++offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 				// serializeFileName(row, offset, fileName);
@@ -2556,26 +2584,33 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param patientRole
 	 * @param encounters
 	 */
-	static void appendToEncounterSheet(Query query, Sheet sheet, PatientRole patientRole, List<Encounter> encounters,
-			String fileName) {
+	static void appendToEncounterSheet(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole, List<Encounter> encounters, String fileName) {
 
 		for (Encounter encoutner : encounters) {
 
 			if (encoutner.getEffectiveTime() != null) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeEncounter(row, offset, encoutner);
 				serializeSectionAndFileName(row, offset, encoutner.getSection(), fileName);
 			}
 		}
 	}
 
-	static void appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole, InformationRecipient ir,
-			InFulfillmentOf iffo, String fileName) {
+	static class OrganizationAndSoftware {
+		String organization = "";
 
+		String software = "";
+	};
+
+	static OrganizationAndSoftware appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole,
+			InformationRecipient ir, InFulfillmentOf iffo, String fileName) {
+
+		OrganizationAndSoftware organizationAndSoftware = new OrganizationAndSoftware();
 		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-		int offset = serializePatient(row, 0, patientRole);
+		int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 
 		ClinicalDocument cd = query.getEObject(ClinicalDocument.class);
 
@@ -2591,8 +2626,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			row.createCell(offset++).setCellValue("");
 		}
 
-		String organization = "";
-		String software = "";
+		// String organization = "";
+		// String software = "";
 		if (!cd.getAuthors().isEmpty()) {
 
 			for (Author a : cd.getAuthors()) {
@@ -2600,16 +2635,17 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					AssignedAuthor aa = a.getAssignedAuthor();
 					if (aa.getRepresentedOrganization() != null) {
 						for (ON on : aa.getRepresentedOrganization().getNames()) {
-							organization = getValues(on);
+							organizationAndSoftware.organization = getValues(on);
 						}
 					}
 
 					if (aa.getAssignedAuthoringDevice() != null) {
 						if (aa.getAssignedAuthoringDevice().getManufacturerModelName() != null) {
-							software = aa.getAssignedAuthoringDevice().getManufacturerModelName().getText();
+							organizationAndSoftware.software = aa.getAssignedAuthoringDevice().getManufacturerModelName().getText();
 						}
 						if (aa.getAssignedAuthoringDevice().getSoftwareName() != null) {
-							software = software + " " + aa.getAssignedAuthoringDevice().getSoftwareName().getText();
+							organizationAndSoftware.software = organizationAndSoftware.software + " " +
+									aa.getAssignedAuthoringDevice().getSoftwareName().getText();
 						}
 					}
 				}
@@ -2620,9 +2656,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		// serviceEvent.get
 
-		row.createCell(offset++).setCellValue(organization);
+		row.createCell(offset++).setCellValue(organizationAndSoftware.organization);
 
-		row.createCell(offset++).setCellValue(software);
+		row.createCell(offset++).setCellValue(organizationAndSoftware.software);
 
 		String name1 = "";
 		String name2 = "";
@@ -2656,10 +2692,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row.createCell(offset++).setCellValue(orderId);
 		serializeSectionAndFileName(row, offset, null, fileName);
+
+		return organizationAndSoftware;
 	}
 
-	static void appendToResultsSheet(Query query, Sheet sheet, PatientRole patientRole, ServiceEvent serviceEvent,
-			List<? extends Organizer> results, List<Encounter> encounters, String fileName) {
+	static void appendToResultsSheet(Query query, Sheet sheet, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent, List<? extends Organizer> results,
+			List<Encounter> encounters, String fileName) {
 
 		Set<Organizer> sets = new HashSet<Organizer>();
 
@@ -2677,7 +2716,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-						offset = serializePatient(row, offset, patientRole);
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 						offset = serializeEncounterID(row, offset, encounter);
 
@@ -2705,7 +2744,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
-		// offset = serializePatient(row, offset, patientRole);
+		// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 		//
 		// offset = serializeServiceEvent(row, offset, serviceEvent);
 		//
@@ -2723,7 +2762,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (sets.add(sa)) {
 				for (Observation resultObservation : sa.getObservations()) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeOrganizer(row, ++offset, sa, true, false);
 					offset = serializeObservation(row, offset, resultObservation);
 					serializeSectionAndFileName(row, offset, resultObservation.getSection(), fileName);
@@ -2742,9 +2781,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param fileName
 	 */
 	// org.openhealthtools.mdht.uml.cda.consol.MedicationActivity
-	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, List<Encounter> encounters, List<? extends SubstanceAdministration> sas,
-			String fileName) {
+	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet,
+			OrganizationAndSoftware organizationAndSoftware, PatientRole patientRole, ServiceEvent serviceEvent,
+			List<Encounter> encounters, List<? extends SubstanceAdministration> sas, String fileName) {
 
 		Set<SubstanceAdministration> sets = new HashSet<SubstanceAdministration>();
 
@@ -2763,7 +2802,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					offset = serializePatient(row, offset, patientRole);
+					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 
 					offset = serializeEncounterID(row, offset, encounter);
 
@@ -2788,7 +2827,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		//
 		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 		//
-		// offset = serializePatient(row, offset, patientRole);
+		// offset = serializePatient(row, offset, organizationAndSoftware,patientRole);
 		//
 		// offset = serializeServiceEvent(row, offset, serviceEvent);
 		//
@@ -2806,11 +2845,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (sets.add(sa)) {
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-				int offset = serializePatient(row, 0, patientRole);
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 
-				row.createCell(4).setCellValue("NO ENCOUNTER");
+				row.createCell(offset++).setCellValue("NO ENCOUNTER");
 
-				offset = serializeSubstanceAdministration(row, ++offset, sa);
+				offset = serializeSubstanceAdministration(row, offset, sa);
 				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 			}
 
@@ -2818,15 +2857,17 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
+	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet,
+			OrganizationAndSoftware organizationAndSoftware, PatientRole patientRole, ServiceEvent serviceEvent,
+			List<Encounter> encounters, String fileName) {
 
 		// Because we were getting class cast exception - copy results to EList
 		EList<SubstanceAdministration> elist = new BasicEList<SubstanceAdministration>();
 
 		elist.addAll(query.getEObjects(org.openhealthtools.mdht.uml.cda.consol.MedicationActivity.class));
 
-		appendToSubstanceAdministrationSheet(query, sheet, patientRole, serviceEvent, encounters, elist, fileName);
+		appendToSubstanceAdministrationSheet(
+			query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters, elist, fileName);
 
 	}
 
@@ -2872,6 +2913,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("ID");
 		row2.createCell(offset++).setCellValue("DOB");
+		row2.createCell(offset++).setCellValue("Organization");
+		row2.createCell(offset++).setCellValue("Software");
 		return offset;
 	};
 
@@ -4103,7 +4146,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatient(Row row, int offset, PatientRole patientRole) {
+	static int serializePatient(Row row, int offset, OrganizationAndSoftware organizationAndSoftware,
+			PatientRole patientRole) {
 
 		Cell cell = row.createCell(offset++);
 		cell.setCellValue(row.getRowNum() - 1);
@@ -4118,6 +4162,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		cell.setCellValue(sb.toString());
 
 		offset = serializePatient(row, offset, patientRole.getPatient());
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(organizationAndSoftware.organization);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(organizationAndSoftware.software);
+
 		return offset;
 	}
 
@@ -4708,17 +4759,17 @@ public class GenerateCDADataHandler extends AbstractHandler {
 						} else {
 						}
 						// appendToPatientSheet(query, patientsSheet, patientRole, file.getName());
-						appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
-						appendToSubstanceAdministrationSheet(
-							query, substanceAdministrationsSheet, patientRole, (useServiceEvent
-									? serviceEvent
-									: null),
-							encounters, file.getName());
-
-						appendToAllergiesSheet(query, allergySheet, patientRole, (useServiceEvent
-								? serviceEvent
-								: null),
-							encounters, file.getName());
+						// appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
+						// appendToSubstanceAdministrationSheet(
+						// query, substanceAdministrationsSheet, patientRole, (useServiceEvent
+						// ? serviceEvent
+						// : null),
+						// encounters, file.getName());
+						//
+						// appendToAllergiesSheet(query, allergySheet, patientRole, (useServiceEvent
+						// ? serviceEvent
+						// : null),
+						// encounters, file.getName());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -4735,6 +4786,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		fileOut.close();
 		wb.close();
 
+	}
+
+	private static String sheetName(Section section) {
+		return section.eClass().getEPackage().getNsPrefix() + "." + section.eClass().getName();
 	}
 
 	private void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
@@ -4838,7 +4893,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 						ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
 						InformationRecipient ir = query.getEObject(InformationRecipient.class);
 						InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
-						appendToPatientSheet(query, documentsSheet, patientRole, ir, iffo, file.getName());
+						OrganizationAndSoftware organizationAndSoftware = appendToPatientSheet(
+							query, documentsSheet, patientRole, ir, iffo, file.getName());
 
 						if (clinicalDocument instanceof GeneralHeaderConstraints) {
 
@@ -4849,33 +4905,30 @@ public class GenerateCDADataHandler extends AbstractHandler {
 								encounters.addAll(es.getEncounterActivitiess());
 							}
 
-							appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
+							appendToEncounterSheet(
+								query, encountersSheet, organizationAndSoftware, patientRole, encounters,
+								file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
+								String sheetName = sheetName(section);
 								if (!(section instanceof EncountersSectionEntriesOptional)) {
 									if (!sheets.containsKey(section.eClass().getClassifierID())) {
-										String sheetName = section.eClass().getName();
-										int sheetNameCtr = 1;
-										while (wb.getSheet(sheetName) != null) {
-											sheetName = sheetName + sheetNameCtr;
-										}
 										SXSSFSheet newSheet = wb.createSheet(sheetName);
-
 										newSheet.setRandomAccessWindowSize(50);
 										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
 									}
 									SectionSwitch sectionSwitch = new SectionSwitch(
-										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())), patientRole,
-										serviceEvent, encounters, file.getName());
+										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
+										organizationAndSoftware, patientRole, serviceEvent, encounters, file.getName());
 									sectionSwitch.doSwitch(section);
 									wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
 								}
 
-								if (!sectionbyfile.containsKey(section.eClass().getName())) {
-									sectionbyfile.put(section.eClass().getName(), new ArrayList<IFile>());
+								if (!sectionbyfile.containsKey(sheetName)) {
+									sectionbyfile.put(sheetName, new ArrayList<IFile>());
 								}
 
-								sectionbyfile.get(section.eClass().getName()).add(file);
+								sectionbyfile.get(sheetName).add(file);
 
 							}
 						} else if (clinicalDocument instanceof org.openhealthtools.mdht.uml.cda.ccd.ContinuityOfCareDocument) {
@@ -4887,40 +4940,35 @@ public class GenerateCDADataHandler extends AbstractHandler {
 								encounters.addAll(es.getEncounters());
 							}
 
-							appendToEncounterSheet(query, encountersSheet, patientRole, encounters, file.getName());
+							appendToEncounterSheet(
+								query, encountersSheet, organizationAndSoftware, patientRole, encounters,
+								file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
+								String sheetName = sheetName(section);
 								if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
 									if (!sheets.containsKey(section.eClass().getClassifierID())) {
-										String sheetName = section.eClass().getName();
-										int sheetNameCtr = 1;
-										while (wb.getSheet(sheetName) != null) {
-											sheetName = sheetName + sheetNameCtr;
-										}
 										SXSSFSheet newSheet = wb.createSheet(sheetName);
 										newSheet.setRandomAccessWindowSize(50);
 										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
 									}
 									C32SectionSwitch sectionSwitch = new C32SectionSwitch(
-										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())), patientRole,
-										serviceEvent, encounters, file.getName());
+										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
+										organizationAndSoftware, patientRole, serviceEvent, encounters, file.getName());
 									Boolean result = sectionSwitch.doSwitch(section);
 									if (!result) {
-
 										CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
 											query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
-											patientRole, serviceEvent, encounters, file.getName());
+											organizationAndSoftware, patientRole, serviceEvent, encounters,
+											file.getName());
 										result = ccdSectionSwitch.doSwitch(section);
 									}
 									wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
 								}
-
-								if (!sectionbyfile.containsKey(section.eClass().getName())) {
-									sectionbyfile.put(section.eClass().getName(), new ArrayList<IFile>());
+								if (!sectionbyfile.containsKey(sheetName)) {
+									sectionbyfile.put(sheetName, new ArrayList<IFile>());
 								}
-
-								sectionbyfile.get(section.eClass().getName()).add(file);
-
+								sectionbyfile.get(sheetName).add(file);
 							}
 
 						}
@@ -5094,9 +5142,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	 * @param encounters2
 	 * @param fileName2
 	 */
-	private static void appendToVitalSignsSheet(Query query, Sheet sheet, PatientRole patientRole,
-			ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers, List<Encounter> encounters,
-			String fileName) {
+	private static void appendToVitalSignsSheet(Query query, Sheet sheet,
+			OrganizationAndSoftware organizationAndSoftware, PatientRole patientRole, ServiceEvent serviceEvent,
+			List<Organizer> vitalSignsOrganizers, List<Encounter> encounters, String fileName) {
 
 		Set<Organizer> sets = new HashSet<Organizer>();
 
@@ -5110,7 +5158,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				if (sets.add(organizer)) {
 					for (Observation observation : organizer.getObservations()) {
 						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-						int offset = serializePatient(row, 0, patientRole);
+						int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 						offset = serializeEncounterID(row, offset, encounter);
 						offset = serializeOrganizer(row, offset, organizer, false, false);
 						offset = serializeObservation(row, offset, observation);
@@ -5127,7 +5175,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (sets.add(sa)) {
 				for (Observation observation : sa.getObservations()) {
 					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, patientRole);
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 					offset = serializeOrganizer(row, ++offset, sa, false, false);
 					offset = serializeObservation(row, offset, observation);
 					serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
