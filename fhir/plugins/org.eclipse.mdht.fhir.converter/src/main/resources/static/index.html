@@ -1,0 +1,71 @@
+<!--
+ Copyright (c) 2017 Joerg Kiegeland
+ 
+ All rights reserved.   This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FHIR Format Converter</title>
+<link rel="stylesheet" href="css/fhirconverter.css" />
+<script src="js/angular.js"></script>
+<script src="js/fhirconverter.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" id="appId" class="main">
+	<div class="panes">
+		<div id="pane1" class="pane" ng-controller="FhirData" data-ng-init="format='xml'">
+
+			<select size="1"class="chooseformat" ng-model="format" ng-change="clearInputs()">
+				<option value="xml">XML</option>
+				<option value="json">JSON</option>
+				<option value="properties">Java Properties</option>
+				<option value="x-yaml">YALM</option>
+				<option value="bson">BSON (binary format)</option>
+				<option value="cbor">CBOR (binary format)</option>
+				<option value="smile">SMILE (binary format)</option>
+				<option value="ion">ION (binary format)</option>
+			</select>
+
+			<textarea type="text" class="choosetext" ng-show="!formatIsBinary()" ng-model="text"></textarea>
+			<input type="file" ng-show="formatIsBinary()" bind-file ng-model="data" accept=".{{fileExtension()}}"/>
+
+		</div>
+		<div class="buttonpane">
+			<div class="buttonpanefiller"></div>
+			<button ng-click="transformFHIR(true)" class="transformbutton" ng-disabled="!hasFormatInput(true)">&gt;&gt;</button>
+			<button ng-click="transformFHIR(false)" class="transformbutton" ng-disabled="!hasFormatInput(false)">&lt;&lt;</button>
+			<div class="buttonpanefiller"></div>
+		</div>
+		<div id="pane2" class="pane" ng-controller="FhirData" data-ng-init="format='json'">
+
+			<select size="1" class="chooseformat" ng-model="format" ng-change="clearInputs()">
+				<option value="xml">XML</option>
+				<option value="json">JSON</option>
+				<option value="properties">Java Properties</option>
+				<option value="x-yaml">YALM</option>
+				<option value="bson">BSON (binary format)</option>
+				<option value="cbor">CBOR (binary format)</option>
+				<option value="smile">SMILE (binary format)</option>
+				<option value="ion">ION (binary format)</option>
+			</select>
+
+			<textarea type="text" class="choosetext" ng-show="!formatIsBinary()" ng-model="text"></textarea>
+			<input type="file" ng-show="formatIsBinary()" bind-file ng-model="data" accept=".{{fileExtension()}}" />
+		</div>
+	</div>
+
+	<div class="status" style="color:{{status.color}}">{{status.message}}</div>
+	
+	<div class="loadexamples">
+		<label for="onlyFilesId">&nbsp;Use files also for textual formats</label> <input id="onlyFilesId" type="checkbox" ng-model="onlyFiles">&nbsp;&nbsp;&nbsp;</input>
+		<button ng-click="loadExample('examples/diagnosticreport.profile.json','json','xml')" ng-show="!onlyFiles">Load diagnosticreport.profile.json</button>
+		<button ng-click="loadExample('examples/diagnosticreport.profile.xml','xml','json')" ng-show="!onlyFiles">Load diagnosticreport.profile.xml</button>
+		<button ng-click="loadExample('examples/diagnosticreport-example.json','json','xml')" ng-show="!onlyFiles">Load diagnosticreport-example.json</button>
+		<button ng-click="loadExample('examples/diagnosticreport-example(101).xml','xml','json')" ng-show="!onlyFiles">Load diagnosticreport-example(101).xml</button>
+	</div>
+	
+</body>
+</html>
