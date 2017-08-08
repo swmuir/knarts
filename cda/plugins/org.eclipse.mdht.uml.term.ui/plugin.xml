@@ -12,6 +12,7 @@
 -->
 
 <plugin>
+   <extension-point id="service" name="service" schema="schema/org.eclipse.mdht.terminology.exsd"/>
 
    <extension point="org.eclipse.mdht.uml.common.notation">
       <provider profileURI="pathmap://MDHT_TERM_PROFILES/Terminology.profile.uml"
@@ -143,6 +144,14 @@
 	 	     id="property.section.ValueSetConstraintSection"
              filter="org.eclipse.mdht.uml.term.ui.filters.ValueSetConstraintFilter">
 	      </propertySection>
+	      
+	       <propertySection tab="property.tab.TerminologyPropertySection" 
+	 	     class="org.eclipse.mdht.uml.term.ui.properties.ValueSetConstraintsSection" 
+	 	     id="property.section.ValueSetConstraintsSection"
+             filter="org.eclipse.mdht.uml.term.ui.filters.ValueSetConstraintsFilter">
+	      </propertySection>
+	      
+	      
           <propertySection tab="property.tab.TerminologyPropertySection" 
 	 	     class="org.eclipse.mdht.uml.term.ui.properties.CodeSystemConstraintSection" 
 	 	     id="property.section.CodeSystemConstraintSection"
@@ -198,6 +207,14 @@
 	 	     id="property.section.ValueSetConstraintSection"
              filter="org.eclipse.mdht.uml.term.ui.filters.ValueSetConstraintFilter">
 	      </propertySection>
+	      
+	      <propertySection tab="property.tab.TerminologyPropertySection" 
+	 	     class="org.eclipse.mdht.uml.term.ui.properties.ValueSetConstraintsSection" 
+	 	     id="property.section.ValueSetConstraintsSection"
+             filter="org.eclipse.mdht.uml.term.ui.filters.ValueSetConstraintsFilter">
+	      </propertySection>
+	      
+	      
           <propertySection tab="property.tab.TerminologyPropertySection" 
 	 	     class="org.eclipse.mdht.uml.term.ui.properties.CodeSystemConstraintSection" 
 	 	     id="property.section.CodeSystemConstraintSection"
@@ -215,6 +232,13 @@
              filter="org.eclipse.mdht.uml.term.ui.filters.CodedAttributeFilter">
 	      </propertySection>
 	  </propertySections>
-   </extension> 
+   </extension>
+   <!--<extension
+         point="org.eclipse.mdht.uml.term.ui.service">
+      <service
+            service="org.eclipse.mdht.uml.term.ui.TerminologyServiceDefault">
+      </service>
+   </extension>
+   -->
    
 </plugin>

@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Guidance</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getGuidance()
  * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='Guidance '"
  * @generated
@@ -23,7 +22,6 @@ public enum Guidance implements Enumerator {
 	 * The '<em><b>FIXED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #FIXED_VALUE
 	 * @generated
 	 * @ordered
@@ -34,7 +32,6 @@ public enum Guidance implements Enumerator {
 	 * The '<em><b>CLOSED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CLOSED_VALUE
 	 * @generated
 	 * @ordered
@@ -45,7 +42,6 @@ public enum Guidance implements Enumerator {
 	 * The '<em><b>EXTEND</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #EXTEND_VALUE
 	 * @generated
 	 * @ordered
@@ -56,7 +52,6 @@ public enum Guidance implements Enumerator {
 	 * The '<em><b>RESTRICT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #RESTRICT_VALUE
 	 * @generated
 	 * @ordered
@@ -67,7 +62,6 @@ public enum Guidance implements Enumerator {
 	 * The '<em><b>OPEN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #OPEN_VALUE
 	 * @generated
 	 * @ordered
@@ -82,7 +76,6 @@ public enum Guidance implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #FIXED
 	 * @model
 	 * @generated
@@ -98,7 +91,6 @@ public enum Guidance implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CLOSED
 	 * @model
 	 * @generated
@@ -114,7 +106,6 @@ public enum Guidance implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #EXTEND
 	 * @model
 	 * @generated
@@ -130,7 +121,6 @@ public enum Guidance implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #RESTRICT
 	 * @model
 	 * @generated
@@ -146,7 +136,6 @@ public enum Guidance implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #OPEN
 	 * @model
 	 * @generated
@@ -158,16 +147,20 @@ public enum Guidance implements Enumerator {
 	 * An array of all the '<em><b>Guidance</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	private static final Guidance[] VALUES_ARRAY = new Guidance[] { FIXED, CLOSED, EXTEND, RESTRICT, OPEN, };
+	private static final Guidance[] VALUES_ARRAY = new Guidance[] {
+			FIXED,
+			CLOSED,
+			EXTEND,
+			RESTRICT,
+			OPEN,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Guidance</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<Guidance> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -176,9 +169,7 @@ public enum Guidance implements Enumerator {
 	 * Returns the '<em><b>Guidance</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param literal
-	 *            the literal.
+	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
@@ -196,9 +187,7 @@ public enum Guidance implements Enumerator {
 	 * Returns the '<em><b>Guidance</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param name
-	 *            the name.
+	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
@@ -216,24 +205,17 @@ public enum Guidance implements Enumerator {
 	 * Returns the '<em><b>Guidance</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the integer value.
+	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Guidance get(int value) {
 		switch (value) {
-			case FIXED_VALUE:
-				return FIXED;
-			case CLOSED_VALUE:
-				return CLOSED;
-			case EXTEND_VALUE:
-				return EXTEND;
-			case RESTRICT_VALUE:
-				return RESTRICT;
-			case OPEN_VALUE:
-				return OPEN;
+			case FIXED_VALUE: return FIXED;
+			case CLOSED_VALUE: return CLOSED;
+			case EXTEND_VALUE: return EXTEND;
+			case RESTRICT_VALUE: return RESTRICT;
+			case OPEN_VALUE: return OPEN;
 		}
 		return null;
 	}
@@ -241,7 +223,6 @@ public enum Guidance implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
@@ -249,7 +230,6 @@ public enum Guidance implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
@@ -257,7 +237,6 @@ public enum Guidance implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -266,7 +245,6 @@ public enum Guidance implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private Guidance(int value, String name, String literal) {
@@ -278,38 +256,34 @@ public enum Guidance implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

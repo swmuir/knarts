@@ -72,6 +72,10 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 
 	private boolean isValueSetConstraintModified = false;
 
+	private Button isValueSetConstraints;
+
+	private boolean isValueSetConstraintsModified = false;
+
 	/**
 	 * Allow for other profiles to subclass Terminology stereotypes.
 	 */
@@ -93,7 +97,8 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 	}
 
 	private void modifyFields() {
-		if (!(isConceptDomainConstraintModified || isCodeSystemConstraintModified || isValueSetConstraintModified)) {
+		if (!(isConceptDomainConstraintModified || isCodeSystemConstraintModified || isValueSetConstraintModified ||
+				isValueSetConstraintsModified)) {
 			return;
 		}
 
@@ -139,6 +144,19 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 							if (isValueSetConstraint.getSelection() && !isApplied) {
 								property.applyStereotype(stereotype);
 							} else if (!isValueSetConstraint.getSelection() && isApplied) {
+								property.unapplyStereotype(stereotype);
+							}
+						}
+					} else if (isValueSetConstraintsModified) {
+						isValueSetConstraintModified = false;
+						this.setLabel("Add ValueSetConstraints");
+						Stereotype stereotype = getApplicableStereotype(
+							property, ITermProfileConstants.VALUE_SET_CONSTRAINTS);
+						if (stereotype != null) {
+							boolean isApplied = property.isStereotypeApplied(stereotype);
+							if (isValueSetConstraints.getSelection() && !isApplied) {
+								property.applyStereotype(stereotype);
+							} else if (!isValueSetConstraints.getSelection() && isApplied) {
 								property.unapplyStereotype(stereotype);
 							}
 						}
@@ -221,6 +239,19 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 			}
 		});
 
+		isValueSetConstraints = getWidgetFactory().createButton(composite, "Value Sets", SWT.CHECK);
+		isValueSetConstraints.addSelectionListener(new SelectionListener() {
+			public void widgetDefaultSelected(SelectionEvent e) {
+				isValueSetConstraintsModified = true;
+				modifyFields();
+			}
+
+			public void widgetSelected(SelectionEvent e) {
+				isValueSetConstraintsModified = true;
+				modifyFields();
+			}
+		});
+
 		data = new FormData();
 		data.top = new FormAttachment(0, 0);
 		isConceptDomainConstraint.setLayoutData(data);
@@ -234,6 +265,11 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 		data.left = new FormAttachment(isCodeSystemConstraint, ITabbedPropertyConstants.HSPACE);
 		data.top = new FormAttachment(0, 0);
 		isValueSetConstraint.setLayoutData(data);
+
+		data = new FormData();
+		data.left = new FormAttachment(isValueSetConstraint, ITabbedPropertyConstants.HSPACE);
+		data.top = new FormAttachment(0, 0);
+		isValueSetConstraints.setLayoutData(data);
 
 	}
 
@@ -296,14 +332,19 @@ public class VocabularyConstraintsSection extends WrapperAwareModelerPropertySec
 		isChecked = TermProfileUtil.getAppliedStereotype(property, ITermProfileConstants.VALUE_SET_CONSTRAINT) != null;
 		isValueSetConstraint.setSelection(isChecked);
 
+		isChecked = TermProfileUtil.getAppliedStereotype(property, ITermProfileConstants.VALUE_SET_CONSTRAINTS) != null;
+		isValueSetConstraints.setSelection(isChecked);
+
 		if (isReadOnly()) {
 			isConceptDomainConstraint.setEnabled(false);
 			isCodeSystemConstraint.setEnabled(false);
 			isValueSetConstraint.setEnabled(false);
+			isValueSetConstraints.setEnabled(false);
 		} else {
 			isConceptDomainConstraint.setEnabled(true);
 			isCodeSystemConstraint.setEnabled(true);
 			isValueSetConstraint.setEnabled(true);
+			isValueSetConstraints.setEnabled(true);
 		}
 	}
 

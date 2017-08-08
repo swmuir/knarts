@@ -38,7 +38,6 @@ import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage
  * @generated
  */
@@ -47,7 +46,6 @@ public class TermSwitch<T> extends Switch<T> {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected static TermPackage modelPackage;
@@ -56,7 +54,6 @@ public class TermSwitch<T> extends Switch<T> {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public TermSwitch() {
@@ -69,9 +66,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param ePackage
-	 *            the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -86,9 +81,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>CD</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -103,9 +96,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Code System Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -120,9 +111,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Code System Version</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -137,9 +126,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Concept Domain</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -154,9 +141,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Concept Domain Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -171,9 +156,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>CR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -188,9 +171,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Usage Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -205,9 +186,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Value Set Constraints</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -217,14 +196,27 @@ public class TermSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context To Value Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context To Value Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContextToValueSet(ContextToValueSet object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Null Value Set Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Null Value Set Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -234,14 +226,42 @@ public class TermSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContext(Context object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Coded Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Coded Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCodedType(CodedType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Value Set Code</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Value Set Code</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -256,9 +276,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Value Set Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -273,9 +291,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Value Set Context Binding</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -290,9 +306,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Value Set Version</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -307,9 +321,7 @@ public class TermSwitch<T> extends Switch<T> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
-	 *
-	 * @param object
-	 *            the target of the switch.
+	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
@@ -323,7 +335,6 @@ public class TermSwitch<T> extends Switch<T> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
@@ -331,111 +342,102 @@ public class TermSwitch<T> extends Switch<T> {
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case TermPackage.CD: {
-				CD cd = (CD) theEObject;
+				CD cd = (CD)theEObject;
 				T result = caseCD(cd);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.CR: {
-				CR cr = (CR) theEObject;
+				CR cr = (CR)theEObject;
 				T result = caseCR(cr);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.CONCEPT_DOMAIN_CONSTRAINT: {
-				ConceptDomainConstraint conceptDomainConstraint = (ConceptDomainConstraint) theEObject;
+				ConceptDomainConstraint conceptDomainConstraint = (ConceptDomainConstraint)theEObject;
 				T result = caseConceptDomainConstraint(conceptDomainConstraint);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.CONCEPT_DOMAIN: {
-				ConceptDomain conceptDomain = (ConceptDomain) theEObject;
+				ConceptDomain conceptDomain = (ConceptDomain)theEObject;
 				T result = caseConceptDomain(conceptDomain);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.CODE_SYSTEM_CONSTRAINT: {
-				CodeSystemConstraint codeSystemConstraint = (CodeSystemConstraint) theEObject;
+				CodeSystemConstraint codeSystemConstraint = (CodeSystemConstraint)theEObject;
 				T result = caseCodeSystemConstraint(codeSystemConstraint);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.CODE_SYSTEM_VERSION: {
-				CodeSystemVersion codeSystemVersion = (CodeSystemVersion) theEObject;
+				CodeSystemVersion codeSystemVersion = (CodeSystemVersion)theEObject;
 				T result = caseCodeSystemVersion(codeSystemVersion);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.VALUE_SET_CONSTRAINT: {
-				ValueSetConstraint valueSetConstraint = (ValueSetConstraint) theEObject;
+				ValueSetConstraint valueSetConstraint = (ValueSetConstraint)theEObject;
 				T result = caseValueSetConstraint(valueSetConstraint);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.VALUE_SET_VERSION: {
-				ValueSetVersion valueSetVersion = (ValueSetVersion) theEObject;
+				ValueSetVersion valueSetVersion = (ValueSetVersion)theEObject;
 				T result = caseValueSetVersion(valueSetVersion);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.VALUE_SET_CODE: {
-				ValueSetCode valueSetCode = (ValueSetCode) theEObject;
+				ValueSetCode valueSetCode = (ValueSetCode)theEObject;
 				T result = caseValueSetCode(valueSetCode);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.VALUE_SET_CONTEXT_BINDING: {
-				ValueSetContextBinding valueSetContextBinding = (ValueSetContextBinding) theEObject;
+				ValueSetContextBinding valueSetContextBinding = (ValueSetContextBinding)theEObject;
 				T result = caseValueSetContextBinding(valueSetContextBinding);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.USAGE_CONTEXT: {
-				UsageContext usageContext = (UsageContext) theEObject;
+				UsageContext usageContext = (UsageContext)theEObject;
 				T result = caseUsageContext(usageContext);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.VALUE_SET_CONSTRAINTS: {
-				ValueSetConstraints valueSetConstraints = (ValueSetConstraints) theEObject;
+				ValueSetConstraints valueSetConstraints = (ValueSetConstraints)theEObject;
 				T result = caseValueSetConstraints(valueSetConstraints);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TermPackage.CONTEXT_TO_VALUE_SET: {
+				ContextToValueSet contextToValueSet = (ContextToValueSet)theEObject;
+				T result = caseContextToValueSet(contextToValueSet);
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TermPackage.NULL_VALUE_SET_CONSTRAINT: {
-				NullValueSetConstraint nullValueSetConstraint = (NullValueSetConstraint) theEObject;
+				NullValueSetConstraint nullValueSetConstraint = (NullValueSetConstraint)theEObject;
 				T result = caseNullValueSetConstraint(nullValueSetConstraint);
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
+				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			default:
-				return defaultCase(theEObject);
+			case TermPackage.CONTEXT: {
+				Context context = (Context)theEObject;
+				T result = caseContext(context);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TermPackage.CODED_TYPE: {
+				CodedType codedType = (CodedType)theEObject;
+				T result = caseCodedType(codedType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

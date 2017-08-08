@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Extensibility</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getExtensibility()
  * @model
  * @generated
@@ -23,7 +22,6 @@ public enum Extensibility implements Enumerator {
 	 * The '<em><b>NEA</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #NEA_VALUE
 	 * @generated
 	 * @ordered
@@ -34,7 +32,6 @@ public enum Extensibility implements Enumerator {
 	 * The '<em><b>CEA</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CEA_VALUE
 	 * @generated
 	 * @ordered
@@ -49,7 +46,6 @@ public enum Extensibility implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #NEA
 	 * @model
 	 * @generated
@@ -65,7 +61,6 @@ public enum Extensibility implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CEA
 	 * @model
 	 * @generated
@@ -77,16 +72,17 @@ public enum Extensibility implements Enumerator {
 	 * An array of all the '<em><b>Extensibility</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	private static final Extensibility[] VALUES_ARRAY = new Extensibility[] { NEA, CEA, };
+	private static final Extensibility[] VALUES_ARRAY = new Extensibility[] {
+			NEA,
+			CEA,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Extensibility</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<Extensibility> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -95,9 +91,7 @@ public enum Extensibility implements Enumerator {
 	 * Returns the '<em><b>Extensibility</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param literal
-	 *            the literal.
+	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
@@ -115,9 +109,7 @@ public enum Extensibility implements Enumerator {
 	 * Returns the '<em><b>Extensibility</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param name
-	 *            the name.
+	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
@@ -135,18 +127,14 @@ public enum Extensibility implements Enumerator {
 	 * Returns the '<em><b>Extensibility</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the integer value.
+	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Extensibility get(int value) {
 		switch (value) {
-			case NEA_VALUE:
-				return NEA;
-			case CEA_VALUE:
-				return CEA;
+			case NEA_VALUE: return NEA;
+			case CEA_VALUE: return CEA;
 		}
 		return null;
 	}
@@ -154,7 +142,6 @@ public enum Extensibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
@@ -162,7 +149,6 @@ public enum Extensibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
@@ -170,7 +156,6 @@ public enum Extensibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -179,7 +164,6 @@ public enum Extensibility implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private Extensibility(int value, String name, String literal) {
@@ -191,38 +175,34 @@ public enum Extensibility implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

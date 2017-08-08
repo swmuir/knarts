@@ -53,6 +53,8 @@ public interface ITermProfileConstants {
 	 */
 	public static final String VALUE_SET_CONSTRAINT = "ValueSetConstraint";
 
+	public static final String VALUE_SET_CONSTRAINTS = "ValueSetConstraints";
+
 	public static final String VALUE_SET_CONSTRAINT_ID = "identifier";
 
 	public static final String VALUE_SET_CONSTRAINT_NAME = "name";
@@ -129,5 +131,7 @@ public interface ITermProfileConstants {
 	public static final String STATUS_KIND_ACTIVE = "Active";
 
 	public static final String STATUS_KIND_INACTIVE = "Inactive";
+
+	public static final String CONTEXT = "Context";
 
 }

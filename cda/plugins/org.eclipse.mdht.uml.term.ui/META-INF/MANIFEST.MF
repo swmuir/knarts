@@ -15,10 +15,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.mdht.uml.common,
  org.eclipse.mdht.uml.common.ui,
  org.eclipse.mdht.uml.ui.properties,
- org.eclipse.mdht.uml.term.core;visibility:=reexport
+ org.eclipse.mdht.uml.term.core;visibility:=reexport,
+ org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.mdht.uml.term.ui.actions,
+Export-Package: org.eclipse.mdht.uml.term.ui,
+ org.eclipse.mdht.uml.term.ui.actions,
  org.eclipse.mdht.uml.term.ui.filters,
  org.eclipse.mdht.uml.term.ui.notation,
  org.eclipse.mdht.uml.term.ui.properties

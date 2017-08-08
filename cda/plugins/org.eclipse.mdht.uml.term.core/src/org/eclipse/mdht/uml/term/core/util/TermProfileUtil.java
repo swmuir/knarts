@@ -24,8 +24,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.uml.term.core.profile.CodeSystemConstraint;
 import org.eclipse.mdht.uml.term.core.profile.CodeSystemVersion;
 import org.eclipse.mdht.uml.term.core.profile.ConceptDomainConstraint;
+import org.eclipse.mdht.uml.term.core.profile.Context;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetCode;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint;
+import org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints;
 import org.eclipse.mdht.uml.term.core.profile.ValueSetVersion;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
@@ -160,6 +162,15 @@ public class TermProfileUtil {
 		return valueSetConstraint;
 	}
 
+	public static Context getContext(Enumeration property) {
+		Context context = null;
+		Stereotype stereotype = TermProfileUtil.getAppliedStereotype(property, ITermProfileConstants.CONTEXT);
+		if (stereotype != null) {
+			context = (Context) property.getStereotypeApplication(stereotype);
+		}
+		return context;
+	}
+
 	public static ValueSetVersion getValueSetVersion(Enumeration umlEnumeration) {
 		ValueSetVersion valueSetVersion = null;
 		Stereotype stereotype = TermProfileUtil.getAppliedStereotype(
@@ -206,5 +217,19 @@ public class TermProfileUtil {
 		return ((literals.size() > 0) && (literals.size() < 400))
 				? literals
 				: null;
+	}
+
+	/**
+	 * @param property
+	 */
+	public static ValueSetConstraints getValueSetConstraints(Property property) {
+		ValueSetConstraints valueSetConstraints = null;
+		Stereotype stereotype = TermProfileUtil.getAppliedStereotype(
+			property, ITermProfileConstants.VALUE_SET_CONSTRAINTS);
+		if (stereotype != null) {
+			valueSetConstraints = (ValueSetConstraints) property.getStereotypeApplication(stereotype);
+		}
+		return valueSetConstraints;
+
 	}
 }

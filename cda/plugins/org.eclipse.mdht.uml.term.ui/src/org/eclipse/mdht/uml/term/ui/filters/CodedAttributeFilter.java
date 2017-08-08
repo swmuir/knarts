@@ -15,6 +15,7 @@ package org.eclipse.mdht.uml.term.ui.filters;
 import java.util.List;
 
 import org.eclipse.mdht.uml.common.util.UMLUtil;
+import org.eclipse.mdht.uml.term.core.profile.CodedType;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
@@ -42,8 +43,25 @@ public class CodedAttributeFilter extends TermFilter {
 			}
 
 			List<String> allParentNames = UMLUtil.getAllParentNames(type);
-			return allParentNames.contains("CD") || allParentNames.contains("SC") ||
+			boolean isCoded = allParentNames.contains("CD") || allParentNames.contains("SC") ||
 					allParentNames.contains("CODED_TEXT");
+			if (isCoded) {
+				return true;
+			}
+			CodedType codedType = org.eclipse.uml2.uml.util.UMLUtil.getStereotypeApplication(type, CodedType.class);
+			if (codedType != null) {
+				return true;
+			}
+
+			List<Classifier> generalizations = UMLUtil.getAllGeneralizations(type);
+
+			for (Classifier generalization : generalizations) {
+				codedType = org.eclipse.uml2.uml.util.UMLUtil.getStereotypeApplication(generalization, CodedType.class);
+				if (codedType != null) {
+					return true;
+				}
+			}
+
 		}
 		return false;
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
-  <uml:Profile xmi:id="_cxOJEIEVEd6H8o-hO3-B4Q" name="Terminology" metaclassReference="_egRPYYEWEd6H8o-hO3-B4Q _egRPYoEWEd6H8o-hO3-B4Q _QapIMBz4Ed-_DcMhO5t7TQ _QapIMRz4Ed-_DcMhO5t7TQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Profile xmi:id="_cxOJEIEVEd6H8o-hO3-B4Q" name="Terminology" URI="http://www.openhealthtools.org/mdht/schemas/term/1" metaclassReference="_egRPYYEWEd6H8o-hO3-B4Q _egRPYoEWEd6H8o-hO3-B4Q _QapIMBz4Ed-_DcMhO5t7TQ _QapIMRz4Ed-_DcMhO5t7TQ _aNMGUHxEEee4WcIJ_83r2w">
     <elementImport xmi:id="_jrfMgIEVEd6H8o-hO3-B4Q">
       <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </elementImport>
@@ -15,6 +15,9 @@
     </elementImport>
     <elementImport xmi:id="_QapIMRz4Ed-_DcMhO5t7TQ">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
+    </elementImport>
+    <elementImport xmi:id="_aNMGUHxEEee4WcIJ_83r2w">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Classifier"/>
     </elementImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_F4hEcB2AEd-K0s3ZNwpcow" name="CD">
       <ownedAttribute xmi:id="_F4hEdR2AEd-K0s3ZNwpcow" name="qualifier" visibility="private" type="_a6uS8B2AEd-K0s3ZNwpcow" aggregation="composite">
@@ -434,15 +437,15 @@
       <ownedAttribute xmi:id="_qH_roC5wEeeqc-vHaR4t_w" name="base_Property" association="_qH-dgC5wEeeqc-vHaR4t_w">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_sIUkoC5wEeeqc-vHaR4t_w" name="valueSetConstraint" type="_w72YUBzyEd-_DcMhO5t7TQ" association="_sIVLsi5wEeeqc-vHaR4t_w">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sIVLsC5wEeeqc-vHaR4t_w"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sIVLsS5wEeeqc-vHaR4t_w" value="*"/>
+      <ownedAttribute xmi:id="_14bvEGigEeeAf584VsxA9Q" name="constraints" type="_9f6UQGiUEeecj7VOEkgbgw" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_825WAWigEeeAf584VsxA9Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_825WAGigEeeAf584VsxA9Q" value="*"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_qH-dgC5wEeeqc-vHaR4t_w" name="Property_ValueSetConstraints" memberEnd="_qH_EkC5wEeeqc-vHaR4t_w _qH_roC5wEeeqc-vHaR4t_w">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_qH_EkC5wEeeqc-vHaR4t_w" name="extension_ValueSetConstraints" type="_pZKPsC5wEeeqc-vHaR4t_w" aggregation="composite" association="_qH-dgC5wEeeqc-vHaR4t_w"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_sIVLsi5wEeeqc-vHaR4t_w" memberEnd="_sIUkoC5wEeeqc-vHaR4t_w _sIVLsy5wEeeqc-vHaR4t_w">
+    <packagedElement xmi:type="uml:Association" xmi:id="_sIVLsi5wEeeqc-vHaR4t_w" memberEnd="_sIVLsy5wEeeqc-vHaR4t_w">
       <ownedEnd xmi:id="_sIVLsy5wEeeqc-vHaR4t_w" type="_pZKPsC5wEeeqc-vHaR4t_w" association="_sIVLsi5wEeeqc-vHaR4t_w"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="__TqYIC5wEeeqc-vHaR4t_w" name="ValueSetBinding">
@@ -568,6 +571,34 @@ Specify an implementable value set as noted above. Note: when a MAX Content Valu
       <ownedLiteral xmi:id="__wX3YC5yEeeqc-vHaR4t_w" name="EXTEND"/>
       <ownedLiteral xmi:id="_BC9goC5zEeeqc-vHaR4t_w" name="RESTRICT"/>
       <ownedLiteral xmi:id="_DPFZ8C5zEeeqc-vHaR4t_w" name="OPEN"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9f6UQGiUEeecj7VOEkgbgw" name="ContextToValueSet">
+      <ownedAttribute xmi:id="_A5Sq4GiVEeecj7VOEkgbgw" name="key">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uie2MWiVEeecj7VOEkgbgw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uie2MGiVEeecj7VOEkgbgw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_P7nPAGifEeewDbV1Am2rqw" name="value" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P7odIGifEeewDbV1Am2rqw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P7pEMGifEeewDbV1Am2rqw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_EbNcAGihEeeAf584VsxA9Q" name="Context">
+      <ownedAttribute xmi:id="_FOAK4GihEeeAf584VsxA9Q" name="base_Enumeration" association="_FN_j0GihEeeAf584VsxA9Q">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_FN_j0GihEeeAf584VsxA9Q" name="Enumeration_Context" memberEnd="_FN_j0WihEeeAf584VsxA9Q _FOAK4GihEeeAf584VsxA9Q">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_FN_j0WihEeeAf584VsxA9Q" name="extension_Context" type="_EbNcAGihEeeAf584VsxA9Q" aggregation="composite" association="_FN_j0GihEeeAf584VsxA9Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_YtPWgHxEEee4WcIJ_83r2w" name="CodedType">
+      <ownedAttribute xmi:id="_aNN7gnxEEee4WcIJ_83r2w" name="base_Classifier" association="_aNN7gHxEEee4WcIJ_83r2w">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Classifier"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_aNN7gHxEEee4WcIJ_83r2w" name="Classifier_CodedType" memberEnd="_aNN7gXxEEee4WcIJ_83r2w _aNN7gnxEEee4WcIJ_83r2w">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_aNN7gXxEEee4WcIJ_83r2w" name="extension_CodedType" type="_YtPWgHxEEee4WcIJ_83r2w" aggregation="composite" association="_aNN7gHxEEee4WcIJ_83r2w"/>
     </packagedElement>
     <profileApplication xmi:id="_9NNawCCsEd-RxoWH9gAx2A">
       <eAnnotations xmi:id="_9NOo4CCsEd-RxoWH9gAx2A" source="http://www.eclipse.org/uml2/2.0.0/UML">

@@ -17,8 +17,8 @@ import org.eclipse.uml2.uml.Property;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints#getBase_Property <em>Base Property</em>}</li>
- * <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints#getValueSetConstraint <em>Value Set Constraint</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraints()
@@ -34,7 +34,6 @@ public interface ValueSetConstraints extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Base Property</em>' reference.
 	 * @see #setBase_Property(Property)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraints_Base_Property()
@@ -47,29 +46,26 @@ public interface ValueSetConstraints extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraints#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Base Property</em>' reference.
+	 * @param value the new value of the '<em>Base Property</em>' reference.
 	 * @see #getBase_Property()
 	 * @generated
 	 */
 	void setBase_Property(Property value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set Constraint</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.mdht.uml.term.core.profile.ValueSetConstraint}.
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.term.core.profile.ContextToValueSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Set Constraint</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Constraints</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
-	 * @return the value of the '<em>Value Set Constraint</em>' reference list.
-	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraints_ValueSetConstraint()
-	 * @model ordered="false"
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getValueSetConstraints_Constraints()
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<ValueSetConstraint> getValueSetConstraint();
+	EList<ContextToValueSet> getConstraints();
 
 } // ValueSetConstraints

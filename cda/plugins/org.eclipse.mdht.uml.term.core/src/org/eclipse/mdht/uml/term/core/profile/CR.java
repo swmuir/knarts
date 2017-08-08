@@ -23,9 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getValue <em>Value</em>}</li>
- * <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#isInverted <em>Inverted</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.term.core.profile.CR#isInverted <em>Inverted</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR()
@@ -40,7 +40,6 @@ public interface CR extends EObject {
 	 * If the meaning of the '<em>Name</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(CD)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR_Name()
@@ -56,7 +55,6 @@ public interface CR extends EObject {
 	 * If the meaning of the '<em>Value</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(CD)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR_Value()
@@ -72,7 +70,6 @@ public interface CR extends EObject {
 	 * If the meaning of the '<em>Inverted</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Inverted</em>' attribute.
 	 * @see #setInverted(boolean)
 	 * @see org.eclipse.mdht.uml.term.core.profile.TermPackage#getCR_Inverted()
@@ -85,9 +82,7 @@ public interface CR extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CR#isInverted <em>Inverted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Inverted</em>' attribute.
+	 * @param value the new value of the '<em>Inverted</em>' attribute.
 	 * @see #isInverted()
 	 * @generated
 	 */
@@ -97,9 +92,7 @@ public interface CR extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CR#getName <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' containment reference.
+	 * @param value the new value of the '<em>Name</em>' containment reference.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -109,9 +102,7 @@ public interface CR extends EObject {
 	 * Sets the value of the '{@link org.eclipse.mdht.uml.term.core.profile.CR#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Value</em>' containment reference.
+	 * @param value the new value of the '<em>Value</em>' containment reference.
 	 * @see #getValue()
 	 * @generated
 	 */
