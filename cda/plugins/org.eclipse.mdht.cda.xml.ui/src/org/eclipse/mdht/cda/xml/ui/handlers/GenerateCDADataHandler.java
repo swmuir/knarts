@@ -144,6 +144,7 @@ import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
 import org.openhealthtools.mdht.uml.cda.consol.EncountersSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.FamilyHistorySection;
 import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
+import org.openhealthtools.mdht.uml.cda.consol.GoalsSection;
 import org.openhealthtools.mdht.uml.cda.consol.HistoryOfPastIllnessSection;
 import org.openhealthtools.mdht.uml.cda.consol.ImmunizationsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationActivity;
@@ -182,6 +183,94 @@ import com.google.common.collect.Collections2;
 
 public class GenerateCDADataHandler extends AbstractHandler {
 
+	public class ResultsDialog extends TitleAreaDialog {
+
+		org.eclipse.swt.widgets.Table table;
+
+		public ResultsDialog(Shell shell) {
+			super(shell);
+
+		}
+
+		@Override
+		public void create() {
+			super.create();
+			setTitle("CDA Processing Results");
+		}
+
+		@Override
+		protected void createButtonsForButtonBar(Composite parent) {
+
+			Button okButton = createButton(parent, OK, "Ok", false);
+
+			okButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					setReturnCode(OK);
+					close();
+				}
+			});
+		}
+
+		@Override
+		protected Control createDialogArea(Composite parent) {
+
+			Label label = new Label(parent, SWT.BORDER);
+
+			label.setText("Total Files " + files.size());
+
+			final ScrolledComposite composite = new ScrolledComposite(parent, SWT.V_SCROLL);
+			composite.setLayout(new GridLayout());
+			composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
+			table = new org.eclipse.swt.widgets.Table(composite, SWT.BORDER | SWT.MULTI);
+			table.setHeaderVisible(true);
+
+			table.setSize(100, 100);
+
+			composite.setContent(table);
+			composite.setExpandHorizontal(true);
+			composite.setExpandVertical(true);
+			composite.setAlwaysShowScrollBars(true);
+			composite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+
+			table.setLinesVisible(true);
+
+			final GridData gridData = new GridData();
+			gridData.widthHint = 500;
+			table.setLayoutData(gridData);
+
+			table.setHeaderVisible(true);
+			final TableColumn column1 = new TableColumn(table, SWT.LEFT);
+
+			final TableColumn column2 = new TableColumn(table, SWT.LEFT);
+
+			column1.setText("File Name");
+			column2.setText("Total Sections");
+
+			column1.setWidth(250);
+			column2.setWidth(250);
+
+			for (IFile file : files) {
+				final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
+				if (errors.containsKey(file)) {
+					valueSetsUpdatedItem.setText(new String[] { file.getName(), errors.get(file).getMessage() });
+				} else {
+					int sectionCount = 0;
+					for (String eclass : sectionbyfile.keySet()) {
+						if (sectionbyfile.get(eclass).contains(file)) {
+							sectionCount++;
+						}
+					}
+					valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
+				}
+			}
+
+			return composite;
+		}
+
+	}
+
 	static class ActByEncounterPredicate implements Predicate<Act> {
 
 		Encounter encounter;
@@ -203,6 +292,648 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		public boolean apply(Act act) {
 			return matchesEncounter(encounter, act);
 		}
+
+	}
+
+	static class C32SectionSwitch extends HITSPSwitch<Boolean> {
+
+		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
+
+		DocumentMetadata documentMetadata;
+
+		List<Encounter> encounters = null;
+
+		String fileName = null;
+
+		PatientRole patientRole = null;
+
+		Query query = null;
+
+		ServiceEvent serviceEvent = null;
+
+		Sheet sheet = null;
+
+		public C32SectionSwitch(Query query, Sheet sheet, DocumentMetadata documentMetadata, PatientRole patientRole,
+				ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
+			super();
+			this.query = query;
+			this.sheet = sheet;
+			this.documentMetadata = documentMetadata;
+			this.patientRole = patientRole;
+			this.serviceEvent = serviceEvent;
+			this.encounters = encounters;
+			this.fileName = fileName;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseAllergiesReactionsSection(org.openhealthtools.mdht.uml.cda.hitsp.
+		 * AllergiesReactionsSection)
+		 */
+		@Override
+		public Boolean caseAllergiesReactionsSection(AllergiesReactionsSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createAllergyHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			section.getAllergyIntoleranceConcerns();
+
+			if (section.getAllergyIntoleranceConcerns() != null && !section.getAllergyIntoleranceConcerns().isEmpty()) {
+				appendToAllergiesSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, section.getAllergyIntoleranceConcerns(),
+					encounters, fileName);
+			} else {
+				appendEmptySection(query, sheet, section, fileName);
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseDiagnosticResultsSection(org.openhealthtools.mdht.uml.cda.hitsp.
+		 * DiagnosticResultsSection)
+		 */
+		@Override
+		public Boolean caseDiagnosticResultsSection(DiagnosticResultsSection section) {
+			EList<org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer> resultOrganizers = new BasicEList<org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer>();
+
+			for (Organizer organizer : section.getOrganizers()) {
+				if (organizer instanceof org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer) {
+					resultOrganizers.add((org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer) organizer);
+				}
+			}
+
+			if (!resultOrganizers.isEmpty()) {
+
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null; // sheet.createRow(0);
+					Row row2 = sheet.createRow(0);
+
+					int offset = createPatientHeader(row1, row2, 0);
+					offset = createEncounterIDHeader(row1, row2, offset);
+					offset = createResultsHeader(row1, row2, offset);
+					emptySectionOffset.put(sheet, offset);
+				}
+
+				appendToResultsSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
+
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_ImmunizationsSection(org.openhealthtools.mdht.uml.cda.ccd.
+		 * ImmunizationsSection)
+		 */
+		@Override
+		public Boolean caseImmunizationsSection(ImmunizationsSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
+				emptySectionOffset.put(sheet, offset);
+			}
+			if (section.getSubstanceAdministrations() != null && !section.getSubstanceAdministrations().isEmpty()) {
+
+				appendToSubstanceAdministrationSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
+					section.getSubstanceAdministrations(), fileName);
+
+			} else {
+				appendEmptySection(query, sheet, section, fileName);
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_MedicationsSection(org.openhealthtools.mdht.uml.cda.ccd.MedicationsSection)
+		 */
+		@Override
+		public Boolean caseMedicationsSection(MedicationsSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
+				appendToSubstanceAdministrationSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
+					section.getMedicationActivities(), fileName);
+
+			} else {
+				appendEmptySection(query, sheet, section, fileName);
+			}
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseProblemListSection(org.openhealthtools.mdht.uml.cda.hitsp.ProblemListSection)
+		 */
+		@Override
+		public Boolean caseProblemListSection(ProblemListSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createProblemHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+
+			}
+
+			if (section.getProblemConcernEntries() != null && !section.getProblemConcernEntries().isEmpty()) {
+
+				appendToProblemsSheet(
+					query, sheet, patientRole, serviceEvent, section.getProblemConcernEntries(), encounters, fileName);
+
+			} else {
+				appendEmptySection(query, sheet, section, fileName);
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_VitalSignsSection(org.openhealthtools.mdht.uml.cda.ccd.VitalSignsSection)
+		 */
+		@Override
+		public Boolean caseVitalSignsSection(VitalSignsSection section) {
+			if (section.getVitalSignsOrganizers() != null && !section.getVitalSignsOrganizers().isEmpty()) {
+
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null; // sheet.createRow(0);
+					Row row2 = sheet.createRow(0);
+
+					int offset = createPatientHeader(row1, row2, 0);
+					offset = createEncounterIDHeader(row1, row2, offset);
+					offset = createVitalSignsHeader(row1, row2, offset);
+					emptySectionOffset.put(sheet, offset);
+				}
+
+				appendToVitalSignsSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, section.getOrganizers(), encounters,
+					fileName);
+				return Boolean.TRUE;
+
+			}
+			return Boolean.FALSE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public Boolean defaultCase(EObject object) {
+			return Boolean.FALSE;
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param section
+		 * @param fileName2
+		 */
+		private void appendEmptySection(Query query2, Sheet sheet2, Section section, String fileName2) {
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			int offset = serializePatient(row, 0, documentMetadata, patientRole);
+
+			row.createCell(offset++).setCellValue("NO ENCOUNTER");
+
+			row.createCell(offset++).setCellValue("NO ENTRIES");
+
+			serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param allergyIntoleranceConcerns
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendToAllergiesSheet(Query query2, Sheet sheet2, DocumentMetadata organizationAndSoftware,
+				PatientRole patientRole2, ServiceEvent serviceEvent2, EList<AllergyIntoleranceConcern> sas,
+				List<Encounter> encounters2, String fileName2) {
+			Set<AllergyIntoleranceConcern> sets = new HashSet<AllergyIntoleranceConcern>();
+
+			for (Encounter encounter : encounters) {
+				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
+
+				Collection<AllergyIntoleranceConcern> byEncouter = Collections2.filter(sas, predicate);
+
+				for (AllergyIntoleranceConcern sa : byEncouter) {
+					if (sets.add(sa)) {
+						int offset = 0;
+
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+						offset = serializeEncounterID(row, offset, encounter);
+
+						offset = serializeAllergyProblemAct(row, offset, sa);
+
+						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+					}
+				}
+			}
+
+			for (AllergyIntoleranceConcern sa : sets) {
+
+				if (sets.add(sa)) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
+					offset = serializeAllergyProblemAct(row, ++offset, sa);
+					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+					// serializeFileName(row, offset, fileName);
+				}
+
+			}
+
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param problemConcernEntries
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendToProblemsSheet(Query query, Sheet sheet, PatientRole patientRole2,
+				ServiceEvent serviceEvent, EList<ProblemConcernEntry> problemConcernEntries, List<Encounter> encounters,
+				String fileName2) {
+
+			Set<ProblemConcernEntry> sets = new HashSet<ProblemConcernEntry>();
+
+			for (Encounter encounter : encounters) {
+				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
+
+				Collection<ProblemConcernEntry> byEncouter = Collections2.filter(problemConcernEntries, predicate);
+
+				for (ProblemConcernEntry sa : byEncouter) {
+					if (sets.add(sa)) {
+						int offset = 0;
+
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+						offset = serializePatient(row, offset, documentMetadata, patientRole);
+
+						offset = serializeEncounterID(row, offset, encounter);
+
+						offset = serializeProblemConcernAct(row, offset, sa);
+
+						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+					}
+
+				}
+			}
+
+			for (ProblemConcernEntry sa : problemConcernEntries) {
+
+				if (sets.add(sa)) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, documentMetadata, patientRole);
+					offset = serializeProblemConcernAct(row, ++offset, sa);
+					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+				}
+
+			}
+
+		}
+
+		/**
+		 * @param row
+		 * @param offset
+		 * @param sa
+		 * @return
+		 */
+		private int serializeAllergyProblemAct(Row row, int offset,
+				AllergyIntoleranceConcern allergyIntoleranceConcern) {
+			StringBuffer sb = new StringBuffer();
+
+			for (II ii : allergyIntoleranceConcern.getIds()) {
+				sb.append(getKey2(ii));
+			}
+
+			row.createCell(offset++).setCellValue(sb.toString());
+
+			sb = new StringBuffer();
+
+			if (allergyIntoleranceConcern.getStatusCode() != null &&
+					!StringUtils.isEmpty(allergyIntoleranceConcern.getStatusCode().getCode())) {
+				row.createCell(offset++).setCellValue(allergyIntoleranceConcern.getStatusCode().getCode());
+			} else {
+				row.createCell(offset++).setCellValue("Missing Status");
+			}
+
+			for (AllergyIntolerance allergyIntolerance : allergyIntoleranceConcern.getAllergyIntolerances()) {
+
+				Date d = getDate(getValueAsString(allergyIntolerance.getEffectiveTime()));
+				if (d != null) {
+					row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
+				} else {
+					row.createCell(offset++).setCellValue("");
+				}
+
+				CD cd = null;
+				for (ANY any : allergyIntolerance.getValues()) {
+					if (any instanceof CD) {
+						cd = (CD) any;
+					}
+
+				}
+
+				row.createCell(offset++).setCellValue(Boolean.TRUE.equals(allergyIntolerance.getNegationInd()));
+
+				offset = appendCode(
+					row, offset, allergyIntoleranceConcern.getSection(), cd, allergyIntolerance.getText());
+
+				CD material = null;
+
+				try {
+					material = allergyIntolerance.getParticipants().get(
+						0).getParticipantRole().getPlayingEntity().getCode();
+				} catch (RuntimeException re) {
+
+				}
+
+				offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), material, null);
+
+				if (!allergyIntolerance.getProblemEntryReactionObservationContainers().isEmpty()) {
+					for (ProblemEntryReactionObservationContainer ro : allergyIntolerance.getProblemEntryReactionObservationContainers()) {
+
+						CD reactionCode = null;
+
+						for (ANY any : ro.getValues()) {
+							if (any instanceof CD) {
+								reactionCode = (CD) any;
+							}
+						}
+						offset = appendCode(
+							row, offset, allergyIntoleranceConcern.getSection(), reactionCode, ro.getText());
+
+						break;
+					}
+				} else {
+					offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), null, null);
+				}
+
+				if (allergyIntolerance.getSeverity() != null) {
+
+					CD severityCode = null;
+
+					for (ANY any : allergyIntolerance.getSeverity().getValues()) {
+						if (any instanceof CD) {
+							severityCode = (CD) any;
+						}
+					}
+					offset = appendCode(
+						row, offset, allergyIntoleranceConcern.getSection(), severityCode,
+						allergyIntolerance.getSeverity().getText());
+
+				} else {
+					offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), null, null);
+				}
+				offset = appendOrganizationAndAuthor(row, offset, allergyIntolerance.getAuthors());
+
+				break;
+			}
+
+			return offset;
+		}
+
+		/**
+		 * @param row
+		 * @param offset
+		 * @param sa
+		 * @return
+		 */
+		private int serializeProblemConcernAct(Row row, int offset, ProblemConcernEntry sa) {
+			StringBuffer sb = new StringBuffer();
+
+			for (II ii : sa.getIds()) {
+				sb.append(getKey2(ii));
+			}
+
+			row.createCell(offset++).setCellValue(sb.toString());
+
+			sb = new StringBuffer();
+
+			Date d = getDate(getValueAsString(sa.getEffectiveTime()));
+			if (d != null) {
+				row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
+			} else {
+				row.createCell(offset++).setCellValue("");
+			}
+
+			offset = appendCode(row, offset, sa.getSection(), sa.getCode(), sa.getText());
+
+			for (ProblemEntry problemObservation : sa.getProblemEntries()) {
+				offset = serializeProblemObservation(row, offset, problemObservation);
+				break;
+			}
+
+			return offset;
+		}
+
+		/**
+		 * @param row
+		 * @param offset
+		 * @param problemObservation
+		 */
+		private int serializeProblemObservation(Row row, int offset, ProblemEntry problemObservation) {
+			Cell cell = row.createCell(offset++);
+
+			StringBuffer sb = new StringBuffer();
+			Date d;
+			for (II ii : problemObservation.getIds()) {
+				sb.append(getKey2(ii));
+			}
+
+			// ID
+			cell.setCellValue(sb.toString());
+
+			cell = row.createCell(offset++);
+
+			sb = new StringBuffer();
+			IVL_TS ivl_ts = problemObservation.getEffectiveTime();
+
+			if (ivl_ts != null) {
+
+				if (ivl_ts.getValue() != null) {
+					if (!StringUtils.isEmpty(ivl_ts.getValue())) {
+
+						d = getDate(ivl_ts.getValue());
+
+						;
+
+						sb.append(DATE_PRETTY.format(d));
+					}
+
+				}
+				if (ivl_ts.getLow() != null) {
+					if (!StringUtils.isEmpty(ivl_ts.getLow().getValue())) {
+
+						d = getDate(ivl_ts.getLow().getValue());
+
+						;
+
+						sb.append(DATE_PRETTY.format(d));
+					}
+
+				}
+				if (ivl_ts.getHigh() != null) {
+					if (!StringUtils.isEmpty(ivl_ts.getHigh().getValue())) {
+
+						d = getDate(ivl_ts.getHigh().getValue());
+						if (sb.length() > 0) {
+							sb.append(" - ");
+						}
+						sb.append(DATE_PRETTY.format(d));
+					}
+				}
+			}
+
+			cell.setCellValue(sb.toString());
+
+			CD problemCode = null;
+
+			for (ANY any : problemObservation.getValues()) {
+				if (any instanceof CD) {
+					problemCode = (CD) any;
+				}
+			}
+			offset = appendCode(
+				row, offset, problemObservation.getSection(), problemCode, problemObservation.getText());
+
+			offset = appendOrganizationAndAuthor(row, offset, problemObservation.getAuthors());
+
+			return offset;
+
+		}
+
+	}
+
+	static class CCDSectionSwitch extends CCDSwitch<Boolean> {
+		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
+
+		DocumentMetadata documentMetadata;
+
+		List<Encounter> encounters = null;
+
+		String fileName = null;
+
+		PatientRole patientRole = null;
+
+		Query query = null;
+
+		ServiceEvent serviceEvent = null;
+
+		Sheet sheet = null;
+
+		public CCDSectionSwitch(Query query, Sheet sheet, DocumentMetadata documentMetadata, PatientRole patientRole,
+				ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
+			super();
+			this.query = query;
+			this.sheet = sheet;
+			this.patientRole = patientRole;
+			this.serviceEvent = serviceEvent;
+			this.encounters = encounters;
+			this.fileName = fileName;
+			this.documentMetadata = documentMetadata;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.ccd.util.CCDSwitch#caseProceduresSection(org.openhealthtools.mdht.uml.cda.ccd.ProceduresSection)
+		 */
+		@Override
+		public Boolean caseProceduresSection(ProceduresSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createProcedureHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			if (section.getProcedures() != null && !section.getProcedures().isEmpty()) {
+
+				appendProcedureToProcedureSheet(
+					query, sheet, documentMetadata, patientRole, serviceEvent, section.getProcedures(), encounters,
+					fileName);
+			}
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.ccd.util.CCDSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public Boolean defaultCase(EObject object) {
+			return Boolean.FALSE;
+		}
+
+	}
+
+	static class DocumentMetadata {
+
+		Date documentDate = null;
+
+		String documentLibrary = "";
+
+		String documentOrganization = "";
+
+		String documentSoftware = "";
+
+		String documentType = "";
 
 	}
 
@@ -234,6 +965,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			txt = new StringBuffer();
 		}
 
+		@Override
+		public void handleText(char[] text, int pos) {
+			txt.append(text);
+		}
+
 		String getText() {
 			String result = txt.toString();
 			if (StringUtils.isEmpty(result)) {
@@ -243,11 +979,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				return result;
 			}
 			return result.substring(0, 49);
-		}
-
-		@Override
-		public void handleText(char[] text, int pos) {
-			txt.append(text);
 		}
 	}
 
@@ -492,147 +1223,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static class OrganizerByEncounterPredicate implements Predicate<Organizer> {
-
-		Encounter encounter;
-
-		/**
-		 * @param encounter
-		 */
-		public OrganizerByEncounterPredicate(Encounter encounter) {
-			super();
-			this.encounter = encounter;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
-		 */
-		@Override
-		public boolean apply(Organizer organizer) {
-			return matchesEncounter(encounter, organizer);
-		}
-
-	}
-
-	enum PorO {
-		ORGANIZATION, PERSON
-
-	}
-
-	static class ProcedureByEncounterPredicate implements Predicate<Procedure> {
-
-		Encounter encounter;
-
-		/**
-		 * @param encounter
-		 */
-		public ProcedureByEncounterPredicate(Encounter encounter) {
-			super();
-			this.encounter = encounter;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
-		 */
-		@Override
-		public boolean apply(Procedure procedure) {
-			return matchesEncounter(encounter, procedure);
-		}
-
-	}
-
-	public class ResultsDialog extends TitleAreaDialog {
-
-		org.eclipse.swt.widgets.Table table;
-
-		public ResultsDialog(Shell shell) {
-			super(shell);
-
-		}
-
-		@Override
-		public void create() {
-			super.create();
-			setTitle("CDA Processing Results");
-		}
-
-		@Override
-		protected void createButtonsForButtonBar(Composite parent) {
-
-			Button okButton = createButton(parent, OK, "Ok", false);
-
-			okButton.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					setReturnCode(OK);
-					close();
-				}
-			});
-		}
-
-		@Override
-		protected Control createDialogArea(Composite parent) {
-
-			Label label = new Label(parent, SWT.BORDER);
-
-			label.setText("Total Files " + files.size());
-
-			final ScrolledComposite composite = new ScrolledComposite(parent, SWT.V_SCROLL);
-			composite.setLayout(new GridLayout());
-			composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
-			table = new org.eclipse.swt.widgets.Table(composite, SWT.BORDER | SWT.MULTI);
-			table.setHeaderVisible(true);
-
-			table.setSize(100, 100);
-
-			composite.setContent(table);
-			composite.setExpandHorizontal(true);
-			composite.setExpandVertical(true);
-			composite.setAlwaysShowScrollBars(true);
-			composite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-
-			table.setLinesVisible(true);
-
-			final GridData gridData = new GridData();
-			gridData.widthHint = 500;
-			table.setLayoutData(gridData);
-
-			table.setHeaderVisible(true);
-			final TableColumn column1 = new TableColumn(table, SWT.LEFT);
-
-			final TableColumn column2 = new TableColumn(table, SWT.LEFT);
-
-			column1.setText("File Name");
-			column2.setText("Total Sections");
-
-			column1.setWidth(250);
-			column2.setWidth(250);
-
-			for (IFile file : files) {
-				final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
-				if (errors.containsKey(file)) {
-					valueSetsUpdatedItem.setText(new String[] { file.getName(), errors.get(file).getMessage() });
-				} else {
-					int sectionCount = 0;
-					for (String eclass : sectionbyfile.keySet()) {
-						if (sectionbyfile.get(eclass).contains(file)) {
-							sectionCount++;
-						}
-					}
-					valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
-				}
-			}
-
-			return composite;
-		}
-
-	}
-
 	// public class WarningDialog extends TitleAreaDialog {
 	//
 	// org.eclipse.swt.widgets.Table table;
@@ -719,635 +1309,62 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	//
 	// }
 
-	static class CCDSectionSwitch extends CCDSwitch<Boolean> {
-		List<Encounter> encounters = null;
+	static class OrganizerByEncounterPredicate implements Predicate<Organizer> {
 
-		String fileName = null;
+		Encounter encounter;
 
-		PatientRole patientRole = null;
-
-		Query query = null;
-
-		ServiceEvent serviceEvent = null;
-
-		Sheet sheet = null;
-
-		DocumentMetadata documentMetadata;
-
-		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
-
-		public CCDSectionSwitch(Query query, Sheet sheet, DocumentMetadata documentMetadata, PatientRole patientRole,
-				ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
+		/**
+		 * @param encounter
+		 */
+		public OrganizerByEncounterPredicate(Encounter encounter) {
 			super();
-			this.query = query;
-			this.sheet = sheet;
-			this.patientRole = patientRole;
-			this.serviceEvent = serviceEvent;
-			this.encounters = encounters;
-			this.fileName = fileName;
-			this.documentMetadata = documentMetadata;
+			this.encounter = encounter;
 		}
 
 		/*
 		 * (non-Javadoc)
 		 *
-		 * @see org.openhealthtools.mdht.uml.cda.ccd.util.CCDSwitch#caseProceduresSection(org.openhealthtools.mdht.uml.cda.ccd.ProceduresSection)
+		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
 		 */
 		@Override
-		public Boolean caseProceduresSection(ProceduresSection section) {
-			if (sheet.getPhysicalNumberOfRows() == 0) {
-				Row row1 = null; // sheet.createRow(0);
-				Row row2 = sheet.createRow(0);
-
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				offset = createProcedureHeader(row1, row2, offset);
-				emptySectionOffset.put(sheet, offset);
-			}
-
-			if (section.getProcedures() != null && !section.getProcedures().isEmpty()) {
-
-				appendProcedureToProcedureSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, section.getProcedures(), encounters,
-					fileName);
-			}
-			return Boolean.TRUE;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.ccd.util.CCDSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
-		 */
-		@Override
-		public Boolean defaultCase(EObject object) {
-			return Boolean.FALSE;
+		public boolean apply(Organizer organizer) {
+			return matchesEncounter(encounter, organizer);
 		}
 
 	}
 
-	static class C32SectionSwitch extends HITSPSwitch<Boolean> {
+	enum PorO {
+		ORGANIZATION, PERSON
 
-		List<Encounter> encounters = null;
+	}
 
-		String fileName = null;
+	static class ProcedureByEncounterPredicate implements Predicate<Procedure> {
 
-		PatientRole patientRole = null;
+		Encounter encounter;
 
-		Query query = null;
-
-		ServiceEvent serviceEvent = null;
-
-		Sheet sheet = null;
-
-		DocumentMetadata documentMetadata;
-
-		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
-
-		public C32SectionSwitch(Query query, Sheet sheet, DocumentMetadata documentMetadata, PatientRole patientRole,
-				ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
+		/**
+		 * @param encounter
+		 */
+		public ProcedureByEncounterPredicate(Encounter encounter) {
 			super();
-			this.query = query;
-			this.sheet = sheet;
-			this.documentMetadata = documentMetadata;
-			this.patientRole = patientRole;
-			this.serviceEvent = serviceEvent;
-			this.encounters = encounters;
-			this.fileName = fileName;
+			this.encounter = encounter;
 		}
 
 		/*
 		 * (non-Javadoc)
 		 *
-		 * @see
-		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_MedicationsSection(org.openhealthtools.mdht.uml.cda.ccd.MedicationsSection)
+		 * @see com.google.common.base.Predicate#apply(java.lang.Object)
 		 */
 		@Override
-		public Boolean caseMedicationsSection(MedicationsSection section) {
-			if (sheet.getPhysicalNumberOfRows() == 0) {
-				Row row1 = null; // sheet.createRow(0);
-				Row row2 = sheet.createRow(0);
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
-				emptySectionOffset.put(sheet, offset);
-			}
-
-			if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
-				appendToSubstanceAdministrationSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
-					section.getMedicationActivities(), fileName);
-
-			} else {
-				appendEmptySection(query, sheet, section, fileName);
-			}
-			return Boolean.TRUE;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_ImmunizationsSection(org.openhealthtools.mdht.uml.cda.ccd.
-		 * ImmunizationsSection)
-		 */
-		@Override
-		public Boolean caseImmunizationsSection(ImmunizationsSection section) {
-			if (sheet.getPhysicalNumberOfRows() == 0) {
-				Row row1 = null; // sheet.createRow(0);
-				Row row2 = sheet.createRow(0);
-
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				offset = createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
-				emptySectionOffset.put(sheet, offset);
-			}
-			if (section.getSubstanceAdministrations() != null && !section.getSubstanceAdministrations().isEmpty()) {
-
-				appendToSubstanceAdministrationSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
-					section.getSubstanceAdministrations(), fileName);
-
-			} else {
-				appendEmptySection(query, sheet, section, fileName);
-			}
-
-			return Boolean.TRUE;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see
-		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_VitalSignsSection(org.openhealthtools.mdht.uml.cda.ccd.VitalSignsSection)
-		 */
-		@Override
-		public Boolean caseVitalSignsSection(VitalSignsSection section) {
-			if (section.getVitalSignsOrganizers() != null && !section.getVitalSignsOrganizers().isEmpty()) {
-
-				if (sheet.getPhysicalNumberOfRows() == 0) {
-					Row row1 = null; // sheet.createRow(0);
-					Row row2 = sheet.createRow(0);
-
-					int offset = createPatientHeader(row1, row2, 0);
-					offset = createEncounterIDHeader(row1, row2, offset);
-					offset = createVitalSignsHeader(row1, row2, offset);
-					emptySectionOffset.put(sheet, offset);
-				}
-
-				appendToVitalSignsSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, section.getOrganizers(), encounters,
-					fileName);
-				return Boolean.TRUE;
-
-			}
-			return Boolean.FALSE;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseDiagnosticResultsSection(org.openhealthtools.mdht.uml.cda.hitsp.
-		 * DiagnosticResultsSection)
-		 */
-		@Override
-		public Boolean caseDiagnosticResultsSection(DiagnosticResultsSection section) {
-			EList<org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer> resultOrganizers = new BasicEList<org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer>();
-
-			for (Organizer organizer : section.getOrganizers()) {
-				if (organizer instanceof org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer) {
-					resultOrganizers.add((org.openhealthtools.mdht.uml.cda.ccd.ResultOrganizer) organizer);
-				}
-			}
-
-			if (!resultOrganizers.isEmpty()) {
-
-				if (sheet.getPhysicalNumberOfRows() == 0) {
-					Row row1 = null; // sheet.createRow(0);
-					Row row2 = sheet.createRow(0);
-
-					int offset = createPatientHeader(row1, row2, 0);
-					offset = createEncounterIDHeader(row1, row2, offset);
-					offset = createResultsHeader(row1, row2, offset);
-					emptySectionOffset.put(sheet, offset);
-				}
-
-				appendToResultsSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, resultOrganizers, encounters, fileName);
-
-			}
-
-			return Boolean.TRUE;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseAllergiesReactionsSection(org.openhealthtools.mdht.uml.cda.hitsp.
-		 * AllergiesReactionsSection)
-		 */
-		@Override
-		public Boolean caseAllergiesReactionsSection(AllergiesReactionsSection section) {
-			if (sheet.getPhysicalNumberOfRows() == 0) {
-				Row row1 = null; // sheet.createRow(0);
-				Row row2 = sheet.createRow(0);
-
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				offset = createAllergyHeader(row1, row2, offset);
-				emptySectionOffset.put(sheet, offset);
-			}
-
-			section.getAllergyIntoleranceConcerns();
-
-			if (section.getAllergyIntoleranceConcerns() != null && !section.getAllergyIntoleranceConcerns().isEmpty()) {
-				appendToAllergiesSheet(
-					query, sheet, documentMetadata, patientRole, serviceEvent, section.getAllergyIntoleranceConcerns(),
-					encounters, fileName);
-			} else {
-				appendEmptySection(query, sheet, section, fileName);
-			}
-
-			return Boolean.TRUE;
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param allergyIntoleranceConcerns
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendToAllergiesSheet(Query query2, Sheet sheet2, DocumentMetadata organizationAndSoftware,
-				PatientRole patientRole2, ServiceEvent serviceEvent2, EList<AllergyIntoleranceConcern> sas,
-				List<Encounter> encounters2, String fileName2) {
-			Set<AllergyIntoleranceConcern> sets = new HashSet<AllergyIntoleranceConcern>();
-
-			for (Encounter encounter : encounters) {
-				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-
-				Collection<AllergyIntoleranceConcern> byEncouter = Collections2.filter(sas, predicate);
-
-				for (AllergyIntoleranceConcern sa : byEncouter) {
-					if (sets.add(sa)) {
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeAllergyProblemAct(row, offset, sa);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-					}
-				}
-			}
-
-			for (AllergyIntoleranceConcern sa : sets) {
-
-				if (sets.add(sa)) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-					offset = serializeAllergyProblemAct(row, ++offset, sa);
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-					// serializeFileName(row, offset, fileName);
-				}
-
-			}
-
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see
-		 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseProblemListSection(org.openhealthtools.mdht.uml.cda.hitsp.ProblemListSection)
-		 */
-		@Override
-		public Boolean caseProblemListSection(ProblemListSection section) {
-			if (sheet.getPhysicalNumberOfRows() == 0) {
-				Row row1 = null; // sheet.createRow(0);
-				Row row2 = sheet.createRow(0);
-
-				int offset = createPatientHeader(row1, row2, 0);
-				offset = createEncounterIDHeader(row1, row2, offset);
-				offset = createProblemHeader(row1, row2, offset);
-				emptySectionOffset.put(sheet, offset);
-
-			}
-
-			if (section.getProblemConcernEntries() != null && !section.getProblemConcernEntries().isEmpty()) {
-
-				appendToProblemsSheet(
-					query, sheet, patientRole, serviceEvent, section.getProblemConcernEntries(), encounters, fileName);
-
-			} else {
-				appendEmptySection(query, sheet, section, fileName);
-			}
-
-			return Boolean.TRUE;
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param problemConcernEntries
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendToProblemsSheet(Query query, Sheet sheet, PatientRole patientRole2,
-				ServiceEvent serviceEvent, EList<ProblemConcernEntry> problemConcernEntries, List<Encounter> encounters,
-				String fileName2) {
-
-			Set<ProblemConcernEntry> sets = new HashSet<ProblemConcernEntry>();
-
-			for (Encounter encounter : encounters) {
-				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-
-				Collection<ProblemConcernEntry> byEncouter = Collections2.filter(problemConcernEntries, predicate);
-
-				for (ProblemConcernEntry sa : byEncouter) {
-					if (sets.add(sa)) {
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, documentMetadata, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeProblemConcernAct(row, offset, sa);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-					}
-
-				}
-			}
-
-			for (ProblemConcernEntry sa : problemConcernEntries) {
-
-				if (sets.add(sa)) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, documentMetadata, patientRole);
-					offset = serializeProblemConcernAct(row, ++offset, sa);
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				}
-
-			}
-
-		}
-
-		/**
-		 * @param row
-		 * @param offset
-		 * @param sa
-		 * @return
-		 */
-		private int serializeProblemConcernAct(Row row, int offset, ProblemConcernEntry sa) {
-			StringBuffer sb = new StringBuffer();
-
-			for (II ii : sa.getIds()) {
-				sb.append(getKey2(ii));
-			}
-
-			row.createCell(offset++).setCellValue(sb.toString());
-
-			sb = new StringBuffer();
-
-			Date d = getDate(getValueAsString(sa.getEffectiveTime()));
-			if (d != null) {
-				row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
-			} else {
-				row.createCell(offset++).setCellValue("");
-			}
-
-			offset = appendCode(row, offset, sa.getSection(), sa.getCode(), sa.getText());
-
-			for (ProblemEntry problemObservation : sa.getProblemEntries()) {
-				offset = serializeProblemObservation(row, offset, problemObservation);
-				break;
-			}
-
-			return offset;
-		}
-
-		/**
-		 * @param row
-		 * @param offset
-		 * @param problemObservation
-		 */
-		private int serializeProblemObservation(Row row, int offset, ProblemEntry problemObservation) {
-			Cell cell = row.createCell(offset++);
-
-			StringBuffer sb = new StringBuffer();
-			Date d;
-			for (II ii : problemObservation.getIds()) {
-				sb.append(getKey2(ii));
-			}
-
-			// ID
-			cell.setCellValue(sb.toString());
-
-			cell = row.createCell(offset++);
-
-			sb = new StringBuffer();
-			IVL_TS ivl_ts = problemObservation.getEffectiveTime();
-
-			if (ivl_ts != null) {
-
-				if (ivl_ts.getValue() != null) {
-					if (!StringUtils.isEmpty(ivl_ts.getValue())) {
-
-						d = getDate(ivl_ts.getValue());
-
-						;
-
-						sb.append(DATE_PRETTY.format(d));
-					}
-
-				}
-				if (ivl_ts.getLow() != null) {
-					if (!StringUtils.isEmpty(ivl_ts.getLow().getValue())) {
-
-						d = getDate(ivl_ts.getLow().getValue());
-
-						;
-
-						sb.append(DATE_PRETTY.format(d));
-					}
-
-				}
-				if (ivl_ts.getHigh() != null) {
-					if (!StringUtils.isEmpty(ivl_ts.getHigh().getValue())) {
-
-						d = getDate(ivl_ts.getHigh().getValue());
-						if (sb.length() > 0) {
-							sb.append(" - ");
-						}
-						sb.append(DATE_PRETTY.format(d));
-					}
-				}
-			}
-
-			cell.setCellValue(sb.toString());
-
-			CD problemCode = null;
-
-			for (ANY any : problemObservation.getValues()) {
-				if (any instanceof CD) {
-					problemCode = (CD) any;
-				}
-			}
-			offset = appendCode(
-				row, offset, problemObservation.getSection(), problemCode, problemObservation.getText());
-
-			offset = appendOrganizationAndAuthor(row, offset, problemObservation.getAuthors());
-
-			return offset;
-
-		}
-
-		/**
-		 * @param row
-		 * @param offset
-		 * @param sa
-		 * @return
-		 */
-		private int serializeAllergyProblemAct(Row row, int offset,
-				AllergyIntoleranceConcern allergyIntoleranceConcern) {
-			StringBuffer sb = new StringBuffer();
-
-			for (II ii : allergyIntoleranceConcern.getIds()) {
-				sb.append(getKey2(ii));
-			}
-
-			row.createCell(offset++).setCellValue(sb.toString());
-
-			sb = new StringBuffer();
-
-			if (allergyIntoleranceConcern.getStatusCode() != null &&
-					!StringUtils.isEmpty(allergyIntoleranceConcern.getStatusCode().getCode())) {
-				row.createCell(offset++).setCellValue(allergyIntoleranceConcern.getStatusCode().getCode());
-			} else {
-				row.createCell(offset++).setCellValue("Missing Status");
-			}
-
-			for (AllergyIntolerance allergyIntolerance : allergyIntoleranceConcern.getAllergyIntolerances()) {
-
-				Date d = getDate(getValueAsString(allergyIntolerance.getEffectiveTime()));
-				if (d != null) {
-					row.createCell(offset++).setCellValue(DATE_PRETTY.format(d));
-				} else {
-					row.createCell(offset++).setCellValue("");
-				}
-
-				CD cd = null;
-				for (ANY any : allergyIntolerance.getValues()) {
-					if (any instanceof CD) {
-						cd = (CD) any;
-					}
-
-				}
-
-				row.createCell(offset++).setCellValue(Boolean.TRUE.equals(allergyIntolerance.getNegationInd()));
-
-				offset = appendCode(
-					row, offset, allergyIntoleranceConcern.getSection(), cd, allergyIntolerance.getText());
-
-				CD material = null;
-
-				try {
-					material = allergyIntolerance.getParticipants().get(
-						0).getParticipantRole().getPlayingEntity().getCode();
-				} catch (RuntimeException re) {
-
-				}
-
-				offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), material, null);
-
-				if (!allergyIntolerance.getProblemEntryReactionObservationContainers().isEmpty()) {
-					for (ProblemEntryReactionObservationContainer ro : allergyIntolerance.getProblemEntryReactionObservationContainers()) {
-
-						CD reactionCode = null;
-
-						for (ANY any : ro.getValues()) {
-							if (any instanceof CD) {
-								reactionCode = (CD) any;
-							}
-						}
-						offset = appendCode(
-							row, offset, allergyIntoleranceConcern.getSection(), reactionCode, ro.getText());
-
-						break;
-					}
-				} else {
-					offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), null, null);
-				}
-
-				if (allergyIntolerance.getSeverity() != null) {
-
-					CD severityCode = null;
-
-					for (ANY any : allergyIntolerance.getSeverity().getValues()) {
-						if (any instanceof CD) {
-							severityCode = (CD) any;
-						}
-					}
-					offset = appendCode(
-						row, offset, allergyIntoleranceConcern.getSection(), severityCode,
-						allergyIntolerance.getSeverity().getText());
-
-				} else {
-					offset = appendCode(row, offset, allergyIntoleranceConcern.getSection(), null, null);
-				}
-				offset = appendOrganizationAndAuthor(row, offset, allergyIntolerance.getAuthors());
-
-				break;
-			}
-
-			return offset;
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param section
-		 * @param fileName2
-		 */
-		private void appendEmptySection(Query query2, Sheet sheet2, Section section, String fileName2) {
-
-			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-			int offset = serializePatient(row, 0, documentMetadata, patientRole);
-
-			row.createCell(offset++).setCellValue("NO ENCOUNTER");
-
-			row.createCell(offset++).setCellValue("NO ENTRIES");
-
-			serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
-		 */
-		@Override
-		public Boolean defaultCase(EObject object) {
-			return Boolean.FALSE;
+		public boolean apply(Procedure procedure) {
+			return matchesEncounter(encounter, procedure);
 		}
 
 	}
 
 	static class SectionSwitch extends ConsolSwitch<Boolean> {
+
+		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
 
 		static int serializeProblemObservation(Row row, int offset, ProblemObservation problemObservation) {
 			Cell cell = row.createCell(offset++);
@@ -1419,6 +1436,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			return offset;
 		}
 
+		DocumentMetadata documentMetadata;
+
 		List<Encounter> encounters = null;
 
 		String fileName = null;
@@ -1430,8 +1449,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		ServiceEvent serviceEvent = null;
 
 		Sheet sheet = null;
-
-		DocumentMetadata documentMetadata;
 
 		/**
 		 * @param query
@@ -1452,288 +1469,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			this.serviceEvent = serviceEvent;
 			this.encounters = encounters;
 			this.fileName = fileName;
-		}
-
-		static HashMap<Sheet, Integer> emptySectionOffset = new HashMap<Sheet, Integer>();
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param section
-		 * @param fileName2
-		 */
-		private void appendEmptySection(Query query2, Sheet sheet2, Section section, String fileName2) {
-
-			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-			int offset = serializePatient(row, 0, documentMetadata, patientRole);
-
-			row.createCell(offset++).setCellValue("NO ENCOUNTER");
-
-			row.createCell(offset++).setCellValue("NO ENTRIES");
-
-			serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param observations
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendObservationsToSocialHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
-				ServiceEvent serviceEvent2, EList<Observation> observations, List<Encounter> encounters2,
-				String fileName2) {
-			Set<Observation> sets = new HashSet<Observation>();
-
-			for (Encounter encounter : encounters) {
-				ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
-
-				Collection<Observation> byEncouter = Collections2.filter(observations, predicate);
-
-				for (Observation sa : byEncouter) {
-
-					if (sets.add(sa)) {
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, documentMetadata, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeObservation(row, offset, sa, false);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-					}
-				}
-			}
-
-			for (Observation sa : observations) {
-
-				if (sets.add(sa)) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, documentMetadata, patientRole);
-					offset = serializeObservation(row, ++offset, sa, false);
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-					// serializeFileName(row, offset, fileName);
-				}
-
-			}
-
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param observations
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendToFamilyHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
-				ServiceEvent serviceEvent2, List<Organizer> observations, List<Encounter> encounters2,
-				String fileName2) {
-
-			Set<Organizer> sets = new HashSet<Organizer>();
-
-			for (Encounter encounter : encounters) {
-
-				OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
-
-				Collection<Organizer> byEncouter = Collections2.filter(observations, predicate);
-
-				for (Organizer organizer : byEncouter) {
-
-					if (sets.add(organizer)) {
-						for (Observation observation : organizer.getObservations()) {
-							Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-							int offset = serializePatient(row, 0, documentMetadata, patientRole);
-							offset = serializeEncounterID(row, offset, encounter);
-							offset = serializeOrganizer(row, offset, organizer, false, true);
-							offset = serializeObservation(row, offset, observation);
-							serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-						}
-
-					}
-
-				}
-			}
-
-			for (Organizer sa : observations) {
-
-				if (sets.add(sa)) {
-					for (Observation observation : sa.getObservations()) {
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-						int offset = serializePatient(row, 0, documentMetadata, patientRole);
-						offset = serializeOrganizer(row, ++offset, sa, false, true);
-						offset = serializeObservation(row, offset, observation);
-						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-					}
-				}
-
-			}
-
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param problemConcerns
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendToProblemsSheet(Query query2, Sheet sheet2, PatientRole patientRole2,
-				ServiceEvent serviceEvent2, EList<ProblemConcernAct> problemConcerns, List<Encounter> encounters2,
-				String fileName2) {
-
-			Set<ProblemConcernAct> sets = new HashSet<ProblemConcernAct>();
-
-			for (Encounter encounter : encounters) {
-				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-
-				Collection<ProblemConcernAct> byEncouter = Collections2.filter(problemConcerns, predicate);
-
-				for (ProblemConcernAct sa : byEncouter) {
-
-					if (sets.add(sa)) {
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, documentMetadata, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeProblemConcernAct(row, offset, sa);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-					}
-				}
-			}
-
-			// if (serviceEvent != null) {
-			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-			//
-			// for (ProblemConcernAct sa : problemConcerns) {
-			//
-			// if (!problemConcerns.contains(sa)) {
-			//
-			// int offset = 0;
-			//
-			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-			//
-			// offset = serializePatient(row, offset, documentMetadata,patientRole);
-			//
-			// offset = serializeServiceEvent(row, offset, serviceEvent);
-			//
-			// offset = serializeProblemConcernAct(row, offset, sa);
-			//
-			// serializeFileName(row, offset, fileName);
-			// sets.add(sa);
-			// // sas.remove(sa);
-			// }
-			// }
-			//
-			// }
-			for (ProblemConcernAct sa : problemConcerns) {
-
-				if (sets.add(sa)) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, documentMetadata, patientRole);
-					offset = serializeProblemConcernAct(row, ++offset, sa);
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				}
-
-			}
-
-		}
-
-		/**
-		 * @param query2
-		 * @param sheet2
-		 * @param patientRole2
-		 * @param serviceEvent2
-		 * @param problemObservations
-		 * @param encounters2
-		 * @param fileName2
-		 */
-		private void appendToProblemsSheet2(Query query2, Sheet sheet2, PatientRole patientRole2,
-				ServiceEvent serviceEvent2, EList<ProblemObservation> problemObservations, List<Encounter> encounters2,
-				String fileName2) {
-			Set<ProblemObservation> sets = new HashSet<ProblemObservation>();
-
-			for (Encounter encounter : encounters) {
-				ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
-
-				Collection<ProblemObservation> byEncouter = Collections2.filter(problemObservations, predicate);
-
-				for (ProblemObservation sa : byEncouter) {
-
-					if (sets.add(sa)) {
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, documentMetadata, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeProblemObservation(row, offset, sa);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-					}
-				}
-			}
-
-			// if (serviceEvent != null) {
-			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-			//
-			// for (ProblemConcernAct sa : problemConcerns) {
-			//
-			// if (!problemConcerns.contains(sa)) {
-			//
-			// int offset = 0;
-			//
-			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-			//
-			// offset = serializePatient(row, offset, documentMetadata,patientRole);
-			//
-			// offset = serializeServiceEvent(row, offset, serviceEvent);
-			//
-			// offset = serializeProblemConcernAct(row, offset, sa);
-			//
-			// serializeFileName(row, offset, fileName);
-			// sets.add(sa);
-			// // sas.remove(sa);
-			// }
-			// }
-			//
-			// }
-			for (ProblemObservation sa : problemObservations) {
-
-				if (sets.add(sa)) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, documentMetadata, patientRole);
-					offset = serializeProblemObservation(row, ++offset, sa);
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				}
-
-			}
-
 		}
 
 		/*
@@ -1786,6 +1521,33 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			if (section.getOrganizers() != null && !section.getOrganizers().isEmpty()) {
 				appendToFamilyHistorySheet(
 					query, sheet, patientRole, serviceEvent, section.getOrganizers(), encounters, fileName);
+			} else {
+				appendEmptySection(query, sheet, section, fileName);
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseGoalsSection(org.openhealthtools.mdht.uml.cda.consol.GoalsSection)
+		 */
+		@Override
+		public Boolean caseGoalsSection(GoalsSection section) {
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = createPatientHeader(row1, row2, 0);
+				offset = createEncounterIDHeader(row1, row2, offset);
+				offset = createGoalsSectionHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			if (section.getGoalObservations() != null && !section.getGoalObservations().isEmpty()) {
+				appendToGoalSheet(
+					query, sheet, patientRole, serviceEvent, section.getGoalObservations(), encounters, fileName);
 			} else {
 				appendEmptySection(query, sheet, section, fileName);
 			}
@@ -2072,6 +1834,340 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			return super.caseVitalSignsSectionEntriesOptional(section);
 		}
 
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
+		 */
+		@Override
+		public Boolean defaultCase(EObject object) {
+			return false;
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param section
+		 * @param fileName2
+		 */
+		private void appendEmptySection(Query query2, Sheet sheet2, Section section, String fileName2) {
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			int offset = serializePatient(row, 0, documentMetadata, patientRole);
+
+			row.createCell(offset++).setCellValue("NO ENCOUNTER");
+
+			row.createCell(offset++).setCellValue("NO ENTRIES");
+
+			serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param observations
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendObservationsToSocialHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
+				ServiceEvent serviceEvent2, EList<Observation> observations, List<Encounter> encounters2,
+				String fileName2) {
+			Set<Observation> sets = new HashSet<Observation>();
+
+			for (Encounter encounter : encounters) {
+				ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
+
+				Collection<Observation> byEncouter = Collections2.filter(observations, predicate);
+
+				for (Observation sa : byEncouter) {
+
+					if (sets.add(sa)) {
+						int offset = 0;
+
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+						offset = serializePatient(row, offset, documentMetadata, patientRole);
+
+						offset = serializeEncounterID(row, offset, encounter);
+
+						offset = serializeObservation(row, offset, sa, false);
+
+						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+					}
+				}
+			}
+
+			for (Observation sa : observations) {
+
+				if (sets.add(sa)) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, documentMetadata, patientRole);
+					offset = serializeObservation(row, ++offset, sa, false);
+					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+					// serializeFileName(row, offset, fileName);
+				}
+
+			}
+
+		}
+
+		private void appendToGoalSheet(Query query2, Sheet sheet2, PatientRole patientRole2, ServiceEvent serviceEvent2,
+				EList<? extends Observation> observations, List<Encounter> encounters2, String fileName2) {
+
+			Set<Observation> sets = new HashSet<Observation>();
+
+			for (Encounter encounter : encounters) {
+
+				ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
+
+				Collection<? extends Observation> byEncouter = Collections2.filter(observations, predicate);
+
+				for (Observation observation : byEncouter) {
+
+					if (sets.add(observation)) {
+						// for (Observation observation : organizer.getObservations()) {
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						int offset = serializePatient(row, 0, documentMetadata, patientRole);
+						offset = serializeEncounterID(row, offset, encounter);
+						// offset = serializeOrganizer(row, offset, organizer, false, true);
+						offset = serializeObservation(row, offset, observation);
+						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+						// }
+
+					}
+
+				}
+			}
+
+			for (Observation observation : observations) {
+
+				if (sets.add(observation)) {
+
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, documentMetadata, patientRole);
+
+					offset = serializeObservation(row, offset, observation);
+					serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+
+				}
+
+			}
+
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param observations
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendToFamilyHistorySheet(Query query2, Sheet sheet2, PatientRole patientRole2,
+				ServiceEvent serviceEvent2, List<Organizer> observations, List<Encounter> encounters2,
+				String fileName2) {
+
+			Set<Organizer> sets = new HashSet<Organizer>();
+
+			for (Encounter encounter : encounters) {
+
+				OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
+
+				Collection<Organizer> byEncouter = Collections2.filter(observations, predicate);
+
+				for (Organizer organizer : byEncouter) {
+
+					if (sets.add(organizer)) {
+						for (Observation observation : organizer.getObservations()) {
+							Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+							int offset = serializePatient(row, 0, documentMetadata, patientRole);
+							offset = serializeEncounterID(row, offset, encounter);
+							offset = serializeOrganizer(row, offset, organizer, false, true);
+							offset = serializeObservation(row, offset, observation);
+							serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+						}
+
+					}
+
+				}
+			}
+
+			for (Organizer sa : observations) {
+
+				if (sets.add(sa)) {
+					for (Observation observation : sa.getObservations()) {
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						int offset = serializePatient(row, 0, documentMetadata, patientRole);
+						offset = serializeOrganizer(row, ++offset, sa, false, true);
+						offset = serializeObservation(row, offset, observation);
+						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+					}
+				}
+
+			}
+
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param problemConcerns
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendToProblemsSheet(Query query2, Sheet sheet2, PatientRole patientRole2,
+				ServiceEvent serviceEvent2, EList<ProblemConcernAct> problemConcerns, List<Encounter> encounters2,
+				String fileName2) {
+
+			Set<ProblemConcernAct> sets = new HashSet<ProblemConcernAct>();
+
+			for (Encounter encounter : encounters) {
+				ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
+
+				Collection<ProblemConcernAct> byEncouter = Collections2.filter(problemConcerns, predicate);
+
+				for (ProblemConcernAct sa : byEncouter) {
+
+					if (sets.add(sa)) {
+						int offset = 0;
+
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+						offset = serializePatient(row, offset, documentMetadata, patientRole);
+
+						offset = serializeEncounterID(row, offset, encounter);
+
+						offset = serializeProblemConcernAct(row, offset, sa);
+
+						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+					}
+				}
+			}
+
+			// if (serviceEvent != null) {
+			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
+			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
+			//
+			// for (ProblemConcernAct sa : problemConcerns) {
+			//
+			// if (!problemConcerns.contains(sa)) {
+			//
+			// int offset = 0;
+			//
+			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			//
+			// offset = serializePatient(row, offset, documentMetadata,patientRole);
+			//
+			// offset = serializeServiceEvent(row, offset, serviceEvent);
+			//
+			// offset = serializeProblemConcernAct(row, offset, sa);
+			//
+			// serializeFileName(row, offset, fileName);
+			// sets.add(sa);
+			// // sas.remove(sa);
+			// }
+			// }
+			//
+			// }
+			for (ProblemConcernAct sa : problemConcerns) {
+
+				if (sets.add(sa)) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, documentMetadata, patientRole);
+					offset = serializeProblemConcernAct(row, ++offset, sa);
+					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+				}
+
+			}
+
+		}
+
+		/**
+		 * @param query2
+		 * @param sheet2
+		 * @param patientRole2
+		 * @param serviceEvent2
+		 * @param problemObservations
+		 * @param encounters2
+		 * @param fileName2
+		 */
+		private void appendToProblemsSheet2(Query query2, Sheet sheet2, PatientRole patientRole2,
+				ServiceEvent serviceEvent2, EList<ProblemObservation> problemObservations, List<Encounter> encounters2,
+				String fileName2) {
+			Set<ProblemObservation> sets = new HashSet<ProblemObservation>();
+
+			for (Encounter encounter : encounters) {
+				ObservationByEncounterPredicate predicate = new ObservationByEncounterPredicate(encounter);
+
+				Collection<ProblemObservation> byEncouter = Collections2.filter(problemObservations, predicate);
+
+				for (ProblemObservation sa : byEncouter) {
+
+					if (sets.add(sa)) {
+						int offset = 0;
+
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+						offset = serializePatient(row, offset, documentMetadata, patientRole);
+
+						offset = serializeEncounterID(row, offset, encounter);
+
+						offset = serializeProblemObservation(row, offset, sa);
+
+						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+					}
+				}
+			}
+
+			// if (serviceEvent != null) {
+			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
+			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
+			//
+			// for (ProblemConcernAct sa : problemConcerns) {
+			//
+			// if (!problemConcerns.contains(sa)) {
+			//
+			// int offset = 0;
+			//
+			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			//
+			// offset = serializePatient(row, offset, documentMetadata,patientRole);
+			//
+			// offset = serializeServiceEvent(row, offset, serviceEvent);
+			//
+			// offset = serializeProblemConcernAct(row, offset, sa);
+			//
+			// serializeFileName(row, offset, fileName);
+			// sets.add(sa);
+			// // sas.remove(sa);
+			// }
+			// }
+			//
+			// }
+			for (ProblemObservation sa : problemObservations) {
+
+				if (sets.add(sa)) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, documentMetadata, patientRole);
+					offset = serializeProblemObservation(row, ++offset, sa);
+					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+				}
+
+			}
+
+		}
+
 		/**
 		 * @param row1
 		 * @param row2
@@ -2091,14 +2187,17 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			return offset;
 		}
 
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#defaultCase(org.eclipse.emf.ecore.EObject)
-		 */
-		@Override
-		public Boolean defaultCase(EObject object) {
-			return false;
+		private int createGoalsSectionHeader(Row row1, Row row2, int offset) {
+			// row2.createCell(offset++).setCellValue("Organizer ID");
+			// row2.createCell(offset++).setCellValue("Date");
+			offset = addCodeHeader(row2, offset, "Description");
+			row2.createCell(offset++).setCellValue("Organization");
+			row2.createCell(offset++).setCellValue("Author");
+			row2.createCell(offset++).setCellValue("Observation ID");
+			row2.createCell(offset++).setCellValue("Date");
+			offset = addCodeHeader(row2, offset, "Value");
+			offset = addSectionHeader(row2, offset);
+			return offset;
 		}
 
 		/**
@@ -2217,9 +2316,22 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	static HashMap<String, String> authors = new HashMap<String, String>();
+	/**
+	 * We'll use this pattern as divider to split the string into an array.
+	 * Usage: myString.split(DIVIDER_PATTERN);
+	 */
+	private static final String DIVIDER_PATTERN =
 
-	static HashMap<String, String> organizations = new HashMap<String, String>();
+			"(?<=[^\\p{Lu}])(?=\\p{Lu})"
+			// either there is anything that is not an uppercase character
+			// followed by an uppercase character
+
+					+ "|(?<=[\\p{Ll}])(?=\\d)"
+	// or there is a lowercase character followed by a digit
+
+	;
+
+	static HashMap<String, String> authors = new HashMap<String, String>();
 
 	static final SimpleDateFormat DATE_FORMAT1 = new SimpleDateFormat("yyyy");
 
@@ -2251,7 +2363,183 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	static HashSet<String> names = new HashSet<String>();
 
+	static HashMap<String, String> organizations = new HashMap<String, String>();;
+
 	static SigSwitch sigSwitch = new SigSwitch();
+
+	/**
+	 * @param row1
+	 * @param row2
+	 * @param offset
+	 */
+	public static int createVitalSignsHeader(Row row1, Row row2, int offset) {
+
+		row2.createCell(offset++).setCellValue("Panel ID");
+		row2.createCell(offset++).setCellValue("Date");
+		offset = addCodeHeader(row2, offset, "Panel");
+		row2.createCell(offset++).setCellValue("Organization");
+		row2.createCell(offset++).setCellValue("Author");
+		row2.createCell(offset++).setCellValue("Vital Sign ID");
+		row2.createCell(offset++).setCellValue("Date");
+		offset = addCodeHeader(row2, offset, "Vital Sign");
+		row2.createCell(offset++).setCellValue("Result");
+		row2.createCell(offset++).setCellValue("Range");
+		offset = addSectionHeader(row2, offset);
+		return offset;
+
+	}
+
+	/**
+	 * @param object
+	 * @return
+	 */
+	public static String getValue(REAL real) {
+		StringBuffer sb = new StringBuffer();
+
+		if (real != null) {
+			if (real.getValue() != null) {
+				sb.append(real.getValue().toPlainString() + " ");
+			}
+		}
+		return sb.toString();
+	};
+
+	public static String getValues(EN pn) {
+
+		if (pn.getText() != null && pn.getText().trim().length() > 0) {
+			names.add(pn.getText());
+			return pn.getText();
+		}
+
+		StringBuffer b = new StringBuffer();
+
+		for (ENXP e : pn.getPrefixes()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			names.add(e.getText());
+			b.append(e.getText());
+		}
+
+		for (ENXP e : pn.getGivens()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			names.add(e.getText());
+			b.append(e.getText());
+		}
+
+		for (ENXP e : pn.getFamilies()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			names.add(e.getText());
+			b.append(e.getText());
+		}
+
+		for (ENXP e : pn.getSuffixes()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			names.add(e.getText());
+			b.append(e.getText());
+		}
+
+		return b.toString();
+
+	};
+
+	/**
+	 * @param query2
+	 * @param sheet2
+	 * @param patientRole2
+	 * @param serviceEvent2
+	 * @param vitalSignsOrganizers
+	 * @param encounters2
+	 * @param fileName2
+	 */
+	private static void appendToVitalSignsSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
+			PatientRole patientRole, ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers,
+			List<Encounter> encounters, String fileName) {
+
+		Set<Organizer> sets = new HashSet<Organizer>();
+
+		for (Encounter encounter : encounters) {
+
+			OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
+
+			Collection<Organizer> byEncouter = Collections2.filter(vitalSignsOrganizers, predicate);
+
+			for (Organizer organizer : byEncouter) {
+				if (sets.add(organizer)) {
+					for (Observation observation : organizer.getObservations()) {
+						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+						int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
+						offset = serializeEncounterID(row, offset, encounter);
+						offset = serializeOrganizer(row, offset, organizer, false, false);
+						offset = serializeObservation(row, offset, observation);
+						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+					}
+
+				}
+
+			}
+		}
+
+		for (Organizer sa : vitalSignsOrganizers) {
+
+			if (sets.add(sa)) {
+				for (Observation observation : sa.getObservations()) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
+					offset = serializeOrganizer(row, ++offset, sa, false, false);
+					offset = serializeObservation(row, offset, observation);
+					serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+				}
+			}
+
+		}
+
+	}
+
+	private static int createProblemHeader(Row row1, Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Date");
+		offset = addCodeHeader(row2, offset, "Problem");
+		offset = createProblemObservationHeader(row1, row2, offset);
+		return offset;
+
+	}
+
+	private static int createProblemObservationHeader(Row row1, Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Date");
+		offset = addCodeHeader(row2, offset, "Problem");
+		row2.createCell(offset++).setCellValue("Organization");
+		row2.createCell(offset++).setCellValue("Author");
+		offset = addSectionHeader(row2, offset);
+		return offset;
+
+	}
+
+	private static String sheetName(Section section) {
+		String name = section.eClass().getName();
+		String[] prettyName = name.split(DIVIDER_PATTERN); // "(?=\\p{Upper})");
+		StringBuilder sb = new StringBuilder();
+		for (String str : prettyName) {
+			if (StringUtils.isNumeric(str)) {
+				sb.append("(V").append(str).append(")");
+			} else {
+				sb.append(str).append(" ");
+			}
+		}
+		if ("CONSOL".equalsIgnoreCase(section.eClass().getEPackage().getNsPrefix())) {
+			return sb.toString();
+		} else {
+			return section.eClass().getEPackage().getNsPrefix().toUpperCase() + " " + sb.toString();
+		}
+
+	}
 
 	static int addCodeHeader(Row row1, int offset, String prefix) {
 		row1.createCell(offset++).setCellValue(prefix + " Text");
@@ -2263,7 +2551,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row1.createCell(offset++).setCellValue("Code System Name");
 		row1.getSheet().setColumnHidden(offset - 1, true);
 		return offset;
-	};
+	}
 
 	static int addSectionHeader(Row row1, int offset) {
 		row1.createCell(offset++).setCellValue("Section Title");
@@ -2271,7 +2559,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row1.createCell(offset++).setCellValue("Narrative");
 
 		return offset;
-	}
+	};
 
 	/**
 	 * @param query
@@ -2373,7 +2661,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 		return offset;
-	};
+	}
 
 	/**
 	 * @param query
@@ -2427,7 +2715,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-	};
+	}
 
 	static int appendOrganizationAndAuthor(Row row, int offset, EList<Author> authors) {
 		String organization = getValue(authors, PorO.ORGANIZATION);
@@ -2486,7 +2774,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-	}
+	};
 
 	/**
 	 * @param query
@@ -2575,7 +2863,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-	}
+	};
 
 	/**
 	 * @param wb
@@ -2595,20 +2883,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			}
 		}
 	}
-
-	static class DocumentMetadata {
-
-		String documentLibrary = "";
-
-		String documentType = "";
-
-		String documentOrganization = "";
-
-		String documentSoftware = "";
-
-		Date documentDate = null;
-
-	};
 
 	static DocumentMetadata appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole,
 			InformationRecipient ir, InFulfillmentOf iffo, String fileName) {
@@ -2676,11 +2950,10 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row.createCell(offset++).setCellValue(documentMetadata.documentSoftware);
 
 		if (documentMetadata.documentDate != null) {
-			CellStyle cellStyle = sheet.getWorkbook().createCellStyle();
-			CreationHelper createHelper = sheet.getWorkbook().getCreationHelper();
-			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
+
 			Cell cell = row.createCell(offset++);
-			cell.setCellStyle(cellStyle);
+
+			cell.setCellStyle(getDocumentDateStyle(sheet));
 			cell.setCellValue(documentMetadata.documentDate);
 		} else {
 			row.createCell(offset++);
@@ -2721,6 +2994,22 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		serializeSectionAndFileName(row, offset, null, fileName);
 
 		return documentMetadata;
+	};
+
+	/**
+	 * @param sheet
+	 * @return
+	 */
+	static CellStyle documentDateStyle;
+
+	private static CellStyle getDocumentDateStyle(Sheet sheet) {
+		if (documentDateStyle == null) {
+			documentDateStyle = sheet.getWorkbook().createCellStyle();
+			CreationHelper createHelper = sheet.getWorkbook().getCreationHelper();
+			documentDateStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
+		}
+
+		return documentDateStyle;
 	}
 
 	static void appendToResultsSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
@@ -2798,7 +3087,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-	}
+	};
 
 	/**
 	 * @param wb
@@ -2882,7 +3171,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		}
 
-	}
+	};
 
 	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
 			PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
@@ -2916,7 +3205,16 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		// 0, firstColumn, offset));
 
 		return offset;
-	};
+	}
+
+	static int createDocumentMedadataHeadder(Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("CDA Specification");
+		row2.createCell(offset++).setCellValue("CDA Document Type");
+		row2.createCell(offset++).setCellValue("Organization");
+		row2.createCell(offset++).setCellValue("Software");
+		row2.createCell(offset++).setCellValue("Document Date");
+		return offset;
+	}
 
 	static int createEncounterHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("ID");
@@ -2933,15 +3231,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Encounter ID");
 
 		return offset;
-	};
-
-	static int createDocumentMedadataHeadder(Row row2, int offset) {
-		row2.createCell(offset++).setCellValue("CDA Specification");
-		row2.createCell(offset++).setCellValue("CDA Document Type");
-		row2.createCell(offset++).setCellValue("Organization");
-		row2.createCell(offset++).setCellValue("Software");
-		row2.createCell(offset++).setCellValue("Document Date");
-		return offset;
 	}
 
 	static int createPatientHeader(Row row1, Row row2, int offset) {
@@ -2950,7 +3239,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("DOB");
 		offset = createDocumentMedadataHeadder(row2, offset);
 		return offset;
-	};
+	}
 
 	static int createPatientHeader2(Row row1, Row row2, int offset) {
 		// row2.createCell(offset++).setCellValue("CDA Specification");
@@ -2962,7 +3251,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Order Id");
 		row2.createCell(offset++).setCellValue("File Name");
 		return offset;
-	};
+	}
 
 	/**
 	 * @param row1
@@ -2979,7 +3268,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("File Name");
 		return offset;
 
-	};
+	}
 
 	static int createResultsHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Panel ID");
@@ -3201,46 +3490,20 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return extractText.getText();
 	}
 
-	static void initAuthorReferences(List<Author> authors, PorO poro) {
+	static String getValue(IVL_PQ pq) {
+		StringBuffer sb = new StringBuffer();
 
-		String result = "";
-		String authorId = "";
-
-		for (Author a : authors) {
-
-			if (a.getAssignedAuthor() != null) {
-				AssignedAuthor aa = a.getAssignedAuthor();
-
-				if (PorO.ORGANIZATION.equals(poro)) {
-					if (aa.getRepresentedOrganization() != null) {
-						for (ON on : aa.getRepresentedOrganization().getNames()) {
-							result = getValues(on);
-						}
-					}
-				}
-
-				if (PorO.PERSON.equals(poro)) {
-					if (aa.getAssignedPerson() != null) {
-						for (PN pn : aa.getAssignedPerson().getNames()) {
-							result = getValues(pn);
-						}
-					}
-				}
+		if (pq != null) {
+			if (pq.getValue() != null) {
+				sb.append(pq.getValue().toPlainString() + " ");
 			}
 
-			for (II ii : a.getAssignedAuthor().getIds()) {
-				authorId = getKey3(ii);
-				if (!StringUtils.isEmpty(authorId) && !StringUtils.isEmpty(result)) {
-					if (PorO.ORGANIZATION.equals(poro)) {
-						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.organizations.put(authorId, result);
-					} else {
-						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.put(authorId, result);
-					}
-
-				}
-			}
-
+			String unit = StringUtils.isEmpty(pq.getUnit())
+					? ""
+					: pq.getUnit();
+			sb.append(unit);
 		}
+		return sb.toString();
 	}
 
 	static String getValue(List<Author> authors, PorO poro) {
@@ -3299,22 +3562,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return result;
 	}
 
-	static String getValue(IVL_PQ pq) {
-		StringBuffer sb = new StringBuffer();
-
-		if (pq != null) {
-			if (pq.getValue() != null) {
-				sb.append(pq.getValue().toPlainString() + " ");
-			}
-
-			String unit = StringUtils.isEmpty(pq.getUnit())
-					? ""
-					: pq.getUnit();
-			sb.append(unit);
-		}
-		return sb.toString();
-	}
-
 	static String getValue(PQ pq) {
 		StringBuffer sb = new StringBuffer();
 
@@ -3327,21 +3574,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					? ""
 					: pq.getUnit();
 			sb.append(unit);
-		}
-		return sb.toString();
-	}
-
-	/**
-	 * @param object
-	 * @return
-	 */
-	public static String getValue(REAL real) {
-		StringBuffer sb = new StringBuffer();
-
-		if (real != null) {
-			if (real.getValue() != null) {
-				sb.append(real.getValue().toPlainString() + " ");
-			}
 		}
 		return sb.toString();
 	}
@@ -3390,6 +3622,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return sb.toString();
 	}
 
+	// static int ++offset = 0;
+
 	static String getValueAsString(Section section, CD cd) {
 
 		StringBuffer sb = new StringBuffer();
@@ -3416,51 +3650,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 		return sb.toString();
-	}
-
-	public static String getValues(EN pn) {
-
-		if (pn.getText() != null && pn.getText().trim().length() > 0) {
-			names.add(pn.getText());
-			return pn.getText();
-		}
-
-		StringBuffer b = new StringBuffer();
-
-		for (ENXP e : pn.getPrefixes()) {
-			if (b.length() > 0) {
-				b.append(" ");
-			}
-			names.add(e.getText());
-			b.append(e.getText());
-		}
-
-		for (ENXP e : pn.getGivens()) {
-			if (b.length() > 0) {
-				b.append(" ");
-			}
-			names.add(e.getText());
-			b.append(e.getText());
-		}
-
-		for (ENXP e : pn.getFamilies()) {
-			if (b.length() > 0) {
-				b.append(" ");
-			}
-			names.add(e.getText());
-			b.append(e.getText());
-		}
-
-		for (ENXP e : pn.getSuffixes()) {
-			if (b.length() > 0) {
-				b.append(" ");
-			}
-			names.add(e.getText());
-			b.append(e.getText());
-		}
-
-		return b.toString();
-
 	}
 
 	/**
@@ -3491,6 +3680,48 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			case Diagnostic.INFO:
 				handler.handleInfo(diagnostic);
 				break;
+		}
+	}
+
+	static void initAuthorReferences(List<Author> authors, PorO poro) {
+
+		String result = "";
+		String authorId = "";
+
+		for (Author a : authors) {
+
+			if (a.getAssignedAuthor() != null) {
+				AssignedAuthor aa = a.getAssignedAuthor();
+
+				if (PorO.ORGANIZATION.equals(poro)) {
+					if (aa.getRepresentedOrganization() != null) {
+						for (ON on : aa.getRepresentedOrganization().getNames()) {
+							result = getValues(on);
+						}
+					}
+				}
+
+				if (PorO.PERSON.equals(poro)) {
+					if (aa.getAssignedPerson() != null) {
+						for (PN pn : aa.getAssignedPerson().getNames()) {
+							result = getValues(pn);
+						}
+					}
+				}
+			}
+
+			for (II ii : a.getAssignedAuthor().getIds()) {
+				authorId = getKey3(ii);
+				if (!StringUtils.isEmpty(authorId) && !StringUtils.isEmpty(result)) {
+					if (PorO.ORGANIZATION.equals(poro)) {
+						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.organizations.put(authorId, result);
+					} else {
+						org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler.authors.put(authorId, result);
+					}
+
+				}
+			}
+
 		}
 	}
 
@@ -3597,8 +3828,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return false;
 
 	}
-
-	// static int ++offset = 0;
 
 	/**
 	 * @param encounter2
@@ -3745,7 +3974,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 				queue.add(childDiagnostic);
 			}
 		}
-	}
+	};
 
 	/**
 	 * @param row
@@ -3876,6 +4105,32 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		row.createCell(offset++).setCellValue(sb.toString());
 
+		return offset;
+	}
+
+	static int serializeDocumentMetadata(Row row, int offset, DocumentMetadata documentMetadata) {
+		Cell cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentLibrary);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentType);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentOrganization);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentSoftware);
+
+		if (documentMetadata.documentDate != null) {
+			CellStyle cellStyle = row.getSheet().getWorkbook().createCellStyle();
+			CreationHelper createHelper = row.getSheet().getWorkbook().getCreationHelper();
+			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
+			cell = row.createCell(offset++);
+			cell.setCellStyle(cellStyle);
+			cell.setCellValue(documentMetadata.documentDate);
+		} else {
+			row.createCell(offset++);
+		}
 		return offset;
 	}
 
@@ -4055,7 +4310,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 
 		return offset;
-	};
+	}
 
 	/**
 	 * @param row
@@ -4163,53 +4418,6 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatient(Row row, int offset, Patient patient) {
-
-		Cell cell = row.createCell(offset++);
-
-		if (patient.getBirthTime() != null) {
-
-			Date d = getDate(patient.getBirthTime().getValue());
-			if (d != null) {
-				cell.setCellValue(DATE_PRETTY.format(d));
-			} else {
-				cell.setCellValue(patient.getBirthTime().getValue());
-			}
-		}
-
-		return offset;
-	}
-
-	static int serializePatient(Row row, int offset, PatientRole patientRole) {
-		return serializePatient(row, offset, null, patientRole);
-	}
-
-	static int serializeDocumentMetadata(Row row, int offset, DocumentMetadata documentMetadata) {
-		Cell cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentLibrary);
-
-		cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentType);
-
-		cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentOrganization);
-
-		cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentSoftware);
-
-		if (documentMetadata.documentDate != null) {
-			CellStyle cellStyle = row.getSheet().getWorkbook().createCellStyle();
-			CreationHelper createHelper = row.getSheet().getWorkbook().getCreationHelper();
-			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
-			cell = row.createCell(offset++);
-			cell.setCellStyle(cellStyle);
-			cell.setCellValue(documentMetadata.documentDate);
-		} else {
-			row.createCell(offset++);
-		}
-		return offset;
-	}
-
 	static int serializePatient(Row row, int offset, DocumentMetadata documentMetadata, PatientRole patientRole) {
 
 		Cell cell = row.createCell(offset++);
@@ -4230,6 +4438,27 @@ public class GenerateCDADataHandler extends AbstractHandler {
 			offset = serializeDocumentMetadata(row, offset, documentMetadata);
 		}
 		return offset;
+	};
+
+	static int serializePatient(Row row, int offset, Patient patient) {
+
+		Cell cell = row.createCell(offset++);
+
+		if (patient.getBirthTime() != null) {
+
+			Date d = getDate(patient.getBirthTime().getValue());
+			if (d != null) {
+				cell.setCellValue(DATE_PRETTY.format(d));
+			} else {
+				cell.setCellValue(patient.getBirthTime().getValue());
+			}
+		}
+
+		return offset;
+	}
+
+	static int serializePatient(Row row, int offset, PatientRole patientRole) {
+		return serializePatient(row, offset, null, patientRole);
 	}
 
 	/**
@@ -4455,7 +4684,7 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		}
 		row.createCell(3).setCellValue(sb.toString());
 
-	};
+	}
 
 	/**
 	 * @param row
@@ -4657,11 +4886,11 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	HashMap<IFile, DocumentMetadata> documentsbyfile = new HashMap<IFile, DocumentMetadata>();
 
+	HashMap<IFile, Exception> errors = new HashMap<IFile, Exception>();
+
 	ArrayList<IFile> files = new ArrayList<IFile>();
 
 	HashMap<String, ArrayList<IFile>> sectionbyfile = new HashMap<String, ArrayList<IFile>>();
-
-	HashMap<IFile, Exception> errors = new HashMap<IFile, Exception>();
 
 	/*
 	 * (non-Javadoc)
@@ -4848,45 +5077,20 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 	}
 
-	/**
-	 * We'll use this pattern as divider to split the string into an array.
-	 * Usage: myString.split(DIVIDER_PATTERN);
-	 */
-	private static final String DIVIDER_PATTERN =
-
-			"(?<=[^\\p{Lu}])(?=\\p{Lu})"
-			// either there is anything that is not an uppercase character
-			// followed by an uppercase character
-
-					+ "|(?<=[\\p{Ll}])(?=\\d)"
-	// or there is a lowercase character followed by a digit
-
-	;
-
-	private static String sheetName(Section section) {
-		String name = section.eClass().getName();
-		String[] prettyName = name.split(DIVIDER_PATTERN); // "(?=\\p{Upper})");
-		StringBuilder sb = new StringBuilder();
-		for (String str : prettyName) {
-			if (StringUtils.isNumeric(str)) {
-				sb.append("(V").append(str).append(")");
-			} else {
-				sb.append(str).append(" ");
-			}
-		}
-		if ("CONSOL".equalsIgnoreCase(section.eClass().getEPackage().getNsPrefix())) {
-			return sb.toString();
-		} else {
-			return section.eClass().getEPackage().getNsPrefix().toUpperCase() + " " + sb.toString();
-		}
-
-	}
-
 	private void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
 		ConsolPackage.eINSTANCE.getContinuityOfCareDocument();
 		HITSPPackage.eINSTANCE.getPatientSummary();
 
+		/*
+		 * There is a limitation on the number of cell styles you can create
+		 * We create a global instnace of the documentDateStyle for use in the getDocumentDateStyle()
+		 * Set it to null on start up because it is bound to a particular workbook
+		 *
+		 * Not optimal but did not want to send the documentDateStyle as an argument to all the serialization methods
+		 */
+		documentDateStyle = null;
 		SXSSFWorkbook wb = new SXSSFWorkbook(100);
+
 		wb.setCompressTempFiles(true);
 		HashMap<Integer, String> sheets = new HashMap<Integer, String>();
 
@@ -5101,9 +5305,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		style.setAlignment(CellStyle.ALIGN_CENTER);
 		// style.setFont(font);
 
-		CellStyle boldstyle = wb.createCellStyle();
+		// CellStyle boldstyle = wb.createCellStyle();
 
-		boldstyle.setFont(boldFont);
+		// boldstyle.setFont(boldFont);
 		int lastRow = 0;
 		for (IFile file : files) {
 			if (documentsbyfile.containsKey(file)) {
@@ -5198,100 +5402,5 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		wb.write(fileOut);
 		fileOut.close();
 		wb.close();
-	}
-
-	private static int createProblemHeader(Row row1, Row row2, int offset) {
-		row2.createCell(offset++).setCellValue("ID");
-		row2.createCell(offset++).setCellValue("Date");
-		offset = addCodeHeader(row2, offset, "Problem");
-		offset = createProblemObservationHeader(row1, row2, offset);
-		return offset;
-
-	}
-
-	private static int createProblemObservationHeader(Row row1, Row row2, int offset) {
-		row2.createCell(offset++).setCellValue("ID");
-		row2.createCell(offset++).setCellValue("Date");
-		offset = addCodeHeader(row2, offset, "Problem");
-		row2.createCell(offset++).setCellValue("Organization");
-		row2.createCell(offset++).setCellValue("Author");
-		offset = addSectionHeader(row2, offset);
-		return offset;
-
-	}
-
-	/**
-	 * @param query2
-	 * @param sheet2
-	 * @param patientRole2
-	 * @param serviceEvent2
-	 * @param vitalSignsOrganizers
-	 * @param encounters2
-	 * @param fileName2
-	 */
-	private static void appendToVitalSignsSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
-			PatientRole patientRole, ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers,
-			List<Encounter> encounters, String fileName) {
-
-		Set<Organizer> sets = new HashSet<Organizer>();
-
-		for (Encounter encounter : encounters) {
-
-			OrganizerByEncounterPredicate predicate = new OrganizerByEncounterPredicate(encounter);
-
-			Collection<Organizer> byEncouter = Collections2.filter(vitalSignsOrganizers, predicate);
-
-			for (Organizer organizer : byEncouter) {
-				if (sets.add(organizer)) {
-					for (Observation observation : organizer.getObservations()) {
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-						int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-						offset = serializeEncounterID(row, offset, encounter);
-						offset = serializeOrganizer(row, offset, organizer, false, false);
-						offset = serializeObservation(row, offset, observation);
-						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-					}
-
-				}
-
-			}
-		}
-
-		for (Organizer sa : vitalSignsOrganizers) {
-
-			if (sets.add(sa)) {
-				for (Observation observation : sa.getObservations()) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-					offset = serializeOrganizer(row, ++offset, sa, false, false);
-					offset = serializeObservation(row, offset, observation);
-					serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-				}
-			}
-
-		}
-
-	}
-
-	/**
-	 * @param row1
-	 * @param row2
-	 * @param offset
-	 */
-	public static int createVitalSignsHeader(Row row1, Row row2, int offset) {
-
-		row2.createCell(offset++).setCellValue("Panel ID");
-		row2.createCell(offset++).setCellValue("Date");
-		offset = addCodeHeader(row2, offset, "Panel");
-		row2.createCell(offset++).setCellValue("Organization");
-		row2.createCell(offset++).setCellValue("Author");
-		row2.createCell(offset++).setCellValue("Vital Sign ID");
-		row2.createCell(offset++).setCellValue("Date");
-		offset = addCodeHeader(row2, offset, "Vital Sign");
-		row2.createCell(offset++).setCellValue("Result");
-		row2.createCell(offset++).setCellValue("Range");
-		offset = addSectionHeader(row2, offset);
-		return offset;
-
 	}
 }
