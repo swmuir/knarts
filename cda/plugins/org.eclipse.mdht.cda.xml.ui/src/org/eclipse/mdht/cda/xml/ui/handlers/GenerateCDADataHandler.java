@@ -4122,11 +4122,8 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		cell.setCellValue(documentMetadata.documentSoftware);
 
 		if (documentMetadata.documentDate != null) {
-			CellStyle cellStyle = row.getSheet().getWorkbook().createCellStyle();
-			CreationHelper createHelper = row.getSheet().getWorkbook().getCreationHelper();
-			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
 			cell = row.createCell(offset++);
-			cell.setCellStyle(cellStyle);
+			cell.setCellStyle(getDocumentDateStyle(row.getSheet()));
 			cell.setCellValue(documentMetadata.documentDate);
 		} else {
 			row.createCell(offset++);
