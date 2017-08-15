@@ -51,7 +51,7 @@ public interface RelatedDocument extends ActRelationship {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedDocument_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -68,7 +68,7 @@ public interface RelatedDocument extends ActRelationship {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedDocument_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -95,7 +95,7 @@ public interface RelatedDocument extends ActRelationship {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedDocument_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -112,7 +112,7 @@ public interface RelatedDocument extends ActRelationship {
 	 * @see #setParentDocument(ParentDocument)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedDocument_ParentDocument()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ParentDocument getParentDocument();

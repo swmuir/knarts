@@ -67,7 +67,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -84,7 +84,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -111,7 +111,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -128,7 +128,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Id()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -145,7 +145,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @see #setCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Code()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getCode();
@@ -172,7 +172,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Value</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Value()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<RegionOfInterestValue> getValues();
@@ -189,7 +189,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -216,7 +216,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -233,7 +233,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -250,7 +250,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -267,7 +267,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -284,7 +284,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -301,7 +301,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();
@@ -318,7 +318,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -335,7 +335,7 @@ public interface RegionOfInterest extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRegionOfInterest_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();

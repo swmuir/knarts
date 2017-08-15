@@ -54,7 +54,7 @@ public interface Consumable extends Participation {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getConsumable_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -71,7 +71,7 @@ public interface Consumable extends Participation {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getConsumable_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -98,7 +98,7 @@ public interface Consumable extends Participation {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getConsumable_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -115,7 +115,7 @@ public interface Consumable extends Participation {
 	 * @see #setManufacturedProduct(ManufacturedProduct)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getConsumable_ManufacturedProduct()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ManufacturedProduct getManufacturedProduct();

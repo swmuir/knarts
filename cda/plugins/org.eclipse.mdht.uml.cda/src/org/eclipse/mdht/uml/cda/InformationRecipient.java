@@ -51,7 +51,7 @@ public interface InformationRecipient extends Participation {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInformationRecipient_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -68,7 +68,7 @@ public interface InformationRecipient extends Participation {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInformationRecipient_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -95,7 +95,7 @@ public interface InformationRecipient extends Participation {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInformationRecipient_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -112,7 +112,7 @@ public interface InformationRecipient extends Participation {
 	 * @see #setIntendedRecipient(IntendedRecipient)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInformationRecipient_IntendedRecipient()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IntendedRecipient getIntendedRecipient();

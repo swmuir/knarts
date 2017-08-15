@@ -56,7 +56,7 @@ public interface Component2 extends ActRelationship {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -73,7 +73,7 @@ public interface Component2 extends ActRelationship {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -100,7 +100,7 @@ public interface Component2 extends ActRelationship {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -117,7 +117,7 @@ public interface Component2 extends ActRelationship {
 	 * @see #setNonXMLBody(NonXMLBody)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2_NonXMLBody()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	NonXMLBody getNonXMLBody();
@@ -144,7 +144,7 @@ public interface Component2 extends ActRelationship {
 	 * @see #setStructuredBody(StructuredBody)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent2_StructuredBody()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	StructuredBody getStructuredBody();

@@ -60,7 +60,7 @@ public interface OrganizationPartOf extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -77,7 +77,7 @@ public interface OrganizationPartOf extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -104,7 +104,7 @@ public interface OrganizationPartOf extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -121,7 +121,7 @@ public interface OrganizationPartOf extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -138,7 +138,7 @@ public interface OrganizationPartOf extends Role {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -165,7 +165,7 @@ public interface OrganizationPartOf extends Role {
 	 * @see #setStatusCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_StatusCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getStatusCode();
@@ -192,7 +192,7 @@ public interface OrganizationPartOf extends Role {
 	 * @see #setEffectiveTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_EffectiveTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getEffectiveTime();
@@ -219,7 +219,7 @@ public interface OrganizationPartOf extends Role {
 	 * @see #setWholeOrganization(Organization)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizationPartOf_WholeOrganization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organization getWholeOrganization();

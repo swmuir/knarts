@@ -394,7 +394,7 @@ public interface Procedure extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getProcedure_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();

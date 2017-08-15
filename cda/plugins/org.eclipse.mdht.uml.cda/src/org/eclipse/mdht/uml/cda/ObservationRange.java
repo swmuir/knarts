@@ -63,7 +63,7 @@ public interface ObservationRange extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -80,7 +80,7 @@ public interface ObservationRange extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -107,7 +107,7 @@ public interface ObservationRange extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -124,7 +124,7 @@ public interface ObservationRange extends Act {
 	 * @see #setCode(CD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CD getCode();
@@ -151,7 +151,7 @@ public interface ObservationRange extends Act {
 	 * @see #setText(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getText();
@@ -178,7 +178,7 @@ public interface ObservationRange extends Act {
 	 * @see #setValue(ANY)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_Value()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ANY getValue();
@@ -205,7 +205,7 @@ public interface ObservationRange extends Act {
 	 * @see #setInterpretationCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationRange_InterpretationCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getInterpretationCode();

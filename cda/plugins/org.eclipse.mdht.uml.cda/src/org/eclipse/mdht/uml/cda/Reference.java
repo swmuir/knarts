@@ -59,7 +59,7 @@ public interface Reference extends ActRelationship {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -76,7 +76,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -103,7 +103,7 @@ public interface Reference extends ActRelationship {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -120,7 +120,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setSeperatableInd(BL)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_SeperatableInd()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	BL getSeperatableInd();
@@ -147,7 +147,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setExternalAct(ExternalAct)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_ExternalAct()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ExternalAct getExternalAct();
@@ -174,7 +174,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setExternalObservation(ExternalObservation)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_ExternalObservation()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ExternalObservation getExternalObservation();
@@ -201,7 +201,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setExternalProcedure(ExternalProcedure)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_ExternalProcedure()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ExternalProcedure getExternalProcedure();
@@ -228,7 +228,7 @@ public interface Reference extends ActRelationship {
 	 * @see #setExternalDocument(ExternalDocument)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getReference_ExternalDocument()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ExternalDocument getExternalDocument();

@@ -70,7 +70,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -87,7 +87,7 @@ public interface Section extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -114,7 +114,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -131,7 +131,7 @@ public interface Section extends Act {
 	 * @see #setId(II)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	II getId();
@@ -158,7 +158,7 @@ public interface Section extends Act {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -185,7 +185,7 @@ public interface Section extends Act {
 	 * @see #setTitle(ST)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Title()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ST getTitle();
@@ -212,7 +212,7 @@ public interface Section extends Act {
 	 * @see #setText(StrucDocText)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	StrucDocText getText();
@@ -239,7 +239,7 @@ public interface Section extends Act {
 	 * @see #setConfidentialityCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_ConfidentialityCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getConfidentialityCode();
@@ -266,7 +266,7 @@ public interface Section extends Act {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -293,7 +293,7 @@ public interface Section extends Act {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -320,7 +320,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -337,7 +337,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -354,7 +354,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Entry</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Entry()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Entry> getEntries();
@@ -371,7 +371,7 @@ public interface Section extends Act {
 	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSection_Component()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Component5> getComponents();

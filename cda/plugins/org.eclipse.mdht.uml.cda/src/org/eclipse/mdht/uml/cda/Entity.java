@@ -59,7 +59,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -76,7 +76,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -103,7 +103,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -120,7 +120,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -137,7 +137,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -164,7 +164,7 @@ public interface Entity extends org.eclipse.mdht.uml.hl7.rim.Entity {
 	 * @see #setDesc(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntity_Desc()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getDesc();

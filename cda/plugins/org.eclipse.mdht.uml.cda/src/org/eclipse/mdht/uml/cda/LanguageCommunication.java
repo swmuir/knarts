@@ -54,7 +54,7 @@ public interface LanguageCommunication extends EObject {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -71,7 +71,7 @@ public interface LanguageCommunication extends EObject {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -98,7 +98,7 @@ public interface LanguageCommunication extends EObject {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -115,7 +115,7 @@ public interface LanguageCommunication extends EObject {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -142,7 +142,7 @@ public interface LanguageCommunication extends EObject {
 	 * @see #setModeCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_ModeCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getModeCode();
@@ -169,7 +169,7 @@ public interface LanguageCommunication extends EObject {
 	 * @see #setProficiencyLevelCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_ProficiencyLevelCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getProficiencyLevelCode();
@@ -196,7 +196,7 @@ public interface LanguageCommunication extends EObject {
 	 * @see #setPreferenceInd(BL)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getLanguageCommunication_PreferenceInd()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	BL getPreferenceInd();

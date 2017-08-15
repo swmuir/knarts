@@ -65,7 +65,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -82,7 +82,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -109,7 +109,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -126,7 +126,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -143,7 +143,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -170,7 +170,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @see #setValue(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Value()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getValue();
@@ -197,7 +197,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -224,7 +224,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -241,7 +241,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -258,7 +258,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -275,7 +275,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -292,7 +292,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -309,7 +309,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();
@@ -326,7 +326,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -343,7 +343,7 @@ public interface ObservationMedia extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservationMedia_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();

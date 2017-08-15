@@ -63,7 +63,7 @@ public interface ParticipantRole extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -80,7 +80,7 @@ public interface ParticipantRole extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -107,7 +107,7 @@ public interface ParticipantRole extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -124,7 +124,7 @@ public interface ParticipantRole extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -141,7 +141,7 @@ public interface ParticipantRole extends Role {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -168,7 +168,7 @@ public interface ParticipantRole extends Role {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -185,7 +185,7 @@ public interface ParticipantRole extends Role {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -202,7 +202,7 @@ public interface ParticipantRole extends Role {
 	 * @see #setPlayingDevice(Device)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_PlayingDevice()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Device getPlayingDevice();
@@ -229,7 +229,7 @@ public interface ParticipantRole extends Role {
 	 * @see #setPlayingEntity(PlayingEntity)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_PlayingEntity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	PlayingEntity getPlayingEntity();
@@ -256,7 +256,7 @@ public interface ParticipantRole extends Role {
 	 * @see #setScopingEntity(Entity)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getParticipantRole_ScopingEntity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Entity getScopingEntity();

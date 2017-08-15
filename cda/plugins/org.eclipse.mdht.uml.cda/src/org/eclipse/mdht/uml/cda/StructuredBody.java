@@ -59,7 +59,7 @@ public interface StructuredBody extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -76,7 +76,7 @@ public interface StructuredBody extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -103,7 +103,7 @@ public interface StructuredBody extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -120,7 +120,7 @@ public interface StructuredBody extends Act {
 	 * @see #setConfidentialityCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_ConfidentialityCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getConfidentialityCode();
@@ -147,7 +147,7 @@ public interface StructuredBody extends Act {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -174,7 +174,7 @@ public interface StructuredBody extends Act {
 	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getStructuredBody_Component()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Component3> getComponents();

@@ -63,7 +63,7 @@ public interface CustodianOrganization extends Entity {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -80,7 +80,7 @@ public interface CustodianOrganization extends Entity {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -107,7 +107,7 @@ public interface CustodianOrganization extends Entity {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -124,7 +124,7 @@ public interface CustodianOrganization extends Entity {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_Id()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -141,7 +141,7 @@ public interface CustodianOrganization extends Entity {
 	 * @see #setName(ON)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_Name()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ON getName();
@@ -168,7 +168,7 @@ public interface CustodianOrganization extends Entity {
 	 * @see #setTelecom(TEL)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	TEL getTelecom();
@@ -195,7 +195,7 @@ public interface CustodianOrganization extends Entity {
 	 * @see #setAddr(AD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getCustodianOrganization_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	AD getAddr();

@@ -69,7 +69,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -86,7 +86,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -113,7 +113,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -130,7 +130,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setSequenceNumber(INT)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_SequenceNumber()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	INT getSequenceNumber();
@@ -157,7 +157,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setSeperatableInd(BL)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_SeperatableInd()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	BL getSeperatableInd();
@@ -184,7 +184,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setAct(Act)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Act()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Act getAct();
@@ -211,7 +211,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setEncounter(Encounter)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Encounter()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Encounter getEncounter();
@@ -238,7 +238,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setObservation(Observation)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Observation()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Observation getObservation();
@@ -265,7 +265,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setObservationMedia(ObservationMedia)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_ObservationMedia()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ObservationMedia getObservationMedia();
@@ -292,7 +292,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setOrganizer(Organizer)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Organizer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organizer getOrganizer();
@@ -319,7 +319,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setProcedure(Procedure)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Procedure()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Procedure getProcedure();
@@ -346,7 +346,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setRegionOfInterest(RegionOfInterest)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_RegionOfInterest()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	RegionOfInterest getRegionOfInterest();
@@ -373,7 +373,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setSubstanceAdministration(SubstanceAdministration)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_SubstanceAdministration()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	SubstanceAdministration getSubstanceAdministration();
@@ -400,7 +400,7 @@ public interface EntryRelationship extends ActRelationship {
 	 * @see #setSupply(Supply)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEntryRelationship_Supply()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Supply getSupply();

@@ -63,7 +63,7 @@ public interface ExternalDocument extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -80,7 +80,7 @@ public interface ExternalDocument extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -107,7 +107,7 @@ public interface ExternalDocument extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -124,7 +124,7 @@ public interface ExternalDocument extends Act {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -141,7 +141,7 @@ public interface ExternalDocument extends Act {
 	 * @see #setCode(CD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CD getCode();
@@ -168,7 +168,7 @@ public interface ExternalDocument extends Act {
 	 * @see #setText(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getText();
@@ -195,7 +195,7 @@ public interface ExternalDocument extends Act {
 	 * @see #setSetId(II)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_SetId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	II getSetId();
@@ -222,7 +222,7 @@ public interface ExternalDocument extends Act {
 	 * @see #setVersionNumber(INT)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getExternalDocument_VersionNumber()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	INT getVersionNumber();

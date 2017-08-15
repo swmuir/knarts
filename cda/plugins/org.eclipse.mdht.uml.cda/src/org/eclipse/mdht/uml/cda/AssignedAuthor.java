@@ -63,7 +63,7 @@ public interface AssignedAuthor extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -80,7 +80,7 @@ public interface AssignedAuthor extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -107,7 +107,7 @@ public interface AssignedAuthor extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -124,7 +124,7 @@ public interface AssignedAuthor extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_Id()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -141,7 +141,7 @@ public interface AssignedAuthor extends Role {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -168,7 +168,7 @@ public interface AssignedAuthor extends Role {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -185,7 +185,7 @@ public interface AssignedAuthor extends Role {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -202,7 +202,7 @@ public interface AssignedAuthor extends Role {
 	 * @see #setAssignedPerson(Person)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_AssignedPerson()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Person getAssignedPerson();
@@ -229,7 +229,7 @@ public interface AssignedAuthor extends Role {
 	 * @see #setAssignedAuthoringDevice(AuthoringDevice)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_AssignedAuthoringDevice()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	AuthoringDevice getAssignedAuthoringDevice();
@@ -256,7 +256,7 @@ public interface AssignedAuthor extends Role {
 	 * @see #setRepresentedOrganization(Organization)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAssignedAuthor_RepresentedOrganization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organization getRepresentedOrganization();

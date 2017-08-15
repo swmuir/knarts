@@ -57,7 +57,7 @@ public interface IntendedRecipient extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -74,7 +74,7 @@ public interface IntendedRecipient extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -101,7 +101,7 @@ public interface IntendedRecipient extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -118,7 +118,7 @@ public interface IntendedRecipient extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -135,7 +135,7 @@ public interface IntendedRecipient extends Role {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -152,7 +152,7 @@ public interface IntendedRecipient extends Role {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -169,7 +169,7 @@ public interface IntendedRecipient extends Role {
 	 * @see #setInformationRecipient(Person)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_InformationRecipient()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Person getInformationRecipient();
@@ -196,7 +196,7 @@ public interface IntendedRecipient extends Role {
 	 * @see #setReceivedOrganization(Organization)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getIntendedRecipient_ReceivedOrganization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organization getReceivedOrganization();

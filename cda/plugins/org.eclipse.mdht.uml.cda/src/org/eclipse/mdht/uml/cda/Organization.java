@@ -65,7 +65,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -82,7 +82,7 @@ public interface Organization extends Entity {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -109,7 +109,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -126,7 +126,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -143,7 +143,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Name</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_Name()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<ON> getNames();
@@ -160,7 +160,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -177,7 +177,7 @@ public interface Organization extends Entity {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -194,7 +194,7 @@ public interface Organization extends Entity {
 	 * @see #setStandardIndustryClassCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_StandardIndustryClassCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getStandardIndustryClassCode();
@@ -221,7 +221,7 @@ public interface Organization extends Entity {
 	 * @see #setAsOrganizationPartOf(OrganizationPartOf)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganization_AsOrganizationPartOf()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	OrganizationPartOf getAsOrganizationPartOf();

@@ -60,7 +60,7 @@ public interface PatientRole extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -77,7 +77,7 @@ public interface PatientRole extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -104,7 +104,7 @@ public interface PatientRole extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -121,7 +121,7 @@ public interface PatientRole extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_Id()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -138,7 +138,7 @@ public interface PatientRole extends Role {
 	 * @return the value of the '<em>Addr</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_Addr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<AD> getAddrs();
@@ -155,7 +155,7 @@ public interface PatientRole extends Role {
 	 * @return the value of the '<em>Telecom</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_Telecom()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<TEL> getTelecoms();
@@ -172,7 +172,7 @@ public interface PatientRole extends Role {
 	 * @see #setPatient(Patient)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_Patient()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Patient getPatient();
@@ -199,7 +199,7 @@ public interface PatientRole extends Role {
 	 * @see #setProviderOrganization(Organization)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatientRole_ProviderOrganization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organization getProviderOrganization();

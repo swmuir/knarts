@@ -236,7 +236,7 @@ public interface RelatedEntity extends Role {
 	 * @see #setRelatedPerson(Person)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedEntity_RelatedPerson()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Person getRelatedPerson();

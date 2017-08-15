@@ -411,7 +411,7 @@ public interface Supply extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSupply_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -455,7 +455,7 @@ public interface Supply extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSupply_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -523,7 +523,7 @@ public interface Supply extends ClinicalStatement {
 	 * @return the value of the '<em>Entry Relationship</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSupply_EntryRelationship()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EntryRelationship> getEntryRelationships();

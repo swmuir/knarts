@@ -56,7 +56,7 @@ public interface MaintainedEntity extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getMaintainedEntity_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -73,7 +73,7 @@ public interface MaintainedEntity extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getMaintainedEntity_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -100,7 +100,7 @@ public interface MaintainedEntity extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getMaintainedEntity_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -117,7 +117,7 @@ public interface MaintainedEntity extends Role {
 	 * @see #setEffectiveTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getMaintainedEntity_EffectiveTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getEffectiveTime();
@@ -144,7 +144,7 @@ public interface MaintainedEntity extends Role {
 	 * @see #setMaintainingPerson(Person)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getMaintainedEntity_MaintainingPerson()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Person getMaintainingPerson();

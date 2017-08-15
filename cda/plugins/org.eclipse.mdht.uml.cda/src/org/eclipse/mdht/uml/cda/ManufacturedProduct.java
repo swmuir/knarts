@@ -57,7 +57,7 @@ public interface ManufacturedProduct extends Role {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -74,7 +74,7 @@ public interface ManufacturedProduct extends Role {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -101,7 +101,7 @@ public interface ManufacturedProduct extends Role {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -118,7 +118,7 @@ public interface ManufacturedProduct extends Role {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -135,7 +135,7 @@ public interface ManufacturedProduct extends Role {
 	 * @see #setManufacturedLabeledDrug(LabeledDrug)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_ManufacturedLabeledDrug()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	LabeledDrug getManufacturedLabeledDrug();
@@ -162,7 +162,7 @@ public interface ManufacturedProduct extends Role {
 	 * @see #setManufacturedMaterial(Material)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_ManufacturedMaterial()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Material getManufacturedMaterial();
@@ -189,7 +189,7 @@ public interface ManufacturedProduct extends Role {
 	 * @see #setManufacturerOrganization(Organization)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getManufacturedProduct_ManufacturerOrganization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organization getManufacturerOrganization();

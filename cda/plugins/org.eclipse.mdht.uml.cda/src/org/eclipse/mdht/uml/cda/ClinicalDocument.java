@@ -83,7 +83,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -100,7 +100,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_TypeId()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -127,7 +127,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -144,7 +144,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setId(II)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Id()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	II getId();
@@ -171,7 +171,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Code()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -198,7 +198,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setTitle(ST)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Title()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ST getTitle();
@@ -225,7 +225,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setEffectiveTime(TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_EffectiveTime()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	TS getEffectiveTime();
@@ -252,7 +252,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setConfidentialityCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_ConfidentialityCode()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getConfidentialityCode();
@@ -279,7 +279,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setLanguageCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_LanguageCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getLanguageCode();
@@ -306,7 +306,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setSetId(II)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_SetId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	II getSetId();
@@ -333,7 +333,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setVersionNumber(INT)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_VersionNumber()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	INT getVersionNumber();
@@ -360,7 +360,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setCopyTime(TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_CopyTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	TS getCopyTime();
@@ -387,7 +387,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Record Target</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_RecordTarget()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<RecordTarget> getRecordTargets();
@@ -404,7 +404,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Author()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -421,7 +421,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setDataEnterer(DataEnterer)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_DataEnterer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	DataEnterer getDataEnterer();
@@ -448,7 +448,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -465,7 +465,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setCustodian(Custodian)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Custodian()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Custodian getCustodian();
@@ -492,7 +492,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Information Recipient</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_InformationRecipient()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<InformationRecipient> getInformationRecipients();
@@ -509,7 +509,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setLegalAuthenticator(LegalAuthenticator)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_LegalAuthenticator()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	LegalAuthenticator getLegalAuthenticator();
@@ -536,7 +536,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Authenticator</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Authenticator()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Authenticator> getAuthenticators();
@@ -553,7 +553,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant1> getParticipants();
@@ -570,7 +570,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>In Fulfillment Of</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_InFulfillmentOf()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<InFulfillmentOf> getInFulfillmentOfs();
@@ -587,7 +587,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Documentation Of</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_DocumentationOf()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<DocumentationOf> getDocumentationOfs();
@@ -604,7 +604,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Related Document</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_RelatedDocument()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<RelatedDocument> getRelatedDocuments();
@@ -621,7 +621,7 @@ public interface ClinicalDocument extends Act {
 	 * @return the value of the '<em>Authorization</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Authorization()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Authorization> getAuthorizations();
@@ -638,7 +638,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setComponentOf(Component1)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_ComponentOf()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Component1 getComponentOf();
@@ -665,7 +665,7 @@ public interface ClinicalDocument extends Act {
 	 * @see #setComponent(Component2)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getClinicalDocument_Component()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Component2 getComponent();

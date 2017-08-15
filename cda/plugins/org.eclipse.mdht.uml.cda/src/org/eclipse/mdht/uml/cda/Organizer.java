@@ -66,7 +66,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -83,7 +83,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -110,7 +110,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -127,7 +127,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -144,7 +144,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @see #setCode(CD)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CD getCode();
@@ -171,7 +171,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @see #setStatusCode(CS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_StatusCode()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CS getStatusCode();
@@ -198,7 +198,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @see #setEffectiveTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_EffectiveTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getEffectiveTime();
@@ -225,7 +225,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @see #setSubject(Subject)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Subject getSubject();
@@ -252,7 +252,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Specimen</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Specimen()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Specimen> getSpecimens();
@@ -269,7 +269,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Performer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Performer2> getPerformers();
@@ -286,7 +286,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Author</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Author()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Author> getAuthors();
@@ -303,7 +303,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Informant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Informant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Informant12> getInformants();
@@ -320,7 +320,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Participant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Participant2> getParticipants();
@@ -337,7 +337,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Reference</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Reference()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
@@ -354,7 +354,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Precondition</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Precondition()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Precondition> getPreconditions();
@@ -371,7 +371,7 @@ public interface Organizer extends ClinicalStatement {
 	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getOrganizer_Component()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<Component4> getComponents();

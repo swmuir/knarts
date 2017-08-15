@@ -65,7 +65,7 @@ public interface SubjectPerson extends Entity {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -82,7 +82,7 @@ public interface SubjectPerson extends Entity {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -109,7 +109,7 @@ public interface SubjectPerson extends Entity {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -143,7 +143,7 @@ public interface SubjectPerson extends Entity {
 	 * @return the value of the '<em>Name</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_Name()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<PN> getNames();
@@ -160,7 +160,7 @@ public interface SubjectPerson extends Entity {
 	 * @see #setAdministrativeGenderCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_AdministrativeGenderCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getAdministrativeGenderCode();
@@ -187,7 +187,7 @@ public interface SubjectPerson extends Entity {
 	 * @see #setBirthTime(TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_BirthTime()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	TS getBirthTime();

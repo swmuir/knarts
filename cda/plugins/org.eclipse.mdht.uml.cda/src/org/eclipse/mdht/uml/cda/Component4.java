@@ -210,7 +210,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setAct(Act)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Act()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Act getAct();
@@ -237,7 +237,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setEncounter(Encounter)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Encounter()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Encounter getEncounter();
@@ -264,7 +264,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setObservation(Observation)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Observation()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Observation getObservation();
@@ -291,7 +291,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setObservationMedia(ObservationMedia)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_ObservationMedia()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ObservationMedia getObservationMedia();
@@ -318,7 +318,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setOrganizer(Organizer)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Organizer()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Organizer getOrganizer();
@@ -345,7 +345,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setProcedure(Procedure)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Procedure()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Procedure getProcedure();
@@ -372,7 +372,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setRegionOfInterest(RegionOfInterest)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_RegionOfInterest()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	RegionOfInterest getRegionOfInterest();
@@ -399,7 +399,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setSubstanceAdministration(SubstanceAdministration)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_SubstanceAdministration()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	SubstanceAdministration getSubstanceAdministration();
@@ -426,7 +426,7 @@ public interface Component4 extends ActRelationship {
 	 * @see #setSupply(Supply)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getComponent4_Supply()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Supply getSupply();

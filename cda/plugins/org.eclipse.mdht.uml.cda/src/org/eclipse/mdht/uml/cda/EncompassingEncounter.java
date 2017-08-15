@@ -64,7 +64,7 @@ public interface EncompassingEncounter extends Act {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -81,7 +81,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -108,7 +108,7 @@ public interface EncompassingEncounter extends Act {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -125,7 +125,7 @@ public interface EncompassingEncounter extends Act {
 	 * @return the value of the '<em>Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_Id()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getIds();
@@ -142,7 +142,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -169,7 +169,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setEffectiveTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_EffectiveTime()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getEffectiveTime();
@@ -196,7 +196,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setDischargeDispositionCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_DischargeDispositionCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getDischargeDispositionCode();
@@ -223,7 +223,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setResponsibleParty(ResponsibleParty)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_ResponsibleParty()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ResponsibleParty getResponsibleParty();
@@ -250,7 +250,7 @@ public interface EncompassingEncounter extends Act {
 	 * @return the value of the '<em>Encounter Participant</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_EncounterParticipant()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<EncounterParticipant> getEncounterParticipants();
@@ -267,7 +267,7 @@ public interface EncompassingEncounter extends Act {
 	 * @see #setLocation(Location)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getEncompassingEncounter_Location()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	Location getLocation();

@@ -55,7 +55,7 @@ public interface Performer1 extends Participation {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -72,7 +72,7 @@ public interface Performer1 extends Participation {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -99,7 +99,7 @@ public interface Performer1 extends Participation {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -116,7 +116,7 @@ public interface Performer1 extends Participation {
 	 * @see #setFunctionCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_FunctionCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getFunctionCode();
@@ -143,7 +143,7 @@ public interface Performer1 extends Participation {
 	 * @see #setTime(IVL_TS)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_Time()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	IVL_TS getTime();
@@ -170,7 +170,7 @@ public interface Performer1 extends Participation {
 	 * @see #setAssignedEntity(AssignedEntity)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer1_AssignedEntity()
 	 * @model containment="true" required="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	AssignedEntity getAssignedEntity();

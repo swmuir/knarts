@@ -188,7 +188,7 @@ public interface Observation extends ClinicalStatement {
 	 * @see #setDerivationExpr(ST)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservation_DerivationExpr()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ST getDerivationExpr();
@@ -215,7 +215,7 @@ public interface Observation extends ClinicalStatement {
 	 * @see #setText(ED)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservation_Text()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	ED getText();
@@ -377,7 +377,7 @@ public interface Observation extends ClinicalStatement {
 	 * @return the value of the '<em>Value</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservation_Value()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<ANY> getValues();
@@ -846,7 +846,7 @@ public interface Observation extends ClinicalStatement {
 	 * @return the value of the '<em>In Fulfillment Of1</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getObservation_InFulfillmentOf1()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc'"
+	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
 	 * @generated
 	 */
 	EList<InFulfillmentOf1> getInFulfillmentOf1s();

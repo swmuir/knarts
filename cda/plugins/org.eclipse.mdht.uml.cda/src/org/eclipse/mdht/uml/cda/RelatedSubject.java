@@ -207,7 +207,7 @@ public interface RelatedSubject extends Role {
 	 * @see #setSubject(SubjectPerson)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getRelatedSubject_Subject()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	SubjectPerson getSubject();

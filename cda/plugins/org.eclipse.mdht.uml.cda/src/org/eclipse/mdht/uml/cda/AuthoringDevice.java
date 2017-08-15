@@ -61,7 +61,7 @@ public interface AuthoringDevice extends Entity {
 	 * @return the value of the '<em>Realm Code</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_RealmCode()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<CS> getRealmCodes();
@@ -78,7 +78,7 @@ public interface AuthoringDevice extends Entity {
 	 * @see #setTypeId(InfrastructureRootTypeId)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_TypeId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	InfrastructureRootTypeId getTypeId();
@@ -105,7 +105,7 @@ public interface AuthoringDevice extends Entity {
 	 * @return the value of the '<em>Template Id</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_TemplateId()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<II> getTemplateIds();
@@ -122,7 +122,7 @@ public interface AuthoringDevice extends Entity {
 	 * @see #setCode(CE)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_Code()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	CE getCode();
@@ -149,7 +149,7 @@ public interface AuthoringDevice extends Entity {
 	 * @see #setManufacturerModelName(SC)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_ManufacturerModelName()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	SC getManufacturerModelName();
@@ -176,7 +176,7 @@ public interface AuthoringDevice extends Entity {
 	 * @see #setSoftwareName(SC)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_SoftwareName()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	SC getSoftwareName();
@@ -203,7 +203,7 @@ public interface AuthoringDevice extends Entity {
 	 * @return the value of the '<em>As Maintained Entity</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getAuthoringDevice_AsMaintainedEntity()
 	 * @model containment="true" ordered="false"
-	 *        extendedMetaData="namespace='##targetNamespace'"
+	 *        extendedMetaData="namespace='##targetNamespace' kind='element'"
 	 * @generated
 	 */
 	EList<MaintainedEntity> getAsMaintainedEntities();
