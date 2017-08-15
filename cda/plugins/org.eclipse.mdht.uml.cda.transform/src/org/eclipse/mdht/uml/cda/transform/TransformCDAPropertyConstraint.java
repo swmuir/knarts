@@ -26,6 +26,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.mdht.uml.cda.core.profile.Validation;
 import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
+import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.core.util.ICDAProfileConstants;
 import org.eclipse.mdht.uml.cda.transform.internal.Logger;
 import org.eclipse.mdht.uml.common.util.UMLUtil;
@@ -218,6 +219,28 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 			}
 
 			return result;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyConstraintHandler#isDuplicateInitialization(org.eclipse.uml2.uml.
+		 * Property)
+		 */
+		@Override
+		protected boolean isDuplicateInitialization(Property property) {
+			boolean isDuplicate = false;
+			for (Property redefinedProperty : property.getRedefinedProperties()) {
+				if (CDAModelUtil.isCDAModel(redefinedProperty.getOwner())) {
+					break;
+				}
+				if (redefinedProperty.getDefault() != null &&
+						redefinedProperty.getDefault().equals(property.getDefault())) {
+					isDuplicate = true;
+				}
+			}
+			return isDuplicate;
 		}
 	}
 
@@ -497,6 +520,28 @@ public class TransformCDAPropertyConstraint extends TransformPropertyTerminology
 			}
 
 			return result;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyConstraintHandler#isDuplicateInitialization(org.eclipse.uml2.uml.
+		 * Property)
+		 */
+		@Override
+		protected boolean isDuplicateInitialization(Property property) {
+			boolean isDuplicate = false;
+			for (Property redefinedProperty : property.getRedefinedProperties()) {
+				if (CDAModelUtil.isCDAModel(redefinedProperty.getOwner())) {
+					break;
+				}
+				if (redefinedProperty.getDefault() != null &&
+						redefinedProperty.getDefault().equals(property.getDefault())) {
+					isDuplicate = true;
+				}
+			}
+			return isDuplicate;
 		}
 	}
 

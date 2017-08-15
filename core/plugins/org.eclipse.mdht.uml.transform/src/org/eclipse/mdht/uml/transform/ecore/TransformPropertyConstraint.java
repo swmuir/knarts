@@ -29,6 +29,8 @@ import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationSeverityKind;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationStereotypeKind;
+import org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyConstraintHandler;
+import org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyContext;
 import org.eclipse.mdht.uml.transform.internal.Logger;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
@@ -335,6 +337,14 @@ public abstract class TransformPropertyConstraint extends TransformAbstract {
 		protected abstract Constraint addConstraint(PropertyContext context);
 
 		/**
+		 * isDuplicateInitialization is used to avoid duplicate initialization in hierarchy
+		 *
+		 * @param property
+		 * @return
+		 */
+		protected abstract boolean isDuplicateInitialization(Property property);
+
+		/**
 		 * Configure the initializer annotation stereotype for the specified {@code property}.
 		 *
 		 * @return <code>true</code> if any initialization annotation details were set; <code>false</code> if no details were set at all
@@ -377,30 +387,31 @@ public abstract class TransformPropertyConstraint extends TransformAbstract {
 				}
 			}
 
-			if (code != null) {
-				if (isEnumerationType(property)) {
-					annotationsUtil.setAnnotation(property.getName(), code);
-					result = true;
-				} else {
-					annotationsUtil.setAnnotation(property.getName() + ".code", code);
+			if (!isDuplicateInitialization(property)) {
+				if (code != null) {
+					if (isEnumerationType(property)) {
+						annotationsUtil.setAnnotation(property.getName(), code);
+						result = true;
+					} else {
+						annotationsUtil.setAnnotation(property.getName() + ".code", code);
+					}
+				}
+
+				if (!(isSimpleCodedType(property) || isEnumerationType(property))) {
+					if (codeSystem != null) {
+						annotationsUtil.setAnnotation(property.getName() + ".codeSystem", codeSystem);
+					}
+					if (codeSystemName != null) {
+						annotationsUtil.setAnnotation(property.getName() + ".codeSystemName", codeSystemName);
+					}
+					if (codeSystemVersion != null) {
+						annotationsUtil.setAnnotation(property.getName() + ".codeSystemVersion", codeSystemVersion);
+					}
+					if (displayName != null) {
+						annotationsUtil.setAnnotation(property.getName() + ".displayName", displayName);
+					}
 				}
 			}
-
-			if (!(isSimpleCodedType(property) || isEnumerationType(property))) {
-				if (codeSystem != null) {
-					annotationsUtil.setAnnotation(property.getName() + ".codeSystem", codeSystem);
-				}
-				if (codeSystemName != null) {
-					annotationsUtil.setAnnotation(property.getName() + ".codeSystemName", codeSystemName);
-				}
-				if (codeSystemVersion != null) {
-					annotationsUtil.setAnnotation(property.getName() + ".codeSystemVersion", codeSystemVersion);
-				}
-				if (displayName != null) {
-					annotationsUtil.setAnnotation(property.getName() + ".displayName", displayName);
-				}
-			}
-
 			annotationsUtil.saveAnnotations();
 
 			return result;

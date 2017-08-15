@@ -30,9 +30,9 @@ import org.eclipse.mdht.uml.term.core.util.TermProfileUtil;
 import org.eclipse.mdht.uml.term.core.util.ValueSetConstraintUtil;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
-import org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationSeverityKind;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationStereotypeKind;
+import org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Property;
@@ -175,6 +175,40 @@ public class TransformPropertyTerminologyConstraint extends TransformPropertyCon
 
 			return result;
 		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyConstraintHandler#isDuplicateInitialization(org.eclipse.uml2.uml.
+		 * Property)
+		 */
+		@Override
+		protected boolean isDuplicateInitialization(Property property) {
+
+			CodeSystemConstraint codeSystemConstraint = TermProfileUtil.getCodeSystemConstraint(property);
+
+			boolean isDuplicate = false;
+			for (Property redefinedProperty : property.getRedefinedProperties()) {
+				if (redefinedProperty.getDefault() != null &&
+						redefinedProperty.getDefault().equals(property.getDefault())) {
+					isDuplicate = true;
+				}
+
+				if (codeSystemConstraint != null) {
+					CodeSystemConstraint redefinedcodeSystemConstraint = TermProfileUtil.getCodeSystemConstraint(
+						redefinedProperty);
+					if (redefinedcodeSystemConstraint != null) {
+						if (redefinedcodeSystemConstraint.getCode() != null &&
+								redefinedcodeSystemConstraint.getCode().equals(codeSystemConstraint.getCode())) {
+							isDuplicate = true;
+						}
+					}
+				}
+
+			}
+			return isDuplicate;
+		}
 	}
 
 	class ValueSetConstraintHandler extends PropertyConstraintHandler {
@@ -233,6 +267,25 @@ public class TransformPropertyTerminologyConstraint extends TransformPropertyCon
 			}
 
 			return result;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.eclipse.mdht.uml.transform.ecore.TransformPropertyConstraint.PropertyConstraintHandler#isDuplicateInitialization(org.eclipse.uml2.uml.
+		 * Property)
+		 */
+		@Override
+		protected boolean isDuplicateInitialization(Property property) {
+			boolean isDuplicate = false;
+			for (Property redefinedProperty : property.getRedefinedProperties()) {
+				if (redefinedProperty.getDefault() != null &&
+						redefinedProperty.getDefault().equals(property.getDefault())) {
+					isDuplicate = true;
+				}
+			}
+			return isDuplicate;
 		}
 	}
 }
