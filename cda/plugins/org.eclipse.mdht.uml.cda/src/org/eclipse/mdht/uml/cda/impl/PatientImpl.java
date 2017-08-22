@@ -59,6 +59,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getRaceCode <em>Race Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getSDTCRaceCodes <em>SDTC Race Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getEthnicGroupCode <em>Ethnic Group Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getGuardians <em>Guardian</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getBirthplace <em>Birthplace</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.PatientImpl#getLanguageCommunications <em>Language Communication</em>}</li>
@@ -189,6 +190,16 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 * @ordered
 	 */
 	protected CE ethnicGroupCode;
+
+	/**
+	 * The cached value of the '{@link #getSDTCEthnicGroupCodes() <em>SDTC Ethnic Group Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCEthnicGroupCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CE> sDTCEthnicGroupCodes;
 
 	/**
 	 * The cached value of the '{@link #getGuardians() <em>Guardian</em>}' containment reference list.
@@ -913,6 +924,19 @@ public class PatientImpl extends EntityImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CE> getSDTCEthnicGroupCodes() {
+		if (sDTCEthnicGroupCodes == null) {
+			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(
+				CE.class, this, CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE);
+		}
+		return sDTCEthnicGroupCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NullFlavor getNullFlavor() {
 		return nullFlavor;
@@ -1138,6 +1162,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 				return ((InternalEList<?>) getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				return basicSetEthnicGroupCode(null, msgs);
+			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
+				return ((InternalEList<?>) getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__GUARDIAN:
 				return ((InternalEList<?>) getGuardians()).basicRemove(otherEnd, msgs);
 			case CDAPackage.PATIENT__BIRTHPLACE:
@@ -1180,6 +1206,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 				return getSDTCRaceCodes();
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				return getEthnicGroupCode();
+			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
+				return getSDTCEthnicGroupCodes();
 			case CDAPackage.PATIENT__GUARDIAN:
 				return getGuardians();
 			case CDAPackage.PATIENT__BIRTHPLACE:
@@ -1244,6 +1272,10 @@ public class PatientImpl extends EntityImpl implements Patient {
 				return;
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				setEthnicGroupCode((CE) newValue);
+				return;
+			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
+				getSDTCEthnicGroupCodes().clear();
+				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>) newValue);
 				return;
 			case CDAPackage.PATIENT__GUARDIAN:
 				getGuardians().clear();
@@ -1313,6 +1345,9 @@ public class PatientImpl extends EntityImpl implements Patient {
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				setEthnicGroupCode((CE) null);
 				return;
+			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
+				getSDTCEthnicGroupCodes().clear();
+				return;
 			case CDAPackage.PATIENT__GUARDIAN:
 				getGuardians().clear();
 				return;
@@ -1367,6 +1402,8 @@ public class PatientImpl extends EntityImpl implements Patient {
 				return sDTCRaceCodes != null && !sDTCRaceCodes.isEmpty();
 			case CDAPackage.PATIENT__ETHNIC_GROUP_CODE:
 				return ethnicGroupCode != null;
+			case CDAPackage.PATIENT__SDTC_ETHNIC_GROUP_CODE:
+				return sDTCEthnicGroupCodes != null && !sDTCEthnicGroupCodes.isEmpty();
 			case CDAPackage.PATIENT__GUARDIAN:
 				return guardians != null && !guardians.isEmpty();
 			case CDAPackage.PATIENT__BIRTHPLACE:

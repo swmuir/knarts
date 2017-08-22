@@ -1403,15 +1403,6 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * @generated
 	 */
 	public EReference getPatient_Guardian() {
-		return (EReference) getPatient().getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPatient_Birthplace() {
 		return (EReference) getPatient().getEStructuralFeatures().get(13);
 	}
 
@@ -1420,7 +1411,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPatient_LanguageCommunication() {
+	public EReference getPatient_Birthplace() {
 		return (EReference) getPatient().getEStructuralFeatures().get(14);
 	}
 
@@ -1429,8 +1420,8 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPatient_NullFlavor() {
-		return (EAttribute) getPatient().getEStructuralFeatures().get(15);
+	public EReference getPatient_LanguageCommunication() {
+		return (EReference) getPatient().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1438,7 +1429,16 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPatient_ClassCode() {
+	public EReference getPatient_SDTCEthnicGroupCode() {
+		return (EReference) getPatient().getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPatient_NullFlavor() {
 		return (EAttribute) getPatient().getEStructuralFeatures().get(16);
 	}
 
@@ -1447,8 +1447,17 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPatient_DeterminerCode() {
+	public EAttribute getPatient_ClassCode() {
 		return (EAttribute) getPatient().getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPatient_DeterminerCode() {
+		return (EAttribute) getPatient().getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -5816,7 +5825,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubjectPerson_AdministrativeGenderCode() {
+	public EReference getSubjectPerson_SDTCDesc() {
 		return (EReference) getSubjectPerson().getEStructuralFeatures().get(5);
 	}
 
@@ -5825,7 +5834,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubjectPerson_BirthTime() {
+	public EReference getSubjectPerson_AdministrativeGenderCode() {
 		return (EReference) getSubjectPerson().getEStructuralFeatures().get(6);
 	}
 
@@ -5834,7 +5843,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubjectPerson_SDTCDeceasedInd() {
+	public EReference getSubjectPerson_BirthTime() {
 		return (EReference) getSubjectPerson().getEStructuralFeatures().get(7);
 	}
 
@@ -5843,7 +5852,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubjectPerson_SDTCDeceasedTime() {
+	public EReference getSubjectPerson_SDTCDeceasedInd() {
 		return (EReference) getSubjectPerson().getEStructuralFeatures().get(8);
 	}
 
@@ -5852,8 +5861,44 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSubjectPerson_SDTCDeceasedTime() {
+		return (EReference) getSubjectPerson().getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectPerson_SDTCMultipleBirthInd() {
+		return (EReference) getSubjectPerson().getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectPerson_SDTCMultipleBirthOrderNumber() {
+		return (EReference) getSubjectPerson().getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectPerson_SDTCRaceCode() {
+		return (EReference) getSubjectPerson().getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSubjectPerson_NullFlavor() {
-		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(9);
+		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -5862,7 +5907,7 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectPerson_ClassCode() {
-		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(10);
+		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -5871,7 +5916,16 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * @generated
 	 */
 	public EAttribute getSubjectPerson_DeterminerCode() {
-		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(11);
+		return (EAttribute) getSubjectPerson().getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubjectPerson_SDTCEthnicGroupCode() {
+		return (EReference) getSubjectPerson().getEStructuralFeatures().get(13);
 	}
 
 	/**

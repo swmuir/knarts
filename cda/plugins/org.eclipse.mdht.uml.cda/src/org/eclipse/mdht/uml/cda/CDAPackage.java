@@ -746,13 +746,22 @@ public interface CDAPackage extends EPackage {
 	int PATIENT__ETHNIC_GROUP_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATIENT__SDTC_ETHNIC_GROUP_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 12;
+
+	/**
 	 * The feature id for the '<em><b>Guardian</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__GUARDIAN = RIMPackage.ENTITY_FEATURE_COUNT + 12;
+	int PATIENT__GUARDIAN = RIMPackage.ENTITY_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Birthplace</b></em>' containment reference.
@@ -761,7 +770,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__BIRTHPLACE = RIMPackage.ENTITY_FEATURE_COUNT + 13;
+	int PATIENT__BIRTHPLACE = RIMPackage.ENTITY_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Language Communication</b></em>' containment reference list.
@@ -770,7 +779,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__LANGUAGE_COMMUNICATION = RIMPackage.ENTITY_FEATURE_COUNT + 14;
+	int PATIENT__LANGUAGE_COMMUNICATION = RIMPackage.ENTITY_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -779,7 +788,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__NULL_FLAVOR = RIMPackage.ENTITY_FEATURE_COUNT + 15;
+	int PATIENT__NULL_FLAVOR = RIMPackage.ENTITY_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -788,7 +797,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__CLASS_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 16;
+	int PATIENT__CLASS_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Determiner Code</b></em>' attribute.
@@ -797,7 +806,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT__DETERMINER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 17;
+	int PATIENT__DETERMINER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of structural features of the '<em>Patient</em>' class.
@@ -806,7 +815,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATIENT_FEATURE_COUNT = RIMPackage.ENTITY_FEATURE_COUNT + 18;
+	int PATIENT_FEATURE_COUNT = RIMPackage.ENTITY_FEATURE_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.GuardianImpl <em>Guardian</em>}' class.
@@ -5457,13 +5466,22 @@ public interface CDAPackage extends EPackage {
 	int SUBJECT_PERSON__NAME = RIMPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>SDTC Desc</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_PERSON__SDTC_DESC = RIMPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Administrative Gender Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 5;
+	int SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Birth Time</b></em>' containment reference.
@@ -5472,7 +5490,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__BIRTH_TIME = RIMPackage.ENTITY_FEATURE_COUNT + 6;
+	int SUBJECT_PERSON__BIRTH_TIME = RIMPackage.ENTITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>SDTC Deceased Ind</b></em>' containment reference.
@@ -5481,7 +5499,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__SDTC_DECEASED_IND = RIMPackage.ENTITY_FEATURE_COUNT + 7;
+	int SUBJECT_PERSON__SDTC_DECEASED_IND = RIMPackage.ENTITY_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>SDTC Deceased Time</b></em>' containment reference.
@@ -5490,7 +5508,43 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__SDTC_DECEASED_TIME = RIMPackage.ENTITY_FEATURE_COUNT + 8;
+	int SUBJECT_PERSON__SDTC_DECEASED_TIME = RIMPackage.ENTITY_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>SDTC Multiple Birth Ind</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND = RIMPackage.ENTITY_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>SDTC Multiple Birth Order Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER = RIMPackage.ENTITY_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>SDTC Race Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_PERSON__SDTC_RACE_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Null Flavor</b></em>' attribute.
@@ -5499,7 +5553,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__NULL_FLAVOR = RIMPackage.ENTITY_FEATURE_COUNT + 9;
+	int SUBJECT_PERSON__NULL_FLAVOR = RIMPackage.ENTITY_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Class Code</b></em>' attribute.
@@ -5508,7 +5562,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__CLASS_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 10;
+	int SUBJECT_PERSON__CLASS_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Determiner Code</b></em>' attribute.
@@ -5517,7 +5571,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON__DETERMINER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 11;
+	int SUBJECT_PERSON__DETERMINER_CODE = RIMPackage.ENTITY_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Subject Person</em>' class.
@@ -5526,7 +5580,7 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBJECT_PERSON_FEATURE_COUNT = RIMPackage.ENTITY_FEATURE_COUNT + 12;
+	int SUBJECT_PERSON_FEATURE_COUNT = RIMPackage.ENTITY_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.cda.impl.EntryImpl <em>Entry</em>}' class.
@@ -11445,6 +11499,17 @@ public interface CDAPackage extends EPackage {
 	EReference getPatient_LanguageCommunication();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.Patient#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>SDTC Ethnic Group Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Patient#getSDTCEthnicGroupCodes()
+	 * @see #getPatient()
+	 * @generated
+	 */
+	EReference getPatient_SDTCEthnicGroupCode();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.Patient#getNullFlavor <em>Null Flavor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16522,6 +16587,17 @@ public interface CDAPackage extends EPackage {
 	EReference getSubjectPerson_Name();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDesc <em>SDTC Desc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>SDTC Desc</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDesc()
+	 * @see #getSubjectPerson()
+	 * @generated
+	 */
+	EReference getSubjectPerson_SDTCDesc();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getAdministrativeGenderCode <em>Administrative Gender Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16566,6 +16642,39 @@ public interface CDAPackage extends EPackage {
 	EReference getSubjectPerson_SDTCDeceasedTime();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthInd <em>SDTC Multiple Birth Ind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>SDTC Multiple Birth Ind</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthInd()
+	 * @see #getSubjectPerson()
+	 * @generated
+	 */
+	EReference getSubjectPerson_SDTCMultipleBirthInd();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthOrderNumber <em>SDTC Multiple Birth Order Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>SDTC Multiple Birth Order Number</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthOrderNumber()
+	 * @see #getSubjectPerson()
+	 * @generated
+	 */
+	EReference getSubjectPerson_SDTCMultipleBirthOrderNumber();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCRaceCodes <em>SDTC Race Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>SDTC Race Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCRaceCodes()
+	 * @see #getSubjectPerson()
+	 * @generated
+	 */
+	EReference getSubjectPerson_SDTCRaceCode();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getNullFlavor <em>Null Flavor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16597,6 +16706,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSubjectPerson_DeterminerCode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>SDTC Ethnic Group Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCEthnicGroupCodes()
+	 * @see #getSubjectPerson()
+	 * @generated
+	 */
+	EReference getSubjectPerson_SDTCEthnicGroupCode();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.Entry <em>Entry</em>}'.
@@ -22928,6 +23048,14 @@ public interface CDAPackage extends EPackage {
 		EReference PATIENT__LANGUAGE_COMMUNICATION = eINSTANCE.getPatient_LanguageCommunication();
 
 		/**
+		 * The meta object literal for the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATIENT__SDTC_ETHNIC_GROUP_CODE = eINSTANCE.getPatient_SDTCEthnicGroupCode();
+
+		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26754,6 +26882,14 @@ public interface CDAPackage extends EPackage {
 		EReference SUBJECT_PERSON__NAME = eINSTANCE.getSubjectPerson_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>SDTC Desc</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_PERSON__SDTC_DESC = eINSTANCE.getSubjectPerson_SDTCDesc();
+
+		/**
 		 * The meta object literal for the '<em><b>Administrative Gender Code</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26786,6 +26922,30 @@ public interface CDAPackage extends EPackage {
 		EReference SUBJECT_PERSON__SDTC_DECEASED_TIME = eINSTANCE.getSubjectPerson_SDTCDeceasedTime();
 
 		/**
+		 * The meta object literal for the '<em><b>SDTC Multiple Birth Ind</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND = eINSTANCE.getSubjectPerson_SDTCMultipleBirthInd();
+
+		/**
+		 * The meta object literal for the '<em><b>SDTC Multiple Birth Order Number</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER = eINSTANCE.getSubjectPerson_SDTCMultipleBirthOrderNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>SDTC Race Code</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_PERSON__SDTC_RACE_CODE = eINSTANCE.getSubjectPerson_SDTCRaceCode();
+
+		/**
 		 * The meta object literal for the '<em><b>Null Flavor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26808,6 +26968,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SUBJECT_PERSON__DETERMINER_CODE = eINSTANCE.getSubjectPerson_DeterminerCode();
+
+		/**
+		 * The meta object literal for the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE = eINSTANCE.getSubjectPerson_SDTCEthnicGroupCode();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.EntryImpl <em>Entry</em>}' class.

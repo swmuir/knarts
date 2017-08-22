@@ -1711,6 +1711,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LvZO8ErfEd6FXKclYGEDCw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LvZO8UrfEd6FXKclYGEDCw" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_dJAAkIdPEeeAsbPrNOnubg" name="sDTCEthnicGroupCode" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i490EYdPEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i490EIdPEeeAsbPrNOnubg" value="*"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_nYJAAEcjEd6besF9iFIJkQ" name="guardian" visibility="private" type="_liVJMEcIEd6besF9iFIJkQ" aggregation="composite" association="_nX_2EEcjEd6besF9iFIJkQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nYJAAUcjEd6besF9iFIJkQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nYJAAkcjEd6besF9iFIJkQ" value="*"/>
@@ -6670,6 +6675,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EK_oYErqEd6FXKclYGEDCw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EK_oYUrqEd6FXKclYGEDCw" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_LDw8sIdTEeeAsbPrNOnubg" name="sDTCDesc" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_CowXkDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1QlHwIdTEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1QkgsIdTEeeAsbPrNOnubg" value="1"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_GGrR8ErqEd6FXKclYGEDCw" name="administrativeGenderCode" visibility="private" aggregation="composite">
         <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HRe4MErqEd6FXKclYGEDCw"/>
@@ -6687,6 +6697,26 @@
       <ownedAttribute xmi:id="_LJEdAAPkEeGdM61FsLhcmQ" name="sDTCDeceasedTime" visibility="private" aggregation="composite">
         <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_4ysYYD59Ed6cla2oXsPtlA"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RjJkgAPkEeGdM61FsLhcmQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_kczBgIdTEeeAsbPrNOnubg" name="sDTCMultipleBirthInd" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_r1WssDxjEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xrhFkYdTEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xrhFkIdTEeeAsbPrNOnubg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_sGunUIdTEeeAsbPrNOnubg" name="sDTCMultipleBirthOrderNumber" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_co8uMD53Ed6cla2oXsPtlA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ySvdoYdTEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ySvdoIdTEeeAsbPrNOnubg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_75WykIdTEeeAsbPrNOnubg" name="sDTCRaceCode" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_75WykYdTEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_75WykodTEeeAsbPrNOnubg" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_C8XfIIdQEeeAsbPrNOnubg" name="sDTCEthnicGroupCode" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8XfIYdQEeeAsbPrNOnubg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8XfIodQEeeAsbPrNOnubg" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_fTX1s0xwEd6h-an5IXo-DA" name="nullFlavor" visibility="private">
         <type xmi:type="uml:Enumeration" href="pathmap://VOCAB_MODEL/vocab.uml#__yyDSUDcEd6xYZuu1VKCVw"/>
@@ -6706,10 +6736,7 @@
         <type xmi:type="uml:Enumeration" href="pathmap://VOCAB_MODEL/vocab.uml#__yoOBUDcEd6xYZuu1VKCVw"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4LxA0ErqEd6FXKclYGEDCw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4LxA0UrqEd6FXKclYGEDCw" value="1"/>
-        <defaultValue xmi:type="uml:InstanceValue" xmi:id="_5CAsUErqEd6FXKclYGEDCw" name="INSTANCE">
-          <type xmi:type="uml:Enumeration" href="pathmap://VOCAB_MODEL/vocab.uml#__yoOBUDcEd6xYZuu1VKCVw"/>
-          <instance xmi:type="uml:EnumerationLiteral" href="pathmap://VOCAB_MODEL/vocab.uml#__yoOBkDcEd6xYZuu1VKCVw"/>
-        </defaultValue>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_GuJx4IdUEeeAsbPrNOnubg" value="INSTANCE"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_bofJsEcdEd6besF9iFIJkQ" memberEnd="_bofJsUcdEd6besF9iFIJkQ _bofJtEcdEd6besF9iFIJkQ">
@@ -9192,4 +9219,10 @@
   <Ecore:EAttribute xmi:id="_HwdkUEbmEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_aYmnYEYmEee_x40ukY_SSA"/>
   <Ecore:EReference xmi:id="_ohqpMEbpEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_fiINQEbnEeeP-NuHrYHtJg"/>
   <Ecore:EReference xmi:id="_P5qRUEbsEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_HXn-0EbsEeeP-NuHrYHtJg"/>
+  <Ecore:EReference xmi:id="_wkd6wIdPEeeAsbPrNOnubg" xmlName="ethnicGroupCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_dJAAkIdPEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_FFXL8IdQEeeAsbPrNOnubg" xmlName="ethnicGroupCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_C8XfIIdQEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_UfhsgIdTEeeAsbPrNOnubg" xmlName="desc" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_LDw8sIdTEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_qQisUIdUEeeAsbPrNOnubg" xmlName="raceCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_75WykIdTEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_sOrM8IdUEeeAsbPrNOnubg" xmlName="multipleBirthOrderNumber" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_sGunUIdTEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_ttyPQIdUEeeAsbPrNOnubg" xmlName="multipleBirthInd" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_kczBgIdTEeeAsbPrNOnubg"/>
 </xmi:XMI>

@@ -573,6 +573,15 @@
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCEthnicGroupCode" ordered="false"
+        upperBound="-1" eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="ethnicGroupCode"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guardian" ordered="false"
         upperBound="-1" eType="#//Guardian" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -4082,6 +4091,15 @@
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCDesc" ordered="false"
+        eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//ED"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="desc"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="administrativeGenderCode"
         ordered="false" eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//CE"
         containment="true">
@@ -4112,6 +4130,42 @@
         containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value="deceasedTime"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCMultipleBirthInd" ordered="false"
+        eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//BL"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="multipleBirthInd"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCMultipleBirthOrderNumber"
+        ordered="false" eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//INT"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="multipleBirthOrderNumber"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCRaceCode" ordered="false"
+        upperBound="-1" eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="raceCode"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCEthnicGroupCode" ordered="false"
+        upperBound="-1" eType="ecore:EClass http://www.openhealthtools.org/mdht/uml/hl7/datatypes#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="ethnicGroupCode"/>
         <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="element"/>
       </eAnnotations>

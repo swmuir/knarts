@@ -29,7 +29,9 @@ import org.eclipse.mdht.uml.cda.operations.SubjectPersonOperations;
 import org.eclipse.mdht.uml.hl7.datatypes.BL;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
 import org.eclipse.mdht.uml.hl7.datatypes.CS;
+import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.INT;
 import org.eclipse.mdht.uml.hl7.datatypes.PN;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
 import org.eclipse.mdht.uml.hl7.rim.impl.EntityImpl;
@@ -50,10 +52,15 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getTemplateIds <em>Template Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCIds <em>SDTC Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getNames <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCDesc <em>SDTC Desc</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getAdministrativeGenderCode <em>Administrative Gender Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getBirthTime <em>Birth Time</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCDeceasedInd <em>SDTC Deceased Ind</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCDeceasedTime <em>SDTC Deceased Time</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCMultipleBirthInd <em>SDTC Multiple Birth Ind</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCMultipleBirthOrderNumber <em>SDTC Multiple Birth Order Number</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCRaceCodes <em>SDTC Race Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.SubjectPersonImpl#getDeterminerCode <em>Determiner Code</em>}</li>
@@ -113,6 +120,16 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	protected EList<PN> names;
 
 	/**
+	 * The cached value of the '{@link #getSDTCDesc() <em>SDTC Desc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCDesc()
+	 * @generated
+	 * @ordered
+	 */
+	protected ED sDTCDesc;
+
+	/**
 	 * The cached value of the '{@link #getAdministrativeGenderCode() <em>Administrative Gender Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,6 +168,46 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 * @ordered
 	 */
 	protected TS sDTCDeceasedTime;
+
+	/**
+	 * The cached value of the '{@link #getSDTCMultipleBirthInd() <em>SDTC Multiple Birth Ind</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCMultipleBirthInd()
+	 * @generated
+	 * @ordered
+	 */
+	protected BL sDTCMultipleBirthInd;
+
+	/**
+	 * The cached value of the '{@link #getSDTCMultipleBirthOrderNumber() <em>SDTC Multiple Birth Order Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCMultipleBirthOrderNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected INT sDTCMultipleBirthOrderNumber;
+
+	/**
+	 * The cached value of the '{@link #getSDTCRaceCodes() <em>SDTC Race Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCRaceCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CE> sDTCRaceCodes;
+
+	/**
+	 * The cached value of the '{@link #getSDTCEthnicGroupCodes() <em>SDTC Ethnic Group Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCEthnicGroupCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CE> sDTCEthnicGroupCodes;
 
 	/**
 	 * The default value of the '{@link #getNullFlavor() <em>Null Flavor</em>}' attribute.
@@ -363,6 +420,62 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 			names = new EObjectContainmentEList<PN>(PN.class, this, CDAPackage.SUBJECT_PERSON__NAME);
 		}
 		return names;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ED getSDTCDesc() {
+		return sDTCDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSDTCDesc(ED newSDTCDesc, NotificationChain msgs) {
+		ED oldSDTCDesc = sDTCDesc;
+		sDTCDesc = newSDTCDesc;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, oldSDTCDesc, newSDTCDesc);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSDTCDesc(ED newSDTCDesc) {
+		if (newSDTCDesc != sDTCDesc) {
+			NotificationChain msgs = null;
+			if (sDTCDesc != null) {
+				msgs = ((InternalEObject) sDTCDesc).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
+			}
+			if (newSDTCDesc != null) {
+				msgs = ((InternalEObject) newSDTCDesc).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_DESC, null, msgs);
+			}
+			msgs = basicSetSDTCDesc(newSDTCDesc, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, newSDTCDesc, newSDTCDesc));
+		}
 	}
 
 	/**
@@ -600,6 +713,137 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BL getSDTCMultipleBirthInd() {
+		return sDTCMultipleBirthInd;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSDTCMultipleBirthInd(BL newSDTCMultipleBirthInd, NotificationChain msgs) {
+		BL oldSDTCMultipleBirthInd = sDTCMultipleBirthInd;
+		sDTCMultipleBirthInd = newSDTCMultipleBirthInd;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, oldSDTCMultipleBirthInd,
+				newSDTCMultipleBirthInd);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSDTCMultipleBirthInd(BL newSDTCMultipleBirthInd) {
+		if (newSDTCMultipleBirthInd != sDTCMultipleBirthInd) {
+			NotificationChain msgs = null;
+			if (sDTCMultipleBirthInd != null) {
+				msgs = ((InternalEObject) sDTCMultipleBirthInd).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
+			}
+			if (newSDTCMultipleBirthInd != null) {
+				msgs = ((InternalEObject) newSDTCMultipleBirthInd).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, null, msgs);
+			}
+			msgs = basicSetSDTCMultipleBirthInd(newSDTCMultipleBirthInd, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, newSDTCMultipleBirthInd,
+					newSDTCMultipleBirthInd));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public INT getSDTCMultipleBirthOrderNumber() {
+		return sDTCMultipleBirthOrderNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSDTCMultipleBirthOrderNumber(INT newSDTCMultipleBirthOrderNumber,
+			NotificationChain msgs) {
+		INT oldSDTCMultipleBirthOrderNumber = sDTCMultipleBirthOrderNumber;
+		sDTCMultipleBirthOrderNumber = newSDTCMultipleBirthOrderNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER,
+				oldSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSDTCMultipleBirthOrderNumber(INT newSDTCMultipleBirthOrderNumber) {
+		if (newSDTCMultipleBirthOrderNumber != sDTCMultipleBirthOrderNumber) {
+			NotificationChain msgs = null;
+			if (sDTCMultipleBirthOrderNumber != null) {
+				msgs = ((InternalEObject) sDTCMultipleBirthOrderNumber).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null,
+					msgs);
+			}
+			if (newSDTCMultipleBirthOrderNumber != null) {
+				msgs = ((InternalEObject) newSDTCMultipleBirthOrderNumber).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, null,
+					msgs);
+			}
+			msgs = basicSetSDTCMultipleBirthOrderNumber(newSDTCMultipleBirthOrderNumber, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER,
+					newSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CE> getSDTCRaceCodes() {
+		if (sDTCRaceCodes == null) {
+			sDTCRaceCodes = new EObjectContainmentEList<CE>(CE.class, this, CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE);
+		}
+		return sDTCRaceCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NullFlavor getNullFlavor() {
 		return nullFlavor;
@@ -771,6 +1015,19 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CE> getSDTCEthnicGroupCodes() {
+		if (sDTCEthnicGroupCodes == null) {
+			sDTCEthnicGroupCodes = new EObjectContainmentEList<CE>(
+				CE.class, this, CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE);
+		}
+		return sDTCEthnicGroupCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateClassCode(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return SubjectPersonOperations.validateClassCode(this, diagnostics, context);
 	}
@@ -802,6 +1059,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return ((InternalEList<?>) getSDTCIds()).basicRemove(otherEnd, msgs);
 			case CDAPackage.SUBJECT_PERSON__NAME:
 				return ((InternalEList<?>) getNames()).basicRemove(otherEnd, msgs);
+			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
+				return basicSetSDTCDesc(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
 				return basicSetAdministrativeGenderCode(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__BIRTH_TIME:
@@ -810,6 +1069,14 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return basicSetSDTCDeceasedInd(null, msgs);
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
 				return basicSetSDTCDeceasedTime(null, msgs);
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
+				return basicSetSDTCMultipleBirthInd(null, msgs);
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
+				return basicSetSDTCMultipleBirthOrderNumber(null, msgs);
+			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
+				return ((InternalEList<?>) getSDTCRaceCodes()).basicRemove(otherEnd, msgs);
+			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
+				return ((InternalEList<?>) getSDTCEthnicGroupCodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -832,6 +1099,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return getSDTCIds();
 			case CDAPackage.SUBJECT_PERSON__NAME:
 				return getNames();
+			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
+				return getSDTCDesc();
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
 				return getAdministrativeGenderCode();
 			case CDAPackage.SUBJECT_PERSON__BIRTH_TIME:
@@ -840,6 +1109,14 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return getSDTCDeceasedInd();
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
 				return getSDTCDeceasedTime();
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
+				return getSDTCMultipleBirthInd();
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
+				return getSDTCMultipleBirthOrderNumber();
+			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
+				return getSDTCRaceCodes();
+			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
+				return getSDTCEthnicGroupCodes();
 			case CDAPackage.SUBJECT_PERSON__NULL_FLAVOR:
 				return getNullFlavor();
 			case CDAPackage.SUBJECT_PERSON__CLASS_CODE:
@@ -878,6 +1155,9 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				getNames().clear();
 				getNames().addAll((Collection<? extends PN>) newValue);
 				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
+				setSDTCDesc((ED) newValue);
+				return;
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
 				setAdministrativeGenderCode((CE) newValue);
 				return;
@@ -889,6 +1169,20 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
 				setSDTCDeceasedTime((TS) newValue);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
+				setSDTCMultipleBirthInd((BL) newValue);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
+				setSDTCMultipleBirthOrderNumber((INT) newValue);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
+				getSDTCRaceCodes().clear();
+				getSDTCRaceCodes().addAll((Collection<? extends CE>) newValue);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
+				getSDTCEthnicGroupCodes().clear();
+				getSDTCEthnicGroupCodes().addAll((Collection<? extends CE>) newValue);
 				return;
 			case CDAPackage.SUBJECT_PERSON__NULL_FLAVOR:
 				setNullFlavor((NullFlavor) newValue);
@@ -926,6 +1220,9 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 			case CDAPackage.SUBJECT_PERSON__NAME:
 				getNames().clear();
 				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
+				setSDTCDesc((ED) null);
+				return;
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
 				setAdministrativeGenderCode((CE) null);
 				return;
@@ -937,6 +1234,18 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
 				setSDTCDeceasedTime((TS) null);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
+				setSDTCMultipleBirthInd((BL) null);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
+				setSDTCMultipleBirthOrderNumber((INT) null);
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
+				getSDTCRaceCodes().clear();
+				return;
+			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
+				getSDTCEthnicGroupCodes().clear();
 				return;
 			case CDAPackage.SUBJECT_PERSON__NULL_FLAVOR:
 				unsetNullFlavor();
@@ -969,6 +1278,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return sDTCIds != null && !sDTCIds.isEmpty();
 			case CDAPackage.SUBJECT_PERSON__NAME:
 				return names != null && !names.isEmpty();
+			case CDAPackage.SUBJECT_PERSON__SDTC_DESC:
+				return sDTCDesc != null;
 			case CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE:
 				return administrativeGenderCode != null;
 			case CDAPackage.SUBJECT_PERSON__BIRTH_TIME:
@@ -977,6 +1288,14 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				return sDTCDeceasedInd != null;
 			case CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME:
 				return sDTCDeceasedTime != null;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND:
+				return sDTCMultipleBirthInd != null;
+			case CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER:
+				return sDTCMultipleBirthOrderNumber != null;
+			case CDAPackage.SUBJECT_PERSON__SDTC_RACE_CODE:
+				return sDTCRaceCodes != null && !sDTCRaceCodes.isEmpty();
+			case CDAPackage.SUBJECT_PERSON__SDTC_ETHNIC_GROUP_CODE:
+				return sDTCEthnicGroupCodes != null && !sDTCEthnicGroupCodes.isEmpty();
 			case CDAPackage.SUBJECT_PERSON__NULL_FLAVOR:
 				return isSetNullFlavor();
 			case CDAPackage.SUBJECT_PERSON__CLASS_CODE:

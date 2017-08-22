@@ -17,7 +17,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.mdht.uml.hl7.datatypes.BL;
 import org.eclipse.mdht.uml.hl7.datatypes.CE;
 import org.eclipse.mdht.uml.hl7.datatypes.CS;
+import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
+import org.eclipse.mdht.uml.hl7.datatypes.INT;
 import org.eclipse.mdht.uml.hl7.datatypes.PN;
 import org.eclipse.mdht.uml.hl7.datatypes.TS;
 import org.eclipse.mdht.uml.hl7.rim.Entity;
@@ -39,10 +41,15 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getTemplateIds <em>Template Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCIds <em>SDTC Id</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getNames <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDesc <em>SDTC Desc</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getAdministrativeGenderCode <em>Administrative Gender Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getBirthTime <em>Birth Time</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDeceasedInd <em>SDTC Deceased Ind</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDeceasedTime <em>SDTC Deceased Time</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthInd <em>SDTC Multiple Birth Ind</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthOrderNumber <em>SDTC Multiple Birth Order Number</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCRaceCodes <em>SDTC Race Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getClassCode <em>Class Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.SubjectPerson#getDeterminerCode <em>Determiner Code</em>}</li>
@@ -147,6 +154,33 @@ public interface SubjectPerson extends Entity {
 	 * @generated
 	 */
 	EList<PN> getNames();
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Desc</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Desc</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Desc</em>' containment reference.
+	 * @see #setSDTCDesc(ED)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_SDTCDesc()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='desc' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	ED getSDTCDesc();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCDesc <em>SDTC Desc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>SDTC Desc</em>' containment reference.
+	 * @see #getSDTCDesc()
+	 * @generated
+	 */
+	void setSDTCDesc(ED value);
 
 	/**
 	 * Returns the value of the '<em><b>Administrative Gender Code</b></em>' containment reference.
@@ -255,6 +289,77 @@ public interface SubjectPerson extends Entity {
 	 * @generated
 	 */
 	void setSDTCDeceasedTime(TS value);
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Multiple Birth Ind</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Multiple Birth Ind</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Multiple Birth Ind</em>' containment reference.
+	 * @see #setSDTCMultipleBirthInd(BL)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_SDTCMultipleBirthInd()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='multipleBirthInd' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	BL getSDTCMultipleBirthInd();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthInd <em>SDTC Multiple Birth Ind</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>SDTC Multiple Birth Ind</em>' containment reference.
+	 * @see #getSDTCMultipleBirthInd()
+	 * @generated
+	 */
+	void setSDTCMultipleBirthInd(BL value);
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Multiple Birth Order Number</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Multiple Birth Order Number</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Multiple Birth Order Number</em>' containment reference.
+	 * @see #setSDTCMultipleBirthOrderNumber(INT)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_SDTCMultipleBirthOrderNumber()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='multipleBirthOrderNumber' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	INT getSDTCMultipleBirthOrderNumber();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.SubjectPerson#getSDTCMultipleBirthOrderNumber <em>SDTC Multiple Birth Order Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>SDTC Multiple Birth Order Number</em>' containment reference.
+	 * @see #getSDTCMultipleBirthOrderNumber()
+	 * @generated
+	 */
+	void setSDTCMultipleBirthOrderNumber(INT value);
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Race Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.hl7.datatypes.CE}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Race Code</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Race Code</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_SDTCRaceCode()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='raceCode' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<CE> getSDTCRaceCodes();
 
 	/**
 	 * Returns the value of the '<em><b>Null Flavor</b></em>' attribute.
@@ -425,6 +530,23 @@ public interface SubjectPerson extends Entity {
 	 * @generated
 	 */
 	boolean isSetDeterminerCode();
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.hl7.datatypes.CE}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Ethnic Group Code</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Ethnic Group Code</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getSubjectPerson_SDTCEthnicGroupCode()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='ethnicGroupCode' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<CE> getSDTCEthnicGroupCodes();
 
 	/**
 	 * <!-- begin-user-doc -->

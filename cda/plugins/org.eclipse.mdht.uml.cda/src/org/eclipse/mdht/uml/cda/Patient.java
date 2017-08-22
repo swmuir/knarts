@@ -45,6 +45,7 @@ import org.eclipse.mdht.uml.hl7.vocab.NullFlavor;
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getRaceCode <em>Race Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getSDTCRaceCodes <em>SDTC Race Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getEthnicGroupCode <em>Ethnic Group Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getSDTCEthnicGroupCodes <em>SDTC Ethnic Group Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getGuardians <em>Guardian</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getBirthplace <em>Birthplace</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Patient#getLanguageCommunications <em>Language Communication</em>}</li>
@@ -402,6 +403,23 @@ public interface Patient extends Entity {
 	 * @generated
 	 */
 	EList<LanguageCommunication> getLanguageCommunications();
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Ethnic Group Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.mdht.uml.hl7.datatypes.CE}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Ethnic Group Code</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Ethnic Group Code</em>' containment reference list.
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPatient_SDTCEthnicGroupCode()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='ethnicGroupCode' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	EList<CE> getSDTCEthnicGroupCodes();
 
 	/**
 	 * Returns the value of the '<em><b>Null Flavor</b></em>' attribute.
