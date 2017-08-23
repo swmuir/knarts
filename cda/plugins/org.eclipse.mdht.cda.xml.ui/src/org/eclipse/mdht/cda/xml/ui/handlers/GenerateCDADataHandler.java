@@ -37,6 +37,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.poi.openxml4j.util.ZipSecureFile;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
@@ -5075,6 +5076,12 @@ public class GenerateCDADataHandler extends AbstractHandler {
 	}
 
 	private void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
+
+		/*
+		 * Set Ratio low as to prevent Zip Bomb Detection
+		 */
+		ZipSecureFile.setMinInflateRatio(0.000001);
+
 		ConsolPackage.eINSTANCE.getContinuityOfCareDocument();
 		HITSPPackage.eINSTANCE.getPatientSummary();
 
@@ -5278,10 +5285,13 @@ public class GenerateCDADataHandler extends AbstractHandler {
 
 		Font boldFont = wb.createFont();
 		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
-		CellStyle sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
-		sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
-		sectionstyle.setRotation((short) -90);
-		sectionstyle.setFont(boldFont);
+		CellStyle sectionstyle = null;
+		if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
+			sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
+			sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
+			sectionstyle.setRotation((short) -90);
+			sectionstyle.setFont(boldFont);
+		}
 
 		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 
@@ -5293,13 +5303,19 @@ public class GenerateCDADataHandler extends AbstractHandler {
 		for (String sectionclass : sortedKeys) {
 			Cell cell = row1.createCell(offset++);
 			cell.setCellValue(sectionclass);
-			cell.setCellStyle(sectionstyle);
+			if (sectionstyle != null) {
+				cell.setCellStyle(sectionstyle);
+			}
 		}
 
-		CellStyle style = sectionsSheet.getWorkbook().createCellStyle();
-		style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
-		style.setFillPattern(CellStyle.SOLID_FOREGROUND);
-		style.setAlignment(CellStyle.ALIGN_CENTER);
+		CellStyle style = null;
+		if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
+			style = sectionsSheet.getWorkbook().createCellStyle();
+			style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+			style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+			style.setAlignment(CellStyle.ALIGN_CENTER);
+		}
+
 		// style.setFont(font);
 
 		// CellStyle boldstyle = wb.createCellStyle();
@@ -5318,7 +5334,9 @@ public class GenerateCDADataHandler extends AbstractHandler {
 					if (sectionbyfile.get(sectionclass).contains(file)) {
 						Cell cell = row1.createCell(offset++);
 						cell.setCellValue("X");
-						cell.setCellStyle(style);
+						if (style != null) {
+							cell.setCellStyle(style);
+						}
 					} else {
 						row1.createCell(offset++).setCellValue("");
 					}
