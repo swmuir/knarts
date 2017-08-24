@@ -154,7 +154,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 							projectManifest = new Manifest(CDAUIUtil.getManifest(project).getContents());
 							Attributes attributes = projectManifest.getMainAttributes();
 							String requiredBundles = attributes.getValue("Require-Bundle");
-							if (requiredBundles.contains("org.eclipse.mdht.uml.cda") &&
+							if (requiredBundles != null && requiredBundles.contains("org.eclipse.mdht.uml.cda") &&
 									CDAUIUtil.getGeneratorModelFile(project) != null) {
 								enabled = true;
 							}
