@@ -350,11 +350,9 @@ public class TransformClassContent extends TransformAbstract {
 
 		for (Comment comment : umlClass.getOwnedComments()) {
 			String body = CDAModelUtil.fixNonXMLCharacters(comment.getBody().trim());
-			if (body.startsWith("<p>")) {
-				writer.println(body);
-			} else {
-				writer.println("<p><lines><i>" + body + "</i></lines></p>");
-			}
+
+			writer.println("<p>" + body + "</p>");
+
 		}
 
 		writer.println("</section>");
@@ -634,18 +632,18 @@ public class TransformClassContent extends TransformAbstract {
 		if (association != null && association.getOwnedComments().size() > 0) {
 			writer.append("<ol>");
 			for (Comment comment : association.getOwnedComments()) {
-				writer.append("<li><p><lines><i>");
+				writer.append("<li><p>");
 				writer.append(CDAModelUtil.fixNonXMLCharacters(comment.getBody()));
-				writer.append("</i></lines></p></li>");
+				writer.append("</p></li>");
 			}
 			writer.append("</ol>");
 		}
 
 		if (property.getOwnedComments().size() > 0) {
 			for (Comment comment : property.getOwnedComments()) {
-				writer.append("<p><lines><i>");
+				writer.append("<p>");
 				writer.append(CDAModelUtil.fixNonXMLCharacters(comment.getBody()));
-				writer.append("</i></lines></p>");
+				writer.append("</p>");
 			}
 		}
 	}

@@ -3028,8 +3028,12 @@ public class CDAModelUtil {
 				newText.append(text.charAt(i));
 			}
 		}
+		/*
+		 * &#xD;
+		 *
+		 */
 
-		return newText.toString();
+		return newText.toString().replace("&lt;/p>", "").replace("&lt;p>", "").replace("<p>", "").replace("</p>", "");
 	}
 
 	public static String escapeMarkupCharacters(String text) {

@@ -25,9 +25,9 @@ import org.eclipse.mdht.uml.common.util.UMLUtil;
 import org.eclipse.mdht.uml.transform.EcoreTransformUtil;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
-import org.eclipse.mdht.uml.transform.ecore.TransformConstraint;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationSeverityKind;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationStereotypeKind;
+import org.eclipse.mdht.uml.transform.ecore.TransformConstraint;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -827,7 +827,7 @@ public class TransformLogicalConstraint extends TransformConstraint {
 					}
 					break;
 				case XOR:
-					if (constraint.getConstrainedElements().size() == 2) {
+					if (constraint.getConstrainedElements().size() > 1) {
 						for (Element element : constraint.getConstrainedElements()) {
 							if (element instanceof Property) {
 
