@@ -109,7 +109,7 @@ public interface InFulfillmentOf1 extends ActRelationship {
 	 * @see #setNullFlavor(NullFlavor)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInFulfillmentOf1_NullFlavor()
 	 * @model ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='element'"
+	 *        extendedMetaData="kind='element'"
 	 * @generated
 	 */
 	NullFlavor getNullFlavor();
@@ -142,7 +142,6 @@ public interface InFulfillmentOf1 extends ActRelationship {
 	 * @see #setTypeCode(ActRelationshipFulfills)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getInFulfillmentOf1_TypeCode()
 	 * @model default="FLFS" unsettable="true" ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc'"
 	 * @generated
 	 */
 	ActRelationshipFulfills getTypeCode();

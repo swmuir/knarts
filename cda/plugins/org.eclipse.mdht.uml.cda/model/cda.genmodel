@@ -2,7 +2,7 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
     modelDirectory="/org.eclipse.mdht.uml.cda/src" modelPluginID="org.eclipse.mdht.uml.cda"
-    templateDirectory="/org.eclipse.mdht.uml.hl7.rim/templates" dynamicTemplates="true"
+    templateDirectory="platform:/plugin/org.eclipse.mdht.uml.hl7.rim/templates" dynamicTemplates="true"
     modelName="Cda" modelPluginClass="CDAPlugin" editPluginClass="org.eclipse.mdht.uml.cda.provider.CdaEditPlugin"
     editorPluginClass="org.eclipse.mdht.uml.cda.presentation.CdaEditorPlugin" testsDirectory="/org.eclipse.mdht.uml.cda.test/src/test/java"
     testSuiteClass="org.eclipse.mdht.uml.cda.tests.CdaAllTests" importerID="org.eclipse.uml2.uml.ecore.importer"

@@ -128,7 +128,7 @@ public interface ActReference extends EObject {
 	 * @see #setClassCode(x_ActClassDocumentEntryAct)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getActReference_ClassCode()
 	 * @model required="true" ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='attribute'"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	x_ActClassDocumentEntryAct getClassCode();
@@ -158,7 +158,7 @@ public interface ActReference extends EObject {
 	 * @see #setMoodCode(x_DocumentActMood)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getActReference_MoodCode()
 	 * @model required="true" ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='attribute'"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	x_DocumentActMood getMoodCode();
@@ -189,7 +189,7 @@ public interface ActReference extends EObject {
 	 * @see #setDeterminerCode(EntityDeterminer)
 	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getActReference_DeterminerCode()
 	 * @model default="INSTANCE" ordered="false"
-	 *        extendedMetaData="namespace='urn:hl7-org:sdtc' kind='attribute'"
+	 *        extendedMetaData="kind='attribute'"
 	 * @generated
 	 */
 	EntityDeterminer getDeterminerCode();

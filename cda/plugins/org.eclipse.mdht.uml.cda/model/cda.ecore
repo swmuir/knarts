@@ -7323,17 +7323,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullFlavor" ordered="false"
         eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//NullFlavor">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCode" ordered="false"
         eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//ActRelationshipFulfills"
-        defaultValueLiteral="FLFS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        defaultValueLiteral="FLFS" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actReference" ordered="false"
         lowerBound="1" eType="#//ActReference" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -7377,14 +7372,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classCode" ordered="false"
         lowerBound="1" eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//x_ActClassDocumentEntryAct">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="moodCode" ordered="false"
         lowerBound="1" eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//x_DocumentActMood">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -7392,7 +7385,6 @@
         eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//EntityDeterminer"
         defaultValueLiteral="INSTANCE">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>

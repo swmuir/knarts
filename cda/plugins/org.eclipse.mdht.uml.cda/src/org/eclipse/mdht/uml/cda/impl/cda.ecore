@@ -6246,17 +6246,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullFlavor" ordered="false"
         eType="ecore:EEnum http://www.openhealthtools.org/mdht/uml/hl7/vocab#//NullFlavor">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCode" ordered="false"
         eType="ecore:EEnum http://www.openhealthtools.org/mdht/uml/hl7/vocab#//ActRelationshipFulfills"
-        defaultValueLiteral="FLFS" unsettable="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        defaultValueLiteral="FLFS" unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actReference" ordered="false"
         lowerBound="1" eType="#//ActReference" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -6300,14 +6295,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classCode" ordered="false"
         lowerBound="1" eType="ecore:EEnum http://www.openhealthtools.org/mdht/uml/hl7/vocab#//x_ActClassDocumentEntryAct">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="moodCode" ordered="false"
         lowerBound="1" eType="ecore:EEnum http://www.openhealthtools.org/mdht/uml/hl7/vocab#//x_DocumentActMood">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -6315,7 +6308,6 @@
         eType="ecore:EEnum http://www.openhealthtools.org/mdht/uml/hl7/vocab#//EntityDeterminer"
         defaultValueLiteral="INSTANCE">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="namespace" value="urn:hl7-org:sdtc"/>
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>

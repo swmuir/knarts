@@ -26,12 +26,17 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.mdht.uml.cda.Act;
 import org.eclipse.mdht.uml.cda.CDAFactory;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
+import org.eclipse.mdht.uml.cda.InFulfillmentOf1;
+import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesFactory;
 import org.eclipse.mdht.uml.hl7.datatypes.ST;
+import org.eclipse.mdht.uml.hl7.vocab.x_ActClassDocumentEntryAct;
+import org.eclipse.mdht.uml.hl7.vocab.x_DocumentActMood;
 
 /**
  * @author seanmuir
@@ -140,59 +145,76 @@ public class TestECore {
 	public static void main(String[] args) throws Exception {
 
 		ClinicalDocument cd = CDAFactory.eINSTANCE.createClinicalDocument();
-		populate(cd, 0);
+		// populate(cd, 0);
+		Section s = CDAFactory.eINSTANCE.createSection();
+		Act a = CDAFactory.eINSTANCE.createAct();
+		a.setMoodCode(x_DocumentActMood.EVN);
+		a.setClassCode(x_ActClassDocumentEntryAct.ACT);
+		a.setCode(DatatypesFactory.eINSTANCE.createCD());
 
-		// for (EReference ea : cd.eClass().getEAllReferences()) {
-		//
-		// EClassifier ec = ea.getEType();
-		//
-		// System.out.println(ec);
-		// if (ec instanceof EClass) {
-		// EObject eo = EcoreUtil.create((EClass) ec);
-		// if (ea.isMany()) {
-		// List<EObject> list = (List<EObject>) cd.eGet(ea);
-		// list.add(eo);
-		// } else {
-		// cd.eSet(ea, eo);
-		// }
-		// }
-		//
-		// // if (value instanceof String && !type.isInstance(value)) {
-		// System.out.println(ea.getEType());
-		// Object value = EcoreUtil.createFromString((EDataType) ea.getEType(), "aaaaa");
-		// // cd.eSet(ea, value);
-		// // }
-		//
-		// }
+		InFulfillmentOf1 i = CDAFactory.eINSTANCE.createInFulfillmentOf1();
 
-		// CDAUtil.validate(cd);
-		CDAUtil.save(cd, new FileOutputStream("aaaa3.xml"));
-		ClinicalDocument cd2 = CDAUtil.load(new FileInputStream("aaaa3.xml"));
+		populate(i, 5);
+		// i.setTypeCode(ActRelationshipFulfills.FLFS);
+
+		a.getInFulfillmentOf1s().add(i);
+
+		s.addAct(a);
+
+		cd.addSection(s);
+		CDAUtil.validate(cd);
+		CDAUtil.save(cd, new FileOutputStream("InFulfillmentOf1.xml"));
+
+		ClinicalDocument cd2 = CDAUtil.load(new FileInputStream("InFulfillmentOf1.xml"));
+
+		// CDAUtil.validate(cd2);
+
+		// // ActRelationshipFulfills value;
+		//
+		// CDAUtil.saveSnippet(aaa, System.out);
+		//
+		// // // for (EReference ea : cd.eClass().getEAllReferences()) {
+		// // //
+		// // // EClassifier ec = ea.getEType();
+		// // //
+		// // // System.out.println(ec);
+		// // // if (ec instanceof EClass) {
+		// // // EObject eo = EcoreUtil.create((EClass) ec);
+		// // // if (ea.isMany()) {
+		// // // List<EObject> list = (List<EObject>) cd.eGet(ea);
+		// // // list.add(eo);
+		// // // } else {
+		// // // cd.eSet(ea, eo);
+		// // // }
+		// // // }
+		// // //
+		// // // // if (value instanceof String && !type.isInstance(value)) {
+		// // // System.out.println(ea.getEType());
+		// // // Object value = EcoreUtil.createFromString((EDataType) ea.getEType(), "aaaaa");
+		// // // // cd.eSet(ea, value);
+		// // // // }
+		// // //
+		// // // }
+		// //
+
+		// // CDAUtil.save(cd, new FileOutputStream("aaaa3.xml"));
+		// // ClinicalDocument cd2 = CDAUtil.load(new FileInputStream("aaaa3.xml"));
 		ValidationHandler validator = new ValidationHandler() {
 
 			@Override
 			public void handleError(Diagnostic diagnostic) {
-				// if (!diagnostic.getMessage().contains("org.eclipse.mdht.uml.hl7.datatypes.impl") &&
-				// !diagnostic.getMessage().contains("org.eclipse.mdht.uml.cda.impl.")) {
-				//
-				//
-				// }
-
-				if (diagnostic.getMessage().contains("Invalid content was found starting with element")) {
-					System.out.println(diagnostic.getMessage());
-				}
-
+				System.out.println("ERROR" + diagnostic.getMessage());
 			}
 
 			@Override
 			public void handleWarning(Diagnostic diagnostic) {
-				// System.out.println(diagnostic.getMessage());
+				System.out.println(diagnostic.getMessage());
 
 			}
 
 			@Override
 			public void handleInfo(Diagnostic diagnostic) {
-				// System.out.println(diagnostic.getMessage());
+				System.out.println(diagnostic.getMessage());
 
 			}
 		};
