@@ -143,11 +143,11 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			column1.setWidth(250);
 			column2.setWidth(250);
 
-			for (String key : randmonIds.keySet()) {
+			for (String key : randomIds.keySet()) {
 				// If null flavor - we get null keys
 				if (!StringUtils.isEmpty(key)) {
 					final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
-					valueSetsUpdatedItem.setText(new String[] { key, randmonIds.get(key) });
+					valueSetsUpdatedItem.setText(new String[] { key, randomIds.get(key) });
 				}
 
 			}
@@ -235,14 +235,16 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		}
 
 		while (names.size() > 1000) {
-			names.removeFirst();
+			for (int i = 0; i < 100; i++) {
+				names.removeFirst();
+			}
 		}
 
 		return b.toString();
 
 	}
 
-	final HashMap<String, String> randmonIds = new HashMap<String, String>();
+	HashMap<String, String> randomIds = null;
 
 	/**
 	 * lookForExisting checks for an existing random id ignoring the part of file name
@@ -253,9 +255,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	 */
 	private String lookForExistingAcrossFiles(String slimkey) {
 		String randomString = "";
-		for (String fatkey : randmonIds.keySet()) {
+		for (String fatkey : randomIds.keySet()) {
 			if (fatkey.endsWith(slimkey)) {
-				randomString = randmonIds.get(fatkey);
+				randomString = randomIds.get(fatkey);
 			}
 		}
 		return randomString;
@@ -286,7 +288,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				if ((!"2.16.840.1.113883.1.3".equals(ii.getRoot())) && ii.getExtension() != null &&
 						ii.getExtension().trim().length() > 0) {
 					String key = getKey(file.getName(), ii);
-					if (!randmonIds.containsKey(key)) {
+					if (!randomIds.containsKey(key)) {
 						String randomString = lookForExistingAcrossFiles(getKey(ii));
 						if (StringUtils.isEmpty(randomString)) {
 							if (ii.getExtension() != null) {
@@ -295,12 +297,12 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 								randomString = RandomStringUtils.randomNumeric(5);
 							}
 						}
-						randmonIds.put(key, randomString);
+						randomIds.put(key, randomString);
 
 					}
 
-					if (randmonIds.containsKey(key)) {
-						ii.setExtension(randmonIds.get(key));
+					if (randomIds.containsKey(key)) {
+						ii.setExtension(randomIds.get(key));
 					}
 				}
 
@@ -341,7 +343,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 				String key = getKey(file.getName(), pn);
 
-				if (!randmonIds.containsKey(key)) {
+				if (!randomIds.containsKey(key)) {
 
 					String[] randoms = key.split(" ");
 
@@ -355,18 +357,18 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 						randomString = newName;
 					}
 
-					randmonIds.put(key, randomString);
+					randomIds.put(key, randomString);
 
 				}
 
-				if (randmonIds.containsKey(key)) {
+				if (randomIds.containsKey(key)) {
 
 					pn.getMixed().clear();
 					pn.getPrefixes().clear();
 					pn.getGivens().clear();
 					pn.getFamilies().clear();
 					pn.getSuffixes().clear();
-					pn.addText(randmonIds.get(key));
+					pn.addText(randomIds.get(key));
 				}
 
 				return true;
@@ -582,8 +584,8 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		try {
-			names.clear();
-			randmonIds.clear();
+			// names.clear();
+			// randmonIds.clear();
 
 			ProgressMonitorDialog pd = new ProgressMonitorDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
@@ -606,17 +608,17 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
-
+										randomIds = new HashMap<String, String>(folder.members().length * 100, .50f);
 										indexfile = folder.getFile(
 											DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
 
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
-										// for (int ctr = 0; ctr < 500; ctr++) {
+
 										processFolder(folder, monitor);
-										// }
 
 									}
 									if (o instanceof IFile) {
+										randomIds = new HashMap<String, String>();
 										indexfile = ((IFolder) ((IFile) o).getParent()).getFile(
 											DATE_FORMAT3.format(new Date()) +
 													((IFolder) ((IFile) o).getParent()).getName() + ".txt");
@@ -625,10 +627,10 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 									if (indexfile != null) {
 
 										StringBuilder sb2 = new StringBuilder();
-										for (String key : randmonIds.keySet()) {
+										for (String key : randomIds.keySet()) {
 
 											if (!StringUtils.isEmpty(key)) {
-												sb2.append(key).append("\t").append(randmonIds.get(key)).append(
+												sb2.append(key).append("\t").append(randomIds.get(key)).append(
 													'\r').append('\n');
 											}
 
@@ -667,10 +669,10 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				Clipboard cb = new Clipboard(Display.getDefault());
 
 				StringBuilder sb = new StringBuilder();
-				for (String key : randmonIds.keySet()) {
+				for (String key : randomIds.keySet()) {
 
 					if (!StringUtils.isEmpty(key)) {
-						sb.append(key).append(" = ").append(randmonIds.get(key)).append('\r').append('\n');
+						sb.append(key).append(" = ").append(randomIds.get(key)).append('\r').append('\n');
 					}
 
 					;
