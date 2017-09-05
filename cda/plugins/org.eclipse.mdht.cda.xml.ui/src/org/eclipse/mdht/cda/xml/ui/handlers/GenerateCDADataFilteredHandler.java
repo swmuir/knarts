@@ -19,8 +19,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
@@ -46,12 +48,15 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.uml.cda.Author;
+import org.eclipse.mdht.uml.cda.CDAPackage;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.InFulfillmentOf;
@@ -73,10 +78,46 @@ import org.openhealthtools.mdht.uml.cda.hitsp.HITSPPackage;
 
 import com.google.common.base.Stopwatch;
 
-public class GenerateCDADataHandler extends GenerateCDABaseHandler {
+/**
+ * @author seanmuir
+ *
+ */
+public class GenerateCDADataFilteredHandler extends GenerateCDABaseHandler {
 
+	private static String SECTIONPARAMETER = "org.eclipse.mdht.cda.xml.ui.sectionParameter";
+
+	// private Set<EClass> filters = new HashSet<EClass>();
+
+	Set<EClassifier> populateFilters(String sectionFilter) {
+		Set<EClassifier> filters = new HashSet<EClassifier>();
+
+		for (EClassifier ec : ConsolPackage.eINSTANCE.getEClassifiers()) {
+
+			if (CDAPackage.eINSTANCE.getSection().isSuperTypeOf((EClass) ec) && ec.getName().contains(sectionFilter)) {
+				filters.add(ec);
+			}
+
+		}
+
+		for (EClassifier ec : HITSPPackage.eINSTANCE.getEClassifiers()) {
+			if (CDAPackage.eINSTANCE.getSection().isSuperTypeOf((EClass) ec) && ec.getName().contains(sectionFilter)) {
+				filters.add(ec);
+			}
+		}
+
+		return filters;
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+
+		final String sectionFilter = event.getParameter(SECTIONPARAMETER);
 
 		try {
 
@@ -101,7 +142,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
-										processFolder2(folder, monitor);
+										processFolder2(folder, sectionFilter, monitor);
 									}
 								}
 							} catch (IOException e) {
@@ -149,7 +190,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return null;
 	}
 
-	void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
+	void processFolder2(IFolder folder, String sectionFilter, IProgressMonitor monitor) throws Exception {
+
+		final Set<EClassifier> filterSet = populateFilters(sectionFilter);
 
 		/*
 		 * Set Ratio low as to prevent Zip Bomb Detection
@@ -190,16 +233,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		offset = createPatientHeader(row1, row2, 0);
 		createPatientHeader2(row1, row2, offset);
 
-		SXSSFSheet encountersSheet = wb.createSheet("Encounters");
+		// SXSSFSheet encountersSheet = wb.createSheet("Encounters");
 
 		row1 = null;
-		row2 = encountersSheet.createRow(0);
+		// row2 = encountersSheet.createRow(0);
 
 		offset = createPatientHeader(row1, row2, 0);
 		createEncounterHeader(row1, row2, offset);
 
 		String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx";
+				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + sectionFilter + "_SA.xlsx";
 		File theFile = new File(fileLocation);
 
 		// If the file exists, check to see if we can open it
@@ -277,23 +320,29 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								encounters.addAll(es.getEncounterActivitiess());
 							}
 
-							appendToEncounterSheet(
-								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
+							// appendToEncounterSheet(
+							// query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetName = sheetName(section);
-								if (!(section instanceof EncountersSectionEntriesOptional)) {
-									if (!sheets.containsKey(section.eClass().getClassifierID())) {
-										SXSSFSheet newSheet = wb.createSheet(sheetName);
-										newSheet.setRandomAccessWindowSize(50);
-										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
-									}
-									SectionSwitch sectionSwitch = new SectionSwitch(
-										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
-										documentMetadata, patientRole, serviceEvent, encounters, file.getName());
-									sectionSwitch.doSwitch(section);
-									wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
+								if (!filterSet.contains(section.eClass())) {
+									continue;
 								}
+								String sheetName = sectionFilter;
+								// if (!(section instanceof EncountersSectionEntriesOptional)) {
+								if (!sheets.containsKey(section.eClass().getClassifierID())) {
+									SXSSFSheet newSheet = wb.createSheet(sheetName);
+									newSheet.setRandomAccessWindowSize(50);
+									for (EClassifier s : filterSet) {
+										sheets.put(s.getClassifierID(), newSheet.getSheetName());
+									}
+
+								}
+								SectionSwitch sectionSwitch = new SectionSwitch(
+									query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
+									documentMetadata, patientRole, serviceEvent, encounters, file.getName());
+								sectionSwitch.doSwitch(section);
+								wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
+								// }
 
 								if (!sectionbyfile.containsKey(sheetName)) {
 									sectionbyfile.put(sheetName, new ArrayList<IFile>());
@@ -311,16 +360,22 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								encounters.addAll(es.getEncounters());
 							}
 
-							appendToEncounterSheet(
-								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
+							// appendToEncounterSheet(
+							// query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetName = sheetName(section);
+								if (!filterSet.contains(section.eClass())) {
+									continue;
+								}
+								String sheetName = sectionFilter;
 								if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
 									if (!sheets.containsKey(section.eClass().getClassifierID())) {
 										SXSSFSheet newSheet = wb.createSheet(sheetName);
 										newSheet.setRandomAccessWindowSize(50);
-										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
+										// sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
+										for (EClassifier s : filterSet) {
+											sheets.put(s.getClassifierID(), newSheet.getSheetName());
+										}
 									}
 									C32SectionSwitch sectionSwitch = new C32SectionSwitch(
 										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
@@ -430,7 +485,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		}
 
 		monitor.subTask(
-			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + sectionFilter +
+					"_SA.xlsx");
 
 		FileOutputStream fileOut = new FileOutputStream(fileLocation);
 		wb.write(fileOut);
@@ -439,16 +495,20 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		wb.dispose();
 
 		monitor.subTask(
-			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+					sectionFilter + "_SA.xlsx");
 
 		monitor.subTask(
-			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + sectionFilter +
+					"_SA.xlsx");
 
 		if (folder.members().length < 50) {
 			format(fileLocation, monitor);
 		}
 		monitor.subTask(
-			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+					sectionFilter + "_SA.xlsx");
 
 	}
+
 }
