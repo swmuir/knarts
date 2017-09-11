@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 David A Carlson and others.
+ * Copyright (c) 2009, 2012, 2017 David A Carlson and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,16 +17,23 @@
  *     								 - support templateId extension attribute value in generalization and association messages
  *     Sarp Kaya (NEHTA)
  *     Vadim Peretokin (NEHTA) - added handling of SHOULD + 0..0 multiplicity to produce publication text "SHALL NOT"
+ *     Sean Muir (HL7) Added methods to support Acceleo reports
  * $Id$
  *******************************************************************************/
 package org.eclipse.mdht.uml.cda.core.util;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFolder;
@@ -54,6 +61,7 @@ import org.eclipse.mdht.uml.cda.core.profile.LogicalOperator;
 import org.eclipse.mdht.uml.cda.core.profile.SeverityKind;
 import org.eclipse.mdht.uml.cda.core.profile.Validation;
 import org.eclipse.mdht.uml.cda.core.profile.ValidationKind;
+import org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint;
 import org.eclipse.mdht.uml.common.util.NamedElementUtil;
 import org.eclipse.mdht.uml.common.util.PropertyList;
 import org.eclipse.mdht.uml.common.util.UMLUtil;
@@ -2585,6 +2593,230 @@ public class CDAModelUtil {
 		}
 
 		return templateId;
+	}
+
+	public String getPath(Class baseSourceClass, Class targetClass, Property sourceProperty) {
+		Property property = null;
+		for (Property rededfinedProperty : sourceProperty.getRedefinedProperties()) {
+			property = baseSourceClass.getOwnedAttribute(
+				rededfinedProperty.getName(), rededfinedProperty.getType(), true, null, false);
+		}
+
+		if (property == null) {
+			property = baseSourceClass.getOwnedAttribute(null, targetClass, true, null, false);
+		}
+		//
+		// If not - walk the hierarchy and check for properties
+		if (property == null) {
+			for (Classifier c : targetClass.allParents()) {
+				property = baseSourceClass.getOwnedAttribute(null, c, true, null, false);
+				// isBaseModel(targetClass, c)
+				if ((property != null) || CDAModelUtil.isCDAModel(c)) {
+					break;
+				}
+
+			}
+		}
+
+		// If we still can not find - use the name - this is not optimal but CDA has some hop scotch hierarchies such as consumable and
+		// manufactured product
+		if (property == null) {
+			property = baseSourceClass.getOwnedAttribute(sourceProperty.getName(), null, true, null, false);
+		}
+
+		if (property != null) {
+			return property.getName();
+		} else {
+			return "";
+		}
+	}
+
+	public static String getQualifiedName(ValueSetConstraint vsc) {
+
+		if (vsc.getBase_Property() != null) {
+			// String qname = vsc.getBase_Property().getQualifiedName();
+
+			// Stack<Element> owners = new Stack<Element>();
+			Stack<Property> properties = new Stack<Property>();
+			properties.push(vsc.getBase_Property());
+
+			Element owner = vsc.getBase_Property().getOwner();
+			if (owner == null) {
+				return "INVALID " + EcoreUtil.getID(vsc);
+			}
+			while (owner.getOwner() instanceof Class) {
+
+				Class c = (Class) owner.getOwner();
+				properties.push(c.getAttribute(null, (Type) owner));
+
+				if (owner.getOwner() == null) {
+					break;
+				}
+				owner = owner.getOwner();
+				// owners.push(owner);
+			}
+
+			;
+
+			StringBuffer qualifiedName = new StringBuffer();
+			for (Property p : properties) {
+				if (p != null) {
+					qualifiedName.insert(0, "/");
+					qualifiedName.insert(0, p.getName());
+				} else {
+					qualifiedName.insert(0, "/");
+					qualifiedName.insert(0, "NULL PROPERTY");
+				}
+			}
+			qualifiedName.insert(0, "/");
+			qualifiedName.insert(0, CDAModelUtil.getCDAClass((Classifier) owner).getName());
+
+			return qualifiedName.toString();
+			// for (Namespace ns : vsc.getBase_Property().allNamespaces()) {
+			//
+			// ns.get
+			//
+			// }
+			//
+			// String[] qnames = qname.split("");
+			//
+			// Stack<String> aStack = new Stack<String>();
+
+		}
+		// if (vsc.getBase_Property() != null) {
+		// Property cdaProperty = CDAModelUtil.getCDAProperty(vsc.getBase_Property());
+		// if (cdaProperty != null) {
+		// return cdaProperty.getQualifiedName().replaceFirst("cda::", "").replaceAll("::", "/");
+		// }
+		// return vsc.getBase_Property().getQualifiedName();
+		// }
+
+		return "INVALID " + EcoreUtil.getID(vsc);
+	}
+
+	public static String getValueSetName(ValueSetConstraint vsc) {
+		if (vsc.getReference() != null) {
+			if (!StringUtils.isEmpty(vsc.getReference().getFullName())) {
+				return vsc.getReference().getFullName();
+			} else {
+				return vsc.getReference().getEnumerationName();
+			}
+		}
+		return "INVALID";
+
+	}
+
+	public static String getTemplateClassName(ValueSetConstraint vsc) {
+
+		if (vsc.getBase_Property() != null && vsc.getBase_Property().getOwner() != null) {
+			Element owner = vsc.getBase_Property().getOwner();
+			while (owner.getOwner() instanceof Class) {
+				owner = owner.getOwner();
+			}
+
+			return ((NamedElement) owner).getName();
+		}
+		return "INVALID " + vsc.getRuleId().toString();
+	}
+
+	public static String getValidationKeyword(ValueSetConstraint vsc) {
+		String templateId = "";
+		if (vsc.getBase_Property() != null) {
+			templateId = getValidationKeyword(vsc.getBase_Property());
+		}
+		return templateId;
+	}
+
+	public Boolean fileExists(String filepath) throws IOException {
+		java.nio.file.Path p = Paths.get(filepath);
+		p.normalize();
+		File f = new File(filepath);
+		return f.exists();
+		// if (!f.exists()) {
+		// f.createNewFile();
+		// BufferedWriter bw = null;
+		// FileWriter fw = null;
+		// fw = new FileWriter(f.getAbsoluteFile(), true);
+		// bw = new BufferedWriter(fw);
+		// bw.write("Template ID Template Name Path OID Name Severity Combined1 Combined2");
+		// bw.close();
+		//
+		// }
+		// return "";
+	}
+
+	public String createHeader(String filepath) throws IOException {
+		java.nio.file.Path p = Paths.get(filepath);
+		p.normalize();
+		File f = new File(filepath);
+		if (!f.exists()) {
+			f.createNewFile();
+			BufferedWriter bw = null;
+			FileWriter fw = null;
+			fw = new FileWriter(f.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+			bw.write("Template ID	Template Name	Path	OID	Name	Severity	Combined1	Combined2");
+			bw.close();
+
+		}
+		return "";
+	}
+
+	// getTemplateId2
+
+	public static String getTemplateId2(ValueSetConstraint vsc) {
+
+		// Class template
+		// System.out.println(template.getQualifiedName());
+		// String templateId = "";
+		if (vsc.getBase_Property() != null) {
+
+			Element owner = vsc.getBase_Property().getOwner();
+			while (owner instanceof Class) {
+				Stereotype hl7Template = CDAProfileUtil.getAppliedCDAStereotype(
+					owner, ICDAProfileConstants.CDA_TEMPLATE);
+				if (hl7Template != null) {
+					String result = (String) owner.getValue(hl7Template, ICDAProfileConstants.CDA_TEMPLATE_TEMPLATE_ID);
+					String version = (String) owner.getValue(hl7Template, ICDAProfileConstants.CDA_TEMPLATE_VERSION);
+					return result + (StringUtils.isEmpty(version)
+							? ""
+							: "v" + version);
+				}
+				owner = owner.getOwner();
+			}
+
+		}
+		return "MISSING";
+	}
+
+	public static String getVersion(ValueSetConstraint vsc) {
+
+		// Class template
+		// System.out.println(template.getQualifiedName());
+		// String templateId = "";
+		if (vsc.getBase_Property() != null) {
+
+			Element owner = vsc.getBase_Property().getOwner();
+			while (owner instanceof Class) {
+				Stereotype hl7Template = CDAProfileUtil.getAppliedCDAStereotype(
+					owner, ICDAProfileConstants.CDA_TEMPLATE);
+				if (hl7Template != null) {
+					// String result = (String) owner.getValue(hl7Template, ICDAProfileConstants.CDA_TEMPLATE_TEMPLATE_ID);
+					String version = (String) owner.getValue(hl7Template, ICDAProfileConstants.CDA_TEMPLATE_VERSION);
+					if (StringUtils.isEmpty(version)) {
+						return "1.2";
+					} else {
+						return "2.1";
+					}
+					// return result + (StringUtils.isEmpty(version)
+					// ? ""
+					// : "v" + version);
+				}
+				owner = owner.getOwner();
+			}
+
+		}
+		return "MISSING";
 	}
 
 	public static String getTemplateId(Class template) {

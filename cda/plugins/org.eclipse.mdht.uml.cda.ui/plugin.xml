@@ -397,4 +397,24 @@
 		</objectContribution>
 	</extension>
 
+
+  <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.uml"
+            id="org.eclipse.acceleo.module.sampleA.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.mdht.acceleo.module.menu" label="MDHT Reports" path="additionsAcceleo">
+               <groupMarker name="mdht"/> 
+         </menu>
+         <action
+               class="org.eclipse.mdht.uml.cda.ui.actions.GenerateTerminologyUtilizationReport"
+               enablesFor="+"
+               id="org.eclipse.acceleo.module.sampleA.ui.popupMenus.acceleoGenerateSampleAAction"
+               icon="icons/default.gif"
+               label="Generate Terminology Utilization Report"
+               menubarPath="org.eclipse.mdht.acceleo.module.menu/mdht"/>
+      </objectContribution>
+   </extension>
+   
 </plugin>

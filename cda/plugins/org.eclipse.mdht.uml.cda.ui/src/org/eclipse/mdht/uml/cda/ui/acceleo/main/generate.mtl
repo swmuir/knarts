@@ -1,0 +1,54 @@
+[comment encoding = UTF-8 /]
+[comment Sean Muir (HL7) - initial API and implementation /]
+
+[module generate('http://www.openhealthtools.org/mdht/schemas/cda/4','http://www.eclipse.org/uml2/4.0.0/UML','http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public generateClass(aClass : Class)]
+
+[file ('TerminologyReport.txt',true, 'UTF-8')]
+[aClass.qualifiedName /]
+[/file]
+[/template]
+
+[template public generateElement(aPackage : Package)]
+[file ('TerminologyReport.txt',true, 'UTF-8')]
+[for (element : Class | aPackage.ownedType->selectByType(Class))]
+[element.qualifiedName/]
+[for (pp : Property | element.ownedAttribute)]
+[pp.qualifiedName /] [pp.getStereotypeApplications()->size() /]
+[/for]
+[for (it : Property | element.oclAsType(Class).attribute->select(p : Property | not p.getStereotypeApplications()->select(oclIsTypeOf(CDA::ValueSetConstraint))->isEmpty()))]
+aaaaaaa
+[/for]
+[/for]
+[/file]
+[/template]
+
+
+
+[template public generateElement(aValueSetConstraint : ValueSetConstraint)]
+[comment @main/]
+[file ('TerminologyReport.txt',true, 'UTF-8')]
+
+[getQualifiedName(aValueSetConstraint) /]	[getTemplateId2(aValueSetConstraint) /]	[getTemplateClassName(aValueSetConstraint)/]	VERSION [getVersion(aValueSetConstraint) /]	[aValueSetConstraint.reference.identifier  /]	[getValueSetName(aValueSetConstraint)  /]	[getValidationKeyword(aValueSetConstraint)/]	[combine1(aValueSetConstraint)/]	[combine2(aValueSetConstraint)/][/file]
+[/template]
+ 
+[template public combine1(aValueSetConstraint : ValueSetConstraint)][getValueSetName(aValueSetConstraint)  /] | [aValueSetConstraint.reference.identifier  /] [/template]
+
+[template public combine2(aValueSetConstraint : ValueSetConstraint)][getTemplateClassName(aValueSetConstraint)/] | [getTemplateId2(aValueSetConstraint) /] | [getQualifiedName(aValueSetConstraint) /] | [getValidationKeyword(aValueSetConstraint)/][/template]
+ 
+
+[query public fileExists(arg0 : String) : Boolean = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'fileExists(java.lang.String)', Sequence{arg0}) /]
+
+[query public getQualifiedName(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getQualifiedName(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
+
+[query public getTemplateClassName(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getTemplateClassName(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
+
+[query public getValidationKeyword(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getValidationKeyword(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
+
+[query public getTemplateId2(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getTemplateId2(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
+
+[query public getVersion(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getVersion(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
+
+[query public getValueSetName(arg0 : ValueSetConstraint) : String = invoke('org.eclipse.mdht.uml.cda.core.util.CDAModelUtil', 'getValueSetName(org.eclipse.mdht.uml.cda.core.profile.ValueSetConstraint)', Sequence{arg0}) /]
