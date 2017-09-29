@@ -40,9 +40,13 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.cda.xml.ui.internal.Logger;
+import org.eclipse.mdht.uml.cda.ClinicalDocument;
+import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
+import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
 import org.osgi.framework.Bundle;
 
 /**
@@ -63,8 +67,25 @@ public class OpenUsingStyleSheet extends AbstractHandler {
 	 */
 	private static void open(final IWebBrowser browser, IFile sourceFile) throws Exception {
 
+		ConsolPackage.eINSTANCE.getContinuityOfCareDocument();
+		// HITSPPackage.eINSTANCE.getPatientSummary();
+
+		org.eclipse.emf.common.util.URI cdaURI = org.eclipse.emf.common.util.URI.createFileURI(
+			sourceFile.getLocation().toOSString());
+		ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
+
+		String xslEntry = null;
+		String xslFolder = null;
+		if (clinicalDocument instanceof GeneralHeaderConstraints) {
+			xslEntry = "resources/xsl/vha/cda.xsl";
+			xslFolder = "resources/xsl/vha";
+		} else {
+			xslEntry = "resources/xsl/CDA.xsl";
+			xslFolder = "resources/xsl";
+		}
+
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
-		URL fileURL = bundle.getEntry("resources/xsl/vha/cda.xsl"); // "resources/xsl/CDA.xsl");
+		URL fileURL = bundle.getEntry(xslEntry);
 
 		// Create Temporary File
 		File tempFile = File.createTempFile(sourceFile.getName(), ".html");
@@ -73,7 +94,7 @@ public class OpenUsingStyleSheet extends AbstractHandler {
 		Path temporaryDirectory = Paths.get(tempFile.getParent());
 
 		// Get folder for xsl
-		URI csspath = URIUtil.toURI(FileLocator.toFileURL(bundle.getEntry("resources/xsl/vha")));
+		URI csspath = URIUtil.toURI(FileLocator.toFileURL(bundle.getEntry(xslFolder)));
 
 		// Copy any css files - these need to be in the same directory as the temporary file
 		DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(csspath), "*.css");
