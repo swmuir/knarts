@@ -46,6 +46,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
@@ -75,8 +76,12 @@ import com.google.common.base.Stopwatch;
 
 public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
+	private static String SPLITBYDOCUMENT = "org.eclipse.mdht.cda.xml.ui.splitbydocument";
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+
+		final String splitOption = event.getParameter(SPLITBYDOCUMENT);
 
 		try {
 
@@ -101,7 +106,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
-										processFolder2(folder, monitor);
+										processFolder2(folder, monitor, splitOption);
 									}
 								}
 							} catch (IOException e) {
@@ -149,7 +154,134 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return null;
 	}
 
-	void processFolder2(IFolder folder, IProgressMonitor monitor) throws Exception {
+	HashMap<Integer, SXSSFWorkbook> workbooks = new HashMap<Integer, SXSSFWorkbook>();
+
+	HashMap<Integer, EClass> documents = new HashMap<Integer, EClass>();
+
+	HashMap<Integer, HashMap<Integer, String>> sheets = new HashMap<Integer, HashMap<Integer, String>>();
+
+	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> sectionbyfileByDocument = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
+
+	HashMap<Integer, HashMap<IFile, DocumentMetadata>> documentsbyfile = new HashMap<Integer, HashMap<IFile, DocumentMetadata>>();
+
+	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> documentsbysectionbyfile = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
+
+	private static final String CONSOLIDATED = "CONSOLIDATED";
+
+	ArrayList<IFile> getSectionHash(int document, String sheetIndex, String splitOption) {
+		int documentIndex;
+
+		if (CONSOLIDATED.equals(splitOption)) {
+			documentIndex = 9909;
+		} else {
+			documentIndex = document; // .getClassifierID();
+		}
+
+		if (!documentsbysectionbyfile.containsKey(documentIndex)) {
+			documentsbysectionbyfile.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
+		}
+		if (!documentsbysectionbyfile.get(documentIndex).containsKey(sheetIndex)) {
+			documentsbysectionbyfile.get(documentIndex).put(sheetIndex, new ArrayList<IFile>());
+		}
+		ArrayList<IFile> result = documentsbysectionbyfile.get(documentIndex).get(sheetIndex);
+
+		return result;
+
+	}
+
+	HashMap<IFile, DocumentMetadata> getDMHash(int document, String splitOption) {
+		int documentIndex;
+
+		if (CONSOLIDATED.equals(splitOption)) {
+			documentIndex = 9909;
+		} else {
+			documentIndex = document; // .getClassifierID();
+		}
+
+		if (!documentsbyfile.containsKey(documentIndex)) {
+			documentsbyfile.put(documentIndex, new HashMap<IFile, DocumentMetadata>());
+		}
+		return documentsbyfile.get(documentIndex);
+
+	}
+
+	String getSheet(EClass document, Section section, String splitOption) {
+		int documentIndex;
+
+		if (CONSOLIDATED.equals(splitOption)) {
+			documentIndex = 9909;
+		} else {
+			documentIndex = document.getClassifierID();
+		}
+
+		if (!sheets.containsKey(documentIndex)) {
+			sheets.put(documentIndex, new HashMap<Integer, String>());
+		}
+		if (!sheets.get(documentIndex).containsKey(section.eClass().getClassifierID())) {
+			String sheetName = sheetName(section);
+			SXSSFWorkbook wb = getWorkbook(document, splitOption);
+			SXSSFSheet newSheet = wb.createSheet(sheetName);
+			newSheet.setRandomAccessWindowSize(50);
+			sheets.get(documentIndex).put(section.eClass().getClassifierID(), newSheet.getSheetName());
+		}
+		return sheets.get(documentIndex).get(section.eClass().getClassifierID());
+
+	}
+
+	SXSSFWorkbook getWorkbook(EClass document, String splitOption) {
+
+		int documentIndex;
+
+		if (CONSOLIDATED.equals(splitOption)) {
+			documentIndex = 9909;
+		} else {
+			documentIndex = document.getClassifierID();
+		}
+
+		if (!workbooks.containsKey(documentIndex)) {
+			int offset = 0;
+			SXSSFWorkbook wb = new SXSSFWorkbook(100);
+
+			wb.setCompressTempFiles(true);
+
+			SXSSFSheet documentsSheet = wb.createSheet("Documents");
+
+			SXSSFSheet sectionsSheet = wb.createSheet("Sections");
+
+			sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
+
+			SXSSFRow row1 = null;
+			SXSSFRow row2 = documentsSheet.createRow(0);
+			offset = createPatientHeader(row1, row2, 0);
+			createPatientHeader2(row1, row2, offset);
+
+			SXSSFSheet encountersSheet = wb.createSheet("Encounters");
+
+			row1 = null;
+			row2 = encountersSheet.createRow(0);
+
+			offset = createPatientHeader(row1, row2, 0);
+			createEncounterHeader(row1, row2, offset);
+			workbooks.put(documentIndex, wb);
+			documents.put(documentIndex, document);
+		}
+
+		return workbooks.get(documentIndex);
+
+	}
+
+	String getFileName(Integer eclass, String splitOption) {
+
+		if (CONSOLIDATED.equals(splitOption)) {
+			return CONSOLIDATED;
+		} else {
+			return documents.get(eclass).getName();
+			// return eclass.getName();
+		}
+
+	}
+
+	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption) throws Exception {
 
 		/*
 		 * Set Ratio low as to prevent Zip Bomb Detection
@@ -166,47 +298,24 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		 *
 		 * Not optimal but did not want to send the documentDateStyle as an argument to all the serialization methods
 		 */
-		documentDateStyle = null;
-		SXSSFWorkbook wb = new SXSSFWorkbook(100);
+		// documentDateStyle = null;
 
-		wb.setCompressTempFiles(true);
-		HashMap<Integer, String> sheets = new HashMap<Integer, String>();
+		documentDateStyles.clear();
+		sheets.clear();
 
-		sectionbyfile.clear();
-
+		sectionbyfileByDocument.clear();
+		documentsbysectionbyfile.clear();
 		documentsbyfile.clear();
+
+		workbooks.clear();
 
 		files.clear();
 
 		errors.clear();
+
+		documents.clear();
+
 		int offset = 0;
-
-		SXSSFSheet documentsSheet = wb.createSheet("Documents");
-
-		SXSSFSheet sectionsSheet = wb.createSheet("Sections");
-
-		SXSSFRow row1 = null;
-		SXSSFRow row2 = documentsSheet.createRow(0);
-		offset = createPatientHeader(row1, row2, 0);
-		createPatientHeader2(row1, row2, offset);
-
-		SXSSFSheet encountersSheet = wb.createSheet("Encounters");
-
-		row1 = null;
-		row2 = encountersSheet.createRow(0);
-
-		offset = createPatientHeader(row1, row2, 0);
-		createEncounterHeader(row1, row2, offset);
-
-		String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-				DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx";
-		File theFile = new File(fileLocation);
-
-		// If the file exists, check to see if we can open it
-		// this is the excel
-		if (theFile.exists()) {
-			org.apache.commons.io.FileUtils.touch(theFile);
-		}
 
 		int filectr = 1;
 		long currentProcessingTime = 1;
@@ -250,6 +359,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 						ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
 
+						SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
+						HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
+							clinicalDocument.eClass());
+
+						SXSSFSheet documentsSheet = wb.getSheet("Documents");
+						SXSSFSheet encountersSheet = wb.getSheet("Encounters");
+
 						List<Encounter> encounters = new ArrayList<Encounter>();
 
 						Query query = new Query(clinicalDocument);
@@ -266,10 +382,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						DocumentMetadata documentMetadata = appendToPatientSheet(
 							query, documentsSheet, patientRole, ir, iffo, file.getName());
 
-						documentsbyfile.put(file, documentMetadata); // clinicalDocument.eClass().getName());
+						getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
 
 						if (clinicalDocument instanceof GeneralHeaderConstraints) {
-
 							EncountersSectionEntriesOptional es = query.getEObject(
 								EncountersSectionEntriesOptional.class);
 
@@ -281,25 +396,17 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetName = sheetName(section);
+								String sheetIndex = getSheet(clinicalDocument.eClass(), section, splitOption);
 								if (!(section instanceof EncountersSectionEntriesOptional)) {
-									if (!sheets.containsKey(section.eClass().getClassifierID())) {
-										SXSSFSheet newSheet = wb.createSheet(sheetName);
-										newSheet.setRandomAccessWindowSize(50);
-										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
-									}
 									SectionSwitch sectionSwitch = new SectionSwitch(
-										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
-										documentMetadata, patientRole, serviceEvent, encounters, file.getName());
+										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+										encounters, file.getName());
 									sectionSwitch.doSwitch(section);
-									wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
+									wb.getSheet(sheetIndex).flushRows();
 								}
 
-								if (!sectionbyfile.containsKey(sheetName)) {
-									sectionbyfile.put(sheetName, new ArrayList<IFile>());
-								}
-
-								sectionbyfile.get(sheetName).add(file);
+								getSectionHash(
+									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
 
 							}
 						} else if (clinicalDocument instanceof org.openhealthtools.mdht.uml.cda.ccd.ContinuityOfCareDocument) {
@@ -315,35 +422,29 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetName = sheetName(section);
+								String sheetIndex = getSheet(clinicalDocument.eClass(), section, splitOption);
 								if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
-									if (!sheets.containsKey(section.eClass().getClassifierID())) {
-										SXSSFSheet newSheet = wb.createSheet(sheetName);
-										newSheet.setRandomAccessWindowSize(50);
-										sheets.put(section.eClass().getClassifierID(), newSheet.getSheetName());
-									}
 									C32SectionSwitch sectionSwitch = new C32SectionSwitch(
-										query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
-										documentMetadata, patientRole, serviceEvent, encounters, file.getName());
+										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+										encounters, file.getName());
 									Boolean result = sectionSwitch.doSwitch(section);
 									if (!result) {
 										CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
-											query, wb.getSheet(sheets.get(section.eClass().getClassifierID())),
-											documentMetadata, patientRole, serviceEvent, encounters, file.getName());
+											query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+											encounters, file.getName());
 										result = ccdSectionSwitch.doSwitch(section);
 									}
-									wb.getSheet(sheets.get(section.eClass().getClassifierID())).flushRows();
+									wb.getSheet(sheetIndex).flushRows();
 								}
-								if (!sectionbyfile.containsKey(sheetName)) {
-									sectionbyfile.put(sheetName, new ArrayList<IFile>());
-								}
-								sectionbyfile.get(sheetName).add(file);
+								getSectionHash(
+									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
 							}
 
 						}
 						clinicalDocument.eResource().unload();
 						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
 					} catch (Exception exception) {
+						exception.printStackTrace();
 						errors.put(file, exception);
 					}
 				}
@@ -354,101 +455,145 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		monitor.beginTask("Generate Spreadsheet", folder.members().length);
 
-		List<String> sortedKeys = new ArrayList<String>(sectionbyfile.keySet());
-		Collections.sort(sortedKeys);
+		for (Integer eClass : workbooks.keySet()) {
 
-		Font boldFont = wb.createFont();
-		boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
-		CellStyle sectionstyle = null;
-		if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
-			sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
-			sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
-			sectionstyle.setRotation((short) -90);
-			sectionstyle.setFont(boldFont);
-		}
+			HashMap<String, ArrayList<IFile>> sectionbyfile = documentsbysectionbyfile.get(eClass);
 
-		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+			SXSSFWorkbook wb = workbooks.get(eClass);
+			SXSSFSheet sectionsSheet = wb.getSheet("Sections");
 
-		offset = 0;
-		row1.createCell(offset++).setCellValue("File Name");
-		// row1.createCell(offset++).setCellValue("Document");
-		offset = createDocumentMedadataHeadder(row1, offset++);
-		// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
-		for (String sectionclass : sortedKeys) {
-			Cell cell = row1.createCell(offset++);
-			cell.setCellValue(sectionclass);
-			if (sectionstyle != null) {
-				cell.setCellStyle(sectionstyle);
+			List<String> sortedKeys = new ArrayList<String>(sectionbyfile.keySet());
+			Collections.sort(sortedKeys);
+
+			Font boldFont = wb.createFont();
+			boldFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+			CellStyle sectionstyle = null;
+			if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
+				sectionstyle = sectionsSheet.getWorkbook().createCellStyle();
+				sectionstyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
+				sectionstyle.setRotation((short) -90);
+				sectionstyle.setFont(boldFont);
 			}
-		}
 
-		CellStyle style = null;
-		if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
-			style = sectionsSheet.getWorkbook().createCellStyle();
-			style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
-			style.setFillPattern(CellStyle.SOLID_FOREGROUND);
-			style.setAlignment(CellStyle.ALIGN_CENTER);
-		}
+			SXSSFRow row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 
-		// style.setFont(font);
+			offset = 0;
+			row1.createCell(offset++).setCellValue("File Name");
+			// row1.createCell(offset++).setCellValue("Document");
+			offset = createDocumentMedadataHeadder(row1, offset++);
+			int metadataoffset = offset;
+			// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
+			for (String sectionclass : sortedKeys) {
+				Cell cell = row1.createCell(offset++);
+				cell.setCellValue(sectionclass);
+				if (sectionstyle != null) {
+					cell.setCellStyle(sectionstyle);
+				}
+			}
 
-		// CellStyle boldstyle = wb.createCellStyle();
+			CellStyle style = null;
+			if (sectionsSheet.getWorkbook().getNumCellStyles() < 100) {
+				style = sectionsSheet.getWorkbook().createCellStyle();
+				style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+				style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+				style.setAlignment(CellStyle.ALIGN_CENTER);
+			}
 
-		// boldstyle.setFont(boldFont);
-		int lastRow = 0;
-		for (IFile file : files) {
-			if (documentsbyfile.containsKey(file)) {
-				offset = 0;
-				row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-				row1.createCell(offset++).setCellValue(file.getName());
-				DocumentMetadata documentMetadata = documentsbyfile.get(file);
-				offset = serializeDocumentMetadata(row1, offset, documentMetadata);
-				lastRow = row1.getRowNum();
-				for (String sectionclass : sortedKeys) {
-					if (sectionbyfile.get(sectionclass).contains(file)) {
-						Cell cell = row1.createCell(offset++);
-						cell.setCellValue("X");
-						if (style != null) {
-							cell.setCellStyle(style);
+			// style.setFont(font);
+
+			// CellStyle boldstyle = wb.createCellStyle();
+
+			// boldstyle.setFont(boldFont);
+			int lastRow = 0;
+			for (IFile file : files) {
+				if (getDMHash(eClass, splitOption).containsKey(file)) {
+					offset = 0;
+					row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+					row1.createCell(offset++).setCellValue(file.getName());
+					DocumentMetadata documentMetadata = getDMHash(eClass, splitOption).get(file);
+					offset = serializeDocumentMetadata(row1, offset, documentMetadata);
+					lastRow = row1.getRowNum();
+					for (String sectionclass : sortedKeys) {
+						if (sectionbyfile.get(sectionclass).contains(file)) {
+							Cell cell = row1.createCell(offset++);
+							cell.setCellValue("X");
+							if (style != null) {
+								cell.setCellStyle(style);
+							}
+						} else {
+							row1.createCell(offset++).setCellValue("");
 						}
-					} else {
-						row1.createCell(offset++).setCellValue("");
 					}
+				}
+			}
+
+			row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+			// offset = 2;
+			for (@SuppressWarnings("unused")
+			String sectionclass : sortedKeys) {
+				Cell cell = row1.createCell(metadataoffset++);
+				String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
+				String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (lastRow + 1) + ",\"X\")";
+				cell.setCellType(Cell.CELL_TYPE_FORMULA);
+				cell.setCellFormula(strFormula);
+			}
+
+			String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
+					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+					getFileName(eClass, splitOption) + "_SA.xlsx";
+			File theFile = new File(fileLocation);
+
+			// If the file exists, check to see if we can open it
+			// this is the excel
+			if (theFile.exists()) {
+				org.apache.commons.io.FileUtils.touch(theFile);
+			}
+
+			monitor.subTask(
+				"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+
+			FileOutputStream fileOut = new FileOutputStream(fileLocation);
+			wb.write(fileOut);
+			fileOut.close();
+			wb.close();
+			wb.dispose();
+
+			monitor.subTask(
+				"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+						"_SA.xlsx");
+
+			monitor.subTask(
+				"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+
+			if (folder.members().length < 50) {
+				format(fileLocation, monitor);
+			}
+			monitor.subTask(
+				"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+						"_SA.xlsx");
+
+		}
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDABaseHandler#getSectionCount(org.eclipse.core.resources.IFile)
+	 */
+	@Override
+	public int getSectionCount(IFile file) {
+		int count = 0;
+		for (Integer i : documentsbysectionbyfile.keySet()) {
+			for (String s : documentsbysectionbyfile.get(i).keySet()) {
+				if (documentsbysectionbyfile.get(i).get(s).contains(file)) {
+					count++;
 				}
 			}
 		}
 
-		row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-		offset = 2;
-		for (@SuppressWarnings("unused")
-		String sectionclass : sortedKeys) {
-			Cell cell = row1.createCell(offset++);
-			String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
-			String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (lastRow + 1) + ",\"X\")";
-			cell.setCellType(Cell.CELL_TYPE_FORMULA);
-			cell.setCellFormula(strFormula);
-		}
-
-		monitor.subTask(
-			"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
-
-		FileOutputStream fileOut = new FileOutputStream(fileLocation);
-		wb.write(fileOut);
-		fileOut.close();
-		wb.close();
-		wb.dispose();
-
-		monitor.subTask(
-			"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
-
-		monitor.subTask(
-			"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
-
-		if (folder.members().length < 50) {
-			format(fileLocation, monitor);
-		}
-		monitor.subTask(
-			"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
-
+		// TODO Auto-generated method stub
+		return count;
 	}
+
 }

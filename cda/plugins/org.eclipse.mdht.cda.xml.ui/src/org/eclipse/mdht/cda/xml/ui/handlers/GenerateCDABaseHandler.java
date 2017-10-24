@@ -59,6 +59,7 @@ import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.CDAFactory;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Consumable;
+import org.eclipse.mdht.uml.cda.DocumentationOf;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.InFulfillmentOf;
 import org.eclipse.mdht.uml.cda.InformationRecipient;
@@ -68,6 +69,7 @@ import org.eclipse.mdht.uml.cda.Organization;
 import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.Patient;
 import org.eclipse.mdht.uml.cda.PatientRole;
+import org.eclipse.mdht.uml.cda.Performer1;
 import org.eclipse.mdht.uml.cda.Performer2;
 import org.eclipse.mdht.uml.cda.Procedure;
 import org.eclipse.mdht.uml.cda.ReferenceRange;
@@ -80,6 +82,8 @@ import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.cda.util.ValidationResult;
+import org.eclipse.mdht.uml.hl7.datatypes.AD;
+import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.ED;
@@ -231,12 +235,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				if (errors.containsKey(file)) {
 					valueSetsUpdatedItem.setText(new String[] { file.getName(), errors.get(file).getMessage() });
 				} else {
-					int sectionCount = 0;
-					for (String eclass : sectionbyfile.keySet()) {
-						if (sectionbyfile.get(eclass).contains(file)) {
-							sectionCount++;
-						}
-					}
+					int sectionCount = getSectionCount(file);
+
 					valueSetsUpdatedItem.setText(new String[] { file.getName(), String.valueOf(sectionCount) });
 				}
 			}
@@ -909,6 +909,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		String documentSoftware = "";
 
 		String documentType = "";
+
+		public AD pcpAddress;
+
+		public PN pcpName;
 
 	}
 
@@ -2274,6 +2278,12 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	}
 
 	/**
+	 * @param file
+	 * @return
+	 */
+	public abstract int getSectionCount(IFile file);
+
+	/**
 	 * @param object
 	 * @return
 	 */
@@ -2286,6 +2296,25 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 		return sb.toString();
+	}
+
+	public static String getValues(AD ad) {
+		StringBuffer b = new StringBuffer();
+		for (ADXP a : ad.getStreetAddressLines()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			b.append(a.getText());
+		}
+
+		for (ADXP a : ad.getStates()) {
+			if (b.length() > 0) {
+				b.append(" ");
+			}
+			b.append(a.getText());
+		}
+
+		return b.toString();
 	}
 
 	public static String getValues(EN pn) {
@@ -2767,8 +2796,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		}
 	}
 
-	static DocumentMetadata appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole,
-			InformationRecipient ir, InFulfillmentOf iffo, String fileName) {
+	DocumentMetadata appendToPatientSheet(Query query, Sheet sheet, PatientRole patientRole, InformationRecipient ir,
+			InFulfillmentOf iffo, String fileName) {
 
 		DocumentMetadata documentMetadata = new DocumentMetadata();
 		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -2826,6 +2855,39 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		}
 
+		// Setup primary care provider
+		for (DocumentationOf documentationOf : cd.getDocumentationOfs()) {
+			if (documentationOf.getServiceEvent() != null) {
+				for (Performer1 performer : documentationOf.getServiceEvent().getPerformers()) {
+					if (performer.getFunctionCode() != null &&
+							!StringUtils.isEmpty(performer.getFunctionCode().getCode())) {
+
+						if ("PCP".equals(performer.getFunctionCode().getCode())) {
+							if (performer.getAssignedEntity() != null) {
+								for (AD ad : performer.getAssignedEntity().getAddrs()) {
+									documentMetadata.pcpAddress = ad;
+									break;
+								}
+								if (performer.getAssignedEntity().getAssignedPerson() != null) {
+									for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+										documentMetadata.pcpName = pn;
+										break;
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+		// if (!cd.getDocumentationOfs().isEmpty()) {
+		//
+		// }
+
 		// serviceEvent.get
 
 		row.createCell(offset++).setCellValue(documentMetadata.documentOrganization);
@@ -2838,6 +2900,21 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 			cell.setCellStyle(getDocumentDateStyle(sheet));
 			cell.setCellValue(documentMetadata.documentDate);
+		} else {
+			row.createCell(offset++);
+		}
+
+		if (documentMetadata.pcpName != null) {
+			Cell cell = row.createCell(offset++);
+			// cell.setCellStyle(getDocumentDateStyle(sheet));
+			cell.setCellValue(getValues(documentMetadata.pcpName));
+		} else {
+			row.createCell(offset++);
+		}
+
+		if (documentMetadata.pcpAddress != null) {
+			Cell cell = row.createCell(offset++);
+			cell.setCellValue(getValues(documentMetadata.pcpAddress));
 		} else {
 			row.createCell(offset++);
 		}
@@ -2883,16 +2960,18 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	 * @param sheet
 	 * @return
 	 */
-	static CellStyle documentDateStyle;
+
+	static HashMap<Sheet, CellStyle> documentDateStyles = new HashMap<Sheet, CellStyle>();
 
 	private static CellStyle getDocumentDateStyle(Sheet sheet) {
-		if (documentDateStyle == null) {
-			documentDateStyle = sheet.getWorkbook().createCellStyle();
+		if (!documentDateStyles.containsKey(sheet)) {
+			CellStyle documentDateStyle = sheet.getWorkbook().createCellStyle();
 			CreationHelper createHelper = sheet.getWorkbook().getCreationHelper();
 			documentDateStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
+			documentDateStyles.put(sheet, documentDateStyle);
 		}
 
-		return documentDateStyle;
+		return documentDateStyles.get(sheet);
 	}
 
 	static void appendToResultsSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
@@ -3095,6 +3174,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Software");
 		row2.createCell(offset++).setCellValue("Document Date");
+		row2.createCell(offset++).setCellValue("PCP Name");
+		row2.createCell(offset++).setCellValue("PCP Address");
 		return offset;
 	}
 
@@ -3426,8 +3507,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		if (!StringUtils.isEmpty(authorId) && StringUtils.isEmpty(result)) {
 			if (PorO.ORGANIZATION.equals(poro)) {
 				if (GenerateCDABaseHandler.organizations.containsKey(authorId)) {
-					result = GenerateCDABaseHandler.organizations.get(authorId) +
-							"*";
+					result = GenerateCDABaseHandler.organizations.get(authorId) + "*";
 				}
 			} else {
 				if (GenerateCDABaseHandler.authors.containsKey(authorId)) {
@@ -4007,6 +4087,21 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		} else {
 			row.createCell(offset++);
 		}
+
+		if (documentMetadata.pcpName != null) {
+			cell = row.createCell(offset++);
+			cell.setCellValue(getValues(documentMetadata.pcpName));
+		} else {
+			row.createCell(offset++);
+		}
+
+		if (documentMetadata.pcpAddress != null) {
+			cell = row.createCell(offset++);
+			cell.setCellValue(getValues(documentMetadata.pcpAddress));
+		} else {
+			row.createCell(offset++);
+		}
+
 		return offset;
 	}
 
@@ -4760,13 +4855,11 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return true;
 	}
 
-	HashMap<IFile, DocumentMetadata> documentsbyfile = new HashMap<IFile, DocumentMetadata>();
-
 	protected HashMap<IFile, Exception> errors = new HashMap<IFile, Exception>();
 
 	protected ArrayList<IFile> files = new ArrayList<IFile>();
 
-	protected HashMap<String, ArrayList<IFile>> sectionbyfile = new HashMap<String, ArrayList<IFile>>();
+	//
 
 	/**
 	 *

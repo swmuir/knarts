@@ -46,20 +46,26 @@
 		</command>
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
 			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
-		</command>
-		<command
-			id="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataFiltered"
-			name="GENERATECDADATA"
-			defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataFilteredHandler">
-			<commandParameter id="org.eclipse.mdht.cda.xml.ui.sectionParameter"
+				<commandParameter id="org.eclipse.mdht.cda.xml.ui.splitbydocument"
 				name="org.eclipse.mdht.cda.xml.ui.sectionParameter" optional="false">
 			</commandParameter>
 		</command>
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataByDocument"
+			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
+				<commandParameter id="org.eclipse.mdht.cda.xml.ui.splitbydocument"
+				name="org.eclipse.mdht.cda.xml.ui.splitbydocument" optional="false">
+			</commandParameter>
+		</command>
+		<command
+			id="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataFiltered"
+			name="GENERATECDADATAFILTERED"
+			defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataFilteredHandler">
+		</command>
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
-			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenUsingStyleSheet">
+			name="OPENWITHSTYLESHEET" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenUsingStyleSheet">
 		</command>
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.openCDAViewer"
-			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenCDAViewer">
+			name="OPENCDAVIEWER" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenCDAViewer">
 		</command>
 
 	</extension>
@@ -162,7 +168,7 @@
 
 				<!-- Need to add the ability to enable just when consol2 is available -->
 				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
-					label="Generate CDA Analysis Report" id="org.eclipse.mdht.cda.xml.ui.menu.generateCDAData"
+					label="Generate Consolidated Analysis Report " id="org.eclipse.mdht.cda.xml.ui.menu.generateCDAData"
 					mnemonic="G">
 					<visibleWhen>
 						<with variable="selection">
@@ -175,13 +181,14 @@
 							</iterate>
 						</with>
 					</visibleWhen>
+					<parameter name="org.eclipse.mdht.cda.xml.ui.splitbydocument"
+						value="CONSOLIDATED">
+					</parameter>
 				</command>
-
-				<command
-					commandId="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataFiltered"
-					label="Generate CDA Filtered Allergies Report"
-					id="org.eclipse.mdht.cda.xml.ui.menu.generateCDADataFiltered.allergies"
-					mnemonic="A">
+				
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataByDocument"
+					label="Generate Document Based Analysis Report" id="org.eclipse.mdht.cda.xml.ui.menu.generateCDAData"
+					mnemonic="D">
 					<visibleWhen>
 						<with variable="selection">
 							<iterate ifEmpty="false" operator="and">
@@ -193,14 +200,16 @@
 							</iterate>
 						</with>
 					</visibleWhen>
-					<parameter name="org.eclipse.mdht.cda.xml.ui.sectionParameter"
-						value="Allergies">
+					<parameter name="org.eclipse.mdht.cda.xml.ui.splitbydocument"
+						value="DOCUMENT">
 					</parameter>
 				</command>
+
+				 
 				<command
 					commandId="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataFiltered"
 					id="org.eclipse.mdht.cda.xml.ui.menu.generateCDADataFiltered.medications"
-					label="Generate CDA Filtered Medications Report" mnemonic="A">
+					label="Generate CDA Filtered Report" mnemonic="A">
 					<visibleWhen>
 						<with variable="selection">
 							<iterate ifEmpty="false" operator="and">
@@ -213,10 +222,6 @@
 							</iterate>
 						</with>
 					</visibleWhen>
-					<parameter name="org.eclipse.mdht.cda.xml.ui.sectionParameter"
-						value="Medications">
-					</parameter>
-
 				</command>
 
 				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.openCDAViewer"
