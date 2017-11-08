@@ -459,6 +459,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 			HashMap<String, ArrayList<IFile>> sectionbyfile = documentsbysectionbyfile.get(eClass);
 
+			if (sectionbyfile == null) {
+				sectionbyfile = new HashMap<String, ArrayList<IFile>>();
+			}
+
 			SXSSFWorkbook wb = workbooks.get(eClass);
 			SXSSFSheet sectionsSheet = wb.getSheet("Sections");
 
@@ -482,6 +486,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			// row1.createCell(offset++).setCellValue("Document");
 			offset = createDocumentMedadataHeadder(row1, offset++);
 			int metadataoffset = offset;
+
 			// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
 			for (String sectionclass : sortedKeys) {
 				Cell cell = row1.createCell(offset++);
@@ -489,6 +494,17 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				if (sectionstyle != null) {
 					cell.setCellStyle(sectionstyle);
 				}
+			}
+
+			row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+			// offset = 2;
+			for (@SuppressWarnings("unused")
+			String sectionclass : sortedKeys) {
+				Cell cell = row1.createCell(metadataoffset++);
+				String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
+				String strFormula = "COUNTIF(" + columnLetter + "3:" + columnLetter + (files.size() + 2) + ",\"X\")";
+				cell.setCellType(Cell.CELL_TYPE_FORMULA);
+				cell.setCellFormula(strFormula);
 			}
 
 			CellStyle style = null;
@@ -527,16 +543,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				}
 			}
 
-			row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-			// offset = 2;
-			for (@SuppressWarnings("unused")
-			String sectionclass : sortedKeys) {
-				Cell cell = row1.createCell(metadataoffset++);
-				String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
-				String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (lastRow + 1) + ",\"X\")";
-				cell.setCellType(Cell.CELL_TYPE_FORMULA);
-				cell.setCellFormula(strFormula);
-			}
+			// row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
+			// // offset = 2;
+			// for (@SuppressWarnings("unused")
+			// String sectionclass : sortedKeys) {
+			// Cell cell = row1.createCell(metadataoffset++);
+			// String columnLetter = CellReference.convertNumToColString(cell.getColumnIndex());
+			// String strFormula = "COUNTIF(" + columnLetter + "2:" + columnLetter + (lastRow + 1) + ",\"X\")";
+			// cell.setCellType(Cell.CELL_TYPE_FORMULA);
+			// cell.setCellFormula(strFormula);
+			// }
 
 			String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
 					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
