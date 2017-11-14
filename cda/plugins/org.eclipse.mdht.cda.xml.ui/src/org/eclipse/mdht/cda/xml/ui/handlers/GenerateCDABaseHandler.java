@@ -2121,7 +2121,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				row, offset, problemConcernAct.getSection(), problemConcernAct.getCode(), problemConcernAct.getText());
 
 			for (ProblemObservation problemObservation : problemConcernAct.getProblemObservations()) {
-				serializeProblemObservation(row, offset, problemObservation);
+				offset = serializeProblemObservation(row, offset, problemObservation);
 				break;
 			}
 
