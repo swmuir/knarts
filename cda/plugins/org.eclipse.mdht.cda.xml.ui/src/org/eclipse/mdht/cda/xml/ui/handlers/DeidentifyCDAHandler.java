@@ -11,14 +11,11 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
@@ -264,6 +261,11 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	}
 
 	public void deidentifyCDA(final IFile file) throws Exception {
+
+		/**
+		 * Do not attempt to use ids across files - performance issues of large hash maps
+		 */
+		randomIds.clear();
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
@@ -558,9 +560,13 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				IFile file = (IFile) resource;
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 					monitor.worked(1);
+
 					monitor.subTask(
-						"Processing  " + file.getName() + "  File #  " + filectr++ + " Average Time per File " +
-								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
+						"Processing  " + StringUtils.center(StringUtils.abbreviate(file.getName(), 16), 16) +
+								"  File #  " + StringUtils.center(String.valueOf(filectr++), 10) +
+								" Average Time per File " +
+								StringUtils.center(String.valueOf((currentProcessingTime / filectr) / 1000.0), 6) +
+								" Seconds ");
 					try {
 						stopwatch.reset();
 						stopwatch.start();
@@ -604,13 +610,13 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 							try {
 								Iterator<Object> iter = iss.iterator();
 								while (iter.hasNext() && !monitor.isCanceled()) {
-									IFile indexfile = null;
+									// IFile indexfile = null;
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
-										randomIds = new HashMap<String, String>(folder.members().length * 100, .50f);
-										indexfile = folder.getFile(
-											DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
+										randomIds = new HashMap<String, String>(100, .50f);
+										// indexfile = folder.getFile(
+										// DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
 
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
 
@@ -619,31 +625,31 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 									}
 									if (o instanceof IFile) {
 										randomIds = new HashMap<String, String>();
-										indexfile = ((IFolder) ((IFile) o).getParent()).getFile(
-											DATE_FORMAT3.format(new Date()) +
-													((IFolder) ((IFile) o).getParent()).getName() + ".txt");
+										// indexfile = ((IFolder) ((IFile) o).getParent()).getFile(
+										// DATE_FORMAT3.format(new Date()) +
+										// ((IFolder) ((IFile) o).getParent()).getName() + ".txt");
 										deidentifyCDA((IFile) o);
 									}
-									if (indexfile != null) {
-
-										StringBuilder sb2 = new StringBuilder();
-										for (String key : randomIds.keySet()) {
-
-											if (!StringUtils.isEmpty(key)) {
-												sb2.append(key).append("\t").append(randomIds.get(key)).append(
-													'\r').append('\n');
-											}
-
-											;
-										}
-
-										InputStream input = new ByteArrayInputStream(sb2.toString().getBytes());
-										if (!indexfile.exists()) {
-											indexfile.create(input, true, null);
-										} else {
-											indexfile.setContents(input, IResource.FORCE, null);
-										}
-									}
+									// if (indexfile != null) {
+									//
+									// StringBuilder sb2 = new StringBuilder();
+									// for (String key : randomIds.keySet()) {
+									//
+									// if (!StringUtils.isEmpty(key)) {
+									// sb2.append(key).append("\t").append(randomIds.get(key)).append(
+									// '\r').append('\n');
+									// }
+									//
+									// ;
+									// }
+									//
+									// InputStream input = new ByteArrayInputStream(sb2.toString().getBytes());
+									// if (!indexfile.exists()) {
+									// indexfile.create(input, true, null);
+									// } else {
+									// indexfile.setContents(input, IResource.FORCE, null);
+									// }
+									// }
 								}
 							} catch (PartInitException e) {
 
