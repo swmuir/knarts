@@ -3552,7 +3552,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 					String result = section.getText().getText(reference.substring(1));
 					if (!StringUtils.isEmpty(result)) {
-						return result;
+						return StringUtils.abbreviate(result, 1000);
 					} else {
 						return "Missing in narrative " + reference;
 					}

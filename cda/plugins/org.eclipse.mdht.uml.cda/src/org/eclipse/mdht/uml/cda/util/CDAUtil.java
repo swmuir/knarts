@@ -73,6 +73,7 @@ import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.DOMHandler;
 import org.eclipse.emf.ecore.xmi.DOMHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
 import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.mdht.emf.runtime.resource.DOMDocumentHandlerImpl;
 import org.eclipse.mdht.emf.runtime.resource.FleXMLResource;
@@ -255,7 +256,7 @@ public class CDAUtil {
 	public static ClinicalDocument load(ResourceSet resourceSet, URI uri, InputStream in,
 			final ValidationHandler handler) throws Exception {
 		XMLResource resource = (XMLResource) resourceSet.createResource(uri);
-		Map<Object, Object> options = new java.util.HashMap<Object, Object>();
+		Map<Object, Object> options = createOptimizedLoadOptions();
 
 		if (handler != null) {
 			// perform XML schema validation BEFORE load for base standard compliance (complete)
@@ -287,7 +288,7 @@ public class CDAUtil {
 	public static ClinicalDocument load(ResourceSet resourceSet, URI uri, InputSource is,
 			final ValidationHandler handler) throws Exception {
 		XMLResource resource = (XMLResource) resourceSet.createResource(uri);
-		Map<Object, Object> options = new java.util.HashMap<Object, Object>();
+		Map<Object, Object> options = createOptimizedLoadOptions();
 
 		if (handler != null) {
 			// perform XML schema validation BEFORE load for base standard compliance (complete)
@@ -319,7 +320,7 @@ public class CDAUtil {
 	public static ClinicalDocument load(ResourceSet resourceSet, URI uri, Document document,
 			final ValidationHandler handler) throws Exception {
 		XMLResource resource = (XMLResource) resourceSet.createResource(uri);
-		Map<Object, Object> options = new java.util.HashMap<Object, Object>();
+		Map<Object, Object> options = createOptimizedLoadOptions();
 
 		if (handler != null) {
 			// perform XML schema validation BEFORE load for base standard compliance (complete)
@@ -386,10 +387,18 @@ public class CDAUtil {
 		return uri;
 	}
 
+	private static Map<Object, Object> createOptimizedLoadOptions() {
+		Map<Object, Object> options = new java.util.HashMap<Object, Object>();
+		options.put(XMLResource.OPTION_USE_PARSER_POOL, new XMLParserPoolImpl());
+		options.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+		options.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap<Object, Object>());
+		return options;
+	}
+
 	public static ClinicalDocument load(ResourceSet resourceSet, URI uri, final ValidationHandler handler)
 			throws Exception {
 		XMLResource resource = (XMLResource) resourceSet.createResource(uri);
-		Map<Object, Object> options = new java.util.HashMap<Object, Object>();
+		Map<Object, Object> options = createOptimizedLoadOptions();
 
 		if (handler != null) {
 			// perform XML schema validation BEFORE load for base standard compliance (complete)
@@ -565,6 +574,8 @@ public class CDAUtil {
 		options.put(XMLResource.OPTION_ENCODING, "UTF8");
 		options.put(XMLResource.OPTION_SCHEMA_LOCATION, Boolean.FALSE);
 		options.put(XMLResource.OPTION_DECLARE_XML, Boolean.FALSE);
+		options.put(XMLResource.OPTION_DECLARE_XML, Boolean.FALSE);
+		options.put(XMLResource.OPTION_USE_FILE_BUFFER, Boolean.TRUE);
 
 		return options;
 	}

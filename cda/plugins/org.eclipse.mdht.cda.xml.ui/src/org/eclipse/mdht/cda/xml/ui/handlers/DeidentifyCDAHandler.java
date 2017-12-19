@@ -12,10 +12,14 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
@@ -25,6 +29,7 @@ import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -53,6 +58,7 @@ import org.eclipse.mdht.uml.cda.StrucDocText;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ADXP;
 import org.eclipse.mdht.uml.hl7.datatypes.BinaryDataEncoding;
@@ -134,19 +140,24 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 			final TableColumn column2 = new TableColumn(table, SWT.LEFT);
 
-			column1.setText("Original Value");
-			column2.setText("Random Value");
+			column1.setText("File Name");
+			column2.setText("Size (MB)");
 
 			column1.setWidth(250);
 			column2.setWidth(250);
 
-			for (String key : randomIds.keySet()) {
-				// If null flavor - we get null keys
-				if (!StringUtils.isEmpty(key)) {
+			for (IFile file : documents) {
+				IFileStore fs1;
+				try {
+					fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
 					final TableItem valueSetsUpdatedItem = new TableItem(table, SWT.NONE);
-					valueSetsUpdatedItem.setText(new String[] { key, randomIds.get(key) });
-				}
+					valueSetsUpdatedItem.setText(
+						new String[] {
+								fs1.fetchInfo().getName(), String.valueOf(fs1.fetchInfo().getLength() / 1000000) });
 
+				} catch (CoreException e) {
+
+				}
 			}
 
 			return composite;
@@ -186,6 +197,8 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	ArrayDeque<String> names = new ArrayDeque<String>();
 
+	ArrayDeque<String> randomNames = new ArrayDeque<String>();
+
 	public String getKey(String prefix, EN pn) {
 		return prefix + "\t" + getKey(pn);
 	}
@@ -194,6 +207,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 		if (pn.getText() != null && pn.getText().trim().length() > 0) {
 			names.add(pn.getText());
+			randomNames.add(RandomStringUtils.randomAlphabetic(pn.getText().length()));
 			return pn.getText();
 		}
 
@@ -204,6 +218,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				b.append(" ");
 			}
 			names.add(e.getText());
+			randomNames.add(RandomStringUtils.randomAlphabetic(pn.getText().length()));
 			b.append(e.getText());
 		}
 
@@ -212,6 +227,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				b.append(" ");
 			}
 			names.add(e.getText());
+			randomNames.add(RandomStringUtils.randomAlphabetic(pn.getText().length()));
 			b.append(e.getText());
 		}
 
@@ -220,6 +236,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				b.append(" ");
 			}
 			names.add(e.getText());
+			randomNames.add(RandomStringUtils.randomAlphabetic(pn.getText().length()));
 			b.append(e.getText());
 		}
 
@@ -228,12 +245,14 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 				b.append(" ");
 			}
 			names.add(e.getText());
+			randomNames.add(RandomStringUtils.randomAlphabetic(pn.getText().length()));
 			b.append(e.getText());
 		}
 
 		while (names.size() > 1000) {
 			for (int i = 0; i < 100; i++) {
 				names.removeFirst();
+				randomNames.removeFirst();
 			}
 		}
 
@@ -269,7 +288,8 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-		ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
+		ClinicalDocument clinicalDocument = CDAUtil.load(
+			new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
 
 		Query query = new Query(clinicalDocument);
 
@@ -464,15 +484,17 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 						CDAUtil.saveSnippet(EcoreUtil.copy(item.getText()), fa);
 
 						String newText = fa.toString();
-						for (String n : names) {
-							if (n.length() > 1) {
-								newText = newText.replace(n, RandomStringUtils.randomAlphabetic(n.length()));
-							}
-						}
-						String s = newText.replace("<strucdoctext xmlns=\"urn:hl7-org:v3\">", "").replace(
-							"</strucdoctext>", "");
 
-						StrucDocText hhh = item.createStrucDocText(s);
+						String sourceNames[] = names.toArray(new String[0]); // new String[names.size()];
+						String targetNames[] = randomNames.toArray(new String[0]);
+						StringUtils.replaceEach(newText, sourceNames, targetNames);
+
+						/**
+						 * The substr removes the start and end tags of the narrative
+						 * "<strucdoctext xmlns=\"urn:hl7-org:v3\">".length = 37
+						 * "</strucdoctext>".length = 15
+						 */
+						StrucDocText hhh = item.createStrucDocText(newText.substring(37, newText.length() - 15));
 						item.setText(hhh);
 
 					} catch (Exception e) {
@@ -541,11 +563,17 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		clinicalDocument.eResource().unload();
 	}
 
+	ArrayList<IFile> documents = new ArrayList<IFile>();
+
 	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
 
 		int filectr = 1;
 		long currentProcessingTime = 1;
+		long totalBytes = 0;
 		Stopwatch stopwatch = Stopwatch.createUnstarted();
+
+		documents.clear();
+
 		for (IResource resource : folder.members()) {
 
 			if (monitor.isCanceled()) {
@@ -556,27 +584,78 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			if (resource instanceof IFolder && !resource.getName().equals("DeIndentified")) {
 				processFolder((IFolder) resource, monitor);
 			}
+
 			if (resource instanceof IFile) {
 				IFile file = (IFile) resource;
+				IFileStore fs = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
-					monitor.worked(1);
-
-					monitor.subTask(
-						"Processing  " + StringUtils.center(StringUtils.abbreviate(file.getName(), 16), 16) +
-								"  File #  " + StringUtils.center(String.valueOf(filectr++), 10) +
-								" Average Time per File " +
-								StringUtils.center(String.valueOf((currentProcessingTime / filectr) / 1000.0), 6) +
-								" Seconds ");
-					try {
-						stopwatch.reset();
-						stopwatch.start();
-						deidentifyCDA(file);
-						stopwatch.stop();
-						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+					documents.add(file);
+					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+					totalBytes += fs1.fetchInfo().getLength();
 				}
+			}
+		}
+
+		Comparator<? super IFile> c = new Comparator<IFile>() {
+
+			@Override
+			public int compare(IFile file1, IFile file2) {
+				try {
+					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file1.getLocationURI());
+					IFileStore fs2 = org.eclipse.core.filesystem.EFS.getStore(file2.getLocationURI());
+					if (fs1.fetchInfo().getLength() < fs2.fetchInfo().getLength()) {
+						return -1;
+					} else {
+						return 1;
+					}
+				} catch (CoreException e) {
+
+				}
+				return 0;
+			}
+		};
+		Collections.sort(documents, c);
+
+		currentProcessingTime = 0;
+		long estimatedTimeLeft = 0;
+		for (IFile document : documents) {
+			monitor.worked(1);
+
+			if (estimatedTimeLeft != 0) {
+				if (estimatedTimeLeft > 60) {
+					monitor.setTaskName(
+						"DeIdentify Folder, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
+								" Minutes ");
+				} else {
+					monitor.setTaskName(
+						"DeIdentify Folder, Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
+				}
+			}
+
+			monitor.subTask(
+				"Processing " + StringUtils.center(StringUtils.abbreviate(document.getName(), 16), 16) + " File # " +
+						StringUtils.center(String.valueOf(filectr++), 10) + " Average Time per File " +
+						StringUtils.center(String.valueOf((currentProcessingTime / filectr) / 1000.0), 6) + " Seconds");
+			try {
+				stopwatch.reset();
+				stopwatch.start();
+				deidentifyCDA(document);
+				stopwatch.stop();
+				currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
+
+				IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(document.getLocationURI());
+				long fileSize = fs1.fetchInfo().getLength();
+				long ratePerSecond = fileSize / stopwatch.elapsed(TimeUnit.MILLISECONDS);
+
+				totalBytes -= fileSize;
+
+				estimatedTimeLeft = (totalBytes / ratePerSecond) / 1000;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if (monitor.isCanceled()) {
+				break;
 			}
 		}
 	}
@@ -590,8 +669,6 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		try {
-			// names.clear();
-			// randmonIds.clear();
 
 			ProgressMonitorDialog pd = new ProgressMonitorDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());

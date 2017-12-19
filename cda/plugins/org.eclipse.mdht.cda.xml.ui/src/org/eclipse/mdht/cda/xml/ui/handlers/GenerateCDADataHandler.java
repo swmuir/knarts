@@ -12,6 +12,7 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -62,6 +63,7 @@ import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -357,7 +359,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					try {
 						URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-						ClinicalDocument clinicalDocument = CDAUtil.load(cdaURI);
+						ClinicalDocument clinicalDocument = CDAUtil.load(
+							new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
 
 						SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
 						HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
