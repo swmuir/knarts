@@ -15,6 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -260,7 +261,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	}
 
-	HashMap<String, String> randomIds = null;
+	HashMap<String, String> randomIds = new HashMap<String, String>(10000, .50f);;
 
 	/**
 	 * lookForExisting checks for an existing random id ignoring the part of file name
@@ -281,10 +282,10 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	public void deidentifyCDA(final IFile file) throws Exception {
 
-		/**
-		 * Do not attempt to use ids across files - performance issues of large hash maps
-		 */
-		randomIds.clear();
+		// /**
+		// * Do not attempt to use ids across files - performance issues of large hash maps
+		// */
+		// randomIds.clear();
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
@@ -565,11 +566,14 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	ArrayList<IFile> documents = new ArrayList<IFile>();
 
+	private static DecimalFormat format2Places = new DecimalFormat(".##");
+
 	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
 
 		int filectr = 1;
 		long currentProcessingTime = 1;
 		long totalBytes = 0;
+		long totalBytes2 = 0;
 		Stopwatch stopwatch = Stopwatch.createUnstarted();
 
 		documents.clear();
@@ -596,6 +600,10 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			}
 		}
 
+		totalBytes2 = totalBytes;
+
+		monitor.setTaskName("DeIdentify Folder (" + format2Places.format(totalBytes2 / 1000000.0) + " MB) ");
+
 		Comparator<? super IFile> c = new Comparator<IFile>() {
 
 			@Override
@@ -604,9 +612,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file1.getLocationURI());
 					IFileStore fs2 = org.eclipse.core.filesystem.EFS.getStore(file2.getLocationURI());
 					if (fs1.fetchInfo().getLength() < fs2.fetchInfo().getLength()) {
-						return -1;
-					} else {
 						return 1;
+					} else {
+						return -1;
 					}
 				} catch (CoreException e) {
 
@@ -624,27 +632,30 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			if (estimatedTimeLeft != 0) {
 				if (estimatedTimeLeft > 60) {
 					monitor.setTaskName(
-						"DeIdentify Folder, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
-								" Minutes ");
+						"DeIdentify Folder (" + format2Places.format(totalBytes2 / 1000000.0) +
+								" MB), Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) + " Minutes ");
 				} else {
 					monitor.setTaskName(
-						"DeIdentify Folder, Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
+						"DeIdentify Folder (" + format2Places.format(totalBytes2 / 1000000.0) +
+								" MB), Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
 				}
 			}
 
+			IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(document.getLocationURI());
+			long fileSize = fs1.fetchInfo().getLength();
+
 			monitor.subTask(
-				"Processing " + StringUtils.center(StringUtils.abbreviate(document.getName(), 16), 16) + " File # " +
-						StringUtils.center(String.valueOf(filectr++), 10) + " Average Time per File " +
-						StringUtils.center(String.valueOf((currentProcessingTime / filectr) / 1000.0), 6) + " Seconds");
+				"Processing " + StringUtils.center(StringUtils.abbreviate(document.getName(), 16), 16) + "(" +
+						format2Places.format(fs1.fetchInfo().getLength() / 1000000.0) + " MB)" + " File # " +
+						StringUtils.center(String.valueOf(filectr++), 10) + " LAST " +
+						StringUtils.center(String.valueOf(currentProcessingTime / 1000.0), 6) + " Seconds");
 			try {
 				stopwatch.reset();
 				stopwatch.start();
 				deidentifyCDA(document);
 				stopwatch.stop();
-				currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
+				currentProcessingTime = stopwatch.elapsed(TimeUnit.MILLISECONDS);
 
-				IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(document.getLocationURI());
-				long fileSize = fs1.fetchInfo().getLength();
 				long ratePerSecond = fileSize / stopwatch.elapsed(TimeUnit.MILLISECONDS);
 
 				totalBytes -= fileSize;
@@ -691,7 +702,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 									Object o = iter.next();
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
-										randomIds = new HashMap<String, String>(100, .50f);
+
 										// indexfile = folder.getFile(
 										// DATE_FORMAT3.format(new Date()) + folder.getName() + ".txt");
 
@@ -701,7 +712,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 									}
 									if (o instanceof IFile) {
-										randomIds = new HashMap<String, String>();
+										// randomIds = new HashMap<String, String>();
 										// indexfile = ((IFolder) ((IFile) o).getParent()).getFile(
 										// DATE_FORMAT3.format(new Date()) +
 										// ((IFolder) ((IFile) o).getParent()).getName() + ".txt");
