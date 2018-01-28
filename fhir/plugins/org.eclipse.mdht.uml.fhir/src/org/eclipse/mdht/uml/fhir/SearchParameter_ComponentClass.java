@@ -20,7 +20,7 @@ import org.eclipse.mdht.uml.fhir.types.Reference;
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_ComponentClass()
- * @model
+ * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='ComponentClass'"
  * @generated
  */
 public interface SearchParameter_ComponentClass extends EObject {

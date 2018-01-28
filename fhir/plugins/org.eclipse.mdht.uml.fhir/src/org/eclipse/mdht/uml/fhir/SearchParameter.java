@@ -4,7 +4,9 @@ package org.eclipse.mdht.uml.fhir;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
+import org.eclipse.uml2.uml.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +33,7 @@ import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
  *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter#getModifiers <em>Modifier</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter#getChains <em>Chain</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter#getComponents <em>Component</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter#getBaseResources <em>Base Resource</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter()
@@ -383,5 +386,45 @@ public interface SearchParameter extends ConformanceResource {
 	 * @generated
 	 */
 	EList<SearchParameter_ComponentClass> getComponents();
+
+	/**
+	 * Returns the value of the '<em><b>Base Resource</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.uml2.uml.NamedElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base Resource</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Base Resource</em>' reference list.
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_BaseResource()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	EList<NamedElement> getBaseResources();
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.NamedElement} with the specified '<em><b>Name</b></em>' from the '<em><b>Base Resource</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.NamedElement} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.NamedElement} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getBaseResources()
+	 * @generated
+	 */
+	NamedElement getBaseResource(String name);
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.NamedElement} with the specified '<em><b>Name</b></em>' from the '<em><b>Base Resource</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.NamedElement} to retrieve, or <code>null</code>.
+	 * @param ignoreCase Whether to ignore case in {@link java.lang.String} comparisons.
+	 * @param eClass The Ecore class of the {@link org.eclipse.uml2.uml.NamedElement} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.NamedElement} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getBaseResources()
+	 * @generated
+	 */
+	NamedElement getBaseResource(String name, boolean ignoreCase, EClass eClass);
 
 } // SearchParameter

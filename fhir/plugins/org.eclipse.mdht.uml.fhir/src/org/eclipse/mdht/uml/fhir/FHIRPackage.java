@@ -1615,13 +1615,22 @@ public interface FHIRPackage extends EPackage {
 	int SEARCH_PARAMETER__COMPONENT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Base Resource</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEARCH_PARAMETER__BASE_RESOURCE = CONFORMANCE_RESOURCE_FEATURE_COUNT + 16;
+
+	/**
 	 * The number of structural features of the '<em>Search Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEARCH_PARAMETER_FEATURE_COUNT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 16;
+	int SEARCH_PARAMETER_FEATURE_COUNT = CONFORMANCE_RESOURCE_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of operations of the '<em>Search Parameter</em>' class.
@@ -2674,6 +2683,17 @@ public interface FHIRPackage extends EPackage {
 	EReference getSearchParameter_Component();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.SearchParameter#getBaseResources <em>Base Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Base Resource</em>'.
+	 * @see org.eclipse.mdht.uml.fhir.SearchParameter#getBaseResources()
+	 * @see #getSearchParameter()
+	 * @generated
+	 */
+	EReference getSearchParameter_BaseResource();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass <em>Search Parameter Component Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3503,6 +3523,14 @@ public interface FHIRPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEARCH_PARAMETER__COMPONENT = eINSTANCE.getSearchParameter_Component();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Resource</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEARCH_PARAMETER__BASE_RESOURCE = eINSTANCE.getSearchParameter_BaseResource();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.fhir.impl.SearchParameter_ComponentClassImpl <em>Search Parameter Component Class</em>}' class.

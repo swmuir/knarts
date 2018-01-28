@@ -454,6 +454,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aMzLcDtvEeeAFuCaRk8Orw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cJwnYDtvEeeAFuCaRk8Orw" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_SIZukAROEeiQSPrZ4bcPjw" name="baseResource">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#NamedElement"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SIbjwAROEeiQSPrZ4bcPjw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SIcK0AROEeiQSPrZ4bcPjw" value="*"/>
+      </ownedAttribute>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_xfMLgEojEee6m5nTtgeNAw" name="ComponentClass">
         <ownedAttribute xmi:id="_028xgEojEee6m5nTtgeNAw" name="definition" type="_1xBK4DtuEeeAFuCaRk8Orw" aggregation="composite"/>
         <ownedAttribute xmi:id="_029YkEojEee6m5nTtgeNAw" name="expression">

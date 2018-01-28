@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.mdht.uml.fhir.BindingStrengthKind;
@@ -253,6 +254,8 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+		TypesPackage.eINSTANCE.eClass();
 		UMLPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -1072,6 +1075,15 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSearchParameter_BaseResource() {
+		return (EReference)searchParameterEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSearchParameter_ComponentClass() {
 		return searchParameter_ComponentClassEClass;
 	}
@@ -1261,6 +1273,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__MODIFIER);
 		createEAttribute(searchParameterEClass, SEARCH_PARAMETER__CHAIN);
 		createEReference(searchParameterEClass, SEARCH_PARAMETER__COMPONENT);
+		createEReference(searchParameterEClass, SEARCH_PARAMETER__BASE_RESOURCE);
 
 		searchParameter_ComponentClassEClass = createEClass(SEARCH_PARAMETER_COMPONENT_CLASS);
 		createEReference(searchParameter_ComponentClassEClass, SEARCH_PARAMETER_COMPONENT_CLASS__DEFINITION);
@@ -1420,6 +1433,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getSearchParameter_Modifier(), theTypesPackage.getString(), "modifier", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSearchParameter_Chain(), theTypesPackage.getString(), "chain", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSearchParameter_Component(), this.getSearchParameter_ComponentClass(), null, "component", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSearchParameter_BaseResource(), theUMLPackage.getNamedElement(), null, "baseResource", null, 1, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(searchParameter_ComponentClassEClass, SearchParameter_ComponentClass.class, "SearchParameter_ComponentClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSearchParameter_ComponentClass_Definition(), theFHIRTypesPackage.getReference(), null, "definition", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1465,6 +1479,12 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		   source, 
 		   new String[] {
 			 "originalName", "FHIR"
+		   });	
+		addAnnotation
+		  (searchParameter_ComponentClassEClass, 
+		   source, 
+		   new String[] {
+			 "originalName", "ComponentClass"
 		   });
 	}
 

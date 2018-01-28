@@ -12,6 +12,7 @@ package org.eclipse.mdht.uml.fhir.transform;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +56,7 @@ import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Package;
@@ -514,6 +516,14 @@ public class ModelImporter implements ModelConstants {
 			if (searchParameter.getBase() != null) {
 				for (ResourceType resourceType : searchParameter.getBase()) {
 					searchParameterStereotype.getBases().add(resourceType.getValue().toString());
+					Package resourcesPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
+					Collection<NamedElement> collectionNamedElement = UMLUtil.findNamedElements(resourcesPkg.eResource(), "FHIR-Core::".concat(PACKAGE_NAME_RESOURCES).concat("::").concat(resourceType.getValue().toString()));
+					if (collectionNamedElement.isEmpty())
+						System.out.println("Cannot find NamedElement: " + resourceType.getValue().toString());
+					else if (collectionNamedElement.size() != 1)
+						System.out.println("NamedElements more than one: " + resourceType.getValue().toString());
+					else
+						searchParameterStereotype.getBaseResources().add(collectionNamedElement.iterator().next());
 				}
 			}
 			if (searchParameter.getType() != null) {
@@ -838,7 +848,7 @@ public class ModelImporter implements ModelConstants {
 		 */
 		String profileURI = structureDef.getUrl().getValue();
 		String profileClassName = profileURI.substring(profileURI.lastIndexOf("/") + 1);
-		String profileHumanName = structureDef.getName().getValue();
+//		String profileHumanName = structureDef.getName().getValue();
 				
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);

@@ -193,8 +193,13 @@
         upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
         upperBound="-1" eType="#//SearchParameter_ComponentClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseResource" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchParameter_ComponentClass">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="ComponentClass"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
         lowerBound="1" eType="#//types/Reference" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"

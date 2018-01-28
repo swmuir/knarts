@@ -16,12 +16,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
 import org.eclipse.mdht.uml.fhir.SearchParameter;
 import org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass;
 import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
+import org.eclipse.uml2.uml.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +49,7 @@ import org.eclipse.mdht.uml.fhir.types.CodeableConcept;
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl#getModifiers <em>Modifier</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl#getChains <em>Chain</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl#getComponents <em>Component</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.impl.SearchParameterImpl#getBaseResources <em>Base Resource</em>}</li>
  * </ul>
  *
  * @generated
@@ -291,6 +294,16 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 	 * @ordered
 	 */
 	protected EList<SearchParameter_ComponentClass> components;
+
+	/**
+	 * The cached value of the '{@link #getBaseResources() <em>Base Resource</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBaseResources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<NamedElement> baseResources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -606,6 +619,43 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<NamedElement> getBaseResources() {
+		if (baseResources == null) {
+			baseResources = new EObjectResolvingEList<NamedElement>(NamedElement.class, this, FHIRPackage.SEARCH_PARAMETER__BASE_RESOURCE);
+		}
+		return baseResources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedElement getBaseResource(String name) {
+		return getBaseResource(name, false, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedElement getBaseResource(String name, boolean ignoreCase, EClass eClass) {
+		baseResourceLoop: for (NamedElement baseResource : getBaseResources()) {
+			if (eClass != null && !eClass.isInstance(baseResource))
+				continue baseResourceLoop;
+			if (name != null && !(ignoreCase ? name.equalsIgnoreCase(baseResource.getName()) : name.equals(baseResource.getName())))
+				continue baseResourceLoop;
+			return baseResource;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -658,6 +708,8 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 				return getChains();
 			case FHIRPackage.SEARCH_PARAMETER__COMPONENT:
 				return getComponents();
+			case FHIRPackage.SEARCH_PARAMETER__BASE_RESOURCE:
+				return getBaseResources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -726,6 +778,10 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends SearchParameter_ComponentClass>)newValue);
 				return;
+			case FHIRPackage.SEARCH_PARAMETER__BASE_RESOURCE:
+				getBaseResources().clear();
+				getBaseResources().addAll((Collection<? extends NamedElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -786,6 +842,9 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 			case FHIRPackage.SEARCH_PARAMETER__COMPONENT:
 				getComponents().clear();
 				return;
+			case FHIRPackage.SEARCH_PARAMETER__BASE_RESOURCE:
+				getBaseResources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -830,6 +889,8 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 				return chains != null && !chains.isEmpty();
 			case FHIRPackage.SEARCH_PARAMETER__COMPONENT:
 				return components != null && !components.isEmpty();
+			case FHIRPackage.SEARCH_PARAMETER__BASE_RESOURCE:
+				return baseResources != null && !baseResources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
