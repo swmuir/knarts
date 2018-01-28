@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -823,6 +824,11 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 		String profileClassName = profileURI.substring(profileURI.lastIndexOf("/") + 1);
 		String profileHumanName = structureDef.getName().getValue();
 		
+		if (profileClassName.contentEquals("Flag")) {
+            boolean iuy = true;
+            iuy = false;
+		}		
+		
 		boolean isAbstract = structureDef.getAbstract().isValue();
 		profileClass = kindPackage.createOwnedClass(profileClassName, isAbstract);
 		
@@ -952,7 +958,7 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 				System.err.println("Cannot find constrained type for: " + structureDef.getUrl().getValue());
 			}
 		}
-		
+
 		for (ElementDefinition elementDef : structureDef.getDifferential().getElement()) {
 			// parse path segments to identify nested classes and property names
 			String path = elementDef.getPath().getValue();
@@ -1069,6 +1075,16 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 			Property inheritedProperty = null;
 			String propertyName = getPropertyName(elementDef);
 			
+			if (profileClassName.contentEquals("Flag") && propertyName.equals("encounter")) {
+                boolean iuy = true;
+                iuy = false;
+			}
+			
+			if (profileClassName.contentEquals("Flag") && propertyName.equals("author")) {
+                boolean iuy = true;
+                iuy = false;
+			}						
+			
 			// Look for inherited wildcard property, unless this is a wildcard (ends with [x]).
 			if (propertyName.indexOf("[x]") == -1) {
 				for (String wildcardName : wildcardProperties.keySet()) {
@@ -1111,7 +1127,7 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 					&& inheritedProperty.getType() instanceof Classifier) {
 				typeList.add((Classifier)inheritedProperty.getType());
 			}
-			
+						
 			Classifier propertyType = null;
 			if (isProhibitedElement) {
 				propertyType = null;
@@ -1144,12 +1160,20 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 				addEcoreClassName(propertyType);
 			}
 			else if (typeList.size() == 1) {
-				propertyType = typeList.get(0);
+				if (allReferences(elementDef.getType())) {
+					Class resourceType = importStructureDefinitionForId(REFERENCE_CLASS_NAME);
+				    propertyType = resourceType;
+				    // TODO - the single TypeChoice is not getting added - can't find where this is done for > 1's
+				  } else
+					  propertyType = typeList.get(0);
 			}
 			else if (typeList.size() > 1) {
-				// All types must be same kind, some elements mix Resource and CodeableConcept
-				Class resourceType = importStructureDefinitionForId(RESOURCE_CLASS_NAME);
-				if (FhirModelUtil.allSubclassOf(typeList, RESOURCE_CLASS_NAME)) {
+				if (allReferences(elementDef.getType())) {
+					Class resourceType = importStructureDefinitionForId(REFERENCE_CLASS_NAME);
+					propertyType = resourceType;
+				} else if (FhirModelUtil.allSubclassOf(typeList, RESOURCE_CLASS_NAME)) {
+					// All types must be same kind, some elements mix Resource and CodeableConcept
+					Class resourceType = importStructureDefinitionForId(RESOURCE_CLASS_NAME);
 					propertyType = resourceType;
 				}
 				else if (FhirModelUtil.allSubclassOf(typeList, DATATYPE_CLASS_NAME)) {
@@ -1336,7 +1360,7 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 
 			addComments(property, elementDef);
 			
-			if (typeList.size() > 1) {
+			if (typeList.size() >= 1) {
 				addTypeChoice(property, typeList);
 			}
 			
@@ -1364,6 +1388,30 @@ public Class importSearchParameter(SearchParameter searchParameter) {
 		
 		return profileClass;
 	}
+	
+	private boolean allReferences(EList<ElementDefinitionType> elementDefTypeList) {
+
+          boolean ret = true;
+
+          if (elementDefTypeList.size() == 0)
+                  return false;
+
+          for (ElementDefinitionType elementDefType : elementDefTypeList) {
+                  if (elementDefType.getCode() == null)
+                          return false;
+
+                  if (elementDefType.getCode().getValue() == null)
+                          return false;
+
+                  if (!elementDefType.getCode().getValue().equals(REFERENCE_CLASS_NAME)) {
+                          return false;
+                  }
+          }
+
+          return ret;
+
+	}
+	
 	
 	private void addComments(Element umlElement, ElementDefinition elementDef) {
 		Profile fhirProfile = UMLUtil.getProfile(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getTypeChoice().getEPackage(), umlElement);
