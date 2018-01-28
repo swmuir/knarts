@@ -369,7 +369,7 @@ public interface SearchParameter extends ConformanceResource {
 	EList<String> getChains();
 
 	/**
-	 * Returns the value of the '<em><b>Component</b></em>' reference list.
+	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.mdht.uml.fhir.SearchParameter_ComponentClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -377,9 +377,9 @@ public interface SearchParameter extends ConformanceResource {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component</em>' reference list.
+	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_Component()
-	 * @model ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SearchParameter_ComponentClass> getComponents();

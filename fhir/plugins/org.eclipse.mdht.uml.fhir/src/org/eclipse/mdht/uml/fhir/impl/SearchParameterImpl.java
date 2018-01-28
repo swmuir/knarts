@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.mdht.uml.fhir.FHIRPackage;
@@ -284,7 +283,7 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 	protected EList<String> chains;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Component</em>}' reference list.
+	 * The cached value of the '{@link #getComponents() <em>Component</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
@@ -597,7 +596,7 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 	 */
 	public EList<SearchParameter_ComponentClass> getComponents() {
 		if (components == null) {
-			components = new EObjectResolvingEList<SearchParameter_ComponentClass>(SearchParameter_ComponentClass.class, this, FHIRPackage.SEARCH_PARAMETER__COMPONENT);
+			components = new EObjectContainmentEList<SearchParameter_ComponentClass>(SearchParameter_ComponentClass.class, this, FHIRPackage.SEARCH_PARAMETER__COMPONENT);
 		}
 		return components;
 	}
@@ -612,6 +611,8 @@ public class SearchParameterImpl extends ConformanceResourceImpl implements Sear
 		switch (featureID) {
 			case FHIRPackage.SEARCH_PARAMETER__JURISDICTION:
 				return ((InternalEList<?>)getJurisdictions()).basicRemove(otherEnd, msgs);
+			case FHIRPackage.SEARCH_PARAMETER__COMPONENT:
+				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

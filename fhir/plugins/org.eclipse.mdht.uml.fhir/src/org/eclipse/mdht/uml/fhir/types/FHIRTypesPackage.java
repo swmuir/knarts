@@ -289,7 +289,7 @@ public interface FHIRTypesPackage extends EPackage {
 	int CONTACT_DETAIL__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Telecom</b></em>' reference list.
+	 * The feature id for the '<em><b>Telecom</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -579,10 +579,10 @@ public interface FHIRTypesPackage extends EPackage {
 	EAttribute getContactDetail_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail#getTelecoms <em>Telecom</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.mdht.uml.fhir.types.ContactDetail#getTelecoms <em>Telecom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Telecom</em>'.
+	 * @return the meta object for the containment reference list '<em>Telecom</em>'.
 	 * @see org.eclipse.mdht.uml.fhir.types.ContactDetail#getTelecoms()
 	 * @see #getContactDetail()
 	 * @generated
@@ -815,7 +815,7 @@ public interface FHIRTypesPackage extends EPackage {
 		EAttribute CONTACT_DETAIL__NAME = eINSTANCE.getContactDetail_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Telecom</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Telecom</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

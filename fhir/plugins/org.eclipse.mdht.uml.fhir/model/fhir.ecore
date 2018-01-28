@@ -41,7 +41,7 @@
         upperBound="-1" eType="#//types/ContactDetail" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="useContext" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//types/CodeableConcept" containment="true"/>
+        upperBound="-1" eType="#//types/CodeableConcept" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyright" ordered="false"
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
@@ -192,11 +192,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chain" ordered="false"
         upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
-        upperBound="-1" eType="#//SearchParameter_ComponentClass"/>
+        upperBound="-1" eType="#//SearchParameter_ComponentClass" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchParameter_ComponentClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
-        lowerBound="1" eType="#//types/Reference"/>
+        lowerBound="1" eType="#//types/Reference" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
@@ -233,7 +233,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="telecom" ordered="false"
-          upperBound="-1" eType="#//types/ContactPoint"/>
+          upperBound="-1" eType="#//types/ContactPoint" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContactPoint">

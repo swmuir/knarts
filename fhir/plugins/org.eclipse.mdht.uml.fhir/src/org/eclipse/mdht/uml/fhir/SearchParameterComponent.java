@@ -15,15 +15,15 @@ import org.eclipse.mdht.uml.fhir.types.Reference;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter_Component#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameter_Component#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameterComponent#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.fhir.SearchParameterComponent#getExpression <em>Expression</em>}</li>
  * </ul>
  *
- * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_Component()
+ * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameterComponent()
  * @model
  * @generated
  */
-public interface SearchParameter_Component extends EObject {
+public interface SearchParameterComponent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -34,14 +34,14 @@ public interface SearchParameter_Component extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definition</em>' reference.
 	 * @see #setDefinition(Reference)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_Component_Definition()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameterComponent_Definition()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Reference getDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.SearchParameter_Component#getDefinition <em>Definition</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.SearchParameterComponent#getDefinition <em>Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Definition</em>' reference.
@@ -60,14 +60,14 @@ public interface SearchParameter_Component extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
-	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameter_Component_Expression()
+	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getSearchParameterComponent_Expression()
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
 	String getExpression();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.SearchParameter_Component#getExpression <em>Expression</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.fhir.SearchParameterComponent#getExpression <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Expression</em>' attribute.
@@ -76,4 +76,4 @@ public interface SearchParameter_Component extends EObject {
 	 */
 	void setExpression(String value);
 
-} // SearchParameter_Component
+} // SearchParameterComponent

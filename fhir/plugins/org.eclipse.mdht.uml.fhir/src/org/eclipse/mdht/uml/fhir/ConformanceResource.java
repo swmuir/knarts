@@ -244,7 +244,7 @@ public interface ConformanceResource extends Element {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.eclipse.mdht.uml.fhir.FHIRPackage#getConformanceResource_UseContext()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<CodeableConcept> getUseContexts();

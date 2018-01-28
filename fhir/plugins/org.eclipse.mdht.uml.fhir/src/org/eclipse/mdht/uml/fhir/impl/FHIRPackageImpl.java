@@ -1338,7 +1338,7 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getConformanceResource_Publisher(), theTypesPackage.getString(), "publisher", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getConformanceResource_Contact(), theFHIRTypesPackage.getContactDetail(), null, "contact", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Date(), ecorePackage.getEDate(), "date", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConformanceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 1, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConformanceResource_UseContext(), theFHIRTypesPackage.getCodeableConcept(), null, "useContext", null, 0, -1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConformanceResource_Copyright(), theTypesPackage.getString(), "copyright", null, 0, 1, ConformanceResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1419,10 +1419,10 @@ public class FHIRPackageImpl extends EPackageImpl implements FHIRPackage {
 		initEAttribute(getSearchParameter_Comparator(), theTypesPackage.getString(), "comparator", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSearchParameter_Modifier(), theTypesPackage.getString(), "modifier", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSearchParameter_Chain(), theTypesPackage.getString(), "chain", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSearchParameter_Component(), this.getSearchParameter_ComponentClass(), null, "component", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSearchParameter_Component(), this.getSearchParameter_ComponentClass(), null, "component", null, 0, -1, SearchParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(searchParameter_ComponentClassEClass, SearchParameter_ComponentClass.class, "SearchParameter_ComponentClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSearchParameter_ComponentClass_Definition(), theFHIRTypesPackage.getReference(), null, "definition", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSearchParameter_ComponentClass_Definition(), theFHIRTypesPackage.getReference(), null, "definition", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSearchParameter_ComponentClass_Expression(), theTypesPackage.getString(), "expression", null, 1, 1, SearchParameter_ComponentClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
