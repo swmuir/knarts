@@ -1554,7 +1554,12 @@ public class ModelImporter implements ModelConstants {
 		for (ElementDefinitionType elementDefType : elementDef.getType()) {
 			Classifier typeClass = null;
 			if (elementDefType.getTargetProfile() != null) {
-				typeClass = importProfileForURI(elementDefType.getTargetProfile().getValue());
+				// Problem with expanding ConceptMap.source[x] which contains a Reference(ValueSet)
+				// Detecting that the elementDef is a TypeChoice and returning a Reference instead of a ValueSet
+				if (elementDef.getId().endsWith("[x]"))
+					typeClass = importProfileForURI(REFERENCE_CLASS_NAME);
+				else
+					typeClass = importProfileForURI(elementDefType.getTargetProfile().getValue());
 			}
 			else if (elementDefType.getProfile() != null) {
 				typeClass = importProfileForURI(elementDefType.getProfile().getValue());
