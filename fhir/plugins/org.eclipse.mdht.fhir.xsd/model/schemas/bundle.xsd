@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -57,6 +57,11 @@
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="BundleType">
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates the purpose of this bundle - how it was intended to be used.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="timestamp" minOccurs="0" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="total" minOccurs="0" maxOccurs="1" type="unsignedInt">
@@ -252,6 +257,11 @@
           <xs:documentation xml:lang="en">GET</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="HEAD">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">HEAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="POST">
         <xs:annotation>
           <xs:documentation xml:lang="en">POST</xs:documentation>
@@ -265,6 +275,11 @@
       <xs:enumeration value="DELETE">
         <xs:annotation>
           <xs:documentation xml:lang="en">DELETE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PATCH">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">PATCH</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SequenceReferenceSeqImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.SequenceReferenceSeqImplAdapter;
  * @model extendedMetaData="name='Sequence.ReferenceSeq' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SequenceReferenceSeqImplAdapter.class)
 public interface SequenceReferenceSeq extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Chromosome</b></em>' containment reference.
@@ -92,7 +88,7 @@ public interface SequenceReferenceSeq extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, ìNG_î identifies reference sequence for genes, ìNM_î for messenger RNA transcripts, and ìNP_î for amino acid sequences.
+	 * Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, ‚ÄúNG_‚Äù identifies reference sequence for genes, ‚ÄúNM_‚Äù for messenger RNA transcripts, and ‚ÄúNP_‚Äù for amino acid sequences.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference Seq Id</em>' containment reference.
 	 * @see #setReferenceSeqId(CodeableConcept)

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,9 +26,6 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.RiskAssessmentPrediction;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.ObservationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,8 +57,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RiskAssessment", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RiskAssessment")
 public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssessment {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -401,8 +391,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ObservationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ObservationStatus getStatus() {
 		return status;
 	}
@@ -618,7 +606,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -877,7 +864,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasis() {
 		if (basis == null) {
 			basis = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RISK_ASSESSMENT__BASIS);
@@ -890,7 +876,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RiskAssessmentPrediction> getPrediction() {
 		if (prediction == null) {
 			prediction = new EObjectContainmentEList<RiskAssessmentPrediction>(RiskAssessmentPrediction.class, this, FhirPackage.RISK_ASSESSMENT__PREDICTION);
@@ -903,7 +888,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMitigation() {
 		return mitigation;
 	}
@@ -947,7 +931,6 @@ public class RiskAssessmentImpl extends DomainResourceImpl implements RiskAssess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

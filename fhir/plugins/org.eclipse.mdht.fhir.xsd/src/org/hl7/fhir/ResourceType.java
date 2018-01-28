@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
  * @model extendedMetaData="name='ResourceType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 public interface ResourceType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

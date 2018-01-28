@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,46 +23,44 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getSequenceLinkId <em>Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getDetailSequenceLinkId <em>Detail Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getSubdetailSequenceLinkId <em>Subdetail Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getItemSequence <em>Item Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getDetailSequence <em>Detail Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getSubDetailSequence <em>Sub Detail Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseErrorImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ClaimResponseError", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimResponseError")
 public class ClaimResponseErrorImpl extends BackboneElementImpl implements ClaimResponseError {
 	/**
-	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference.
+	 * The cached value of the '{@link #getItemSequence() <em>Item Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceLinkId()
+	 * @see #getItemSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt sequenceLinkId;
+	protected PositiveInt itemSequence;
 
 	/**
-	 * The cached value of the '{@link #getDetailSequenceLinkId() <em>Detail Sequence Link Id</em>}' containment reference.
+	 * The cached value of the '{@link #getDetailSequence() <em>Detail Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDetailSequenceLinkId()
+	 * @see #getDetailSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt detailSequenceLinkId;
+	protected PositiveInt detailSequence;
 
 	/**
-	 * The cached value of the '{@link #getSubdetailSequenceLinkId() <em>Subdetail Sequence Link Id</em>}' containment reference.
+	 * The cached value of the '{@link #getSubDetailSequence() <em>Sub Detail Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubdetailSequenceLinkId()
+	 * @see #getSubDetailSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt subdetailSequenceLinkId;
+	protected PositiveInt subDetailSequence;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -104,9 +96,8 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	public PositiveInt getSequenceLinkId() {
-		return sequenceLinkId;
+	public PositiveInt getItemSequence() {
+		return itemSequence;
 	}
 
 	/**
@@ -114,11 +105,11 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSequenceLinkId(PositiveInt newSequenceLinkId, NotificationChain msgs) {
-		PositiveInt oldSequenceLinkId = sequenceLinkId;
-		sequenceLinkId = newSequenceLinkId;
+	public NotificationChain basicSetItemSequence(PositiveInt newItemSequence, NotificationChain msgs) {
+		PositiveInt oldItemSequence = itemSequence;
+		itemSequence = newItemSequence;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID, oldSequenceLinkId, newSequenceLinkId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE, oldItemSequence, newItemSequence);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -129,18 +120,18 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSequenceLinkId(PositiveInt newSequenceLinkId) {
-		if (newSequenceLinkId != sequenceLinkId) {
+	public void setItemSequence(PositiveInt newItemSequence) {
+		if (newItemSequence != itemSequence) {
 			NotificationChain msgs = null;
-			if (sequenceLinkId != null)
-				msgs = ((InternalEObject)sequenceLinkId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID, null, msgs);
-			if (newSequenceLinkId != null)
-				msgs = ((InternalEObject)newSequenceLinkId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID, null, msgs);
-			msgs = basicSetSequenceLinkId(newSequenceLinkId, msgs);
+			if (itemSequence != null)
+				msgs = ((InternalEObject)itemSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE, null, msgs);
+			if (newItemSequence != null)
+				msgs = ((InternalEObject)newItemSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE, null, msgs);
+			msgs = basicSetItemSequence(newItemSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID, newSequenceLinkId, newSequenceLinkId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE, newItemSequence, newItemSequence));
 	}
 
 	/**
@@ -148,9 +139,8 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	public PositiveInt getDetailSequenceLinkId() {
-		return detailSequenceLinkId;
+	public PositiveInt getDetailSequence() {
+		return detailSequence;
 	}
 
 	/**
@@ -158,11 +148,11 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDetailSequenceLinkId(PositiveInt newDetailSequenceLinkId, NotificationChain msgs) {
-		PositiveInt oldDetailSequenceLinkId = detailSequenceLinkId;
-		detailSequenceLinkId = newDetailSequenceLinkId;
+	public NotificationChain basicSetDetailSequence(PositiveInt newDetailSequence, NotificationChain msgs) {
+		PositiveInt oldDetailSequence = detailSequence;
+		detailSequence = newDetailSequence;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID, oldDetailSequenceLinkId, newDetailSequenceLinkId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE, oldDetailSequence, newDetailSequence);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -173,18 +163,18 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDetailSequenceLinkId(PositiveInt newDetailSequenceLinkId) {
-		if (newDetailSequenceLinkId != detailSequenceLinkId) {
+	public void setDetailSequence(PositiveInt newDetailSequence) {
+		if (newDetailSequence != detailSequence) {
 			NotificationChain msgs = null;
-			if (detailSequenceLinkId != null)
-				msgs = ((InternalEObject)detailSequenceLinkId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID, null, msgs);
-			if (newDetailSequenceLinkId != null)
-				msgs = ((InternalEObject)newDetailSequenceLinkId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID, null, msgs);
-			msgs = basicSetDetailSequenceLinkId(newDetailSequenceLinkId, msgs);
+			if (detailSequence != null)
+				msgs = ((InternalEObject)detailSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE, null, msgs);
+			if (newDetailSequence != null)
+				msgs = ((InternalEObject)newDetailSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE, null, msgs);
+			msgs = basicSetDetailSequence(newDetailSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID, newDetailSequenceLinkId, newDetailSequenceLinkId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE, newDetailSequence, newDetailSequence));
 	}
 
 	/**
@@ -192,9 +182,8 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	public PositiveInt getSubdetailSequenceLinkId() {
-		return subdetailSequenceLinkId;
+	public PositiveInt getSubDetailSequence() {
+		return subDetailSequence;
 	}
 
 	/**
@@ -202,11 +191,11 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubdetailSequenceLinkId(PositiveInt newSubdetailSequenceLinkId, NotificationChain msgs) {
-		PositiveInt oldSubdetailSequenceLinkId = subdetailSequenceLinkId;
-		subdetailSequenceLinkId = newSubdetailSequenceLinkId;
+	public NotificationChain basicSetSubDetailSequence(PositiveInt newSubDetailSequence, NotificationChain msgs) {
+		PositiveInt oldSubDetailSequence = subDetailSequence;
+		subDetailSequence = newSubDetailSequence;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID, oldSubdetailSequenceLinkId, newSubdetailSequenceLinkId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE, oldSubDetailSequence, newSubDetailSequence);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -217,18 +206,18 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubdetailSequenceLinkId(PositiveInt newSubdetailSequenceLinkId) {
-		if (newSubdetailSequenceLinkId != subdetailSequenceLinkId) {
+	public void setSubDetailSequence(PositiveInt newSubDetailSequence) {
+		if (newSubDetailSequence != subDetailSequence) {
 			NotificationChain msgs = null;
-			if (subdetailSequenceLinkId != null)
-				msgs = ((InternalEObject)subdetailSequenceLinkId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID, null, msgs);
-			if (newSubdetailSequenceLinkId != null)
-				msgs = ((InternalEObject)newSubdetailSequenceLinkId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID, null, msgs);
-			msgs = basicSetSubdetailSequenceLinkId(newSubdetailSequenceLinkId, msgs);
+			if (subDetailSequence != null)
+				msgs = ((InternalEObject)subDetailSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE, null, msgs);
+			if (newSubDetailSequence != null)
+				msgs = ((InternalEObject)newSubDetailSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE, null, msgs);
+			msgs = basicSetSubDetailSequence(newSubDetailSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID, newSubdetailSequenceLinkId, newSubdetailSequenceLinkId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE, newSubDetailSequence, newSubDetailSequence));
 	}
 
 	/**
@@ -236,7 +225,6 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -283,12 +271,12 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID:
-				return basicSetSequenceLinkId(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID:
-				return basicSetDetailSequenceLinkId(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID:
-				return basicSetSubdetailSequenceLinkId(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE:
+				return basicSetItemSequence(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE:
+				return basicSetDetailSequence(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE:
+				return basicSetSubDetailSequence(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE_ERROR__CODE:
 				return basicSetCode(null, msgs);
 		}
@@ -303,12 +291,12 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID:
-				return getSequenceLinkId();
-			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID:
-				return getDetailSequenceLinkId();
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID:
-				return getSubdetailSequenceLinkId();
+			case FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE:
+				return getItemSequence();
+			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE:
+				return getDetailSequence();
+			case FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE:
+				return getSubDetailSequence();
 			case FhirPackage.CLAIM_RESPONSE_ERROR__CODE:
 				return getCode();
 		}
@@ -323,14 +311,14 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID:
-				setSequenceLinkId((PositiveInt)newValue);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE:
+				setItemSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID:
-				setDetailSequenceLinkId((PositiveInt)newValue);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE:
+				setDetailSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID:
-				setSubdetailSequenceLinkId((PositiveInt)newValue);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE:
+				setSubDetailSequence((PositiveInt)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ERROR__CODE:
 				setCode((CodeableConcept)newValue);
@@ -347,14 +335,14 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID:
-				setSequenceLinkId((PositiveInt)null);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE:
+				setItemSequence((PositiveInt)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID:
-				setDetailSequenceLinkId((PositiveInt)null);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE:
+				setDetailSequence((PositiveInt)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID:
-				setSubdetailSequenceLinkId((PositiveInt)null);
+			case FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE:
+				setSubDetailSequence((PositiveInt)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_ERROR__CODE:
 				setCode((CodeableConcept)null);
@@ -371,12 +359,12 @@ public class ClaimResponseErrorImpl extends BackboneElementImpl implements Claim
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SEQUENCE_LINK_ID:
-				return sequenceLinkId != null;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE_LINK_ID:
-				return detailSequenceLinkId != null;
-			case FhirPackage.CLAIM_RESPONSE_ERROR__SUBDETAIL_SEQUENCE_LINK_ID:
-				return subdetailSequenceLinkId != null;
+			case FhirPackage.CLAIM_RESPONSE_ERROR__ITEM_SEQUENCE:
+				return itemSequence != null;
+			case FhirPackage.CLAIM_RESPONSE_ERROR__DETAIL_SEQUENCE:
+				return detailSequence != null;
+			case FhirPackage.CLAIM_RESPONSE_ERROR__SUB_DETAIL_SEQUENCE:
+				return subDetailSequence != null;
 			case FhirPackage.CLAIM_RESPONSE_ERROR__CODE:
 				return code != null;
 		}

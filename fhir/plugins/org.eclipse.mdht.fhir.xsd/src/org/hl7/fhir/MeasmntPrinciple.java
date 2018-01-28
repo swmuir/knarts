@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MeasmntPrincipleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MeasmntPrincipleImplAdapter;
  * @model extendedMetaData="name='MeasmntPrinciple' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasmntPrincipleImplAdapter.class)
 public interface MeasmntPrinciple extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.GraphDefinitionLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,19 +29,18 @@ import org.hl7.fhir.jaxb.GraphDefinitionLinkImplAdapter;
  * @model extendedMetaData="name='GraphDefinition.Link' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GraphDefinitionLinkImplAdapter.class)
 public interface GraphDefinitionLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Path in the resource that contains the link.
+	 * A FHIR expression that identifies one of FHIR References to other resources.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionLink_Path()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -174,7 +170,7 @@ public interface GraphDefinitionLink extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionLink_Target()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
 	 * @generated
 	 */

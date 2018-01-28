@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PlanDefinitionGoalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.PlanDefinitionGoalImplAdapter;
  * @model extendedMetaData="name='PlanDefinition.Goal' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PlanDefinitionGoalImplAdapter.class)
 public interface PlanDefinitionGoal extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.

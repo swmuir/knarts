@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.LinkType;
 import org.hl7.fhir.PatientLink;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.LinkTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.LinkTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PatientLink", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PatientLink")
 public class PatientLinkImpl extends BackboneElementImpl implements PatientLink {
 	/**
 	 * The cached value of the '{@link #getOther() <em>Other</em>}' containment reference.
@@ -82,7 +74,6 @@ public class PatientLinkImpl extends BackboneElementImpl implements PatientLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getOther() {
 		return other;
 	}
@@ -126,8 +117,6 @@ public class PatientLinkImpl extends BackboneElementImpl implements PatientLink 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(LinkTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public LinkType getType() {
 		return type;
 	}

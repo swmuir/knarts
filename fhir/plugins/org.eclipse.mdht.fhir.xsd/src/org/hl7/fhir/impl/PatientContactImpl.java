@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,7 +26,6 @@ import org.hl7.fhir.HumanName;
 import org.hl7.fhir.PatientContact;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,8 +46,6 @@ import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PatientContact", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PatientContact")
 public class PatientContactImpl extends BackboneElementImpl implements PatientContact {
 	/**
 	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference list.
@@ -149,7 +141,6 @@ public class PatientContactImpl extends BackboneElementImpl implements PatientCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getRelationship() {
 		if (relationship == null) {
 			relationship = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PATIENT_CONTACT__RELATIONSHIP);
@@ -205,7 +196,6 @@ public class PatientContactImpl extends BackboneElementImpl implements PatientCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PATIENT_CONTACT__TELECOM);
@@ -261,7 +251,6 @@ public class PatientContactImpl extends BackboneElementImpl implements PatientCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}

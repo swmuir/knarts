@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,9 +23,6 @@ import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetContains;
 import org.hl7.fhir.ValueSetExpansion;
 import org.hl7.fhir.ValueSetParameter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +42,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ValueSetExpansion", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ValueSetExpansion")
 public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueSetExpansion {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -137,8 +127,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getIdentifier() {
 		return identifier;
 	}
@@ -182,8 +170,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
 	public DateTime getTimestamp() {
 		return timestamp;
 	}
@@ -227,7 +213,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getTotal() {
 		return total;
 	}
@@ -271,7 +256,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getOffset() {
 		return offset;
 	}
@@ -315,7 +299,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ValueSetParameter> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<ValueSetParameter>(ValueSetParameter.class, this, FhirPackage.VALUE_SET_EXPANSION__PARAMETER);
@@ -328,7 +311,6 @@ public class ValueSetExpansionImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ValueSetContains> getContains() {
 		if (contains == null) {
 			contains = new EObjectContainmentEList<ValueSetContains>(ValueSetContains.class, this, FhirPackage.VALUE_SET_EXPANSION__CONTAINS);

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestReportAssertImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.TestReportAssertImplAdapter;
  * @model extendedMetaData="name='TestReport.Assert' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestReportAssertImplAdapter.class)
 public interface TestReportAssert extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Result</b></em>' containment reference.

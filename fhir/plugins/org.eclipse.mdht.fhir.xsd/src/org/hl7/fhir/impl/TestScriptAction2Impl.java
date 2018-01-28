@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,8 +27,6 @@ import org.hl7.fhir.TestScriptOperation;
  *
  * @generated
  */
-@XmlType(name = "TestScriptAction2", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptAction2")
 public class TestScriptAction2Impl extends BackboneElementImpl implements TestScriptAction2 {
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference.
@@ -68,7 +62,6 @@ public class TestScriptAction2Impl extends BackboneElementImpl implements TestSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public TestScriptOperation getOperation() {
 		return operation;
 	}

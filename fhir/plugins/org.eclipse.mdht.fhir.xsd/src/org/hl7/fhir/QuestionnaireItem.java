@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.QuestionnaireItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +49,6 @@ import org.hl7.fhir.jaxb.QuestionnaireItemImplAdapter;
  * @model extendedMetaData="name='Questionnaire.Item' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(QuestionnaireItemImplAdapter.class)
 public interface QuestionnaireItem extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Link Id</b></em>' containment reference.

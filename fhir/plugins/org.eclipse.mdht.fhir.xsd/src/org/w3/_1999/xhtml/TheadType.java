@@ -4,12 +4,9 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.w3._1999.xhtml.jaxb.TheadTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +35,6 @@ import org.w3._1999.xhtml.jaxb.TheadTypeImplAdapter;
  * @model extendedMetaData="name='thead_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TheadTypeImplAdapter.class)
 public interface TheadType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Tr</b></em>' containment reference list.

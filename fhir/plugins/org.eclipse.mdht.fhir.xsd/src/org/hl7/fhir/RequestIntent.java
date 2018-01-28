@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The kind of procedure or diagnostic request
+ * Codes indicating the degree of authority/intentionality associated with a request
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
  * @model extendedMetaData="name='RequestIntent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
 public interface RequestIntent extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

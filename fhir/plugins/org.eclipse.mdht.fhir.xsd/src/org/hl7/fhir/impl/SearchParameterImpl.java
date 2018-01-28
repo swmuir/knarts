@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,18 +33,6 @@ import org.hl7.fhir.SearchParameterComponent;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.XPathUsageType;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.SearchComparatorImplAdapter;
-import org.hl7.fhir.jaxb.SearchModifierCodeImplAdapter;
-import org.hl7.fhir.jaxb.SearchParamTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
-import org.hl7.fhir.jaxb.XPathUsageTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,8 +70,6 @@ import org.hl7.fhir.jaxb.XPathUsageTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SearchParameter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SearchParameter")
 public class SearchParameterImpl extends DomainResourceImpl implements SearchParameter {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -354,8 +335,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -399,7 +378,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -443,8 +421,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -488,8 +464,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -533,7 +507,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -577,7 +550,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -621,7 +593,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -665,7 +636,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.SEARCH_PARAMETER__CONTACT);
@@ -678,7 +648,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.SEARCH_PARAMETER__USE_CONTEXT);
@@ -691,7 +660,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SEARCH_PARAMETER__JURISDICTION);
@@ -704,7 +672,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -748,8 +715,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -793,8 +758,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public EList<ResourceType> getBase() {
 		if (base == null) {
 			base = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.SEARCH_PARAMETER__BASE);
@@ -807,8 +770,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SearchParamTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public SearchParamType getType() {
 		return type;
 	}
@@ -852,7 +813,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDerivedFrom() {
 		return derivedFrom;
 	}
@@ -896,8 +856,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
-	@XmlElement(required = true)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -941,7 +899,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}
@@ -985,7 +942,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getXpath() {
 		return xpath;
 	}
@@ -1029,7 +985,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(XPathUsageTypeImplAdapter.class)
 	public XPathUsageType getXpathUsage() {
 		return xpathUsage;
 	}
@@ -1073,8 +1028,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement
 	public EList<ResourceType> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.SEARCH_PARAMETER__TARGET);
@@ -1087,8 +1040,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SearchComparatorImplAdapter.class)
-	@XmlElement
 	public EList<SearchComparator> getComparator() {
 		if (comparator == null) {
 			comparator = new EObjectContainmentEList<SearchComparator>(SearchComparator.class, this, FhirPackage.SEARCH_PARAMETER__COMPARATOR);
@@ -1101,8 +1052,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SearchModifierCodeImplAdapter.class)
-	@XmlElement
 	public EList<SearchModifierCode> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<SearchModifierCode>(SearchModifierCode.class, this, FhirPackage.SEARCH_PARAMETER__MODIFIER);
@@ -1115,8 +1064,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getChain() {
 		if (chain == null) {
 			chain = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.SEARCH_PARAMETER__CHAIN);
@@ -1129,7 +1076,6 @@ public class SearchParameterImpl extends DomainResourceImpl implements SearchPar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<SearchParameterComponent> getComponent() {
 		if (component == null) {
 			component = new EObjectContainmentEList<SearchParameterComponent>(SearchParameterComponent.class, this, FhirPackage.SEARCH_PARAMETER__COMPONENT);

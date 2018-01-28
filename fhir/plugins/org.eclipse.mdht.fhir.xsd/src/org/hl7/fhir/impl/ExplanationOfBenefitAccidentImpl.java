@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,7 +16,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.ExplanationOfBenefitAccident;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,8 +33,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefitAccident", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefitAccident")
 public class ExplanationOfBenefitAccidentImpl extends BackboneElementImpl implements ExplanationOfBenefitAccident {
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -105,7 +98,6 @@ public class ExplanationOfBenefitAccidentImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDate() {
 		return date;
 	}

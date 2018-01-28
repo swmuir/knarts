@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AuditEventDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,14 +17,14 @@ import org.hl7.fhir.jaxb.AuditEventDetailImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.AuditEventDetail#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.AuditEventDetail#getValue <em>Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEventDetail#getValueString <em>Value String</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEventDetail#getValueBase64Binary <em>Value Base64 Binary</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAuditEventDetail()
  * @model extendedMetaData="name='AuditEvent.Detail' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventDetailImplAdapter.class)
 public interface AuditEventDetail extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -56,29 +53,57 @@ public interface AuditEventDetail extends BackboneElement {
 	void setType(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value String</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The details, base64 encoded. Used to carry bulk information.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(Base64Binary)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventDetail_Value()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Value String</em>' containment reference.
+	 * @see #setValueString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventDetail_ValueString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueString' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Base64Binary getValue();
+	org.hl7.fhir.String getValueString();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventDetail#getValue <em>Value</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventDetail#getValueString <em>Value String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' containment reference.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Value String</em>' containment reference.
+	 * @see #getValueString()
 	 * @generated
 	 */
-	void setValue(Base64Binary value);
+	void setValueString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Base64 Binary</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Base64 Binary</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Base64 Binary</em>' containment reference.
+	 * @see #setValueBase64Binary(Base64Binary)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventDetail_ValueBase64Binary()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueBase64Binary' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Base64Binary getValueBase64Binary();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventDetail#getValueBase64Binary <em>Value Base64 Binary</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Base64 Binary</em>' containment reference.
+	 * @see #getValueBase64Binary()
+	 * @generated
+	 */
+	void setValueBase64Binary(Base64Binary value);
 
 } // AuditEventDetail

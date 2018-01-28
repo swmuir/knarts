@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,7 +21,6 @@ import org.hl7.fhir.AuditEventSource;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,8 +37,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AuditEventSource", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEventSource")
 public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEventSource {
 	/**
 	 * The cached value of the '{@link #getSite() <em>Site</em>}' containment reference.
@@ -100,7 +92,6 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSite() {
 		return site;
 	}
@@ -144,7 +135,6 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Identifier getIdentifier() {
 		return identifier;
 	}
@@ -188,7 +178,6 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT_SOURCE__TYPE);

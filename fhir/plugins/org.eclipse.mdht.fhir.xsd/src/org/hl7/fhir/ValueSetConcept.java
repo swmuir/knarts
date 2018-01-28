@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ValueSetConceptImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ValueSetConceptImplAdapter;
  * @model extendedMetaData="name='ValueSet.Concept' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ValueSetConceptImplAdapter.class)
 public interface ValueSetConcept extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

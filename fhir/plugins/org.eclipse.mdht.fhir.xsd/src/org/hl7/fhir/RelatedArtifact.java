@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RelatedArtifactImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.RelatedArtifactImplAdapter;
  * @model extendedMetaData="name='RelatedArtifact' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RelatedArtifactImplAdapter.class)
 public interface RelatedArtifact extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

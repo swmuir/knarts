@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ClaimResponseErrorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,9 +16,9 @@ import org.hl7.fhir.jaxb.ClaimResponseErrorImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ClaimResponseError#getSequenceLinkId <em>Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseError#getDetailSequenceLinkId <em>Detail Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseError#getSubdetailSequenceLinkId <em>Subdetail Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseError#getItemSequence <em>Item Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseError#getDetailSequence <em>Detail Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseError#getSubDetailSequence <em>Sub Detail Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseError#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -29,85 +26,84 @@ import org.hl7.fhir.jaxb.ClaimResponseErrorImplAdapter;
  * @model extendedMetaData="name='ClaimResponse.Error' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClaimResponseErrorImplAdapter.class)
 public interface ClaimResponseError extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Sequence Link Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sequence Link Id</em>' containment reference.
-	 * @see #setSequenceLinkId(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_SequenceLinkId()
+	 * @return the value of the '<em>Item Sequence</em>' containment reference.
+	 * @see #setItemSequence(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_ItemSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sequenceLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='itemSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getSequenceLinkId();
+	PositiveInt getItemSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getSequenceLinkId <em>Sequence Link Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getItemSequence <em>Item Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequence Link Id</em>' containment reference.
-	 * @see #getSequenceLinkId()
+	 * @param value the new value of the '<em>Item Sequence</em>' containment reference.
+	 * @see #getItemSequence()
 	 * @generated
 	 */
-	void setSequenceLinkId(PositiveInt value);
+	void setItemSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Detail Sequence Link Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Detail Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Detail Sequence Link Id</em>' containment reference.
-	 * @see #setDetailSequenceLinkId(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_DetailSequenceLinkId()
+	 * @return the value of the '<em>Detail Sequence</em>' containment reference.
+	 * @see #setDetailSequence(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_DetailSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='detailSequenceLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='detailSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getDetailSequenceLinkId();
+	PositiveInt getDetailSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getDetailSequenceLinkId <em>Detail Sequence Link Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getDetailSequence <em>Detail Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Detail Sequence Link Id</em>' containment reference.
-	 * @see #getDetailSequenceLinkId()
+	 * @param value the new value of the '<em>Detail Sequence</em>' containment reference.
+	 * @see #getDetailSequence()
 	 * @generated
 	 */
-	void setDetailSequenceLinkId(PositiveInt value);
+	void setDetailSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Subdetail Sequence Link Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sub Detail Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subdetail Sequence Link Id</em>' containment reference.
-	 * @see #setSubdetailSequenceLinkId(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_SubdetailSequenceLinkId()
+	 * @return the value of the '<em>Sub Detail Sequence</em>' containment reference.
+	 * @see #setSubDetailSequence(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseError_SubDetailSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subdetailSequenceLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subDetailSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getSubdetailSequenceLinkId();
+	PositiveInt getSubDetailSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getSubdetailSequenceLinkId <em>Subdetail Sequence Link Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseError#getSubDetailSequence <em>Sub Detail Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subdetail Sequence Link Id</em>' containment reference.
-	 * @see #getSubdetailSequenceLinkId()
+	 * @param value the new value of the '<em>Sub Detail Sequence</em>' containment reference.
+	 * @see #getSubDetailSequence()
 	 * @generated
 	 */
-	void setSubdetailSequenceLinkId(PositiveInt value);
+	void setSubDetailSequence(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

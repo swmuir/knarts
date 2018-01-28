@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ContractValuedItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,6 @@ import org.hl7.fhir.jaxb.ContractValuedItemImplAdapter;
  * @model extendedMetaData="name='Contract.ValuedItem' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ContractValuedItemImplAdapter.class)
 public interface ContractValuedItem extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Entity Codeable Concept</b></em>' containment reference.

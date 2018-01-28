@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,11 +26,6 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.ProcessRequest;
 import org.hl7.fhir.ProcessRequestItem;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.ActionListImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,8 +54,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ProcessRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ProcessRequest")
 public class ProcessRequestImpl extends DomainResourceImpl implements ProcessRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -241,7 +229,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCESS_REQUEST__IDENTIFIER);
@@ -254,7 +241,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -298,7 +284,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionListImplAdapter.class)
 	public ActionList getAction() {
 		return action;
 	}
@@ -385,7 +370,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -601,7 +585,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getNullify() {
 		return nullify;
 	}
@@ -645,7 +628,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getReference() {
 		return reference;
 	}
@@ -689,7 +671,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ProcessRequestItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ProcessRequestItem>(ProcessRequestItem.class, this, FhirPackage.PROCESS_REQUEST__ITEM);
@@ -702,8 +683,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getInclude() {
 		if (include == null) {
 			include = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.PROCESS_REQUEST__INCLUDE);
@@ -716,8 +695,6 @@ public class ProcessRequestImpl extends DomainResourceImpl implements ProcessReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getExclude() {
 		if (exclude == null) {
 			exclude = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.PROCESS_REQUEST__EXCLUDE);

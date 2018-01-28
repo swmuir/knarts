@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,9 +16,6 @@ import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.SampledDataDataType;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.SampledDataDataTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,8 +36,6 @@ import org.hl7.fhir.jaxb.SampledDataDataTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SampledData", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SampledData")
 public class SampledDataImpl extends ElementImpl implements SampledData {
 	/**
 	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
@@ -141,7 +131,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Quantity getOrigin() {
 		return origin;
 	}
@@ -185,8 +174,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
-	@XmlElement(required = true)
 	public Decimal getPeriod() {
 		return period;
 	}
@@ -230,7 +217,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -274,7 +260,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getLowerLimit() {
 		return lowerLimit;
 	}
@@ -318,7 +303,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getUpperLimit() {
 		return upperLimit;
 	}
@@ -362,8 +346,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement(required = true)
 	public PositiveInt getDimensions() {
 		return dimensions;
 	}
@@ -407,8 +389,6 @@ public class SampledDataImpl extends ElementImpl implements SampledData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SampledDataDataTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public SampledDataDataType getData() {
 		return data;
 	}

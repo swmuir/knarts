@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SpecimenCollectionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.SpecimenCollectionImplAdapter;
  * @model extendedMetaData="name='Specimen.Collection' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SpecimenCollectionImplAdapter.class)
 public interface SpecimenCollection extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Collector</b></em>' containment reference.

@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.AuditEventAgentNetworkType;
 import org.hl7.fhir.AuditEventNetwork;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.AuditEventAgentNetworkTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +28,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AuditEventNetwork", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEventNetwork")
 public class AuditEventNetworkImpl extends BackboneElementImpl implements AuditEventNetwork {
 	/**
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' containment reference.
@@ -81,7 +73,6 @@ public class AuditEventNetworkImpl extends BackboneElementImpl implements AuditE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAddress() {
 		return address;
 	}
@@ -125,7 +116,6 @@ public class AuditEventNetworkImpl extends BackboneElementImpl implements AuditE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AuditEventAgentNetworkTypeImplAdapter.class)
 	public AuditEventAgentNetworkType getType() {
 		return type;
 	}

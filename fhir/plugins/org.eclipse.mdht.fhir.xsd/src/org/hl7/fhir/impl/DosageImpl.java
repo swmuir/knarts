@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,9 +24,6 @@ import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,8 +55,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Dosage", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Dosage")
 public class DosageImpl extends ElementImpl implements Dosage {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -270,7 +260,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getSequence() {
 		return sequence;
 	}
@@ -314,7 +303,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -358,7 +346,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getAdditionalInstruction() {
 		if (additionalInstruction == null) {
 			additionalInstruction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DOSAGE__ADDITIONAL_INSTRUCTION);
@@ -371,7 +358,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPatientInstruction() {
 		return patientInstruction;
 	}
@@ -458,7 +444,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAsNeededBoolean() {
 		return asNeededBoolean;
 	}

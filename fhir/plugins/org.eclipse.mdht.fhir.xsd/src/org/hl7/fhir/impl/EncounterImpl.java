@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,7 +32,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,6 +47,7 @@ import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getClassHistory <em>Class History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getServiceType <em>Service Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getEpisodeOfCare <em>Episode Of Care</em>}</li>
@@ -72,8 +67,6 @@ import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Encounter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Encounter")
 public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -134,6 +127,16 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> type;
+
+	/**
+	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept serviceType;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -309,7 +312,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENCOUNTER__IDENTIFIER);
@@ -322,8 +324,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(EncounterStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public EncounterStatus getStatus() {
 		return status;
 	}
@@ -367,7 +367,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EncounterStatusHistory> getStatusHistory() {
 		if (statusHistory == null) {
 			statusHistory = new EObjectContainmentEList<EncounterStatusHistory>(EncounterStatusHistory.class, this, FhirPackage.ENCOUNTER__STATUS_HISTORY);
@@ -423,7 +422,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EncounterClassHistory> getClassHistory() {
 		if (classHistory == null) {
 			classHistory = new EObjectContainmentEList<EncounterClassHistory>(EncounterClassHistory.class, this, FhirPackage.ENCOUNTER__CLASS_HISTORY);
@@ -436,12 +434,54 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__TYPE);
 		}
 		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getServiceType() {
+		return serviceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetServiceType(CodeableConcept newServiceType, NotificationChain msgs) {
+		CodeableConcept oldServiceType = serviceType;
+		serviceType = newServiceType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER__SERVICE_TYPE, oldServiceType, newServiceType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setServiceType(CodeableConcept newServiceType) {
+		if (newServiceType != serviceType) {
+			NotificationChain msgs = null;
+			if (serviceType != null)
+				msgs = ((InternalEObject)serviceType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER__SERVICE_TYPE, null, msgs);
+			if (newServiceType != null)
+				msgs = ((InternalEObject)newServiceType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER__SERVICE_TYPE, null, msgs);
+			msgs = basicSetServiceType(newServiceType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER__SERVICE_TYPE, newServiceType, newServiceType));
 	}
 
 	/**
@@ -535,7 +575,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEpisodeOfCare() {
 		if (episodeOfCare == null) {
 			episodeOfCare = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__EPISODE_OF_CARE);
@@ -548,7 +587,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getIncomingReferral() {
 		if (incomingReferral == null) {
 			incomingReferral = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__INCOMING_REFERRAL);
@@ -561,7 +599,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EncounterParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<EncounterParticipant>(EncounterParticipant.class, this, FhirPackage.ENCOUNTER__PARTICIPANT);
@@ -703,7 +740,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__REASON);
@@ -716,7 +752,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EncounterDiagnosis> getDiagnosis() {
 		if (diagnosis == null) {
 			diagnosis = new EObjectContainmentEList<EncounterDiagnosis>(EncounterDiagnosis.class, this, FhirPackage.ENCOUNTER__DIAGNOSIS);
@@ -729,7 +764,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAccount() {
 		if (account == null) {
 			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__ACCOUNT);
@@ -785,7 +819,6 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EncounterLocation> getLocation() {
 		if (location == null) {
 			location = new EObjectContainmentEList<EncounterLocation>(EncounterLocation.class, this, FhirPackage.ENCOUNTER__LOCATION);
@@ -899,6 +932,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return ((InternalEList<?>)getClassHistory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENCOUNTER__SERVICE_TYPE:
+				return basicSetServiceType(null, msgs);
 			case FhirPackage.ENCOUNTER__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.ENCOUNTER__SUBJECT:
@@ -953,6 +988,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return getClassHistory();
 			case FhirPackage.ENCOUNTER__TYPE:
 				return getType();
+			case FhirPackage.ENCOUNTER__SERVICE_TYPE:
+				return getServiceType();
 			case FhirPackage.ENCOUNTER__PRIORITY:
 				return getPriority();
 			case FhirPackage.ENCOUNTER__SUBJECT:
@@ -1017,6 +1054,9 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__TYPE:
 				getType().clear();
 				getType().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.ENCOUNTER__SERVICE_TYPE:
+				setServiceType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__PRIORITY:
 				setPriority((CodeableConcept)newValue);
@@ -1100,6 +1140,9 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__TYPE:
 				getType().clear();
 				return;
+			case FhirPackage.ENCOUNTER__SERVICE_TYPE:
+				setServiceType((CodeableConcept)null);
+				return;
 			case FhirPackage.ENCOUNTER__PRIORITY:
 				setPriority((CodeableConcept)null);
 				return;
@@ -1169,6 +1212,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return classHistory != null && !classHistory.isEmpty();
 			case FhirPackage.ENCOUNTER__TYPE:
 				return type != null && !type.isEmpty();
+			case FhirPackage.ENCOUNTER__SERVICE_TYPE:
+				return serviceType != null;
 			case FhirPackage.ENCOUNTER__PRIORITY:
 				return priority != null;
 			case FhirPackage.ENCOUNTER__SUBJECT:

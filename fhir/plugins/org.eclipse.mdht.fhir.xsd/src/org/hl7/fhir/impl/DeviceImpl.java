@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,10 +28,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FHIRDeviceStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,8 +58,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Device", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Device")
 public class DeviceImpl extends DomainResourceImpl implements Device {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -264,7 +253,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DEVICE__IDENTIFIER);
@@ -320,7 +308,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FHIRDeviceStatusImplAdapter.class)
 	public FHIRDeviceStatus getStatus() {
 		return status;
 	}
@@ -407,7 +394,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLotNumber() {
 		return lotNumber;
 	}
@@ -451,7 +437,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getManufacturer() {
 		return manufacturer;
 	}
@@ -495,7 +480,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getManufactureDate() {
 		return manufactureDate;
 	}
@@ -539,7 +523,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getExpirationDate() {
 		return expirationDate;
 	}
@@ -583,7 +566,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getModel() {
 		return model;
 	}
@@ -627,7 +609,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -757,7 +738,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.DEVICE__CONTACT);
@@ -813,7 +793,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -857,7 +836,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.DEVICE__NOTE);
@@ -870,7 +848,6 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSafety() {
 		if (safety == null) {
 			safety = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE__SAFETY);

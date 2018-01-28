@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ValueSetFilterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ValueSetFilterImplAdapter;
  * @model extendedMetaData="name='ValueSet.Filter' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ValueSetFilterImplAdapter.class)
 public interface ValueSetFilter extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' containment reference.

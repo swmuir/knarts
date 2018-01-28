@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.RequestGroupAction#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroupAction#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTextEquivalent <em>Text Equivalent</em>}</li>
@@ -29,6 +26,7 @@ import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getRelatedAction <em>Related Action</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroupAction#getTimingAge <em>Timing Age</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTimingDuration <em>Timing Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTimingRange <em>Timing Range</em>}</li>
@@ -48,33 +46,32 @@ import org.hl7.fhir.jaxb.RequestGroupActionImplAdapter;
  * @model extendedMetaData="name='RequestGroup.Action' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RequestGroupActionImplAdapter.class)
 public interface RequestGroupAction extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Prefix</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A user-visible label for the action.
+	 * A user-visible prefix for the action.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Label</em>' containment reference.
-	 * @see #setLabel(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Label()
+	 * @return the value of the '<em>Prefix</em>' containment reference.
+	 * @see #setPrefix(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Prefix()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='prefix' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getLabel();
+	org.hl7.fhir.String getPrefix();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getLabel <em>Label</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getPrefix <em>Prefix</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' containment reference.
-	 * @see #getLabel()
+	 * @param value the new value of the '<em>Prefix</em>' containment reference.
+	 * @see #getPrefix()
 	 * @generated
 	 */
-	void setLabel(org.hl7.fhir.String value);
+	void setPrefix(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
@@ -133,7 +130,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+	 * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text Equivalent</em>' containment reference.
 	 * @see #setTextEquivalent(org.hl7.fhir.String)
@@ -244,6 +241,33 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @generated
 	 */
 	void setTimingDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Age</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Timing Age</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timing Age</em>' containment reference.
+	 * @see #setTimingAge(Age)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_TimingAge()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingAge' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Age getTimingAge();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getTimingAge <em>Timing Age</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Age</em>' containment reference.
+	 * @see #getTimingAge()
+	 * @generated
+	 */
+	void setTimingAge(Age value);
 
 	/**
 	 * Returns the value of the '<em><b>Timing Period</b></em>' containment reference.

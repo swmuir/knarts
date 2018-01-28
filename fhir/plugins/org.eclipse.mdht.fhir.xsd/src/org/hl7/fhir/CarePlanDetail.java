@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CarePlanDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +17,8 @@ import org.hl7.fhir.jaxb.CarePlanDetailImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.CarePlanDetail#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlanDetail#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonReference <em>Reason Reference</em>}</li>
@@ -45,59 +42,58 @@ import org.hl7.fhir.jaxb.CarePlanDetailImplAdapter;
  * @model extendedMetaData="name='CarePlan.Detail' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CarePlanDetailImplAdapter.class)
 public interface CarePlanDetail extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * High-level categorization of the type of activity in a care plan.
+	 * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Category()
+	 * @return the value of the '<em>Kind</em>' containment reference.
+	 * @see #setKind(CarePlanActivityKind)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Kind()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
+	CarePlanActivityKind getKind();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getCategory <em>Category</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getKind <em>Kind</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
+	 * @param value the new value of the '<em>Kind</em>' containment reference.
+	 * @see #getKind()
 	 * @generated
 	 */
-	void setCategory(CodeableConcept value);
+	void setKind(CarePlanActivityKind value);
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference.
+	 * @see #setInstantiates(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinition();
+	Uri getInstantiates();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getDefinition <em>Definition</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getInstantiates <em>Instantiates</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' containment reference.
-	 * @see #getDefinition()
+	 * @param value the new value of the '<em>Instantiates</em>' containment reference.
+	 * @see #getInstantiates()
 	 * @generated
 	 */
-	void setDefinition(Reference value);
+	void setInstantiates(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -147,7 +143,7 @@ public interface CarePlanDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.
+	 * Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_ReasonReference()

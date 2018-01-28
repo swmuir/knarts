@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EncounterHospitalizationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +32,6 @@ import org.hl7.fhir.jaxb.EncounterHospitalizationImplAdapter;
  * @model extendedMetaData="name='Encounter.Hospitalization' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterHospitalizationImplAdapter.class)
 public interface EncounterHospitalization extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Pre Admission Identifier</b></em>' containment reference.

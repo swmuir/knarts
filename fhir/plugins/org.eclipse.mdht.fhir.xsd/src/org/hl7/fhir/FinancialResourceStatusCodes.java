@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
  * @model extendedMetaData="name='FinancialResourceStatusCodes' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 public interface FinancialResourceStatusCodes extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

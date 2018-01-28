@@ -2,14 +2,11 @@
  */
 package org.w3._1999.xhtml;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.w3._1999.xhtml.jaxb.MapTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +49,6 @@ import org.w3._1999.xhtml.jaxb.MapTypeImplAdapter;
  * @model extendedMetaData="name='map_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MapTypeImplAdapter.class)
 public interface MapType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Block</b></em>' attribute list.

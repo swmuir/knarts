@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.hl7.fhir.jaxb.InstantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.InstantImplAdapter;
  * @model extendedMetaData="name='instant' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(InstantImplAdapter.class)
 public interface Instant extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

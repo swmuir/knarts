@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.OperationDefinitionOverloadImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.OperationDefinitionOverloadImplAdapter;
  * @model extendedMetaData="name='OperationDefinition.Overload' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OperationDefinitionOverloadImplAdapter.class)
 public interface OperationDefinitionOverload extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter Name</b></em>' containment reference list.

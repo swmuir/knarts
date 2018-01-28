@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,7 +16,6 @@ import org.hl7.fhir.GroupCharacteristic;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +36,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "GroupCharacteristic", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "GroupCharacteristic")
 public class GroupCharacteristicImpl extends BackboneElementImpl implements GroupCharacteristic {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -139,7 +131,6 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -226,7 +217,6 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -356,8 +346,6 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getExclude() {
 		return exclude;
 	}

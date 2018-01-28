@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,10 +43,13 @@ import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getDoNotPerform <em>Do Not Perform</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingAge <em>Timing Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingRange <em>Timing Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getTimingDuration <em>Timing Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getProductReference <em>Product Reference</em>}</li>
@@ -57,6 +57,7 @@ import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getDosage <em>Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.ActivityDefinition#getSpecimenRequirement <em>Specimen Requirement</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.ActivityDefinition#getDynamicValue <em>Dynamic Value</em>}</li>
  * </ul>
@@ -65,14 +66,13 @@ import org.hl7.fhir.jaxb.ActivityDefinitionImplAdapter;
  * @model extendedMetaData="name='ActivityDefinition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ActivityDefinitionImplAdapter.class)
 public interface ActivityDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this activity definition is (or will be) published. The URL SHOULD include the major version of the activity definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -348,7 +348,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A detailed description of how the asset is used from a clinical perspective.
+	 * A detailed description of how the activity definition is used from a clinical perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Usage</em>' containment reference.
 	 * @see #setUsage(org.hl7.fhir.String)
@@ -501,7 +501,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.
+	 * A contributor to the content of the activity definition, including authors, editors, reviewers, and endorsers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contributor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Contributor()
@@ -575,7 +575,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a Library resource containing any formal logic used by the asset.
+	 * A reference to a Library resource containing any formal logic used by the activity definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Library</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_Library()
@@ -590,7 +590,7 @@ public interface ActivityDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
+	 * A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' containment reference.
 	 * @see #setKind(ResourceType)
@@ -636,6 +636,32 @@ public interface ActivityDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setCode(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Do Not Perform</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Do Not Perform</em>' containment reference.
+	 * @see #setDoNotPerform(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_DoNotPerform()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='doNotPerform' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getDoNotPerform();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getDoNotPerform <em>Do Not Perform</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Do Not Perform</em>' containment reference.
+	 * @see #getDoNotPerform()
+	 * @generated
+	 */
+	void setDoNotPerform(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Timing Timing</b></em>' containment reference.
@@ -692,6 +718,33 @@ public interface ActivityDefinition extends DomainResource {
 	void setTimingDateTime(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Timing Age</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Timing Age</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timing Age</em>' containment reference.
+	 * @see #setTimingAge(Age)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingAge()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingAge' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Age getTimingAge();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingAge <em>Timing Age</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Age</em>' containment reference.
+	 * @see #getTimingAge()
+	 * @generated
+	 */
+	void setTimingAge(Age value);
+
+	/**
 	 * Returns the value of the '<em><b>Timing Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -744,6 +797,33 @@ public interface ActivityDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setTimingRange(Range value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Duration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Timing Duration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timing Duration</em>' containment reference.
+	 * @see #setTimingDuration(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_TimingDuration()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timingDuration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Duration getTimingDuration();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ActivityDefinition#getTimingDuration <em>Timing Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Duration</em>' containment reference.
+	 * @see #getTimingDuration()
+	 * @generated
+	 */
+	void setTimingDuration(Duration value);
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
@@ -898,6 +978,22 @@ public interface ActivityDefinition extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getBodySite();
+
+	/**
+	 * Returns the value of the '<em><b>Specimen Requirement</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines specimen requirements for the action to be performed, such as required specimens for a lab test.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Specimen Requirement</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getActivityDefinition_SpecimenRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='specimenRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSpecimenRequirement();
 
 	/**
 	 * Returns the value of the '<em><b>Transform</b></em>' containment reference.

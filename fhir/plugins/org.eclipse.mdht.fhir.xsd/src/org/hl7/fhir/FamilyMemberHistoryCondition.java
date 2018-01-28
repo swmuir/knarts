@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.FamilyMemberHistoryConditionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.FamilyMemberHistoryConditionImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+ * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.FamilyMemberHistoryConditionImplAdapter;
  * @model extendedMetaData="name='FamilyMemberHistory.Condition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FamilyMemberHistoryConditionImplAdapter.class)
 public interface FamilyMemberHistoryCondition extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ConsentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.ConsentImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+ * A record of a healthcare consumerâ€™s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,31 +20,25 @@ import org.hl7.fhir.jaxb.ConsentImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Consent#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Consent#getScope <em>Scope</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getDateTime <em>Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getConsentingParty <em>Consenting Party</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getActor <em>Actor</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getAction <em>Action</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getSourceAttachment <em>Source Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getSourceIdentifier <em>Source Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getSourceReference <em>Source Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPolicyRule <em>Policy Rule</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getSecurityLabel <em>Security Label</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getPurpose <em>Purpose</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getDataPeriod <em>Data Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getData <em>Data</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getExcept <em>Except</em>}</li>
+ *   <li>{@link org.hl7.fhir.Consent#getVerification <em>Verification</em>}</li>
+ *   <li>{@link org.hl7.fhir.Consent#getProvision <em>Provision</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getConsent()
  * @model extendedMetaData="name='Consent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConsentImplAdapter.class)
 public interface Consent extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -102,6 +93,32 @@ public interface Consent extends DomainResource {
 	void setStatus(ConsentState value);
 
 	/**
+	 * Returns the value of the '<em><b>Scope</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A selector of the type of consent being presented among the four possible: ADR, Privacy, Treatment, Research.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Scope</em>' containment reference.
+	 * @see #setScope(ConsentScopeCodes)
+	 * @see org.hl7.fhir.FhirPackage#getConsent_Scope()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='scope' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ConsentScopeCodes getScope();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Consent#getScope <em>Scope</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scope</em>' containment reference.
+	 * @see #getScope()
+	 * @generated
+	 */
+	void setScope(ConsentScopeCodes value);
+
+	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -111,7 +128,7 @@ public interface Consent extends DomainResource {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Category()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -142,32 +159,6 @@ public interface Consent extends DomainResource {
 	 * @generated
 	 */
 	void setPatient(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Relevant time or time-period when this Consent is applicable.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Period()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getPeriod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Consent#getPeriod <em>Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
-	 * @generated
-	 */
-	void setPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Date Time</b></em>' containment reference.
@@ -210,38 +201,6 @@ public interface Consent extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getConsentingParty();
-
-	/**
-	 * Returns the value of the '<em><b>Actor</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ConsentActor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Who or what is controlled by this consent. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Actor</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Actor()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actor' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ConsentActor> getActor();
-
-	/**
-	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Actions controlled by this consent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Action()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getAction();
 
 	/**
 	 * Returns the value of the '<em><b>Organization</b></em>' containment reference list.
@@ -361,16 +320,16 @@ public interface Consent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A referece to the specific computable policy.
+	 * A reference to the specific base computable policy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Policy Rule</em>' containment reference.
-	 * @see #setPolicyRule(Uri)
+	 * @see #setPolicyRule(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getConsent_PolicyRule()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='policyRule' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getPolicyRule();
+	CodeableConcept getPolicyRule();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Consent#getPolicyRule <em>Policy Rule</em>}' containment reference.
@@ -380,96 +339,48 @@ public interface Consent extends DomainResource {
 	 * @see #getPolicyRule()
 	 * @generated
 	 */
-	void setPolicyRule(Uri value);
+	void setPolicyRule(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Label</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Verification</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ConsentVerification}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.
+	 * Whether a treatment instruction (e.g. artifical respiration yes or no) was verified with the patient, his/her family or another authorized person.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Security Label</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_SecurityLabel()
+	 * @return the value of the '<em>Verification</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getConsent_Verification()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='securityLabel' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='verification' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getSecurityLabel();
+	EList<ConsentVerification> getVerification();
 
 	/**
-	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The context of the activities a user is taking - why the user is accessing the data - that are controlled by this consent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Purpose</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Purpose()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='purpose' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getPurpose();
-
-	/**
-	 * Returns the value of the '<em><b>Data Period</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Clinical or Operational Relevant period of time that bounds the data controlled by this consent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data Period</em>' containment reference.
-	 * @see #setDataPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getConsent_DataPeriod()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dataPeriod' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getDataPeriod();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Consent#getDataPeriod <em>Data Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Period</em>' containment reference.
-	 * @see #getDataPeriod()
-	 * @generated
-	 */
-	void setDataPeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ConsentData}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The resources controlled by this consent, if specific resources are referenced.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Data()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ConsentData> getData();
-
-	/**
-	 * Returns the value of the '<em><b>Except</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ConsentExcept}.
+	 * Returns the value of the '<em><b>Provision</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Except</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_Except()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='except' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Provision</em>' containment reference.
+	 * @see #setProvision(ConsentProvision)
+	 * @see org.hl7.fhir.FhirPackage#getConsent_Provision()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='provision' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ConsentExcept> getExcept();
+	ConsentProvision getProvision();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Consent#getProvision <em>Provision</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provision</em>' containment reference.
+	 * @see #getProvision()
+	 * @generated
+	 */
+	void setProvision(ConsentProvision value);
 
 } // Consent

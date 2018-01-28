@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PaymentReconciliationDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.PaymentReconciliationDetailImplAdapter;
  * @model extendedMetaData="name='PaymentReconciliation.Detail' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PaymentReconciliationDetailImplAdapter.class)
 public interface PaymentReconciliationDetail extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

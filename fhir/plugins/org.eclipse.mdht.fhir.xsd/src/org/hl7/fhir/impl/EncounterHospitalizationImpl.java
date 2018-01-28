@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -48,8 +44,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "EncounterHospitalization", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EncounterHospitalization")
 public class EncounterHospitalizationImpl extends BackboneElementImpl implements EncounterHospitalization {
 	/**
 	 * The cached value of the '{@link #getPreAdmissionIdentifier() <em>Pre Admission Identifier</em>}' containment reference.
@@ -337,7 +331,6 @@ public class EncounterHospitalizationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getDietPreference() {
 		if (dietPreference == null) {
 			dietPreference = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER_HOSPITALIZATION__DIET_PREFERENCE);
@@ -350,7 +343,6 @@ public class EncounterHospitalizationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSpecialCourtesy() {
 		if (specialCourtesy == null) {
 			specialCourtesy = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER_HOSPITALIZATION__SPECIAL_COURTESY);
@@ -363,7 +355,6 @@ public class EncounterHospitalizationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSpecialArrangement() {
 		if (specialArrangement == null) {
 			specialArrangement = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER_HOSPITALIZATION__SPECIAL_ARRANGEMENT);

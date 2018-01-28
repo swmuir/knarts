@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureSupplementalDataImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +17,9 @@ import org.hl7.fhir.jaxb.MeasureSupplementalDataImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getUsage <em>Usage</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getPath <em>Path</em>}</li>
  * </ul>
@@ -30,33 +28,32 @@ import org.hl7.fhir.jaxb.MeasureSupplementalDataImplAdapter;
  * @model extendedMetaData="name='Measure.SupplementalData' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureSupplementalDataImplAdapter.class)
 public interface MeasureSupplementalData extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An identifier for the supplemental data.
+	 * Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Identifier()
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureSupplementalData#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureSupplementalData#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Usage</b></em>' containment reference list.
@@ -73,6 +70,32 @@ public interface MeasureSupplementalData extends BackboneElement {
 	 * @generated
 	 */
 	EList<CodeableConcept> getUsage();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The human readable description of this supplemental data.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Description()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureSupplementalData#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference.

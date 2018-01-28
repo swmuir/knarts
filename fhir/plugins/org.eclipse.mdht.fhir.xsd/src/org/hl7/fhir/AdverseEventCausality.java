@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AdverseEventCausalityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,78 +9,126 @@ import org.hl7.fhir.jaxb.AdverseEventCausalityImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO
- * If the element is present, it must have either a @value, an @id, or extensions
+ * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.AdverseEventCausality#getValue <em>Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEventCausality#getAssessment <em>Assessment</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEventCausality#getProductRelatedness <em>Product Relatedness</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEventCausality#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEventCausality#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality()
- * @model extendedMetaData="name='AdverseEventCausality' kind='elementOnly'"
+ * @model extendedMetaData="name='AdverseEvent.Causality' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AdverseEventCausalityImplAdapter.class)
-public interface AdverseEventCausality extends Element {
+public interface AdverseEventCausality extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.hl7.fhir.AdverseEventCausalityList}.
+	 * Returns the value of the '<em><b>Assessment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see org.hl7.fhir.AdverseEventCausalityList
-	 * @see #isSetValue()
-	 * @see #unsetValue()
-	 * @see #setValue(AdverseEventCausalityList)
-	 * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality_Value()
-	 * @model unsettable="true"
-	 *        extendedMetaData="kind='attribute' name='value'"
+	 * <!-- begin-model-doc -->
+	 * Assessment of if the entity caused the event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Assessment</em>' containment reference.
+	 * @see #setAssessment(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality_Assessment()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='assessment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AdverseEventCausalityList getValue();
+	CodeableConcept getAssessment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getAssessment <em>Assessment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see org.hl7.fhir.AdverseEventCausalityList
-	 * @see #isSetValue()
-	 * @see #unsetValue()
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Assessment</em>' containment reference.
+	 * @see #getAssessment()
 	 * @generated
 	 */
-	void setValue(AdverseEventCausalityList value);
+	void setAssessment(CodeableConcept value);
 
 	/**
-	 * Unsets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getValue <em>Value</em>}' attribute.
+	 * Returns the value of the '<em><b>Product Relatedness</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSetValue()
-	 * @see #getValue()
-	 * @see #setValue(AdverseEventCausalityList)
+	 * <!-- begin-model-doc -->
+	 * AdverseEvent.suspectEntity.causalityProductRelatedness.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Product Relatedness</em>' containment reference.
+	 * @see #setProductRelatedness(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality_ProductRelatedness()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='productRelatedness' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void unsetValue();
+	org.hl7.fhir.String getProductRelatedness();
 
 	/**
-	 * Returns whether the value of the '{@link org.hl7.fhir.AdverseEventCausality#getValue <em>Value</em>}' attribute is set.
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getProductRelatedness <em>Product Relatedness</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Value</em>' attribute is set.
-	 * @see #unsetValue()
-	 * @see #getValue()
-	 * @see #setValue(AdverseEventCausalityList)
+	 * @param value the new value of the '<em>Product Relatedness</em>' containment reference.
+	 * @see #getProductRelatedness()
 	 * @generated
 	 */
-	boolean isSetValue();
+	void setProductRelatedness(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * AdverseEvent.suspectEntity.causalityAuthor.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Author</em>' containment reference.
+	 * @see #setAuthor(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality_Author()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getAuthor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getAuthor <em>Author</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Author</em>' containment reference.
+	 * @see #getAuthor()
+	 * @generated
+	 */
+	void setAuthor(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * ProbabilityScale | Bayesian | Checklist.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Method</em>' containment reference.
+	 * @see #setMethod(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEventCausality_Method()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getMethod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEventCausality#getMethod <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Method</em>' containment reference.
+	 * @see #getMethod()
+	 * @generated
+	 */
+	void setMethod(CodeableConcept value);
 
 } // AdverseEventCausality

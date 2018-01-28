@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,13 +24,11 @@ import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Location;
+import org.hl7.fhir.LocationHoursOfOperation;
 import org.hl7.fhir.LocationMode;
 import org.hl7.fhir.LocationPosition;
 import org.hl7.fhir.LocationStatus;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.LocationModeImplAdapter;
-import org.hl7.fhir.jaxb.LocationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,13 +52,13 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LocationImpl#getHoursOfOperation <em>Hours Of Operation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.LocationImpl#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.LocationImpl#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "Location", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Location")
 public class LocationImpl extends DomainResourceImpl implements Location {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -208,6 +201,26 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	protected Reference partOf;
 
 	/**
+	 * The cached value of the '{@link #getHoursOfOperation() <em>Hours Of Operation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHoursOfOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LocationHoursOfOperation> hoursOfOperation;
+
+	/**
+	 * The cached value of the '{@link #getAvailabilityExceptions() <em>Availability Exceptions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailabilityExceptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String availabilityExceptions;
+
+	/**
 	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,7 +254,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.LOCATION__IDENTIFIER);
@@ -254,7 +266,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(LocationStatusImplAdapter.class)
 	public LocationStatus getStatus() {
 		return status;
 	}
@@ -341,7 +352,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -385,8 +395,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getAlias() {
 		if (alias == null) {
 			alias = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.LOCATION__ALIAS);
@@ -399,7 +407,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -443,7 +450,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(LocationModeImplAdapter.class)
 	public LocationMode getMode() {
 		return mode;
 	}
@@ -530,7 +536,6 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.LOCATION__TELECOM);
@@ -758,7 +763,61 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<LocationHoursOfOperation> getHoursOfOperation() {
+		if (hoursOfOperation == null) {
+			hoursOfOperation = new EObjectContainmentEList<LocationHoursOfOperation>(LocationHoursOfOperation.class, this, FhirPackage.LOCATION__HOURS_OF_OPERATION);
+		}
+		return hoursOfOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getAvailabilityExceptions() {
+		return availabilityExceptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAvailabilityExceptions(org.hl7.fhir.String newAvailabilityExceptions, NotificationChain msgs) {
+		org.hl7.fhir.String oldAvailabilityExceptions = availabilityExceptions;
+		availabilityExceptions = newAvailabilityExceptions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS, oldAvailabilityExceptions, newAvailabilityExceptions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailabilityExceptions(org.hl7.fhir.String newAvailabilityExceptions) {
+		if (newAvailabilityExceptions != availabilityExceptions) {
+			NotificationChain msgs = null;
+			if (availabilityExceptions != null)
+				msgs = ((InternalEObject)availabilityExceptions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS, null, msgs);
+			if (newAvailabilityExceptions != null)
+				msgs = ((InternalEObject)newAvailabilityExceptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS, null, msgs);
+			msgs = basicSetAvailabilityExceptions(newAvailabilityExceptions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS, newAvailabilityExceptions, newAvailabilityExceptions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.LOCATION__ENDPOINT);
@@ -802,6 +861,10 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return basicSetManagingOrganization(null, msgs);
 			case FhirPackage.LOCATION__PART_OF:
 				return basicSetPartOf(null, msgs);
+			case FhirPackage.LOCATION__HOURS_OF_OPERATION:
+				return ((InternalEList<?>)getHoursOfOperation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS:
+				return basicSetAvailabilityExceptions(null, msgs);
 			case FhirPackage.LOCATION__ENDPOINT:
 				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 		}
@@ -844,6 +907,10 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return getManagingOrganization();
 			case FhirPackage.LOCATION__PART_OF:
 				return getPartOf();
+			case FhirPackage.LOCATION__HOURS_OF_OPERATION:
+				return getHoursOfOperation();
+			case FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS:
+				return getAvailabilityExceptions();
 			case FhirPackage.LOCATION__ENDPOINT:
 				return getEndpoint();
 		}
@@ -904,6 +971,13 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 			case FhirPackage.LOCATION__PART_OF:
 				setPartOf((Reference)newValue);
 				return;
+			case FhirPackage.LOCATION__HOURS_OF_OPERATION:
+				getHoursOfOperation().clear();
+				getHoursOfOperation().addAll((Collection<? extends LocationHoursOfOperation>)newValue);
+				return;
+			case FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS:
+				setAvailabilityExceptions((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.LOCATION__ENDPOINT:
 				getEndpoint().clear();
 				getEndpoint().addAll((Collection<? extends Reference>)newValue);
@@ -962,6 +1036,12 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 			case FhirPackage.LOCATION__PART_OF:
 				setPartOf((Reference)null);
 				return;
+			case FhirPackage.LOCATION__HOURS_OF_OPERATION:
+				getHoursOfOperation().clear();
+				return;
+			case FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS:
+				setAvailabilityExceptions((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.LOCATION__ENDPOINT:
 				getEndpoint().clear();
 				return;
@@ -1005,6 +1085,10 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				return managingOrganization != null;
 			case FhirPackage.LOCATION__PART_OF:
 				return partOf != null;
+			case FhirPackage.LOCATION__HOURS_OF_OPERATION:
+				return hoursOfOperation != null && !hoursOfOperation.isEmpty();
+			case FhirPackage.LOCATION__AVAILABILITY_EXCEPTIONS:
+				return availabilityExceptions != null;
 			case FhirPackage.LOCATION__ENDPOINT:
 				return endpoint != null && !endpoint.isEmpty();
 		}

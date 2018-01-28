@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ImmunizationPractitionerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.ImmunizationPractitionerImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
+ * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ImmunizationPractitionerImplAdapter;
  * @model extendedMetaData="name='Immunization.Practitioner' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImmunizationPractitionerImplAdapter.class)
 public interface ImmunizationPractitioner extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
@@ -60,7 +56,7 @@ public interface ImmunizationPractitioner extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The device, practitioner, etc. who performed the action.
+	 * The practitioner who performed the action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actor</em>' containment reference.
 	 * @see #setActor(Reference)

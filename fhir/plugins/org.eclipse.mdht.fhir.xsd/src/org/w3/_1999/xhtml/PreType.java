@@ -4,10 +4,7 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.ecore.xml.namespace.SpaceType;
-import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
  * @model extendedMetaData="name='pre_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(PreTypeImplAdapter.class)
 public interface PreType extends PreContent {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

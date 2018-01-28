@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureReportStratifier;
 import org.hl7.fhir.MeasureReportStratum;
 
@@ -34,24 +30,22 @@ import org.hl7.fhir.MeasureReportStratum;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportStratifierImpl#getStratum <em>Stratum</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MeasureReportStratifier", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureReportStratifier")
 public class MeasureReportStratifierImpl extends BackboneElementImpl implements MeasureReportStratifier {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected CodeableConcept code;
 
 	/**
 	 * The cached value of the '{@link #getStratum() <em>Stratum</em>}' containment reference list.
@@ -87,8 +81,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
-		return identifier;
+	public CodeableConcept getCode() {
+		return code;
 	}
 
 	/**
@@ -96,11 +90,11 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATIFIER__CODE, oldCode, newCode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -111,18 +105,18 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_STRATIFIER__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_STRATIFIER__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER, newIdentifier, newIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATIFIER__CODE, newCode, newCode));
 	}
 
 	/**
@@ -130,7 +124,6 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureReportStratum> getStratum() {
 		if (stratum == null) {
 			stratum = new EObjectContainmentEList<MeasureReportStratum>(MeasureReportStratum.class, this, FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM);
@@ -146,8 +139,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__CODE:
+				return basicSetCode(null, msgs);
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
 				return ((InternalEList<?>)getStratum()).basicRemove(otherEnd, msgs);
 		}
@@ -162,8 +155,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
-				return getIdentifier();
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__CODE:
+				return getCode();
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
 				return getStratum();
 		}
@@ -179,8 +172,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__CODE:
+				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
 				getStratum().clear();
@@ -198,8 +191,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
-				setIdentifier((Identifier)null);
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__CODE:
+				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
 				getStratum().clear();
@@ -216,8 +209,8 @@ public class MeasureReportStratifierImpl extends BackboneElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_STRATIFIER__IDENTIFIER:
-				return identifier != null;
+			case FhirPackage.MEASURE_REPORT_STRATIFIER__CODE:
+				return code != null;
 			case FhirPackage.MEASURE_REPORT_STRATIFIER__STRATUM:
 				return stratum != null && !stratum.isEmpty();
 		}

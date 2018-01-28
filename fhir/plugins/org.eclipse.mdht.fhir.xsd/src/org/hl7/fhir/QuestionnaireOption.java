@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.QuestionnaireOptionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,13 +21,13 @@ import org.hl7.fhir.jaxb.QuestionnaireOptionImplAdapter;
  *   <li>{@link org.hl7.fhir.QuestionnaireOption#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireOption#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireOption#getValueCoding <em>Value Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireOption#getInitialSelected <em>Initial Selected</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getQuestionnaireOption()
  * @model extendedMetaData="name='Questionnaire.Option' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(QuestionnaireOptionImplAdapter.class)
 public interface QuestionnaireOption extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Value Integer</b></em>' containment reference.
@@ -166,5 +163,31 @@ public interface QuestionnaireOption extends BackboneElement {
 	 * @generated
 	 */
 	void setValueCoding(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Initial Selected</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates whether the option value is selected when the list of options is initially shown.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Initial Selected</em>' containment reference.
+	 * @see #setInitialSelected(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireOption_InitialSelected()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='initialSelected' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getInitialSelected();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireOption#getInitialSelected <em>Initial Selected</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Selected</em>' containment reference.
+	 * @see #getInitialSelected()
+	 * @generated
+	 */
+	void setInitialSelected(org.hl7.fhir.Boolean value);
 
 } // QuestionnaireOption

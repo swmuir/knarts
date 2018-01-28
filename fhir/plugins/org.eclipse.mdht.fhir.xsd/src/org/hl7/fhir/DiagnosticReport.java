@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DiagnosticReportImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,10 +29,11 @@ import org.hl7.fhir.jaxb.DiagnosticReportImplAdapter;
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getResultsInterpreter <em>Results Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getImagingStudy <em>Imaging Study</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReport#getImage <em>Image</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getConclusion <em>Conclusion</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getCodedDiagnosis <em>Coded Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getPresentedForm <em>Presented Form</em>}</li>
@@ -45,7 +43,6 @@ import org.hl7.fhir.jaxb.DiagnosticReportImplAdapter;
  * @model extendedMetaData="name='DiagnosticReport' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DiagnosticReportImplAdapter.class)
 public interface DiagnosticReport extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -69,7 +66,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Details concerning a test or procedure requested.
+	 * Details concerning a service requested.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_BasedOn()
@@ -268,7 +265,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date and time that this version of the report was released from the source diagnostic service.
+	 * The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Issued</em>' containment reference.
 	 * @see #setIssued(Instant)
@@ -291,11 +288,11 @@ public interface DiagnosticReport extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DiagnosticReportPerformer}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates who or what participated in producing the report.
+	 * The diagnostic service that is responsible for issuing the report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Performer()
@@ -303,7 +300,23 @@ public interface DiagnosticReport extends DomainResource {
 	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DiagnosticReportPerformer> getPerformer();
+	EList<Reference> getPerformer();
+
+	/**
+	 * Returns the value of the '<em><b>Results Interpreter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The practitioner or organization that is responsible for the report's conclusions and interpretations.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Results Interpreter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_ResultsInterpreter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='resultsInterpreter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getResultsInterpreter();
 
 	/**
 	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
@@ -354,20 +367,20 @@ public interface DiagnosticReport extends DomainResource {
 	EList<Reference> getImagingStudy();
 
 	/**
-	 * Returns the value of the '<em><b>Image</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DiagnosticReportImage}.
+	 * Returns the value of the '<em><b>Media</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DiagnosticReportMedia}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Image</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Image()
+	 * @return the value of the '<em>Media</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Media()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='image' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='media' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DiagnosticReportImage> getImage();
+	EList<DiagnosticReportMedia> getMedia();
 
 	/**
 	 * Returns the value of the '<em><b>Conclusion</b></em>' containment reference.

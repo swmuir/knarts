@@ -5,11 +5,6 @@ package org.w3._1999.xhtml.impl;
 import java.util.Collection;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,8 +27,6 @@ import org.w3._1999.xhtml.ThType;
 import org.w3._1999.xhtml.TrType;
 import org.w3._1999.xhtml.ValignType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.TdTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.ThTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,8 +54,6 @@ import org.w3._1999.xhtml.jaxb.ThTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TrType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "TrType")
 public class TrTypeImpl extends MinimalEObjectImpl.Container implements TrType {
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' attribute list.
@@ -357,8 +348,6 @@ public class TrTypeImpl extends MinimalEObjectImpl.Container implements TrType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ThTypeImplAdapter.class)
-	@XmlElement
 	public EList<ThType> getTh() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getTrType_Th());
 	}
@@ -368,8 +357,6 @@ public class TrTypeImpl extends MinimalEObjectImpl.Container implements TrType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TdTypeImplAdapter.class)
-	@XmlElement
 	public EList<TdType> getTd() {
 		return getGroup().list(XhtmlPackage.eINSTANCE.getTrType_Td());
 	}

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,10 +25,6 @@ import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,14 +40,13 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhoReference <em>Who Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getTargetFormat <em>Target Format</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getSigFormat <em>Sig Format</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getBlob <em>Blob</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "Signature", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Signature")
 public class SignatureImpl extends ElementImpl implements Signature {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -119,14 +109,24 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	protected Reference onBehalfOfReference;
 
 	/**
-	 * The cached value of the '{@link #getContentType() <em>Content Type</em>}' containment reference.
+	 * The cached value of the '{@link #getTargetFormat() <em>Target Format</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContentType()
+	 * @see #getTargetFormat()
 	 * @generated
 	 * @ordered
 	 */
-	protected Code contentType;
+	protected Code targetFormat;
+
+	/**
+	 * The cached value of the '{@link #getSigFormat() <em>Sig Format</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSigFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected Code sigFormat;
 
 	/**
 	 * The cached value of the '{@link #getBlob() <em>Blob</em>}' containment reference.
@@ -162,7 +162,6 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<Coding> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.SIGNATURE__TYPE);
@@ -175,8 +174,6 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
 	public Instant getWhen() {
 		return when;
 	}
@@ -220,7 +217,6 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getWhoUri() {
 		return whoUri;
 	}
@@ -307,7 +303,6 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getOnBehalfOfUri() {
 		return onBehalfOfUri;
 	}
@@ -394,9 +389,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	public Code getContentType() {
-		return contentType;
+	public Code getTargetFormat() {
+		return targetFormat;
 	}
 
 	/**
@@ -404,11 +398,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContentType(Code newContentType, NotificationChain msgs) {
-		Code oldContentType = contentType;
-		contentType = newContentType;
+	public NotificationChain basicSetTargetFormat(Code newTargetFormat, NotificationChain msgs) {
+		Code oldTargetFormat = targetFormat;
+		targetFormat = newTargetFormat;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__CONTENT_TYPE, oldContentType, newContentType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__TARGET_FORMAT, oldTargetFormat, newTargetFormat);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -419,18 +413,18 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContentType(Code newContentType) {
-		if (newContentType != contentType) {
+	public void setTargetFormat(Code newTargetFormat) {
+		if (newTargetFormat != targetFormat) {
 			NotificationChain msgs = null;
-			if (contentType != null)
-				msgs = ((InternalEObject)contentType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__CONTENT_TYPE, null, msgs);
-			if (newContentType != null)
-				msgs = ((InternalEObject)newContentType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__CONTENT_TYPE, null, msgs);
-			msgs = basicSetContentType(newContentType, msgs);
+			if (targetFormat != null)
+				msgs = ((InternalEObject)targetFormat).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__TARGET_FORMAT, null, msgs);
+			if (newTargetFormat != null)
+				msgs = ((InternalEObject)newTargetFormat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__TARGET_FORMAT, null, msgs);
+			msgs = basicSetTargetFormat(newTargetFormat, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__CONTENT_TYPE, newContentType, newContentType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__TARGET_FORMAT, newTargetFormat, newTargetFormat));
 	}
 
 	/**
@@ -438,7 +432,49 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
+	public Code getSigFormat() {
+		return sigFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSigFormat(Code newSigFormat, NotificationChain msgs) {
+		Code oldSigFormat = sigFormat;
+		sigFormat = newSigFormat;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__SIG_FORMAT, oldSigFormat, newSigFormat);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSigFormat(Code newSigFormat) {
+		if (newSigFormat != sigFormat) {
+			NotificationChain msgs = null;
+			if (sigFormat != null)
+				msgs = ((InternalEObject)sigFormat).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__SIG_FORMAT, null, msgs);
+			if (newSigFormat != null)
+				msgs = ((InternalEObject)newSigFormat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__SIG_FORMAT, null, msgs);
+			msgs = basicSetSigFormat(newSigFormat, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__SIG_FORMAT, newSigFormat, newSigFormat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Base64Binary getBlob() {
 		return blob;
 	}
@@ -497,8 +533,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return basicSetOnBehalfOfUri(null, msgs);
 			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
 				return basicSetOnBehalfOfReference(null, msgs);
-			case FhirPackage.SIGNATURE__CONTENT_TYPE:
-				return basicSetContentType(null, msgs);
+			case FhirPackage.SIGNATURE__TARGET_FORMAT:
+				return basicSetTargetFormat(null, msgs);
+			case FhirPackage.SIGNATURE__SIG_FORMAT:
+				return basicSetSigFormat(null, msgs);
 			case FhirPackage.SIGNATURE__BLOB:
 				return basicSetBlob(null, msgs);
 		}
@@ -525,8 +563,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return getOnBehalfOfUri();
 			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
 				return getOnBehalfOfReference();
-			case FhirPackage.SIGNATURE__CONTENT_TYPE:
-				return getContentType();
+			case FhirPackage.SIGNATURE__TARGET_FORMAT:
+				return getTargetFormat();
+			case FhirPackage.SIGNATURE__SIG_FORMAT:
+				return getSigFormat();
 			case FhirPackage.SIGNATURE__BLOB:
 				return getBlob();
 		}
@@ -561,8 +601,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
 				setOnBehalfOfReference((Reference)newValue);
 				return;
-			case FhirPackage.SIGNATURE__CONTENT_TYPE:
-				setContentType((Code)newValue);
+			case FhirPackage.SIGNATURE__TARGET_FORMAT:
+				setTargetFormat((Code)newValue);
+				return;
+			case FhirPackage.SIGNATURE__SIG_FORMAT:
+				setSigFormat((Code)newValue);
 				return;
 			case FhirPackage.SIGNATURE__BLOB:
 				setBlob((Base64Binary)newValue);
@@ -597,8 +640,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
 				setOnBehalfOfReference((Reference)null);
 				return;
-			case FhirPackage.SIGNATURE__CONTENT_TYPE:
-				setContentType((Code)null);
+			case FhirPackage.SIGNATURE__TARGET_FORMAT:
+				setTargetFormat((Code)null);
+				return;
+			case FhirPackage.SIGNATURE__SIG_FORMAT:
+				setSigFormat((Code)null);
 				return;
 			case FhirPackage.SIGNATURE__BLOB:
 				setBlob((Base64Binary)null);
@@ -627,8 +673,10 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return onBehalfOfUri != null;
 			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
 				return onBehalfOfReference != null;
-			case FhirPackage.SIGNATURE__CONTENT_TYPE:
-				return contentType != null;
+			case FhirPackage.SIGNATURE__TARGET_FORMAT:
+				return targetFormat != null;
+			case FhirPackage.SIGNATURE__SIG_FORMAT:
+				return sigFormat != null;
 			case FhirPackage.SIGNATURE__BLOB:
 				return blob != null;
 		}

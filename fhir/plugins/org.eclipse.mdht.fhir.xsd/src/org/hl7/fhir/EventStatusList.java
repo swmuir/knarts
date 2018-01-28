@@ -41,6 +41,16 @@ public enum EventStatusList implements Enumerator {
 	IN_PROGRESS(1, "inProgress", "in-progress"),
 
 	/**
+	 * The '<em><b>Not Done</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_DONE(2, "notDone", "not-done"),
+
+	/**
 	 * The '<em><b>Suspended</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(2, "suspended", "suspended"),
+	SUSPENDED(3, "suspended", "suspended"),
 
 	/**
 	 * The '<em><b>Aborted</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ABORTED(3, "aborted", "aborted"),
+	ABORTED(4, "aborted", "aborted"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(4, "completed", "completed"),
+	COMPLETED(5, "completed", "completed"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(6, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
@@ -88,7 +98,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(6, "unknown", "unknown");
+	UNKNOWN(7, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Preparation</b></em>' literal value.
@@ -119,6 +129,20 @@ public enum EventStatusList implements Enumerator {
 	public static final int IN_PROGRESS_VALUE = 1;
 
 	/**
+	 * The '<em><b>Not Done</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Not Done
+	 * <!-- end-model-doc -->
+	 * @see #NOT_DONE
+	 * @model name="notDone" literal="not-done"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_DONE_VALUE = 2;
+
+	/**
 	 * The '<em><b>Suspended</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +154,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 2;
+	public static final int SUSPENDED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Aborted</b></em>' literal value.
@@ -144,7 +168,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ABORTED_VALUE = 3;
+	public static final int ABORTED_VALUE = 4;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -158,7 +182,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 4;
+	public static final int COMPLETED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -172,7 +196,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 5;
+	public static final int ENTERED_IN_ERROR_VALUE = 6;
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
@@ -186,7 +210,7 @@ public enum EventStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 6;
+	public static final int UNKNOWN_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Event Status List</b></em>' enumerators.
@@ -198,6 +222,7 @@ public enum EventStatusList implements Enumerator {
 		new EventStatusList[] {
 			PREPARATION,
 			IN_PROGRESS,
+			NOT_DONE,
 			SUSPENDED,
 			ABORTED,
 			COMPLETED,
@@ -261,6 +286,7 @@ public enum EventStatusList implements Enumerator {
 		switch (value) {
 			case PREPARATION_VALUE: return PREPARATION;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
+			case NOT_DONE_VALUE: return NOT_DONE;
 			case SUSPENDED_VALUE: return SUSPENDED;
 			case ABORTED_VALUE: return ABORTED;
 			case COMPLETED_VALUE: return COMPLETED;

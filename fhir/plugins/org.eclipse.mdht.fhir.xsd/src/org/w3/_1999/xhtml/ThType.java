@@ -6,10 +6,6 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.ThTypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Th Type</b></em>'.
@@ -42,7 +38,6 @@ import org.w3._1999.xhtml.jaxb.ThTypeImplAdapter;
  * @model extendedMetaData="name='th_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(ThTypeImplAdapter.class)
 public interface ThType extends Flow {
 	/**
 	 * Returns the value of the '<em><b>Abbr1</b></em>' attribute.

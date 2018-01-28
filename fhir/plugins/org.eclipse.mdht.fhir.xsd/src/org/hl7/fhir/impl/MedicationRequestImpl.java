@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,15 +26,11 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationRequest;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
 import org.hl7.fhir.MedicationRequestIntent;
-import org.hl7.fhir.MedicationRequestPriority;
-import org.hl7.fhir.MedicationRequestRequester;
 import org.hl7.fhir.MedicationRequestStatus;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MedicationRequestIntentImplAdapter;
-import org.hl7.fhir.jaxb.MedicationRequestPriorityImplAdapter;
-import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,9 +41,6 @@ import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getBasedOn <em>Based On</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getCategory <em>Category</em>}</li>
@@ -64,9 +52,16 @@ import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getRequester <em>Requester</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getStatusReason <em>Status Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestImpl#getDispenseRequest <em>Dispense Request</em>}</li>
@@ -78,8 +73,6 @@ import org.hl7.fhir.jaxb.MedicationRequestStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MedicationRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MedicationRequest")
 public class MedicationRequestImpl extends DomainResourceImpl implements MedicationRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -90,36 +83,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @ordered
 	 */
 	protected EList<Identifier> identifier;
-
-	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> definition;
-
-	/**
-	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBasedOn()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> basedOn;
-
-	/**
-	 * The cached value of the '{@link #getGroupIdentifier() <em>Group Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroupIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier groupIdentifier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -142,14 +105,14 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	protected MedicationRequestIntent intent;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -159,7 +122,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationRequestPriority priority;
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getMedicationCodeableConcept() <em>Medication Codeable Concept</em>}' containment reference.
@@ -229,7 +192,27 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationRequestRequester requester;
+	protected Reference requester;
+
+	/**
+	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPerformer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference performer;
+
+	/**
+	 * The cached value of the '{@link #getPerformerType() <em>Performer Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPerformerType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept performerType;
 
 	/**
 	 * The cached value of the '{@link #getRecorder() <em>Recorder</em>}' containment reference.
@@ -260,6 +243,56 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * @ordered
 	 */
 	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiates;
+
+	/**
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> basedOn;
+
+	/**
+	 * The cached value of the '{@link #getGroupIdentifier() <em>Group Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroupIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier groupIdentifier;
+
+	/**
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept statusReason;
+
+	/**
+	 * The cached value of the '{@link #getInsurance() <em>Insurance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> insurance;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -355,7 +388,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICATION_REQUEST__IDENTIFIER);
@@ -368,76 +400,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__DEFINITION);
-		}
-		return definition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<Reference> getBasedOn() {
-		if (basedOn == null) {
-			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__BASED_ON);
-		}
-		return basedOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getGroupIdentifier() {
-		return groupIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGroupIdentifier(Identifier newGroupIdentifier, NotificationChain msgs) {
-		Identifier oldGroupIdentifier = groupIdentifier;
-		groupIdentifier = newGroupIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, oldGroupIdentifier, newGroupIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGroupIdentifier(Identifier newGroupIdentifier) {
-		if (newGroupIdentifier != groupIdentifier) {
-			NotificationChain msgs = null;
-			if (groupIdentifier != null)
-				msgs = ((InternalEObject)groupIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
-			if (newGroupIdentifier != null)
-				msgs = ((InternalEObject)newGroupIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
-			msgs = basicSetGroupIdentifier(newGroupIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, newGroupIdentifier, newGroupIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(MedicationRequestStatusImplAdapter.class)
 	public MedicationRequestStatus getStatus() {
 		return status;
 	}
@@ -481,8 +443,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MedicationRequestIntentImplAdapter.class)
-	@XmlElement(required = true)
 	public MedicationRequestIntent getIntent() {
 		return intent;
 	}
@@ -526,7 +486,10 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCategory() {
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_REQUEST__CATEGORY);
+		}
 		return category;
 	}
 
@@ -535,42 +498,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__CATEGORY, newCategory, newCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(MedicationRequestPriorityImplAdapter.class)
-	public MedicationRequestPriority getPriority() {
+	public RequestPriority getPriority() {
 		return priority;
 	}
 
@@ -579,8 +507,8 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPriority(MedicationRequestPriority newPriority, NotificationChain msgs) {
-		MedicationRequestPriority oldPriority = priority;
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PRIORITY, oldPriority, newPriority);
@@ -594,7 +522,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPriority(MedicationRequestPriority newPriority) {
+	public void setPriority(RequestPriority newPriority) {
 		if (newPriority != priority) {
 			NotificationChain msgs = null;
 			if (priority != null)
@@ -699,7 +627,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -786,7 +713,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__SUPPORTING_INFORMATION);
@@ -799,7 +725,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -843,7 +768,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationRequestRequester getRequester() {
+	public Reference getRequester() {
 		return requester;
 	}
 
@@ -852,8 +777,8 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequester(MedicationRequestRequester newRequester, NotificationChain msgs) {
-		MedicationRequestRequester oldRequester = requester;
+	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
+		Reference oldRequester = requester;
 		requester = newRequester;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__REQUESTER, oldRequester, newRequester);
@@ -867,7 +792,7 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequester(MedicationRequestRequester newRequester) {
+	public void setRequester(Reference newRequester) {
 		if (newRequester != requester) {
 			NotificationChain msgs = null;
 			if (requester != null)
@@ -879,6 +804,92 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__REQUESTER, newRequester, newRequester));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPerformer() {
+		return performer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPerformer(Reference newPerformer, NotificationChain msgs) {
+		Reference oldPerformer = performer;
+		performer = newPerformer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PERFORMER, oldPerformer, newPerformer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPerformer(Reference newPerformer) {
+		if (newPerformer != performer) {
+			NotificationChain msgs = null;
+			if (performer != null)
+				msgs = ((InternalEObject)performer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__PERFORMER, null, msgs);
+			if (newPerformer != null)
+				msgs = ((InternalEObject)newPerformer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__PERFORMER, null, msgs);
+			msgs = basicSetPerformer(newPerformer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PERFORMER, newPerformer, newPerformer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getPerformerType() {
+		return performerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPerformerType(CodeableConcept newPerformerType, NotificationChain msgs) {
+		CodeableConcept oldPerformerType = performerType;
+		performerType = newPerformerType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE, oldPerformerType, newPerformerType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPerformerType(CodeableConcept newPerformerType) {
+		if (newPerformerType != performerType) {
+			NotificationChain msgs = null;
+			if (performerType != null)
+				msgs = ((InternalEObject)performerType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE, null, msgs);
+			if (newPerformerType != null)
+				msgs = ((InternalEObject)newPerformerType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE, null, msgs);
+			msgs = basicSetPerformerType(newPerformerType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE, newPerformerType, newPerformerType));
 	}
 
 	/**
@@ -929,7 +940,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_REQUEST__REASON_CODE);
@@ -942,7 +952,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE);
@@ -955,7 +964,128 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.MEDICATION_REQUEST__INSTANTIATES);
+		}
+		return instantiates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__BASED_ON);
+		}
+		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getGroupIdentifier() {
+		return groupIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGroupIdentifier(Identifier newGroupIdentifier, NotificationChain msgs) {
+		Identifier oldGroupIdentifier = groupIdentifier;
+		groupIdentifier = newGroupIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, oldGroupIdentifier, newGroupIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGroupIdentifier(Identifier newGroupIdentifier) {
+		if (newGroupIdentifier != groupIdentifier) {
+			NotificationChain msgs = null;
+			if (groupIdentifier != null)
+				msgs = ((InternalEObject)groupIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
+			if (newGroupIdentifier != null)
+				msgs = ((InternalEObject)newGroupIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, null, msgs);
+			msgs = basicSetGroupIdentifier(newGroupIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER, newGroupIdentifier, newGroupIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getStatusReason() {
+		return statusReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
+		CodeableConcept oldStatusReason = statusReason;
+		statusReason = newStatusReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__STATUS_REASON, oldStatusReason, newStatusReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReason(CodeableConcept newStatusReason) {
+		if (newStatusReason != statusReason) {
+			NotificationChain msgs = null;
+			if (statusReason != null)
+				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__STATUS_REASON, null, msgs);
+			if (newStatusReason != null)
+				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST__STATUS_REASON, null, msgs);
+			msgs = basicSetStatusReason(newStatusReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST__STATUS_REASON, newStatusReason, newStatusReason));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getInsurance() {
+		if (insurance == null) {
+			insurance = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__INSURANCE);
+		}
+		return insurance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_REQUEST__NOTE);
@@ -968,7 +1098,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Dosage> getDosageInstruction() {
 		if (dosageInstruction == null) {
 			dosageInstruction = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION);
@@ -1110,7 +1239,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getDetectedIssue() {
 		if (detectedIssue == null) {
 			detectedIssue = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__DETECTED_ISSUE);
@@ -1123,7 +1251,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
 			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_REQUEST__EVENT_HISTORY);
@@ -1141,18 +1268,12 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 		switch (featureID) {
 			case FhirPackage.MEDICATION_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_REQUEST__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
-				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
-				return basicSetGroupIdentifier(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				return basicSetIntent(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
-				return basicSetCategory(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
@@ -1169,12 +1290,26 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return basicSetAuthoredOn(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__REQUESTER:
 				return basicSetRequester(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER:
+				return basicSetPerformer(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE:
+				return basicSetPerformerType(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__RECORDER:
 				return basicSetRecorder(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST__REASON_CODE:
 				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE:
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_REQUEST__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
+				return basicSetGroupIdentifier(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST__STATUS_REASON:
+				return basicSetStatusReason(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST__INSURANCE:
+				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_REQUEST__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION:
@@ -1203,12 +1338,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 		switch (featureID) {
 			case FhirPackage.MEDICATION_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.MEDICATION_REQUEST__DEFINITION:
-				return getDefinition();
-			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
-				return getBasedOn();
-			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
-				return getGroupIdentifier();
 			case FhirPackage.MEDICATION_REQUEST__STATUS:
 				return getStatus();
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
@@ -1231,12 +1360,26 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return getAuthoredOn();
 			case FhirPackage.MEDICATION_REQUEST__REQUESTER:
 				return getRequester();
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER:
+				return getPerformer();
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE:
+				return getPerformerType();
 			case FhirPackage.MEDICATION_REQUEST__RECORDER:
 				return getRecorder();
 			case FhirPackage.MEDICATION_REQUEST__REASON_CODE:
 				return getReasonCode();
 			case FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE:
 				return getReasonReference();
+			case FhirPackage.MEDICATION_REQUEST__INSTANTIATES:
+				return getInstantiates();
+			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
+				return getBasedOn();
+			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
+				return getGroupIdentifier();
+			case FhirPackage.MEDICATION_REQUEST__STATUS_REASON:
+				return getStatusReason();
+			case FhirPackage.MEDICATION_REQUEST__INSURANCE:
+				return getInsurance();
 			case FhirPackage.MEDICATION_REQUEST__NOTE:
 				return getNote();
 			case FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION:
@@ -1268,17 +1411,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.MEDICATION_REQUEST__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
-				getBasedOn().clear();
-				getBasedOn().addAll((Collection<? extends Reference>)newValue);
-				return;
-			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
-				setGroupIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.MEDICATION_REQUEST__STATUS:
 				setStatus((MedicationRequestStatus)newValue);
 				return;
@@ -1286,10 +1418,11 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				setIntent((MedicationRequestIntent)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				setPriority((MedicationRequestPriority)newValue);
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				setMedicationCodeableConcept((CodeableConcept)newValue);
@@ -1311,7 +1444,13 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				setAuthoredOn((DateTime)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__REQUESTER:
-				setRequester((MedicationRequestRequester)newValue);
+				setRequester((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER:
+				setPerformer((Reference)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE:
+				setPerformerType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__RECORDER:
 				setRecorder((Reference)newValue);
@@ -1323,6 +1462,24 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 			case FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE:
 				getReasonReference().clear();
 				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
+				setGroupIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__STATUS_REASON:
+				setStatusReason((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__INSURANCE:
+				getInsurance().clear();
+				getInsurance().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__NOTE:
 				getNote().clear();
@@ -1364,15 +1521,6 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 			case FhirPackage.MEDICATION_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.MEDICATION_REQUEST__DEFINITION:
-				getDefinition().clear();
-				return;
-			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
-				getBasedOn().clear();
-				return;
-			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
-				setGroupIdentifier((Identifier)null);
-				return;
 			case FhirPackage.MEDICATION_REQUEST__STATUS:
 				setStatus((MedicationRequestStatus)null);
 				return;
@@ -1380,10 +1528,10 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				setIntent((MedicationRequestIntent)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
-				setCategory((CodeableConcept)null);
+				getCategory().clear();
 				return;
 			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
-				setPriority((MedicationRequestPriority)null);
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
 				setMedicationCodeableConcept((CodeableConcept)null);
@@ -1404,7 +1552,13 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				setAuthoredOn((DateTime)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__REQUESTER:
-				setRequester((MedicationRequestRequester)null);
+				setRequester((Reference)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER:
+				setPerformer((Reference)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE:
+				setPerformerType((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST__RECORDER:
 				setRecorder((Reference)null);
@@ -1414,6 +1568,21 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return;
 			case FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE:
 				getReasonReference().clear();
+				return;
+			case FhirPackage.MEDICATION_REQUEST__INSTANTIATES:
+				getInstantiates().clear();
+				return;
+			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
+				getBasedOn().clear();
+				return;
+			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
+				setGroupIdentifier((Identifier)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__STATUS_REASON:
+				setStatusReason((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST__INSURANCE:
+				getInsurance().clear();
 				return;
 			case FhirPackage.MEDICATION_REQUEST__NOTE:
 				getNote().clear();
@@ -1450,18 +1619,12 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 		switch (featureID) {
 			case FhirPackage.MEDICATION_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.MEDICATION_REQUEST__DEFINITION:
-				return definition != null && !definition.isEmpty();
-			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
-				return basedOn != null && !basedOn.isEmpty();
-			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
-				return groupIdentifier != null;
 			case FhirPackage.MEDICATION_REQUEST__STATUS:
 				return status != null;
 			case FhirPackage.MEDICATION_REQUEST__INTENT:
 				return intent != null;
 			case FhirPackage.MEDICATION_REQUEST__CATEGORY:
-				return category != null;
+				return category != null && !category.isEmpty();
 			case FhirPackage.MEDICATION_REQUEST__PRIORITY:
 				return priority != null;
 			case FhirPackage.MEDICATION_REQUEST__MEDICATION_CODEABLE_CONCEPT:
@@ -1478,12 +1641,26 @@ public class MedicationRequestImpl extends DomainResourceImpl implements Medicat
 				return authoredOn != null;
 			case FhirPackage.MEDICATION_REQUEST__REQUESTER:
 				return requester != null;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER:
+				return performer != null;
+			case FhirPackage.MEDICATION_REQUEST__PERFORMER_TYPE:
+				return performerType != null;
 			case FhirPackage.MEDICATION_REQUEST__RECORDER:
 				return recorder != null;
 			case FhirPackage.MEDICATION_REQUEST__REASON_CODE:
 				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.MEDICATION_REQUEST__REASON_REFERENCE:
 				return reasonReference != null && !reasonReference.isEmpty();
+			case FhirPackage.MEDICATION_REQUEST__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.MEDICATION_REQUEST__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
+			case FhirPackage.MEDICATION_REQUEST__GROUP_IDENTIFIER:
+				return groupIdentifier != null;
+			case FhirPackage.MEDICATION_REQUEST__STATUS_REASON:
+				return statusReason != null;
+			case FhirPackage.MEDICATION_REQUEST__INSURANCE:
+				return insurance != null && !insurance.isEmpty();
 			case FhirPackage.MEDICATION_REQUEST__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.MEDICATION_REQUEST__DOSAGE_INSTRUCTION:

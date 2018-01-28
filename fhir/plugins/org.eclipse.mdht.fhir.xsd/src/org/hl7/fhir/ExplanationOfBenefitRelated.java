@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExplanationOfBenefitRelatedImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitRelatedImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.Related' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitRelatedImplAdapter.class)
 public interface ExplanationOfBenefitRelated extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Claim</b></em>' containment reference.

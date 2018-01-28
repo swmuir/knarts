@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,10 +15,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HTTPVerb;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.HTTPVerbImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,8 +34,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "BundleRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "BundleRequest")
 public class BundleRequestImpl extends BackboneElementImpl implements BundleRequest {
 	/**
 	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
@@ -130,8 +119,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(HTTPVerbImplAdapter.class)
-	@XmlElement(required = true)
 	public HTTPVerb getMethod() {
 		return method;
 	}
@@ -175,8 +162,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -220,7 +205,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getIfNoneMatch() {
 		return ifNoneMatch;
 	}
@@ -264,7 +248,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getIfModifiedSince() {
 		return ifModifiedSince;
 	}
@@ -308,7 +291,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getIfMatch() {
 		return ifMatch;
 	}
@@ -352,7 +334,6 @@ public class BundleRequestImpl extends BackboneElementImpl implements BundleRequ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getIfNoneExist() {
 		return ifNoneExist;
 	}

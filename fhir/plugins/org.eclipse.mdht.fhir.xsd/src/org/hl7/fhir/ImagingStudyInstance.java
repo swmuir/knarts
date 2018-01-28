@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ImagingStudyInstanceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ImagingStudyInstanceImplAdapter;
  * @model extendedMetaData="name='ImagingStudy.Instance' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImagingStudyInstanceImplAdapter.class)
 public interface ImagingStudyInstance extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.

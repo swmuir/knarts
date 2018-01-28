@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.NoteTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.NoteTypeImplAdapter;
  * @model extendedMetaData="name='NoteType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NoteTypeImplAdapter.class)
 public interface NoteType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

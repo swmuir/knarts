@@ -2,14 +2,11 @@
  */
 package org.w3._1999.xhtml;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.w3._1999.xhtml.jaxb.InlineImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,7 +55,6 @@ import org.w3._1999.xhtml.jaxb.InlineImplAdapter;
  * @model extendedMetaData="name='Inline' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(InlineImplAdapter.class)
 public interface Inline extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.

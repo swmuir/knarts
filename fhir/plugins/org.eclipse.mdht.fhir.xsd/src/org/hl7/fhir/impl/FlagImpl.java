@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,7 +24,6 @@ import org.hl7.fhir.FlagStatus;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.FlagStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,8 +45,6 @@ import org.hl7.fhir.jaxb.FlagStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Flag", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Flag")
 public class FlagImpl extends DomainResourceImpl implements Flag {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -75,14 +67,14 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	protected FlagStatus status;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -158,7 +150,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.FLAG__IDENTIFIER);
@@ -171,8 +162,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FlagStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public FlagStatus getStatus() {
 		return status;
 	}
@@ -216,7 +205,10 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCategory() {
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.FLAG__CATEGORY);
+		}
 		return category;
 	}
 
@@ -225,41 +217,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FLAG__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FLAG__CATEGORY, newCategory, newCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -303,7 +260,6 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -484,7 +440,7 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 			case FhirPackage.FLAG__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.FLAG__CATEGORY:
-				return basicSetCategory(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.FLAG__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.FLAG__SUBJECT:
@@ -544,7 +500,8 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 				setStatus((FlagStatus)newValue);
 				return;
 			case FhirPackage.FLAG__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.FLAG__CODE:
 				setCode((CodeableConcept)newValue);
@@ -580,7 +537,7 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 				setStatus((FlagStatus)null);
 				return;
 			case FhirPackage.FLAG__CATEGORY:
-				setCategory((CodeableConcept)null);
+				getCategory().clear();
 				return;
 			case FhirPackage.FLAG__CODE:
 				setCode((CodeableConcept)null);
@@ -614,7 +571,7 @@ public class FlagImpl extends DomainResourceImpl implements Flag {
 			case FhirPackage.FLAG__STATUS:
 				return status != null;
 			case FhirPackage.FLAG__CATEGORY:
-				return category != null;
+				return category != null && !category.isEmpty();
 			case FhirPackage.FLAG__CODE:
 				return code != null;
 			case FhirPackage.FLAG__SUBJECT:

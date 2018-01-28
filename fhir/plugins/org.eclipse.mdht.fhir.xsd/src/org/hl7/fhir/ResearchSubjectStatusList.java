@@ -31,34 +31,114 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	CANDIDATE(0, "candidate", "candidate"),
 
 	/**
-	 * The '<em><b>Enrolled</b></em>' literal object.
+	 * The '<em><b>Eligible</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ENROLLED_VALUE
+	 * @see #ELIGIBLE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ENROLLED(1, "enrolled", "enrolled"),
+	ELIGIBLE(1, "eligible", "eligible"),
 
 	/**
-	 * The '<em><b>Active</b></em>' literal object.
+	 * The '<em><b>Follow Up</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ACTIVE_VALUE
+	 * @see #FOLLOW_UP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ACTIVE(2, "active", "active"),
+	FOLLOW_UP(2, "followUp", "follow-up"),
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal object.
+	 * The '<em><b>Ineligible</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUSPENDED_VALUE
+	 * @see #INELIGIBLE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(3, "suspended", "suspended"),
+	INELIGIBLE(3, "ineligible", "ineligible"),
+
+	/**
+	 * The '<em><b>Not Registered</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_REGISTERED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_REGISTERED(4, "notRegistered", "not-registered"),
+
+	/**
+	 * The '<em><b>Off Study</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OFF_STUDY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OFF_STUDY(5, "offStudy", "off-study"),
+
+	/**
+	 * The '<em><b>On Study</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_STUDY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_STUDY(6, "onStudy", "on-study"),
+
+	/**
+	 * The '<em><b>On Study Intervention</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_STUDY_INTERVENTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_STUDY_INTERVENTION(7, "onStudyIntervention", "on-study-intervention"),
+
+	/**
+	 * The '<em><b>On Study Observation</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_STUDY_OBSERVATION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_STUDY_OBSERVATION(8, "onStudyObservation", "on-study-observation"),
+
+	/**
+	 * The '<em><b>Pending On Study</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PENDING_ON_STUDY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PENDING_ON_STUDY(9, "pendingOnStudy", "pending-on-study"),
+
+	/**
+	 * The '<em><b>Potential Candidate</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #POTENTIAL_CANDIDATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	POTENTIAL_CANDIDATE(10, "potentialCandidate", "potential-candidate"),
+
+	/**
+	 * The '<em><b>Screening</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SCREENING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SCREENING(11, "screening", "screening"),
 
 	/**
 	 * The '<em><b>Withdrawn</b></em>' literal object.
@@ -68,17 +148,7 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WITHDRAWN(4, "withdrawn", "withdrawn"),
-
-	/**
-	 * The '<em><b>Completed</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #COMPLETED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	COMPLETED(5, "completed", "completed");
+	WITHDRAWN(12, "withdrawn", "withdrawn");
 
 	/**
 	 * The '<em><b>Candidate</b></em>' literal value.
@@ -95,46 +165,158 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	public static final int CANDIDATE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Enrolled</b></em>' literal value.
+	 * The '<em><b>Eligible</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Enrolled
+	 * Eligible
 	 * <!-- end-model-doc -->
-	 * @see #ENROLLED
-	 * @model name="enrolled"
+	 * @see #ELIGIBLE
+	 * @model name="eligible"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENROLLED_VALUE = 1;
+	public static final int ELIGIBLE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Active</b></em>' literal value.
+	 * The '<em><b>Follow Up</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Active
+	 * Follow-up
 	 * <!-- end-model-doc -->
-	 * @see #ACTIVE
-	 * @model name="active"
+	 * @see #FOLLOW_UP
+	 * @model name="followUp" literal="follow-up"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACTIVE_VALUE = 2;
+	public static final int FOLLOW_UP_VALUE = 2;
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal value.
+	 * The '<em><b>Ineligible</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suspended
+	 * Ineligible
 	 * <!-- end-model-doc -->
-	 * @see #SUSPENDED
-	 * @model name="suspended"
+	 * @see #INELIGIBLE
+	 * @model name="ineligible"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 3;
+	public static final int INELIGIBLE_VALUE = 3;
+
+	/**
+	 * The '<em><b>Not Registered</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Not Registered
+	 * <!-- end-model-doc -->
+	 * @see #NOT_REGISTERED
+	 * @model name="notRegistered" literal="not-registered"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_REGISTERED_VALUE = 4;
+
+	/**
+	 * The '<em><b>Off Study</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Off-study
+	 * <!-- end-model-doc -->
+	 * @see #OFF_STUDY
+	 * @model name="offStudy" literal="off-study"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OFF_STUDY_VALUE = 5;
+
+	/**
+	 * The '<em><b>On Study</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On-study
+	 * <!-- end-model-doc -->
+	 * @see #ON_STUDY
+	 * @model name="onStudy" literal="on-study"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_STUDY_VALUE = 6;
+
+	/**
+	 * The '<em><b>On Study Intervention</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On-study-intervention
+	 * <!-- end-model-doc -->
+	 * @see #ON_STUDY_INTERVENTION
+	 * @model name="onStudyIntervention" literal="on-study-intervention"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_STUDY_INTERVENTION_VALUE = 7;
+
+	/**
+	 * The '<em><b>On Study Observation</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On-study-observation
+	 * <!-- end-model-doc -->
+	 * @see #ON_STUDY_OBSERVATION
+	 * @model name="onStudyObservation" literal="on-study-observation"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_STUDY_OBSERVATION_VALUE = 8;
+
+	/**
+	 * The '<em><b>Pending On Study</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Pending on-study
+	 * <!-- end-model-doc -->
+	 * @see #PENDING_ON_STUDY
+	 * @model name="pendingOnStudy" literal="pending-on-study"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PENDING_ON_STUDY_VALUE = 9;
+
+	/**
+	 * The '<em><b>Potential Candidate</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Potential Candidate
+	 * <!-- end-model-doc -->
+	 * @see #POTENTIAL_CANDIDATE
+	 * @model name="potentialCandidate" literal="potential-candidate"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int POTENTIAL_CANDIDATE_VALUE = 10;
+
+	/**
+	 * The '<em><b>Screening</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Screening
+	 * <!-- end-model-doc -->
+	 * @see #SCREENING
+	 * @model name="screening"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SCREENING_VALUE = 11;
 
 	/**
 	 * The '<em><b>Withdrawn</b></em>' literal value.
@@ -148,21 +330,7 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WITHDRAWN_VALUE = 4;
-
-	/**
-	 * The '<em><b>Completed</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Completed
-	 * <!-- end-model-doc -->
-	 * @see #COMPLETED
-	 * @model name="completed"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMPLETED_VALUE = 5;
+	public static final int WITHDRAWN_VALUE = 12;
 
 	/**
 	 * An array of all the '<em><b>Research Subject Status List</b></em>' enumerators.
@@ -173,11 +341,18 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	private static final ResearchSubjectStatusList[] VALUES_ARRAY =
 		new ResearchSubjectStatusList[] {
 			CANDIDATE,
-			ENROLLED,
-			ACTIVE,
-			SUSPENDED,
+			ELIGIBLE,
+			FOLLOW_UP,
+			INELIGIBLE,
+			NOT_REGISTERED,
+			OFF_STUDY,
+			ON_STUDY,
+			ON_STUDY_INTERVENTION,
+			ON_STUDY_OBSERVATION,
+			PENDING_ON_STUDY,
+			POTENTIAL_CANDIDATE,
+			SCREENING,
 			WITHDRAWN,
-			COMPLETED,
 		};
 
 	/**
@@ -235,11 +410,18 @@ public enum ResearchSubjectStatusList implements Enumerator {
 	public static ResearchSubjectStatusList get(int value) {
 		switch (value) {
 			case CANDIDATE_VALUE: return CANDIDATE;
-			case ENROLLED_VALUE: return ENROLLED;
-			case ACTIVE_VALUE: return ACTIVE;
-			case SUSPENDED_VALUE: return SUSPENDED;
+			case ELIGIBLE_VALUE: return ELIGIBLE;
+			case FOLLOW_UP_VALUE: return FOLLOW_UP;
+			case INELIGIBLE_VALUE: return INELIGIBLE;
+			case NOT_REGISTERED_VALUE: return NOT_REGISTERED;
+			case OFF_STUDY_VALUE: return OFF_STUDY;
+			case ON_STUDY_VALUE: return ON_STUDY;
+			case ON_STUDY_INTERVENTION_VALUE: return ON_STUDY_INTERVENTION;
+			case ON_STUDY_OBSERVATION_VALUE: return ON_STUDY_OBSERVATION;
+			case PENDING_ON_STUDY_VALUE: return PENDING_ON_STUDY;
+			case POTENTIAL_CANDIDATE_VALUE: return POTENTIAL_CANDIDATE;
+			case SCREENING_VALUE: return SCREENING;
 			case WITHDRAWN_VALUE: return WITHDRAWN;
-			case COMPLETED_VALUE: return COMPLETED;
 		}
 		return null;
 	}

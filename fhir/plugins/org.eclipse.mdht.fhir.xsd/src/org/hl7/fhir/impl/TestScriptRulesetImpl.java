@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,8 +36,6 @@ import org.hl7.fhir.TestScriptRuleset;
  *
  * @generated
  */
-@XmlType(name = "TestScriptRuleset", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptRuleset")
 public class TestScriptRulesetImpl extends BackboneElementImpl implements TestScriptRuleset {
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
@@ -87,7 +81,6 @@ public class TestScriptRulesetImpl extends BackboneElementImpl implements TestSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getResource() {
 		return resource;
 	}
@@ -131,7 +124,6 @@ public class TestScriptRulesetImpl extends BackboneElementImpl implements TestSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<TestScriptRule1> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<TestScriptRule1>(TestScriptRule1.class, this, FhirPackage.TEST_SCRIPT_RULESET__RULE);

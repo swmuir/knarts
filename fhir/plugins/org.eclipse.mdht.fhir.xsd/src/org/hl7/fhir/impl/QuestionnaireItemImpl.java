@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,15 +31,6 @@ import org.hl7.fhir.QuestionnaireOption;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.QuestionnaireItemTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,8 +70,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "QuestionnaireItem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "QuestionnaireItem")
 public class QuestionnaireItemImpl extends BackboneElementImpl implements QuestionnaireItem {
 	/**
 	 * The cached value of the '{@link #getLinkId() <em>Link Id</em>}' containment reference.
@@ -371,8 +355,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getLinkId() {
 		return linkId;
 	}
@@ -416,7 +398,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefinition() {
 		return definition;
 	}
@@ -460,7 +441,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.QUESTIONNAIRE_ITEM__CODE);
@@ -473,7 +453,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPrefix() {
 		return prefix;
 	}
@@ -517,7 +496,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -561,8 +539,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(QuestionnaireItemTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public QuestionnaireItemType getType() {
 		return type;
 	}
@@ -606,7 +582,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<QuestionnaireEnableWhen> getEnableWhen() {
 		if (enableWhen == null) {
 			enableWhen = new EObjectContainmentEList<QuestionnaireEnableWhen>(QuestionnaireEnableWhen.class, this, FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_WHEN);
@@ -619,7 +594,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getRequired() {
 		return required;
 	}
@@ -663,7 +637,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getRepeats() {
 		return repeats;
 	}
@@ -707,7 +680,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getReadOnly() {
 		return readOnly;
 	}
@@ -751,7 +723,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMaxLength() {
 		return maxLength;
 	}
@@ -838,7 +809,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<QuestionnaireOption> getOption() {
 		if (option == null) {
 			option = new EObjectContainmentEList<QuestionnaireOption>(QuestionnaireOption.class, this, FhirPackage.QUESTIONNAIRE_ITEM__OPTION);
@@ -851,7 +821,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getInitialBoolean() {
 		return initialBoolean;
 	}
@@ -895,7 +864,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getInitialDecimal() {
 		return initialDecimal;
 	}
@@ -939,7 +907,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getInitialInteger() {
 		return initialInteger;
 	}
@@ -983,7 +950,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getInitialDate() {
 		return initialDate;
 	}
@@ -1027,7 +993,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getInitialDateTime() {
 		return initialDateTime;
 	}
@@ -1071,7 +1036,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getInitialTime() {
 		return initialTime;
 	}
@@ -1115,7 +1079,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getInitialString() {
 		return initialString;
 	}
@@ -1159,7 +1122,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getInitialUri() {
 		return initialUri;
 	}
@@ -1375,7 +1337,6 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<QuestionnaireItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireItem>(QuestionnaireItem.class, this, FhirPackage.QUESTIONNAIRE_ITEM__ITEM);

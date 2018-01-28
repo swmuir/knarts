@@ -4,11 +4,6 @@ package org.w3._1999.xhtml.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -45,18 +40,6 @@ import org.w3._1999.xhtml.PreType;
 import org.w3._1999.xhtml.TableType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.AddressTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.BlockquoteTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DlTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H1TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H2TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H3TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H4TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H5TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H6TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.PTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,8 +79,6 @@ import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MapType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "MapType")
 public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType {
 	/**
 	 * The cached value of the '{@link #getBlock() <em>Block</em>}' attribute list.
@@ -324,8 +305,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PTypeImplAdapter.class)
-	@XmlElement
 	public EList<PType> getP() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_P());
 	}
@@ -335,8 +314,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H1TypeImplAdapter.class)
-	@XmlElement
 	public EList<H1Type> getH1() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H1());
 	}
@@ -346,8 +323,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H2TypeImplAdapter.class)
-	@XmlElement
 	public EList<H2Type> getH2() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H2());
 	}
@@ -357,8 +332,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H3TypeImplAdapter.class)
-	@XmlElement
 	public EList<H3Type> getH3() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H3());
 	}
@@ -368,8 +341,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H4TypeImplAdapter.class)
-	@XmlElement
 	public EList<H4Type> getH4() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H4());
 	}
@@ -379,8 +350,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H5TypeImplAdapter.class)
-	@XmlElement
 	public EList<H5Type> getH5() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H5());
 	}
@@ -390,8 +359,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H6TypeImplAdapter.class)
-	@XmlElement
 	public EList<H6Type> getH6() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_H6());
 	}
@@ -401,8 +368,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DivTypeImplAdapter.class)
-	@XmlElement
 	public EList<DivType> getDiv() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Div());
 	}
@@ -412,7 +377,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UlType> getUl() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Ul());
 	}
@@ -422,7 +386,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<OlType> getOl() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Ol());
 	}
@@ -432,8 +395,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DlTypeImplAdapter.class)
-	@XmlElement
 	public EList<DlType> getDl() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Dl());
 	}
@@ -443,8 +404,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PreTypeImplAdapter.class)
-	@XmlElement
 	public EList<PreType> getPre() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Pre());
 	}
@@ -454,7 +413,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<HrType> getHr() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Hr());
 	}
@@ -464,8 +422,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BlockquoteTypeImplAdapter.class)
-	@XmlElement
 	public EList<BlockquoteType> getBlockquote() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Blockquote());
 	}
@@ -475,8 +431,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AddressTypeImplAdapter.class)
-	@XmlElement
 	public EList<AddressType> getAddress() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Address());
 	}
@@ -486,7 +440,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TableType> getTable() {
 		return getBlock().list(XhtmlPackage.eINSTANCE.getMapType_Table());
 	}
@@ -496,7 +449,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<AreaType> getArea() {
 		if (area == null) {
 			area = new EObjectContainmentEList<AreaType>(AreaType.class, this, XhtmlPackage.MAP_TYPE__AREA);
@@ -576,7 +528,6 @@ public class MapTypeImpl extends MinimalEObjectImpl.Container implements MapType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public String getId() {
 		return id;
 	}

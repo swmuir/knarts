@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,12 +22,10 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.ProcessOutcomeCodes;
 import org.hl7.fhir.ProcessResponse;
 import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,8 +52,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ProcessResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ProcessResponse")
 public class ProcessResponseImpl extends DomainResourceImpl implements ProcessResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -120,7 +111,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected ProcessOutcomeCodes outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -216,7 +207,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PROCESS_RESPONSE__IDENTIFIER);
@@ -229,7 +219,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -273,7 +262,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -403,7 +391,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public ProcessOutcomeCodes getOutcome() {
 		return outcome;
 	}
 
@@ -412,8 +400,8 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(ProcessOutcomeCodes newOutcome, NotificationChain msgs) {
+		ProcessOutcomeCodes oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCESS_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -427,7 +415,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(ProcessOutcomeCodes newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -446,7 +434,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -619,7 +606,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ProcessResponseProcessNote> getProcessNote() {
 		if (processNote == null) {
 			processNote = new EObjectContainmentEList<ProcessResponseProcessNote>(ProcessResponseProcessNote.class, this, FhirPackage.PROCESS_RESPONSE__PROCESS_NOTE);
@@ -632,7 +618,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getError() {
 		if (error == null) {
 			error = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROCESS_RESPONSE__ERROR);
@@ -645,7 +630,6 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getCommunicationRequest() {
 		if (communicationRequest == null) {
 			communicationRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROCESS_RESPONSE__COMMUNICATION_REQUEST);
@@ -755,7 +739,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((ProcessOutcomeCodes)newValue);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -809,7 +793,7 @@ public class ProcessResponseImpl extends DomainResourceImpl implements ProcessRe
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((ProcessOutcomeCodes)null);
 				return;
 			case FhirPackage.PROCESS_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);

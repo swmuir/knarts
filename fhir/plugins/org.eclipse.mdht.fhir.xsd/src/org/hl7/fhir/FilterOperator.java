@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.FilterOperatorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.FilterOperatorImplAdapter;
  * @model extendedMetaData="name='FilterOperator' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FilterOperatorImplAdapter.class)
 public interface FilterOperator extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

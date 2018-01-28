@@ -7,10 +7,6 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -58,8 +54,6 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
-@XmlType(name = "ColgroupType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "ColgroupType")
 public class ColgroupTypeImpl extends MinimalEObjectImpl.Container implements ColgroupType {
 	/**
 	 * The cached value of the '{@link #getCol() <em>Col</em>}' containment reference list.
@@ -391,7 +385,6 @@ public class ColgroupTypeImpl extends MinimalEObjectImpl.Container implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ColType> getCol() {
 		if (col == null) {
 			col = new EObjectContainmentEList<ColType>(ColType.class, this, XhtmlPackage.COLGROUP_TYPE__COL);

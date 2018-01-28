@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MedicationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.MedicationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
+ * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,20 +20,17 @@ import org.hl7.fhir.jaxb.MedicationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Medication#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getIsBrand <em>Is Brand</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getIngredient <em>Ingredient</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getPackage <em>Package</em>}</li>
- *   <li>{@link org.hl7.fhir.Medication#getImage <em>Image</em>}</li>
+ *   <li>{@link org.hl7.fhir.Medication#getBatch <em>Batch</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedication()
  * @model extendedMetaData="name='Medication' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationImplAdapter.class)
 public interface Medication extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -91,58 +85,6 @@ public interface Medication extends DomainResource {
 	void setStatus(MedicationStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Brand</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Set to true if the item is attributable to a specific manufacturer.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Is Brand</em>' containment reference.
-	 * @see #setIsBrand(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getMedication_IsBrand()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='isBrand' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getIsBrand();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Medication#getIsBrand <em>Is Brand</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Brand</em>' containment reference.
-	 * @see #getIsBrand()
-	 * @generated
-	 */
-	void setIsBrand(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Over The Counter</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Set to true if the medication can be obtained without an order from a prescriber.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Is Over The Counter</em>' containment reference.
-	 * @see #setIsOverTheCounter(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getMedication_IsOverTheCounter()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='isOverTheCounter' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getIsOverTheCounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Medication#getIsOverTheCounter <em>Is Over The Counter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Over The Counter</em>' containment reference.
-	 * @see #getIsOverTheCounter()
-	 * @generated
-	 */
-	void setIsOverTheCounter(org.hl7.fhir.Boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,6 +137,32 @@ public interface Medication extends DomainResource {
 	void setForm(CodeableConcept value);
 
 	/**
+	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Amount</em>' containment reference.
+	 * @see #setAmount(Quantity)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Amount()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Quantity getAmount();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getAmount <em>Amount</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Amount</em>' containment reference.
+	 * @see #getAmount()
+	 * @generated
+	 */
+	void setAmount(Quantity value);
+
+	/**
 	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.MedicationIngredient}.
 	 * <!-- begin-user-doc -->
@@ -211,45 +179,29 @@ public interface Medication extends DomainResource {
 	EList<MedicationIngredient> getIngredient();
 
 	/**
-	 * Returns the value of the '<em><b>Package</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Batch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Information that only applies to packages (not products).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Package</em>' containment reference.
-	 * @see #setPackage(MedicationPackage)
-	 * @see org.hl7.fhir.FhirPackage#getMedication_Package()
+	 * @return the value of the '<em>Batch</em>' containment reference.
+	 * @see #setBatch(MedicationBatch)
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Batch()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='package' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='batch' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationPackage getPackage();
+	MedicationBatch getBatch();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Medication#getPackage <em>Package</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Medication#getBatch <em>Batch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Package</em>' containment reference.
-	 * @see #getPackage()
+	 * @param value the new value of the '<em>Batch</em>' containment reference.
+	 * @see #getBatch()
 	 * @generated
 	 */
-	void setPackage(MedicationPackage value);
-
-	/**
-	 * Returns the value of the '<em><b>Image</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Attachment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Photo(s) or graphic representation(s) of the medication.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Image</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedication_Image()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='image' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Attachment> getImage();
+	void setBatch(MedicationBatch value);
 
 } // Medication

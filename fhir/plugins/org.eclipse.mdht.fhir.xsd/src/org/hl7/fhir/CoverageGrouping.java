@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CoverageGroupingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +34,6 @@ import org.hl7.fhir.jaxb.CoverageGroupingImplAdapter;
  * @model extendedMetaData="name='Coverage.Grouping' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CoverageGroupingImplAdapter.class)
 public interface CoverageGrouping extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference.

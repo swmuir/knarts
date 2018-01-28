@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -39,13 +34,6 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +60,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureImpl#getContact <em>Contact</em>}</li>
@@ -96,8 +85,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Measure", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Measure")
 public class MeasureImpl extends DomainResourceImpl implements Measure {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -268,6 +255,16 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> jurisdiction;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept subject;
 
 	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
@@ -493,7 +490,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -537,7 +533,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEASURE__IDENTIFIER);
@@ -550,7 +545,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -594,7 +588,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -638,7 +631,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -682,8 +674,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -727,7 +717,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -771,7 +760,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -815,7 +803,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -859,7 +846,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -903,7 +889,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -947,7 +932,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -991,7 +975,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -1035,7 +1018,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -1122,7 +1104,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.MEASURE__USE_CONTEXT);
@@ -1135,7 +1116,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE__JURISDICTION);
@@ -1148,7 +1128,49 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public CodeableConcept getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(CodeableConcept newSubject, NotificationChain msgs) {
+		CodeableConcept oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__SUBJECT, oldSubject, newSubject);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(CodeableConcept newSubject) {
+		if (newSubject != subject) {
+			NotificationChain msgs = null;
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE__SUBJECT, newSubject, newSubject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CodeableConcept> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE__TOPIC);
@@ -1161,7 +1183,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Contributor> getContributor() {
 		if (contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, FhirPackage.MEASURE__CONTRIBUTOR);
@@ -1174,7 +1195,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.MEASURE__CONTACT);
@@ -1187,7 +1207,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -1231,7 +1250,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.MEASURE__RELATED_ARTIFACT);
@@ -1244,7 +1262,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getLibrary() {
 		if (library == null) {
 			library = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEASURE__LIBRARY);
@@ -1257,7 +1274,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDisclaimer() {
 		return disclaimer;
 	}
@@ -1387,7 +1403,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEASURE__TYPE);
@@ -1400,7 +1415,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRiskAdjustment() {
 		return riskAdjustment;
 	}
@@ -1444,7 +1458,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRateAggregation() {
 		return rateAggregation;
 	}
@@ -1488,7 +1501,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getRationale() {
 		return rationale;
 	}
@@ -1532,7 +1544,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getClinicalRecommendationStatement() {
 		return clinicalRecommendationStatement;
 	}
@@ -1576,7 +1587,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getImprovementNotation() {
 		return improvementNotation;
 	}
@@ -1620,8 +1630,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
-	@XmlElement
 	public EList<Markdown> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Markdown>(Markdown.class, this, FhirPackage.MEASURE__DEFINITION);
@@ -1634,7 +1642,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getGuidance() {
 		return guidance;
 	}
@@ -1678,7 +1685,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSet() {
 		return set;
 	}
@@ -1722,7 +1728,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureGroup> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<MeasureGroup>(MeasureGroup.class, this, FhirPackage.MEASURE__GROUP);
@@ -1735,7 +1740,6 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureSupplementalData> getSupplementalData() {
 		if (supplementalData == null) {
 			supplementalData = new EObjectContainmentEList<MeasureSupplementalData>(MeasureSupplementalData.class, this, FhirPackage.MEASURE__SUPPLEMENTAL_DATA);
@@ -1785,6 +1789,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE__JURISDICTION:
 				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEASURE__SUBJECT:
+				return basicSetSubject(null, msgs);
 			case FhirPackage.MEASURE__TOPIC:
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE__CONTRIBUTOR:
@@ -1871,6 +1877,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return getUseContext();
 			case FhirPackage.MEASURE__JURISDICTION:
 				return getJurisdiction();
+			case FhirPackage.MEASURE__SUBJECT:
+				return getSubject();
 			case FhirPackage.MEASURE__TOPIC:
 				return getTopic();
 			case FhirPackage.MEASURE__CONTRIBUTOR:
@@ -1977,6 +1985,9 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__JURISDICTION:
 				getJurisdiction().clear();
 				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.MEASURE__SUBJECT:
+				setSubject((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE__TOPIC:
 				getTopic().clear();
@@ -2110,6 +2121,9 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 			case FhirPackage.MEASURE__JURISDICTION:
 				getJurisdiction().clear();
 				return;
+			case FhirPackage.MEASURE__SUBJECT:
+				setSubject((CodeableConcept)null);
+				return;
 			case FhirPackage.MEASURE__TOPIC:
 				getTopic().clear();
 				return;
@@ -2216,6 +2230,8 @@ public class MeasureImpl extends DomainResourceImpl implements Measure {
 				return useContext != null && !useContext.isEmpty();
 			case FhirPackage.MEASURE__JURISDICTION:
 				return jurisdiction != null && !jurisdiction.isEmpty();
+			case FhirPackage.MEASURE__SUBJECT:
+				return subject != null;
 			case FhirPackage.MEASURE__TOPIC:
 				return topic != null && !topic.isEmpty();
 			case FhirPackage.MEASURE__CONTRIBUTOR:

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ProvenanceAgentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,20 +17,45 @@ import org.hl7.fhir.jaxb.ProvenanceAgentImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.ProvenanceAgent#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ProvenanceAgent#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWhoUri <em>Who Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWhoIdentifier <em>Who Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWhoReference <em>Who Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfIdentifier <em>On Behalf Of Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getRelatedAgentType <em>Related Agent Type</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getProvenanceAgent()
  * @model extendedMetaData="name='Provenance.Agent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProvenanceAgentImplAdapter.class)
 public interface ProvenanceAgent extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The participation the agent had with respect to the activity.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
@@ -51,31 +73,31 @@ public interface ProvenanceAgent extends BackboneElement {
 	EList<CodeableConcept> getRole();
 
 	/**
-	 * Returns the value of the '<em><b>Who Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Who Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Who Uri</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Who Identifier</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Who Uri</em>' containment reference.
-	 * @see #setWhoUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_WhoUri()
+	 * @return the value of the '<em>Who Identifier</em>' containment reference.
+	 * @see #setWhoIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_WhoIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='whoUri' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='whoIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getWhoUri();
+	Identifier getWhoIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getWhoUri <em>Who Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getWhoIdentifier <em>Who Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Who Uri</em>' containment reference.
-	 * @see #getWhoUri()
+	 * @param value the new value of the '<em>Who Identifier</em>' containment reference.
+	 * @see #getWhoIdentifier()
 	 * @generated
 	 */
-	void setWhoUri(Uri value);
+	void setWhoIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Who Reference</b></em>' containment reference.
@@ -105,31 +127,31 @@ public interface ProvenanceAgent extends BackboneElement {
 	void setWhoReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>On Behalf Of Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>On Behalf Of Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>On Behalf Of Uri</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>On Behalf Of Identifier</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Behalf Of Uri</em>' containment reference.
-	 * @see #setOnBehalfOfUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_OnBehalfOfUri()
+	 * @return the value of the '<em>On Behalf Of Identifier</em>' containment reference.
+	 * @see #setOnBehalfOfIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_OnBehalfOfIdentifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onBehalfOfUri' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='onBehalfOfIdentifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getOnBehalfOfUri();
+	Identifier getOnBehalfOfIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfUri <em>On Behalf Of Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfIdentifier <em>On Behalf Of Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Behalf Of Uri</em>' containment reference.
-	 * @see #getOnBehalfOfUri()
+	 * @param value the new value of the '<em>On Behalf Of Identifier</em>' containment reference.
+	 * @see #getOnBehalfOfIdentifier()
 	 * @generated
 	 */
-	void setOnBehalfOfUri(Uri value);
+	void setOnBehalfOfIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>On Behalf Of Reference</b></em>' containment reference.
@@ -157,31 +179,5 @@ public interface ProvenanceAgent extends BackboneElement {
 	 * @generated
 	 */
 	void setOnBehalfOfReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Related Agent Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The type of relationship between agents.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Related Agent Type</em>' containment reference.
-	 * @see #setRelatedAgentType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_RelatedAgentType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='relatedAgentType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getRelatedAgentType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getRelatedAgentType <em>Related Agent Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Related Agent Type</em>' containment reference.
-	 * @see #getRelatedAgentType()
-	 * @generated
-	 */
-	void setRelatedAgentType(CodeableConcept value);
 
 } // ProvenanceAgent

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PaymentReconciliationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +38,6 @@ import org.hl7.fhir.jaxb.PaymentReconciliationImplAdapter;
  * @model extendedMetaData="name='PaymentReconciliation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PaymentReconciliationImplAdapter.class)
 public interface PaymentReconciliation extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -197,13 +193,13 @@ public interface PaymentReconciliation extends DomainResource {
 	 * Transaction status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
+	 * @see #setOutcome(RemittanceOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOutcome();
+	RemittanceOutcome getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getOutcome <em>Outcome</em>}' containment reference.
@@ -213,7 +209,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(CodeableConcept value);
+	void setOutcome(RemittanceOutcome value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

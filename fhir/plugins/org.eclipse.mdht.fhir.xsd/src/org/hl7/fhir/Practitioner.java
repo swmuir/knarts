@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PractitionerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +34,6 @@ import org.hl7.fhir.jaxb.PractitionerImplAdapter;
  * @model extendedMetaData="name='Practitioner' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PractitionerImplAdapter.class)
 public interface Practitioner extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

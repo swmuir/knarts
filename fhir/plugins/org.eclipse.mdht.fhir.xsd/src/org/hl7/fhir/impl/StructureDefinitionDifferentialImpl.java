@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -35,8 +31,6 @@ import org.hl7.fhir.StructureDefinitionDifferential;
  *
  * @generated
  */
-@XmlType(name = "StructureDefinitionDifferential", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureDefinitionDifferential")
 public class StructureDefinitionDifferentialImpl extends BackboneElementImpl implements StructureDefinitionDifferential {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
@@ -72,7 +66,6 @@ public class StructureDefinitionDifferentialImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<ElementDefinition> getElement() {
 		if (element == null) {
 			element = new EObjectContainmentEList<ElementDefinition>(ElementDefinition.class, this, FhirPackage.STRUCTURE_DEFINITION_DIFFERENTIAL__ELEMENT);

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AllergyIntoleranceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +43,6 @@ import org.hl7.fhir.jaxb.AllergyIntoleranceImplAdapter;
  * @model extendedMetaData="name='AllergyIntolerance' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AllergyIntoleranceImplAdapter.class)
 public interface AllergyIntolerance extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -100,7 +96,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 * @return the value of the '<em>Verification Status</em>' containment reference.
 	 * @see #setVerificationStatus(AllergyIntoleranceVerificationStatus)
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_VerificationStatus()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='verificationStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -189,7 +185,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or categorical negated statement (e.g.,  "No known allergy", "No known drug allergies").
+	 * Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or categorical negated statement (e.g.,  "No known allergy", "No known drug allergies").  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)

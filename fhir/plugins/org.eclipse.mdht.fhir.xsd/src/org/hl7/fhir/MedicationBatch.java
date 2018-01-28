@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MedicationBatchImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.MedicationBatchImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
+ * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MedicationBatchImplAdapter;
  * @model extendedMetaData="name='Medication.Batch' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationBatchImplAdapter.class)
 public interface MedicationBatch extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Lot Number</b></em>' containment reference.

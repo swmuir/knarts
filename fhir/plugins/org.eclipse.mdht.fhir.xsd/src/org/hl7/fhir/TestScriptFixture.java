@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestScriptFixtureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.TestScriptFixtureImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.TestScriptFixtureImplAdapter;
  * @model extendedMetaData="name='TestScript.Fixture' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptFixtureImplAdapter.class)
 public interface TestScriptFixture extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Autocreate</b></em>' containment reference.

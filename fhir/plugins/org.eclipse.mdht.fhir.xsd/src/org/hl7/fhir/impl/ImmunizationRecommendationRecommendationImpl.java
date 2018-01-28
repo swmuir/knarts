@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,15 +18,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
-import org.hl7.fhir.ImmunizationRecommendationProtocol;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,41 +32,32 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getTargetDisease <em>Target Disease</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getDoseNumber <em>Dose Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getContraindicatedVaccineCode <em>Contraindicated Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getForecastStatus <em>Forecast Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getForecastReason <em>Forecast Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getDateCriterion <em>Date Criterion</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getSeries <em>Series</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getDoseNumber <em>Dose Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getSeriesDoses <em>Series Doses</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getSupportingImmunization <em>Supporting Immunization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationRecommendationRecommendationImpl#getSupportingPatientInformation <em>Supporting Patient Information</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ImmunizationRecommendationRecommendation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ImmunizationRecommendationRecommendation")
 public class ImmunizationRecommendationRecommendationImpl extends BackboneElementImpl implements ImmunizationRecommendationRecommendation {
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime date;
-
-	/**
-	 * The cached value of the '{@link #getVaccineCode() <em>Vaccine Code</em>}' containment reference.
+	 * The cached value of the '{@link #getVaccineCode() <em>Vaccine Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVaccineCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept vaccineCode;
+	protected EList<CodeableConcept> vaccineCode;
 
 	/**
 	 * The cached value of the '{@link #getTargetDisease() <em>Target Disease</em>}' containment reference.
@@ -88,14 +70,14 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	protected CodeableConcept targetDisease;
 
 	/**
-	 * The cached value of the '{@link #getDoseNumber() <em>Dose Number</em>}' containment reference.
+	 * The cached value of the '{@link #getContraindicatedVaccineCode() <em>Contraindicated Vaccine Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoseNumber()
+	 * @see #getContraindicatedVaccineCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt doseNumber;
+	protected EList<CodeableConcept> contraindicatedVaccineCode;
 
 	/**
 	 * The cached value of the '{@link #getForecastStatus() <em>Forecast Status</em>}' containment reference.
@@ -108,6 +90,16 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	protected CodeableConcept forecastStatus;
 
 	/**
+	 * The cached value of the '{@link #getForecastReason() <em>Forecast Reason</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForecastReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> forecastReason;
+
+	/**
 	 * The cached value of the '{@link #getDateCriterion() <em>Date Criterion</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,14 +110,44 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	protected EList<ImmunizationRecommendationDateCriterion> dateCriterion;
 
 	/**
-	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' containment reference.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected ImmunizationRecommendationProtocol protocol;
+	protected org.hl7.fhir.String description;
+
+	/**
+	 * The cached value of the '{@link #getSeries() <em>Series</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeries()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String series;
+
+	/**
+	 * The cached value of the '{@link #getDoseNumber() <em>Dose Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoseNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected PositiveInt doseNumber;
+
+	/**
+	 * The cached value of the '{@link #getSeriesDoses() <em>Series Doses</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeriesDoses()
+	 * @generated
+	 * @ordered
+	 */
+	protected PositiveInt seriesDoses;
 
 	/**
 	 * The cached value of the '{@link #getSupportingImmunization() <em>Supporting Immunization</em>}' containment reference list.
@@ -171,87 +193,11 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
-	public DateTime getDate() {
-		return date;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE, oldDate, newDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getVaccineCode() {
+		if (vaccineCode == null) {
+			vaccineCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
-			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE, newDate, newDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getVaccineCode() {
 		return vaccineCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVaccineCode(CodeableConcept newVaccineCode, NotificationChain msgs) {
-		CodeableConcept oldVaccineCode = vaccineCode;
-		vaccineCode = newVaccineCode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE, oldVaccineCode, newVaccineCode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVaccineCode(CodeableConcept newVaccineCode) {
-		if (newVaccineCode != vaccineCode) {
-			NotificationChain msgs = null;
-			if (vaccineCode != null)
-				msgs = ((InternalEObject)vaccineCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE, null, msgs);
-			if (newVaccineCode != null)
-				msgs = ((InternalEObject)newVaccineCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE, null, msgs);
-			msgs = basicSetVaccineCode(newVaccineCode, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE, newVaccineCode, newVaccineCode));
 	}
 
 	/**
@@ -302,24 +248,11 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	public PositiveInt getDoseNumber() {
-		return doseNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDoseNumber(PositiveInt newDoseNumber, NotificationChain msgs) {
-		PositiveInt oldDoseNumber = doseNumber;
-		doseNumber = newDoseNumber;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, oldDoseNumber, newDoseNumber);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getContraindicatedVaccineCode() {
+		if (contraindicatedVaccineCode == null) {
+			contraindicatedVaccineCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE);
 		}
-		return msgs;
+		return contraindicatedVaccineCode;
 	}
 
 	/**
@@ -327,26 +260,6 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDoseNumber(PositiveInt newDoseNumber) {
-		if (newDoseNumber != doseNumber) {
-			NotificationChain msgs = null;
-			if (doseNumber != null)
-				msgs = ((InternalEObject)doseNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, null, msgs);
-			if (newDoseNumber != null)
-				msgs = ((InternalEObject)newDoseNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, null, msgs);
-			msgs = basicSetDoseNumber(newDoseNumber, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, newDoseNumber, newDoseNumber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
 	public CodeableConcept getForecastStatus() {
 		return forecastStatus;
 	}
@@ -390,7 +303,18 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<CodeableConcept> getForecastReason() {
+		if (forecastReason == null) {
+			forecastReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON);
+		}
+		return forecastReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ImmunizationRecommendationDateCriterion> getDateCriterion() {
 		if (dateCriterion == null) {
 			dateCriterion = new EObjectContainmentEList<ImmunizationRecommendationDateCriterion>(ImmunizationRecommendationDateCriterion.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION);
@@ -403,8 +327,8 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImmunizationRecommendationProtocol getProtocol() {
-		return protocol;
+	public org.hl7.fhir.String getDescription() {
+		return description;
 	}
 
 	/**
@@ -412,11 +336,11 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProtocol(ImmunizationRecommendationProtocol newProtocol, NotificationChain msgs) {
-		ImmunizationRecommendationProtocol oldProtocol = protocol;
-		protocol = newProtocol;
+	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
+		org.hl7.fhir.String oldDescription = description;
+		description = newDescription;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL, oldProtocol, newProtocol);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION, oldDescription, newDescription);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -427,18 +351,18 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtocol(ImmunizationRecommendationProtocol newProtocol) {
-		if (newProtocol != protocol) {
+	public void setDescription(org.hl7.fhir.String newDescription) {
+		if (newDescription != description) {
 			NotificationChain msgs = null;
-			if (protocol != null)
-				msgs = ((InternalEObject)protocol).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL, null, msgs);
-			if (newProtocol != null)
-				msgs = ((InternalEObject)newProtocol).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL, null, msgs);
-			msgs = basicSetProtocol(newProtocol, msgs);
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL, newProtocol, newProtocol));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -446,7 +370,135 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public org.hl7.fhir.String getSeries() {
+		return series;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSeries(org.hl7.fhir.String newSeries, NotificationChain msgs) {
+		org.hl7.fhir.String oldSeries = series;
+		series = newSeries;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES, oldSeries, newSeries);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeries(org.hl7.fhir.String newSeries) {
+		if (newSeries != series) {
+			NotificationChain msgs = null;
+			if (series != null)
+				msgs = ((InternalEObject)series).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES, null, msgs);
+			if (newSeries != null)
+				msgs = ((InternalEObject)newSeries).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES, null, msgs);
+			msgs = basicSetSeries(newSeries, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES, newSeries, newSeries));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PositiveInt getDoseNumber() {
+		return doseNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDoseNumber(PositiveInt newDoseNumber, NotificationChain msgs) {
+		PositiveInt oldDoseNumber = doseNumber;
+		doseNumber = newDoseNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, oldDoseNumber, newDoseNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDoseNumber(PositiveInt newDoseNumber) {
+		if (newDoseNumber != doseNumber) {
+			NotificationChain msgs = null;
+			if (doseNumber != null)
+				msgs = ((InternalEObject)doseNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, null, msgs);
+			if (newDoseNumber != null)
+				msgs = ((InternalEObject)newDoseNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, null, msgs);
+			msgs = basicSetDoseNumber(newDoseNumber, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER, newDoseNumber, newDoseNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PositiveInt getSeriesDoses() {
+		return seriesDoses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSeriesDoses(PositiveInt newSeriesDoses, NotificationChain msgs) {
+		PositiveInt oldSeriesDoses = seriesDoses;
+		seriesDoses = newSeriesDoses;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES, oldSeriesDoses, newSeriesDoses);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeriesDoses(PositiveInt newSeriesDoses) {
+		if (newSeriesDoses != seriesDoses) {
+			NotificationChain msgs = null;
+			if (seriesDoses != null)
+				msgs = ((InternalEObject)seriesDoses).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES, null, msgs);
+			if (newSeriesDoses != null)
+				msgs = ((InternalEObject)newSeriesDoses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES, null, msgs);
+			msgs = basicSetSeriesDoses(newSeriesDoses, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES, newSeriesDoses, newSeriesDoses));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getSupportingImmunization() {
 		if (supportingImmunization == null) {
 			supportingImmunization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION);
@@ -459,7 +511,6 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupportingPatientInformation() {
 		if (supportingPatientInformation == null) {
 			supportingPatientInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_PATIENT_INFORMATION);
@@ -475,20 +526,26 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE:
-				return basicSetDate(null, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE:
-				return basicSetVaccineCode(null, msgs);
+				return ((InternalEList<?>)getVaccineCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__TARGET_DISEASE:
 				return basicSetTargetDisease(null, msgs);
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
-				return basicSetDoseNumber(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE:
+				return ((InternalEList<?>)getContraindicatedVaccineCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_STATUS:
 				return basicSetForecastStatus(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON:
+				return ((InternalEList<?>)getForecastReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION:
 				return ((InternalEList<?>)getDateCriterion()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL:
-				return basicSetProtocol(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES:
+				return basicSetSeries(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
+				return basicSetDoseNumber(null, msgs);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES:
+				return basicSetSeriesDoses(null, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION:
 				return ((InternalEList<?>)getSupportingImmunization()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_PATIENT_INFORMATION:
@@ -505,20 +562,26 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE:
-				return getDate();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE:
 				return getVaccineCode();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__TARGET_DISEASE:
 				return getTargetDisease();
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
-				return getDoseNumber();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE:
+				return getContraindicatedVaccineCode();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_STATUS:
 				return getForecastStatus();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON:
+				return getForecastReason();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION:
 				return getDateCriterion();
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL:
-				return getProtocol();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION:
+				return getDescription();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES:
+				return getSeries();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
+				return getDoseNumber();
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES:
+				return getSeriesDoses();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION:
 				return getSupportingImmunization();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_PATIENT_INFORMATION:
@@ -536,27 +599,39 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE:
-				setDate((DateTime)newValue);
-				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE:
-				setVaccineCode((CodeableConcept)newValue);
+				getVaccineCode().clear();
+				getVaccineCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__TARGET_DISEASE:
 				setTargetDisease((CodeableConcept)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
-				setDoseNumber((PositiveInt)newValue);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE:
+				getContraindicatedVaccineCode().clear();
+				getContraindicatedVaccineCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_STATUS:
 				setForecastStatus((CodeableConcept)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON:
+				getForecastReason().clear();
+				getForecastReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION:
 				getDateCriterion().clear();
 				getDateCriterion().addAll((Collection<? extends ImmunizationRecommendationDateCriterion>)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL:
-				setProtocol((ImmunizationRecommendationProtocol)newValue);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES:
+				setSeries((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
+				setDoseNumber((PositiveInt)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES:
+				setSeriesDoses((PositiveInt)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION:
 				getSupportingImmunization().clear();
@@ -578,26 +653,35 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE:
-				setDate((DateTime)null);
-				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE:
-				setVaccineCode((CodeableConcept)null);
+				getVaccineCode().clear();
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__TARGET_DISEASE:
 				setTargetDisease((CodeableConcept)null);
 				return;
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
-				setDoseNumber((PositiveInt)null);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE:
+				getContraindicatedVaccineCode().clear();
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_STATUS:
 				setForecastStatus((CodeableConcept)null);
 				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON:
+				getForecastReason().clear();
+				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION:
 				getDateCriterion().clear();
 				return;
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL:
-				setProtocol((ImmunizationRecommendationProtocol)null);
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES:
+				setSeries((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
+				setDoseNumber((PositiveInt)null);
+				return;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES:
+				setSeriesDoses((PositiveInt)null);
 				return;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION:
 				getSupportingImmunization().clear();
@@ -617,20 +701,26 @@ public class ImmunizationRecommendationRecommendationImpl extends BackboneElemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE:
-				return date != null;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__VACCINE_CODE:
-				return vaccineCode != null;
+				return vaccineCode != null && !vaccineCode.isEmpty();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__TARGET_DISEASE:
 				return targetDisease != null;
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
-				return doseNumber != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__CONTRAINDICATED_VACCINE_CODE:
+				return contraindicatedVaccineCode != null && !contraindicatedVaccineCode.isEmpty();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_STATUS:
 				return forecastStatus != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__FORECAST_REASON:
+				return forecastReason != null && !forecastReason.isEmpty();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DATE_CRITERION:
 				return dateCriterion != null && !dateCriterion.isEmpty();
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__PROTOCOL:
-				return protocol != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DESCRIPTION:
+				return description != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES:
+				return series != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__DOSE_NUMBER:
+				return doseNumber != null;
+			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SERIES_DOSES:
+				return seriesDoses != null;
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_IMMUNIZATION:
 				return supportingImmunization != null && !supportingImmunization.isEmpty();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION__SUPPORTING_PATIENT_INFORMATION:

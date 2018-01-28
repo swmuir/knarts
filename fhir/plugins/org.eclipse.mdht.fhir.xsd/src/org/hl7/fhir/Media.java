@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MediaImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,16 +20,20 @@ import org.hl7.fhir.jaxb.MediaImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Media#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getBasedOn <em>Based On</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getSubtype <em>Subtype</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getView <em>View</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getContext <em>Context</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getOccurrencePeriod <em>Occurrence Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getCreatedDateTime <em>Created Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getCreatedPeriod <em>Created Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getDeviceName <em>Device Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getHeight <em>Height</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getWidth <em>Width</em>}</li>
@@ -46,7 +47,6 @@ import org.hl7.fhir.jaxb.MediaImplAdapter;
  * @model extendedMetaData="name='Media' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MediaImplAdapter.class)
 public interface Media extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -81,56 +81,88 @@ public interface Media extends DomainResource {
 	EList<Reference> getBasedOn();
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether the media is a photo (still image), an audio recording, or a video recording.
+	 * A larger event of which this particular event is a component or step.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(DigitalMediaType)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Part Of</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_PartOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DigitalMediaType getType();
+	EList<Reference> getPartOf();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getType <em>Type</em>}' containment reference.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * <!-- begin-model-doc -->
+	 * The current state of the {{title}}.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(MediaStatus)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Status()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setType(DigitalMediaType value);
+	MediaStatus getStatus();
 
 	/**
-	 * Returns the value of the '<em><b>Subtype</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(MediaStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCategory();
+
+	/**
+	 * Returns the value of the '<em><b>Modality</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subtype</em>' containment reference.
-	 * @see #setSubtype(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_Subtype()
+	 * @return the value of the '<em>Modality</em>' containment reference.
+	 * @see #setModality(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Modality()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subtype' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='modality' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getSubtype();
+	CodeableConcept getModality();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getSubtype <em>Subtype</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getModality <em>Modality</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subtype</em>' containment reference.
-	 * @see #getSubtype()
+	 * @param value the new value of the '<em>Modality</em>' containment reference.
+	 * @see #getModality()
 	 * @generated
 	 */
-	void setSubtype(CodeableConcept value);
+	void setModality(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>View</b></em>' containment reference.
@@ -211,58 +243,84 @@ public interface Media extends DomainResource {
 	void setContext(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Created Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Occurrence Date Time</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Created Date Time</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
-	 * @see #setOccurrenceDateTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_OccurrenceDateTime()
+	 * @return the value of the '<em>Created Date Time</em>' containment reference.
+	 * @see #setCreatedDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_CreatedDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='createdDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getOccurrenceDateTime();
+	DateTime getCreatedDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getCreatedDateTime <em>Created Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
-	 * @see #getOccurrenceDateTime()
+	 * @param value the new value of the '<em>Created Date Time</em>' containment reference.
+	 * @see #getCreatedDateTime()
 	 * @generated
 	 */
-	void setOccurrenceDateTime(DateTime value);
+	void setCreatedDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Occurrence Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Created Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Occurrence Period</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Created Period</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Occurrence Period</em>' containment reference.
-	 * @see #setOccurrencePeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_OccurrencePeriod()
+	 * @return the value of the '<em>Created Period</em>' containment reference.
+	 * @see #setCreatedPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_CreatedPeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='occurrencePeriod' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='createdPeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getOccurrencePeriod();
+	Period getCreatedPeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getOccurrencePeriod <em>Occurrence Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getCreatedPeriod <em>Created Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Occurrence Period</em>' containment reference.
-	 * @see #getOccurrencePeriod()
+	 * @param value the new value of the '<em>Created Period</em>' containment reference.
+	 * @see #getCreatedPeriod()
 	 * @generated
 	 */
-	void setOccurrencePeriod(Period value);
+	void setCreatedPeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date and time this version of the media was made available to providers, typically after having been reviewed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Issued</em>' containment reference.
+	 * @see #setIssued(Instant)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Issued()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='issued' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Instant getIssued();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getIssued <em>Issued</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Issued</em>' containment reference.
+	 * @see #getIssued()
+	 * @generated
+	 */
+	void setIssued(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' containment reference.
@@ -311,7 +369,7 @@ public interface Media extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the site on the subject's body where the media was collected (i.e. the target site).
+	 * Indicates the site on the subject's body where the observation was made (i.e. the target site).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(CodeableConcept)
@@ -331,6 +389,32 @@ public interface Media extends DomainResource {
 	 * @generated
 	 */
 	void setBodySite(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Device Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the device / manufacturer of the device  that was used to make the recording.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Device Name</em>' containment reference.
+	 * @see #setDeviceName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_DeviceName()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='deviceName' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDeviceName();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getDeviceName <em>Device Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Device Name</em>' containment reference.
+	 * @see #getDeviceName()
+	 * @generated
+	 */
+	void setDeviceName(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference.
@@ -444,13 +528,13 @@ public interface Media extends DomainResource {
 	 * The duration of the recording in seconds - for audio and video.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration</em>' containment reference.
-	 * @see #setDuration(UnsignedInt)
+	 * @see #setDuration(Decimal)
 	 * @see org.hl7.fhir.FhirPackage#getMedia_Duration()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='duration' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	UnsignedInt getDuration();
+	Decimal getDuration();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Media#getDuration <em>Duration</em>}' containment reference.
@@ -460,7 +544,7 @@ public interface Media extends DomainResource {
 	 * @see #getDuration()
 	 * @generated
 	 */
-	void setDuration(UnsignedInt value);
+	void setDuration(Decimal value);
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference.

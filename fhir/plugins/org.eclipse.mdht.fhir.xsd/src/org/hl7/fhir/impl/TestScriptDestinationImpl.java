@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TestScriptDestination;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +28,6 @@ import org.hl7.fhir.jaxb.IntegerImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestScriptDestination", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptDestination")
 public class TestScriptDestinationImpl extends BackboneElementImpl implements TestScriptDestination {
 	/**
 	 * The cached value of the '{@link #getIndex() <em>Index</em>}' containment reference.
@@ -81,8 +73,6 @@ public class TestScriptDestinationImpl extends BackboneElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getIndex() {
 		return index;
 	}
@@ -126,7 +116,6 @@ public class TestScriptDestinationImpl extends BackboneElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Coding getProfile() {
 		return profile;
 	}

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,9 +30,6 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,10 +40,10 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getCareTeamLinkId <em>Care Team Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProcedureLinkId <em>Procedure Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getInformationLinkId <em>Information Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getCareTeamSequence <em>Care Team Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getDiagnosisSequence <em>Diagnosis Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getProcedureSequence <em>Procedure Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getInformationSequence <em>Information Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitItemImpl#getService <em>Service</em>}</li>
@@ -77,8 +69,6 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefitItem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefitItem")
 public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements ExplanationOfBenefitItem {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -91,44 +81,44 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	protected PositiveInt sequence;
 
 	/**
-	 * The cached value of the '{@link #getCareTeamLinkId() <em>Care Team Link Id</em>}' containment reference list.
+	 * The cached value of the '{@link #getCareTeamSequence() <em>Care Team Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCareTeamLinkId()
+	 * @see #getCareTeamSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PositiveInt> careTeamLinkId;
+	protected EList<PositiveInt> careTeamSequence;
 
 	/**
-	 * The cached value of the '{@link #getDiagnosisLinkId() <em>Diagnosis Link Id</em>}' containment reference list.
+	 * The cached value of the '{@link #getDiagnosisSequence() <em>Diagnosis Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDiagnosisLinkId()
+	 * @see #getDiagnosisSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PositiveInt> diagnosisLinkId;
+	protected EList<PositiveInt> diagnosisSequence;
 
 	/**
-	 * The cached value of the '{@link #getProcedureLinkId() <em>Procedure Link Id</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcedureSequence() <em>Procedure Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcedureLinkId()
+	 * @see #getProcedureSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PositiveInt> procedureLinkId;
+	protected EList<PositiveInt> procedureSequence;
 
 	/**
-	 * The cached value of the '{@link #getInformationLinkId() <em>Information Link Id</em>}' containment reference list.
+	 * The cached value of the '{@link #getInformationSequence() <em>Information Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInformationLinkId()
+	 * @see #getInformationSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PositiveInt> informationLinkId;
+	protected EList<PositiveInt> informationSequence;
 
 	/**
 	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
@@ -364,8 +354,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -409,13 +397,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
-	public EList<PositiveInt> getCareTeamLinkId() {
-		if (careTeamLinkId == null) {
-			careTeamLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID);
+	public EList<PositiveInt> getCareTeamSequence() {
+		if (careTeamSequence == null) {
+			careTeamSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE);
 		}
-		return careTeamLinkId;
+		return careTeamSequence;
 	}
 
 	/**
@@ -423,13 +409,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
-	public EList<PositiveInt> getDiagnosisLinkId() {
-		if (diagnosisLinkId == null) {
-			diagnosisLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID);
+	public EList<PositiveInt> getDiagnosisSequence() {
+		if (diagnosisSequence == null) {
+			diagnosisSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE);
 		}
-		return diagnosisLinkId;
+		return diagnosisSequence;
 	}
 
 	/**
@@ -437,13 +421,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
-	public EList<PositiveInt> getProcedureLinkId() {
-		if (procedureLinkId == null) {
-			procedureLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID);
+	public EList<PositiveInt> getProcedureSequence() {
+		if (procedureSequence == null) {
+			procedureSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE);
 		}
-		return procedureLinkId;
+		return procedureSequence;
 	}
 
 	/**
@@ -451,13 +433,11 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
-	public EList<PositiveInt> getInformationLinkId() {
-		if (informationLinkId == null) {
-			informationLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID);
+	public EList<PositiveInt> getInformationSequence() {
+		if (informationSequence == null) {
+			informationSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE);
 		}
-		return informationLinkId;
+		return informationSequence;
 	}
 
 	/**
@@ -594,7 +574,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__MODIFIER);
@@ -607,7 +586,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
 			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROGRAM_CODE);
@@ -620,7 +598,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getServicedDate() {
 		return servicedDate;
 	}
@@ -922,7 +899,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -1009,7 +985,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getUdi() {
 		if (udi == null) {
 			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__UDI);
@@ -1065,7 +1040,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSubSite() {
 		if (subSite == null) {
 			subSite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SUB_SITE);
@@ -1078,7 +1052,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEncounter() {
 		if (encounter == null) {
 			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ENCOUNTER);
@@ -1091,8 +1064,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__NOTE_NUMBER);
@@ -1105,7 +1076,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication>(ExplanationOfBenefitAdjudication.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__ADJUDICATION);
@@ -1118,7 +1088,6 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<ExplanationOfBenefitDetail>(ExplanationOfBenefitDetail.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DETAIL);
@@ -1136,14 +1105,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
-				return ((InternalEList<?>)getCareTeamLinkId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
-				return ((InternalEList<?>)getDiagnosisLinkId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
-				return ((InternalEList<?>)getProcedureLinkId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
-				return ((InternalEList<?>)getInformationLinkId()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE:
+				return ((InternalEList<?>)getCareTeamSequence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE:
+				return ((InternalEList<?>)getDiagnosisSequence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE:
+				return ((InternalEList<?>)getProcedureSequence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE:
+				return ((InternalEList<?>)getInformationSequence()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
 				return basicSetRevenue(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
@@ -1200,14 +1169,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return getSequence();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
-				return getCareTeamLinkId();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
-				return getDiagnosisLinkId();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
-				return getProcedureLinkId();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
-				return getInformationLinkId();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE:
+				return getCareTeamSequence();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE:
+				return getDiagnosisSequence();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE:
+				return getProcedureSequence();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE:
+				return getInformationSequence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
 				return getRevenue();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:
@@ -1266,21 +1235,21 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				setSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
-				getCareTeamLinkId().clear();
-				getCareTeamLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE:
+				getCareTeamSequence().clear();
+				getCareTeamSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
-				getDiagnosisLinkId().clear();
-				getDiagnosisLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE:
+				getDiagnosisSequence().clear();
+				getDiagnosisSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
-				getProcedureLinkId().clear();
-				getProcedureLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE:
+				getProcedureSequence().clear();
+				getProcedureSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
-				getInformationLinkId().clear();
-				getInformationLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE:
+				getInformationSequence().clear();
+				getInformationSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
 				setRevenue((CodeableConcept)newValue);
@@ -1368,17 +1337,17 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
-				getCareTeamLinkId().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE:
+				getCareTeamSequence().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
-				getDiagnosisLinkId().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE:
+				getDiagnosisSequence().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
-				getProcedureLinkId().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE:
+				getProcedureSequence().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
-				getInformationLinkId().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE:
+				getInformationSequence().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
 				setRevenue((CodeableConcept)null);
@@ -1457,14 +1426,14 @@ public class ExplanationOfBenefitItemImpl extends BackboneElementImpl implements
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_LINK_ID:
-				return careTeamLinkId != null && !careTeamLinkId.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_LINK_ID:
-				return diagnosisLinkId != null && !diagnosisLinkId.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_LINK_ID:
-				return procedureLinkId != null && !procedureLinkId.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_LINK_ID:
-				return informationLinkId != null && !informationLinkId.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CARE_TEAM_SEQUENCE:
+				return careTeamSequence != null && !careTeamSequence.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__DIAGNOSIS_SEQUENCE:
+				return diagnosisSequence != null && !diagnosisSequence.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__PROCEDURE_SEQUENCE:
+				return procedureSequence != null && !procedureSequence.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__INFORMATION_SEQUENCE:
+				return informationSequence != null && !informationSequence.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__REVENUE:
 				return revenue != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM__CATEGORY:

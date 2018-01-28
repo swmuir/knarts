@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,16 +18,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.AdverseEvent;
-import org.hl7.fhir.AdverseEventCategory;
+import org.hl7.fhir.AdverseEventActuality;
 import org.hl7.fhir.AdverseEventSuspectEntity;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.AdverseEventCategoryImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,13 +35,15 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getActuality <em>Actuality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getReaction <em>Reaction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getResultingCondition <em>Resulting Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSeriousness <em>Seriousness</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getEventParticipant <em>Event Participant</em>}</li>
@@ -62,8 +56,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AdverseEvent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AdverseEvent")
 public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -76,24 +68,34 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	protected Identifier identifier;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getActuality() <em>Actuality</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActuality()
+	 * @generated
+	 * @ordered
+	 */
+	protected AdverseEventActuality actuality;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected AdverseEventCategory category;
+	protected EList<CodeableConcept> category;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getEvent()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected CodeableConcept event;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -116,14 +118,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	protected DateTime date;
 
 	/**
-	 * The cached value of the '{@link #getReaction() <em>Reaction</em>}' containment reference list.
+	 * The cached value of the '{@link #getResultingCondition() <em>Resulting Condition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReaction()
+	 * @see #getResultingCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> reaction;
+	protected EList<Reference> resultingCondition;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
@@ -144,6 +146,16 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * @ordered
 	 */
 	protected CodeableConcept seriousness;
+
+	/**
+	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeverity()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept severity;
 
 	/**
 	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
@@ -292,8 +304,53 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AdverseEventCategoryImplAdapter.class)
-	public AdverseEventCategory getCategory() {
+	public AdverseEventActuality getActuality() {
+		return actuality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActuality(AdverseEventActuality newActuality, NotificationChain msgs) {
+		AdverseEventActuality oldActuality = actuality;
+		actuality = newActuality;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__ACTUALITY, oldActuality, newActuality);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActuality(AdverseEventActuality newActuality) {
+		if (newActuality != actuality) {
+			NotificationChain msgs = null;
+			if (actuality != null)
+				msgs = ((InternalEObject)actuality).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__ACTUALITY, null, msgs);
+			if (newActuality != null)
+				msgs = ((InternalEObject)newActuality).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__ACTUALITY, null, msgs);
+			msgs = basicSetActuality(newActuality, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__ACTUALITY, newActuality, newActuality));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ADVERSE_EVENT__CATEGORY);
+		}
 		return category;
 	}
 
@@ -302,11 +359,20 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(AdverseEventCategory newCategory, NotificationChain msgs) {
-		AdverseEventCategory oldCategory = category;
-		category = newCategory;
+	public CodeableConcept getEvent() {
+		return event;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEvent(CodeableConcept newEvent, NotificationChain msgs) {
+		CodeableConcept oldEvent = event;
+		event = newEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__CATEGORY, oldCategory, newCategory);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__EVENT, oldEvent, newEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -317,61 +383,18 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(AdverseEventCategory newCategory) {
-		if (newCategory != category) {
+	public void setEvent(CodeableConcept newEvent) {
+		if (newEvent != event) {
 			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
+			if (event != null)
+				msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__EVENT, null, msgs);
+			if (newEvent != null)
+				msgs = ((InternalEObject)newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__EVENT, null, msgs);
+			msgs = basicSetEvent(newEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__CATEGORY, newCategory, newCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__EVENT, newEvent, newEvent));
 	}
 
 	/**
@@ -422,7 +445,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -466,12 +488,11 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getReaction() {
-		if (reaction == null) {
-			reaction = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__REACTION);
+	public EList<Reference> getResultingCondition() {
+		if (resultingCondition == null) {
+			resultingCondition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION);
 		}
-		return reaction;
+		return resultingCondition;
 	}
 
 	/**
@@ -558,6 +579,49 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__SERIOUSNESS, newSeriousness, newSeriousness));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getSeverity() {
+		return severity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSeverity(CodeableConcept newSeverity, NotificationChain msgs) {
+		CodeableConcept oldSeverity = severity;
+		severity = newSeverity;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__SEVERITY, oldSeverity, newSeverity);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeverity(CodeableConcept newSeverity) {
+		if (newSeverity != severity) {
+			NotificationChain msgs = null;
+			if (severity != null)
+				msgs = ((InternalEObject)severity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__SEVERITY, null, msgs);
+			if (newSeverity != null)
+				msgs = ((InternalEObject)newSeverity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__SEVERITY, null, msgs);
+			msgs = basicSetSeverity(newSeverity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__SEVERITY, newSeverity, newSeverity));
 	}
 
 	/**
@@ -694,7 +758,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -738,7 +801,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<AdverseEventSuspectEntity> getSuspectEntity() {
 		if (suspectEntity == null) {
 			suspectEntity = new EObjectContainmentEList<AdverseEventSuspectEntity>(AdverseEventSuspectEntity.class, this, FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY);
@@ -751,7 +813,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSubjectMedicalHistory() {
 		if (subjectMedicalHistory == null) {
 			subjectMedicalHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__SUBJECT_MEDICAL_HISTORY);
@@ -764,7 +825,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReferenceDocument() {
 		if (referenceDocument == null) {
 			referenceDocument = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__REFERENCE_DOCUMENT);
@@ -777,7 +837,6 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getStudy() {
 		if (study == null) {
 			study = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__STUDY);
@@ -795,20 +854,24 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 		switch (featureID) {
 			case FhirPackage.ADVERSE_EVENT__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__ACTUALITY:
+				return basicSetActuality(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__CATEGORY:
-				return basicSetCategory(null, msgs);
-			case FhirPackage.ADVERSE_EVENT__TYPE:
-				return basicSetType(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ADVERSE_EVENT__EVENT:
+				return basicSetEvent(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return basicSetSubject(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return basicSetDate(null, msgs);
-			case FhirPackage.ADVERSE_EVENT__REACTION:
-				return ((InternalEList<?>)getReaction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
+				return ((InternalEList<?>)getResultingCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
 				return basicSetLocation(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__SERIOUSNESS:
 				return basicSetSeriousness(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__SEVERITY:
+				return basicSetSeverity(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__OUTCOME:
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
@@ -839,20 +902,24 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 		switch (featureID) {
 			case FhirPackage.ADVERSE_EVENT__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.ADVERSE_EVENT__ACTUALITY:
+				return getActuality();
 			case FhirPackage.ADVERSE_EVENT__CATEGORY:
 				return getCategory();
-			case FhirPackage.ADVERSE_EVENT__TYPE:
-				return getType();
+			case FhirPackage.ADVERSE_EVENT__EVENT:
+				return getEvent();
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return getSubject();
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return getDate();
-			case FhirPackage.ADVERSE_EVENT__REACTION:
-				return getReaction();
+			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
+				return getResultingCondition();
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
 				return getLocation();
 			case FhirPackage.ADVERSE_EVENT__SERIOUSNESS:
 				return getSeriousness();
+			case FhirPackage.ADVERSE_EVENT__SEVERITY:
+				return getSeverity();
 			case FhirPackage.ADVERSE_EVENT__OUTCOME:
 				return getOutcome();
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
@@ -885,11 +952,15 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.ADVERSE_EVENT__CATEGORY:
-				setCategory((AdverseEventCategory)newValue);
+			case FhirPackage.ADVERSE_EVENT__ACTUALITY:
+				setActuality((AdverseEventActuality)newValue);
 				return;
-			case FhirPackage.ADVERSE_EVENT__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.ADVERSE_EVENT__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.ADVERSE_EVENT__EVENT:
+				setEvent((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				setSubject((Reference)newValue);
@@ -897,15 +968,18 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				setDate((DateTime)newValue);
 				return;
-			case FhirPackage.ADVERSE_EVENT__REACTION:
-				getReaction().clear();
-				getReaction().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
+				getResultingCondition().clear();
+				getResultingCondition().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
 				setLocation((Reference)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__SERIOUSNESS:
 				setSeriousness((CodeableConcept)newValue);
+				return;
+			case FhirPackage.ADVERSE_EVENT__SEVERITY:
+				setSeverity((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__OUTCOME:
 				setOutcome((CodeableConcept)newValue);
@@ -950,11 +1024,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
-			case FhirPackage.ADVERSE_EVENT__CATEGORY:
-				setCategory((AdverseEventCategory)null);
+			case FhirPackage.ADVERSE_EVENT__ACTUALITY:
+				setActuality((AdverseEventActuality)null);
 				return;
-			case FhirPackage.ADVERSE_EVENT__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.ADVERSE_EVENT__CATEGORY:
+				getCategory().clear();
+				return;
+			case FhirPackage.ADVERSE_EVENT__EVENT:
+				setEvent((CodeableConcept)null);
 				return;
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				setSubject((Reference)null);
@@ -962,14 +1039,17 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				setDate((DateTime)null);
 				return;
-			case FhirPackage.ADVERSE_EVENT__REACTION:
-				getReaction().clear();
+			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
+				getResultingCondition().clear();
 				return;
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
 				setLocation((Reference)null);
 				return;
 			case FhirPackage.ADVERSE_EVENT__SERIOUSNESS:
 				setSeriousness((CodeableConcept)null);
+				return;
+			case FhirPackage.ADVERSE_EVENT__SEVERITY:
+				setSeverity((CodeableConcept)null);
 				return;
 			case FhirPackage.ADVERSE_EVENT__OUTCOME:
 				setOutcome((CodeableConcept)null);
@@ -1009,20 +1089,24 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 		switch (featureID) {
 			case FhirPackage.ADVERSE_EVENT__IDENTIFIER:
 				return identifier != null;
+			case FhirPackage.ADVERSE_EVENT__ACTUALITY:
+				return actuality != null;
 			case FhirPackage.ADVERSE_EVENT__CATEGORY:
-				return category != null;
-			case FhirPackage.ADVERSE_EVENT__TYPE:
-				return type != null;
+				return category != null && !category.isEmpty();
+			case FhirPackage.ADVERSE_EVENT__EVENT:
+				return event != null;
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return subject != null;
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return date != null;
-			case FhirPackage.ADVERSE_EVENT__REACTION:
-				return reaction != null && !reaction.isEmpty();
+			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
+				return resultingCondition != null && !resultingCondition.isEmpty();
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
 				return location != null;
 			case FhirPackage.ADVERSE_EVENT__SERIOUSNESS:
 				return seriousness != null;
+			case FhirPackage.ADVERSE_EVENT__SEVERITY:
+				return severity != null;
 			case FhirPackage.ADVERSE_EVENT__OUTCOME:
 				return outcome != null;
 			case FhirPackage.ADVERSE_EVENT__RECORDER:

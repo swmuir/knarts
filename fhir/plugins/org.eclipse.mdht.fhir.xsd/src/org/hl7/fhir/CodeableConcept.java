@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CodeableConceptImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.CodeableConceptImplAdapter;
  * @model extendedMetaData="name='CodeableConcept' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CodeableConceptImplAdapter.class)
 public interface CodeableConcept extends Element {
 	/**
 	 * Returns the value of the '<em><b>Coding</b></em>' containment reference list.

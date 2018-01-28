@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,9 +21,6 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemFilter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FilterOperator;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.FilterOperatorImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,8 +38,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CodeSystemFilter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CodeSystemFilter")
 public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSystemFilter {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -113,8 +103,6 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -158,7 +146,6 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -202,8 +189,6 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FilterOperatorImplAdapter.class)
-	@XmlElement(required = true)
 	public EList<FilterOperator> getOperator() {
 		if (operator == null) {
 			operator = new EObjectContainmentEList<FilterOperator>(FilterOperator.class, this, FhirPackage.CODE_SYSTEM_FILTER__OPERATOR);
@@ -216,8 +201,6 @@ public class CodeSystemFilterImpl extends BackboneElementImpl implements CodeSys
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getValue() {
 		return value;
 	}

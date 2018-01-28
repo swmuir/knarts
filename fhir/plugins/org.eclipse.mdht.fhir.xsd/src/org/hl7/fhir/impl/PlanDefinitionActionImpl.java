@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +22,7 @@ import org.hl7.fhir.ActionGroupingBehavior;
 import org.hl7.fhir.ActionPrecheckBehavior;
 import org.hl7.fhir.ActionRequiredBehavior;
 import org.hl7.fhir.ActionSelectionBehavior;
+import org.hl7.fhir.Age;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DataRequirement;
@@ -45,14 +41,6 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
-import org.hl7.fhir.jaxb.ActionCardinalityBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionPrecheckBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionRequiredBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +50,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTextEquivalent <em>Text Equivalent</em>}</li>
@@ -76,6 +64,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getRelatedAction <em>Related Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTimingAge <em>Timing Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTimingDuration <em>Timing Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTimingRange <em>Timing Range</em>}</li>
@@ -95,18 +84,16 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PlanDefinitionAction", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PlanDefinitionAction")
 public class PlanDefinitionActionImpl extends BackboneElementImpl implements PlanDefinitionAction {
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
+	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getPrefix()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String label;
+	protected org.hl7.fhir.String prefix;
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -237,6 +224,16 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * @ordered
 	 */
 	protected DateTime timingDateTime;
+
+	/**
+	 * The cached value of the '{@link #getTimingAge() <em>Timing Age</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingAge()
+	 * @generated
+	 * @ordered
+	 */
+	protected Age timingAge;
 
 	/**
 	 * The cached value of the '{@link #getTimingPeriod() <em>Timing Period</em>}' containment reference.
@@ -412,9 +409,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getLabel() {
-		return label;
+	public org.hl7.fhir.String getPrefix() {
+		return prefix;
 	}
 
 	/**
@@ -422,11 +418,11 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLabel(org.hl7.fhir.String newLabel, NotificationChain msgs) {
-		org.hl7.fhir.String oldLabel = label;
-		label = newLabel;
+	public NotificationChain basicSetPrefix(org.hl7.fhir.String newPrefix, NotificationChain msgs) {
+		org.hl7.fhir.String oldPrefix = prefix;
+		prefix = newPrefix;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__LABEL, oldLabel, newLabel);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__PREFIX, oldPrefix, newPrefix);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -437,18 +433,18 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(org.hl7.fhir.String newLabel) {
-		if (newLabel != label) {
+	public void setPrefix(org.hl7.fhir.String newPrefix) {
+		if (newPrefix != prefix) {
 			NotificationChain msgs = null;
-			if (label != null)
-				msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__LABEL, null, msgs);
-			if (newLabel != null)
-				msgs = ((InternalEObject)newLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__LABEL, null, msgs);
-			msgs = basicSetLabel(newLabel, msgs);
+			if (prefix != null)
+				msgs = ((InternalEObject)prefix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__PREFIX, null, msgs);
+			if (newPrefix != null)
+				msgs = ((InternalEObject)newPrefix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__PREFIX, null, msgs);
+			msgs = basicSetPrefix(newPrefix, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__LABEL, newLabel, newLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__PREFIX, newPrefix, newPrefix));
 	}
 
 	/**
@@ -456,7 +452,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -500,7 +495,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -544,7 +538,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTextEquivalent() {
 		return textEquivalent;
 	}
@@ -588,7 +581,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_ACTION__CODE);
@@ -601,7 +593,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_ACTION__REASON);
@@ -614,7 +605,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RelatedArtifact> getDocumentation() {
 		if (documentation == null) {
 			documentation = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.PLAN_DEFINITION_ACTION__DOCUMENTATION);
@@ -627,8 +617,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement
 	public EList<Id> getGoalId() {
 		if (goalId == null) {
 			goalId = new EObjectContainmentEList<Id>(Id.class, this, FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID);
@@ -641,7 +629,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TriggerDefinition> getTriggerDefinition() {
 		if (triggerDefinition == null) {
 			triggerDefinition = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION);
@@ -654,7 +641,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PlanDefinitionCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<PlanDefinitionCondition>(PlanDefinitionCondition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__CONDITION);
@@ -667,7 +653,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DataRequirement> getInput() {
 		if (input == null) {
 			input = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.PLAN_DEFINITION_ACTION__INPUT);
@@ -680,7 +665,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DataRequirement> getOutput() {
 		if (output == null) {
 			output = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.PLAN_DEFINITION_ACTION__OUTPUT);
@@ -693,7 +677,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PlanDefinitionRelatedAction> getRelatedAction() {
 		if (relatedAction == null) {
 			relatedAction = new EObjectContainmentEList<PlanDefinitionRelatedAction>(PlanDefinitionRelatedAction.class, this, FhirPackage.PLAN_DEFINITION_ACTION__RELATED_ACTION);
@@ -706,7 +689,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -743,6 +725,49 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME, newTimingDateTime, newTimingDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Age getTimingAge() {
+		return timingAge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingAge(Age newTimingAge, NotificationChain msgs) {
+		Age oldTimingAge = timingAge;
+		timingAge = newTimingAge;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE, oldTimingAge, newTimingAge);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingAge(Age newTimingAge) {
+		if (newTimingAge != timingAge) {
+			NotificationChain msgs = null;
+			if (timingAge != null)
+				msgs = ((InternalEObject)timingAge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE, null, msgs);
+			if (newTimingAge != null)
+				msgs = ((InternalEObject)newTimingAge).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE, null, msgs);
+			msgs = basicSetTimingAge(newTimingAge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE, newTimingAge, newTimingAge));
 	}
 
 	/**
@@ -922,7 +947,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PlanDefinitionParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<PlanDefinitionParticipant>(PlanDefinitionParticipant.class, this, FhirPackage.PLAN_DEFINITION_ACTION__PARTICIPANT);
@@ -978,7 +1002,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
 	public ActionGroupingBehavior getGroupingBehavior() {
 		return groupingBehavior;
 	}
@@ -1022,7 +1045,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
 	public ActionSelectionBehavior getSelectionBehavior() {
 		return selectionBehavior;
 	}
@@ -1066,7 +1088,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionRequiredBehaviorImplAdapter.class)
 	public ActionRequiredBehavior getRequiredBehavior() {
 		return requiredBehavior;
 	}
@@ -1110,7 +1131,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionPrecheckBehaviorImplAdapter.class)
 	public ActionPrecheckBehavior getPrecheckBehavior() {
 		return precheckBehavior;
 	}
@@ -1154,7 +1174,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionCardinalityBehaviorImplAdapter.class)
 	public ActionCardinalityBehavior getCardinalityBehavior() {
 		return cardinalityBehavior;
 	}
@@ -1284,7 +1303,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PlanDefinitionDynamicValue> getDynamicValue() {
 		if (dynamicValue == null) {
 			dynamicValue = new EObjectContainmentEList<PlanDefinitionDynamicValue>(PlanDefinitionDynamicValue.class, this, FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE);
@@ -1297,7 +1315,6 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PlanDefinitionAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<PlanDefinitionAction>(PlanDefinitionAction.class, this, FhirPackage.PLAN_DEFINITION_ACTION__ACTION);
@@ -1313,8 +1330,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.PLAN_DEFINITION_ACTION__LABEL:
-				return basicSetLabel(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__PREFIX:
+				return basicSetPrefix(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__DESCRIPTION:
@@ -1341,6 +1358,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return ((InternalEList<?>)getRelatedAction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME:
 				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE:
+				return basicSetTimingAge(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_PERIOD:
 				return basicSetTimingPeriod(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DURATION:
@@ -1383,8 +1402,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.PLAN_DEFINITION_ACTION__LABEL:
-				return getLabel();
+			case FhirPackage.PLAN_DEFINITION_ACTION__PREFIX:
+				return getPrefix();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TITLE:
 				return getTitle();
 			case FhirPackage.PLAN_DEFINITION_ACTION__DESCRIPTION:
@@ -1411,6 +1430,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return getRelatedAction();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME:
 				return getTimingDateTime();
+			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE:
+				return getTimingAge();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_PERIOD:
 				return getTimingPeriod();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DURATION:
@@ -1454,8 +1475,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.PLAN_DEFINITION_ACTION__LABEL:
-				setLabel((org.hl7.fhir.String)newValue);
+			case FhirPackage.PLAN_DEFINITION_ACTION__PREFIX:
+				setPrefix((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
@@ -1504,6 +1525,9 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE:
+				setTimingAge((Age)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_PERIOD:
 				setTimingPeriod((Period)newValue);
@@ -1565,8 +1589,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PLAN_DEFINITION_ACTION__LABEL:
-				setLabel((org.hl7.fhir.String)null);
+			case FhirPackage.PLAN_DEFINITION_ACTION__PREFIX:
+				setPrefix((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)null);
@@ -1606,6 +1630,9 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)null);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE:
+				setTimingAge((Age)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_PERIOD:
 				setTimingPeriod((Period)null);
@@ -1664,8 +1691,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.PLAN_DEFINITION_ACTION__LABEL:
-				return label != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__PREFIX:
+				return prefix != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TITLE:
 				return title != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__DESCRIPTION:
@@ -1692,6 +1719,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return relatedAction != null && !relatedAction.isEmpty();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DATE_TIME:
 				return timingDateTime != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_AGE:
+				return timingAge != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_PERIOD:
 				return timingPeriod != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TIMING_DURATION:

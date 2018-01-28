@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,8 +27,6 @@ import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
 import org.hl7.fhir.SupplyDeliverySuppliedItem;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.SupplyDeliveryStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,8 +53,6 @@ import org.hl7.fhir.jaxb.SupplyDeliveryStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SupplyDelivery", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SupplyDelivery")
 public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDelivery {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -260,7 +251,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_DELIVERY__BASED_ON);
@@ -273,7 +263,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_DELIVERY__PART_OF);
@@ -286,7 +275,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SupplyDeliveryStatusImplAdapter.class)
 	public SupplyDeliveryStatus getStatus() {
 		return status;
 	}
@@ -459,7 +447,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -675,7 +662,6 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReceiver() {
 		if (receiver == null) {
 			receiver = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_DELIVERY__RECEIVER);

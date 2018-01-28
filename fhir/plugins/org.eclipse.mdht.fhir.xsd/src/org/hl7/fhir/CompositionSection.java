@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CompositionSectionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,6 @@ import org.hl7.fhir.jaxb.CompositionSectionImplAdapter;
  * @model extendedMetaData="name='Composition.Section' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CompositionSectionImplAdapter.class)
 public interface CompositionSection extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.

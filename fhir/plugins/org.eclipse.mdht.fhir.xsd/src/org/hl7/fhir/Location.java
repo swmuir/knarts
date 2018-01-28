@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.LocationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +32,8 @@ import org.hl7.fhir.jaxb.LocationImplAdapter;
  *   <li>{@link org.hl7.fhir.Location#getPosition <em>Position</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getManagingOrganization <em>Managing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.Location#getHoursOfOperation <em>Hours Of Operation</em>}</li>
+ *   <li>{@link org.hl7.fhir.Location#getAvailabilityExceptions <em>Availability Exceptions</em>}</li>
  *   <li>{@link org.hl7.fhir.Location#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
@@ -42,7 +41,6 @@ import org.hl7.fhir.jaxb.LocationImplAdapter;
  * @model extendedMetaData="name='Location' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(LocationImplAdapter.class)
 public interface Location extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -91,7 +89,7 @@ public interface Location extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Operational status covers operation values most relevant to beds (but can also apply to rooms/units/chair/etc such as an isolation unit/dialisys chair). This typically covers concepts such as contamination, housekeeping and other activities like maintenance.
+	 * The Operational status covers operation values most relevant to beds (but can also apply to rooms/units/chair/etc such as an isolation unit/dialisys chair). This typically covers concepts such as contamination, housekeeping and other activitiesÂ like maintenance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operational Status</em>' containment reference.
 	 * @see #setOperationalStatus(Coding)
@@ -144,7 +142,7 @@ public interface Location extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of alternate names that the location is known as, or was known as in the past.
+	 * A list ofÂ alternate names that the location is known as, or was known as in the past.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alias</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getLocation_Alias()
@@ -377,6 +375,48 @@ public interface Location extends DomainResource {
 	 * @generated
 	 */
 	void setPartOf(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Hours Of Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.LocationHoursOfOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * What days/times during a week is this location usually open.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Hours Of Operation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getLocation_HoursOfOperation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='hoursOfOperation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<LocationHoursOfOperation> getHoursOfOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Availability Exceptions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Availability Exceptions</em>' containment reference.
+	 * @see #setAvailabilityExceptions(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getLocation_AvailabilityExceptions()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='availabilityExceptions' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getAvailabilityExceptions();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Location#getAvailabilityExceptions <em>Availability Exceptions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Availability Exceptions</em>' containment reference.
+	 * @see #getAvailabilityExceptions()
+	 * @generated
+	 */
+	void setAvailabilityExceptions(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.

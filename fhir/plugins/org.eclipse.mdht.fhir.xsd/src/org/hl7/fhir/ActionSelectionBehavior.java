@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
  * @model extendedMetaData="name='ActionSelectionBehavior' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
 public interface ActionSelectionBehavior extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SpecimenImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +36,6 @@ import org.hl7.fhir.jaxb.SpecimenImplAdapter;
  * @model extendedMetaData="name='Specimen' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SpecimenImplAdapter.class)
 public interface Specimen extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -209,7 +205,7 @@ public interface Specimen extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Details concerning a test or procedure request that required a specimen to be collected.
+	 * Details concerning a service request that required a specimen to be collected.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Request()

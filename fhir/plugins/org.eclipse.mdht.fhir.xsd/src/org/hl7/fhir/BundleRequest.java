@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.BundleRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.BundleRequestImplAdapter;
  * @model extendedMetaData="name='Bundle.Request' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(BundleRequestImplAdapter.class)
 public interface BundleRequest extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Method</b></em>' containment reference.

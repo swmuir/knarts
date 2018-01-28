@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConfidentialityClassificationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConfidentialityClassificationImplAdapter;
  * @model extendedMetaData="name='ConfidentialityClassification' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConfidentialityClassificationImplAdapter.class)
 public interface ConfidentialityClassification extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TestReportTestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.TestReportTestImplAdapter;
  * @model extendedMetaData="name='TestReport.Test' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestReportTestImplAdapter.class)
 public interface TestReportTest extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.

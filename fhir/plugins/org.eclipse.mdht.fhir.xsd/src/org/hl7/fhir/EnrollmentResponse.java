@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EnrollmentResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +33,6 @@ import org.hl7.fhir.jaxb.EnrollmentResponseImplAdapter;
  * @model extendedMetaData="name='EnrollmentResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EnrollmentResponseImplAdapter.class)
 public interface EnrollmentResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -114,13 +110,13 @@ public interface EnrollmentResponse extends DomainResource {
 	 * Processing status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
+	 * @see #setOutcome(RemittanceOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOutcome();
+	RemittanceOutcome getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -130,7 +126,7 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(CodeableConcept value);
+	void setOutcome(RemittanceOutcome value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

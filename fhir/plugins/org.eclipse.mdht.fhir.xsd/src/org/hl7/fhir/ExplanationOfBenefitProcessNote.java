@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExplanationOfBenefitProcessNoteImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitProcessNoteImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.ProcessNote' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitProcessNoteImplAdapter.class)
 public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
@@ -65,13 +61,13 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * The note purpose: Print/Display.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
+	 * @see #setType(NoteType)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcessNote_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	NoteType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitProcessNote#getType <em>Type</em>}' containment reference.
@@ -81,7 +77,7 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setType(NoteType value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.StructureMapStructureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.StructureMapStructureImplAdapter;
  * @model extendedMetaData="name='StructureMap.Structure' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureMapStructureImplAdapter.class)
 public interface StructureMapStructure extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

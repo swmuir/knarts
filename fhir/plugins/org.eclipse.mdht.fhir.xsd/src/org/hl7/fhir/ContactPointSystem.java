@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ContactPointSystemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ContactPointSystemImplAdapter;
  * @model extendedMetaData="name='ContactPointSystem' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ContactPointSystemImplAdapter.class)
 public interface ContactPointSystem extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

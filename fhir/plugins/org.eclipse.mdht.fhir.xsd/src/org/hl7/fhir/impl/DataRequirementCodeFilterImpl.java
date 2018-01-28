@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,14 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,17 +32,13 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getPath <em>Path</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSetString <em>Value Set String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSetUri <em>Value Set Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSetReference <em>Value Set Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueCode <em>Value Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueCoding <em>Value Coding</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "DataRequirementCodeFilter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DataRequirementCodeFilter")
 public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRequirementCodeFilter {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -63,14 +51,14 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	protected org.hl7.fhir.String path;
 
 	/**
-	 * The cached value of the '{@link #getValueSetString() <em>Value Set String</em>}' containment reference.
+	 * The cached value of the '{@link #getValueSetUri() <em>Value Set Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueSetString()
+	 * @see #getValueSetUri()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String valueSetString;
+	protected Uri valueSetUri;
 
 	/**
 	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' containment reference.
@@ -83,34 +71,14 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	protected Reference valueSetReference;
 
 	/**
-	 * The cached value of the '{@link #getValueCode() <em>Value Code</em>}' containment reference list.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueCode()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Code> valueCode;
-
-	/**
-	 * The cached value of the '{@link #getValueCoding() <em>Value Coding</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueCoding()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> valueCoding;
-
-	/**
-	 * The cached value of the '{@link #getValueCodeableConcept() <em>Value Codeable Concept</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> valueCodeableConcept;
+	protected EList<Coding> code;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,8 +104,6 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -181,9 +147,8 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getValueSetString() {
-		return valueSetString;
+	public Uri getValueSetUri() {
+		return valueSetUri;
 	}
 
 	/**
@@ -191,11 +156,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSetString(org.hl7.fhir.String newValueSetString, NotificationChain msgs) {
-		org.hl7.fhir.String oldValueSetString = valueSetString;
-		valueSetString = newValueSetString;
+	public NotificationChain basicSetValueSetUri(Uri newValueSetUri, NotificationChain msgs) {
+		Uri oldValueSetUri = valueSetUri;
+		valueSetUri = newValueSetUri;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING, oldValueSetString, newValueSetString);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, oldValueSetUri, newValueSetUri);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -206,18 +171,18 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetString(org.hl7.fhir.String newValueSetString) {
-		if (newValueSetString != valueSetString) {
+	public void setValueSetUri(Uri newValueSetUri) {
+		if (newValueSetUri != valueSetUri) {
 			NotificationChain msgs = null;
-			if (valueSetString != null)
-				msgs = ((InternalEObject)valueSetString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING, null, msgs);
-			if (newValueSetString != null)
-				msgs = ((InternalEObject)newValueSetString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING, null, msgs);
-			msgs = basicSetValueSetString(newValueSetString, msgs);
+			if (valueSetUri != null)
+				msgs = ((InternalEObject)valueSetUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, null, msgs);
+			if (newValueSetUri != null)
+				msgs = ((InternalEObject)newValueSetUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, null, msgs);
+			msgs = basicSetValueSetUri(newValueSetUri, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING, newValueSetString, newValueSetString));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, newValueSetUri, newValueSetUri));
 	}
 
 	/**
@@ -268,39 +233,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement
-	public EList<Code> getValueCode() {
-		if (valueCode == null) {
-			valueCode = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE);
+	public EList<Coding> getCode() {
+		if (code == null) {
+			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE);
 		}
-		return valueCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<Coding> getValueCoding() {
-		if (valueCoding == null) {
-			valueCoding = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING);
-		}
-		return valueCoding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<CodeableConcept> getValueCodeableConcept() {
-		if (valueCodeableConcept == null) {
-			valueCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT);
-		}
-		return valueCodeableConcept;
+		return code;
 	}
 
 	/**
@@ -313,16 +250,12 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return basicSetPath(null, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING:
-				return basicSetValueSetString(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
+				return basicSetValueSetUri(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
 				return basicSetValueSetReference(null, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE:
-				return ((InternalEList<?>)getValueCode()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING:
-				return ((InternalEList<?>)getValueCoding()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT:
-				return ((InternalEList<?>)getValueCodeableConcept()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
+				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -337,16 +270,12 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return getPath();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING:
-				return getValueSetString();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
+				return getValueSetUri();
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
 				return getValueSetReference();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE:
-				return getValueCode();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING:
-				return getValueCoding();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT:
-				return getValueCodeableConcept();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
+				return getCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -363,23 +292,15 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING:
-				setValueSetString((org.hl7.fhir.String)newValue);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
+				setValueSetUri((Uri)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
 				setValueSetReference((Reference)newValue);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE:
-				getValueCode().clear();
-				getValueCode().addAll((Collection<? extends Code>)newValue);
-				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING:
-				getValueCoding().clear();
-				getValueCoding().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT:
-				getValueCodeableConcept().clear();
-				getValueCodeableConcept().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
+				getCode().clear();
+				getCode().addAll((Collection<? extends Coding>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -396,20 +317,14 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING:
-				setValueSetString((org.hl7.fhir.String)null);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
+				setValueSetUri((Uri)null);
 				return;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
 				setValueSetReference((Reference)null);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE:
-				getValueCode().clear();
-				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING:
-				getValueCoding().clear();
-				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT:
-				getValueCodeableConcept().clear();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
+				getCode().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -425,16 +340,12 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return path != null;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_STRING:
-				return valueSetString != null;
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
+				return valueSetUri != null;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
 				return valueSetReference != null;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODE:
-				return valueCode != null && !valueCode.isEmpty();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODING:
-				return valueCoding != null && !valueCoding.isEmpty();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_CODEABLE_CONCEPT:
-				return valueCodeableConcept != null && !valueCodeableConcept.isEmpty();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
+				return code != null && !code.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ResearchStudyArmImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.ResearchStudyArmImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ResearchStudyArm#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.ResearchStudyArm#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudyArm#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudyArm#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ResearchStudyArmImplAdapter;
  * @model extendedMetaData="name='ResearchStudy.Arm' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ResearchStudyArmImplAdapter.class)
 public interface ResearchStudyArm extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -57,30 +53,30 @@ public interface ResearchStudyArm extends BackboneElement {
 	void setName(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Categorization of study arm, e.g. experimental, active comparator, placebo comparater.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getResearchStudyArm_Code()
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudyArm_Type()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCode();
+	CodeableConcept getType();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ResearchStudyArm#getCode <em>Code</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ResearchStudyArm#getType <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
 	 * @generated
 	 */
-	void setCode(CodeableConcept value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

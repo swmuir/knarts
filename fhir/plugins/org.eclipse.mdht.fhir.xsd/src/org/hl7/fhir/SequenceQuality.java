@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SequenceQualityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,13 +30,13 @@ import org.hl7.fhir.jaxb.SequenceQualityImplAdapter;
  *   <li>{@link org.hl7.fhir.SequenceQuality#getPrecision <em>Precision</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceQuality#getRecall <em>Recall</em>}</li>
  *   <li>{@link org.hl7.fhir.SequenceQuality#getFScore <em>FScore</em>}</li>
+ *   <li>{@link org.hl7.fhir.SequenceQuality#getRoc <em>Roc</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequenceQuality()
  * @model extendedMetaData="name='Sequence.Quality' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SequenceQualityImplAdapter.class)
 public interface SequenceQuality extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -404,5 +401,31 @@ public interface SequenceQuality extends BackboneElement {
 	 * @generated
 	 */
 	void setFScore(Decimal value);
+
+	/**
+	 * Returns the value of the '<em><b>Roc</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Roc</em>' containment reference.
+	 * @see #setRoc(SequenceRoc)
+	 * @see org.hl7.fhir.FhirPackage#getSequenceQuality_Roc()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='roc' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	SequenceRoc getRoc();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SequenceQuality#getRoc <em>Roc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Roc</em>' containment reference.
+	 * @see #getRoc()
+	 * @generated
+	 */
+	void setRoc(SequenceRoc value);
 
 } // SequenceQuality

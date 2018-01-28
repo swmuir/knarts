@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.SupplyDeliveryStatusList;
  *
  * @generated
  */
-@XmlType(name = "SupplyDeliveryStatus", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SupplyDeliveryStatus")
 public class SupplyDeliveryStatusImpl extends ElementImpl implements SupplyDeliveryStatus {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PlanDefinitionRelatedActionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.PlanDefinitionRelatedActionImplAdapter;
  * @model extendedMetaData="name='PlanDefinition.RelatedAction' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PlanDefinitionRelatedActionImplAdapter.class)
 public interface PlanDefinitionRelatedAction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action Id</b></em>' containment reference.

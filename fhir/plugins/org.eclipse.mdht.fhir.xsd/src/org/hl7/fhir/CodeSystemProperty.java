@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CodeSystemPropertyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.CodeSystemPropertyImplAdapter;
  * @model extendedMetaData="name='CodeSystem.Property' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CodeSystemPropertyImplAdapter.class)
 public interface CodeSystemProperty extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -114,7 +110,7 @@ public interface CodeSystemProperty extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept).
+	 * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(PropertyType)

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +22,7 @@ import org.hl7.fhir.ActionGroupingBehavior;
 import org.hl7.fhir.ActionPrecheckBehavior;
 import org.hl7.fhir.ActionRequiredBehavior;
 import org.hl7.fhir.ActionSelectionBehavior;
+import org.hl7.fhir.Age;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
@@ -40,13 +36,6 @@ import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.ActionCardinalityBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionGroupingBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionPrecheckBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionRequiredBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.ActionSelectionBehaviorImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +45,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTextEquivalent <em>Text Equivalent</em>}</li>
@@ -65,6 +54,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getRelatedAction <em>Related Action</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTimingAge <em>Timing Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTimingDuration <em>Timing Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTimingRange <em>Timing Range</em>}</li>
@@ -82,18 +72,16 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RequestGroupAction", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RequestGroupAction")
 public class RequestGroupActionImpl extends BackboneElementImpl implements RequestGroupAction {
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
+	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getPrefix()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String label;
+	protected org.hl7.fhir.String prefix;
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -174,6 +162,16 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @ordered
 	 */
 	protected DateTime timingDateTime;
+
+	/**
+	 * The cached value of the '{@link #getTimingAge() <em>Timing Age</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingAge()
+	 * @generated
+	 * @ordered
+	 */
+	protected Age timingAge;
 
 	/**
 	 * The cached value of the '{@link #getTimingPeriod() <em>Timing Period</em>}' containment reference.
@@ -329,9 +327,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getLabel() {
-		return label;
+	public org.hl7.fhir.String getPrefix() {
+		return prefix;
 	}
 
 	/**
@@ -339,11 +336,11 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLabel(org.hl7.fhir.String newLabel, NotificationChain msgs) {
-		org.hl7.fhir.String oldLabel = label;
-		label = newLabel;
+	public NotificationChain basicSetPrefix(org.hl7.fhir.String newPrefix, NotificationChain msgs) {
+		org.hl7.fhir.String oldPrefix = prefix;
+		prefix = newPrefix;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__LABEL, oldLabel, newLabel);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__PREFIX, oldPrefix, newPrefix);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -354,18 +351,18 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(org.hl7.fhir.String newLabel) {
-		if (newLabel != label) {
+	public void setPrefix(org.hl7.fhir.String newPrefix) {
+		if (newPrefix != prefix) {
 			NotificationChain msgs = null;
-			if (label != null)
-				msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__LABEL, null, msgs);
-			if (newLabel != null)
-				msgs = ((InternalEObject)newLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__LABEL, null, msgs);
-			msgs = basicSetLabel(newLabel, msgs);
+			if (prefix != null)
+				msgs = ((InternalEObject)prefix).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__PREFIX, null, msgs);
+			if (newPrefix != null)
+				msgs = ((InternalEObject)newPrefix).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__PREFIX, null, msgs);
+			msgs = basicSetPrefix(newPrefix, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__LABEL, newLabel, newLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__PREFIX, newPrefix, newPrefix));
 	}
 
 	/**
@@ -373,7 +370,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -417,7 +413,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -461,7 +456,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTextEquivalent() {
 		return textEquivalent;
 	}
@@ -505,7 +499,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REQUEST_GROUP_ACTION__CODE);
@@ -518,7 +511,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RelatedArtifact> getDocumentation() {
 		if (documentation == null) {
 			documentation = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.REQUEST_GROUP_ACTION__DOCUMENTATION);
@@ -531,7 +523,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RequestGroupCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<RequestGroupCondition>(RequestGroupCondition.class, this, FhirPackage.REQUEST_GROUP_ACTION__CONDITION);
@@ -544,7 +535,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RequestGroupRelatedAction> getRelatedAction() {
 		if (relatedAction == null) {
 			relatedAction = new EObjectContainmentEList<RequestGroupRelatedAction>(RequestGroupRelatedAction.class, this, FhirPackage.REQUEST_GROUP_ACTION__RELATED_ACTION);
@@ -557,7 +547,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -594,6 +583,49 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME, newTimingDateTime, newTimingDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Age getTimingAge() {
+		return timingAge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingAge(Age newTimingAge, NotificationChain msgs) {
+		Age oldTimingAge = timingAge;
+		timingAge = newTimingAge;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE, oldTimingAge, newTimingAge);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingAge(Age newTimingAge) {
+		if (newTimingAge != timingAge) {
+			NotificationChain msgs = null;
+			if (timingAge != null)
+				msgs = ((InternalEObject)timingAge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE, null, msgs);
+			if (newTimingAge != null)
+				msgs = ((InternalEObject)newTimingAge).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE, null, msgs);
+			msgs = basicSetTimingAge(newTimingAge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE, newTimingAge, newTimingAge));
 	}
 
 	/**
@@ -773,7 +805,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP_ACTION__PARTICIPANT);
@@ -829,7 +860,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionGroupingBehaviorImplAdapter.class)
 	public ActionGroupingBehavior getGroupingBehavior() {
 		return groupingBehavior;
 	}
@@ -873,7 +903,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionSelectionBehaviorImplAdapter.class)
 	public ActionSelectionBehavior getSelectionBehavior() {
 		return selectionBehavior;
 	}
@@ -917,7 +946,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionRequiredBehaviorImplAdapter.class)
 	public ActionRequiredBehavior getRequiredBehavior() {
 		return requiredBehavior;
 	}
@@ -961,7 +989,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionPrecheckBehaviorImplAdapter.class)
 	public ActionPrecheckBehavior getPrecheckBehavior() {
 		return precheckBehavior;
 	}
@@ -1005,7 +1032,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionCardinalityBehaviorImplAdapter.class)
 	public ActionCardinalityBehavior getCardinalityBehavior() {
 		return cardinalityBehavior;
 	}
@@ -1092,7 +1118,6 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RequestGroupAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<RequestGroupAction>(RequestGroupAction.class, this, FhirPackage.REQUEST_GROUP_ACTION__ACTION);
@@ -1108,8 +1133,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
-				return basicSetLabel(null, msgs);
+			case FhirPackage.REQUEST_GROUP_ACTION__PREFIX:
+				return basicSetPrefix(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
 				return basicSetTitle(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__DESCRIPTION:
@@ -1126,6 +1151,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return ((InternalEList<?>)getRelatedAction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME:
 				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE:
+				return basicSetTimingAge(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_PERIOD:
 				return basicSetTimingPeriod(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DURATION:
@@ -1164,8 +1191,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
-				return getLabel();
+			case FhirPackage.REQUEST_GROUP_ACTION__PREFIX:
+				return getPrefix();
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
 				return getTitle();
 			case FhirPackage.REQUEST_GROUP_ACTION__DESCRIPTION:
@@ -1182,6 +1209,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return getRelatedAction();
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME:
 				return getTimingDateTime();
+			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE:
+				return getTimingAge();
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_PERIOD:
 				return getTimingPeriod();
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DURATION:
@@ -1221,8 +1250,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
-				setLabel((org.hl7.fhir.String)newValue);
+			case FhirPackage.REQUEST_GROUP_ACTION__PREFIX:
+				setPrefix((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
@@ -1251,6 +1280,9 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE:
+				setTimingAge((Age)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_PERIOD:
 				setTimingPeriod((Period)newValue);
@@ -1305,8 +1337,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
-				setLabel((org.hl7.fhir.String)null);
+			case FhirPackage.REQUEST_GROUP_ACTION__PREFIX:
+				setPrefix((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
 				setTitle((org.hl7.fhir.String)null);
@@ -1331,6 +1363,9 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)null);
+				return;
+			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE:
+				setTimingAge((Age)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_PERIOD:
 				setTimingPeriod((Period)null);
@@ -1383,8 +1418,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.REQUEST_GROUP_ACTION__LABEL:
-				return label != null;
+			case FhirPackage.REQUEST_GROUP_ACTION__PREFIX:
+				return prefix != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__TITLE:
 				return title != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__DESCRIPTION:
@@ -1401,6 +1436,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return relatedAction != null && !relatedAction.isEmpty();
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DATE_TIME:
 				return timingDateTime != null;
+			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_AGE:
+				return timingAge != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_PERIOD:
 				return timingPeriod != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__TIMING_DURATION:

@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,8 +16,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.RiskAssessmentPrediction;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,8 +37,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RiskAssessmentPrediction", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RiskAssessmentPrediction")
 public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements RiskAssessmentPrediction {
 	/**
 	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
@@ -151,7 +142,6 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getOutcome() {
 		return outcome;
 	}
@@ -195,7 +185,6 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getProbabilityDecimal() {
 		return probabilityDecimal;
 	}
@@ -325,7 +314,6 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getRelativeRisk() {
 		return relativeRisk;
 	}
@@ -455,7 +443,6 @@ public class RiskAssessmentPredictionImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getRationale() {
 		return rationale;
 	}

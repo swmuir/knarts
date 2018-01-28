@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EligibilityResponseFinancialImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.EligibilityResponseFinancialImplAdapter;
  * @model extendedMetaData="name='EligibilityResponse.Financial' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EligibilityResponseFinancialImplAdapter.class)
 public interface EligibilityResponseFinancial extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

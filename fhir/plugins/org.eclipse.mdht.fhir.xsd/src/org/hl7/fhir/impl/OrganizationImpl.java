@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,8 +25,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Organization;
 import org.hl7.fhir.OrganizationContact;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,8 +48,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Organization", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Organization")
 public class OrganizationImpl extends DomainResourceImpl implements Organization {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -182,7 +173,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ORGANIZATION__IDENTIFIER);
@@ -195,7 +185,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -239,7 +228,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ORGANIZATION__TYPE);
@@ -252,7 +240,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -296,8 +283,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getAlias() {
 		if (alias == null) {
 			alias = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.ORGANIZATION__ALIAS);
@@ -310,7 +295,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.ORGANIZATION__TELECOM);
@@ -323,7 +307,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Address> getAddress() {
 		if (address == null) {
 			address = new EObjectContainmentEList<Address>(Address.class, this, FhirPackage.ORGANIZATION__ADDRESS);
@@ -379,7 +362,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<OrganizationContact> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<OrganizationContact>(OrganizationContact.class, this, FhirPackage.ORGANIZATION__CONTACT);
@@ -392,7 +374,6 @@ public class OrganizationImpl extends DomainResourceImpl implements Organization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ORGANIZATION__ENDPOINT);

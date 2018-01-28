@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.StructureMapSourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +57,14 @@ import org.hl7.fhir.jaxb.StructureMapSourceImplAdapter;
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueSampledData <em>Default Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueSignature <em>Default Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueTiming <em>Default Value Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueContributor <em>Default Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUsageContext <em>Default Value Usage Context</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueMeta <em>Default Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getElement <em>Element</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getListMode <em>List Mode</em>}</li>
@@ -72,7 +77,6 @@ import org.hl7.fhir.jaxb.StructureMapSourceImplAdapter;
  * @model extendedMetaData="name='StructureMap.Source' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureMapSourceImplAdapter.class)
 public interface StructureMapSource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
@@ -1176,6 +1180,222 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setDefaultValueTiming(Timing value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #setDefaultValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getDefaultValueDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #getDefaultValueDosage()
+	 * @generated
+	 */
+	void setDefaultValueDosage(Dosage value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Contact Detail</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Contact Detail</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Contact Detail</em>' containment reference.
+	 * @see #setDefaultValueContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueContactDetail()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueContactDetail' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ContactDetail getDefaultValueContactDetail();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Contact Detail</em>' containment reference.
+	 * @see #getDefaultValueContactDetail()
+	 * @generated
+	 */
+	void setDefaultValueContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Contributor</em>' containment reference.
+	 * @see #setDefaultValueContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getDefaultValueContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueContributor <em>Default Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Contributor</em>' containment reference.
+	 * @see #getDefaultValueContributor()
+	 * @generated
+	 */
+	void setDefaultValueContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Data Requirement</em>' containment reference.
+	 * @see #setDefaultValueDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getDefaultValueDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Data Requirement</em>' containment reference.
+	 * @see #getDefaultValueDataRequirement()
+	 * @generated
+	 */
+	void setDefaultValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Parameter Definition</em>' containment reference.
+	 * @see #setDefaultValueParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getDefaultValueParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Parameter Definition</em>' containment reference.
+	 * @see #getDefaultValueParameterDefinition()
+	 * @generated
+	 */
+	void setDefaultValueParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Related Artifact</em>' containment reference.
+	 * @see #setDefaultValueRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getDefaultValueRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Related Artifact</em>' containment reference.
+	 * @see #getDefaultValueRelatedArtifact()
+	 * @generated
+	 */
+	void setDefaultValueRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Trigger Definition</em>' containment reference.
+	 * @see #setDefaultValueTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getDefaultValueTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Trigger Definition</em>' containment reference.
+	 * @see #getDefaultValueTriggerDefinition()
+	 * @generated
+	 */
+	void setDefaultValueTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Usage Context</em>' containment reference.
+	 * @see #setDefaultValueUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getDefaultValueUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueUsageContext <em>Default Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Usage Context</em>' containment reference.
+	 * @see #getDefaultValueUsageContext()
+	 * @generated
+	 */
+	void setDefaultValueUsageContext(UsageContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Meta</b></em>' containment reference.

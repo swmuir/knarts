@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureReportImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +22,7 @@ import org.hl7.fhir.jaxb.MeasureReportImplAdapter;
  *   <li>{@link org.hl7.fhir.MeasureReport#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getMeasure <em>Measure</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureReport#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReport#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getReportingOrganization <em>Reporting Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getPeriod <em>Period</em>}</li>
@@ -37,7 +34,6 @@ import org.hl7.fhir.jaxb.MeasureReportImplAdapter;
  * @model extendedMetaData="name='MeasureReport' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportImplAdapter.class)
 public interface MeasureReport extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -96,7 +92,7 @@ public interface MeasureReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
+	 * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(MeasureReportType)
@@ -144,30 +140,30 @@ public interface MeasureReport extends DomainResource {
 	void setMeasure(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Optional Patient if the report was requested for a single patient.
+	 * Optional subject identifying the individual or individuals the report is for.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_Patient()
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_Subject()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Reference getSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getSubject <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.

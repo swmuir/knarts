@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DurationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +18,5 @@ import org.hl7.fhir.jaxb.DurationImplAdapter;
  * @model extendedMetaData="name='Duration' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DurationImplAdapter.class)
 public interface Duration extends Quantity {
 } // Duration

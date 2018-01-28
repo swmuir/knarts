@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,9 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.StructureMapModelMode;
 import org.hl7.fhir.StructureMapStructure;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.StructureMapModelModeImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,8 +31,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapStructure", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapStructure")
 public class StructureMapStructureImpl extends BackboneElementImpl implements StructureMapStructure {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -106,8 +96,6 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -151,8 +139,6 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StructureMapModelModeImplAdapter.class)
-	@XmlElement(required = true)
 	public StructureMapModelMode getMode() {
 		return mode;
 	}
@@ -196,7 +182,6 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAlias() {
 		return alias;
 	}
@@ -240,7 +225,6 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}

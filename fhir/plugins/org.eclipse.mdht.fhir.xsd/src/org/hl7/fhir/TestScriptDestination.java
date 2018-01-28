@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestScriptDestinationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.TestScriptDestinationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.TestScriptDestinationImplAdapter;
  * @model extendedMetaData="name='TestScript.Destination' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptDestinationImplAdapter.class)
 public interface TestScriptDestination extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Index</b></em>' containment reference.

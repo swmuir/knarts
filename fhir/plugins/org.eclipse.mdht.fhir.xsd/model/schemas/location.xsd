@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -119,6 +119,16 @@
               <xs:documentation xml:lang="en">Another Location which this Location is physically part of.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="hoursOfOperation" type="Location.HoursOfOperation" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">What days/times during a week is this location usually open.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="availabilityExceptions" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="endpoint" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Technical endpoints providing access to services operated for the location.</xs:documentation>
@@ -148,6 +158,37 @@
           <xs:element name="altitude" minOccurs="0" maxOccurs="1" type="decimal">
             <xs:annotation>
               <xs:documentation xml:lang="en">Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Location.HoursOfOperation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="daysOfWeek" minOccurs="0" maxOccurs="unbounded" type="DaysOfWeek">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates which days of the week are available between the start and end Times.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="allDay" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The Location is open all day.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="openingTime" minOccurs="0" maxOccurs="1" type="time">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Time that the Location opens.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="closingTime" minOccurs="0" maxOccurs="1" type="time">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Time that the Location closes.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>

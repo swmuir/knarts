@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AuditEventNetworkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AuditEventNetworkImplAdapter;
  * @model extendedMetaData="name='AuditEvent.Network' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventNetworkImplAdapter.class)
 public interface AuditEventNetwork extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ElementDefinitionBindingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.ElementDefinitionBindingImplAdapter;
  * @model extendedMetaData="name='ElementDefinition.Binding' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ElementDefinitionBindingImplAdapter.class)
 public interface ElementDefinitionBinding extends Element {
 	/**
 	 * Returns the value of the '<em><b>Strength</b></em>' containment reference.

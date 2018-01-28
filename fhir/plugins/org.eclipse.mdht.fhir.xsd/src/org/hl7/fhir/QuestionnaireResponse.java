@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.QuestionnaireResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +20,7 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getBasedOn <em>Based On</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSubject <em>Subject</em>}</li>
@@ -38,7 +35,6 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseImplAdapter;
  * @model extendedMetaData="name='QuestionnaireResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(QuestionnaireResponseImplAdapter.class)
 public interface QuestionnaireResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -72,7 +68,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ProcedureRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.
+	 * The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_BasedOn()
@@ -83,20 +79,20 @@ public interface QuestionnaireResponse extends DomainResource {
 	EList<Reference> getBasedOn();
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Parent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Parent()
+	 * @return the value of the '<em>Part Of</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_PartOf()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getParent();
+	EList<Reference> getPartOf();
 
 	/**
 	 * Returns the value of the '<em><b>Questionnaire</b></em>' containment reference.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EligibilityResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +29,8 @@ import org.hl7.fhir.jaxb.EligibilityResponseImplAdapter;
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getInforce <em>Inforce</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getInsurance <em>Insurance</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getPreAuthRef <em>Pre Auth Ref</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityResponse#getAuthorization <em>Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityResponse#getError <em>Error</em>}</li>
  * </ul>
@@ -40,7 +39,6 @@ import org.hl7.fhir.jaxb.EligibilityResponseImplAdapter;
  * @model extendedMetaData="name='EligibilityResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EligibilityResponseImplAdapter.class)
 public interface EligibilityResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -196,13 +194,13 @@ public interface EligibilityResponse extends DomainResource {
 	 * Transaction status: error, complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
+	 * @see #setOutcome(RemittanceOutcome)
 	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOutcome();
+	RemittanceOutcome getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -212,7 +210,7 @@ public interface EligibilityResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(CodeableConcept value);
+	void setOutcome(RemittanceOutcome value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.
@@ -307,6 +305,48 @@ public interface EligibilityResponse extends DomainResource {
 	 * @generated
 	 */
 	EList<EligibilityResponseInsurance> getInsurance();
+
+	/**
+	 * Returns the value of the '<em><b>Pre Auth Ref</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference from the Insurer to which these services pertain.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pre Auth Ref</em>' containment reference.
+	 * @see #setPreAuthRef(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_PreAuthRef()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='preAuthRef' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPreAuthRef();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EligibilityResponse#getPreAuthRef <em>Pre Auth Ref</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pre Auth Ref</em>' containment reference.
+	 * @see #getPreAuthRef()
+	 * @generated
+	 */
+	void setPreAuthRef(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Authorization</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EligibilityResponseAuthorization}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of billable services for which an authorization prior to service delivery may be required by the payor.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authorization</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityResponse_Authorization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authorization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EligibilityResponseAuthorization> getAuthorization();
 
 	/**
 	 * Returns the value of the '<em><b>Form</b></em>' containment reference.

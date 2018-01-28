@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -35,8 +31,6 @@ import org.hl7.fhir.StructureDefinitionSnapshot;
  *
  * @generated
  */
-@XmlType(name = "StructureDefinitionSnapshot", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureDefinitionSnapshot")
 public class StructureDefinitionSnapshotImpl extends BackboneElementImpl implements StructureDefinitionSnapshot {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
@@ -72,7 +66,6 @@ public class StructureDefinitionSnapshotImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<ElementDefinition> getElement() {
 		if (element == null) {
 			element = new EObjectContainmentEList<ElementDefinition>(ElementDefinition.class, this, FhirPackage.STRUCTURE_DEFINITION_SNAPSHOT__ELEMENT);

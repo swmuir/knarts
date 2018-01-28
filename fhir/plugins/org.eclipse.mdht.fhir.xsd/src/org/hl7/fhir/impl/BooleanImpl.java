@@ -4,9 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.lang.Boolean;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
-@XmlType(name = "Boolean", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Boolean")
 public class BooleanImpl extends ElementImpl implements org.hl7.fhir.Boolean {
 	/**
 	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.

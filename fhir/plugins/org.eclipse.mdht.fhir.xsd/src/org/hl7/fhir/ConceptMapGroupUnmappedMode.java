@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConceptMapGroupUnmappedModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConceptMapGroupUnmappedModeImplAdapter;
  * @model extendedMetaData="name='ConceptMapGroupUnmappedMode' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConceptMapGroupUnmappedModeImplAdapter.class)
 public interface ConceptMapGroupUnmappedMode extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

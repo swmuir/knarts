@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationBatch;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +28,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MedicationBatch", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MedicationBatch")
 public class MedicationBatchImpl extends BackboneElementImpl implements MedicationBatch {
 	/**
 	 * The cached value of the '{@link #getLotNumber() <em>Lot Number</em>}' containment reference.
@@ -81,7 +73,6 @@ public class MedicationBatchImpl extends BackboneElementImpl implements Medicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLotNumber() {
 		return lotNumber;
 	}
@@ -125,7 +116,6 @@ public class MedicationBatchImpl extends BackboneElementImpl implements Medicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getExpirationDate() {
 		return expirationDate;
 	}

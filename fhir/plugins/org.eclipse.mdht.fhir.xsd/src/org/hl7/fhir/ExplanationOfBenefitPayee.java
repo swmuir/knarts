@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExplanationOfBenefitPayeeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitPayeeImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResourceType <em>Resource Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getParty <em>Party</em>}</li>
  * </ul>
  *
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitPayeeImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.Payee' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitPayeeImplAdapter.class)
 public interface ExplanationOfBenefitPayee extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -57,30 +53,30 @@ public interface ExplanationOfBenefitPayee extends BackboneElement {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Resource Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * organization | patient | practitioner | relatedperson.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Resource Type</em>' containment reference.
-	 * @see #setResourceType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_ResourceType()
+	 * @return the value of the '<em>Resource</em>' containment reference.
+	 * @see #setResource(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_Resource()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='resourceType' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getResourceType();
+	Coding getResource();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResourceType <em>Resource Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResource <em>Resource</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Type</em>' containment reference.
-	 * @see #getResourceType()
+	 * @param value the new value of the '<em>Resource</em>' containment reference.
+	 * @see #getResource()
 	 * @generated
 	 */
-	void setResourceType(CodeableConcept value);
+	void setResource(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Party</b></em>' containment reference.

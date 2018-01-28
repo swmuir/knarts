@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CapabilityStatementInteraction;
+import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.CapabilityStatementResource;
 import org.hl7.fhir.CapabilityStatementSearchParam;
 import org.hl7.fhir.ConditionalDeleteStatus;
@@ -33,14 +29,6 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferenceHandlingPolicy;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.ConditionalDeleteStatusImplAdapter;
-import org.hl7.fhir.jaxb.ConditionalReadStatusImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.ReferenceHandlingPolicyImplAdapter;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.ResourceVersionPolicyImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +40,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getSupportedProfile <em>Supported Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getVersioning <em>Versioning</em>}</li>
@@ -65,12 +54,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getSearchInclude <em>Search Include</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getSearchRevInclude <em>Search Rev Include</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getSearchParam <em>Search Param</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CapabilityStatementResourceImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "CapabilityStatementResource", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CapabilityStatementResource")
 public class CapabilityStatementResourceImpl extends BackboneElementImpl implements CapabilityStatementResource {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -91,6 +79,16 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * @ordered
 	 */
 	protected Reference profile;
+
+	/**
+	 * The cached value of the '{@link #getSupportedProfile() <em>Supported Profile</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupportedProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> supportedProfile;
 
 	/**
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
@@ -223,6 +221,16 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	protected EList<CapabilityStatementSearchParam> searchParam;
 
 	/**
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CapabilityStatementOperation> operation;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -246,8 +254,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public ResourceType getType() {
 		return type;
 	}
@@ -334,7 +340,18 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
+	public EList<Reference> getSupportedProfile() {
+		if (supportedProfile == null) {
+			supportedProfile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE);
+		}
+		return supportedProfile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Markdown getDocumentation() {
 		return documentation;
 	}
@@ -378,7 +395,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<CapabilityStatementInteraction> getInteraction() {
 		if (interaction == null) {
 			interaction = new EObjectContainmentEList<CapabilityStatementInteraction>(CapabilityStatementInteraction.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__INTERACTION);
@@ -391,7 +407,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceVersionPolicyImplAdapter.class)
 	public ResourceVersionPolicy getVersioning() {
 		return versioning;
 	}
@@ -435,7 +450,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getReadHistory() {
 		return readHistory;
 	}
@@ -479,7 +493,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getUpdateCreate() {
 		return updateCreate;
 	}
@@ -523,7 +536,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getConditionalCreate() {
 		return conditionalCreate;
 	}
@@ -567,7 +579,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConditionalReadStatusImplAdapter.class)
 	public ConditionalReadStatus getConditionalRead() {
 		return conditionalRead;
 	}
@@ -611,7 +622,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getConditionalUpdate() {
 		return conditionalUpdate;
 	}
@@ -655,7 +665,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConditionalDeleteStatusImplAdapter.class)
 	public ConditionalDeleteStatus getConditionalDelete() {
 		return conditionalDelete;
 	}
@@ -699,8 +708,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ReferenceHandlingPolicyImplAdapter.class)
-	@XmlElement
 	public EList<ReferenceHandlingPolicy> getReferencePolicy() {
 		if (referencePolicy == null) {
 			referencePolicy = new EObjectContainmentEList<ReferenceHandlingPolicy>(ReferenceHandlingPolicy.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__REFERENCE_POLICY);
@@ -713,8 +720,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getSearchInclude() {
 		if (searchInclude == null) {
 			searchInclude = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_INCLUDE);
@@ -727,8 +732,6 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getSearchRevInclude() {
 		if (searchRevInclude == null) {
 			searchRevInclude = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_REV_INCLUDE);
@@ -741,12 +744,23 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CapabilityStatementSearchParam> getSearchParam() {
 		if (searchParam == null) {
 			searchParam = new EObjectContainmentEList<CapabilityStatementSearchParam>(CapabilityStatementSearchParam.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM);
 		}
 		return searchParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CapabilityStatementOperation> getOperation() {
+		if (operation == null) {
+			operation = new EObjectContainmentEList<CapabilityStatementOperation>(CapabilityStatementOperation.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION);
+		}
+		return operation;
 	}
 
 	/**
@@ -761,6 +775,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return basicSetType(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				return basicSetProfile(null, msgs);
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
+				return ((InternalEList<?>)getSupportedProfile()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				return basicSetDocumentation(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__INTERACTION:
@@ -787,6 +803,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return ((InternalEList<?>)getSearchRevInclude()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM:
 				return ((InternalEList<?>)getSearchParam()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION:
+				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -803,6 +821,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return getType();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				return getProfile();
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
+				return getSupportedProfile();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				return getDocumentation();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__INTERACTION:
@@ -829,6 +849,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return getSearchRevInclude();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM:
 				return getSearchParam();
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION:
+				return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -847,6 +869,10 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				setProfile((Reference)newValue);
+				return;
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
+				getSupportedProfile().clear();
+				getSupportedProfile().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				setDocumentation((Markdown)newValue);
@@ -892,6 +918,10 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				getSearchParam().clear();
 				getSearchParam().addAll((Collection<? extends CapabilityStatementSearchParam>)newValue);
 				return;
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION:
+				getOperation().clear();
+				getOperation().addAll((Collection<? extends CapabilityStatementOperation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -909,6 +939,9 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				setProfile((Reference)null);
+				return;
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
+				getSupportedProfile().clear();
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				setDocumentation((Markdown)null);
@@ -949,6 +982,9 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM:
 				getSearchParam().clear();
 				return;
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION:
+				getOperation().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -965,6 +1001,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return type != null;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
 				return profile != null;
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
+				return supportedProfile != null && !supportedProfile.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				return documentation != null;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__INTERACTION:
@@ -991,6 +1029,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 				return searchRevInclude != null && !searchRevInclude.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SEARCH_PARAM:
 				return searchParam != null && !searchParam.isEmpty();
+			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__OPERATION:
+				return operation != null && !operation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

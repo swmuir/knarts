@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.LocationModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.LocationModeImplAdapter;
  * @model extendedMetaData="name='LocationMode' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(LocationModeImplAdapter.class)
 public interface LocationMode extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

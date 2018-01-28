@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ClaimProcessingCodes;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.ExplanationOfBenefit;
@@ -45,10 +41,6 @@ import org.hl7.fhir.Money;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.ExplanationOfBenefitStatusImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,8 +93,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefit", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefit")
 public class ExplanationOfBenefitImpl extends DomainResourceImpl implements ExplanationOfBenefit {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -262,7 +252,7 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected ClaimProcessingCodes outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -518,7 +508,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__IDENTIFIER);
@@ -531,7 +520,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ExplanationOfBenefitStatusImplAdapter.class)
 	public ExplanationOfBenefitStatus getStatus() {
 		return status;
 	}
@@ -618,7 +606,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSubType() {
 		if (subType == null) {
 			subType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__SUB_TYPE);
@@ -717,7 +704,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -1105,7 +1091,7 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public ClaimProcessingCodes getOutcome() {
 		return outcome;
 	}
 
@@ -1114,8 +1100,8 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(ClaimProcessingCodes newOutcome, NotificationChain msgs) {
+		ClaimProcessingCodes oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT__OUTCOME, oldOutcome, newOutcome);
@@ -1129,7 +1115,7 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(ClaimProcessingCodes newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -1148,7 +1134,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -1192,7 +1177,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitRelated> getRelated() {
 		if (related == null) {
 			related = new EObjectContainmentEList<ExplanationOfBenefitRelated>(ExplanationOfBenefitRelated.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__RELATED);
@@ -1334,7 +1318,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitInformation> getInformation() {
 		if (information == null) {
 			information = new EObjectContainmentEList<ExplanationOfBenefitInformation>(ExplanationOfBenefitInformation.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__INFORMATION);
@@ -1347,7 +1330,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitCareTeam> getCareTeam() {
 		if (careTeam == null) {
 			careTeam = new EObjectContainmentEList<ExplanationOfBenefitCareTeam>(ExplanationOfBenefitCareTeam.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__CARE_TEAM);
@@ -1360,7 +1342,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitDiagnosis> getDiagnosis() {
 		if (diagnosis == null) {
 			diagnosis = new EObjectContainmentEList<ExplanationOfBenefitDiagnosis>(ExplanationOfBenefitDiagnosis.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__DIAGNOSIS);
@@ -1373,7 +1354,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitProcedure> getProcedure() {
 		if (procedure == null) {
 			procedure = new EObjectContainmentEList<ExplanationOfBenefitProcedure>(ExplanationOfBenefitProcedure.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__PROCEDURE);
@@ -1386,7 +1366,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getPrecedence() {
 		return precedence;
 	}
@@ -1602,7 +1581,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ExplanationOfBenefitItem>(ExplanationOfBenefitItem.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__ITEM);
@@ -1615,7 +1593,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitAddItem> getAddItem() {
 		if (addItem == null) {
 			addItem = new EObjectContainmentEList<ExplanationOfBenefitAddItem>(ExplanationOfBenefitAddItem.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__ADD_ITEM);
@@ -1843,7 +1820,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitProcessNote> getProcessNote() {
 		if (processNote == null) {
 			processNote = new EObjectContainmentEList<ExplanationOfBenefitProcessNote>(ExplanationOfBenefitProcessNote.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__PROCESS_NOTE);
@@ -1856,7 +1832,6 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitBenefitBalance> getBenefitBalance() {
 		if (benefitBalance == null) {
 			benefitBalance = new EObjectContainmentEList<ExplanationOfBenefitBenefitBalance>(ExplanationOfBenefitBenefitBalance.class, this, FhirPackage.EXPLANATION_OF_BENEFIT__BENEFIT_BALANCE);
@@ -2101,7 +2076,7 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				setClaimResponse((Reference)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((ClaimProcessingCodes)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -2239,7 +2214,7 @@ public class ExplanationOfBenefitImpl extends DomainResourceImpl implements Expl
 				setClaimResponse((Reference)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((ClaimProcessingCodes)null);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);

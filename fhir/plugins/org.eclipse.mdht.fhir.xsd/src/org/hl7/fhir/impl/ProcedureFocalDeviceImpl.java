@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,8 +29,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "ProcedureFocalDevice", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ProcedureFocalDevice")
 public class ProcedureFocalDeviceImpl extends BackboneElementImpl implements ProcedureFocalDevice {
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
@@ -123,7 +117,6 @@ public class ProcedureFocalDeviceImpl extends BackboneElementImpl implements Pro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getManipulated() {
 		return manipulated;
 	}

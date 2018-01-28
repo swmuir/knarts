@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -241,7 +241,7 @@
               <xs:documentation xml:lang="en">Type of Party to be reimbursed: Subscriber, provider, other.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="resourceType" minOccurs="0" maxOccurs="1" type="Coding">
+          <xs:element name="resource" minOccurs="0" maxOccurs="1" type="Coding">
             <xs:annotation>
               <xs:documentation xml:lang="en">organization | patient | practitioner | relatedperson.</xs:documentation>
            </xs:annotation>
@@ -416,6 +416,11 @@
               <xs:documentation xml:lang="en">A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The business identifier for the instance: claim number, pre-determination or pre-authorization number.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="coverage" minOccurs="1" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Reference to the program or plan identification, underwriter or payor.</xs:documentation>
@@ -480,22 +485,22 @@
               <xs:documentation xml:lang="en">A service line number.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="careTeamLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="careTeamSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">CareTeam applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="diagnosisLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="diagnosisSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Diagnosis applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="procedureLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="procedureSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Procedures applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="informationLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="informationSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Exceptions, special conditions and supporting information pplicable for this service or product line.</xs:documentation>
            </xs:annotation>

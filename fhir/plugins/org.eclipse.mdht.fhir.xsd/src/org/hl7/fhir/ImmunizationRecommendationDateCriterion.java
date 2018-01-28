@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ImmunizationRecommendationDateCriterionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationDateCriterionImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+ * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationDateCriterionImplAdapter;
  * @model extendedMetaData="name='ImmunizationRecommendation.DateCriterion' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImmunizationRecommendationDateCriterionImplAdapter.class)
 public interface ImmunizationRecommendationDateCriterion extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

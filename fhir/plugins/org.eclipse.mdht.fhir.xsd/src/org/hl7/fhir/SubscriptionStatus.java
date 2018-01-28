@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SubscriptionStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SubscriptionStatusImplAdapter;
  * @model extendedMetaData="name='SubscriptionStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SubscriptionStatusImplAdapter.class)
 public interface SubscriptionStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

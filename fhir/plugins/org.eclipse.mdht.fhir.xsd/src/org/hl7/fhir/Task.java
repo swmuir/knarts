@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TaskImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,8 +19,8 @@ import org.hl7.fhir.jaxb.TaskImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Task#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Task#getDefinitionUri <em>Definition Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.Task#getDefinitionReference <em>Definition Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getInstantiatesUri <em>Instantiates Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getInstantiatesReference <em>Instantiates Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getPartOf <em>Part Of</em>}</li>
@@ -43,7 +40,8 @@ import org.hl7.fhir.jaxb.TaskImplAdapter;
  *   <li>{@link org.hl7.fhir.Task#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getOwner <em>Owner</em>}</li>
- *   <li>{@link org.hl7.fhir.Task#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getRelevantHistory <em>Relevant History</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getRestriction <em>Restriction</em>}</li>
@@ -55,7 +53,6 @@ import org.hl7.fhir.jaxb.TaskImplAdapter;
  * @model extendedMetaData="name='Task' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TaskImplAdapter.class)
 public interface Task extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -74,58 +71,58 @@ public interface Task extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Definition Uri</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Instantiates Uri</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Definition Uri</em>' containment reference.
-	 * @see #setDefinitionUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getTask_DefinitionUri()
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference.
+	 * @see #setInstantiatesUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getTask_InstantiatesUri()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definitionUri' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getDefinitionUri();
+	Uri getInstantiatesUri();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Task#getDefinitionUri <em>Definition Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getInstantiatesUri <em>Instantiates Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition Uri</em>' containment reference.
-	 * @see #getDefinitionUri()
+	 * @param value the new value of the '<em>Instantiates Uri</em>' containment reference.
+	 * @see #getInstantiatesUri()
 	 * @generated
 	 */
-	void setDefinitionUri(Uri value);
+	void setInstantiatesUri(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Definition Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Instantiates Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Definition Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Instantiates Reference</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Definition Reference</em>' containment reference.
-	 * @see #setDefinitionReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTask_DefinitionReference()
+	 * @return the value of the '<em>Instantiates Reference</em>' containment reference.
+	 * @see #setInstantiatesReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTask_InstantiatesReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definitionReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinitionReference();
+	Reference getInstantiatesReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Task#getDefinitionReference <em>Definition Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getInstantiatesReference <em>Instantiates Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition Reference</em>' containment reference.
-	 * @see #getDefinitionReference()
+	 * @param value the new value of the '<em>Instantiates Reference</em>' containment reference.
+	 * @see #getInstantiatesReference()
 	 * @generated
 	 */
-	void setDefinitionReference(Reference value);
+	void setInstantiatesReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -133,7 +130,7 @@ public interface Task extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
+	 * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTask_BasedOn()
@@ -531,13 +528,13 @@ public interface Task extends DomainResource {
 	 * The creator of the task.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(TaskRequester)
+	 * @see #setRequester(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getTask_Requester()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	TaskRequester getRequester();
+	Reference getRequester();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Task#getRequester <em>Requester</em>}' containment reference.
@@ -547,7 +544,7 @@ public interface Task extends DomainResource {
 	 * @see #getRequester()
 	 * @generated
 	 */
-	void setRequester(TaskRequester value);
+	void setRequester(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Performer Type</b></em>' containment reference list.
@@ -592,30 +589,56 @@ public interface Task extends DomainResource {
 	void setOwner(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A description or code indicating why this task needs to be performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference.
-	 * @see #setReason(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getTask_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference.
+	 * @see #setReasonCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getTask_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReason();
+	CodeableConcept getReasonCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Task#getReason <em>Reason</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getReasonCode <em>Reason Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason</em>' containment reference.
-	 * @see #getReason()
+	 * @param value the new value of the '<em>Reason Code</em>' containment reference.
+	 * @see #getReasonCode()
 	 * @generated
 	 */
-	void setReason(CodeableConcept value);
+	void setReasonCode(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A resource reference indicating why this task needs to be performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference.
+	 * @see #setReasonReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTask_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getReasonReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getReasonReference <em>Reason Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
+	 * @see #getReasonReference()
+	 * @generated
+	 */
+	void setReasonReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

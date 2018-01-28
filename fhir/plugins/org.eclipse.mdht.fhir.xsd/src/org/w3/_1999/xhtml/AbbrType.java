@@ -4,10 +4,6 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.AbbrTypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abbr Type</b></em>'.
@@ -30,7 +26,6 @@ import org.w3._1999.xhtml.jaxb.AbbrTypeImplAdapter;
  * @model extendedMetaData="name='abbr_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(AbbrTypeImplAdapter.class)
 public interface AbbrType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

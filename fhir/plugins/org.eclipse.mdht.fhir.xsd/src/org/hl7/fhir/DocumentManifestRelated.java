@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DocumentManifestRelatedImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DocumentManifestRelatedImplAdapter;
  * @model extendedMetaData="name='DocumentManifest.Related' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentManifestRelatedImplAdapter.class)
 public interface DocumentManifestRelated extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -60,7 +56,7 @@ public interface DocumentManifestRelated extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Related Resource to this DocumentManifest. For example, Order, ProcedureRequest,  Procedure, EligibilityRequest, etc.
+	 * Related Resource to this DocumentManifest. For example, Order, ServiceRequest,  Procedure, EligibilityRequest, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Ref</em>' containment reference.
 	 * @see #setRef(Reference)

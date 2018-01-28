@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,9 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasurePopulation;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,28 +22,14 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasurePopulationImpl#getCriteria <em>Criteria</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MeasurePopulation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasurePopulation")
 public class MeasurePopulationImpl extends BackboneElementImpl implements MeasurePopulation {
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier identifier;
-
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -60,16 +39,6 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * @ordered
 	 */
 	protected CodeableConcept code;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String name;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -108,49 +77,6 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMeasurePopulation();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getIdentifier() {
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -201,51 +127,6 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
-		org.hl7.fhir.String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__NAME, oldName, newName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(org.hl7.fhir.String newName) {
-		if (newName != name) {
-			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_POPULATION__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__NAME, newName, newName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -289,8 +170,6 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getCriteria() {
 		return criteria;
 	}
@@ -337,12 +216,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
 			case FhirPackage.MEASURE_POPULATION__CODE:
 				return basicSetCode(null, msgs);
-			case FhirPackage.MEASURE_POPULATION__NAME:
-				return basicSetName(null, msgs);
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.MEASURE_POPULATION__CRITERIA:
@@ -359,12 +234,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
-				return getIdentifier();
 			case FhirPackage.MEASURE_POPULATION__CODE:
 				return getCode();
-			case FhirPackage.MEASURE_POPULATION__NAME:
-				return getName();
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.MEASURE_POPULATION__CRITERIA:
@@ -381,14 +252,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.MEASURE_POPULATION__CODE:
 				setCode((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEASURE_POPULATION__NAME:
-				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -408,14 +273,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
 			case FhirPackage.MEASURE_POPULATION__CODE:
 				setCode((CodeableConcept)null);
-				return;
-			case FhirPackage.MEASURE_POPULATION__NAME:
-				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -435,12 +294,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_POPULATION__IDENTIFIER:
-				return identifier != null;
 			case FhirPackage.MEASURE_POPULATION__CODE:
 				return code != null;
-			case FhirPackage.MEASURE_POPULATION__NAME:
-				return name != null;
 			case FhirPackage.MEASURE_POPULATION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.MEASURE_POPULATION__CRITERIA:

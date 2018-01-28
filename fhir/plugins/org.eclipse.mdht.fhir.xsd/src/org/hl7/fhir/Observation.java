@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ObservationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +20,7 @@ import org.hl7.fhir.jaxb.ObservationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Observation#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getCode <em>Code</em>}</li>
@@ -30,16 +28,17 @@ import org.hl7.fhir.jaxb.ObservationImplAdapter;
  *   <li>{@link org.hl7.fhir.Observation#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectivePeriod <em>Effective Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getEffectiveTiming <em>Effective Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueRange <em>Value Range</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueRatio <em>Value Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueSampledData <em>Value Sampled Data</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getValueAttachment <em>Value Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValuePeriod <em>Value Period</em>}</li>
@@ -51,7 +50,8 @@ import org.hl7.fhir.jaxb.ObservationImplAdapter;
  *   <li>{@link org.hl7.fhir.Observation#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getReferenceRange <em>Reference Range</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getRelated <em>Related</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getHasMember <em>Has Member</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getComponent <em>Component</em>}</li>
  * </ul>
  *
@@ -59,7 +59,6 @@ import org.hl7.fhir.jaxb.ObservationImplAdapter;
  * @model extendedMetaData="name='Observation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ObservationImplAdapter.class)
 public interface Observation extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -92,6 +91,22 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Part Of</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_PartOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getPartOf();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -268,11 +283,38 @@ public interface Observation extends DomainResource {
 	void setEffectivePeriod(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Effective Timing</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective Timing</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective Timing</em>' containment reference.
+	 * @see #setEffectiveTiming(Timing)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_EffectiveTiming()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='effectiveTiming' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Timing getEffectiveTiming();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getEffectiveTiming <em>Effective Timing</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Effective Timing</em>' containment reference.
+	 * @see #getEffectiveTiming()
+	 * @generated
+	 */
+	void setEffectiveTiming(Timing value);
+
+	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
+	 * The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Issued</em>' containment reference.
 	 * @see #setIssued(Instant)
@@ -418,6 +460,33 @@ public interface Observation extends DomainResource {
 	void setValueBoolean(org.hl7.fhir.Boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Value Integer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Integer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Integer</em>' containment reference.
+	 * @see #setValueInteger(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_ValueInteger()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueInteger' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getValueInteger();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getValueInteger <em>Value Integer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Integer</em>' containment reference.
+	 * @see #getValueInteger()
+	 * @generated
+	 */
+	void setValueInteger(org.hl7.fhir.Integer value);
+
+	/**
 	 * Returns the value of the '<em><b>Value Range</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -497,33 +566,6 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	void setValueSampledData(SampledData value);
-
-	/**
-	 * Returns the value of the '<em><b>Value Attachment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Attachment</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Attachment</em>' containment reference.
-	 * @see #setValueAttachment(Attachment)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_ValueAttachment()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueAttachment' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Attachment getValueAttachment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getValueAttachment <em>Value Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Attachment</em>' containment reference.
-	 * @see #getValueAttachment()
-	 * @generated
-	 */
-	void setValueAttachment(Attachment value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Time</b></em>' containment reference.
@@ -805,20 +847,36 @@ public interface Observation extends DomainResource {
 	EList<ObservationReferenceRange> getReferenceRange();
 
 	/**
-	 * Returns the value of the '<em><b>Related</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ObservationRelated}.
+	 * Returns the value of the '<em><b>Has Member</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.
+	 * This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Related</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getObservation_Related()
+	 * @return the value of the '<em>Has Member</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_HasMember()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='related' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='hasMember' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ObservationRelated> getRelated();
+	EList<Reference> getHasMember();
+
+	/**
+	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Derived From</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_DerivedFrom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='derivedFrom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getDerivedFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.

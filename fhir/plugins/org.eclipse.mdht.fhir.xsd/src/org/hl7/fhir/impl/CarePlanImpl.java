@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,9 +27,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CarePlanIntentImplAdapter;
-import org.hl7.fhir.jaxb.CarePlanStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +38,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanImpl#getPartOf <em>Part Of</em>}</li>
@@ -68,8 +61,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CarePlan", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CarePlan")
 public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -82,14 +73,14 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getInstantiates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> definition;
+	protected EList<Uri> instantiates;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -295,7 +286,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CARE_PLAN__IDENTIFIER);
@@ -308,12 +298,11 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__DEFINITION);
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CARE_PLAN__INSTANTIATES);
 		}
-		return definition;
+		return instantiates;
 	}
 
 	/**
@@ -321,7 +310,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__BASED_ON);
@@ -334,7 +322,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__REPLACES);
@@ -347,7 +334,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__PART_OF);
@@ -360,8 +346,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CarePlanStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public CarePlanStatus getStatus() {
 		return status;
 	}
@@ -405,8 +389,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CarePlanIntentImplAdapter.class)
-	@XmlElement(required = true)
 	public CarePlanIntent getIntent() {
 		return intent;
 	}
@@ -450,7 +432,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_PLAN__CATEGORY);
@@ -463,7 +444,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -507,7 +487,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -551,7 +530,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -681,7 +659,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAuthor() {
 		if (author == null) {
 			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__AUTHOR);
@@ -694,7 +671,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getCareTeam() {
 		if (careTeam == null) {
 			careTeam = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__CARE_TEAM);
@@ -707,7 +683,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAddresses() {
 		if (addresses == null) {
 			addresses = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__ADDRESSES);
@@ -720,7 +695,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupportingInfo() {
 		if (supportingInfo == null) {
 			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__SUPPORTING_INFO);
@@ -733,7 +707,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getGoal() {
 		if (goal == null) {
 			goal = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN__GOAL);
@@ -746,7 +719,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CarePlanActivity> getActivity() {
 		if (activity == null) {
 			activity = new EObjectContainmentEList<CarePlanActivity>(CarePlanActivity.class, this, FhirPackage.CARE_PLAN__ACTIVITY);
@@ -759,7 +731,6 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_PLAN__NOTE);
@@ -777,8 +748,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN__REPLACES:
@@ -829,8 +800,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return getDefinition();
+			case FhirPackage.CARE_PLAN__INSTANTIATES:
+				return getInstantiates();
 			case FhirPackage.CARE_PLAN__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.CARE_PLAN__REPLACES:
@@ -884,9 +855,9 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CARE_PLAN__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.CARE_PLAN__BASED_ON:
 				getBasedOn().clear();
@@ -968,8 +939,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				getDefinition().clear();
+			case FhirPackage.CARE_PLAN__INSTANTIATES:
+				getInstantiates().clear();
 				return;
 			case FhirPackage.CARE_PLAN__BASED_ON:
 				getBasedOn().clear();
@@ -1039,8 +1010,8 @@ public class CarePlanImpl extends DomainResourceImpl implements CarePlan {
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.CARE_PLAN__DEFINITION:
-				return definition != null && !definition.isEmpty();
+			case FhirPackage.CARE_PLAN__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
 			case FhirPackage.CARE_PLAN__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.CARE_PLAN__REPLACES:

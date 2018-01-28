@@ -4,10 +4,6 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.H6TypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>H6 Type</b></em>'.
@@ -30,7 +26,6 @@ import org.w3._1999.xhtml.jaxb.H6TypeImplAdapter;
  * @model extendedMetaData="name='h6_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(H6TypeImplAdapter.class)
 public interface H6Type extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DocumentReferenceStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DocumentReferenceStatusImplAdapter;
  * @model extendedMetaData="name='DocumentReferenceStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
 public interface DocumentReferenceStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

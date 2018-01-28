@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DataRequirementDateFilterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.DataRequirementDateFilterImplAdapter;
  * @model extendedMetaData="name='DataRequirement.DateFilter' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DataRequirementDateFilterImplAdapter.class)
 public interface DataRequirementDateFilter extends Element {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.

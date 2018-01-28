@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AppointmentResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +32,6 @@ import org.hl7.fhir.jaxb.AppointmentResponseImplAdapter;
  * @model extendedMetaData="name='AppointmentResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AppointmentResponseImplAdapter.class)
 public interface AppointmentResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

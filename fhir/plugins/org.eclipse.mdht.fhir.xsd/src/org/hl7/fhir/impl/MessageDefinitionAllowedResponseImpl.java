@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.MarkdownImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MessageDefinitionAllowedResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MessageDefinitionAllowedResponse")
 public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl implements MessageDefinitionAllowedResponse {
 	/**
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
@@ -82,7 +74,6 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getMessage() {
 		return message;
 	}
@@ -126,7 +117,6 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getSituation() {
 		return situation;
 	}

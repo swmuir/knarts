@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,9 +25,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +34,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getUserId <em>User Id</em>}</li>
@@ -57,9 +50,17 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AuditEventAgent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEventAgent")
 public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEventAgent {
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept type;
+
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -194,7 +195,49 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CodeableConcept> getRole() {
 		if (role == null) {
 			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT_AGENT__ROLE);
@@ -293,7 +336,6 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAltId() {
 		return altId;
 	}
@@ -337,7 +379,6 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -381,8 +422,6 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getRequestor() {
 		return requestor;
 	}
@@ -469,8 +508,6 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
 	public EList<Uri> getPolicy() {
 		if (policy == null) {
 			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.AUDIT_EVENT_AGENT__POLICY);
@@ -569,7 +606,6 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getPurposeOfUse() {
 		if (purposeOfUse == null) {
 			purposeOfUse = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT_AGENT__PURPOSE_OF_USE);
@@ -585,6 +621,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.AUDIT_EVENT_AGENT__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
 			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
@@ -619,6 +657,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.AUDIT_EVENT_AGENT__TYPE:
+				return getType();
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return getRole();
 			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
@@ -654,6 +694,9 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.AUDIT_EVENT_AGENT__TYPE:
+				setType((CodeableConcept)newValue);
+				return;
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				getRole().clear();
 				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
@@ -702,6 +745,9 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.AUDIT_EVENT_AGENT__TYPE:
+				setType((CodeableConcept)null);
+				return;
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				getRole().clear();
 				return;
@@ -747,6 +793,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.AUDIT_EVENT_AGENT__TYPE:
+				return type != null;
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return role != null && !role.isEmpty();
 			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:

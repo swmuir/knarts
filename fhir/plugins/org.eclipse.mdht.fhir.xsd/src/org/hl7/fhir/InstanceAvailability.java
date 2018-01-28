@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.InstanceAvailabilityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.InstanceAvailabilityImplAdapter;
  * @model extendedMetaData="name='InstanceAvailability' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(InstanceAvailabilityImplAdapter.class)
 public interface InstanceAvailability extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

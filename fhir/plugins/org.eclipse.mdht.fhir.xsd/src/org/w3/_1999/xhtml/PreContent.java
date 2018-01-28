@@ -2,14 +2,11 @@
  */
 package org.w3._1999.xhtml;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.w3._1999.xhtml.jaxb.PreContentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +54,6 @@ import org.w3._1999.xhtml.jaxb.PreContentImplAdapter;
  * @model extendedMetaData="name='pre.content' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(PreContentImplAdapter.class)
 public interface PreContent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.

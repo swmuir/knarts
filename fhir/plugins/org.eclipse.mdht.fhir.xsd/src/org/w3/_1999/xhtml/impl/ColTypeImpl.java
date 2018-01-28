@@ -6,9 +6,6 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -47,8 +44,6 @@ import org.w3._1999.xhtml.XhtmlPackage;
  *
  * @generated
  */
-@XmlType(name = "ColType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "ColType")
 public class ColTypeImpl extends MinimalEObjectImpl.Container implements ColType {
 	/**
 	 * The default value of the '{@link #getAlign() <em>Align</em>}' attribute.

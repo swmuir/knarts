@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -35,8 +31,6 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
-@XmlType(name = "ExpansionProfileExclude", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExpansionProfileExclude")
 public class ExpansionProfileExcludeImpl extends BackboneElementImpl implements ExpansionProfileExclude {
 	/**
 	 * The cached value of the '{@link #getDesignation() <em>Designation</em>}' containment reference list.
@@ -72,7 +66,6 @@ public class ExpansionProfileExcludeImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExpansionProfileDesignation2> getDesignation() {
 		if (designation == null) {
 			designation = new EObjectContainmentEList<ExpansionProfileDesignation2>(ExpansionProfileDesignation2.class, this, FhirPackage.EXPANSION_PROFILE_EXCLUDE__DESIGNATION);

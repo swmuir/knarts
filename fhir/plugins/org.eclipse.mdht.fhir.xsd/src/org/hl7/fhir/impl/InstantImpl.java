@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,8 +26,6 @@ import org.hl7.fhir.Instant;
  *
  * @generated
  */
-@XmlType(name = "Instant", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Instant")
 public class InstantImpl extends ElementImpl implements Instant {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

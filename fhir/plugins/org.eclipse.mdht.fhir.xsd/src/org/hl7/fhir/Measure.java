@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +35,7 @@ import org.hl7.fhir.jaxb.MeasureImplAdapter;
  *   <li>{@link org.hl7.fhir.Measure#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.Measure#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.Measure#getContact <em>Contact</em>}</li>
@@ -64,14 +62,13 @@ import org.hl7.fhir.jaxb.MeasureImplAdapter;
  * @model extendedMetaData="name='Measure' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureImplAdapter.class)
 public interface Measure extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this measure is (or will be) published. The URL SHOULD include the major version of the measure. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this measure is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -477,6 +474,32 @@ public interface Measure extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getJurisdiction();
+
+	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasure_Subject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Measure#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.

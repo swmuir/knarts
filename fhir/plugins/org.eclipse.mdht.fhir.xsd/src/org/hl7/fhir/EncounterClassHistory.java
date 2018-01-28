@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EncounterClassHistoryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.EncounterClassHistoryImplAdapter;
  * @model extendedMetaData="name='Encounter.ClassHistory' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterClassHistoryImplAdapter.class)
 public interface EncounterClassHistory extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' containment reference.

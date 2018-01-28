@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -47,8 +43,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "DocumentReferenceContext", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DocumentReferenceContext")
 public class DocumentReferenceContextImpl extends BackboneElementImpl implements DocumentReferenceContext {
 	/**
 	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
@@ -187,7 +181,6 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__EVENT);
@@ -372,7 +365,6 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DocumentReferenceRelated> getRelated() {
 		if (related == null) {
 			related = new EObjectContainmentEList<DocumentReferenceRelated>(DocumentReferenceRelated.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__RELATED);

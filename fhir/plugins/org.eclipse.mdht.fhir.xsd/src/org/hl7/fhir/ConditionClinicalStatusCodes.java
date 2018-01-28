@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConditionClinicalStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConditionClinicalStatusCodesImplAdapter;
  * @model extendedMetaData="name='ConditionClinicalStatusCodes' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConditionClinicalStatusCodesImplAdapter.class)
 public interface ConditionClinicalStatusCodes extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

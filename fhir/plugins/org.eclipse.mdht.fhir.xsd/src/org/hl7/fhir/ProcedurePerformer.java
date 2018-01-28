@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ProcedurePerformerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ProcedurePerformerImplAdapter;
  * @model extendedMetaData="name='Procedure.Performer' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProcedurePerformerImplAdapter.class)
 public interface ProcedurePerformer extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference.

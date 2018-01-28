@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,7 +17,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +36,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "GoalTarget", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "GoalTarget")
 public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 	/**
 	 * The cached value of the '{@link #getMeasure() <em>Measure</em>}' containment reference.
@@ -300,7 +293,6 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDueDate() {
 		return dueDate;
 	}

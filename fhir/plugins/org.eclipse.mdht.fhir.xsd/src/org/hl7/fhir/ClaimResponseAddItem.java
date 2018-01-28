@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ClaimResponseAddItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,90 +17,68 @@ import org.hl7.fhir.jaxb.ClaimResponseAddItemImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getSequenceLinkId <em>Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getRevenue <em>Revenue</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getItemSequence <em>Item Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getDetailSequence <em>Detail Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getSubdetailSequence <em>Subdetail Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getFee <em>Fee</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getAdjudication <em>Adjudication</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseAddItem#getDetail <em>Detail</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem()
  * @model extendedMetaData="name='ClaimResponse.AddItem' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClaimResponseAddItemImplAdapter.class)
 public interface ClaimResponseAddItem extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Sequence Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Item Sequence</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * List of input service items which this service line is intended to replace.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sequence Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_SequenceLinkId()
+	 * @return the value of the '<em>Item Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_ItemSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sequenceLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='itemSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getSequenceLinkId();
+	EList<PositiveInt> getItemSequence();
 
 	/**
-	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Detail Sequence</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of reveneu or cost center providing the product and/or service.
+	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Revenue</em>' containment reference.
-	 * @see #setRevenue(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_Revenue()
+	 * @return the value of the '<em>Detail Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_DetailSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='revenue' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='detailSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getRevenue();
+	EList<PositiveInt> getDetailSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseAddItem#getRevenue <em>Revenue</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Revenue</em>' containment reference.
-	 * @see #getRevenue()
-	 * @generated
-	 */
-	void setRevenue(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subdetail Sequence</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_Category()
+	 * @return the value of the '<em>Subdetail Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_SubdetailSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subdetailSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseAddItem#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
+	EList<PositiveInt> getSubdetailSequence();
 
 	/**
 	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
@@ -204,21 +179,5 @@ public interface ClaimResponseAddItem extends BackboneElement {
 	 * @generated
 	 */
 	EList<ClaimResponseAdjudication> getAdjudication();
-
-	/**
-	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimResponseDetail1}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The second tier service adjudications for payor added services.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Detail</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseAddItem_Detail()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='detail' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ClaimResponseDetail1> getDetail();
 
 } // ClaimResponseAddItem

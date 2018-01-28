@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SequenceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,13 +33,13 @@ import org.hl7.fhir.jaxb.SequenceImplAdapter;
  *   <li>{@link org.hl7.fhir.Sequence#getReadCoverage <em>Read Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getRepository <em>Repository</em>}</li>
  *   <li>{@link org.hl7.fhir.Sequence#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.hl7.fhir.Sequence#getStructureVariant <em>Structure Variant</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSequence()
  * @model extendedMetaData="name='Sequence' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SequenceImplAdapter.class)
 public interface Sequence extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -383,5 +380,21 @@ public interface Sequence extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getPointer();
+
+	/**
+	 * Returns the value of the '<em><b>Structure Variant</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SequenceStructureVariant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Information about chromosome structure variation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Structure Variant</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSequence_StructureVariant()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='structureVariant' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SequenceStructureVariant> getStructureVariant();
 
 } // Sequence

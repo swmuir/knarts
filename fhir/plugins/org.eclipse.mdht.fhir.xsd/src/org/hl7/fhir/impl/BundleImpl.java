@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,10 +23,9 @@ import org.hl7.fhir.BundleLink;
 import org.hl7.fhir.BundleType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Instant;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.jaxb.BundleTypeImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +37,7 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BundleImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getLink <em>Link</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BundleImpl#getEntry <em>Entry</em>}</li>
@@ -51,8 +46,6 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Bundle", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Bundle")
 public class BundleImpl extends ResourceImpl implements Bundle {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -73,6 +66,16 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * @ordered
 	 */
 	protected BundleType type;
+
+	/**
+	 * The cached value of the '{@link #getTimestamp() <em>Timestamp</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimestamp()
+	 * @generated
+	 * @ordered
+	 */
+	protected Instant timestamp;
 
 	/**
 	 * The cached value of the '{@link #getTotal() <em>Total</em>}' containment reference.
@@ -181,8 +184,6 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BundleTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public BundleType getType() {
 		return type;
 	}
@@ -226,7 +227,49 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
+	public Instant getTimestamp() {
+		return timestamp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimestamp(Instant newTimestamp, NotificationChain msgs) {
+		Instant oldTimestamp = timestamp;
+		timestamp = newTimestamp;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BUNDLE__TIMESTAMP, oldTimestamp, newTimestamp);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimestamp(Instant newTimestamp) {
+		if (newTimestamp != timestamp) {
+			NotificationChain msgs = null;
+			if (timestamp != null)
+				msgs = ((InternalEObject)timestamp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BUNDLE__TIMESTAMP, null, msgs);
+			if (newTimestamp != null)
+				msgs = ((InternalEObject)newTimestamp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BUNDLE__TIMESTAMP, null, msgs);
+			msgs = basicSetTimestamp(newTimestamp, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BUNDLE__TIMESTAMP, newTimestamp, newTimestamp));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UnsignedInt getTotal() {
 		return total;
 	}
@@ -270,7 +313,6 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<BundleLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<BundleLink>(BundleLink.class, this, FhirPackage.BUNDLE__LINK);
@@ -283,7 +325,6 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<BundleEntry> getEntry() {
 		if (entry == null) {
 			entry = new EObjectContainmentEList<BundleEntry>(BundleEntry.class, this, FhirPackage.BUNDLE__ENTRY);
@@ -346,6 +387,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 				return basicSetIdentifier(null, msgs);
 			case FhirPackage.BUNDLE__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.BUNDLE__TIMESTAMP:
+				return basicSetTimestamp(null, msgs);
 			case FhirPackage.BUNDLE__TOTAL:
 				return basicSetTotal(null, msgs);
 			case FhirPackage.BUNDLE__LINK:
@@ -370,6 +413,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 				return getIdentifier();
 			case FhirPackage.BUNDLE__TYPE:
 				return getType();
+			case FhirPackage.BUNDLE__TIMESTAMP:
+				return getTimestamp();
 			case FhirPackage.BUNDLE__TOTAL:
 				return getTotal();
 			case FhirPackage.BUNDLE__LINK:
@@ -396,6 +441,9 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 				return;
 			case FhirPackage.BUNDLE__TYPE:
 				setType((BundleType)newValue);
+				return;
+			case FhirPackage.BUNDLE__TIMESTAMP:
+				setTimestamp((Instant)newValue);
 				return;
 			case FhirPackage.BUNDLE__TOTAL:
 				setTotal((UnsignedInt)newValue);
@@ -429,6 +477,9 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 			case FhirPackage.BUNDLE__TYPE:
 				setType((BundleType)null);
 				return;
+			case FhirPackage.BUNDLE__TIMESTAMP:
+				setTimestamp((Instant)null);
+				return;
 			case FhirPackage.BUNDLE__TOTAL:
 				setTotal((UnsignedInt)null);
 				return;
@@ -457,6 +508,8 @@ public class BundleImpl extends ResourceImpl implements Bundle {
 				return identifier != null;
 			case FhirPackage.BUNDLE__TYPE:
 				return type != null;
+			case FhirPackage.BUNDLE__TIMESTAMP:
+				return timestamp != null;
 			case FhirPackage.BUNDLE__TOTAL:
 				return total != null;
 			case FhirPackage.BUNDLE__LINK:

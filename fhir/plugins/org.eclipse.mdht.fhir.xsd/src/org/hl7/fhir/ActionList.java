@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ActionListImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ActionListImplAdapter;
  * @model extendedMetaData="name='ActionList' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ActionListImplAdapter.class)
 public interface ActionList extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

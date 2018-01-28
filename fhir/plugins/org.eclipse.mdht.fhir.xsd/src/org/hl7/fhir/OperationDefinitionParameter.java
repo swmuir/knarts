@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.OperationDefinitionParameterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +23,8 @@ import org.hl7.fhir.jaxb.OperationDefinitionParameterImplAdapter;
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getMax <em>Max</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getTargetProfile <em>Target Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getSearchType <em>Search Type</em>}</li>
- *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getPart <em>Part</em>}</li>
  * </ul>
@@ -36,7 +33,6 @@ import org.hl7.fhir.jaxb.OperationDefinitionParameterImplAdapter;
  * @model extendedMetaData="name='OperationDefinition.Parameter' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OperationDefinitionParameterImplAdapter.class)
 public interface OperationDefinitionParameter extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -195,6 +191,22 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	void setType(FHIRAllTypes value);
 
 	/**
+	 * Returns the value of the '<em><b>Target Profile</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Target Profile</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_TargetProfile()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='targetProfile' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getTargetProfile();
+
+	/**
 	 * Returns the value of the '<em><b>Search Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,32 +231,6 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setSearchType(SearchParamType value);
-
-	/**
-	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A profile the specifies the rules that this parameter must conform to.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_Profile()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getProfile();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionParameter#getProfile <em>Profile</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Profile</em>' containment reference.
-	 * @see #getProfile()
-	 * @generated
-	 */
-	void setProfile(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Binding</b></em>' containment reference.

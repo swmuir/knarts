@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PractitionerRoleNotAvailableImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.PractitionerRoleNotAvailableImplAdapter;
  * @model extendedMetaData="name='PractitionerRole.NotAvailable' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PractitionerRoleNotAvailableImplAdapter.class)
 public interface PractitionerRoleNotAvailable extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.ClaimProcessingCodes;
 import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
 import org.hl7.fhir.ClaimResponseError;
@@ -37,9 +33,6 @@ import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,8 +69,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ClaimResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimResponse")
 public class ClaimResponseImpl extends DomainResourceImpl implements ClaimResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -167,7 +158,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected ClaimProcessingCodes outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -333,7 +324,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CLAIM_RESPONSE__IDENTIFIER);
@@ -346,7 +336,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -433,7 +422,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -649,7 +637,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public ClaimProcessingCodes getOutcome() {
 		return outcome;
 	}
 
@@ -658,8 +646,8 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(ClaimProcessingCodes newOutcome, NotificationChain msgs) {
+		ClaimProcessingCodes oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -673,7 +661,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(ClaimProcessingCodes newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -692,7 +680,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -779,7 +766,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ClaimResponseItem>(ClaimResponseItem.class, this, FhirPackage.CLAIM_RESPONSE__ITEM);
@@ -792,7 +778,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseAddItem> getAddItem() {
 		if (addItem == null) {
 			addItem = new EObjectContainmentEList<ClaimResponseAddItem>(ClaimResponseAddItem.class, this, FhirPackage.CLAIM_RESPONSE__ADD_ITEM);
@@ -805,7 +790,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseError> getError() {
 		if (error == null) {
 			error = new EObjectContainmentEList<ClaimResponseError>(ClaimResponseError.class, this, FhirPackage.CLAIM_RESPONSE__ERROR);
@@ -1076,7 +1060,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseProcessNote> getProcessNote() {
 		if (processNote == null) {
 			processNote = new EObjectContainmentEList<ClaimResponseProcessNote>(ClaimResponseProcessNote.class, this, FhirPackage.CLAIM_RESPONSE__PROCESS_NOTE);
@@ -1089,7 +1072,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getCommunicationRequest() {
 		if (communicationRequest == null) {
 			communicationRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_RESPONSE__COMMUNICATION_REQUEST);
@@ -1102,7 +1084,6 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseInsurance> getInsurance() {
 		if (insurance == null) {
 			insurance = new EObjectContainmentEList<ClaimResponseInsurance>(ClaimResponseInsurance.class, this, FhirPackage.CLAIM_RESPONSE__INSURANCE);
@@ -1261,7 +1242,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((ClaimProcessingCodes)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -1348,7 +1329,7 @@ public class ClaimResponseImpl extends DomainResourceImpl implements ClaimRespon
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((ClaimProcessingCodes)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);

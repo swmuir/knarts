@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AssertionOperatorTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AssertionOperatorTypeImplAdapter;
  * @model extendedMetaData="name='AssertionOperatorType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AssertionOperatorTypeImplAdapter.class)
 public interface AssertionOperatorType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

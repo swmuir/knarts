@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ProvenanceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +19,8 @@ import org.hl7.fhir.jaxb.ProvenanceImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Provenance#getTarget <em>Target</em>}</li>
- *   <li>{@link org.hl7.fhir.Provenance#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Provenance#getOccurredPeriod <em>Occurred Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.Provenance#getOccurredDateTime <em>Occurred Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.Provenance#getLocation <em>Location</em>}</li>
@@ -37,7 +35,6 @@ import org.hl7.fhir.jaxb.ProvenanceImplAdapter;
  * @model extendedMetaData="name='Provenance' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProvenanceImplAdapter.class)
 public interface Provenance extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' containment reference list.
@@ -56,30 +53,58 @@ public interface Provenance extends DomainResource {
 	EList<Reference> getTarget();
 
 	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurred Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Occurred Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The period during which the activity occurred.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getProvenance_Period()
+	 * @return the value of the '<em>Occurred Period</em>' containment reference.
+	 * @see #setOccurredPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getProvenance_OccurredPeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='occurredPeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getPeriod();
+	Period getOccurredPeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getPeriod <em>Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getOccurredPeriod <em>Occurred Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
+	 * @param value the new value of the '<em>Occurred Period</em>' containment reference.
+	 * @see #getOccurredPeriod()
 	 * @generated
 	 */
-	void setPeriod(Period value);
+	void setOccurredPeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurred Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Occurred Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Occurred Date Time</em>' containment reference.
+	 * @see #setOccurredDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getProvenance_OccurredDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurredDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getOccurredDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getOccurredDateTime <em>Occurred Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurred Date Time</em>' containment reference.
+	 * @see #getOccurredDateTime()
+	 * @generated
+	 */
+	void setOccurredDateTime(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Recorded</b></em>' containment reference.
@@ -151,7 +176,7 @@ public interface Provenance extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -163,7 +188,7 @@ public interface Provenance extends DomainResource {
 	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getReason();
+	EList<CodeableConcept> getReason();
 
 	/**
 	 * Returns the value of the '<em><b>Activity</b></em>' containment reference.
@@ -173,13 +198,13 @@ public interface Provenance extends DomainResource {
 	 * An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Activity</em>' containment reference.
-	 * @see #setActivity(Coding)
+	 * @see #setActivity(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getProvenance_Activity()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='activity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getActivity();
+	CodeableConcept getActivity();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Provenance#getActivity <em>Activity</em>}' containment reference.
@@ -189,7 +214,7 @@ public interface Provenance extends DomainResource {
 	 * @see #getActivity()
 	 * @generated
 	 */
-	void setActivity(Coding value);
+	void setActivity(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,9 +22,6 @@ import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ReferenceVersionRules;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.AggregationModeImplAdapter;
-import org.hl7.fhir.jaxb.ReferenceVersionRulesImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +40,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ElementDefinitionType", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ElementDefinitionType")
 public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDefinitionType {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -125,8 +115,6 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getCode() {
 		return code;
 	}
@@ -170,7 +158,6 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getProfile() {
 		return profile;
 	}
@@ -214,7 +201,6 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getTargetProfile() {
 		return targetProfile;
 	}
@@ -258,8 +244,6 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AggregationModeImplAdapter.class)
-	@XmlElement
 	public EList<AggregationMode> getAggregation() {
 		if (aggregation == null) {
 			aggregation = new EObjectContainmentEList<AggregationMode>(AggregationMode.class, this, FhirPackage.ELEMENT_DEFINITION_TYPE__AGGREGATION);
@@ -272,7 +256,6 @@ public class ElementDefinitionTypeImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ReferenceVersionRulesImplAdapter.class)
 	public ReferenceVersionRules getVersioning() {
 		return versioning;
 	}

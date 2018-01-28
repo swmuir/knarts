@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DiscriminatorTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DiscriminatorTypeImplAdapter;
  * @model extendedMetaData="name='DiscriminatorType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DiscriminatorTypeImplAdapter.class)
 public interface DiscriminatorType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

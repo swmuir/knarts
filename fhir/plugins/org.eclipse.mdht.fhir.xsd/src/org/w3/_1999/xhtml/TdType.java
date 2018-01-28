@@ -6,10 +6,6 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.TdTypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Td Type</b></em>'.
@@ -42,7 +38,6 @@ import org.w3._1999.xhtml.jaxb.TdTypeImplAdapter;
  * @model extendedMetaData="name='td_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(TdTypeImplAdapter.class)
 public interface TdType extends Flow {
 	/**
 	 * Returns the value of the '<em><b>Abbr1</b></em>' attribute.

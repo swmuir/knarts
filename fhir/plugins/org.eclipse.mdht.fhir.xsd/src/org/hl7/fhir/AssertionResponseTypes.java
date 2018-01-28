@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AssertionResponseTypesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AssertionResponseTypesImplAdapter;
  * @model extendedMetaData="name='AssertionResponseTypes' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AssertionResponseTypesImplAdapter.class)
 public interface AssertionResponseTypes extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
  * @model extendedMetaData="name='MessageSignificanceCategory' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageSignificanceCategoryImplAdapter.class)
 public interface MessageSignificanceCategory extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

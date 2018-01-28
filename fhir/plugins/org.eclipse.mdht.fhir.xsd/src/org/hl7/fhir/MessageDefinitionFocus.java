@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MessageDefinitionFocusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.MessageDefinitionFocusImplAdapter;
  * @model extendedMetaData="name='MessageDefinition.Focus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageDefinitionFocusImplAdapter.class)
 public interface MessageDefinitionFocus extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

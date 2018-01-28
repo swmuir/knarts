@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PatientCommunication;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +28,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PatientCommunication", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PatientCommunication")
 public class PatientCommunicationImpl extends BackboneElementImpl implements PatientCommunication {
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' containment reference.
@@ -81,7 +73,6 @@ public class PatientCommunicationImpl extends BackboneElementImpl implements Pat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getLanguage() {
 		return language;
 	}
@@ -125,7 +116,6 @@ public class PatientCommunicationImpl extends BackboneElementImpl implements Pat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getPreferred() {
 		return preferred;
 	}

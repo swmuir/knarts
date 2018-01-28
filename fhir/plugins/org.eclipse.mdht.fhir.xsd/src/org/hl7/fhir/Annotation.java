@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AnnotationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.AnnotationImplAdapter;
  * @model extendedMetaData="name='Annotation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AnnotationImplAdapter.class)
 public interface Annotation extends Element {
 	/**
 	 * Returns the value of the '<em><b>Author Reference</b></em>' containment reference.

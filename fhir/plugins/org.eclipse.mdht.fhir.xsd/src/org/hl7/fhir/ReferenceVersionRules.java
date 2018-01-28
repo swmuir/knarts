@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ReferenceVersionRulesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ReferenceVersionRulesImplAdapter;
  * @model extendedMetaData="name='ReferenceVersionRules' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ReferenceVersionRulesImplAdapter.class)
 public interface ReferenceVersionRules extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

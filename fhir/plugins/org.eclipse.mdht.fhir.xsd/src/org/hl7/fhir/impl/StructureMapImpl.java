@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,12 +29,6 @@ import org.hl7.fhir.StructureMapGroup;
 import org.hl7.fhir.StructureMapStructure;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,8 +60,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMap", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMap")
 public class StructureMapImpl extends DomainResourceImpl implements StructureMap {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -278,8 +265,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -323,7 +308,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.STRUCTURE_MAP__IDENTIFIER);
@@ -336,7 +320,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -380,8 +363,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -425,7 +406,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -469,8 +449,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -514,7 +492,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -558,7 +535,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -602,7 +578,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -646,7 +621,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.STRUCTURE_MAP__CONTACT);
@@ -659,7 +633,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -703,7 +676,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.STRUCTURE_MAP__USE_CONTEXT);
@@ -716,7 +688,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.STRUCTURE_MAP__JURISDICTION);
@@ -729,7 +700,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -773,7 +743,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -817,7 +786,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<StructureMapStructure> getStructure() {
 		if (structure == null) {
 			structure = new EObjectContainmentEList<StructureMapStructure>(StructureMapStructure.class, this, FhirPackage.STRUCTURE_MAP__STRUCTURE);
@@ -830,8 +798,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
 	public EList<Uri> getImport() {
 		if (import_ == null) {
 			import_ = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.STRUCTURE_MAP__IMPORT);
@@ -844,7 +810,6 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<StructureMapGroup> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<StructureMapGroup>(StructureMapGroup.class, this, FhirPackage.STRUCTURE_MAP__GROUP);

@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -35,8 +31,6 @@ import org.hl7.fhir.TestReportTeardown;
  *
  * @generated
  */
-@XmlType(name = "TestReportTeardown", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestReportTeardown")
 public class TestReportTeardownImpl extends BackboneElementImpl implements TestReportTeardown {
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
@@ -72,7 +66,6 @@ public class TestReportTeardownImpl extends BackboneElementImpl implements TestR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<TestReportAction2> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<TestReportAction2>(TestReportAction2.class, this, FhirPackage.TEST_REPORT_TEARDOWN__ACTION);

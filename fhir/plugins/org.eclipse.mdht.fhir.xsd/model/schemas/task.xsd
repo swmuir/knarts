@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -58,12 +58,12 @@
             <xs:annotation>
               <xs:documentation xml:lang="en">A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.</xs:documentation>
             </xs:annotation>
-            <xs:element name="definitionUri" type="uri"/>
-            <xs:element name="definitionReference" type="Reference"/>
+            <xs:element name="instantiatesUri" type="uri"/>
+            <xs:element name="instantiatesReference" type="Reference"/>
           </xs:choice>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.</xs:documentation>
+              <xs:documentation xml:lang="en">BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="groupIdentifier" minOccurs="0" maxOccurs="1" type="Identifier">
@@ -141,7 +141,7 @@
               <xs:documentation xml:lang="en">The date and time of last modification to this task.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="requester" type="Task.Requester" minOccurs="0" maxOccurs="1">
+          <xs:element name="requester" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The creator of the task.</xs:documentation>
            </xs:annotation>
@@ -156,9 +156,14 @@
               <xs:documentation xml:lang="en">Individual organization or Device currently responsible for task execution.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="reason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="reasonCode" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">A description or code indicating why this task needs to be performed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reasonReference" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A resource reference indicating why this task needs to be performed.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
@@ -184,27 +189,6 @@
           <xs:element name="output" type="Task.Output" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Outputs produced by the Task.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Task.Requester">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">A task to be performed.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="agent" minOccurs="1" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The device, practitioner, etc. who initiated the task.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="onBehalfOf" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The organization the device or practitioner was acting on behalf of when they initiated the task.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -290,6 +274,14 @@
             <xs:element name="valueSampledData" type="SampledData"/>
             <xs:element name="valueSignature" type="Signature"/>
             <xs:element name="valueTiming" type="Timing"/>
+            <xs:element name="valueDosage" type="Dosage"/>
+            <xs:element name="valueContactDetail" type="ContactDetail"/>
+            <xs:element name="valueContributor" type="Contributor"/>
+            <xs:element name="valueDataRequirement" type="DataRequirement"/>
+            <xs:element name="valueParameterDefinition" type="ParameterDefinition"/>
+            <xs:element name="valueRelatedArtifact" type="RelatedArtifact"/>
+            <xs:element name="valueTriggerDefinition" type="TriggerDefinition"/>
+            <xs:element name="valueUsageContext" type="UsageContext"/>
             <xs:element name="valueMeta" type="Meta"/>
           </xs:choice>
         </xs:sequence>
@@ -349,6 +341,14 @@
             <xs:element name="valueSampledData" type="SampledData"/>
             <xs:element name="valueSignature" type="Signature"/>
             <xs:element name="valueTiming" type="Timing"/>
+            <xs:element name="valueDosage" type="Dosage"/>
+            <xs:element name="valueContactDetail" type="ContactDetail"/>
+            <xs:element name="valueContributor" type="Contributor"/>
+            <xs:element name="valueDataRequirement" type="DataRequirement"/>
+            <xs:element name="valueParameterDefinition" type="ParameterDefinition"/>
+            <xs:element name="valueRelatedArtifact" type="RelatedArtifact"/>
+            <xs:element name="valueTriggerDefinition" type="TriggerDefinition"/>
+            <xs:element name="valueUsageContext" type="UsageContext"/>
             <xs:element name="valueMeta" type="Meta"/>
           </xs:choice>
         </xs:sequence>

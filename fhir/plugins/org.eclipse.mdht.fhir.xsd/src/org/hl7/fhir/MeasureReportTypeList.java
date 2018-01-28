@@ -31,14 +31,14 @@ public enum MeasureReportTypeList implements Enumerator {
 	INDIVIDUAL(0, "individual", "individual"),
 
 	/**
-	 * The '<em><b>Patient List</b></em>' literal object.
+	 * The '<em><b>Subject List</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PATIENT_LIST_VALUE
+	 * @see #SUBJECT_LIST_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PATIENT_LIST(1, "patientList", "patient-list"),
+	SUBJECT_LIST(1, "subjectList", "subject-list"),
 
 	/**
 	 * The '<em><b>Summary</b></em>' literal object.
@@ -65,18 +65,18 @@ public enum MeasureReportTypeList implements Enumerator {
 	public static final int INDIVIDUAL_VALUE = 0;
 
 	/**
-	 * The '<em><b>Patient List</b></em>' literal value.
+	 * The '<em><b>Subject List</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Patient List
+	 * Subject List
 	 * <!-- end-model-doc -->
-	 * @see #PATIENT_LIST
-	 * @model name="patientList" literal="patient-list"
+	 * @see #SUBJECT_LIST
+	 * @model name="subjectList" literal="subject-list"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PATIENT_LIST_VALUE = 1;
+	public static final int SUBJECT_LIST_VALUE = 1;
 
 	/**
 	 * The '<em><b>Summary</b></em>' literal value.
@@ -101,7 +101,7 @@ public enum MeasureReportTypeList implements Enumerator {
 	private static final MeasureReportTypeList[] VALUES_ARRAY =
 		new MeasureReportTypeList[] {
 			INDIVIDUAL,
-			PATIENT_LIST,
+			SUBJECT_LIST,
 			SUMMARY,
 		};
 
@@ -160,7 +160,7 @@ public enum MeasureReportTypeList implements Enumerator {
 	public static MeasureReportTypeList get(int value) {
 		switch (value) {
 			case INDIVIDUAL_VALUE: return INDIVIDUAL;
-			case PATIENT_LIST_VALUE: return PATIENT_LIST;
+			case SUBJECT_LIST_VALUE: return SUBJECT_LIST;
 			case SUMMARY_VALUE: return SUMMARY;
 		}
 		return null;

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.HealthcareServiceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +48,6 @@ import org.hl7.fhir.jaxb.HealthcareServiceImplAdapter;
  * @model extendedMetaData="name='HealthcareService' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(HealthcareServiceImplAdapter.class)
 public interface HealthcareService extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -74,7 +70,7 @@ public interface HealthcareService extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this healthcareservice record is in active use.
+	 * This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' containment reference.
 	 * @see #setActive(org.hl7.fhir.Boolean)

@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.TestScriptFixture;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +29,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestScriptFixture", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptFixture")
 public class TestScriptFixtureImpl extends BackboneElementImpl implements TestScriptFixture {
 	/**
 	 * The cached value of the '{@link #getAutocreate() <em>Autocreate</em>}' containment reference.
@@ -91,7 +84,6 @@ public class TestScriptFixtureImpl extends BackboneElementImpl implements TestSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAutocreate() {
 		return autocreate;
 	}
@@ -135,7 +127,6 @@ public class TestScriptFixtureImpl extends BackboneElementImpl implements TestSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAutodelete() {
 		return autodelete;
 	}

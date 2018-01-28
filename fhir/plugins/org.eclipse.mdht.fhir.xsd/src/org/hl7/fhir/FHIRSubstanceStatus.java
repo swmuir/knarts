@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.FHIRSubstanceStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.FHIRSubstanceStatusImplAdapter;
  * @model extendedMetaData="name='FHIRSubstanceStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FHIRSubstanceStatusImplAdapter.class)
 public interface FHIRSubstanceStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

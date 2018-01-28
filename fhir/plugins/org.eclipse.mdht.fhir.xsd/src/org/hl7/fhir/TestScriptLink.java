@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestScriptLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.TestScriptLinkImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.TestScriptLinkImplAdapter;
  * @model extendedMetaData="name='TestScript.Link' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptLinkImplAdapter.class)
 public interface TestScriptLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.

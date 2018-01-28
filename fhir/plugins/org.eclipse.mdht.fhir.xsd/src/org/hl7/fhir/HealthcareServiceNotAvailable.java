@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.HealthcareServiceNotAvailableImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.HealthcareServiceNotAvailableImplAdapter;
  * @model extendedMetaData="name='HealthcareService.NotAvailable' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(HealthcareServiceNotAvailableImplAdapter.class)
 public interface HealthcareServiceNotAvailable extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.FamilyMemberHistoryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.FamilyMemberHistoryImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+ * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -22,10 +19,9 @@ import org.hl7.fhir.jaxb.FamilyMemberHistoryImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getNotDoneReason <em>Not Done Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistory#getName <em>Name</em>}</li>
@@ -53,7 +49,6 @@ import org.hl7.fhir.jaxb.FamilyMemberHistoryImplAdapter;
  * @model extendedMetaData="name='FamilyMemberHistory' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FamilyMemberHistoryImplAdapter.class)
 public interface FamilyMemberHistory extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -72,20 +67,20 @@ public interface FamilyMemberHistory extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A protocol or questionnaire that was adhered to in whole or in part by this event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Uri> getInstantiates();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -114,56 +109,30 @@ public interface FamilyMemberHistory extends DomainResource {
 	void setStatus(FamilyHistoryStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Data Absent Reason</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
+	 * Describes why the family member's history is not available.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done</em>' containment reference.
-	 * @see #setNotDone(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_NotDone()
+	 * @return the value of the '<em>Data Absent Reason</em>' containment reference.
+	 * @see #setDataAbsentReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_DataAbsentReason()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='dataAbsentReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getNotDone();
+	CodeableConcept getDataAbsentReason();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.FamilyMemberHistory#getNotDone <em>Not Done</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.FamilyMemberHistory#getDataAbsentReason <em>Data Absent Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done</em>' containment reference.
-	 * @see #getNotDone()
+	 * @param value the new value of the '<em>Data Absent Reason</em>' containment reference.
+	 * @see #getDataAbsentReason()
 	 * @generated
 	 */
-	void setNotDone(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Not Done Reason</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes why the family member's history is absent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #setNotDoneReason(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistory_NotDoneReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDoneReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getNotDoneReason();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.FamilyMemberHistory#getNotDoneReason <em>Not Done Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #getNotDoneReason()
-	 * @generated
-	 */
-	void setNotDoneReason(CodeableConcept value);
+	void setDataAbsentReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.

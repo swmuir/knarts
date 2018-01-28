@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,10 +25,6 @@ import org.hl7.fhir.GroupMember;
 import org.hl7.fhir.GroupType;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.GroupTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +47,6 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Group", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Group")
 public class GroupImpl extends DomainResourceImpl implements Group {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -173,7 +162,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.GROUP__IDENTIFIER);
@@ -186,7 +174,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -230,8 +217,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(GroupTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public GroupType getType() {
 		return type;
 	}
@@ -275,8 +260,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getActual() {
 		return actual;
 	}
@@ -363,7 +346,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -407,7 +389,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getQuantity() {
 		return quantity;
 	}
@@ -451,7 +432,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<GroupCharacteristic> getCharacteristic() {
 		if (characteristic == null) {
 			characteristic = new EObjectContainmentEList<GroupCharacteristic>(GroupCharacteristic.class, this, FhirPackage.GROUP__CHARACTERISTIC);
@@ -464,7 +444,6 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<GroupMember> getMember() {
 		if (member == null) {
 			member = new EObjectContainmentEList<GroupMember>(GroupMember.class, this, FhirPackage.GROUP__MEMBER);

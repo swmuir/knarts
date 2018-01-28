@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CapabilityStatementMessagingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,14 +21,12 @@ import org.hl7.fhir.jaxb.CapabilityStatementMessagingImplAdapter;
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getReliableCache <em>Reliable Cache</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getSupportedMessage <em>Supported Message</em>}</li>
- *   <li>{@link org.hl7.fhir.CapabilityStatementMessaging#getEvent <em>Event</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCapabilityStatementMessaging()
  * @model extendedMetaData="name='CapabilityStatement.Messaging' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementMessagingImplAdapter.class)
 public interface CapabilityStatementMessaging extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
@@ -116,21 +111,5 @@ public interface CapabilityStatementMessaging extends BackboneElement {
 	 * @generated
 	 */
 	EList<CapabilityStatementSupportedMessage> getSupportedMessage();
-
-	/**
-	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CapabilityStatementEvent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A description of the solution's support for an event at this end-point.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementMessaging_Event()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CapabilityStatementEvent> getEvent();
 
 } // CapabilityStatementMessaging

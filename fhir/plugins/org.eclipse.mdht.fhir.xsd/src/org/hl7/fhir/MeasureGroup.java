@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureGroupImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +17,7 @@ import org.hl7.fhir.jaxb.MeasureGroupImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureGroup#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureGroup#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureGroup#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureGroup#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureGroup#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureGroup#getStratifier <em>Stratifier</em>}</li>
@@ -31,59 +27,32 @@ import org.hl7.fhir.jaxb.MeasureGroupImplAdapter;
  * @model extendedMetaData="name='Measure.Group' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureGroupImplAdapter.class)
 public interface MeasureGroup extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A unique identifier for the group. This identifier will used to report data for the group in the measure report.
+	 * Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureGroup_Identifier()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureGroup#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Optional name or short description of this group.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureGroup_Name()
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureGroup_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getName();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureGroup#getName <em>Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureGroup#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' containment reference.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setName(org.hl7.fhir.String value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

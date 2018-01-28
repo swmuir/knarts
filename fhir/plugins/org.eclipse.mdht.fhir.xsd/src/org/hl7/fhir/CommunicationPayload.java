@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CommunicationPayloadImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.CommunicationPayloadImplAdapter;
  * @model extendedMetaData="name='Communication.Payload' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CommunicationPayloadImplAdapter.class)
 public interface CommunicationPayload extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Content String</b></em>' containment reference.

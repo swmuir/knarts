@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,12 +20,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.ActivityDefinition;
 import org.hl7.fhir.ActivityDefinitionDynamicValue;
 import org.hl7.fhir.ActivityDefinitionParticipant;
+import org.hl7.fhir.Age;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Dosage;
+import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
@@ -44,14 +41,6 @@ import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,10 +75,13 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDoNotPerform <em>Do Not Perform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingAge <em>Timing Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingRange <em>Timing Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingDuration <em>Timing Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getProductReference <em>Product Reference</em>}</li>
@@ -97,14 +89,13 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDosage <em>Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getSpecimenRequirement <em>Specimen Requirement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDynamicValue <em>Dynamic Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ActivityDefinition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ActivityDefinition")
 public class ActivityDefinitionImpl extends DomainResourceImpl implements ActivityDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -357,6 +348,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected CodeableConcept code;
 
 	/**
+	 * The cached value of the '{@link #getDoNotPerform() <em>Do Not Perform</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoNotPerform()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean doNotPerform;
+
+	/**
 	 * The cached value of the '{@link #getTimingTiming() <em>Timing Timing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +378,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected DateTime timingDateTime;
 
 	/**
+	 * The cached value of the '{@link #getTimingAge() <em>Timing Age</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingAge()
+	 * @generated
+	 * @ordered
+	 */
+	protected Age timingAge;
+
+	/**
 	 * The cached value of the '{@link #getTimingPeriod() <em>Timing Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,6 +406,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected Range timingRange;
+
+	/**
+	 * The cached value of the '{@link #getTimingDuration() <em>Timing Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration timingDuration;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
@@ -467,6 +488,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected EList<CodeableConcept> bodySite;
 
 	/**
+	 * The cached value of the '{@link #getSpecimenRequirement() <em>Specimen Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecimenRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> specimenRequirement;
+
+	/**
 	 * The cached value of the '{@link #getTransform() <em>Transform</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,7 +541,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -554,7 +584,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ACTIVITY_DEFINITION__IDENTIFIER);
@@ -567,7 +596,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -611,7 +639,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -655,7 +682,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -699,8 +725,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -744,7 +768,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -788,7 +811,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -832,7 +854,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -876,7 +897,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -920,7 +940,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -964,7 +983,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -1008,7 +1026,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -1052,7 +1069,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -1139,7 +1155,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT);
@@ -1152,7 +1167,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__JURISDICTION);
@@ -1165,7 +1179,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__TOPIC);
@@ -1178,7 +1191,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Contributor> getContributor() {
 		if (contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR);
@@ -1191,7 +1203,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__CONTACT);
@@ -1204,7 +1215,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -1248,7 +1258,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT);
@@ -1261,7 +1270,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getLibrary() {
 		if (library == null) {
 			library = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACTIVITY_DEFINITION__LIBRARY);
@@ -1274,7 +1282,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
 	public ResourceType getKind() {
 		return kind;
 	}
@@ -1361,6 +1368,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getDoNotPerform() {
+		return doNotPerform;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDoNotPerform(org.hl7.fhir.Boolean newDoNotPerform, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldDoNotPerform = doNotPerform;
+		doNotPerform = newDoNotPerform;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM, oldDoNotPerform, newDoNotPerform);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDoNotPerform(org.hl7.fhir.Boolean newDoNotPerform) {
+		if (newDoNotPerform != doNotPerform) {
+			NotificationChain msgs = null;
+			if (doNotPerform != null)
+				msgs = ((InternalEObject)doNotPerform).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM, null, msgs);
+			if (newDoNotPerform != null)
+				msgs = ((InternalEObject)newDoNotPerform).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM, null, msgs);
+			msgs = basicSetDoNotPerform(newDoNotPerform, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM, newDoNotPerform, newDoNotPerform));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Timing getTimingTiming() {
 		return timingTiming;
 	}
@@ -1404,7 +1454,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getTimingDateTime() {
 		return timingDateTime;
 	}
@@ -1441,6 +1490,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME, newTimingDateTime, newTimingDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Age getTimingAge() {
+		return timingAge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingAge(Age newTimingAge, NotificationChain msgs) {
+		Age oldTimingAge = timingAge;
+		timingAge = newTimingAge;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE, oldTimingAge, newTimingAge);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingAge(Age newTimingAge) {
+		if (newTimingAge != timingAge) {
+			NotificationChain msgs = null;
+			if (timingAge != null)
+				msgs = ((InternalEObject)timingAge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE, null, msgs);
+			if (newTimingAge != null)
+				msgs = ((InternalEObject)newTimingAge).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE, null, msgs);
+			msgs = basicSetTimingAge(newTimingAge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE, newTimingAge, newTimingAge));
 	}
 
 	/**
@@ -1534,6 +1626,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Duration getTimingDuration() {
+		return timingDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingDuration(Duration newTimingDuration, NotificationChain msgs) {
+		Duration oldTimingDuration = timingDuration;
+		timingDuration = newTimingDuration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION, oldTimingDuration, newTimingDuration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimingDuration(Duration newTimingDuration) {
+		if (newTimingDuration != timingDuration) {
+			NotificationChain msgs = null;
+			if (timingDuration != null)
+				msgs = ((InternalEObject)timingDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION, null, msgs);
+			if (newTimingDuration != null)
+				msgs = ((InternalEObject)newTimingDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION, null, msgs);
+			msgs = basicSetTimingDuration(newTimingDuration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION, newTimingDuration, newTimingDuration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getLocation() {
 		return location;
 	}
@@ -1577,7 +1712,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ActivityDefinitionParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<ActivityDefinitionParticipant>(ActivityDefinitionParticipant.class, this, FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT);
@@ -1719,7 +1853,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Dosage> getDosage() {
 		if (dosage == null) {
 			dosage = new EObjectContainmentEList<Dosage>(Dosage.class, this, FhirPackage.ACTIVITY_DEFINITION__DOSAGE);
@@ -1732,12 +1865,23 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getBodySite() {
 		if (bodySite == null) {
 			bodySite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__BODY_SITE);
 		}
 		return bodySite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getSpecimenRequirement() {
+		if (specimenRequirement == null) {
+			specimenRequirement = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT);
+		}
+		return specimenRequirement;
 	}
 
 	/**
@@ -1788,7 +1932,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ActivityDefinitionDynamicValue> getDynamicValue() {
 		if (dynamicValue == null) {
 			dynamicValue = new EObjectContainmentEList<ActivityDefinitionDynamicValue>(ActivityDefinitionDynamicValue.class, this, FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE);
@@ -1854,14 +1997,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return basicSetKind(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
+				return basicSetDoNotPerform(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return basicSetTimingTiming(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
 				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE:
+				return basicSetTimingAge(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
 				return basicSetTimingPeriod(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
 				return basicSetTimingRange(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION:
+				return basicSetTimingDuration(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return basicSetLocation(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
@@ -1876,6 +2025,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return ((InternalEList<?>)getDosage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
+				return ((InternalEList<?>)getSpecimenRequirement()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return basicSetTransform(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
@@ -1942,14 +2093,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getKind();
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return getCode();
+			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
+				return getDoNotPerform();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return getTimingTiming();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
 				return getTimingDateTime();
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE:
+				return getTimingAge();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
 				return getTimingPeriod();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
 				return getTimingRange();
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION:
+				return getTimingDuration();
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return getLocation();
 			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
@@ -1964,6 +2121,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getDosage();
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return getBodySite();
+			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
+				return getSpecimenRequirement();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return getTransform();
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
@@ -2064,17 +2223,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
+				setDoNotPerform((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				setTimingTiming((Timing)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE:
+				setTimingAge((Age)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
 				setTimingPeriod((Period)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
 				setTimingRange((Range)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION:
+				setTimingDuration((Duration)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				setLocation((Reference)newValue);
@@ -2099,6 +2267,10 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				getBodySite().clear();
 				getBodySite().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
+				getSpecimenRequirement().clear();
+				getSpecimenRequirement().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				setTransform((Reference)newValue);
@@ -2194,17 +2366,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)null);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
+				setDoNotPerform((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				setTimingTiming((Timing)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
 				setTimingDateTime((DateTime)null);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE:
+				setTimingAge((Age)null);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
 				setTimingPeriod((Period)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
 				setTimingRange((Range)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION:
+				setTimingDuration((Duration)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				setLocation((Reference)null);
@@ -2226,6 +2407,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				getBodySite().clear();
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
+				getSpecimenRequirement().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				setTransform((Reference)null);
@@ -2295,14 +2479,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return kind != null;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return code != null;
+			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
+				return doNotPerform != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
 				return timingTiming != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DATE_TIME:
 				return timingDateTime != null;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_AGE:
+				return timingAge != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_PERIOD:
 				return timingPeriod != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_RANGE:
 				return timingRange != null;
+			case FhirPackage.ACTIVITY_DEFINITION__TIMING_DURATION:
+				return timingDuration != null;
 			case FhirPackage.ACTIVITY_DEFINITION__LOCATION:
 				return location != null;
 			case FhirPackage.ACTIVITY_DEFINITION__PARTICIPANT:
@@ -2317,6 +2507,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return dosage != null && !dosage.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__BODY_SITE:
 				return bodySite != null && !bodySite.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
+				return specimenRequirement != null && !specimenRequirement.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return transform != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:

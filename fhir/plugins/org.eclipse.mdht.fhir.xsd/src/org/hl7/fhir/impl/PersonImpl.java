@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,9 +28,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Person;
 import org.hl7.fhir.PersonLink;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,8 +51,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Person", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Person")
 public class PersonImpl extends DomainResourceImpl implements Person {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -186,7 +176,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PERSON__IDENTIFIER);
@@ -199,7 +188,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<HumanName> getName() {
 		if (name == null) {
 			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.PERSON__NAME);
@@ -212,7 +200,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.PERSON__TELECOM);
@@ -225,7 +212,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -269,7 +255,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -313,7 +298,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Address> getAddress() {
 		if (address == null) {
 			address = new EObjectContainmentEList<Address>(Address.class, this, FhirPackage.PERSON__ADDRESS);
@@ -412,7 +396,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -456,7 +439,6 @@ public class PersonImpl extends DomainResourceImpl implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PersonLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<PersonLink>(PersonLink.class, this, FhirPackage.PERSON__LINK);

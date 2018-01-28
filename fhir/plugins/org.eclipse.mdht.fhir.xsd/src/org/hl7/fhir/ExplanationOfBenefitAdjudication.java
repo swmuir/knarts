@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExplanationOfBenefitAdjudicationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitAdjudicationImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.Adjudication' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitAdjudicationImplAdapter.class)
 public interface ExplanationOfBenefitAdjudication extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.

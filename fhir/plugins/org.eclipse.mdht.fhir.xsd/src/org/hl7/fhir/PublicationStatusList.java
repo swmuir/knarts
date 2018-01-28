@@ -66,7 +66,7 @@ public enum PublicationStatusList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Draft
-	 * ????????
+	 * черновик
 	 * ontwerp
 	 * <!-- end-model-doc -->
 	 * @see #DRAFT
@@ -82,7 +82,7 @@ public enum PublicationStatusList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Active
-	 * ????????
+	 * активный
 	 * actief
 	 * <!-- end-model-doc -->
 	 * @see #ACTIVE
@@ -98,7 +98,7 @@ public enum PublicationStatusList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Retired
-	 * ??????
+	 * удалён
 	 * verouderd
 	 * <!-- end-model-doc -->
 	 * @see #RETIRED

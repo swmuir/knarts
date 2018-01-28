@@ -41,6 +41,36 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	RECURRENCE(1, "recurrence", "recurrence"),
 
 	/**
+	 * The '<em><b>Relapse</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RELAPSE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RELAPSE(2, "relapse", "relapse"),
+
+	/**
+	 * The '<em><b>Well Controlled</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WELL_CONTROLLED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WELL_CONTROLLED(3, "wellControlled", "well-controlled"),
+
+	/**
+	 * The '<em><b>Poorly Controlled</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #POORLY_CONTROLLED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	POORLY_CONTROLLED(4, "poorlyControlled", "poorly-controlled"),
+
+	/**
 	 * The '<em><b>Inactive</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +78,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INACTIVE(2, "inactive", "inactive"),
+	INACTIVE(5, "inactive", "inactive"),
 
 	/**
 	 * The '<em><b>Remission</b></em>' literal object.
@@ -58,7 +88,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REMISSION(3, "remission", "remission"),
+	REMISSION(6, "remission", "remission"),
 
 	/**
 	 * The '<em><b>Resolved</b></em>' literal object.
@@ -68,7 +98,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESOLVED(4, "resolved", "resolved");
+	RESOLVED(7, "resolved", "resolved");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -99,6 +129,48 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	public static final int RECURRENCE_VALUE = 1;
 
 	/**
+	 * The '<em><b>Relapse</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Relapse
+	 * <!-- end-model-doc -->
+	 * @see #RELAPSE
+	 * @model name="relapse"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELAPSE_VALUE = 2;
+
+	/**
+	 * The '<em><b>Well Controlled</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Well-Controlled
+	 * <!-- end-model-doc -->
+	 * @see #WELL_CONTROLLED
+	 * @model name="wellControlled" literal="well-controlled"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WELL_CONTROLLED_VALUE = 3;
+
+	/**
+	 * The '<em><b>Poorly Controlled</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Poorly-Controlled
+	 * <!-- end-model-doc -->
+	 * @see #POORLY_CONTROLLED
+	 * @model name="poorlyControlled" literal="poorly-controlled"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int POORLY_CONTROLLED_VALUE = 4;
+
+	/**
 	 * The '<em><b>Inactive</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,7 +182,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INACTIVE_VALUE = 2;
+	public static final int INACTIVE_VALUE = 5;
 
 	/**
 	 * The '<em><b>Remission</b></em>' literal value.
@@ -124,7 +196,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REMISSION_VALUE = 3;
+	public static final int REMISSION_VALUE = 6;
 
 	/**
 	 * The '<em><b>Resolved</b></em>' literal value.
@@ -138,7 +210,7 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESOLVED_VALUE = 4;
+	public static final int RESOLVED_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Condition Clinical Status Codes List</b></em>' enumerators.
@@ -150,6 +222,9 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 		new ConditionClinicalStatusCodesList[] {
 			ACTIVE,
 			RECURRENCE,
+			RELAPSE,
+			WELL_CONTROLLED,
+			POORLY_CONTROLLED,
 			INACTIVE,
 			REMISSION,
 			RESOLVED,
@@ -211,6 +286,9 @@ public enum ConditionClinicalStatusCodesList implements Enumerator {
 		switch (value) {
 			case ACTIVE_VALUE: return ACTIVE;
 			case RECURRENCE_VALUE: return RECURRENCE;
+			case RELAPSE_VALUE: return RELAPSE;
+			case WELL_CONTROLLED_VALUE: return WELL_CONTROLLED;
+			case POORLY_CONTROLLED_VALUE: return POORLY_CONTROLLED;
 			case INACTIVE_VALUE: return INACTIVE;
 			case REMISSION_VALUE: return REMISSION;
 			case RESOLVED_VALUE: return RESOLVED;

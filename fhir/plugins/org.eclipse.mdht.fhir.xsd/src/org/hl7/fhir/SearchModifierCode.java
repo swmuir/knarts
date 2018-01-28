@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SearchModifierCodeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SearchModifierCodeImplAdapter;
  * @model extendedMetaData="name='SearchModifierCode' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SearchModifierCodeImplAdapter.class)
 public interface SearchModifierCode extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

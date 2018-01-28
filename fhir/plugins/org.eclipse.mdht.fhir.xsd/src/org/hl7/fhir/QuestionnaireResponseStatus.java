@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
  * @model extendedMetaData="name='QuestionnaireResponseStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(QuestionnaireResponseStatusImplAdapter.class)
 public interface QuestionnaireResponseStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

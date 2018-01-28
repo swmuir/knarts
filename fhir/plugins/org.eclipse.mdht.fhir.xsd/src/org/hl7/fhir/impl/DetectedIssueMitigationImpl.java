@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,7 +15,6 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DetectedIssueMitigation;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +31,6 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DetectedIssueMitigation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DetectedIssueMitigation")
 public class DetectedIssueMitigationImpl extends BackboneElementImpl implements DetectedIssueMitigation {
 	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
@@ -94,7 +86,6 @@ public class DetectedIssueMitigationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getAction() {
 		return action;
 	}
@@ -138,7 +129,6 @@ public class DetectedIssueMitigationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConsentPolicyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.ConsentPolicyImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+ * A record of a healthcare consumerâ€™s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,14 +24,13 @@ import org.hl7.fhir.jaxb.ConsentPolicyImplAdapter;
  * @model extendedMetaData="name='Consent.Policy' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConsentPolicyImplAdapter.class)
 public interface ConsentPolicy extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Authority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.
+	 * Entity or Organization having regulatory jurisdiction or accountability for Â enforcing policies pertaining to Consent Directives.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Authority</em>' containment reference.
 	 * @see #setAuthority(Uri)

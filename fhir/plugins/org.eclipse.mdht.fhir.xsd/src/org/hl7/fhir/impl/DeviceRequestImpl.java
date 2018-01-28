@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,7 +21,7 @@ import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DeviceRequest;
-import org.hl7.fhir.DeviceRequestRequester;
+import org.hl7.fhir.DeviceRequestParameter;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
@@ -34,9 +29,7 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
-import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +40,7 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getPriorRequest <em>Prior Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
@@ -56,6 +49,7 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getCodeReference <em>Code Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getCodeCodeableConcept <em>Code Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
@@ -67,6 +61,7 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getRelevantHistory <em>Relevant History</em>}</li>
@@ -74,8 +69,6 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DeviceRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DeviceRequest")
 public class DeviceRequestImpl extends DomainResourceImpl implements DeviceRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -88,14 +81,14 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getInstantiates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> definition;
+	protected EList<Uri> instantiates;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -178,6 +171,16 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	protected CodeableConcept codeCodeableConcept;
 
 	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceRequestParameter> parameter;
+
+	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,7 +248,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * @generated
 	 * @ordered
 	 */
-	protected DeviceRequestRequester requester;
+	protected Reference requester;
 
 	/**
 	 * The cached value of the '{@link #getPerformerType() <em>Performer Type</em>}' containment reference.
@@ -286,6 +289,16 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * @ordered
 	 */
 	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getInsurance() <em>Insurance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> insurance;
 
 	/**
 	 * The cached value of the '{@link #getSupportingInfo() <em>Supporting Info</em>}' containment reference list.
@@ -341,7 +354,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DEVICE_REQUEST__IDENTIFIER);
@@ -354,12 +366,11 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__DEFINITION);
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DEVICE_REQUEST__INSTANTIATES);
 		}
-		return definition;
+		return instantiates;
 	}
 
 	/**
@@ -367,7 +378,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__BASED_ON);
@@ -380,7 +390,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPriorRequest() {
 		if (priorRequest == null) {
 			priorRequest = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST);
@@ -436,7 +445,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -480,7 +488,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getIntent() {
 		return intent;
 	}
@@ -524,7 +531,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -654,7 +660,18 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
+	public EList<DeviceRequestParameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<DeviceRequestParameter>(DeviceRequestParameter.class, this, FhirPackage.DEVICE_REQUEST__PARAMETER);
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getSubject() {
 		return subject;
 	}
@@ -741,7 +758,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -871,7 +887,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -915,7 +930,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceRequestRequester getRequester() {
+	public Reference getRequester() {
 		return requester;
 	}
 
@@ -924,8 +939,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequester(DeviceRequestRequester newRequester, NotificationChain msgs) {
-		DeviceRequestRequester oldRequester = requester;
+	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
+		Reference oldRequester = requester;
 		requester = newRequester;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__REQUESTER, oldRequester, newRequester);
@@ -939,7 +954,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequester(DeviceRequestRequester newRequester) {
+	public void setRequester(Reference newRequester) {
 		if (newRequester != requester) {
 			NotificationChain msgs = null;
 			if (requester != null)
@@ -1044,7 +1059,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_REQUEST__REASON_CODE);
@@ -1057,7 +1071,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__REASON_REFERENCE);
@@ -1070,7 +1083,18 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<Reference> getInsurance() {
+		if (insurance == null) {
+			insurance = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__INSURANCE);
+		}
+		return insurance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getSupportingInfo() {
 		if (supportingInfo == null) {
 			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO);
@@ -1083,7 +1107,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.DEVICE_REQUEST__NOTE);
@@ -1096,7 +1119,6 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getRelevantHistory() {
 		if (relevantHistory == null) {
 			relevantHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DEVICE_REQUEST__RELEVANT_HISTORY);
@@ -1114,8 +1136,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE_REQUEST__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1132,6 +1154,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return basicSetCodeReference(null, msgs);
 			case FhirPackage.DEVICE_REQUEST__CODE_CODEABLE_CONCEPT:
 				return basicSetCodeCodeableConcept(null, msgs);
+			case FhirPackage.DEVICE_REQUEST__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return basicSetSubject(null, msgs);
 			case FhirPackage.DEVICE_REQUEST__CONTEXT:
@@ -1154,6 +1178,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__REASON_REFERENCE:
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE_REQUEST__INSURANCE:
+				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO:
 				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__NOTE:
@@ -1174,8 +1200,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DEVICE_REQUEST__DEFINITION:
-				return getDefinition();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
+				return getInstantiates();
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1192,6 +1218,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return getCodeReference();
 			case FhirPackage.DEVICE_REQUEST__CODE_CODEABLE_CONCEPT:
 				return getCodeCodeableConcept();
+			case FhirPackage.DEVICE_REQUEST__PARAMETER:
+				return getParameter();
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return getSubject();
 			case FhirPackage.DEVICE_REQUEST__CONTEXT:
@@ -1214,6 +1242,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return getReasonCode();
 			case FhirPackage.DEVICE_REQUEST__REASON_REFERENCE:
 				return getReasonReference();
+			case FhirPackage.DEVICE_REQUEST__INSURANCE:
+				return getInsurance();
 			case FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO:
 				return getSupportingInfo();
 			case FhirPackage.DEVICE_REQUEST__NOTE:
@@ -1237,9 +1267,9 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DEVICE_REQUEST__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1267,6 +1297,10 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__CODE_CODEABLE_CONCEPT:
 				setCodeCodeableConcept((CodeableConcept)newValue);
 				return;
+			case FhirPackage.DEVICE_REQUEST__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends DeviceRequestParameter>)newValue);
+				return;
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
@@ -1286,7 +1320,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				setAuthoredOn((DateTime)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__REQUESTER:
-				setRequester((DeviceRequestRequester)newValue);
+				setRequester((Reference)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__PERFORMER_TYPE:
 				setPerformerType((CodeableConcept)newValue);
@@ -1301,6 +1335,10 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__REASON_REFERENCE:
 				getReasonReference().clear();
 				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.DEVICE_REQUEST__INSURANCE:
+				getInsurance().clear();
+				getInsurance().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO:
 				getSupportingInfo().clear();
@@ -1329,8 +1367,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DEVICE_REQUEST__DEFINITION:
-				getDefinition().clear();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
+				getInstantiates().clear();
 				return;
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1356,6 +1394,9 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__CODE_CODEABLE_CONCEPT:
 				setCodeCodeableConcept((CodeableConcept)null);
 				return;
+			case FhirPackage.DEVICE_REQUEST__PARAMETER:
+				getParameter().clear();
+				return;
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				setSubject((Reference)null);
 				return;
@@ -1375,7 +1416,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				setAuthoredOn((DateTime)null);
 				return;
 			case FhirPackage.DEVICE_REQUEST__REQUESTER:
-				setRequester((DeviceRequestRequester)null);
+				setRequester((Reference)null);
 				return;
 			case FhirPackage.DEVICE_REQUEST__PERFORMER_TYPE:
 				setPerformerType((CodeableConcept)null);
@@ -1388,6 +1429,9 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return;
 			case FhirPackage.DEVICE_REQUEST__REASON_REFERENCE:
 				getReasonReference().clear();
+				return;
+			case FhirPackage.DEVICE_REQUEST__INSURANCE:
+				getInsurance().clear();
 				return;
 			case FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO:
 				getSupportingInfo().clear();
@@ -1412,8 +1456,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DEVICE_REQUEST__DEFINITION:
-				return definition != null && !definition.isEmpty();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1430,6 +1474,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return codeReference != null;
 			case FhirPackage.DEVICE_REQUEST__CODE_CODEABLE_CONCEPT:
 				return codeCodeableConcept != null;
+			case FhirPackage.DEVICE_REQUEST__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return subject != null;
 			case FhirPackage.DEVICE_REQUEST__CONTEXT:
@@ -1452,6 +1498,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__REASON_REFERENCE:
 				return reasonReference != null && !reasonReference.isEmpty();
+			case FhirPackage.DEVICE_REQUEST__INSURANCE:
+				return insurance != null && !insurance.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__SUPPORTING_INFO:
 				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__NOTE:

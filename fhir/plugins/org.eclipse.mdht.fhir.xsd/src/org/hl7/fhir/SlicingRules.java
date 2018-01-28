@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SlicingRulesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SlicingRulesImplAdapter;
  * @model extendedMetaData="name='SlicingRules' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SlicingRulesImplAdapter.class)
 public interface SlicingRules extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

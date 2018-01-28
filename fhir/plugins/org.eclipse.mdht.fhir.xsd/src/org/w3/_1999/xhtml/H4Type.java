@@ -4,10 +4,6 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.H4TypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>H4 Type</b></em>'.
@@ -30,7 +26,6 @@ import org.w3._1999.xhtml.jaxb.H4TypeImplAdapter;
  * @model extendedMetaData="name='h4_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(H4TypeImplAdapter.class)
 public interface H4Type extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

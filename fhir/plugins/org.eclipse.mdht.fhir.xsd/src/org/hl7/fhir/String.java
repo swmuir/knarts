@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * <!-- begin-model-doc -->
  * A sequence of Unicode characters
- * Note that FHIR strings may not exceed 1MB in size
+ * Note that FHIR strings SHALL not exceed 1MB in size
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * @model extendedMetaData="name='string' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StringImplAdapter.class)
 public interface String extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

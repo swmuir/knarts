@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,10 +15,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QuestionnaireOption;
 import org.hl7.fhir.Time;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,12 +29,11 @@ import org.hl7.fhir.jaxb.TimeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireOptionImpl#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireOptionImpl#getValueString <em>Value String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireOptionImpl#getValueCoding <em>Value Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireOptionImpl#getInitialSelected <em>Initial Selected</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "QuestionnaireOption", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "QuestionnaireOption")
 public class QuestionnaireOptionImpl extends BackboneElementImpl implements QuestionnaireOption {
 	/**
 	 * The cached value of the '{@link #getValueInteger() <em>Value Integer</em>}' containment reference.
@@ -95,6 +86,16 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	protected Coding valueCoding;
 
 	/**
+	 * The cached value of the '{@link #getInitialSelected() <em>Initial Selected</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean initialSelected;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,7 +119,6 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -162,7 +162,6 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getValueDate() {
 		return valueDate;
 	}
@@ -206,7 +205,6 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -250,7 +248,6 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -337,6 +334,49 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getInitialSelected() {
+		return initialSelected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitialSelected(org.hl7.fhir.Boolean newInitialSelected, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldInitialSelected = initialSelected;
+		initialSelected = newInitialSelected;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED, oldInitialSelected, newInitialSelected);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialSelected(org.hl7.fhir.Boolean newInitialSelected) {
+		if (newInitialSelected != initialSelected) {
+			NotificationChain msgs = null;
+			if (initialSelected != null)
+				msgs = ((InternalEObject)initialSelected).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED, null, msgs);
+			if (newInitialSelected != null)
+				msgs = ((InternalEObject)newInitialSelected).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED, null, msgs);
+			msgs = basicSetInitialSelected(newInitialSelected, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED, newInitialSelected, newInitialSelected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -350,6 +390,8 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 				return basicSetValueString(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_OPTION__VALUE_CODING:
 				return basicSetValueCoding(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED:
+				return basicSetInitialSelected(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -372,6 +414,8 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 				return getValueString();
 			case FhirPackage.QUESTIONNAIRE_OPTION__VALUE_CODING:
 				return getValueCoding();
+			case FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED:
+				return getInitialSelected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,6 +442,9 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 				return;
 			case FhirPackage.QUESTIONNAIRE_OPTION__VALUE_CODING:
 				setValueCoding((Coding)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED:
+				setInitialSelected((org.hl7.fhir.Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -426,6 +473,9 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 			case FhirPackage.QUESTIONNAIRE_OPTION__VALUE_CODING:
 				setValueCoding((Coding)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED:
+				setInitialSelected((org.hl7.fhir.Boolean)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -448,6 +498,8 @@ public class QuestionnaireOptionImpl extends BackboneElementImpl implements Ques
 				return valueString != null;
 			case FhirPackage.QUESTIONNAIRE_OPTION__VALUE_CODING:
 				return valueCoding != null;
+			case FhirPackage.QUESTIONNAIRE_OPTION__INITIAL_SELECTED:
+				return initialSelected != null;
 		}
 		return super.eIsSet(featureID);
 	}

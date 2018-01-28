@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ImagingStudyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +23,7 @@ import org.hl7.fhir.jaxb.ImagingStudyImplAdapter;
  *   <li>{@link org.hl7.fhir.ImagingStudy#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getAvailability <em>Availability</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getModalityList <em>Modality List</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudy#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getStarted <em>Started</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudy#getBasedOn <em>Based On</em>}</li>
@@ -46,7 +43,6 @@ import org.hl7.fhir.jaxb.ImagingStudyImplAdapter;
  * @model extendedMetaData="name='ImagingStudy' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImagingStudyImplAdapter.class)
 public interface ImagingStudy extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
@@ -159,30 +155,30 @@ public interface ImagingStudy extends DomainResource {
 	EList<Coding> getModalityList();
 
 	/**
-	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient imaged in the study.
+	 * The subject, typically a patient, of the imaging study.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient</em>' containment reference.
-	 * @see #setPatient(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Patient()
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudy_Subject()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatient();
+	Reference getSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getPatient <em>Patient</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudy#getSubject <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient</em>' containment reference.
-	 * @see #getPatient()
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
 	 * @generated
 	 */
-	void setPatient(Reference value);
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.

@@ -58,7 +58,17 @@ public enum AddressUseList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OLD(3, "old", "old");
+	OLD(3, "old", "old"),
+
+	/**
+	 * The '<em><b>Billing</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BILLING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BILLING(4, "billing", "billing");
 
 	/**
 	 * The '<em><b>Home</b></em>' literal value.
@@ -117,6 +127,20 @@ public enum AddressUseList implements Enumerator {
 	public static final int OLD_VALUE = 3;
 
 	/**
+	 * The '<em><b>Billing</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Billing
+	 * <!-- end-model-doc -->
+	 * @see #BILLING
+	 * @model name="billing"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BILLING_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Address Use List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +152,7 @@ public enum AddressUseList implements Enumerator {
 			WORK,
 			TEMP,
 			OLD,
+			BILLING,
 		};
 
 	/**
@@ -188,6 +213,7 @@ public enum AddressUseList implements Enumerator {
 			case WORK_VALUE: return WORK;
 			case TEMP_VALUE: return TEMP;
 			case OLD_VALUE: return OLD;
+			case BILLING_VALUE: return BILLING;
 		}
 		return null;
 	}

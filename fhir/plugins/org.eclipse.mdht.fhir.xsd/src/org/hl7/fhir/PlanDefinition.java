@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PlanDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,14 +50,13 @@ import org.hl7.fhir.jaxb.PlanDefinitionImplAdapter;
  * @model extendedMetaData="name='PlanDefinition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PlanDefinitionImplAdapter.class)
 public interface PlanDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this plan definition is (or will be) published. The URL SHOULD include the major version of the plan definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this plan definition is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -180,7 +176,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.
+	 * The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -362,7 +358,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A detailed description of how the asset is used from a clinical perspective.
+	 * A detailed description of how the plan definition is used from a clinical perspective.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Usage</em>' containment reference.
 	 * @see #setUsage(org.hl7.fhir.String)
@@ -515,7 +511,7 @@ public interface PlanDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.
+	 * A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Contributor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinition_Contributor()

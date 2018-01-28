@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,8 +24,6 @@ import org.hl7.fhir.QuestionnaireResponse;
 import org.hl7.fhir.QuestionnaireResponseItem;
 import org.hl7.fhir.QuestionnaireResponseStatus;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +35,7 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getBasedOn <em>Based On</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSubject <em>Subject</em>}</li>
@@ -55,8 +48,6 @@ import org.hl7.fhir.jaxb.QuestionnaireResponseStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "QuestionnaireResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "QuestionnaireResponse")
 public class QuestionnaireResponseImpl extends DomainResourceImpl implements QuestionnaireResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -79,14 +70,14 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	protected EList<Reference> basedOn;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
+	 * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParent()
+	 * @see #getPartOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> parent;
+	protected EList<Reference> partOf;
 
 	/**
 	 * The cached value of the '{@link #getQuestionnaire() <em>Questionnaire</em>}' containment reference.
@@ -235,7 +226,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON);
@@ -248,12 +238,11 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getParent() {
-		if (parent == null) {
-			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT);
+	public EList<Reference> getPartOf() {
+		if (partOf == null) {
+			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF);
 		}
-		return parent;
+		return partOf;
 	}
 
 	/**
@@ -304,8 +293,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(QuestionnaireResponseStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public QuestionnaireResponseStatus getStatus() {
 		return status;
 	}
@@ -435,7 +422,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthored() {
 		return authored;
 	}
@@ -565,7 +551,6 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<QuestionnaireResponseItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireResponseItem>(QuestionnaireResponseItem.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE__ITEM);
@@ -585,8 +570,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return basicSetIdentifier(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
-				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF:
+				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return basicSetQuestionnaire(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
@@ -619,8 +604,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return getIdentifier();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
 				return getBasedOn();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
-				return getParent();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF:
+				return getPartOf();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return getQuestionnaire();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
@@ -657,9 +642,9 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				getBasedOn().clear();
 				getBasedOn().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
-				getParent().clear();
-				getParent().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF:
+				getPartOf().clear();
+				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				setQuestionnaire((Reference)newValue);
@@ -704,8 +689,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
 				getBasedOn().clear();
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
-				getParent().clear();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF:
+				getPartOf().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				setQuestionnaire((Reference)null);
@@ -747,8 +732,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return identifier != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__PARENT:
-				return parent != null && !parent.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__PART_OF:
+				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
 				return questionnaire != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:

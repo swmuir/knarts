@@ -21,44 +21,54 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ResearchStudyStatusList implements Enumerator {
 	/**
-	 * The '<em><b>Draft</b></em>' literal object.
+	 * The '<em><b>Active</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DRAFT_VALUE
+	 * @see #ACTIVE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DRAFT(0, "draft", "draft"),
+	ACTIVE(0, "active", "active"),
 
 	/**
-	 * The '<em><b>In Progress</b></em>' literal object.
+	 * The '<em><b>Administratively Completed</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IN_PROGRESS_VALUE
+	 * @see #ADMINISTRATIVELY_COMPLETED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	IN_PROGRESS(1, "inProgress", "in-progress"),
+	ADMINISTRATIVELY_COMPLETED(1, "administrativelyCompleted", "administratively-completed"),
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal object.
+	 * The '<em><b>Approved</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUSPENDED_VALUE
+	 * @see #APPROVED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(2, "suspended", "suspended"),
+	APPROVED(2, "approved", "approved"),
 
 	/**
-	 * The '<em><b>Stopped</b></em>' literal object.
+	 * The '<em><b>Closed To Accrual</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #STOPPED_VALUE
+	 * @see #CLOSED_TO_ACCRUAL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	STOPPED(3, "stopped", "stopped"),
+	CLOSED_TO_ACCRUAL(3, "closedToAccrual", "closed-to-accrual"),
+
+	/**
+	 * The '<em><b>Closed To Accrual And Intervention</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CLOSED_TO_ACCRUAL_AND_INTERVENTION(4, "closedToAccrualAndIntervention", "closed-to-accrual-and-intervention"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -68,73 +78,127 @@ public enum ResearchStudyStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(4, "completed", "completed"),
+	COMPLETED(5, "completed", "completed"),
 
 	/**
-	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * The '<em><b>Disapproved</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @see #DISAPPROVED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error");
+	DISAPPROVED(6, "disapproved", "disapproved"),
 
 	/**
-	 * The '<em><b>Draft</b></em>' literal value.
+	 * The '<em><b>In Review</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IN_REVIEW_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IN_REVIEW(7, "inReview", "in-review"),
+
+	/**
+	 * The '<em><b>Temporarily Closed To Accrual</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TEMPORARILY_CLOSED_TO_ACCRUAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TEMPORARILY_CLOSED_TO_ACCRUAL(8, "temporarilyClosedToAccrual", "temporarily-closed-to-accrual"),
+
+	/**
+	 * The '<em><b>Temporarily Closed To Accrual And Intervention</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION(9, "temporarilyClosedToAccrualAndIntervention", "temporarily-closed-to-accrual-and-intervention"),
+
+	/**
+	 * The '<em><b>Withdrawn</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WITHDRAWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WITHDRAWN(10, "withdrawn", "withdrawn");
+
+	/**
+	 * The '<em><b>Active</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Draft
+	 * Active
 	 * <!-- end-model-doc -->
-	 * @see #DRAFT
-	 * @model name="draft"
+	 * @see #ACTIVE
+	 * @model name="active"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DRAFT_VALUE = 0;
+	public static final int ACTIVE_VALUE = 0;
 
 	/**
-	 * The '<em><b>In Progress</b></em>' literal value.
+	 * The '<em><b>Administratively Completed</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * In-progress
+	 * Administratively Completed
 	 * <!-- end-model-doc -->
-	 * @see #IN_PROGRESS
-	 * @model name="inProgress" literal="in-progress"
+	 * @see #ADMINISTRATIVELY_COMPLETED
+	 * @model name="administrativelyCompleted" literal="administratively-completed"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IN_PROGRESS_VALUE = 1;
+	public static final int ADMINISTRATIVELY_COMPLETED_VALUE = 1;
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal value.
+	 * The '<em><b>Approved</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suspended
+	 * Approved
 	 * <!-- end-model-doc -->
-	 * @see #SUSPENDED
-	 * @model name="suspended"
+	 * @see #APPROVED
+	 * @model name="approved"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 2;
+	public static final int APPROVED_VALUE = 2;
 
 	/**
-	 * The '<em><b>Stopped</b></em>' literal value.
+	 * The '<em><b>Closed To Accrual</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Stopped
+	 * Closed to Accrual
 	 * <!-- end-model-doc -->
-	 * @see #STOPPED
-	 * @model name="stopped"
+	 * @see #CLOSED_TO_ACCRUAL
+	 * @model name="closedToAccrual" literal="closed-to-accrual"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STOPPED_VALUE = 3;
+	public static final int CLOSED_TO_ACCRUAL_VALUE = 3;
+
+	/**
+	 * The '<em><b>Closed To Accrual And Intervention</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Closed to Accrual and Intervention
+	 * <!-- end-model-doc -->
+	 * @see #CLOSED_TO_ACCRUAL_AND_INTERVENTION
+	 * @model name="closedToAccrualAndIntervention" literal="closed-to-accrual-and-intervention"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE = 4;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -148,21 +212,77 @@ public enum ResearchStudyStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 4;
+	public static final int COMPLETED_VALUE = 5;
 
 	/**
-	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * The '<em><b>Disapproved</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Entered in error
+	 * Disapproved
 	 * <!-- end-model-doc -->
-	 * @see #ENTERED_IN_ERROR
-	 * @model name="enteredInError" literal="entered-in-error"
+	 * @see #DISAPPROVED
+	 * @model name="disapproved"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 5;
+	public static final int DISAPPROVED_VALUE = 6;
+
+	/**
+	 * The '<em><b>In Review</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * In Review
+	 * <!-- end-model-doc -->
+	 * @see #IN_REVIEW
+	 * @model name="inReview" literal="in-review"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IN_REVIEW_VALUE = 7;
+
+	/**
+	 * The '<em><b>Temporarily Closed To Accrual</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Temporarily Closed to Accrual
+	 * <!-- end-model-doc -->
+	 * @see #TEMPORARILY_CLOSED_TO_ACCRUAL
+	 * @model name="temporarilyClosedToAccrual" literal="temporarily-closed-to-accrual"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TEMPORARILY_CLOSED_TO_ACCRUAL_VALUE = 8;
+
+	/**
+	 * The '<em><b>Temporarily Closed To Accrual And Intervention</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Temporarily Closed to Accrual and Intervention
+	 * <!-- end-model-doc -->
+	 * @see #TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION
+	 * @model name="temporarilyClosedToAccrualAndIntervention" literal="temporarily-closed-to-accrual-and-intervention"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE = 9;
+
+	/**
+	 * The '<em><b>Withdrawn</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Withdrawn
+	 * <!-- end-model-doc -->
+	 * @see #WITHDRAWN
+	 * @model name="withdrawn"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WITHDRAWN_VALUE = 10;
 
 	/**
 	 * An array of all the '<em><b>Research Study Status List</b></em>' enumerators.
@@ -172,12 +292,17 @@ public enum ResearchStudyStatusList implements Enumerator {
 	 */
 	private static final ResearchStudyStatusList[] VALUES_ARRAY =
 		new ResearchStudyStatusList[] {
-			DRAFT,
-			IN_PROGRESS,
-			SUSPENDED,
-			STOPPED,
+			ACTIVE,
+			ADMINISTRATIVELY_COMPLETED,
+			APPROVED,
+			CLOSED_TO_ACCRUAL,
+			CLOSED_TO_ACCRUAL_AND_INTERVENTION,
 			COMPLETED,
-			ENTERED_IN_ERROR,
+			DISAPPROVED,
+			IN_REVIEW,
+			TEMPORARILY_CLOSED_TO_ACCRUAL,
+			TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION,
+			WITHDRAWN,
 		};
 
 	/**
@@ -234,12 +359,17 @@ public enum ResearchStudyStatusList implements Enumerator {
 	 */
 	public static ResearchStudyStatusList get(int value) {
 		switch (value) {
-			case DRAFT_VALUE: return DRAFT;
-			case IN_PROGRESS_VALUE: return IN_PROGRESS;
-			case SUSPENDED_VALUE: return SUSPENDED;
-			case STOPPED_VALUE: return STOPPED;
+			case ACTIVE_VALUE: return ACTIVE;
+			case ADMINISTRATIVELY_COMPLETED_VALUE: return ADMINISTRATIVELY_COMPLETED;
+			case APPROVED_VALUE: return APPROVED;
+			case CLOSED_TO_ACCRUAL_VALUE: return CLOSED_TO_ACCRUAL;
+			case CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE: return CLOSED_TO_ACCRUAL_AND_INTERVENTION;
 			case COMPLETED_VALUE: return COMPLETED;
-			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case DISAPPROVED_VALUE: return DISAPPROVED;
+			case IN_REVIEW_VALUE: return IN_REVIEW;
+			case TEMPORARILY_CLOSED_TO_ACCRUAL_VALUE: return TEMPORARILY_CLOSED_TO_ACCRUAL;
+			case TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION_VALUE: return TEMPORARILY_CLOSED_TO_ACCRUAL_AND_INTERVENTION;
+			case WITHDRAWN_VALUE: return WITHDRAWN;
 		}
 		return null;
 	}

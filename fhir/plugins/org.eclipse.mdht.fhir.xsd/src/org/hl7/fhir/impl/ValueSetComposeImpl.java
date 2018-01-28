@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,8 +21,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetInclude;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,8 +38,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ValueSetCompose", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ValueSetCompose")
 public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSetCompose {
 	/**
 	 * The cached value of the '{@link #getLockedDate() <em>Locked Date</em>}' containment reference.
@@ -112,7 +103,6 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLockedDate() {
 		return lockedDate;
 	}
@@ -156,7 +146,6 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getInactive() {
 		return inactive;
 	}
@@ -200,7 +189,6 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<ValueSetInclude> getInclude() {
 		if (include == null) {
 			include = new EObjectContainmentEList<ValueSetInclude>(ValueSetInclude.class, this, FhirPackage.VALUE_SET_COMPOSE__INCLUDE);
@@ -213,7 +201,6 @@ public class ValueSetComposeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ValueSetInclude> getExclude() {
 		if (exclude == null) {
 			exclude = new EObjectContainmentEList<ValueSetInclude>(ValueSetInclude.class, this, FhirPackage.VALUE_SET_COMPOSE__EXCLUDE);

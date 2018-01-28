@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CapabilityStatementInteraction1;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SystemRestfulInteraction;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.SystemRestfulInteractionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +28,6 @@ import org.hl7.fhir.jaxb.SystemRestfulInteractionImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CapabilityStatementInteraction1", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CapabilityStatementInteraction1")
 public class CapabilityStatementInteraction1Impl extends BackboneElementImpl implements CapabilityStatementInteraction1 {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -82,8 +73,6 @@ public class CapabilityStatementInteraction1Impl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SystemRestfulInteractionImplAdapter.class)
-	@XmlElement(required = true)
 	public SystemRestfulInteraction getCode() {
 		return code;
 	}
@@ -127,7 +116,6 @@ public class CapabilityStatementInteraction1Impl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}

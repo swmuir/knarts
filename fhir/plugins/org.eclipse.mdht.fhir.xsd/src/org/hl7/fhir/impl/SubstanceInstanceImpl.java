@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +15,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SubstanceInstance;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +31,6 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SubstanceInstance", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SubstanceInstance")
 public class SubstanceInstanceImpl extends BackboneElementImpl implements SubstanceInstance {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -136,7 +129,6 @@ public class SubstanceInstanceImpl extends BackboneElementImpl implements Substa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getExpiry() {
 		return expiry;
 	}

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MessageHeaderDestinationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,13 +19,13 @@ import org.hl7.fhir.jaxb.MessageHeaderDestinationImplAdapter;
  *   <li>{@link org.hl7.fhir.MessageHeaderDestination#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeaderDestination#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeaderDestination#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeaderDestination#getReceiver <em>Receiver</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMessageHeaderDestination()
  * @model extendedMetaData="name='MessageHeader.Destination' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageHeaderDestinationImplAdapter.class)
 public interface MessageHeaderDestination extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -107,5 +104,31 @@ public interface MessageHeaderDestination extends BackboneElement {
 	 * @generated
 	 */
 	void setEndpoint(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Receiver</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Receiver</em>' containment reference.
+	 * @see #setReceiver(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeaderDestination_Receiver()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='receiver' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getReceiver();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MessageHeaderDestination#getReceiver <em>Receiver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Receiver</em>' containment reference.
+	 * @see #getReceiver()
+	 * @generated
+	 */
+	void setReceiver(Reference value);
 
 } // MessageHeaderDestination

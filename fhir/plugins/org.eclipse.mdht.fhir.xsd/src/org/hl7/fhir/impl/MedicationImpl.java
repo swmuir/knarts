@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,16 +17,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Medication;
+import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationIngredient;
-import org.hl7.fhir.MedicationPackage;
 import org.hl7.fhir.MedicationStatus;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.MedicationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,19 +36,15 @@ import org.hl7.fhir.jaxb.MedicationStatusImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsBrand <em>Is Brand</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIsOverTheCounter <em>Is Over The Counter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getForm <em>Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIngredient <em>Ingredient</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getPackage <em>Package</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getBatch <em>Batch</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "Medication", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Medication")
 public class MedicationImpl extends DomainResourceImpl implements Medication {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -78,26 +67,6 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected MedicationStatus status;
 
 	/**
-	 * The cached value of the '{@link #getIsBrand() <em>Is Brand</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsBrand()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean isBrand;
-
-	/**
-	 * The cached value of the '{@link #getIsOverTheCounter() <em>Is Over The Counter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsOverTheCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean isOverTheCounter;
-
-	/**
 	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,6 +87,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected CodeableConcept form;
 
 	/**
+	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAmount()
+	 * @generated
+	 * @ordered
+	 */
+	protected Quantity amount;
+
+	/**
 	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,24 +107,14 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	protected EList<MedicationIngredient> ingredient;
 
 	/**
-	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
+	 * The cached value of the '{@link #getBatch() <em>Batch</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPackage()
+	 * @see #getBatch()
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationPackage package_;
-
-	/**
-	 * The cached value of the '{@link #getImage() <em>Image</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImage()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attachment> image;
+	protected MedicationBatch batch;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,7 +183,6 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MedicationStatusImplAdapter.class)
 	public MedicationStatus getStatus() {
 		return status;
 	}
@@ -251,94 +219,6 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__STATUS, newStatus, newStatus));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getIsBrand() {
-		return isBrand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsBrand(org.hl7.fhir.Boolean newIsBrand, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldIsBrand = isBrand;
-		isBrand = newIsBrand;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_BRAND, oldIsBrand, newIsBrand);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsBrand(org.hl7.fhir.Boolean newIsBrand) {
-		if (newIsBrand != isBrand) {
-			NotificationChain msgs = null;
-			if (isBrand != null)
-				msgs = ((InternalEObject)isBrand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_BRAND, null, msgs);
-			if (newIsBrand != null)
-				msgs = ((InternalEObject)newIsBrand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_BRAND, null, msgs);
-			msgs = basicSetIsBrand(newIsBrand, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_BRAND, newIsBrand, newIsBrand));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getIsOverTheCounter() {
-		return isOverTheCounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsOverTheCounter(org.hl7.fhir.Boolean newIsOverTheCounter, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldIsOverTheCounter = isOverTheCounter;
-		isOverTheCounter = newIsOverTheCounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, oldIsOverTheCounter, newIsOverTheCounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsOverTheCounter(org.hl7.fhir.Boolean newIsOverTheCounter) {
-		if (newIsOverTheCounter != isOverTheCounter) {
-			NotificationChain msgs = null;
-			if (isOverTheCounter != null)
-				msgs = ((InternalEObject)isOverTheCounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, null, msgs);
-			if (newIsOverTheCounter != null)
-				msgs = ((InternalEObject)newIsOverTheCounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, null, msgs);
-			msgs = basicSetIsOverTheCounter(newIsOverTheCounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__IS_OVER_THE_COUNTER, newIsOverTheCounter, newIsOverTheCounter));
 	}
 
 	/**
@@ -432,7 +312,49 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public Quantity getAmount() {
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAmount(Quantity newAmount, NotificationChain msgs) {
+		Quantity oldAmount = amount;
+		amount = newAmount;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__AMOUNT, oldAmount, newAmount);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAmount(Quantity newAmount) {
+		if (newAmount != amount) {
+			NotificationChain msgs = null;
+			if (amount != null)
+				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__AMOUNT, null, msgs);
+			if (newAmount != null)
+				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__AMOUNT, null, msgs);
+			msgs = basicSetAmount(newAmount, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__AMOUNT, newAmount, newAmount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MedicationIngredient> getIngredient() {
 		if (ingredient == null) {
 			ingredient = new EObjectContainmentEList<MedicationIngredient>(MedicationIngredient.class, this, FhirPackage.MEDICATION__INGREDIENT);
@@ -445,8 +367,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationPackage getPackage() {
-		return package_;
+	public MedicationBatch getBatch() {
+		return batch;
 	}
 
 	/**
@@ -454,11 +376,11 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPackage(MedicationPackage newPackage, NotificationChain msgs) {
-		MedicationPackage oldPackage = package_;
-		package_ = newPackage;
+	public NotificationChain basicSetBatch(MedicationBatch newBatch, NotificationChain msgs) {
+		MedicationBatch oldBatch = batch;
+		batch = newBatch;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PACKAGE, oldPackage, newPackage);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__BATCH, oldBatch, newBatch);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -469,31 +391,18 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPackage(MedicationPackage newPackage) {
-		if (newPackage != package_) {
+	public void setBatch(MedicationBatch newBatch) {
+		if (newBatch != batch) {
 			NotificationChain msgs = null;
-			if (package_ != null)
-				msgs = ((InternalEObject)package_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PACKAGE, null, msgs);
-			if (newPackage != null)
-				msgs = ((InternalEObject)newPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__PACKAGE, null, msgs);
-			msgs = basicSetPackage(newPackage, msgs);
+			if (batch != null)
+				msgs = ((InternalEObject)batch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__BATCH, null, msgs);
+			if (newBatch != null)
+				msgs = ((InternalEObject)newBatch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION__BATCH, null, msgs);
+			msgs = basicSetBatch(newBatch, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__PACKAGE, newPackage, newPackage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<Attachment> getImage() {
-		if (image == null) {
-			image = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.MEDICATION__IMAGE);
-		}
-		return image;
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__BATCH, newBatch, newBatch));
 	}
 
 	/**
@@ -508,20 +417,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return basicSetCode(null, msgs);
 			case FhirPackage.MEDICATION__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.MEDICATION__IS_BRAND:
-				return basicSetIsBrand(null, msgs);
-			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
-				return basicSetIsOverTheCounter(null, msgs);
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return basicSetManufacturer(null, msgs);
 			case FhirPackage.MEDICATION__FORM:
 				return basicSetForm(null, msgs);
+			case FhirPackage.MEDICATION__AMOUNT:
+				return basicSetAmount(null, msgs);
 			case FhirPackage.MEDICATION__INGREDIENT:
 				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION__PACKAGE:
-				return basicSetPackage(null, msgs);
-			case FhirPackage.MEDICATION__IMAGE:
-				return ((InternalEList<?>)getImage()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION__BATCH:
+				return basicSetBatch(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -538,20 +443,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return getCode();
 			case FhirPackage.MEDICATION__STATUS:
 				return getStatus();
-			case FhirPackage.MEDICATION__IS_BRAND:
-				return getIsBrand();
-			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
-				return getIsOverTheCounter();
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return getManufacturer();
 			case FhirPackage.MEDICATION__FORM:
 				return getForm();
+			case FhirPackage.MEDICATION__AMOUNT:
+				return getAmount();
 			case FhirPackage.MEDICATION__INGREDIENT:
 				return getIngredient();
-			case FhirPackage.MEDICATION__PACKAGE:
-				return getPackage();
-			case FhirPackage.MEDICATION__IMAGE:
-				return getImage();
+			case FhirPackage.MEDICATION__BATCH:
+				return getBatch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -571,28 +472,21 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 			case FhirPackage.MEDICATION__STATUS:
 				setStatus((MedicationStatus)newValue);
 				return;
-			case FhirPackage.MEDICATION__IS_BRAND:
-				setIsBrand((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
-				setIsOverTheCounter((org.hl7.fhir.Boolean)newValue);
-				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION__FORM:
 				setForm((CodeableConcept)newValue);
 				return;
+			case FhirPackage.MEDICATION__AMOUNT:
+				setAmount((Quantity)newValue);
+				return;
 			case FhirPackage.MEDICATION__INGREDIENT:
 				getIngredient().clear();
 				getIngredient().addAll((Collection<? extends MedicationIngredient>)newValue);
 				return;
-			case FhirPackage.MEDICATION__PACKAGE:
-				setPackage((MedicationPackage)newValue);
-				return;
-			case FhirPackage.MEDICATION__IMAGE:
-				getImage().clear();
-				getImage().addAll((Collection<? extends Attachment>)newValue);
+			case FhirPackage.MEDICATION__BATCH:
+				setBatch((MedicationBatch)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -612,26 +506,20 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 			case FhirPackage.MEDICATION__STATUS:
 				setStatus((MedicationStatus)null);
 				return;
-			case FhirPackage.MEDICATION__IS_BRAND:
-				setIsBrand((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
-				setIsOverTheCounter((org.hl7.fhir.Boolean)null);
-				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)null);
 				return;
 			case FhirPackage.MEDICATION__FORM:
 				setForm((CodeableConcept)null);
 				return;
+			case FhirPackage.MEDICATION__AMOUNT:
+				setAmount((Quantity)null);
+				return;
 			case FhirPackage.MEDICATION__INGREDIENT:
 				getIngredient().clear();
 				return;
-			case FhirPackage.MEDICATION__PACKAGE:
-				setPackage((MedicationPackage)null);
-				return;
-			case FhirPackage.MEDICATION__IMAGE:
-				getImage().clear();
+			case FhirPackage.MEDICATION__BATCH:
+				setBatch((MedicationBatch)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -649,20 +537,16 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				return code != null;
 			case FhirPackage.MEDICATION__STATUS:
 				return status != null;
-			case FhirPackage.MEDICATION__IS_BRAND:
-				return isBrand != null;
-			case FhirPackage.MEDICATION__IS_OVER_THE_COUNTER:
-				return isOverTheCounter != null;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				return manufacturer != null;
 			case FhirPackage.MEDICATION__FORM:
 				return form != null;
+			case FhirPackage.MEDICATION__AMOUNT:
+				return amount != null;
 			case FhirPackage.MEDICATION__INGREDIENT:
 				return ingredient != null && !ingredient.isEmpty();
-			case FhirPackage.MEDICATION__PACKAGE:
-				return package_ != null;
-			case FhirPackage.MEDICATION__IMAGE:
-				return image != null && !image.isEmpty();
+			case FhirPackage.MEDICATION__BATCH:
+				return batch != null;
 		}
 		return super.eIsSet(featureID);
 	}

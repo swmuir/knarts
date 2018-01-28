@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,12 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureGroup;
 import org.hl7.fhir.MeasurePopulation;
 import org.hl7.fhir.MeasureStratifier;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +31,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureGroupImpl#getStratifier <em>Stratifier</em>}</li>
@@ -46,28 +39,16 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MeasureGroup", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureGroup")
 public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGroup {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String name;
+	protected CodeableConcept code;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -123,9 +104,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Identifier getIdentifier() {
-		return identifier;
+	public CodeableConcept getCode() {
+		return code;
 	}
 
 	/**
@@ -133,11 +113,11 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__CODE, oldCode, newCode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -148,18 +128,18 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__IDENTIFIER, newIdentifier, newIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__CODE, newCode, newCode));
 	}
 
 	/**
@@ -167,51 +147,6 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
-		org.hl7.fhir.String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__NAME, oldName, newName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(org.hl7.fhir.String newName) {
-		if (newName != name) {
-			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_GROUP__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_GROUP__NAME, newName, newName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -255,7 +190,6 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasurePopulation> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasurePopulation>(MeasurePopulation.class, this, FhirPackage.MEASURE_GROUP__POPULATION);
@@ -268,7 +202,6 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureStratifier> getStratifier() {
 		if (stratifier == null) {
 			stratifier = new EObjectContainmentEList<MeasureStratifier>(MeasureStratifier.class, this, FhirPackage.MEASURE_GROUP__STRATIFIER);
@@ -284,10 +217,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_GROUP__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
-			case FhirPackage.MEASURE_GROUP__NAME:
-				return basicSetName(null, msgs);
+			case FhirPackage.MEASURE_GROUP__CODE:
+				return basicSetCode(null, msgs);
 			case FhirPackage.MEASURE_GROUP__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.MEASURE_GROUP__POPULATION:
@@ -306,10 +237,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_GROUP__IDENTIFIER:
-				return getIdentifier();
-			case FhirPackage.MEASURE_GROUP__NAME:
-				return getName();
+			case FhirPackage.MEASURE_GROUP__CODE:
+				return getCode();
 			case FhirPackage.MEASURE_GROUP__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.MEASURE_GROUP__POPULATION:
@@ -329,11 +258,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_GROUP__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.MEASURE_GROUP__NAME:
-				setName((org.hl7.fhir.String)newValue);
+			case FhirPackage.MEASURE_GROUP__CODE:
+				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE_GROUP__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -358,11 +284,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_GROUP__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
-			case FhirPackage.MEASURE_GROUP__NAME:
-				setName((org.hl7.fhir.String)null);
+			case FhirPackage.MEASURE_GROUP__CODE:
+				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE_GROUP__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -385,10 +308,8 @@ public class MeasureGroupImpl extends BackboneElementImpl implements MeasureGrou
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_GROUP__IDENTIFIER:
-				return identifier != null;
-			case FhirPackage.MEASURE_GROUP__NAME:
-				return name != null;
+			case FhirPackage.MEASURE_GROUP__CODE:
+				return code != null;
 			case FhirPackage.MEASURE_GROUP__DESCRIPTION:
 				return description != null;
 			case FhirPackage.MEASURE_GROUP__POPULATION:

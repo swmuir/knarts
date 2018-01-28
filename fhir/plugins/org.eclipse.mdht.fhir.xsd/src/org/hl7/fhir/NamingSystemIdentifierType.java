@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.NamingSystemIdentifierTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.NamingSystemIdentifierTypeImplAdapter;
  * @model extendedMetaData="name='NamingSystemIdentifierType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NamingSystemIdentifierTypeImplAdapter.class)
 public interface NamingSystemIdentifierType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MedicationIngredientImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.MedicationIngredientImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
+ * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.MedicationIngredientImplAdapter;
  * @model extendedMetaData="name='Medication.Ingredient' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationIngredientImplAdapter.class)
 public interface MedicationIngredient extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Item Codeable Concept</b></em>' containment reference.
@@ -90,7 +86,7 @@ public interface MedicationIngredient extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indication of whether this ingredient affects the therapeutic action of the drug.
+	 * Indication of whether thisÂ ingredient affectsÂ the therapeutic action of the drug.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Active</em>' containment reference.
 	 * @see #setIsActive(org.hl7.fhir.Boolean)

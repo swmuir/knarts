@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,9 +15,6 @@ import org.hl7.fhir.DeviceMetricCalibrationState;
 import org.hl7.fhir.DeviceMetricCalibrationType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
-import org.hl7.fhir.jaxb.DeviceMetricCalibrationStateImplAdapter;
-import org.hl7.fhir.jaxb.DeviceMetricCalibrationTypeImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,8 +31,6 @@ import org.hl7.fhir.jaxb.InstantImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DeviceMetricCalibration", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DeviceMetricCalibration")
 public class DeviceMetricCalibrationImpl extends BackboneElementImpl implements DeviceMetricCalibration {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -95,7 +86,6 @@ public class DeviceMetricCalibrationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DeviceMetricCalibrationTypeImplAdapter.class)
 	public DeviceMetricCalibrationType getType() {
 		return type;
 	}
@@ -139,7 +129,6 @@ public class DeviceMetricCalibrationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DeviceMetricCalibrationStateImplAdapter.class)
 	public DeviceMetricCalibrationState getState() {
 		return state;
 	}
@@ -183,7 +172,6 @@ public class DeviceMetricCalibrationImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getTime() {
 		return time;
 	}

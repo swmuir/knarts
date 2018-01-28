@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EligibilityRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,13 +34,13 @@ import org.hl7.fhir.jaxb.EligibilityRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getBusinessArrangement <em>Business Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getBenefitCategory <em>Benefit Category</em>}</li>
  *   <li>{@link org.hl7.fhir.EligibilityRequest#getBenefitSubCategory <em>Benefit Sub Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.EligibilityRequest#getAuthorization <em>Authorization</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEligibilityRequest()
  * @model extendedMetaData="name='EligibilityRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EligibilityRequestImplAdapter.class)
 public interface EligibilityRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -452,5 +449,21 @@ public interface EligibilityRequest extends DomainResource {
 	 * @generated
 	 */
 	void setBenefitSubCategory(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Authorization</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.EligibilityRequestAuthorization}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of billable services for which an authorization prior to service delivery may be required by the payor.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authorization</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEligibilityRequest_Authorization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authorization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<EligibilityRequestAuthorization> getAuthorization();
 
 } // EligibilityRequest

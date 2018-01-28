@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PaymentReconciliationProcessNoteImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.PaymentReconciliationProcessNoteImplAdapter;
  * @model extendedMetaData="name='PaymentReconciliation.ProcessNote' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PaymentReconciliationProcessNoteImplAdapter.class)
 public interface PaymentReconciliationProcessNote extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -37,13 +33,13 @@ public interface PaymentReconciliationProcessNote extends BackboneElement {
 	 * The note purpose: Print/Display.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
+	 * @see #setType(NoteType)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationProcessNote_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	NoteType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationProcessNote#getType <em>Type</em>}' containment reference.
@@ -53,7 +49,7 @@ public interface PaymentReconciliationProcessNote extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setType(NoteType value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

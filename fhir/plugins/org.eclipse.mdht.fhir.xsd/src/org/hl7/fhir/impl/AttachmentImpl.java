@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,12 +17,6 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +38,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Attachment", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Attachment")
 public class AttachmentImpl extends ElementImpl implements Attachment {
 	/**
 	 * The cached value of the '{@link #getContentType() <em>Content Type</em>}' containment reference.
@@ -155,7 +143,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getContentType() {
 		return contentType;
 	}
@@ -199,7 +186,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getLanguage() {
 		return language;
 	}
@@ -243,7 +229,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getData() {
 		return data;
 	}
@@ -287,7 +272,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -331,7 +315,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getSize() {
 		return size;
 	}
@@ -375,7 +358,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getHash() {
 		return hash;
 	}
@@ -419,7 +401,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -463,7 +444,6 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreation() {
 		return creation;
 	}

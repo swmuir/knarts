@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,9 +23,6 @@ import org.hl7.fhir.Id;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +34,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MetaImpl#getVersionId <em>Version Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MetaImpl#getLastUpdated <em>Last Updated</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MetaImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MetaImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MetaImpl#getSecurity <em>Security</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MetaImpl#getTag <em>Tag</em>}</li>
@@ -49,8 +42,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Meta", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Meta")
 public class MetaImpl extends ElementImpl implements Meta {
 	/**
 	 * The cached value of the '{@link #getVersionId() <em>Version Id</em>}' containment reference.
@@ -71,6 +62,16 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * @ordered
 	 */
 	protected Instant lastUpdated;
+
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri source;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
@@ -126,7 +127,6 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getVersionId() {
 		return versionId;
 	}
@@ -170,7 +170,6 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getLastUpdated() {
 		return lastUpdated;
 	}
@@ -214,8 +213,49 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
+	public Uri getSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Uri newSource, NotificationChain msgs) {
+		Uri oldSource = source;
+		source = newSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.META__SOURCE, oldSource, newSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSource(Uri newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.META__SOURCE, null, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.META__SOURCE, null, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.META__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Uri> getProfile() {
 		if (profile == null) {
 			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.META__PROFILE);
@@ -228,7 +268,6 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getSecurity() {
 		if (security == null) {
 			security = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.META__SECURITY);
@@ -241,7 +280,6 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getTag() {
 		if (tag == null) {
 			tag = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.META__TAG);
@@ -261,6 +299,8 @@ public class MetaImpl extends ElementImpl implements Meta {
 				return basicSetVersionId(null, msgs);
 			case FhirPackage.META__LAST_UPDATED:
 				return basicSetLastUpdated(null, msgs);
+			case FhirPackage.META__SOURCE:
+				return basicSetSource(null, msgs);
 			case FhirPackage.META__PROFILE:
 				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
 			case FhirPackage.META__SECURITY:
@@ -283,6 +323,8 @@ public class MetaImpl extends ElementImpl implements Meta {
 				return getVersionId();
 			case FhirPackage.META__LAST_UPDATED:
 				return getLastUpdated();
+			case FhirPackage.META__SOURCE:
+				return getSource();
 			case FhirPackage.META__PROFILE:
 				return getProfile();
 			case FhirPackage.META__SECURITY:
@@ -307,6 +349,9 @@ public class MetaImpl extends ElementImpl implements Meta {
 				return;
 			case FhirPackage.META__LAST_UPDATED:
 				setLastUpdated((Instant)newValue);
+				return;
+			case FhirPackage.META__SOURCE:
+				setSource((Uri)newValue);
 				return;
 			case FhirPackage.META__PROFILE:
 				getProfile().clear();
@@ -338,6 +383,9 @@ public class MetaImpl extends ElementImpl implements Meta {
 			case FhirPackage.META__LAST_UPDATED:
 				setLastUpdated((Instant)null);
 				return;
+			case FhirPackage.META__SOURCE:
+				setSource((Uri)null);
+				return;
 			case FhirPackage.META__PROFILE:
 				getProfile().clear();
 				return;
@@ -363,6 +411,8 @@ public class MetaImpl extends ElementImpl implements Meta {
 				return versionId != null;
 			case FhirPackage.META__LAST_UPDATED:
 				return lastUpdated != null;
+			case FhirPackage.META__SOURCE:
+				return source != null;
 			case FhirPackage.META__PROFILE:
 				return profile != null && !profile.isEmpty();
 			case FhirPackage.META__SECURITY:

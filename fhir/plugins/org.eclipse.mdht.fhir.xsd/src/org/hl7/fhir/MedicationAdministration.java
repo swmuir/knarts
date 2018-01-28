@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MedicationAdministrationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +19,7 @@ import org.hl7.fhir.jaxb.MedicationAdministrationImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getCategory <em>Category</em>}</li>
@@ -34,11 +31,10 @@ import org.hl7.fhir.jaxb.MedicationAdministrationImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getNotGiven <em>Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonNotGiven <em>Reason Not Given</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getPrescription <em>Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getDosage <em>Dosage</em>}</li>
@@ -49,7 +45,6 @@ import org.hl7.fhir.jaxb.MedicationAdministrationImplAdapter;
  * @model extendedMetaData="name='MedicationAdministration' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationAdministrationImplAdapter.class)
 public interface MedicationAdministration extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -68,20 +63,20 @@ public interface MedicationAdministration extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Uri> getInstantiates();
 
 	/**
 	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference list.
@@ -344,46 +339,20 @@ public interface MedicationAdministration extends DomainResource {
 	EList<MedicationAdministrationPerformer> getPerformer();
 
 	/**
-	 * Returns the value of the '<em><b>Not Given</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Set this to true if the record is saying that the medication was NOT administered.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Given</em>' containment reference.
-	 * @see #setNotGiven(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_NotGiven()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notGiven' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getNotGiven();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getNotGiven <em>Not Given</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Given</em>' containment reference.
-	 * @see #getNotGiven()
-	 * @generated
-	 */
-	void setNotGiven(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Not Given</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A code indicating why the administration was not performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason Not Given</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_ReasonNotGiven()
+	 * @return the value of the '<em>Status Reason</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_StatusReason()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonNotGiven' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getReasonNotGiven();
+	EList<CodeableConcept> getStatusReason();
 
 	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
@@ -418,30 +387,30 @@ public interface MedicationAdministration extends DomainResource {
 	EList<Reference> getReasonReference();
 
 	/**
-	 * Returns the value of the '<em><b>Prescription</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The original request, instruction or authority to perform the administration.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Prescription</em>' containment reference.
-	 * @see #setPrescription(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Prescription()
+	 * @return the value of the '<em>Request</em>' containment reference.
+	 * @see #setRequest(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Request()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prescription' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='request' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPrescription();
+	Reference getRequest();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getPrescription <em>Prescription</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getRequest <em>Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prescription</em>' containment reference.
-	 * @see #getPrescription()
+	 * @param value the new value of the '<em>Request</em>' containment reference.
+	 * @see #getRequest()
 	 * @generated
 	 */
-	void setPrescription(Reference value);
+	void setRequest(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference list.

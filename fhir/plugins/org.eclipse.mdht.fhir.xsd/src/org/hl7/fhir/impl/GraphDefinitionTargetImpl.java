@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,8 +23,6 @@ import org.hl7.fhir.GraphDefinitionLink;
 import org.hl7.fhir.GraphDefinitionTarget;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +33,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionTargetImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GraphDefinitionTargetImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionTargetImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionTargetImpl#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionTargetImpl#getLink <em>Link</em>}</li>
@@ -47,8 +41,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "GraphDefinitionTarget", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "GraphDefinitionTarget")
 public class GraphDefinitionTargetImpl extends BackboneElementImpl implements GraphDefinitionTarget {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -59,6 +51,16 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * @ordered
 	 */
 	protected ResourceType type;
+
+	/**
+	 * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParams()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String params;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -114,8 +116,6 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public ResourceType getType() {
 		return type;
 	}
@@ -159,7 +159,49 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
+	public org.hl7.fhir.String getParams() {
+		return params;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParams(org.hl7.fhir.String newParams, NotificationChain msgs) {
+		org.hl7.fhir.String oldParams = params;
+		params = newParams;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS, oldParams, newParams);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParams(org.hl7.fhir.String newParams) {
+		if (newParams != params) {
+			NotificationChain msgs = null;
+			if (params != null)
+				msgs = ((InternalEObject)params).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS, null, msgs);
+			if (newParams != null)
+				msgs = ((InternalEObject)newParams).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS, null, msgs);
+			msgs = basicSetParams(newParams, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS, newParams, newParams));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Uri getProfile() {
 		return profile;
 	}
@@ -203,7 +245,6 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<GraphDefinitionCompartment> getCompartment() {
 		if (compartment == null) {
 			compartment = new EObjectContainmentEList<GraphDefinitionCompartment>(GraphDefinitionCompartment.class, this, FhirPackage.GRAPH_DEFINITION_TARGET__COMPARTMENT);
@@ -216,7 +257,6 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<GraphDefinitionLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<GraphDefinitionLink>(GraphDefinitionLink.class, this, FhirPackage.GRAPH_DEFINITION_TARGET__LINK);
@@ -234,6 +274,8 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 		switch (featureID) {
 			case FhirPackage.GRAPH_DEFINITION_TARGET__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS:
+				return basicSetParams(null, msgs);
 			case FhirPackage.GRAPH_DEFINITION_TARGET__PROFILE:
 				return basicSetProfile(null, msgs);
 			case FhirPackage.GRAPH_DEFINITION_TARGET__COMPARTMENT:
@@ -254,6 +296,8 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 		switch (featureID) {
 			case FhirPackage.GRAPH_DEFINITION_TARGET__TYPE:
 				return getType();
+			case FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS:
+				return getParams();
 			case FhirPackage.GRAPH_DEFINITION_TARGET__PROFILE:
 				return getProfile();
 			case FhirPackage.GRAPH_DEFINITION_TARGET__COMPARTMENT:
@@ -275,6 +319,9 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 		switch (featureID) {
 			case FhirPackage.GRAPH_DEFINITION_TARGET__TYPE:
 				setType((ResourceType)newValue);
+				return;
+			case FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS:
+				setParams((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.GRAPH_DEFINITION_TARGET__PROFILE:
 				setProfile((Uri)newValue);
@@ -302,6 +349,9 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 			case FhirPackage.GRAPH_DEFINITION_TARGET__TYPE:
 				setType((ResourceType)null);
 				return;
+			case FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS:
+				setParams((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.GRAPH_DEFINITION_TARGET__PROFILE:
 				setProfile((Uri)null);
 				return;
@@ -325,6 +375,8 @@ public class GraphDefinitionTargetImpl extends BackboneElementImpl implements Gr
 		switch (featureID) {
 			case FhirPackage.GRAPH_DEFINITION_TARGET__TYPE:
 				return type != null;
+			case FhirPackage.GRAPH_DEFINITION_TARGET__PARAMS:
+				return params != null;
 			case FhirPackage.GRAPH_DEFINITION_TARGET__PROFILE:
 				return profile != null;
 			case FhirPackage.GRAPH_DEFINITION_TARGET__COMPARTMENT:

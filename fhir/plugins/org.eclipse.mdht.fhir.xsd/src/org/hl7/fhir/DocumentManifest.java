@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DocumentManifestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,7 @@ import org.hl7.fhir.jaxb.DocumentManifestImplAdapter;
  *   <li>{@link org.hl7.fhir.DocumentManifest#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getDescription <em>Description</em>}</li>
@@ -39,7 +36,6 @@ import org.hl7.fhir.jaxb.DocumentManifestImplAdapter;
  * @model extendedMetaData="name='DocumentManifest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentManifestImplAdapter.class)
 public interface DocumentManifest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Master Identifier</b></em>' containment reference.
@@ -188,20 +184,20 @@ public interface DocumentManifest extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DocumentManifestAgent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies who is responsible for creating the manifest, and adding  documents to it.
+	 * An actor taking an active role in the manifest.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Author()
+	 * @return the value of the '<em>Agent</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Agent()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getAuthor();
+	EList<DocumentManifestAgent> getAgent();
 
 	/**
 	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.
@@ -273,11 +269,11 @@ public interface DocumentManifest extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DocumentManifestContent}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The list of Documents included in the manifest.
+	 * The list of Resources that consist of the parts of this manifest.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Content()
@@ -285,7 +281,7 @@ public interface DocumentManifest extends DomainResource {
 	 *        extendedMetaData="kind='element' name='content' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DocumentManifestContent> getContent();
+	EList<Reference> getContent();
 
 	/**
 	 * Returns the value of the '<em><b>Related</b></em>' containment reference list.

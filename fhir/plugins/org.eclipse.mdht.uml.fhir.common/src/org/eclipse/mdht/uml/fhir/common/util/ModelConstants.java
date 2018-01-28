@@ -34,8 +34,8 @@ public interface ModelConstants {
 	public static final String DATATYPE_CLASS_NAME = "DataType";
 
 	//TODO Make these server URLs variable preference settings
-	public static final String TERMINOLOGY_SERVER = "http://tx.fhir.org/r3/";
-	public static final String REGISTRY_SERVER = "http://tx.fhir.org/r3/";
+	public static final String TERMINOLOGY_SERVER = "http://tx.fhir.org/r4/";
+	public static final String REGISTRY_SERVER = "http://tx.fhir.org/r4/";
 	
 	public static final String VALUESET_ID_RESOURCE_TYPES = "resource-types";
 	public static final String VALUESET_ID_DATA_TYPES = "data-types";

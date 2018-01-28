@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -93,7 +93,12 @@
           </xs:element>
           <xs:element name="performer" type="MedicationDispense.Performer" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication.</xs:documentation>
+              <xs:documentation xml:lang="en">Indicates who or what performed the event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="location" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The principal physical locaiton where the dispense was performed.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="authorizingPrescription" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -156,17 +161,12 @@
               <xs:documentation xml:lang="en">Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="notDone" minOccurs="0" maxOccurs="1" type="boolean">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">True if the dispense was not performed for some reason.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates the reason why a dispense was not performed.</xs:documentation>
             </xs:annotation>
-            <xs:element name="notDoneReasonCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="notDoneReasonReference" type="Reference"/>
+            <xs:element name="statusReasonCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="statusReasonReference" type="Reference"/>
           </xs:choice>
           <xs:element name="eventHistory" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
@@ -184,14 +184,14 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
+          <xs:element name="function" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="actor" minOccurs="1" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="onBehalfOf" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The organization the device or practitioner was acting on behalf of.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -239,6 +239,11 @@
       <xs:enumeration value="in-progress">
         <xs:annotation>
           <xs:documentation xml:lang="en">In Progress</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="not-done">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Not Done</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="on-hold">

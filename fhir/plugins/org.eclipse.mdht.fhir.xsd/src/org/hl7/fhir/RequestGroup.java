@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.RequestGroupImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,11 +26,12 @@ import org.hl7.fhir.jaxb.RequestGroupImplAdapter;
  *   <li>{@link org.hl7.fhir.RequestGroup#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.RequestGroup#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAction <em>Action</em>}</li>
@@ -43,7 +41,6 @@ import org.hl7.fhir.jaxb.RequestGroupImplAdapter;
  * @model extendedMetaData="name='RequestGroup' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RequestGroupImplAdapter.class)
 public interface RequestGroup extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -214,6 +211,32 @@ public interface RequestGroup extends DomainResource {
 	void setPriority(RequestPriority value);
 
 	/**
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code that identifies what the overall request group is.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Code()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getCode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getCode <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
+	 * @generated
+	 */
+	void setCode(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,58 +341,36 @@ public interface RequestGroup extends DomainResource {
 	void setAuthor(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #setReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_ReasonCodeableConcept()
+	 * <!-- begin-model-doc -->
+	 * Describes the reason for the request group in coded or textual form.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReasonCodeableConcept();
+	EList<CodeableConcept> getReasonCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getReasonCodeableConcept <em>Reason Codeable Concept</em>}' containment reference.
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #getReasonCodeableConcept()
-	 * @generated
-	 */
-	void setReasonCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #setReasonReference(Reference)
+	 * <!-- begin-model-doc -->
+	 * Indicates another resource whose existence justifies this request group.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_ReasonReference()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReasonReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getReasonReference <em>Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #getReasonReference()
-	 * @generated
-	 */
-	void setReasonReference(Reference value);
+	EList<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

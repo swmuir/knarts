@@ -4,10 +4,6 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Markdown</b></em>'.
@@ -30,7 +26,6 @@ import org.hl7.fhir.jaxb.MarkdownImplAdapter;
  * @model extendedMetaData="name='markdown' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 public interface Markdown extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

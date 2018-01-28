@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MetaImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.MetaImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
+ * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,6 +20,7 @@ import org.hl7.fhir.jaxb.MetaImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Meta#getVersionId <em>Version Id</em>}</li>
  *   <li>{@link org.hl7.fhir.Meta#getLastUpdated <em>Last Updated</em>}</li>
+ *   <li>{@link org.hl7.fhir.Meta#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.Meta#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.Meta#getSecurity <em>Security</em>}</li>
  *   <li>{@link org.hl7.fhir.Meta#getTag <em>Tag</em>}</li>
@@ -32,14 +30,13 @@ import org.hl7.fhir.jaxb.MetaImplAdapter;
  * @model extendedMetaData="name='Meta' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MetaImplAdapter.class)
 public interface Meta extends Element {
 	/**
 	 * Returns the value of the '<em><b>Version Id</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
+	 * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version Id</em>' containment reference.
 	 * @see #setVersionId(Id)
@@ -85,6 +82,32 @@ public interface Meta extends Element {
 	 * @generated
 	 */
 	void setLastUpdated(Instant value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getMeta_Source()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getSource();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Meta#getSource <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.

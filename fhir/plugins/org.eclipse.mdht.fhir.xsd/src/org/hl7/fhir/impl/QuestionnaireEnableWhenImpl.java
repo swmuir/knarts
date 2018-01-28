@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,14 +21,6 @@ import org.hl7.fhir.QuestionnaireEnableWhen;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,8 +48,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "QuestionnaireEnableWhen", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "QuestionnaireEnableWhen")
 public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements QuestionnaireEnableWhen {
 	/**
 	 * The cached value of the '{@link #getQuestion() <em>Question</em>}' containment reference.
@@ -228,8 +213,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getQuestion() {
 		return question;
 	}
@@ -273,7 +256,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getHasAnswer() {
 		return hasAnswer;
 	}
@@ -317,7 +299,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAnswerBoolean() {
 		return answerBoolean;
 	}
@@ -361,7 +342,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getAnswerDecimal() {
 		return answerDecimal;
 	}
@@ -405,7 +385,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getAnswerInteger() {
 		return answerInteger;
 	}
@@ -449,7 +428,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getAnswerDate() {
 		return answerDate;
 	}
@@ -493,7 +471,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAnswerDateTime() {
 		return answerDateTime;
 	}
@@ -537,7 +514,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getAnswerTime() {
 		return answerTime;
 	}
@@ -581,7 +557,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAnswerString() {
 		return answerString;
 	}
@@ -625,7 +600,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getAnswerUri() {
 		return answerUri;
 	}

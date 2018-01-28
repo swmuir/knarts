@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
-
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.DateTimeImplAdapter;
  * @model extendedMetaData="name='dateTime' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 public interface DateTime extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

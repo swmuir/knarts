@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DeviceMetricCalibrationStateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DeviceMetricCalibrationStateImplAdapter;
  * @model extendedMetaData="name='DeviceMetricCalibrationState' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceMetricCalibrationStateImplAdapter.class)
 public interface DeviceMetricCalibrationState extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

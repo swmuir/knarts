@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.StructureMapParameterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.StructureMapParameterImplAdapter;
  * @model extendedMetaData="name='StructureMap.Parameter' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureMapParameterImplAdapter.class)
 public interface StructureMapParameter extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Value Id</b></em>' containment reference.

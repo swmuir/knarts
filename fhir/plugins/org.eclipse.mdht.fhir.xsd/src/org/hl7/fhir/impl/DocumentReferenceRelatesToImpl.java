@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.DocumentReferenceRelatesTo;
 import org.hl7.fhir.DocumentRelationshipType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DocumentRelationshipTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.DocumentRelationshipTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DocumentReferenceRelatesTo", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DocumentReferenceRelatesTo")
 public class DocumentReferenceRelatesToImpl extends BackboneElementImpl implements DocumentReferenceRelatesTo {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -82,8 +74,6 @@ public class DocumentReferenceRelatesToImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DocumentRelationshipTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public DocumentRelationshipType getCode() {
 		return code;
 	}
@@ -127,7 +117,6 @@ public class DocumentReferenceRelatesToImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getTarget() {
 		return target;
 	}

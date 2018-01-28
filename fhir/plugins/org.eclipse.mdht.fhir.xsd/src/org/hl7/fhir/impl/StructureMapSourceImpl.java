@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,12 +18,16 @@ import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.ContactPoint;
+import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Count;
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.Distance;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HumanName;
@@ -39,37 +38,24 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Oid;
+import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.StructureMapSource;
 import org.hl7.fhir.StructureMapSourceListMode;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.TriggerDefinition;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.OidImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.StructureMapSourceListModeImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,6 +106,14 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueSampledData <em>Default Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueSignature <em>Default Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueTiming <em>Default Value Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueDosage <em>Default Value Dosage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueContributor <em>Default Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueUsageContext <em>Default Value Usage Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getDefaultValueMeta <em>Default Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.StructureMapSourceImpl#getListMode <em>List Mode</em>}</li>
@@ -130,8 +124,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapSource", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapSource")
 public class StructureMapSourceImpl extends BackboneElementImpl implements StructureMapSource {
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
@@ -544,6 +536,86 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	protected Timing defaultValueTiming;
 
 	/**
+	 * The cached value of the '{@link #getDefaultValueDosage() <em>Default Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueDosage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Dosage defaultValueDosage;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueContactDetail() <em>Default Value Contact Detail</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueContactDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContactDetail defaultValueContactDetail;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueContributor() <em>Default Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueContributor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Contributor defaultValueContributor;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueDataRequirement() <em>Default Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataRequirement defaultValueDataRequirement;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueParameterDefinition() <em>Default Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueParameterDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterDefinition defaultValueParameterDefinition;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueRelatedArtifact() <em>Default Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueRelatedArtifact()
+	 * @generated
+	 * @ordered
+	 */
+	protected RelatedArtifact defaultValueRelatedArtifact;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueTriggerDefinition() <em>Default Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueTriggerDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TriggerDefinition defaultValueTriggerDefinition;
+
+	/**
+	 * The cached value of the '{@link #getDefaultValueUsageContext() <em>Default Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValueUsageContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected UsageContext defaultValueUsageContext;
+
+	/**
 	 * The cached value of the '{@link #getDefaultValueMeta() <em>Default Value Meta</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -627,8 +699,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getContext() {
 		return context;
 	}
@@ -672,7 +742,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getMin() {
 		return min;
 	}
@@ -716,7 +785,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}
@@ -760,7 +828,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getType() {
 		return type;
 	}
@@ -804,7 +871,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getDefaultValueBase64Binary() {
 		return defaultValueBase64Binary;
 	}
@@ -848,7 +914,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDefaultValueBoolean() {
 		return defaultValueBoolean;
 	}
@@ -892,7 +957,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getDefaultValueCode() {
 		return defaultValueCode;
 	}
@@ -936,7 +1000,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDefaultValueDate() {
 		return defaultValueDate;
 	}
@@ -980,7 +1043,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDefaultValueDateTime() {
 		return defaultValueDateTime;
 	}
@@ -1024,7 +1086,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDefaultValueDecimal() {
 		return defaultValueDecimal;
 	}
@@ -1068,7 +1129,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getDefaultValueId() {
 		return defaultValueId;
 	}
@@ -1112,7 +1172,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getDefaultValueInstant() {
 		return defaultValueInstant;
 	}
@@ -1156,7 +1215,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getDefaultValueInteger() {
 		return defaultValueInteger;
 	}
@@ -1200,7 +1258,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDefaultValueMarkdown() {
 		return defaultValueMarkdown;
 	}
@@ -1244,7 +1301,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getDefaultValueOid() {
 		return defaultValueOid;
 	}
@@ -1288,7 +1344,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getDefaultValuePositiveInt() {
 		return defaultValuePositiveInt;
 	}
@@ -1332,7 +1387,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDefaultValueString() {
 		return defaultValueString;
 	}
@@ -1376,7 +1430,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getDefaultValueTime() {
 		return defaultValueTime;
 	}
@@ -1420,7 +1473,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getDefaultValueUnsignedInt() {
 		return defaultValueUnsignedInt;
 	}
@@ -1464,7 +1516,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getDefaultValueUri() {
 		return defaultValueUri;
 	}
@@ -2411,6 +2462,350 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Dosage getDefaultValueDosage() {
+		return defaultValueDosage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueDosage(Dosage newDefaultValueDosage, NotificationChain msgs) {
+		Dosage oldDefaultValueDosage = defaultValueDosage;
+		defaultValueDosage = newDefaultValueDosage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE, oldDefaultValueDosage, newDefaultValueDosage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueDosage(Dosage newDefaultValueDosage) {
+		if (newDefaultValueDosage != defaultValueDosage) {
+			NotificationChain msgs = null;
+			if (defaultValueDosage != null)
+				msgs = ((InternalEObject)defaultValueDosage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE, null, msgs);
+			if (newDefaultValueDosage != null)
+				msgs = ((InternalEObject)newDefaultValueDosage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE, null, msgs);
+			msgs = basicSetDefaultValueDosage(newDefaultValueDosage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE, newDefaultValueDosage, newDefaultValueDosage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContactDetail getDefaultValueContactDetail() {
+		return defaultValueContactDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueContactDetail(ContactDetail newDefaultValueContactDetail, NotificationChain msgs) {
+		ContactDetail oldDefaultValueContactDetail = defaultValueContactDetail;
+		defaultValueContactDetail = newDefaultValueContactDetail;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL, oldDefaultValueContactDetail, newDefaultValueContactDetail);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueContactDetail(ContactDetail newDefaultValueContactDetail) {
+		if (newDefaultValueContactDetail != defaultValueContactDetail) {
+			NotificationChain msgs = null;
+			if (defaultValueContactDetail != null)
+				msgs = ((InternalEObject)defaultValueContactDetail).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL, null, msgs);
+			if (newDefaultValueContactDetail != null)
+				msgs = ((InternalEObject)newDefaultValueContactDetail).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL, null, msgs);
+			msgs = basicSetDefaultValueContactDetail(newDefaultValueContactDetail, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL, newDefaultValueContactDetail, newDefaultValueContactDetail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contributor getDefaultValueContributor() {
+		return defaultValueContributor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueContributor(Contributor newDefaultValueContributor, NotificationChain msgs) {
+		Contributor oldDefaultValueContributor = defaultValueContributor;
+		defaultValueContributor = newDefaultValueContributor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR, oldDefaultValueContributor, newDefaultValueContributor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueContributor(Contributor newDefaultValueContributor) {
+		if (newDefaultValueContributor != defaultValueContributor) {
+			NotificationChain msgs = null;
+			if (defaultValueContributor != null)
+				msgs = ((InternalEObject)defaultValueContributor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR, null, msgs);
+			if (newDefaultValueContributor != null)
+				msgs = ((InternalEObject)newDefaultValueContributor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR, null, msgs);
+			msgs = basicSetDefaultValueContributor(newDefaultValueContributor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR, newDefaultValueContributor, newDefaultValueContributor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataRequirement getDefaultValueDataRequirement() {
+		return defaultValueDataRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueDataRequirement(DataRequirement newDefaultValueDataRequirement, NotificationChain msgs) {
+		DataRequirement oldDefaultValueDataRequirement = defaultValueDataRequirement;
+		defaultValueDataRequirement = newDefaultValueDataRequirement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT, oldDefaultValueDataRequirement, newDefaultValueDataRequirement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueDataRequirement(DataRequirement newDefaultValueDataRequirement) {
+		if (newDefaultValueDataRequirement != defaultValueDataRequirement) {
+			NotificationChain msgs = null;
+			if (defaultValueDataRequirement != null)
+				msgs = ((InternalEObject)defaultValueDataRequirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT, null, msgs);
+			if (newDefaultValueDataRequirement != null)
+				msgs = ((InternalEObject)newDefaultValueDataRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT, null, msgs);
+			msgs = basicSetDefaultValueDataRequirement(newDefaultValueDataRequirement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT, newDefaultValueDataRequirement, newDefaultValueDataRequirement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDefinition getDefaultValueParameterDefinition() {
+		return defaultValueParameterDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueParameterDefinition(ParameterDefinition newDefaultValueParameterDefinition, NotificationChain msgs) {
+		ParameterDefinition oldDefaultValueParameterDefinition = defaultValueParameterDefinition;
+		defaultValueParameterDefinition = newDefaultValueParameterDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION, oldDefaultValueParameterDefinition, newDefaultValueParameterDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueParameterDefinition(ParameterDefinition newDefaultValueParameterDefinition) {
+		if (newDefaultValueParameterDefinition != defaultValueParameterDefinition) {
+			NotificationChain msgs = null;
+			if (defaultValueParameterDefinition != null)
+				msgs = ((InternalEObject)defaultValueParameterDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION, null, msgs);
+			if (newDefaultValueParameterDefinition != null)
+				msgs = ((InternalEObject)newDefaultValueParameterDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION, null, msgs);
+			msgs = basicSetDefaultValueParameterDefinition(newDefaultValueParameterDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION, newDefaultValueParameterDefinition, newDefaultValueParameterDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelatedArtifact getDefaultValueRelatedArtifact() {
+		return defaultValueRelatedArtifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueRelatedArtifact(RelatedArtifact newDefaultValueRelatedArtifact, NotificationChain msgs) {
+		RelatedArtifact oldDefaultValueRelatedArtifact = defaultValueRelatedArtifact;
+		defaultValueRelatedArtifact = newDefaultValueRelatedArtifact;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT, oldDefaultValueRelatedArtifact, newDefaultValueRelatedArtifact);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueRelatedArtifact(RelatedArtifact newDefaultValueRelatedArtifact) {
+		if (newDefaultValueRelatedArtifact != defaultValueRelatedArtifact) {
+			NotificationChain msgs = null;
+			if (defaultValueRelatedArtifact != null)
+				msgs = ((InternalEObject)defaultValueRelatedArtifact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT, null, msgs);
+			if (newDefaultValueRelatedArtifact != null)
+				msgs = ((InternalEObject)newDefaultValueRelatedArtifact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT, null, msgs);
+			msgs = basicSetDefaultValueRelatedArtifact(newDefaultValueRelatedArtifact, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT, newDefaultValueRelatedArtifact, newDefaultValueRelatedArtifact));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TriggerDefinition getDefaultValueTriggerDefinition() {
+		return defaultValueTriggerDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueTriggerDefinition(TriggerDefinition newDefaultValueTriggerDefinition, NotificationChain msgs) {
+		TriggerDefinition oldDefaultValueTriggerDefinition = defaultValueTriggerDefinition;
+		defaultValueTriggerDefinition = newDefaultValueTriggerDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION, oldDefaultValueTriggerDefinition, newDefaultValueTriggerDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueTriggerDefinition(TriggerDefinition newDefaultValueTriggerDefinition) {
+		if (newDefaultValueTriggerDefinition != defaultValueTriggerDefinition) {
+			NotificationChain msgs = null;
+			if (defaultValueTriggerDefinition != null)
+				msgs = ((InternalEObject)defaultValueTriggerDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION, null, msgs);
+			if (newDefaultValueTriggerDefinition != null)
+				msgs = ((InternalEObject)newDefaultValueTriggerDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION, null, msgs);
+			msgs = basicSetDefaultValueTriggerDefinition(newDefaultValueTriggerDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION, newDefaultValueTriggerDefinition, newDefaultValueTriggerDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UsageContext getDefaultValueUsageContext() {
+		return defaultValueUsageContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultValueUsageContext(UsageContext newDefaultValueUsageContext, NotificationChain msgs) {
+		UsageContext oldDefaultValueUsageContext = defaultValueUsageContext;
+		defaultValueUsageContext = newDefaultValueUsageContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT, oldDefaultValueUsageContext, newDefaultValueUsageContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultValueUsageContext(UsageContext newDefaultValueUsageContext) {
+		if (newDefaultValueUsageContext != defaultValueUsageContext) {
+			NotificationChain msgs = null;
+			if (defaultValueUsageContext != null)
+				msgs = ((InternalEObject)defaultValueUsageContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT, null, msgs);
+			if (newDefaultValueUsageContext != null)
+				msgs = ((InternalEObject)newDefaultValueUsageContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT, null, msgs);
+			msgs = basicSetDefaultValueUsageContext(newDefaultValueUsageContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT, newDefaultValueUsageContext, newDefaultValueUsageContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Meta getDefaultValueMeta() {
 		return defaultValueMeta;
 	}
@@ -2454,7 +2849,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getElement() {
 		return element;
 	}
@@ -2498,7 +2892,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StructureMapSourceListModeImplAdapter.class)
 	public StructureMapSourceListMode getListMode() {
 		return listMode;
 	}
@@ -2542,7 +2935,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getVariable() {
 		return variable;
 	}
@@ -2586,7 +2978,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCondition() {
 		return condition;
 	}
@@ -2630,7 +3021,6 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getCheck() {
 		return check;
 	}
@@ -2759,6 +3149,22 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return basicSetDefaultValueSignature(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TIMING:
 				return basicSetDefaultValueTiming(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE:
+				return basicSetDefaultValueDosage(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL:
+				return basicSetDefaultValueContactDetail(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR:
+				return basicSetDefaultValueContributor(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT:
+				return basicSetDefaultValueDataRequirement(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION:
+				return basicSetDefaultValueParameterDefinition(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT:
+				return basicSetDefaultValueRelatedArtifact(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION:
+				return basicSetDefaultValueTriggerDefinition(null, msgs);
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT:
+				return basicSetDefaultValueUsageContext(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_META:
 				return basicSetDefaultValueMeta(null, msgs);
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
@@ -2865,6 +3271,22 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return getDefaultValueSignature();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TIMING:
 				return getDefaultValueTiming();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE:
+				return getDefaultValueDosage();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL:
+				return getDefaultValueContactDetail();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR:
+				return getDefaultValueContributor();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT:
+				return getDefaultValueDataRequirement();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION:
+				return getDefaultValueParameterDefinition();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT:
+				return getDefaultValueRelatedArtifact();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION:
+				return getDefaultValueTriggerDefinition();
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT:
+				return getDefaultValueUsageContext();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_META:
 				return getDefaultValueMeta();
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:
@@ -3011,6 +3433,30 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TIMING:
 				setDefaultValueTiming((Timing)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE:
+				setDefaultValueDosage((Dosage)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL:
+				setDefaultValueContactDetail((ContactDetail)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR:
+				setDefaultValueContributor((Contributor)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT:
+				setDefaultValueDataRequirement((DataRequirement)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION:
+				setDefaultValueParameterDefinition((ParameterDefinition)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT:
+				setDefaultValueRelatedArtifact((RelatedArtifact)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION:
+				setDefaultValueTriggerDefinition((TriggerDefinition)newValue);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT:
+				setDefaultValueUsageContext((UsageContext)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_META:
 				setDefaultValueMeta((Meta)newValue);
@@ -3165,6 +3611,30 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TIMING:
 				setDefaultValueTiming((Timing)null);
 				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE:
+				setDefaultValueDosage((Dosage)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL:
+				setDefaultValueContactDetail((ContactDetail)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR:
+				setDefaultValueContributor((Contributor)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT:
+				setDefaultValueDataRequirement((DataRequirement)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION:
+				setDefaultValueParameterDefinition((ParameterDefinition)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT:
+				setDefaultValueRelatedArtifact((RelatedArtifact)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION:
+				setDefaultValueTriggerDefinition((TriggerDefinition)null);
+				return;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT:
+				setDefaultValueUsageContext((UsageContext)null);
+				return;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_META:
 				setDefaultValueMeta((Meta)null);
 				return;
@@ -3277,6 +3747,22 @@ public class StructureMapSourceImpl extends BackboneElementImpl implements Struc
 				return defaultValueSignature != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TIMING:
 				return defaultValueTiming != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DOSAGE:
+				return defaultValueDosage != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTACT_DETAIL:
+				return defaultValueContactDetail != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_CONTRIBUTOR:
+				return defaultValueContributor != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_DATA_REQUIREMENT:
+				return defaultValueDataRequirement != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_PARAMETER_DEFINITION:
+				return defaultValueParameterDefinition != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_RELATED_ARTIFACT:
+				return defaultValueRelatedArtifact != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_TRIGGER_DEFINITION:
+				return defaultValueTriggerDefinition != null;
+			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_USAGE_CONTEXT:
+				return defaultValueUsageContext != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__DEFAULT_VALUE_META:
 				return defaultValueMeta != null;
 			case FhirPackage.STRUCTURE_MAP_SOURCE__ELEMENT:

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureReportStratumImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,23 +26,22 @@ import org.hl7.fhir.jaxb.MeasureReportStratumImplAdapter;
  * @model extendedMetaData="name='MeasureReport.Stratum' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportStratumImplAdapter.class)
 public interface MeasureReportStratum extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique.
+	 * The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(org.hl7.fhir.String)
+	 * @see #setValue(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratum_Value()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getValue();
+	CodeableConcept getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportStratum#getValue <em>Value</em>}' containment reference.
@@ -55,7 +51,7 @@ public interface MeasureReportStratum extends BackboneElement {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(org.hl7.fhir.String value);
+	void setValue(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Population</b></em>' containment reference list.
@@ -81,13 +77,13 @@ public interface MeasureReportStratum extends BackboneElement {
 	 * The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Measure Score</em>' containment reference.
-	 * @see #setMeasureScore(Decimal)
+	 * @see #setMeasureScore(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratum_MeasureScore()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='measureScore' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Decimal getMeasureScore();
+	Quantity getMeasureScore();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportStratum#getMeasureScore <em>Measure Score</em>}' containment reference.
@@ -97,6 +93,6 @@ public interface MeasureReportStratum extends BackboneElement {
 	 * @see #getMeasureScore()
 	 * @generated
 	 */
-	void setMeasureScore(Decimal value);
+	void setMeasureScore(Quantity value);
 
 } // MeasureReportStratum

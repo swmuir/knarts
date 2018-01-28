@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,10 +27,6 @@ import org.hl7.fhir.ListEntry;
 import org.hl7.fhir.ListMode;
 import org.hl7.fhir.ListStatus;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.ListModeImplAdapter;
-import org.hl7.fhir.jaxb.ListStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,8 +53,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "List", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "List")
 public class ListImpl extends DomainResourceImpl implements List {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -219,7 +208,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.LIST__IDENTIFIER);
@@ -232,8 +220,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ListStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ListStatus getStatus() {
 		return status;
 	}
@@ -277,8 +263,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ListModeImplAdapter.class)
-	@XmlElement(required = true)
 	public ListMode getMode() {
 		return mode;
 	}
@@ -322,7 +306,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -495,7 +478,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -625,7 +607,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.LIST__NOTE);
@@ -638,7 +619,6 @@ public class ListImpl extends DomainResourceImpl implements List {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ListEntry> getEntry() {
 		if (entry == null) {
 			entry = new EObjectContainmentEList<ListEntry>(ListEntry.class, this, FhirPackage.LIST__ENTRY);

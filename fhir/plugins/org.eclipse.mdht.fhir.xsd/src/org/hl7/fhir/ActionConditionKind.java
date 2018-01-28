@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ActionConditionKindImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ActionConditionKindImplAdapter;
  * @model extendedMetaData="name='ActionConditionKind' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ActionConditionKindImplAdapter.class)
 public interface ActionConditionKind extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

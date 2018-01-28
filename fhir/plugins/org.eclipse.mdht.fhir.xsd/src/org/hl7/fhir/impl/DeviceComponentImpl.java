@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,13 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DeviceComponent;
 import org.hl7.fhir.DeviceComponentProductionSpecification;
+import org.hl7.fhir.DeviceComponentProperty;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.MeasmntPrinciple;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.MeasmntPrincipleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,22 +45,21 @@ import org.hl7.fhir.jaxb.MeasmntPrincipleImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DeviceComponentImpl#getMeasurementPrinciple <em>Measurement Principle</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceComponentImpl#getProductionSpecification <em>Production Specification</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceComponentImpl#getLanguageCode <em>Language Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceComponentImpl#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "DeviceComponent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DeviceComponent")
 public class DeviceComponentImpl extends DomainResourceImpl implements DeviceComponent {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -159,6 +152,16 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	protected CodeableConcept languageCode;
 
 	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceComponentProperty> property;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -182,8 +185,10 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DEVICE_COMPONENT__IDENTIFIER);
+		}
 		return identifier;
 	}
 
@@ -192,41 +197,6 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_COMPONENT__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_COMPONENT__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_COMPONENT__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_COMPONENT__IDENTIFIER, newIdentifier, newIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -270,7 +240,6 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getLastSystemChange() {
 		return lastSystemChange;
 	}
@@ -400,7 +369,6 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getOperationalStatus() {
 		if (operationalStatus == null) {
 			operationalStatus = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE_COMPONENT__OPERATIONAL_STATUS);
@@ -456,7 +424,6 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MeasmntPrincipleImplAdapter.class)
 	public MeasmntPrinciple getMeasurementPrinciple() {
 		return measurementPrinciple;
 	}
@@ -500,7 +467,6 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DeviceComponentProductionSpecification> getProductionSpecification() {
 		if (productionSpecification == null) {
 			productionSpecification = new EObjectContainmentEList<DeviceComponentProductionSpecification>(DeviceComponentProductionSpecification.class, this, FhirPackage.DEVICE_COMPONENT__PRODUCTION_SPECIFICATION);
@@ -556,11 +522,23 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<DeviceComponentProperty> getProperty() {
+		if (property == null) {
+			property = new EObjectContainmentEList<DeviceComponentProperty>(DeviceComponentProperty.class, this, FhirPackage.DEVICE_COMPONENT__PROPERTY);
+		}
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.DEVICE_COMPONENT__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_COMPONENT__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.DEVICE_COMPONENT__LAST_SYSTEM_CHANGE:
@@ -579,6 +557,8 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 				return ((InternalEList<?>)getProductionSpecification()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_COMPONENT__LANGUAGE_CODE:
 				return basicSetLanguageCode(null, msgs);
+			case FhirPackage.DEVICE_COMPONENT__PROPERTY:
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -611,6 +591,8 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 				return getProductionSpecification();
 			case FhirPackage.DEVICE_COMPONENT__LANGUAGE_CODE:
 				return getLanguageCode();
+			case FhirPackage.DEVICE_COMPONENT__PROPERTY:
+				return getProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -625,7 +607,8 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.DEVICE_COMPONENT__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.DEVICE_COMPONENT__TYPE:
 				setType((CodeableConcept)newValue);
@@ -656,6 +639,10 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 			case FhirPackage.DEVICE_COMPONENT__LANGUAGE_CODE:
 				setLanguageCode((CodeableConcept)newValue);
 				return;
+			case FhirPackage.DEVICE_COMPONENT__PROPERTY:
+				getProperty().clear();
+				getProperty().addAll((Collection<? extends DeviceComponentProperty>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -669,7 +656,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DEVICE_COMPONENT__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.DEVICE_COMPONENT__TYPE:
 				setType((CodeableConcept)null);
@@ -698,6 +685,9 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 			case FhirPackage.DEVICE_COMPONENT__LANGUAGE_CODE:
 				setLanguageCode((CodeableConcept)null);
 				return;
+			case FhirPackage.DEVICE_COMPONENT__PROPERTY:
+				getProperty().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -711,7 +701,7 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DEVICE_COMPONENT__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.DEVICE_COMPONENT__TYPE:
 				return type != null;
 			case FhirPackage.DEVICE_COMPONENT__LAST_SYSTEM_CHANGE:
@@ -730,6 +720,8 @@ public class DeviceComponentImpl extends DomainResourceImpl implements DeviceCom
 				return productionSpecification != null && !productionSpecification.isEmpty();
 			case FhirPackage.DEVICE_COMPONENT__LANGUAGE_CODE:
 				return languageCode != null;
+			case FhirPackage.DEVICE_COMPONENT__PROPERTY:
+				return property != null && !property.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

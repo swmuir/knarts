@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.AuditEventDetail;
 import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,13 +23,12 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AuditEventDetailImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AuditEventDetailImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventDetailImpl#getValueString <em>Value String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventDetailImpl#getValueBase64Binary <em>Value Base64 Binary</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "AuditEventDetail", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEventDetail")
 public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEventDetail {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -49,14 +41,24 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	protected org.hl7.fhir.String type;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * The cached value of the '{@link #getValueString() <em>Value String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getValueString()
 	 * @generated
 	 * @ordered
 	 */
-	protected Base64Binary value;
+	protected org.hl7.fhir.String valueString;
+
+	/**
+	 * The cached value of the '{@link #getValueBase64Binary() <em>Value Base64 Binary</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueBase64Binary()
+	 * @generated
+	 * @ordered
+	 */
+	protected Base64Binary valueBase64Binary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,8 +84,6 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getType() {
 		return type;
 	}
@@ -127,10 +127,8 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
-	@XmlElement(required = true)
-	public Base64Binary getValue() {
-		return value;
+	public org.hl7.fhir.String getValueString() {
+		return valueString;
 	}
 
 	/**
@@ -138,11 +136,11 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(Base64Binary newValue, NotificationChain msgs) {
-		Base64Binary oldValue = value;
-		value = newValue;
+	public NotificationChain basicSetValueString(org.hl7.fhir.String newValueString, NotificationChain msgs) {
+		org.hl7.fhir.String oldValueString = valueString;
+		valueString = newValueString;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE, oldValue, newValue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING, oldValueString, newValueString);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -153,18 +151,61 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Base64Binary newValue) {
-		if (newValue != value) {
+	public void setValueString(org.hl7.fhir.String newValueString) {
+		if (newValueString != valueString) {
 			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE, null, msgs);
-			msgs = basicSetValue(newValue, msgs);
+			if (valueString != null)
+				msgs = ((InternalEObject)valueString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING, null, msgs);
+			if (newValueString != null)
+				msgs = ((InternalEObject)newValueString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING, null, msgs);
+			msgs = basicSetValueString(newValueString, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE, newValue, newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING, newValueString, newValueString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Base64Binary getValueBase64Binary() {
+		return valueBase64Binary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueBase64Binary(Base64Binary newValueBase64Binary, NotificationChain msgs) {
+		Base64Binary oldValueBase64Binary = valueBase64Binary;
+		valueBase64Binary = newValueBase64Binary;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY, oldValueBase64Binary, newValueBase64Binary);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueBase64Binary(Base64Binary newValueBase64Binary) {
+		if (newValueBase64Binary != valueBase64Binary) {
+			NotificationChain msgs = null;
+			if (valueBase64Binary != null)
+				msgs = ((InternalEObject)valueBase64Binary).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY, null, msgs);
+			if (newValueBase64Binary != null)
+				msgs = ((InternalEObject)newValueBase64Binary).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY, null, msgs);
+			msgs = basicSetValueBase64Binary(newValueBase64Binary, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY, newValueBase64Binary, newValueBase64Binary));
 	}
 
 	/**
@@ -177,8 +218,10 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_DETAIL__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE:
-				return basicSetValue(null, msgs);
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING:
+				return basicSetValueString(null, msgs);
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY:
+				return basicSetValueBase64Binary(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,8 +236,10 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_DETAIL__TYPE:
 				return getType();
-			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE:
-				return getValue();
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING:
+				return getValueString();
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY:
+				return getValueBase64Binary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,8 +255,11 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 			case FhirPackage.AUDIT_EVENT_DETAIL__TYPE:
 				setType((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE:
-				setValue((Base64Binary)newValue);
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING:
+				setValueString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY:
+				setValueBase64Binary((Base64Binary)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -228,8 +276,11 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 			case FhirPackage.AUDIT_EVENT_DETAIL__TYPE:
 				setType((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE:
-				setValue((Base64Binary)null);
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING:
+				setValueString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY:
+				setValueBase64Binary((Base64Binary)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -245,8 +296,10 @@ public class AuditEventDetailImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_DETAIL__TYPE:
 				return type != null;
-			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE:
-				return value != null;
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_STRING:
+				return valueString != null;
+			case FhirPackage.AUDIT_EVENT_DETAIL__VALUE_BASE64_BINARY:
+				return valueBase64Binary != null;
 		}
 		return super.eIsSet(featureID);
 	}

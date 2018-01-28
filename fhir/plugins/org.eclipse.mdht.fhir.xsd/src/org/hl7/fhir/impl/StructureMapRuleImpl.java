@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,8 +23,6 @@ import org.hl7.fhir.StructureMapDependent;
 import org.hl7.fhir.StructureMapRule;
 import org.hl7.fhir.StructureMapSource;
 import org.hl7.fhir.StructureMapTarget;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,8 +42,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapRule", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapRule")
 public class StructureMapRuleImpl extends BackboneElementImpl implements StructureMapRule {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -136,8 +127,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getName() {
 		return name;
 	}
@@ -181,7 +170,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<StructureMapSource> getSource() {
 		if (source == null) {
 			source = new EObjectContainmentEList<StructureMapSource>(StructureMapSource.class, this, FhirPackage.STRUCTURE_MAP_RULE__SOURCE);
@@ -194,7 +182,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<StructureMapTarget> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<StructureMapTarget>(StructureMapTarget.class, this, FhirPackage.STRUCTURE_MAP_RULE__TARGET);
@@ -207,7 +194,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<StructureMapRule> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<StructureMapRule>(StructureMapRule.class, this, FhirPackage.STRUCTURE_MAP_RULE__RULE);
@@ -220,7 +206,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<StructureMapDependent> getDependent() {
 		if (dependent == null) {
 			dependent = new EObjectContainmentEList<StructureMapDependent>(StructureMapDependent.class, this, FhirPackage.STRUCTURE_MAP_RULE__DEPENDENT);
@@ -233,7 +218,6 @@ public class StructureMapRuleImpl extends BackboneElementImpl implements Structu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}

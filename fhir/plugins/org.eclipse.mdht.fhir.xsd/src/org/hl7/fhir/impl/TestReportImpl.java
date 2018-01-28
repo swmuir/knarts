@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,11 +29,6 @@ import org.hl7.fhir.TestReportSetup;
 import org.hl7.fhir.TestReportStatus;
 import org.hl7.fhir.TestReportTeardown;
 import org.hl7.fhir.TestReportTest;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TestReportResultImplAdapter;
-import org.hl7.fhir.jaxb.TestReportStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,8 +54,6 @@ import org.hl7.fhir.jaxb.TestReportStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestReport", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestReport")
 public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -254,7 +242,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -298,8 +285,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TestReportStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public TestReportStatus getStatus() {
 		return status;
 	}
@@ -343,7 +328,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getTestScript() {
 		return testScript;
 	}
@@ -387,8 +371,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TestReportResultImplAdapter.class)
-	@XmlElement(required = true)
 	public TestReportResult getResult() {
 		return result;
 	}
@@ -432,7 +414,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getScore() {
 		return score;
 	}
@@ -476,7 +457,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTester() {
 		return tester;
 	}
@@ -520,7 +500,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getIssued() {
 		return issued;
 	}
@@ -564,7 +543,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestReportParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<TestReportParticipant>(TestReportParticipant.class, this, FhirPackage.TEST_REPORT__PARTICIPANT);
@@ -620,7 +598,6 @@ public class TestReportImpl extends DomainResourceImpl implements TestReport {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestReportTest> getTest() {
 		if (test == null) {
 			test = new EObjectContainmentEList<TestReportTest>(TestReportTest.class, this, FhirPackage.TEST_REPORT__TEST);

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,10 +28,8 @@ import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
+import org.hl7.fhir.ResearchStudyObjective;
 import org.hl7.fhir.ResearchStudyStatus;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.ResearchStudyStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +44,15 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getPrimaryPurposeType <em>Primary Purpose Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getKeyword <em>Keyword</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getEnrollment <em>Enrollment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getPeriod <em>Period</em>}</li>
@@ -66,12 +62,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getReasonStopped <em>Reason Stopped</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getArm <em>Arm</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyImpl#getObjective <em>Objective</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ResearchStudy", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ResearchStudy")
 public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStudy {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -124,6 +119,26 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	protected ResearchStudyStatus status;
 
 	/**
+	 * The cached value of the '{@link #getPrimaryPurposeType() <em>Primary Purpose Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimaryPurposeType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept primaryPurposeType;
+
+	/**
+	 * The cached value of the '{@link #getPhase() <em>Phase</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPhase()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept phase;
+
+	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,6 +157,16 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> focus;
+
+	/**
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> condition;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
@@ -174,14 +199,14 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	protected EList<CodeableConcept> keyword;
 
 	/**
-	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJurisdiction()
+	 * @see #getLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> jurisdiction;
+	protected EList<CodeableConcept> location;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -274,6 +299,16 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	protected EList<ResearchStudyArm> arm;
 
 	/**
+	 * The cached value of the '{@link #getObjective() <em>Objective</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObjective()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResearchStudyObjective> objective;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -297,7 +332,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.RESEARCH_STUDY__IDENTIFIER);
@@ -310,7 +344,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -354,7 +387,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getProtocol() {
 		if (protocol == null) {
 			protocol = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__PROTOCOL);
@@ -367,7 +399,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__PART_OF);
@@ -380,8 +411,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResearchStudyStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ResearchStudyStatus getStatus() {
 		return status;
 	}
@@ -425,7 +454,92 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public CodeableConcept getPrimaryPurposeType() {
+		return primaryPurposeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimaryPurposeType(CodeableConcept newPrimaryPurposeType, NotificationChain msgs) {
+		CodeableConcept oldPrimaryPurposeType = primaryPurposeType;
+		primaryPurposeType = newPrimaryPurposeType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE, oldPrimaryPurposeType, newPrimaryPurposeType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrimaryPurposeType(CodeableConcept newPrimaryPurposeType) {
+		if (newPrimaryPurposeType != primaryPurposeType) {
+			NotificationChain msgs = null;
+			if (primaryPurposeType != null)
+				msgs = ((InternalEObject)primaryPurposeType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE, null, msgs);
+			if (newPrimaryPurposeType != null)
+				msgs = ((InternalEObject)newPrimaryPurposeType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE, null, msgs);
+			msgs = basicSetPrimaryPurposeType(newPrimaryPurposeType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE, newPrimaryPurposeType, newPrimaryPurposeType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getPhase() {
+		return phase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPhase(CodeableConcept newPhase, NotificationChain msgs) {
+		CodeableConcept oldPhase = phase;
+		phase = newPhase;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY__PHASE, oldPhase, newPhase);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPhase(CodeableConcept newPhase) {
+		if (newPhase != phase) {
+			NotificationChain msgs = null;
+			if (phase != null)
+				msgs = ((InternalEObject)phase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY__PHASE, null, msgs);
+			if (newPhase != null)
+				msgs = ((InternalEObject)newPhase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY__PHASE, null, msgs);
+			msgs = basicSetPhase(newPhase, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY__PHASE, newPhase, newPhase));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__CATEGORY);
@@ -438,7 +552,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getFocus() {
 		if (focus == null) {
 			focus = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__FOCUS);
@@ -451,7 +564,18 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<Reference> getCondition() {
+		if (condition == null) {
+			condition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__CONDITION);
+		}
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.RESEARCH_STUDY__CONTACT);
@@ -464,7 +588,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RelatedArtifact> getRelatedArtifact() {
 		if (relatedArtifact == null) {
 			relatedArtifact = new EObjectContainmentEList<RelatedArtifact>(RelatedArtifact.class, this, FhirPackage.RESEARCH_STUDY__RELATED_ARTIFACT);
@@ -477,7 +600,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getKeyword() {
 		if (keyword == null) {
 			keyword = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__KEYWORD);
@@ -490,12 +612,11 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<CodeableConcept> getJurisdiction() {
-		if (jurisdiction == null) {
-			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__JURISDICTION);
+	public EList<CodeableConcept> getLocation() {
+		if (location == null) {
+			location = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__LOCATION);
 		}
-		return jurisdiction;
+		return location;
 	}
 
 	/**
@@ -503,7 +624,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -547,7 +667,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEnrollment() {
 		if (enrollment == null) {
 			enrollment = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__ENROLLMENT);
@@ -689,7 +808,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSite() {
 		if (site == null) {
 			site = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__SITE);
@@ -745,7 +863,6 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.RESEARCH_STUDY__NOTE);
@@ -758,12 +875,23 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ResearchStudyArm> getArm() {
 		if (arm == null) {
 			arm = new EObjectContainmentEList<ResearchStudyArm>(ResearchStudyArm.class, this, FhirPackage.RESEARCH_STUDY__ARM);
 		}
 		return arm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResearchStudyObjective> getObjective() {
+		if (objective == null) {
+			objective = new EObjectContainmentEList<ResearchStudyObjective>(ResearchStudyObjective.class, this, FhirPackage.RESEARCH_STUDY__OBJECTIVE);
+		}
+		return objective;
 	}
 
 	/**
@@ -784,18 +912,24 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE:
+				return basicSetPrimaryPurposeType(null, msgs);
+			case FhirPackage.RESEARCH_STUDY__PHASE:
+				return basicSetPhase(null, msgs);
 			case FhirPackage.RESEARCH_STUDY__CATEGORY:
 				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__FOCUS:
 				return ((InternalEList<?>)getFocus()).basicRemove(otherEnd, msgs);
+			case FhirPackage.RESEARCH_STUDY__CONDITION:
+				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__RELATED_ARTIFACT:
 				return ((InternalEList<?>)getRelatedArtifact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__KEYWORD:
 				return ((InternalEList<?>)getKeyword()).basicRemove(otherEnd, msgs);
-			case FhirPackage.RESEARCH_STUDY__JURISDICTION:
-				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.RESEARCH_STUDY__LOCATION:
+				return ((InternalEList<?>)getLocation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.RESEARCH_STUDY__ENROLLMENT:
@@ -814,6 +948,8 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_STUDY__ARM:
 				return ((InternalEList<?>)getArm()).basicRemove(otherEnd, msgs);
+			case FhirPackage.RESEARCH_STUDY__OBJECTIVE:
+				return ((InternalEList<?>)getObjective()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -836,18 +972,24 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return getPartOf();
 			case FhirPackage.RESEARCH_STUDY__STATUS:
 				return getStatus();
+			case FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE:
+				return getPrimaryPurposeType();
+			case FhirPackage.RESEARCH_STUDY__PHASE:
+				return getPhase();
 			case FhirPackage.RESEARCH_STUDY__CATEGORY:
 				return getCategory();
 			case FhirPackage.RESEARCH_STUDY__FOCUS:
 				return getFocus();
+			case FhirPackage.RESEARCH_STUDY__CONDITION:
+				return getCondition();
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				return getContact();
 			case FhirPackage.RESEARCH_STUDY__RELATED_ARTIFACT:
 				return getRelatedArtifact();
 			case FhirPackage.RESEARCH_STUDY__KEYWORD:
 				return getKeyword();
-			case FhirPackage.RESEARCH_STUDY__JURISDICTION:
-				return getJurisdiction();
+			case FhirPackage.RESEARCH_STUDY__LOCATION:
+				return getLocation();
 			case FhirPackage.RESEARCH_STUDY__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.RESEARCH_STUDY__ENROLLMENT:
@@ -866,6 +1008,8 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return getNote();
 			case FhirPackage.RESEARCH_STUDY__ARM:
 				return getArm();
+			case FhirPackage.RESEARCH_STUDY__OBJECTIVE:
+				return getObjective();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -897,6 +1041,12 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 			case FhirPackage.RESEARCH_STUDY__STATUS:
 				setStatus((ResearchStudyStatus)newValue);
 				return;
+			case FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE:
+				setPrimaryPurposeType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.RESEARCH_STUDY__PHASE:
+				setPhase((CodeableConcept)newValue);
+				return;
 			case FhirPackage.RESEARCH_STUDY__CATEGORY:
 				getCategory().clear();
 				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
@@ -904,6 +1054,10 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 			case FhirPackage.RESEARCH_STUDY__FOCUS:
 				getFocus().clear();
 				getFocus().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.RESEARCH_STUDY__CONDITION:
+				getCondition().clear();
+				getCondition().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				getContact().clear();
@@ -917,9 +1071,9 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				getKeyword().clear();
 				getKeyword().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.RESEARCH_STUDY__JURISDICTION:
-				getJurisdiction().clear();
-				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.RESEARCH_STUDY__LOCATION:
+				getLocation().clear();
+				getLocation().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.RESEARCH_STUDY__DESCRIPTION:
 				setDescription((Markdown)newValue);
@@ -952,6 +1106,10 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				getArm().clear();
 				getArm().addAll((Collection<? extends ResearchStudyArm>)newValue);
 				return;
+			case FhirPackage.RESEARCH_STUDY__OBJECTIVE:
+				getObjective().clear();
+				getObjective().addAll((Collection<? extends ResearchStudyObjective>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -979,11 +1137,20 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 			case FhirPackage.RESEARCH_STUDY__STATUS:
 				setStatus((ResearchStudyStatus)null);
 				return;
+			case FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE:
+				setPrimaryPurposeType((CodeableConcept)null);
+				return;
+			case FhirPackage.RESEARCH_STUDY__PHASE:
+				setPhase((CodeableConcept)null);
+				return;
 			case FhirPackage.RESEARCH_STUDY__CATEGORY:
 				getCategory().clear();
 				return;
 			case FhirPackage.RESEARCH_STUDY__FOCUS:
 				getFocus().clear();
+				return;
+			case FhirPackage.RESEARCH_STUDY__CONDITION:
+				getCondition().clear();
 				return;
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				getContact().clear();
@@ -994,8 +1161,8 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 			case FhirPackage.RESEARCH_STUDY__KEYWORD:
 				getKeyword().clear();
 				return;
-			case FhirPackage.RESEARCH_STUDY__JURISDICTION:
-				getJurisdiction().clear();
+			case FhirPackage.RESEARCH_STUDY__LOCATION:
+				getLocation().clear();
 				return;
 			case FhirPackage.RESEARCH_STUDY__DESCRIPTION:
 				setDescription((Markdown)null);
@@ -1024,6 +1191,9 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 			case FhirPackage.RESEARCH_STUDY__ARM:
 				getArm().clear();
 				return;
+			case FhirPackage.RESEARCH_STUDY__OBJECTIVE:
+				getObjective().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1046,18 +1216,24 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__STATUS:
 				return status != null;
+			case FhirPackage.RESEARCH_STUDY__PRIMARY_PURPOSE_TYPE:
+				return primaryPurposeType != null;
+			case FhirPackage.RESEARCH_STUDY__PHASE:
+				return phase != null;
 			case FhirPackage.RESEARCH_STUDY__CATEGORY:
 				return category != null && !category.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__FOCUS:
 				return focus != null && !focus.isEmpty();
+			case FhirPackage.RESEARCH_STUDY__CONDITION:
+				return condition != null && !condition.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				return contact != null && !contact.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__RELATED_ARTIFACT:
 				return relatedArtifact != null && !relatedArtifact.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__KEYWORD:
 				return keyword != null && !keyword.isEmpty();
-			case FhirPackage.RESEARCH_STUDY__JURISDICTION:
-				return jurisdiction != null && !jurisdiction.isEmpty();
+			case FhirPackage.RESEARCH_STUDY__LOCATION:
+				return location != null && !location.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__DESCRIPTION:
 				return description != null;
 			case FhirPackage.RESEARCH_STUDY__ENROLLMENT:
@@ -1076,6 +1252,8 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return note != null && !note.isEmpty();
 			case FhirPackage.RESEARCH_STUDY__ARM:
 				return arm != null && !arm.isEmpty();
+			case FhirPackage.RESEARCH_STUDY__OBJECTIVE:
+				return objective != null && !objective.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

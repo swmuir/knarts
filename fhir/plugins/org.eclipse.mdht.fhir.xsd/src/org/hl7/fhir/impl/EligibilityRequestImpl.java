@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,15 +21,12 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityRequest;
+import org.hl7.fhir.EligibilityRequestAuthorization;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,12 +52,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBusinessArrangement <em>Business Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBenefitCategory <em>Benefit Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getBenefitSubCategory <em>Benefit Sub Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityRequestImpl#getAuthorization <em>Authorization</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "EligibilityRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EligibilityRequest")
 public class EligibilityRequestImpl extends DomainResourceImpl implements EligibilityRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -228,6 +219,16 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	protected CodeableConcept benefitSubCategory;
 
 	/**
+	 * The cached value of the '{@link #getAuthorization() <em>Authorization</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorization()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EligibilityRequestAuthorization> authorization;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -251,7 +252,6 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ELIGIBILITY_REQUEST__IDENTIFIER);
@@ -264,7 +264,6 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -394,7 +393,6 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getServicedDate() {
 		return servicedDate;
 	}
@@ -481,7 +479,6 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -783,7 +780,6 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBusinessArrangement() {
 		return businessArrangement;
 	}
@@ -913,6 +909,18 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EligibilityRequestAuthorization> getAuthorization() {
+		if (authorization == null) {
+			authorization = new EObjectContainmentEList<EligibilityRequestAuthorization>(EligibilityRequestAuthorization.class, this, FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION);
+		}
+		return authorization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -948,6 +956,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 				return basicSetBenefitCategory(null, msgs);
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
 				return basicSetBenefitSubCategory(null, msgs);
+			case FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION:
+				return ((InternalEList<?>)getAuthorization()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -992,6 +1002,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 				return getBenefitCategory();
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
 				return getBenefitSubCategory();
+			case FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION:
+				return getAuthorization();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1054,6 +1066,10 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
 				setBenefitSubCategory((CodeableConcept)newValue);
 				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION:
+				getAuthorization().clear();
+				getAuthorization().addAll((Collection<? extends EligibilityRequestAuthorization>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1114,6 +1130,9 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
 				setBenefitSubCategory((CodeableConcept)null);
 				return;
+			case FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION:
+				getAuthorization().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1158,6 +1177,8 @@ public class EligibilityRequestImpl extends DomainResourceImpl implements Eligib
 				return benefitCategory != null;
 			case FhirPackage.ELIGIBILITY_REQUEST__BENEFIT_SUB_CATEGORY:
 				return benefitSubCategory != null;
+			case FhirPackage.ELIGIBILITY_REQUEST__AUTHORIZATION:
+				return authorization != null && !authorization.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

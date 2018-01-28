@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SpecimenProcessingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.SpecimenProcessingImplAdapter;
  * @model extendedMetaData="name='Specimen.Processing' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SpecimenProcessingImplAdapter.class)
 public interface SpecimenProcessing extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

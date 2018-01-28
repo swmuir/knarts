@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AccountImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,18 +25,17 @@ import org.hl7.fhir.jaxb.AccountImplAdapter;
  *   <li>{@link org.hl7.fhir.Account#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getActive <em>Active</em>}</li>
- *   <li>{@link org.hl7.fhir.Account#getBalance <em>Balance</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getGuarantor <em>Guarantor</em>}</li>
+ *   <li>{@link org.hl7.fhir.Account#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAccount()
  * @model extendedMetaData="name='Account' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AccountImplAdapter.class)
 public interface Account extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -47,7 +43,7 @@ public interface Account extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).
+	 * Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAccount_Identifier()
@@ -215,32 +211,6 @@ public interface Account extends DomainResource {
 	void setActive(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Balance</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Balance</em>' containment reference.
-	 * @see #setBalance(Money)
-	 * @see org.hl7.fhir.FhirPackage#getAccount_Balance()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='balance' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Money getBalance();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Account#getBalance <em>Balance</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Balance</em>' containment reference.
-	 * @see #getBalance()
-	 * @generated
-	 */
-	void setBalance(Money value);
-
-	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.AccountCoverage}.
 	 * <!-- begin-user-doc -->
@@ -323,5 +293,31 @@ public interface Account extends DomainResource {
 	 * @generated
 	 */
 	EList<AccountGuarantor> getGuarantor();
+
+	/**
+	 * Returns the value of the '<em><b>Part Of</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference to a parent Account.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Part Of</em>' containment reference.
+	 * @see #setPartOf(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAccount_PartOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='partOf' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPartOf();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Account#getPartOf <em>Part Of</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Part Of</em>' containment reference.
+	 * @see #getPartOf()
+	 * @generated
+	 */
+	void setPartOf(Reference value);
 
 } // Account

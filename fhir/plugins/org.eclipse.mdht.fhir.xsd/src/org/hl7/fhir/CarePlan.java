@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CarePlanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +19,7 @@ import org.hl7.fhir.jaxb.CarePlanImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CarePlan#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlan#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlan#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlan#getPartOf <em>Part Of</em>}</li>
@@ -47,7 +44,6 @@ import org.hl7.fhir.jaxb.CarePlanImplAdapter;
  * @model extendedMetaData="name='CarePlan' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CarePlanImplAdapter.class)
 public interface CarePlan extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -66,20 +62,20 @@ public interface CarePlan extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlan_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Uri> getInstantiates();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,10 +27,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
-import org.hl7.fhir.jaxb.AuditEventActionImplAdapter;
-import org.hl7.fhir.jaxb.AuditEventOutcomeImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.Period;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,6 +40,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventImpl#getOutcomeDesc <em>Outcome Desc</em>}</li>
@@ -59,8 +52,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AuditEvent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEvent")
 public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -91,6 +82,16 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * @ordered
 	 */
 	protected AuditEventAction action;
+
+	/**
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period period;
 
 	/**
 	 * The cached value of the '{@link #getRecorded() <em>Recorded</em>}' containment reference.
@@ -186,7 +187,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Coding getType() {
 		return type;
 	}
@@ -230,7 +230,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getSubtype() {
 		if (subtype == null) {
 			subtype = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT__SUBTYPE);
@@ -243,7 +242,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AuditEventActionImplAdapter.class)
 	public AuditEventAction getAction() {
 		return action;
 	}
@@ -287,8 +285,49 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT__PERIOD, oldPeriod, newPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
+			NotificationChain msgs = null;
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT__PERIOD, newPeriod, newPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Instant getRecorded() {
 		return recorded;
 	}
@@ -332,7 +371,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AuditEventOutcomeImplAdapter.class)
 	public AuditEventOutcome getOutcome() {
 		return outcome;
 	}
@@ -376,7 +414,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOutcomeDesc() {
 		return outcomeDesc;
 	}
@@ -420,7 +457,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getPurposeOfEvent() {
 		if (purposeOfEvent == null) {
 			purposeOfEvent = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.AUDIT_EVENT__PURPOSE_OF_EVENT);
@@ -433,7 +469,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<AuditEventAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<AuditEventAgent>(AuditEventAgent.class, this, FhirPackage.AUDIT_EVENT__AGENT);
@@ -446,7 +481,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public AuditEventSource getSource() {
 		return source;
 	}
@@ -490,7 +524,6 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<AuditEventEntity> getEntity() {
 		if (entity == null) {
 			entity = new EObjectContainmentEList<AuditEventEntity>(AuditEventEntity.class, this, FhirPackage.AUDIT_EVENT__ENTITY);
@@ -512,6 +545,8 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 				return ((InternalEList<?>)getSubtype()).basicRemove(otherEnd, msgs);
 			case FhirPackage.AUDIT_EVENT__ACTION:
 				return basicSetAction(null, msgs);
+			case FhirPackage.AUDIT_EVENT__PERIOD:
+				return basicSetPeriod(null, msgs);
 			case FhirPackage.AUDIT_EVENT__RECORDED:
 				return basicSetRecorded(null, msgs);
 			case FhirPackage.AUDIT_EVENT__OUTCOME:
@@ -544,6 +579,8 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 				return getSubtype();
 			case FhirPackage.AUDIT_EVENT__ACTION:
 				return getAction();
+			case FhirPackage.AUDIT_EVENT__PERIOD:
+				return getPeriod();
 			case FhirPackage.AUDIT_EVENT__RECORDED:
 				return getRecorded();
 			case FhirPackage.AUDIT_EVENT__OUTCOME:
@@ -580,6 +617,9 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 				return;
 			case FhirPackage.AUDIT_EVENT__ACTION:
 				setAction((AuditEventAction)newValue);
+				return;
+			case FhirPackage.AUDIT_EVENT__PERIOD:
+				setPeriod((Period)newValue);
 				return;
 			case FhirPackage.AUDIT_EVENT__RECORDED:
 				setRecorded((Instant)newValue);
@@ -626,6 +666,9 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 			case FhirPackage.AUDIT_EVENT__ACTION:
 				setAction((AuditEventAction)null);
 				return;
+			case FhirPackage.AUDIT_EVENT__PERIOD:
+				setPeriod((Period)null);
+				return;
 			case FhirPackage.AUDIT_EVENT__RECORDED:
 				setRecorded((Instant)null);
 				return;
@@ -665,6 +708,8 @@ public class AuditEventImpl extends DomainResourceImpl implements AuditEvent {
 				return subtype != null && !subtype.isEmpty();
 			case FhirPackage.AUDIT_EVENT__ACTION:
 				return action != null;
+			case FhirPackage.AUDIT_EVENT__PERIOD:
+				return period != null;
 			case FhirPackage.AUDIT_EVENT__RECORDED:
 				return recorded != null;
 			case FhirPackage.AUDIT_EVENT__OUTCOME:

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.StructureMapTargetListModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.StructureMapTargetListModeImplAdapter;
  * @model extendedMetaData="name='StructureMapTargetListMode' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureMapTargetListModeImplAdapter.class)
 public interface StructureMapTargetListMode extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

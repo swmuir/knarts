@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EnrollmentRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,7 @@ import org.hl7.fhir.jaxb.EnrollmentRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.EnrollmentRequest#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.EnrollmentRequest#getCandidate <em>Candidate</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getCoverage <em>Coverage</em>}</li>
  * </ul>
  *
@@ -35,7 +32,6 @@ import org.hl7.fhir.jaxb.EnrollmentRequestImplAdapter;
  * @model extendedMetaData="name='EnrollmentRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EnrollmentRequestImplAdapter.class)
 public interface EnrollmentRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -184,30 +180,30 @@ public interface EnrollmentRequest extends DomainResource {
 	void setOrganization(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Candidate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Patient Resource.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEnrollmentRequest_Subject()
+	 * @return the value of the '<em>Candidate</em>' containment reference.
+	 * @see #setCandidate(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getEnrollmentRequest_Candidate()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='candidate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubject();
+	Reference getCandidate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentRequest#getSubject <em>Subject</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentRequest#getCandidate <em>Candidate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
+	 * @param value the new value of the '<em>Candidate</em>' containment reference.
+	 * @see #getCandidate()
 	 * @generated
 	 */
-	void setSubject(Reference value);
+	void setCandidate(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.

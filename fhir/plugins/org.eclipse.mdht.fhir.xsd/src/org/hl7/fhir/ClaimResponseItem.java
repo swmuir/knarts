@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ClaimResponseItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.ClaimResponseItemImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ClaimResponseItem#getSequenceLinkId <em>Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimResponseItem#getItemSequence <em>Item Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseItem#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseItem#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseItem#getDetail <em>Detail</em>}</li>
@@ -30,33 +27,32 @@ import org.hl7.fhir.jaxb.ClaimResponseItemImplAdapter;
  * @model extendedMetaData="name='ClaimResponse.Item' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClaimResponseItemImplAdapter.class)
 public interface ClaimResponseItem extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Sequence Link Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Item Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A service line number.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sequence Link Id</em>' containment reference.
-	 * @see #setSequenceLinkId(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseItem_SequenceLinkId()
+	 * @return the value of the '<em>Item Sequence</em>' containment reference.
+	 * @see #setItemSequence(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getClaimResponseItem_ItemSequence()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='sequenceLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='itemSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getSequenceLinkId();
+	PositiveInt getItemSequence();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseItem#getSequenceLinkId <em>Sequence Link Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimResponseItem#getItemSequence <em>Item Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequence Link Id</em>' containment reference.
-	 * @see #getSequenceLinkId()
+	 * @param value the new value of the '<em>Item Sequence</em>' containment reference.
+	 * @see #getItemSequence()
 	 * @generated
 	 */
-	void setSequenceLinkId(PositiveInt value);
+	void setItemSequence(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Note Number</b></em>' containment reference list.

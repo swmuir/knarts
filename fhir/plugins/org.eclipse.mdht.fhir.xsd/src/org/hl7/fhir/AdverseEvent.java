@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AdverseEventImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,13 +19,15 @@ import org.hl7.fhir.jaxb.AdverseEventImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getActuality <em>Actuality</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.AdverseEvent#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.AdverseEvent#getReaction <em>Reaction</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getResultingCondition <em>Resulting Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSeriousness <em>Seriousness</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getEventParticipant <em>Event Participant</em>}</li>
@@ -43,14 +42,13 @@ import org.hl7.fhir.jaxb.AdverseEventImplAdapter;
  * @model extendedMetaData="name='AdverseEvent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AdverseEventImplAdapter.class)
 public interface AdverseEvent extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itsefl is not appropriate.
+	 * The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -72,56 +70,72 @@ public interface AdverseEvent extends DomainResource {
 	void setIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Actuality</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of event which is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+	 * Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(AdverseEventCategory)
+	 * @return the value of the '<em>Actuality</em>' containment reference.
+	 * @see #setActuality(AdverseEventActuality)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Actuality()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='actuality' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AdverseEventActuality getActuality();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getActuality <em>Actuality</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Actuality</em>' containment reference.
+	 * @see #getActuality()
+	 * @generated
+	 */
+	void setActuality(AdverseEventActuality value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The overall type of event, intended for search and filtering purposes.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AdverseEventCategory getCategory();
+	EList<CodeableConcept> getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(AdverseEventCategory value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Event</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This element defines the specific type of event that occurred or that was prevented from occurring.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Type()
+	 * @return the value of the '<em>Event</em>' containment reference.
+	 * @see #setEvent(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Event()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	CodeableConcept getEvent();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getType <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getEvent <em>Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * @param value the new value of the '<em>Event</em>' containment reference.
+	 * @see #getEvent()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setEvent(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -176,20 +190,20 @@ public interface AdverseEvent extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Reaction</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Resulting Condition</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reaction</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Reaction()
+	 * @return the value of the '<em>Resulting Condition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_ResultingCondition()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reaction' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='resultingCondition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getReaction();
+	EList<Reference> getResultingCondition();
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
@@ -222,7 +236,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the seriousness or severity of the adverse event.
+	 * Assessment whether this event was of real importance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Seriousness</em>' containment reference.
 	 * @see #setSeriousness(CodeableConcept)
@@ -242,6 +256,32 @@ public interface AdverseEvent extends DomainResource {
 	 * @generated
 	 */
 	void setSeriousness(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Severity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash might not be serious, but a mild heart problem is.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Severity</em>' containment reference.
+	 * @see #setSeverity(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Severity()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='severity' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getSeverity();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getSeverity <em>Severity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Severity</em>' containment reference.
+	 * @see #getSeverity()
+	 * @generated
+	 */
+	void setSeverity(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.
