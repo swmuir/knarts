@@ -910,6 +910,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		String documentType = "";
 
+		String documentRootID = "";
+
 		public AD pcpAddress;
 
 		public PN pcpName;
@@ -2806,6 +2808,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		ClinicalDocument cd = query.getEObject(ClinicalDocument.class);
 
+		documentMetadata.documentRootID = getAnyValue(null, cd.getId());
+
 		// Date documentDate = null;
 		if (cd.getEffectiveTime() != null && !StringUtils.isEmpty(cd.getEffectiveTime().getValue())) {
 			documentMetadata.documentDate = getDate(cd.getEffectiveTime().getValue()); // documentDate = DATE_FORMAT12.format(date);
@@ -2893,6 +2897,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		row.createCell(offset++).setCellValue(documentMetadata.documentOrganization);
 
 		row.createCell(offset++).setCellValue(documentMetadata.documentSoftware);
+
+		row.createCell(offset++).setCellValue(documentMetadata.documentRootID);
 
 		if (documentMetadata.documentDate != null) {
 
@@ -3173,6 +3179,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Software");
+		row2.createCell(offset++).setCellValue("Document ID");
 		row2.createCell(offset++).setCellValue("Document Date");
 		row2.createCell(offset++).setCellValue("PCP Name");
 		row2.createCell(offset++).setCellValue("PCP Address");
@@ -3198,8 +3205,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	static int createPatientHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Record");
-		row2.createCell(offset++).setCellValue("ID");
-		row2.createCell(offset++).setCellValue("DOB");
+		row2.createCell(offset++).setCellValue("Patient ID");
+		row2.createCell(offset++).setCellValue("Patient DOB");
 		offset = createDocumentMedadataHeadder(row2, offset);
 		return offset;
 	}
@@ -3617,16 +3624,15 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	 * @return
 	 */
 	static String getValues(II ii) {
-		String result = "";
-		if (ii != null) {
-			if (!StringUtils.isEmpty(ii.getRoot())) {
-				result = ii.getRoot();
-			}
-			if (!StringUtils.isEmpty(ii.getExtension())) {
-				result = ":" + ii.getExtension();
-			}
-		}
-		return result;
+		return (StringUtils.isEmpty(ii.getRoot())
+				? ""
+				: ii.getRoot()) +
+				(!StringUtils.isEmpty(ii.getRoot()) && !StringUtils.isEmpty(ii.getExtension())
+						? ":"
+						: "") +
+				(StringUtils.isEmpty(ii.getExtension())
+						? ""
+						: ii.getExtension());
 	}
 
 	static void handleDiagnostic(Diagnostic diagnostic, ValidationHandler handler) {
@@ -4079,6 +4085,9 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		cell = row.createCell(offset++);
 		cell.setCellValue(documentMetadata.documentSoftware);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentRootID);
 
 		if (documentMetadata.documentDate != null) {
 			cell = row.createCell(offset++);
