@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 seanmuir.
+ * Copyright (c) 2017,2018 seanmuir.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -161,6 +161,8 @@ import com.google.common.collect.Collections2;
  *
  */
 public abstract class GenerateCDABaseHandler extends AbstractHandler {
+
+	static boolean omitDOB = false;
 
 	public class ResultsDialog extends TitleAreaDialog {
 
@@ -900,21 +902,26 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	protected static class DocumentMetadata {
 
-		Date documentDate = null;
+		public Date documentDate = null;
 
-		String documentLibrary = "";
+		public String documentLibrary = "";
 
-		String documentOrganization = "";
+		public String documentOrganization = "";
 
-		String documentSoftware = "";
+		public String documentSoftware = "";
 
-		String documentType = "";
+		public String documentType = "";
 
-		String documentRootID = "";
+		public String documentRootID = "";
 
 		public AD pcpAddress;
 
 		public PN pcpName;
+
+		/**
+		 * @TODO - re-factor methods to use doucmentMetadata for file name versus parameter
+		 */
+		public String fileName = "";
 
 	}
 
@@ -1949,31 +1956,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				}
 			}
 
-			// if (serviceEvent != null) {
-			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-			//
-			// for (ProblemConcernAct sa : problemConcerns) {
-			//
-			// if (!problemConcerns.contains(sa)) {
-			//
-			// int offset = 0;
-			//
-			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-			//
-			// offset = serializePatient(row, offset, documentMetadata,patientRole);
-			//
-			// offset = serializeServiceEvent(row, offset, serviceEvent);
-			//
-			// offset = serializeProblemConcernAct(row, offset, sa);
-			//
-			// serializeFileName(row, offset, fileName);
-			// sets.add(sa);
-			// // sas.remove(sa);
-			// }
-			// }
-			//
-			// }
 			for (ProblemConcernAct sa : problemConcerns) {
 
 				if (sets.add(sa)) {
@@ -2025,31 +2007,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				}
 			}
 
-			// if (serviceEvent != null) {
-			// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-			// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-			//
-			// for (ProblemConcernAct sa : problemConcerns) {
-			//
-			// if (!problemConcerns.contains(sa)) {
-			//
-			// int offset = 0;
-			//
-			// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-			//
-			// offset = serializePatient(row, offset, documentMetadata,patientRole);
-			//
-			// offset = serializeServiceEvent(row, offset, serviceEvent);
-			//
-			// offset = serializeProblemConcernAct(row, offset, sa);
-			//
-			// serializeFileName(row, offset, fileName);
-			// sets.add(sa);
-			// // sas.remove(sa);
-			// }
-			// }
-			//
-			// }
 			for (ProblemObservation sa : problemObservations) {
 
 				if (sets.add(sa)) {
@@ -2515,31 +2472,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 
-		// if (serviceEvent != null) {
-		// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-		// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-		//
-		// for (ProblemConcernAct sa : problemConcerns) {
-		//
-		// if (!problemConcerns.contains(sa)) {
-		//
-		// int offset = 0;
-		//
-		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-		//
-		// offset = serializePatient(row, offset, documentMetadata,patientRole);
-		//
-		// offset = serializeServiceEvent(row, offset, serviceEvent);
-		//
-		// offset = serializeProblemConcernAct(row, offset, sa);
-		//
-		// serializeFileName(row, offset, fileName);
-		// sets.add(sa);
-		// // sas.remove(sa);
-		// }
-		// }
-		//
-		// }
 		for (Act sa : procedureActivityActs) {
 
 			if (sets.add(sa)) {
@@ -2740,31 +2672,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 
-		// if (serviceEvent != null) {
-		// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-		// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-		//
-		// for (AllergyProblemAct sa : sas) {
-		//
-		// if (!sas.contains(sa)) {
-		//
-		// int offset = 0;
-		//
-		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-		//
-		// offset = serializePatient(row, offset, documentMetadata,patientRole);
-		//
-		// offset = serializeServiceEvent(row, offset, serviceEvent);
-		//
-		// offset = serializeAllergyProblemAct(row, offset, sa);
-		//
-		// serializeFileName(row, offset, fileName);
-		// sets.add(sa);
-		// // sas.remove(sa);
-		// }
-		// }
-		//
-		// }
 		for (AllergyProblemAct sa : sas) {
 
 			if (sets.add(sa)) {
@@ -2802,9 +2709,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			InFulfillmentOf iffo, String fileName) {
 
 		DocumentMetadata documentMetadata = new DocumentMetadata();
-		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-		int offset = serializePatient(row, 0, patientRole);
 
 		ClinicalDocument cd = query.getEObject(ClinicalDocument.class);
 
@@ -2817,19 +2721,21 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		if (cd instanceof GeneralHeaderConstraints) {
 			documentMetadata.documentLibrary = "C-CDA";
-			row.createCell(offset++).setCellValue("C-CDA");
+			// row.createCell(offset++).setCellValue("C-CDA");
 		} else {
 			documentMetadata.documentLibrary = "C32";
-			row.createCell(offset++).setCellValue("C32");
+			// row.createCell(offset++).setCellValue("C32");
 		}
 
 		if (cd != null && cd.getCode() != null) {
 			documentMetadata.documentType = cd.getCode().getDisplayName();
-			row.createCell(offset++).setCellValue(cd.getCode().getDisplayName());
+			// row.createCell(offset++).setCellValue(cd.getCode().getDisplayName());
 		} else {
 			documentMetadata.documentType = "MISSING";
-			row.createCell(offset++).setCellValue("");
+			// row.createCell(offset++).setCellValue("");
 		}
+
+		documentMetadata.fileName = fileName;
 
 		// String documentOrganization = "";
 		// String documentSoftware = "";
@@ -2888,42 +2794,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 
 		}
-		// if (!cd.getDocumentationOfs().isEmpty()) {
-		//
-		// }
 
-		// serviceEvent.get
+		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-		row.createCell(offset++).setCellValue(documentMetadata.documentOrganization);
-
-		row.createCell(offset++).setCellValue(documentMetadata.documentSoftware);
-
-		row.createCell(offset++).setCellValue(documentMetadata.documentRootID);
-
-		if (documentMetadata.documentDate != null) {
-
-			Cell cell = row.createCell(offset++);
-
-			cell.setCellStyle(getDocumentDateStyle(sheet));
-			cell.setCellValue(documentMetadata.documentDate);
-		} else {
-			row.createCell(offset++);
-		}
-
-		if (documentMetadata.pcpName != null) {
-			Cell cell = row.createCell(offset++);
-			// cell.setCellStyle(getDocumentDateStyle(sheet));
-			cell.setCellValue(getValues(documentMetadata.pcpName));
-		} else {
-			row.createCell(offset++);
-		}
-
-		if (documentMetadata.pcpAddress != null) {
-			Cell cell = row.createCell(offset++);
-			cell.setCellValue(getValues(documentMetadata.pcpAddress));
-		} else {
-			row.createCell(offset++);
-		}
+		int offset = serializePatient(row, 0, documentMetadata, patientRole);
 
 		String name1 = "";
 		String name2 = "";
@@ -3016,31 +2890,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 
-		// if (serviceEvent != null) {
-		// FilterAllergyProblemActByServiceEvent filter = new FilterAllergyProblemActByServiceEvent(serviceEvent);
-		// // List<AllergyProblemAct> xxx = query.getEObjects(AllergyProblemAct.class, filter);
-		//
-		// for (AllergyProblemAct sa : results) {
-		//
-		// if (!results.contains(sa)) {
-		//
-		// int offset = 0;
-		//
-		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-		//
-		// offset = serializePatient(row, offset, documentMetadata,patientRole);
-		//
-		// offset = serializeServiceEvent(row, offset, serviceEvent);
-		//
-		// offset = serializeAllergyProblemAct(row, offset, sa);
-		//
-		// serializeFileName(row, offset, fileName);
-		// sets.add(sa);
-		// // sas.remove(sa);
-		// }
-		// }
-		//
-		// }
 		for (Organizer sa : results) {
 
 			if (sets.add(sa)) {
@@ -3097,32 +2946,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 
-		// if (serviceEvent != null) {
-		// FilterSubstanceAdminstrationsByServiceEvent filter = new FilterSubstanceAdminstrationsByServiceEvent(
-		// serviceEvent);
-		// // List<MedicationActivity> xxx = query.getEObjects(MedicationActivity.class, filter);
-		//
-		// for (SubstanceAdministration sa : sas) {
-		//
-		// if (!sas.contains(sa)) {
-		//
-		// int offset = 0;
-		//
-		// Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-		//
-		// offset = serializePatient(row, offset, documentMetadata,patientRole);
-		//
-		// offset = serializeServiceEvent(row, offset, serviceEvent);
-		//
-		// offset = serializeSubstanceAdministration(row, offset, sa);
-		//
-		// serializeFileName(row, offset, fileName);
-		//
-		// sets.add(sa);
-		// }
-		// }
-		//
-		// }
 		for (SubstanceAdministration sa : sas) {
 
 			if (sets.add(sa)) {
@@ -3175,6 +2998,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	}
 
 	static int createDocumentMedadataHeadder(Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("File Name");
 		row2.createCell(offset++).setCellValue("CDA Specification");
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
@@ -3206,7 +3030,9 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	static int createPatientHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("Patient ID");
-		row2.createCell(offset++).setCellValue("Patient DOB");
+		if (!omitDOB) {
+			row2.createCell(offset++).setCellValue("DOB");
+		}
 		offset = createDocumentMedadataHeadder(row2, offset);
 		return offset;
 	}
@@ -4074,7 +3900,11 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	}
 
 	static int serializeDocumentMetadata(Row row, int offset, DocumentMetadata documentMetadata) {
+
 		Cell cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.fileName);
+
+		cell = row.createCell(offset++);
 		cell.setCellValue(documentMetadata.documentLibrary);
 
 		cell = row.createCell(offset++);
@@ -4411,8 +4241,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 		}
 		cell.setCellValue(sb.toString());
-
-		offset = serializePatient(row, offset, patientRole.getPatient());
+		if (!omitDOB) {
+			offset = serializePatientDOB(row, offset, patientRole.getPatient());
+		}
+		;
 
 		if (documentMetadata != null) {
 			offset = serializeDocumentMetadata(row, offset, documentMetadata);
@@ -4420,11 +4252,11 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatient(Row row, int offset, Patient patient) {
+	static int serializePatientDOB(Row row, int offset, Patient patient) {
 
 		Cell cell = row.createCell(offset++);
 
-		if (patient.getBirthTime() != null) {
+		if (patient != null && patient.getBirthTime() != null) {
 
 			Date d = getDate(patient.getBirthTime().getValue());
 			if (d != null) {

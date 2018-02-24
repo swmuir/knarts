@@ -61,6 +61,7 @@ import org.eclipse.mdht.uml.cda.InformationRecipient;
 import org.eclipse.mdht.uml.cda.PatientRole;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
+import org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferences;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
@@ -84,6 +85,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		final String splitOption = event.getParameter(SPLITBYDOCUMENT);
+
+		// Omit DOB from generated Spreadsheets
+		omitDOB = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
+			MDHTPreferences.OMIT_DOB_STORE_VALUE);
 
 		try {
 
@@ -485,7 +490,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			SXSSFRow row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 
 			offset = 0;
-			row1.createCell(offset++).setCellValue("File Name");
+			// row1.createCell(offset++).setCellValue("File Name");
 			// row1.createCell(offset++).setCellValue("Document");
 			offset = createDocumentMedadataHeadder(row1, offset++);
 			int metadataoffset = offset;
@@ -528,7 +533,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				if (getDMHash(eClass, splitOption).containsKey(file)) {
 					offset = 0;
 					row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
-					row1.createCell(offset++).setCellValue(file.getName());
+					// row1.createCell(offset++).setCellValue(file.getName());
 					DocumentMetadata documentMetadata = getDMHash(eClass, splitOption).get(file);
 					offset = serializeDocumentMetadata(row1, offset, documentMetadata);
 					lastRow = row1.getRowNum();

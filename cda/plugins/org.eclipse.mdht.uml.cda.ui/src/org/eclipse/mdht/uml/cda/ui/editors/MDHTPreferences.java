@@ -43,9 +43,17 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 
 	public static String PDF_GEN_STORE_VALUE = "DisablePDFCheckValue";
 
+	public static String OMIT_DOB_STORE_VALUE = "OmitDOBCheckValue";
+
+	private static String OMIT_DOB_CHECK_BOX_LABEL = "Omit DOB from XLS Reports";
+
+	private static String OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP = "Do not include DOB in reports";
+
 	private Button cardinalityCheckBox;
 
 	private Button disablePdfGenerationCheckBox;
+
+	private Button omitDOBCheckBox;
 
 	/**
 	 * Creates an new checkbox instance and sets the default
@@ -107,6 +115,10 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		disablePdfGenerationCheckBox = createCheckBox(
 			pdf_composite_textField, PDF_GEN_DISABLE_CHECK_BOX_LABEL, PDF_GEN_DISABLE_CHECK_BOX_TOOLTIP);
 
+		Composite dob_composite_textField = createComposite(parent, 2);
+		omitDOBCheckBox = createCheckBox(
+			dob_composite_textField, OMIT_DOB_CHECK_BOX_LABEL, OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP);
+
 		initializeValues();
 
 		return new Composite(parent, SWT.NULL);
@@ -134,6 +146,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		IPreferenceStore store = getPreferenceStore();
 		cardinalityCheckBox.setSelection(store.getDefaultBoolean(CARDINALITY_STORE_VALUE));
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
+		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
 	}
 
 	/**
@@ -143,6 +156,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		IPreferenceStore store = getPreferenceStore();
 		cardinalityCheckBox.setSelection(store.getBoolean(CARDINALITY_STORE_VALUE));
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
+		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
 	}
 
 	@Override
@@ -164,5 +178,12 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		IPreferenceStore store = getPreferenceStore();
 		store.setValue(CARDINALITY_STORE_VALUE, cardinalityCheckBox.getSelection());
 		store.setValue(PDF_GEN_STORE_VALUE, disablePdfGenerationCheckBox.getSelection());
+		store.setValue(OMIT_DOB_STORE_VALUE, omitDOBCheckBox.getSelection());
+
+		boolean omitDOB = Activator.getDefault().getPreferenceStore().getBoolean(MDHTPreferences.OMIT_DOB_STORE_VALUE);
+		if (omitDOB) {
+			System.out.println(omitDOB);
+		}
+
 	}
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 seanmuir.
+ * Copyright (c) 2017,2018 seanmuir.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -73,6 +73,7 @@ import org.eclipse.mdht.uml.cda.InformationRecipient;
 import org.eclipse.mdht.uml.cda.PatientRole;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
+import org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferences;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.swt.SWT;
@@ -94,10 +95,6 @@ import com.google.common.base.Stopwatch;
  *
  */
 public class GenerateCDADataFilteredHandler extends GenerateCDABaseHandler {
-
-	// private static String SECTIONPARAMETER = "org.eclipse.mdht.cda.xml.ui.sectionParameter";
-
-	// private Set<EClass> filters = new HashSet<EClass>();
 
 	Set<EClassifier> populateFilters(String sectionFilter) {
 		Set<EClassifier> filters = new HashSet<EClassifier>();
@@ -174,44 +171,44 @@ public class GenerateCDADataFilteredHandler extends GenerateCDABaseHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
+		// Omit DOB from generated Spreadsheets
+		omitDOB = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
+			MDHTPreferences.OMIT_DOB_STORE_VALUE);
+
 		IWorkbenchWindow window2 = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 		ILabelProvider lp = new ILabelProvider() {
 
 			@Override
 			public void addListener(ILabelProviderListener listener) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void dispose() {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public boolean isLabelProperty(Object element, String property) {
-				// TODO Auto-generated method stub
+
 				return false;
 			}
 
 			@Override
 			public void removeListener(ILabelProviderListener listener) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public Image getImage(Object element) {
-				// TODO Auto-generated method stub
+
 				return null;
 			}
 
 			@Override
 			public String getText(Object element) {
 				EClass ec = (EClass) element;
-				// TODO Auto-generated method stub
 				return ec.getName();
 			}
 		};
