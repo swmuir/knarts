@@ -43,11 +43,17 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 
 	public static String PDF_GEN_STORE_VALUE = "DisablePDFCheckValue";
 
+	/**
+	 * @TODO
+	 * 		Column Selection for reports needs to become more robust
+	 *       This is currently overloaded to omit or keep both patient DOB and name
+	 *       The store value was kept the same to avoid storage issues
+	 */
 	public static String OMIT_DOB_STORE_VALUE = "OmitDOBCheckValue";
 
-	private static String OMIT_DOB_CHECK_BOX_LABEL = "Omit DOB from XLS Reports";
+	private static String OMIT_DOB_CHECK_BOX_LABEL = "Omit DOB and Patient Name from XLS Reports";
 
-	private static String OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP = "Do not include DOB in reports";
+	private static String OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP = "Do not include DOB and Patient Name in reports";
 
 	private Button cardinalityCheckBox;
 

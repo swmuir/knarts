@@ -3031,6 +3031,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("Patient ID");
 		if (!omitDOB) {
+			row2.createCell(offset++).setCellValue("Patient Name");
+			if (!"Documents".equals(row2.getSheet().getSheetName())) {
+				row2.getSheet().setColumnHidden(offset - 1, true);
+			}
 			row2.createCell(offset++).setCellValue("DOB");
 		}
 		offset = createDocumentMedadataHeadder(row2, offset);
@@ -3038,10 +3042,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	}
 
 	static int createPatientHeader2(Row row1, Row row2, int offset) {
-		// row2.createCell(offset++).setCellValue("CDA Specification");
-		// row2.createCell(offset++).setCellValue("CDA Document Type");
-		// row2.createCell(offset++).setCellValue("Organization");
-		// row2.createCell(offset++).setCellValue("Software");
 		row2.createCell(offset++).setCellValue("Recipient Name");
 		row2.createCell(offset++).setCellValue("Recipient Organization");
 		row2.createCell(offset++).setCellValue("Order Id");
@@ -3111,7 +3111,11 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	 */
 	static String getAnyValue(Section section, ANY any) {
 		GetValue getValue = new GetValue(section);
-		return getValue.doSwitch(any);
+		if (any != null) {
+			return getValue.doSwitch(any);
+		} else {
+			return "";
+		}
 	}
 
 	static Date getDate(SimpleDateFormat format, String value) {
@@ -4255,6 +4259,12 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	static int serializePatientDOB(Row row, int offset, Patient patient) {
 
 		Cell cell = row.createCell(offset++);
+
+		if (patient != null && patient.getNames() != null && !patient.getNames().isEmpty()) {
+			cell.setCellValue(getValues(patient.getNames().get(0)));
+		}
+
+		cell = row.createCell(offset++);
 
 		if (patient != null && patient.getBirthTime() != null) {
 

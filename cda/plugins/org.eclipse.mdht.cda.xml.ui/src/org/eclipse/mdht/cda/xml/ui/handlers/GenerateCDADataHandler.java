@@ -283,7 +283,6 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			return CONSOLIDATED;
 		} else {
 			return documents.get(eclass).getName();
-			// return eclass.getName();
 		}
 
 	}
