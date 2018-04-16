@@ -44,6 +44,11 @@
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.deidentifyCDA"
 			name="DEIDENTIFYCDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.DeidentifyCDAHandler">
 		</command>
+		
+		<command id="org.eclipse.mdht.cda.xml.ui.commands.packageCDA"
+			name="packageCDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.PackageCDAHandler">
+		</command>
+		
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.generateCDAData"
 			name="GENERATECDADATA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
 				<commandParameter id="org.eclipse.mdht.cda.xml.ui.splitbydocument"
@@ -149,6 +154,24 @@
 					</visibleWhen>
 				</command>
 
+
+			<command commandId="org.eclipse.mdht.cda.xml.ui.commands.packageCDA"
+					label="Package CDA Document(s)" id="org.eclipse.mdht.cda.xml.ui.menu.packageCDA"
+					mnemonic="D">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="or">
+								<or>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFolder" />
+									</and>
+									 
+								</or>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+				
 
 				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
 					label="Open CDA Document" id="org.eclipse.mdht.cda.xml.ui.menu.openCDA"

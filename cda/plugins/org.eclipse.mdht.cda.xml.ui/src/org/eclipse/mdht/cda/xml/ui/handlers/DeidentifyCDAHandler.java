@@ -95,6 +95,23 @@ import com.google.common.base.Stopwatch;
 
 public class DeidentifyCDAHandler extends AbstractHandler {
 
+	protected String folderPrefix = "DeIndentified";
+
+	/**
+	 * @return the folderPrefix
+	 */
+	public String getFolderPrefix() {
+		return folderPrefix;
+	}
+
+	/**
+	 * @param folderPrefix
+	 *            the folderPrefix to set
+	 */
+	public void setFolderPrefix(String folderPrefix) {
+		this.folderPrefix = folderPrefix;
+	}
+
 	public static final SimpleDateFormat DATE_FORMAT3 = new SimpleDateFormat("yyyyMMdd");
 
 	public class DeIdentificationDialog extends TitleAreaDialog {
@@ -548,7 +565,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		if (file.getParent() != null) {
 			IPath p = file.getParent().getProjectRelativePath();
 
-			p = p.append("DeIndentified");
+			p = p.append(folderPrefix);
 
 			IFolder f = file.getProject().getFolder(p);
 			if (!f.exists()) {
@@ -566,9 +583,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 	ArrayList<IFile> documents = new ArrayList<IFile>();
 
-	private static DecimalFormat format2Places = new DecimalFormat(".##");
+	protected static DecimalFormat format2Places = new DecimalFormat(".##");
 
-	private void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
+	protected void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
 
 		int filectr = 1;
 		long currentProcessingTime = 1;
