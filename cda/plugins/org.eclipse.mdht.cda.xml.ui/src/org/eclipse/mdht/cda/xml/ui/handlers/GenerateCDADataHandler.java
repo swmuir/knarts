@@ -287,6 +287,29 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	}
 
+	/**
+	 * If there is no null flavor and there is a entries or large narrative return true
+	 * else
+	 * return
+	 * false
+	 * 
+	 * @param section
+	 * @return boolean
+	 */
+	private boolean shouldCountSection(Section section) {
+		if (section.isNullFlavorUndefined()) {
+			if (!section.getEntries().isEmpty()) {
+				return true;
+			}
+			if (section.getText() != null && section.getText().getText() != null) {
+				if (section.getText().getText().length() > 50) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption) throws Exception {
 
 		/*
@@ -411,9 +434,17 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									sectionSwitch.doSwitch(section);
 									wb.getSheet(sheetIndex).flushRows();
 								}
+								if (section.getText() != null && section.getText().getText() != null) {
+									if (section.getText().getText().length() < 50) {
 
-								getSectionHash(
-									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+									}
+								}
+
+								if (shouldCountSection(section)) {
+									getSectionHash(
+										clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+
+								}
 
 							}
 						} else if (clinicalDocument instanceof org.openhealthtools.mdht.uml.cda.ccd.ContinuityOfCareDocument) {
@@ -443,8 +474,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									}
 									wb.getSheet(sheetIndex).flushRows();
 								}
-								getSectionHash(
-									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+								if (shouldCountSection(section)) {
+									getSectionHash(
+										clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+								}
 							}
 
 						}
