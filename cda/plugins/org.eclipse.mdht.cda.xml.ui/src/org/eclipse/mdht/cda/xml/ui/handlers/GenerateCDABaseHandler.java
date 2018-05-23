@@ -3031,6 +3031,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		row2.createCell(offset++).setCellValue("Record");
 		row2.createCell(offset++).setCellValue("Patient ID");
 		if (!omitDOB) {
+			row2.createCell(offset++).setCellValue("Complete ID");
 			row2.createCell(offset++).setCellValue("Patient Name");
 			if (!"Documents".equals(row2.getSheet().getSheetName())) {
 				row2.getSheet().setColumnHidden(offset - 1, true);
@@ -4241,12 +4242,17 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		StringBuffer sb = new StringBuffer();
 		if (patientRole != null) {
 			for (II ii : patientRole.getIds()) {
-				sb.append(getKey2(ii));
+				if (!"2.16.840.1.113883.4.1".equals(ii.getRoot())) {
+					sb.append(getKey2(ii));
+					break;
+				}
 			}
 		}
 		cell.setCellValue(sb.toString());
 		if (!omitDOB) {
-			offset = serializePatientDOB(row, offset, patientRole.getPatient());
+			offset = serializePatientDOB(row, offset, patientRole, (patientRole != null
+					? patientRole.getPatient()
+					: null));
 		}
 		;
 
@@ -4256,10 +4262,22 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return offset;
 	}
 
-	static int serializePatientDOB(Row row, int offset, Patient patient) {
+	static int serializePatientDOB(Row row, int offset, PatientRole patientRole, Patient patient) {
 
 		Cell cell = row.createCell(offset++);
 
+		StringBuffer sb = new StringBuffer();
+
+		if (patientRole != null) {
+			for (II ii : patientRole.getIds()) {
+				if (!"2.16.840.1.113883.4.1".equals(ii.getRoot())) {
+					sb.append(getKey3(ii));
+				}
+			}
+		}
+		cell.setCellValue(sb.toString());
+
+		cell = row.createCell(offset++);
 		if (patient != null && patient.getNames() != null && !patient.getNames().isEmpty()) {
 			cell.setCellValue(getValues(patient.getNames().get(0)));
 		}
