@@ -15,6 +15,7 @@
 package org.eclipse.mdht.uml.cda.transform;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.mutable.MutableBoolean;
 import org.eclipse.mdht.uml.cda.core.profile.ConformsTo;
 import org.eclipse.mdht.uml.cda.core.util.CDAModelUtil;
 import org.eclipse.mdht.uml.cda.core.util.CDAProfileUtil;
@@ -23,9 +24,9 @@ import org.eclipse.mdht.uml.transform.EcoreTransformUtil;
 import org.eclipse.mdht.uml.transform.IBaseModelReflection;
 import org.eclipse.mdht.uml.transform.TransformerOptions;
 import org.eclipse.mdht.uml.transform.ecore.AnnotationsUtil;
-import org.eclipse.mdht.uml.transform.ecore.TransformAbstract;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationSeverityKind;
 import org.eclipse.mdht.uml.transform.ecore.IEcoreProfileReflection.ValidationStereotypeKind;
+import org.eclipse.mdht.uml.transform.ecore.TransformAbstract;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Generalization;
@@ -55,7 +56,8 @@ public class TransformTemplateIdentifier extends TransformAbstract {
 	}
 
 	private void addConstraint(Class umlClass, Stereotype hl7Template) {
-		String constraintName = createTemplateConstraintName(umlClass);
+		MutableBoolean requiresParentId = new MutableBoolean(false);
+		String constraintName = createTemplateConstraintName(umlClass, requiresParentId);
 
 		Constraint constraint = umlClass.createOwnedRule(constraintName, UMLPackage.eINSTANCE.getConstraint());
 		constraint.getConstrainedElements().add(umlClass);
@@ -69,28 +71,52 @@ public class TransformTemplateIdentifier extends TransformAbstract {
 		expression.getLanguages().add("OCL");
 
 		String versionBody = " and id.extension = '" + templateVersion + "'";
-
 		String body = "self.templateId->exists(id : datatypes::II | id.root = '" + templateId + "'" +
 				(StringUtils.isEmpty(templateVersion)
 						? ""
 						: versionBody) +
 				")";
 
-		expression.getBodies().add(body);
-
 		String message = CDAModelUtil.getValidationMessage(umlClass);
 		if (message == null) {
-			message = "The template identifier for " + umlClass.getName() + " must be " + templateId + ".";
+			message = "The template identifier for " + umlClass.getName() + " must be " + templateId;
 		}
-		// addValidationError(umlClass, constraintName, message);
+		if (requiresParentId.isTrue()) {
+			body = "self.templateId->exists(id : datatypes::II | id.root = '" + templateId + "'" +
+					" and id.extension.oclIsUndefined())";
+			message = "A compatible R1.1 templateId without an extension must be included " +
+					"in addition to the existing R2.1 templateId with an extension for " +
+					convertV2CamelCaseToHumanReadableExceptVersionSuffix(umlClass.getName(), 2) + " " + templateId +
+					":" + templateVersion + ". " + "When asserting this templateId, " +
+					"all C-CDA R2.1 document, section, and entry templates that had a previous version in C-CDA R1.1 SHALL include " +
+					"both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - " +
+					"Design Considerations for additional detail (CONF:1198-32936, CONF:1198-32934, DSTU:757, DSTU:781).";
+		}
+
+		expression.getBodies().add(body);
 		addValidationError(umlClass, constraintName, message);
 	}
 
+	private String convertV2CamelCaseToHumanReadableExceptVersionSuffix(String camelCasedV2Template,
+			int versionSuffix) {
+		String versionNumber = String.valueOf(versionSuffix);
+		if (camelCasedV2Template.endsWith(versionNumber)) {
+			camelCasedV2Template = StringUtils.capitalize(
+				StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(camelCasedV2Template), " "));
+			camelCasedV2Template = camelCasedV2Template.replaceFirst(" " + versionNumber, versionNumber);
+		}
+		return camelCasedV2Template;
+	}
+
 	protected String createTemplateConstraintName(Class template) {
+		return createTemplateConstraintName(template, new MutableBoolean(false));
+	}
+
+	protected String createTemplateConstraintName(Class template, MutableBoolean requiresParentId) {
 		String constraintName = null;
 		Generalization generalization = null;
 		ValidationSeverityKind severity = null;
-		boolean requiresParentId = false;
+		// boolean requiresParentId = false;
 
 		if (template.getGeneralizations().size() > 0) {
 			// use the first generalization, assuming it is used for implementation class extension
@@ -107,16 +133,15 @@ public class TransformTemplateIdentifier extends TransformAbstract {
 			Stereotype stereotype = CDAProfileUtil.applyCDAStereotype(generalization, ICDAProfileConstants.CONFORMS_TO);
 			if (stereotype != null) {
 				ConformsTo conformsTo = (ConformsTo) generalization.getStereotypeApplication(stereotype);
-				requiresParentId = conformsTo.isRequiresParentId();
+				requiresParentId.setValue(conformsTo.isRequiresParentId());
 			}
 
-			if (!requiresParentId) {
+			if (requiresParentId.isFalse()) {
 				// use constraint name of parent class
 				constraintName = createTemplateConstraintName((Class) generalization.getGeneral());
+			} else {
+				System.out.println("requiresParentId: " + template.getQualifiedName() + " = " + constraintName);
 			}
-			// else {
-			// System.out.println("requiresParentId: " + template.getQualifiedName() + " = " + constraintName);
-			// }
 		}
 
 		if (constraintName == null) {
