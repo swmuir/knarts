@@ -89,7 +89,7 @@ public class TransformTemplateIdentifier extends TransformAbstract {
 					convertV2CamelCaseToHumanReadableExceptVersionSuffix(umlClass.getName(), 2) + " " + templateId +
 					":" + templateVersion + ". " + "When asserting this templateId, " +
 					"all C-CDA R2.1 document, section, and entry templates that had a previous version in C-CDA R1.1 SHALL include " +
-					"both the C-CDA 2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - " +
+					"both the C-CDA R2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - " +
 					"Design Considerations for additional detail (CONF:1198-32936, CONF:1198-32934, DSTU:757, DSTU:781).";
 		}
 
