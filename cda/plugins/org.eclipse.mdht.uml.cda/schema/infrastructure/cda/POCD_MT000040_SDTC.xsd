@@ -98,6 +98,12 @@
           2016-05-12 Added extension approved by SDWG on 2016-01-28
                      Component4/priorityNumber
       </xs:documentation>
+      <xs:documentation>
+        2017-10-10  Added extension approved by SDWG on 2017-05-17
+                      Participant2/functionCode
+                      Performer2/functionCode
+      </xs:documentation>
+      
     
     </xs:annotation>
     <xs:include schemaLocation="../../processable/coreschemas/datatypes.xsd" />
@@ -1002,9 +1008,13 @@
             <xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0" />
             <xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded" />
+            <!-- Begin Extension: (SDTC) -->
+            <xs:element name="functionCode" minOccurs="0" />
+            <!-- End Extension: (SDTC) -->
             <xs:element name="time" type="IVL_TS" minOccurs="0" />
             <xs:element name="awarenessCode" type="CE" minOccurs="0" />
             <xs:element name="participantRole" type="POCD_MT000040.ParticipantRole" />
+          
         </xs:sequence>
         <xs:attribute name="nullFlavor" type="NullFlavor" use="optional" />
         <xs:attribute name="typeCode" type="ParticipationType" use="required" />
@@ -1096,6 +1106,9 @@
             <xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0" />
             <xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded" />
+            <!-- Begin Extension: (SDTC) -->
+            <xs:element ref="sdtc:functionCode" minOccurs="0" />
+            <!-- End Extension: (SDTC) -->
             <xs:element name="time" type="IVL_TS" minOccurs="0" />
             <xs:element name="modeCode" type="CE" minOccurs="0" />
             <xs:element name="assignedEntity" type="POCD_MT000040.AssignedEntity" />

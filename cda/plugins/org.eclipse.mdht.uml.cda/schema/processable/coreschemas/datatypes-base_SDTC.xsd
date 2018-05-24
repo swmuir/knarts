@@ -48,6 +48,9 @@
     <xs:documentation>
       2015-12-26 Commented out Schematron validation rule on II datatype
     </xs:documentation>
+    <xs:documentation>
+      2017-10-10  Fixed ED datatype bug approved by SD on 2017-09-13 to allow other content in ED
+    </xs:documentation>
   </xs:annotation>
   <xs:include schemaLocation="voc.xsd" />
   <xs:complexType name="ANY" abstract="true">
@@ -206,6 +209,9 @@
             </xs:annotation>
           </xs:element>
           <xs:element name="thumbnail" minOccurs="0" maxOccurs="1" type="thumbnail" />
+          <!-- Begin Schema Fix: Added to fix Schema to allow XML/XHTML content in ED data type -->
+          <xs:any minOccurs="0" namespace="##other" processContents="skip" />
+          <!-- End Schema Fix: Added to fix Schema to allow XML/XHTML content in ED data type -->
         </xs:sequence>
         <xs:attribute name="mediaType" type="cs" use="optional" default="text/plain">
           <xs:annotation>

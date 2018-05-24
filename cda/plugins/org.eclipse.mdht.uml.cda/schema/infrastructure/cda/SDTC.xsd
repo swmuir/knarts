@@ -40,67 +40,72 @@
     <xs:documentation>See http://wiki.hl7.org/index.php?title=CDA_R2_Extensions for more details of extensions</xs:documentation>
     <xs:documentation>
       2012-07-06 Created SDTC.xsd (this file) this file holds all extensions in the SDTC namespace. 
-                 It contains elements, attributes and datatypes
+      It contains elements, attributes and datatypes
     </xs:documentation>
     <xs:documentation>
       2012-07-06 Added extensions approved by SDWG prior to 2012-07-06: 
-                    id, 
-                    deceasedInd, 
-                    deceasedTime, 
-                    valueSet, 
-                    valuesetVersion, 
-                    dischargeDispositionCode,
-                    raceCode,
-                    birthTime
+      id, 
+      deceasedInd, 
+      deceasedTime, 
+      valueSet, 
+      valuesetVersion, 
+      dischargeDispositionCode,
+      raceCode,
+      birthTime
     </xs:documentation>
     <xs:documentation>
       2014-07-14 Added extension approved by SDWG on xxxx date:
-                    signatureText
+      signatureText
     </xs:documentation>
     <xs:documentation>
       2015-04-01 Added extensions approved by SDWG on 2014-11-xx:
-                    multipleBirthInd, 
-                    multipleBirthOrderNumber
+      multipleBirthInd, 
+      multipleBirthOrderNumber
     </xs:documentation>
     <xs:documentation>
-        2015-04-01 
-                 Added extension approved by SDWG on 2014-12-18:
-                    ethnicGroupCode
+      2015-04-01 
+      Added extension approved by SDWG on 2014-12-18:
+      ethnicGroupCode
     </xs:documentation>
     <xs:documentation>
-          2015-04-01 
-                 Added extension approved by SDWG on 2014-01-xx:
-                    statusCode
+      2015-04-01 
+      Added extension approved by SDWG on 2014-01-xx:
+      statusCode
     </xs:documentation>
     <xs:documentation>
-          2015-04-01 
-                 Added extension approved by SDWG on 2015-03-05
-                    desc
+      2015-04-01 
+      Added extension approved by SDWG on 2015-03-05
+      desc
     </xs:documentation>
     <xs:documentation>
-            2015-04-01 
-                  Added extension approved by SDWG on 2015-03-05
-                     patient
+      2015-04-01 
+      Added extension approved by SDWG on 2015-03-05
+      patient
     </xs:documentation>
     <xs:documentation>
-                2015-04-01 
-                Added extension approved by SDWG on 2015-03-19
-                   inFulfillmentOf1
+      2015-04-01 
+      Added extension approved by SDWG on 2015-03-19
+      inFulfillmentOf1
     </xs:documentation>
     <xs:documentation>
-                2015-04-06 
-                Added extension approved by SDWG on 2015-03-05
-                   asPatientRelationship
+      2015-04-06 
+      Added extension approved by SDWG on 2015-03-05
+      asPatientRelationship
     </xs:documentation>
     <xs:documentation>
-                2016-05-12 
-                Added extension approved by SDWG on 2016-01-28
-                priorityNumber
+      2016-05-12 
+      Added extension approved by SDWG on 2016-01-28
+      priorityNumber
+    </xs:documentation>
+    <xs:documentation>
+      2017-10-10 
+      Added extension approved by SDWG on 2017-05-17
+      functionCode
     </xs:documentation>
   </xs:annotation>
-
+  
   <xs:import namespace="urn:hl7-org:v3" schemaLocation="POCD_MT000040_SDTC.xsd" />
-
+  
   <!-- == Start Data types ===================================================================== -->
   <!-- Datatype INT_POS (restricts integers to 1 or greater) -->
   <xs:simpleType name="int_pos">
@@ -111,7 +116,7 @@
       <xs:minInclusive value="1" />
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:complexType name="INT_POS">
     <xs:annotation>
       <xs:documentation>Positive integer numbers</xs:documentation>
@@ -130,7 +135,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
+  
   <!-- ActReference (created for QRDA) -->
   <xs:complexType name="ActReference">
     <xs:sequence>
@@ -143,7 +148,7 @@
     <xs:attribute name="moodCode" type="hl7:x_DocumentActMood" use="required" />
     <xs:attribute name="determinerCode" type="hl7:EntityDeterminer" use="optional" fixed="INSTANCE" />
   </xs:complexType>
-
+  
   <!-- Fulfills (created for QRDA) -->
   <xs:complexType name="InFulfillmentOf1">
     <xs:sequence>
@@ -156,13 +161,13 @@
     <xs:attribute name="inversionInd" type="hl7:bl" use="optional" />
     <xs:attribute name="negationInd" type="hl7:bl" use="optional" />
   </xs:complexType>
-
+  
   <xs:complexType name="SdtcPatient">
     <xs:sequence>
       <xs:element name="id" type="hl7:II" minOccurs="1" />
     </xs:sequence>
   </xs:complexType>
-
+  
   <xs:complexType name="AsPatientRelationship">
     <xs:sequence>
       <xs:element name="realmCode" type="hl7:CS" minOccurs="0" maxOccurs="unbounded" />
@@ -173,45 +178,47 @@
     <xs:attribute name="classCode" type="hl7:x_DocumentSubject" use="required" fixed="PRS" />
     <xs:attribute name="determinerCode" type="hl7:EntityDeterminer" use="optional" fixed="INSTANCE" />
   </xs:complexType>
-
+  
   <!-- == End Data Types =================================================================== -->
-
+  
   <!-- == Start Attributes =================================================================== -->
   <xs:attribute name="valueSet" type="hl7:oid" />
   <xs:attribute name="valueSetVersion" type="hl7:st" />
   <!-- == End Attributes =================================================================== -->
-
-
+  
+  
   <!-- == Start Elements =================================================================== -->
   <xs:element name="raceCode" type="hl7:CE" />
   <xs:element name="ethnicGroupCode" type="hl7:CE" />
-
+  
   <xs:element name="dischargeDispositionCode" type="hl7:CE" />
-
+  
   <xs:element name="id" type="hl7:II" />
-
+  
   <xs:element name="deceasedInd" type="hl7:BL" />
   <xs:element name="deceasedTime" type="hl7:TS" />
-
+  
   <xs:element name="multipleBirthInd" type="hl7:BL" />
   <xs:element name="multipleBirthOrderNumber" type="INT_POS" />
-
+  
   <xs:element name="birthTime" type="hl7:TS" />
-
+  
   <xs:element name="signatureText" type="hl7:ED" />
-
+  
   <xs:element name="statusCode" type="hl7:CS" />
-
+  
   <xs:element name="desc" type="hl7:ED" />
-
+  
   <xs:element name="inFulfillmentOf1" type="InFulfillmentOf1" />
-
+  
   <xs:element name="patient" type="SdtcPatient" />
-
+  
   <xs:element name="asPatientRelationship" type="AsPatientRelationship" />
   
-  <xs:element name="priorityNumber" type="hl7:INT" />  
-
+  <xs:element name="priorityNumber" type="hl7:INT" />
+  
+  <xs:element name="functionCode" type="hl7:CE" />
+  
   <!-- == End Elements =================================================================== -->
-
+  
 </xs:schema>
