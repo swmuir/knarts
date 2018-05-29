@@ -20,7 +20,7 @@
     <property name="filteredModelPath.uml" location="${basedir}/model/${modelName}_filtered.uml"/>
 	<property name="propertiesFilePath" value="${basedir}/plugin.properties" />
 	
-    <property name="validation.failOnError" value="false"/>
+    <!-- <property name="validation.failOnError" value="false"/> -->
 	<property name="runPostProcessing" value="false"/>
 	
 	<target name="all">
@@ -29,7 +29,7 @@
 
     <target name="transformModel" description="Transform Ecore UML model.">
         <cdatools model="${modelPath.uml}">
-        	<validateModel failOnError="${validation.failOnError}"/>
+        	<!-- <validateModel failOnError="${validation.failOnError}"/> -->
             <transformToEcoreModel ecoreModel="${ecoreModelPath.uml}" />
         </cdatools>
 
