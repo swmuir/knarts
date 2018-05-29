@@ -5706,6 +5706,11 @@
           <instance xmi:type="uml:EnumerationLiteral" href="pathmap://VOCAB_MODEL/vocab.uml#__yenN0DcEd6xYZuu1VKCVw"/>
         </defaultValue>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_h6Q8kF-aEeia4fKTb08hoA" name="sDTCFunctionCode" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h6atkF-aEeia4fKTb08hoA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h6atkV-aEeia4fKTb08hoA" value="1"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="__QZaIEcZEd6besF9iFIJkQ" name="ParticipantRole">
       <ownedRule xmi:id="_C7SZEE7REd6ohP_YEXs4Wg" name="playingEntityChoice" constrainedElement="__QZaIEcZEd6besF9iFIJkQ">
@@ -5870,6 +5875,11 @@
           <type xmi:type="uml:Enumeration" href="pathmap://VOCAB_MODEL/vocab.uml#__y7BIEDcEd6xYZuu1VKCVw"/>
           <instance xmi:type="uml:EnumerationLiteral" href="pathmap://VOCAB_MODEL/vocab.uml#__y7BIUDcEd6xYZuu1VKCVw"/>
         </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_7XAXAGNbEeia4fKTb08hoA" name="sDTCFunctionCode" visibility="private" aggregation="composite">
+        <type xmi:type="uml:Class" href="pathmap://DATATYPES_MODEL/datatypes.uml#_Z1EGIDxaEd6JwqSGecoePg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7XAXAWNbEeia4fKTb08hoA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7XAXAmNbEeia4fKTb08hoA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Je2yMEcaEd6besF9iFIJkQ" name="Person">
@@ -9204,19 +9214,19 @@
   <Ecore:EReference xmi:id="_izICAEY5Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_q_8H4EY4EeejjJlZJqMq8Q"/>
   <Ecore:EReference xmi:id="_j9-rkEY5Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_uXpqkEY4EeejjJlZJqMq8Q"/>
   <Ecore:EAttribute xmi:id="_k8zrUEY5Eee0IaOhQHm77w" xmlFeatureKind="Attribute" base_Property="_Pdnl4EY5Eee0IaOhQHm77w"/>
-  <Ecore:EAttribute xmi:id="_l6n-cEY5Eee0IaOhQHm77w"  xmlFeatureKind="Attribute" base_Property="_Q7pqIEY5Eee0IaOhQHm77w"/>
-  <Ecore:EAttribute xmi:id="_m4t-YEY5Eee0IaOhQHm77w"  xmlFeatureKind="Attribute" base_Property="_atuBIEY5Eee0IaOhQHm77w"/>
+  <Ecore:EAttribute xmi:id="_l6n-cEY5Eee0IaOhQHm77w" xmlFeatureKind="Attribute" base_Property="_Q7pqIEY5Eee0IaOhQHm77w"/>
+  <Ecore:EAttribute xmi:id="_m4t-YEY5Eee0IaOhQHm77w" xmlFeatureKind="Attribute" base_Property="_atuBIEY5Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_Nu69gEY7Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_uPHHsEY6Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_S51jMEY7Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_93ubUEY6Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_bsfPIEY8Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_ASmiUEY7Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_xKsdIEY8Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_8BiVwkY6Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_BTByoEY9Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_CKGPckY7Eee0IaOhQHm77w"/>
   <Ecore:EReference xmi:id="_hv67wEY9Eee0IaOhQHm77w" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_BvohAkY7Eee0IaOhQHm77w"/>
-  <Ecore:EAttribute xmi:id="_IhzUMEZCEeeP-NuHrYHtJg" isUnsettable="true"   base_Property="_bJstIEYmEee_x40ukY_SSA"/>
+  <Ecore:EAttribute xmi:id="_IhzUMEZCEeeP-NuHrYHtJg" isUnsettable="true" base_Property="_bJstIEYmEee_x40ukY_SSA"/>
   <Ecore:EReference xmi:id="_E0wBIEbmEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_XQbVgEYmEee_x40ukY_SSA"/>
   <Ecore:EReference xmi:id="_Fq4-8EbmEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_YYzS0EYmEee_x40ukY_SSA"/>
   <Ecore:EReference xmi:id="_GqVpwEbmEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_ZditUEYmEee_x40ukY_SSA"/>
-  <Ecore:EAttribute xmi:id="_HwdkUEbmEeeP-NuHrYHtJg"   xmlFeatureKind="Element" base_Property="_aYmnYEYmEee_x40ukY_SSA"/>
+  <Ecore:EAttribute xmi:id="_HwdkUEbmEeeP-NuHrYHtJg" xmlFeatureKind="Element" base_Property="_aYmnYEYmEee_x40ukY_SSA"/>
   <Ecore:EReference xmi:id="_ohqpMEbpEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_fiINQEbnEeeP-NuHrYHtJg"/>
   <Ecore:EReference xmi:id="_P5qRUEbsEeeP-NuHrYHtJg" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_HXn-0EbsEeeP-NuHrYHtJg"/>
   <Ecore:EReference xmi:id="_wkd6wIdPEeeAsbPrNOnubg" xmlName="ethnicGroupCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_dJAAkIdPEeeAsbPrNOnubg"/>
@@ -9225,4 +9235,6 @@
   <Ecore:EReference xmi:id="_qQisUIdUEeeAsbPrNOnubg" xmlName="raceCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_75WykIdTEeeAsbPrNOnubg"/>
   <Ecore:EReference xmi:id="_sOrM8IdUEeeAsbPrNOnubg" xmlName="multipleBirthOrderNumber" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_sGunUIdTEeeAsbPrNOnubg"/>
   <Ecore:EReference xmi:id="_ttyPQIdUEeeAsbPrNOnubg" xmlName="multipleBirthInd" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_kczBgIdTEeeAsbPrNOnubg"/>
+  <Ecore:EReference xmi:id="_9lKtIGNaEeia4fKTb08hoA" xmlName="functionCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_h6Q8kF-aEeia4fKTb08hoA"/>
+  <Ecore:EReference xmi:id="_REIKwGNcEeia4fKTb08hoA" xmlName="functionCode" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Element" base_Property="_7XAXAGNbEeia4fKTb08hoA"/>
 </xmi:XMI>

@@ -1698,6 +1698,8 @@
           createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Performer2/assignedEntity"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Performer2/nullFlavor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Performer2/typeCode.1"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Performer2/sDTCFunctionCode"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="cda.ecore#//Performer2/typeCode">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="cda.ecore#//Performer2/typeCode/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="cda.ecore#//Performer2/typeCode/context"/>
@@ -1719,6 +1721,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Participant2/nullFlavor"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Participant2/typeCode"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cda.ecore#//Participant2/contextControlCode.1"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference cda.ecore#//Participant2/sDTCFunctionCode"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="cda.ecore#//Participant2/contextControlCode">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="cda.ecore#//Participant2/contextControlCode/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="cda.ecore#//Participant2/contextControlCode/context"/>

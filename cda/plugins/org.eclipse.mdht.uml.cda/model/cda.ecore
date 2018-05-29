@@ -5919,6 +5919,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCode" ordered="false"
         eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//ParticipationPhysicalPerformer"
         defaultValueLiteral="PRF" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCFunctionCode" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="functionCode"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Participant2" eSuperTypes="../../org.eclipse.mdht.uml.hl7.rim/model/rim.ecore#//Participation">
     <eOperations name="contextControlCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -5994,6 +6003,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextControlCode" ordered="false"
         eType="ecore:EEnum ../../org.eclipse.mdht.uml.hl7.vocab/model/vocab.ecore#//ContextControl"
         defaultValueLiteral="OP" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sDTCFunctionCode" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.mdht.uml.hl7.datatypes/model/datatypes.ecore#//CE"
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="functionCode"/>
+        <details key="namespace" value="urn:hl7-org:sdtc"/>
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParticipantRole" eSuperTypes="../../org.eclipse.mdht.uml.hl7.rim/model/rim.ecore#//Role">
     <eOperations name="playingEntityChoice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
