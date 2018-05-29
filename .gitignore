@@ -5,6 +5,7 @@ target/
 .DS_Store
 *.xtendbin
 *.gmfgen.uml
+/.settings
 
 # Workspace metadata folder created by Oomph when launching tests.
 tests/**/.metadata/
