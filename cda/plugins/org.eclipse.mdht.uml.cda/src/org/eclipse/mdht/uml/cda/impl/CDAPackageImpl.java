@@ -6661,6 +6661,15 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPerformer2_SDTCFunctionCode() {
+		return (EReference) getPerformer2().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParticipant2() {
 		if (participant2EClass == null) {
 			participant2EClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(
@@ -6748,6 +6757,15 @@ public class CDAPackageImpl extends EPackageImpl implements CDAPackage {
 	 */
 	public EAttribute getParticipant2_ContextControlCode() {
 		return (EAttribute) getParticipant2().getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParticipant2_SDTCFunctionCode() {
+		return (EReference) getParticipant2().getEStructuralFeatures().get(9);
 	}
 
 	/**

@@ -230,9 +230,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -301,10 +300,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT, newIntendedRecipient,
-					newIntendedRecipient));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__INTENDED_RECIPIENT,
+				newIntendedRecipient, newIntendedRecipient));
 		}
 	}
 
@@ -331,10 +328,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -349,10 +344,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -388,10 +381,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE,
+				oldTypeCode, typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -406,10 +397,8 @@ public class InformationRecipientImpl extends ParticipationImpl implements Infor
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE, oldTypeCode,
-					TYPE_CODE_EDEFAULT, oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFORMATION_RECIPIENT__TYPE_CODE,
+				oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

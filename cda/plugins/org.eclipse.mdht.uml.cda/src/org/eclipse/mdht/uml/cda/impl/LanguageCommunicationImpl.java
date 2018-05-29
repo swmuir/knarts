@@ -231,9 +231,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -301,10 +300,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__LANGUAGE_CODE, newLanguageCode,
-					newLanguageCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__LANGUAGE_CODE,
+				newLanguageCode, newLanguageCode));
 		}
 	}
 
@@ -358,9 +355,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__MODE_CODE, newModeCode, newModeCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__MODE_CODE,
+				newModeCode, newModeCode));
 		}
 	}
 
@@ -418,8 +414,7 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 			}
 		} else if (eNotificationRequired()) {
 			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__PROFICIENCY_LEVEL_CODE,
+				new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__PROFICIENCY_LEVEL_CODE,
 					newProficiencyLevelCode, newProficiencyLevelCode));
 		}
 	}
@@ -475,10 +470,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__PREFERENCE_IND, newPreferenceInd,
-					newPreferenceInd));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__PREFERENCE_IND,
+				newPreferenceInd, newPreferenceInd));
 		}
 	}
 
@@ -504,10 +497,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.LANGUAGE_COMMUNICATION__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -522,10 +513,8 @@ public class LanguageCommunicationImpl extends EObjectImpl implements LanguageCo
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.LANGUAGE_COMMUNICATION__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.LANGUAGE_COMMUNICATION__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 

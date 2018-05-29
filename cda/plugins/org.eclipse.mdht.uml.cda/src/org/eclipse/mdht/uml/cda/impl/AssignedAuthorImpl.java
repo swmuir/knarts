@@ -304,9 +304,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -464,10 +463,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__ASSIGNED_PERSON, newAssignedPerson,
-					newAssignedPerson));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__ASSIGNED_PERSON,
+				newAssignedPerson, newAssignedPerson));
 		}
 	}
 
@@ -523,10 +520,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__ASSIGNED_AUTHORING_DEVICE,
-					newAssignedAuthoringDevice, newAssignedAuthoringDevice));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__ASSIGNED_AUTHORING_DEVICE,
+				newAssignedAuthoringDevice, newAssignedAuthoringDevice));
 		}
 	}
 
@@ -582,10 +577,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__REPRESENTED_ORGANIZATION,
-					newRepresentedOrganization, newRepresentedOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__REPRESENTED_ORGANIZATION,
+				newRepresentedOrganization, newRepresentedOrganization));
 		}
 	}
 
@@ -612,10 +605,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -630,10 +621,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ASSIGNED_AUTHOR__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSIGNED_AUTHOR__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -669,10 +658,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSIGNED_AUTHOR__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -687,10 +674,8 @@ public class AssignedAuthorImpl extends RoleImpl implements AssignedAuthor {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ASSIGNED_AUTHOR__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSIGNED_AUTHOR__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

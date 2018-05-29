@@ -564,9 +564,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__TYPE_ID,
+				newTypeId, newTypeId));
 		}
 	}
 
@@ -646,9 +645,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CODE, newCode, newCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CODE, newCode,
+				newCode));
 		}
 	}
 
@@ -702,9 +700,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__TEXT, newText, newText));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__TEXT, newText,
+				newText));
 		}
 	}
 
@@ -758,10 +755,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__STATUS_CODE, newStatusCode,
-					newStatusCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__STATUS_CODE,
+				newStatusCode, newStatusCode));
 		}
 	}
 
@@ -829,10 +824,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__PRIORITY_CODE, newPriorityCode,
-					newPriorityCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__PRIORITY_CODE,
+				newPriorityCode, newPriorityCode));
 		}
 	}
 
@@ -887,10 +880,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__REPEAT_NUMBER, newRepeatNumber,
-					newRepeatNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__REPEAT_NUMBER,
+				newRepeatNumber, newRepeatNumber));
 		}
 	}
 
@@ -944,10 +935,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__ROUTE_CODE, newRouteCode,
-					newRouteCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__ROUTE_CODE,
+				newRouteCode, newRouteCode));
 		}
 	}
 
@@ -1015,10 +1004,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__DOSE_QUANTITY, newDoseQuantity,
-					newDoseQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__DOSE_QUANTITY,
+				newDoseQuantity, newDoseQuantity));
 		}
 	}
 
@@ -1073,10 +1060,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__RATE_QUANTITY, newRateQuantity,
-					newRateQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__RATE_QUANTITY,
+				newRateQuantity, newRateQuantity));
 		}
 	}
 
@@ -1131,10 +1116,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__MAX_DOSE_QUANTITY, newMaxDoseQuantity,
-					newMaxDoseQuantity));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CDAPackage.SUBSTANCE_ADMINISTRATION__MAX_DOSE_QUANTITY, newMaxDoseQuantity, newMaxDoseQuantity));
 		}
 	}
 
@@ -1191,10 +1174,9 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__ADMINISTRATION_UNIT_CODE,
-					newAdministrationUnitCode, newAdministrationUnitCode));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CDAPackage.SUBSTANCE_ADMINISTRATION__ADMINISTRATION_UNIT_CODE, newAdministrationUnitCode,
+				newAdministrationUnitCode));
 		}
 	}
 
@@ -1248,9 +1230,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__SUBJECT, newSubject, newSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__SUBJECT,
+				newSubject, newSubject));
 		}
 	}
 
@@ -1317,10 +1298,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CONSUMABLE, newConsumable,
-					newConsumable));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CONSUMABLE,
+				newConsumable, newConsumable));
 		}
 	}
 
@@ -1451,10 +1430,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -1469,10 +1446,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -1508,10 +1483,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__CLASS_CODE,
+				oldClassCode, classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -1526,10 +1499,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -1565,10 +1536,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__MOOD_CODE,
+				oldMoodCode, moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -1583,10 +1552,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__MOOD_CODE, oldMoodCode,
-					MOOD_CODE_EDEFAULT, oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__MOOD_CODE,
+				oldMoodCode, MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 
@@ -1620,10 +1587,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		boolean oldNegationIndESet = negationIndESet;
 		negationIndESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__NEGATION_IND, oldNegationInd,
-					negationInd, !oldNegationIndESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBSTANCE_ADMINISTRATION__NEGATION_IND,
+				oldNegationInd, negationInd, !oldNegationIndESet));
 		}
 	}
 
@@ -1638,10 +1603,8 @@ public class SubstanceAdministrationImpl extends ClinicalStatementImpl implement
 		negationInd = NEGATION_IND_EDEFAULT;
 		negationIndESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__NEGATION_IND, oldNegationInd,
-					NEGATION_IND_EDEFAULT, oldNegationIndESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBSTANCE_ADMINISTRATION__NEGATION_IND,
+				oldNegationInd, NEGATION_IND_EDEFAULT, oldNegationIndESet));
 		}
 	}
 

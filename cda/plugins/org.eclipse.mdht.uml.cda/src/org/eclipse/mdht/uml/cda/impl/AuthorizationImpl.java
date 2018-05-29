@@ -301,9 +301,8 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.AUTHORIZATION__CONSENT, newConsent, newConsent));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHORIZATION__CONSENT, newConsent,
+				newConsent));
 		}
 	}
 
@@ -330,10 +329,8 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -348,10 +345,8 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.AUTHORIZATION__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHORIZATION__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -387,10 +382,8 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -405,10 +398,8 @@ public class AuthorizationImpl extends ActRelationshipImpl implements Authorizat
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.AUTHORIZATION__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

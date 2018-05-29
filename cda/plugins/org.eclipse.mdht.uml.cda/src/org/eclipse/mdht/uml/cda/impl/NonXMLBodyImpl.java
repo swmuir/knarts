@@ -410,10 +410,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.NON_XML_BODY__CONFIDENTIALITY_CODE, newConfidentialityCode,
-					newConfidentialityCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.NON_XML_BODY__CONFIDENTIALITY_CODE,
+				newConfidentialityCode, newConfidentialityCode));
 		}
 	}
 
@@ -467,9 +465,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.NON_XML_BODY__LANGUAGE_CODE, newLanguageCode, newLanguageCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.NON_XML_BODY__LANGUAGE_CODE,
+				newLanguageCode, newLanguageCode));
 		}
 	}
 
@@ -496,10 +493,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.NON_XML_BODY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.NON_XML_BODY__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -514,10 +509,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.NON_XML_BODY__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.NON_XML_BODY__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -553,10 +546,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.NON_XML_BODY__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.NON_XML_BODY__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -571,10 +562,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.NON_XML_BODY__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.NON_XML_BODY__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -610,10 +599,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.NON_XML_BODY__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.NON_XML_BODY__MOOD_CODE, oldMoodCode,
+				moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -628,10 +615,8 @@ public class NonXMLBodyImpl extends ActImpl implements NonXMLBody {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.NON_XML_BODY__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.NON_XML_BODY__MOOD_CODE, oldMoodCode,
+				MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

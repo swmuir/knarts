@@ -301,10 +301,8 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN, newAssignedCustodian,
-					newAssignedCustodian));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CUSTODIAN__ASSIGNED_CUSTODIAN,
+				newAssignedCustodian, newAssignedCustodian));
 		}
 	}
 
@@ -331,10 +329,8 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -349,10 +345,8 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CUSTODIAN__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -388,9 +382,8 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -405,10 +398,8 @@ public class CustodianImpl extends ParticipationImpl implements Custodian {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CUSTODIAN__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

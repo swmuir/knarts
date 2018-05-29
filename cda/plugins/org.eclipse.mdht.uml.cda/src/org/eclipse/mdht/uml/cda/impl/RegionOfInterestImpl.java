@@ -414,9 +414,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -563,9 +562,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__SUBJECT, newSubject, newSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__SUBJECT, newSubject,
+				newSubject));
 		}
 	}
 
@@ -690,10 +688,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		String oldRegionOfInterestId = regionOfInterestId;
 		regionOfInterestId = newRegionOfInterestId;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__REGION_OF_INTEREST_ID, oldRegionOfInterestId,
-					regionOfInterestId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__REGION_OF_INTEREST_ID,
+				oldRegionOfInterestId, regionOfInterestId));
 		}
 	}
 
@@ -720,10 +716,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -738,10 +732,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -777,10 +769,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__CLASS_CODE,
+				oldClassCode, classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -795,10 +785,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -834,10 +822,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REGION_OF_INTEREST__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REGION_OF_INTEREST__MOOD_CODE, oldMoodCode,
+				moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -852,10 +838,8 @@ public class RegionOfInterestImpl extends ClinicalStatementImpl implements Regio
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.REGION_OF_INTEREST__MOOD_CODE,
+				oldMoodCode, MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

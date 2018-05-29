@@ -343,9 +343,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT__AWARENESS_CODE, newAwarenessCode, newAwarenessCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT__AWARENESS_CODE, newAwarenessCode,
+				newAwarenessCode));
 		}
 	}
 
@@ -399,9 +398,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT__RELATED_SUBJECT, newRelatedSubject, newRelatedSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT__RELATED_SUBJECT,
+				newRelatedSubject, newRelatedSubject));
 		}
 	}
 
@@ -428,10 +426,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -446,10 +442,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -485,9 +479,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT__TYPE_CODE, oldTypeCode, typeCode,
+				!oldTypeCodeESet));
 		}
 	}
 
@@ -502,10 +495,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -540,10 +531,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					contextControlCode, !oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 		}
 	}
 
@@ -558,10 +547,8 @@ public class SubjectImpl extends ParticipationImpl implements Subject {
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 		}
 	}
 

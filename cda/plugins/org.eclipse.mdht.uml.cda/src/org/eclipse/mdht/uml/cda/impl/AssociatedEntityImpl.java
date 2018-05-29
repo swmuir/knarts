@@ -301,9 +301,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -461,10 +460,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT, newSDTCPatient,
-					newSDTCPatient));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SDTC_PATIENT,
+				newSDTCPatient, newSDTCPatient));
 		}
 	}
 
@@ -519,10 +516,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON, newAssociatedPerson,
-					newAssociatedPerson));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__ASSOCIATED_PERSON,
+				newAssociatedPerson, newAssociatedPerson));
 		}
 	}
 
@@ -577,10 +572,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION, newScopingOrganization,
-					newScopingOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__SCOPING_ORGANIZATION,
+				newScopingOrganization, newScopingOrganization));
 		}
 	}
 
@@ -607,10 +600,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -625,10 +616,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -664,10 +653,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE,
+				oldClassCode, classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -682,10 +669,8 @@ public class AssociatedEntityImpl extends RoleImpl implements AssociatedEntity {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ASSOCIATED_ENTITY__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

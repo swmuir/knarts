@@ -419,9 +419,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, newStatusCode, newStatusCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__STATUS_CODE, newStatusCode,
+				newStatusCode));
 		}
 	}
 
@@ -448,10 +447,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -466,10 +463,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -505,10 +500,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -523,10 +516,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -562,9 +553,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, moodCode,
+				!oldMoodCodeESet));
 		}
 	}
 
@@ -579,10 +569,8 @@ public class ConsentImpl extends ActImpl implements Consent {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.CONSENT__MOOD_CODE, oldMoodCode,
+				MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

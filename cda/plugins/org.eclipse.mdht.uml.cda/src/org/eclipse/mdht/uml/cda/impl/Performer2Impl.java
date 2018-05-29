@@ -51,6 +51,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationPhysicalPerformer;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Performer2Impl#getAssignedEntity <em>Assigned Entity</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Performer2Impl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Performer2Impl#getTypeCode <em>Type Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.Performer2Impl#getSDTCFunctionCode <em>SDTC Function Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -173,6 +174,16 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 	 * @ordered
 	 */
 	protected boolean typeCodeESet;
+
+	/**
+	 * The cached value of the '{@link #getSDTCFunctionCode() <em>SDTC Function Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCFunctionCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CE sDTCFunctionCode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -379,9 +390,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PERFORMER2__MODE_CODE, newModeCode, newModeCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PERFORMER2__MODE_CODE, newModeCode,
+				newModeCode));
 		}
 	}
 
@@ -435,10 +445,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PERFORMER2__ASSIGNED_ENTITY, newAssignedEntity,
-					newAssignedEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PERFORMER2__ASSIGNED_ENTITY,
+				newAssignedEntity, newAssignedEntity));
 		}
 	}
 
@@ -465,10 +473,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PERFORMER2__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PERFORMER2__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -483,10 +489,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PERFORMER2__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PERFORMER2__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -522,9 +526,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PERFORMER2__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PERFORMER2__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -539,10 +542,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PERFORMER2__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PERFORMER2__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -553,6 +554,62 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 	 */
 	public boolean isSetTypeCode() {
 		return typeCodeESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CE getSDTCFunctionCode() {
+		return sDTCFunctionCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSDTCFunctionCode(CE newSDTCFunctionCode, NotificationChain msgs) {
+		CE oldSDTCFunctionCode = sDTCFunctionCode;
+		sDTCFunctionCode = newSDTCFunctionCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE, oldSDTCFunctionCode,
+				newSDTCFunctionCode);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSDTCFunctionCode(CE newSDTCFunctionCode) {
+		if (newSDTCFunctionCode != sDTCFunctionCode) {
+			NotificationChain msgs = null;
+			if (sDTCFunctionCode != null) {
+				msgs = ((InternalEObject) sDTCFunctionCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE, null, msgs);
+			}
+			if (newSDTCFunctionCode != null) {
+				msgs = ((InternalEObject) newSDTCFunctionCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE, null, msgs);
+			}
+			msgs = basicSetSDTCFunctionCode(newSDTCFunctionCode, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE,
+				newSDTCFunctionCode, newSDTCFunctionCode));
+		}
 	}
 
 	/**
@@ -584,6 +641,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 				return basicSetModeCode(null, msgs);
 			case CDAPackage.PERFORMER2__ASSIGNED_ENTITY:
 				return basicSetAssignedEntity(null, msgs);
+			case CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE:
+				return basicSetSDTCFunctionCode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -612,6 +671,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 				return getNullFlavor();
 			case CDAPackage.PERFORMER2__TYPE_CODE:
 				return getTypeCode();
+			case CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE:
+				return getSDTCFunctionCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -651,6 +712,9 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 			case CDAPackage.PERFORMER2__TYPE_CODE:
 				setTypeCode((ParticipationPhysicalPerformer) newValue);
 				return;
+			case CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE:
+				setSDTCFunctionCode((CE) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -687,6 +751,9 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 			case CDAPackage.PERFORMER2__TYPE_CODE:
 				unsetTypeCode();
 				return;
+			case CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE:
+				setSDTCFunctionCode((CE) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -715,6 +782,8 @@ public class Performer2Impl extends ParticipationImpl implements Performer2 {
 				return isSetNullFlavor();
 			case CDAPackage.PERFORMER2__TYPE_CODE:
 				return isSetTypeCode();
+			case CDAPackage.PERFORMER2__SDTC_FUNCTION_CODE:
+				return sDTCFunctionCode != null;
 		}
 		return super.eIsSet(featureID);
 	}

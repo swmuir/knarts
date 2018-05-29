@@ -356,9 +356,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT1__FUNCTION_CODE, newFunctionCode, newFunctionCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT1__FUNCTION_CODE,
+				newFunctionCode, newFunctionCode));
 		}
 	}
 
@@ -467,10 +466,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT1__ASSOCIATED_ENTITY, newAssociatedEntity,
-					newAssociatedEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT1__ASSOCIATED_ENTITY,
+				newAssociatedEntity, newAssociatedEntity));
 		}
 	}
 
@@ -497,10 +494,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT1__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT1__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -515,10 +510,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT1__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT1__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -554,10 +547,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT1__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT1__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -572,10 +563,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT1__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT1__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -610,10 +599,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT1__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					contextControlCode, !oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT1__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 		}
 	}
 
@@ -628,10 +615,8 @@ public class Participant1Impl extends ParticipationImpl implements Participant1 
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT1__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT1__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 		}
 	}
 

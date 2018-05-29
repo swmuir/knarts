@@ -304,9 +304,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -464,10 +463,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__PLAYING_DEVICE, newPlayingDevice,
-					newPlayingDevice));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__PLAYING_DEVICE,
+				newPlayingDevice, newPlayingDevice));
 		}
 	}
 
@@ -522,10 +519,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__PLAYING_ENTITY, newPlayingEntity,
-					newPlayingEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__PLAYING_ENTITY,
+				newPlayingEntity, newPlayingEntity));
 		}
 	}
 
@@ -580,10 +575,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__SCOPING_ENTITY, newScopingEntity,
-					newScopingEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__SCOPING_ENTITY,
+				newScopingEntity, newScopingEntity));
 		}
 	}
 
@@ -610,10 +603,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -628,10 +619,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT_ROLE__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT_ROLE__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -667,10 +656,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT_ROLE__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -685,10 +672,8 @@ public class ParticipantRoleImpl extends RoleImpl implements ParticipantRole {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT_ROLE__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT_ROLE__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

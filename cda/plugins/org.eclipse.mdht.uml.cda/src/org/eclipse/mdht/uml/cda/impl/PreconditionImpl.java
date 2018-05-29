@@ -301,9 +301,8 @@ public class PreconditionImpl extends ActRelationshipImpl implements Preconditio
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRECONDITION__CRITERION, newCriterion, newCriterion));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRECONDITION__CRITERION, newCriterion,
+				newCriterion));
 		}
 	}
 
@@ -330,10 +329,8 @@ public class PreconditionImpl extends ActRelationshipImpl implements Preconditio
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRECONDITION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRECONDITION__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -348,10 +345,8 @@ public class PreconditionImpl extends ActRelationshipImpl implements Preconditio
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PRECONDITION__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PRECONDITION__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -387,10 +382,8 @@ public class PreconditionImpl extends ActRelationshipImpl implements Preconditio
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRECONDITION__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRECONDITION__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -405,10 +398,8 @@ public class PreconditionImpl extends ActRelationshipImpl implements Preconditio
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PRECONDITION__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PRECONDITION__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

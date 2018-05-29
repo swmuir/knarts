@@ -326,10 +326,8 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY, newSpecimenPlayingEntity,
-					newSpecimenPlayingEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SPECIMEN_ROLE__SPECIMEN_PLAYING_ENTITY,
+				newSpecimenPlayingEntity, newSpecimenPlayingEntity));
 		}
 	}
 
@@ -356,10 +354,8 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -374,10 +370,8 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -413,10 +407,8 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -431,10 +423,8 @@ public class SpecimenRoleImpl extends RoleImpl implements SpecimenRole {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SPECIMEN_ROLE__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 

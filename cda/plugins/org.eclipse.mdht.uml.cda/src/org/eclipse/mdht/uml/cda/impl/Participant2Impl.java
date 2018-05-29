@@ -53,6 +53,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationType;
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl#getTypeCode <em>Type Code</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl#getContextControlCode <em>Context Control Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl#getSDTCFunctionCode <em>SDTC Function Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -204,6 +205,16 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 	 * @ordered
 	 */
 	protected boolean contextControlCodeESet;
+
+	/**
+	 * The cached value of the '{@link #getSDTCFunctionCode() <em>SDTC Function Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSDTCFunctionCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CE sDTCFunctionCode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,10 +421,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT2__AWARENESS_CODE, newAwarenessCode,
-					newAwarenessCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__AWARENESS_CODE,
+				newAwarenessCode, newAwarenessCode));
 		}
 	}
 
@@ -468,10 +477,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT2__PARTICIPANT_ROLE, newParticipantRole,
-					newParticipantRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__PARTICIPANT_ROLE,
+				newParticipantRole, newParticipantRole));
 		}
 	}
 
@@ -498,10 +505,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT2__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -516,10 +521,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT2__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT2__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -555,10 +558,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT2__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -573,10 +574,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT2__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT2__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -611,10 +610,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					contextControlCode, !oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 		}
 	}
 
@@ -629,10 +626,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 		}
 	}
 
@@ -643,6 +638,62 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 	 */
 	public boolean isSetContextControlCode() {
 		return contextControlCodeESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CE getSDTCFunctionCode() {
+		return sDTCFunctionCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSDTCFunctionCode(CE newSDTCFunctionCode, NotificationChain msgs) {
+		CE oldSDTCFunctionCode = sDTCFunctionCode;
+		sDTCFunctionCode = newSDTCFunctionCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE, oldSDTCFunctionCode,
+				newSDTCFunctionCode);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSDTCFunctionCode(CE newSDTCFunctionCode) {
+		if (newSDTCFunctionCode != sDTCFunctionCode) {
+			NotificationChain msgs = null;
+			if (sDTCFunctionCode != null) {
+				msgs = ((InternalEObject) sDTCFunctionCode).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE, null, msgs);
+			}
+			if (newSDTCFunctionCode != null) {
+				msgs = ((InternalEObject) newSDTCFunctionCode).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE, null, msgs);
+			}
+			msgs = basicSetSDTCFunctionCode(newSDTCFunctionCode, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE,
+				newSDTCFunctionCode, newSDTCFunctionCode));
+		}
 	}
 
 	/**
@@ -674,6 +725,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 				return basicSetAwarenessCode(null, msgs);
 			case CDAPackage.PARTICIPANT2__PARTICIPANT_ROLE:
 				return basicSetParticipantRole(null, msgs);
+			case CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE:
+				return basicSetSDTCFunctionCode(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -704,6 +757,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 				return getTypeCode();
 			case CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE:
 				return getContextControlCode();
+			case CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE:
+				return getSDTCFunctionCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -746,6 +801,9 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 			case CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE:
 				setContextControlCode((ContextControl) newValue);
 				return;
+			case CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE:
+				setSDTCFunctionCode((CE) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -785,6 +843,9 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 			case CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE:
 				unsetContextControlCode();
 				return;
+			case CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE:
+				setSDTCFunctionCode((CE) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -815,6 +876,8 @@ public class Participant2Impl extends ParticipationImpl implements Participant2 
 				return isSetTypeCode();
 			case CDAPackage.PARTICIPANT2__CONTEXT_CONTROL_CODE:
 				return isSetContextControlCode();
+			case CDAPackage.PARTICIPANT2__SDTC_FUNCTION_CODE:
+				return sDTCFunctionCode != null;
 		}
 		return super.eIsSet(featureID);
 	}

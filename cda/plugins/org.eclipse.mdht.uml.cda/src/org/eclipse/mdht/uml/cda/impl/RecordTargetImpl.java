@@ -332,9 +332,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.RECORD_TARGET__PATIENT_ROLE, newPatientRole, newPatientRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RECORD_TARGET__PATIENT_ROLE,
+				newPatientRole, newPatientRole));
 		}
 	}
 
@@ -361,10 +360,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.RECORD_TARGET__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RECORD_TARGET__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -379,10 +376,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.RECORD_TARGET__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RECORD_TARGET__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -418,10 +413,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.RECORD_TARGET__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RECORD_TARGET__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -436,10 +429,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.RECORD_TARGET__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RECORD_TARGET__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -474,10 +465,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.RECORD_TARGET__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					contextControlCode, !oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.RECORD_TARGET__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 		}
 	}
 
@@ -492,10 +481,8 @@ public class RecordTargetImpl extends ParticipationImpl implements RecordTarget 
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.RECORD_TARGET__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.RECORD_TARGET__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 		}
 	}
 

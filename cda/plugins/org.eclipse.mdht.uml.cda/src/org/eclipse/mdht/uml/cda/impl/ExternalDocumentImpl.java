@@ -310,9 +310,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -501,9 +500,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__SET_ID, newSetId, newSetId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__SET_ID, newSetId,
+				newSetId));
 		}
 	}
 
@@ -558,10 +556,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER, newVersionNumber,
-					newVersionNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__VERSION_NUMBER,
+				newVersionNumber, newVersionNumber));
 		}
 	}
 
@@ -588,10 +584,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -606,10 +600,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -645,10 +637,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE,
+				oldClassCode, classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -663,10 +653,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -702,10 +690,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode,
+				moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -720,10 +706,8 @@ public class ExternalDocumentImpl extends ActImpl implements ExternalDocument {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_DOCUMENT__MOOD_CODE,
+				oldMoodCode, MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

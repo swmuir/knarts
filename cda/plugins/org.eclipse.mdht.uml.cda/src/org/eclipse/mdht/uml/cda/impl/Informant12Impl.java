@@ -344,10 +344,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMANT12__ASSIGNED_ENTITY, newAssignedEntity,
-					newAssignedEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMANT12__ASSIGNED_ENTITY,
+				newAssignedEntity, newAssignedEntity));
 		}
 	}
 
@@ -401,10 +399,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMANT12__RELATED_ENTITY, newRelatedEntity,
-					newRelatedEntity));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMANT12__RELATED_ENTITY,
+				newRelatedEntity, newRelatedEntity));
 		}
 	}
 
@@ -431,10 +427,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMANT12__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMANT12__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -449,10 +443,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFORMANT12__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFORMANT12__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -488,10 +480,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMANT12__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMANT12__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -506,10 +496,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFORMANT12__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFORMANT12__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -544,10 +532,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		boolean oldContextControlCodeESet = contextControlCodeESet;
 		contextControlCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFORMANT12__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					contextControlCode, !oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.INFORMANT12__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, contextControlCode, !oldContextControlCodeESet));
 		}
 	}
 
@@ -562,10 +548,8 @@ public class Informant12Impl extends ParticipationImpl implements Informant12 {
 		contextControlCode = CONTEXT_CONTROL_CODE_EDEFAULT;
 		contextControlCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFORMANT12__CONTEXT_CONTROL_CODE, oldContextControlCode,
-					CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFORMANT12__CONTEXT_CONTROL_CODE,
+				oldContextControlCode, CONTEXT_CONTROL_CODE_EDEFAULT, oldContextControlCodeESet));
 		}
 	}
 

@@ -125,9 +125,8 @@ public class InfrastructureRootTypeIdImpl extends IIImpl implements Infrastructu
 		redefinedRootESet = true;
 		if (eNotificationRequired()) {
 			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_ROOT, oldRedefinedRoot,
-					redefinedRoot, !oldRedefinedRootESet));
+				new ENotificationImpl(this, Notification.SET, CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_ROOT,
+					oldRedefinedRoot, redefinedRoot, !oldRedefinedRootESet));
 		}
 	}
 
@@ -143,9 +142,8 @@ public class InfrastructureRootTypeIdImpl extends IIImpl implements Infrastructu
 		redefinedRootESet = false;
 		if (eNotificationRequired()) {
 			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_ROOT, oldRedefinedRoot,
-					REDEFINED_ROOT_EDEFAULT, oldRedefinedRootESet));
+				new ENotificationImpl(this, Notification.UNSET, CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_ROOT,
+					oldRedefinedRoot, REDEFINED_ROOT_EDEFAULT, oldRedefinedRootESet));
 		}
 	}
 
@@ -176,10 +174,9 @@ public class InfrastructureRootTypeIdImpl extends IIImpl implements Infrastructu
 		String oldRedefinedExtension = redefinedExtension;
 		redefinedExtension = newRedefinedExtension;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_EXTENSION,
-					oldRedefinedExtension, redefinedExtension));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CDAPackage.INFRASTRUCTURE_ROOT_TYPE_ID__REDEFINED_EXTENSION, oldRedefinedExtension,
+				redefinedExtension));
 		}
 	}
 

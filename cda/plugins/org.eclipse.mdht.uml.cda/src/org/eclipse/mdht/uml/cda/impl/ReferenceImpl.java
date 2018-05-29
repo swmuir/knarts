@@ -348,10 +348,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__SEPERATABLE_IND, newSeperatableInd,
-					newSeperatableInd));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__SEPERATABLE_IND,
+				newSeperatableInd, newSeperatableInd));
 		}
 	}
 
@@ -405,9 +403,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_ACT, newExternalAct, newExternalAct));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_ACT, newExternalAct,
+				newExternalAct));
 		}
 	}
 
@@ -463,10 +460,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_OBSERVATION, newExternalObservation,
-					newExternalObservation));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_OBSERVATION,
+				newExternalObservation, newExternalObservation));
 		}
 	}
 
@@ -521,10 +516,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_PROCEDURE, newExternalProcedure,
-					newExternalProcedure));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_PROCEDURE,
+				newExternalProcedure, newExternalProcedure));
 		}
 	}
 
@@ -579,10 +572,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_DOCUMENT, newExternalDocument,
-					newExternalDocument));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__EXTERNAL_DOCUMENT,
+				newExternalDocument, newExternalDocument));
 		}
 	}
 
@@ -609,10 +600,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -627,10 +616,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.REFERENCE__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.REFERENCE__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -666,9 +653,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.REFERENCE__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.REFERENCE__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -683,10 +669,8 @@ public class ReferenceImpl extends ActRelationshipImpl implements Reference {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.REFERENCE__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.REFERENCE__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

@@ -433,10 +433,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SERVICE_EVENT__EFFECTIVE_TIME, newEffectiveTime,
-					newEffectiveTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SERVICE_EVENT__EFFECTIVE_TIME,
+				newEffectiveTime, newEffectiveTime));
 		}
 	}
 
@@ -476,10 +474,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SERVICE_EVENT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SERVICE_EVENT__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -494,10 +490,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SERVICE_EVENT__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SERVICE_EVENT__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -533,10 +527,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SERVICE_EVENT__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SERVICE_EVENT__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -551,10 +543,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SERVICE_EVENT__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SERVICE_EVENT__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -590,10 +580,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SERVICE_EVENT__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SERVICE_EVENT__MOOD_CODE, oldMoodCode,
+				moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -608,10 +596,8 @@ public class ServiceEventImpl extends ActImpl implements ServiceEvent {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SERVICE_EVENT__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SERVICE_EVENT__MOOD_CODE, oldMoodCode,
+				MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

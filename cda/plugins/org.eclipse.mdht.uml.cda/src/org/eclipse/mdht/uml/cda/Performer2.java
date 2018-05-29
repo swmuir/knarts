@@ -39,6 +39,7 @@ import org.eclipse.mdht.uml.hl7.vocab.ParticipationPhysicalPerformer;
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getAssignedEntity <em>Assigned Entity</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getNullFlavor <em>Null Flavor</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getTypeCode <em>Type Code</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.cda.Performer2#getSDTCFunctionCode <em>SDTC Function Code</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer2()
@@ -300,6 +301,33 @@ public interface Performer2 extends Participation {
 	 * @generated
 	 */
 	boolean isSetTypeCode();
+
+	/**
+	 * Returns the value of the '<em><b>SDTC Function Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>SDTC Function Code</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>SDTC Function Code</em>' containment reference.
+	 * @see #setSDTCFunctionCode(CE)
+	 * @see org.eclipse.mdht.uml.cda.CDAPackage#getPerformer2_SDTCFunctionCode()
+	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="name='functionCode' namespace='urn:hl7-org:sdtc' kind='element'"
+	 * @generated
+	 */
+	CE getSDTCFunctionCode();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.mdht.uml.cda.Performer2#getSDTCFunctionCode <em>SDTC Function Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>SDTC Function Code</em>' containment reference.
+	 * @see #getSDTCFunctionCode()
+	 * @generated
+	 */
+	void setSDTCFunctionCode(CE value);
 
 	/**
 	 * <!-- begin-user-doc -->

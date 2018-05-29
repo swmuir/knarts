@@ -302,10 +302,8 @@ public class ProductImpl extends ParticipationImpl implements Product {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRODUCT__MANUFACTURED_PRODUCT, newManufacturedProduct,
-					newManufacturedProduct));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRODUCT__MANUFACTURED_PRODUCT,
+				newManufacturedProduct, newManufacturedProduct));
 		}
 	}
 
@@ -332,10 +330,8 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -350,10 +346,8 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PRODUCT__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -389,9 +383,8 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, typeCode,
+				!oldTypeCodeESet));
 		}
 	}
 
@@ -406,10 +399,8 @@ public class ProductImpl extends ParticipationImpl implements Product {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.PRODUCT__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 

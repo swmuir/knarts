@@ -359,10 +359,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.COMPONENT5__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.COMPONENT5__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -377,10 +375,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.COMPONENT5__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.COMPONENT5__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -416,9 +412,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.COMPONENT5__TYPE_CODE, oldTypeCode, typeCode, !oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.COMPONENT5__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -433,10 +428,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.COMPONENT5__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.COMPONENT5__TYPE_CODE, oldTypeCode,
+				TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -469,10 +462,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		boolean oldContextConductionIndESet = contextConductionIndESet;
 		contextConductionIndESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.COMPONENT5__CONTEXT_CONDUCTION_IND, oldContextConductionInd,
-					contextConductionInd, !oldContextConductionIndESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.COMPONENT5__CONTEXT_CONDUCTION_IND,
+				oldContextConductionInd, contextConductionInd, !oldContextConductionIndESet));
 		}
 	}
 
@@ -487,10 +478,8 @@ public class Component5Impl extends ActRelationshipImpl implements Component5 {
 		contextConductionInd = CONTEXT_CONDUCTION_IND_EDEFAULT;
 		contextConductionIndESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.COMPONENT5__CONTEXT_CONDUCTION_IND, oldContextConductionInd,
-					CONTEXT_CONDUCTION_IND_EDEFAULT, oldContextConductionIndESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.COMPONENT5__CONTEXT_CONDUCTION_IND,
+				oldContextConductionInd, CONTEXT_CONDUCTION_IND_EDEFAULT, oldContextConductionIndESet));
 		}
 	}
 

@@ -409,10 +409,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.DEVICE__MANUFACTURER_MODEL_NAME, newManufacturerModelName,
-					newManufacturerModelName));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.DEVICE__MANUFACTURER_MODEL_NAME,
+				newManufacturerModelName, newManufacturerModelName));
 		}
 	}
 
@@ -466,9 +464,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.DEVICE__SOFTWARE_NAME, newSoftwareName, newSoftwareName));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.DEVICE__SOFTWARE_NAME, newSoftwareName,
+				newSoftwareName));
 		}
 	}
 
@@ -495,10 +492,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.DEVICE__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.DEVICE__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -513,10 +508,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.DEVICE__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.DEVICE__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -552,9 +545,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.DEVICE__CLASS_CODE, oldClassCode, classCode, !oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.DEVICE__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -569,10 +561,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.DEVICE__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.DEVICE__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -608,10 +598,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.DEVICE__DETERMINER_CODE, oldDeterminerCode, determinerCode,
-					!oldDeterminerCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.DEVICE__DETERMINER_CODE, oldDeterminerCode,
+				determinerCode, !oldDeterminerCodeESet));
 		}
 	}
 
@@ -626,10 +614,8 @@ public class DeviceImpl extends EntityImpl implements Device {
 		determinerCode = DETERMINER_CODE_EDEFAULT;
 		determinerCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.DEVICE__DETERMINER_CODE, oldDeterminerCode,
-					DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.DEVICE__DETERMINER_CODE,
+				oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
 		}
 	}
 

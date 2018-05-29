@@ -6622,13 +6622,22 @@ public interface CDAPackage extends EPackage {
 	int PERFORMER2__TYPE_CODE = RIMPackage.PARTICIPATION_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>SDTC Function Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERFORMER2__SDTC_FUNCTION_CODE = RIMPackage.PARTICIPATION_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Performer2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERFORMER2_FEATURE_COUNT = RIMPackage.PARTICIPATION_FEATURE_COUNT + 8;
+	int PERFORMER2_FEATURE_COUNT = RIMPackage.PARTICIPATION_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -6712,13 +6721,22 @@ public interface CDAPackage extends EPackage {
 	int PARTICIPANT2__CONTEXT_CONTROL_CODE = RIMPackage.PARTICIPATION_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>SDTC Function Code</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTICIPANT2__SDTC_FUNCTION_CODE = RIMPackage.PARTICIPATION_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Participant2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTICIPANT2_FEATURE_COUNT = RIMPackage.PARTICIPATION_FEATURE_COUNT + 9;
+	int PARTICIPANT2_FEATURE_COUNT = RIMPackage.PARTICIPATION_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Realm Code</b></em>' containment reference list.
@@ -17570,6 +17588,17 @@ public interface CDAPackage extends EPackage {
 	EAttribute getPerformer2_TypeCode();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.Performer2#getSDTCFunctionCode <em>SDTC Function Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>SDTC Function Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Performer2#getSDTCFunctionCode()
+	 * @see #getPerformer2()
+	 * @generated
+	 */
+	EReference getPerformer2_SDTCFunctionCode();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.Participant2 <em>Participant2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17677,6 +17706,17 @@ public interface CDAPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParticipant2_ContextControlCode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.mdht.uml.cda.Participant2#getSDTCFunctionCode <em>SDTC Function Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>SDTC Function Code</em>'.
+	 * @see org.eclipse.mdht.uml.cda.Participant2#getSDTCFunctionCode()
+	 * @see #getParticipant2()
+	 * @generated
+	 */
+	EReference getParticipant2_SDTCFunctionCode();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.cda.ParticipantRole <em>Participant Role</em>}'.
@@ -27616,6 +27656,14 @@ public interface CDAPackage extends EPackage {
 		EAttribute PERFORMER2__TYPE_CODE = eINSTANCE.getPerformer2_TypeCode();
 
 		/**
+		 * The meta object literal for the '<em><b>SDTC Function Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERFORMER2__SDTC_FUNCTION_CODE = eINSTANCE.getPerformer2_SDTCFunctionCode();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.Participant2Impl <em>Participant2</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -27696,6 +27744,14 @@ public interface CDAPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARTICIPANT2__CONTEXT_CONTROL_CODE = eINSTANCE.getParticipant2_ContextControlCode();
+
+		/**
+		 * The meta object literal for the '<em><b>SDTC Function Code</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTICIPANT2__SDTC_FUNCTION_CODE = eINSTANCE.getParticipant2_SDTCFunctionCode();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.cda.impl.ParticipantRoleImpl <em>Participant Role</em>}' class.

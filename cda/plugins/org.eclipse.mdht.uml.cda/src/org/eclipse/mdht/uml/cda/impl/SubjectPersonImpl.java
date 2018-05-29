@@ -379,9 +379,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -472,9 +471,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, newSDTCDesc, newSDTCDesc));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DESC, newSDTCDesc,
+				newSDTCDesc));
 		}
 	}
 
@@ -529,10 +527,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE,
-					newAdministrativeGenderCode, newAdministrativeGenderCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__ADMINISTRATIVE_GENDER_CODE,
+				newAdministrativeGenderCode, newAdministrativeGenderCode));
 		}
 	}
 
@@ -586,9 +582,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, newBirthTime, newBirthTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__BIRTH_TIME, newBirthTime,
+				newBirthTime));
 		}
 	}
 
@@ -643,10 +638,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND, newSDTCDeceasedInd,
-					newSDTCDeceasedInd));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_IND,
+				newSDTCDeceasedInd, newSDTCDeceasedInd));
 		}
 	}
 
@@ -701,10 +694,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME, newSDTCDeceasedTime,
-					newSDTCDeceasedTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_DECEASED_TIME,
+				newSDTCDeceasedTime, newSDTCDeceasedTime));
 		}
 	}
 
@@ -759,10 +750,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND, newSDTCMultipleBirthInd,
-					newSDTCMultipleBirthInd));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_IND,
+				newSDTCMultipleBirthInd, newSDTCMultipleBirthInd));
 		}
 	}
 
@@ -820,10 +809,9 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER,
-					newSDTCMultipleBirthOrderNumber, newSDTCMultipleBirthOrderNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CDAPackage.SUBJECT_PERSON__SDTC_MULTIPLE_BIRTH_ORDER_NUMBER, newSDTCMultipleBirthOrderNumber,
+				newSDTCMultipleBirthOrderNumber));
 		}
 	}
 
@@ -862,10 +850,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -880,10 +866,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -919,10 +903,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -937,10 +919,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -976,10 +956,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		boolean oldDeterminerCodeESet = determinerCodeESet;
 		determinerCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE, oldDeterminerCode,
-					determinerCode, !oldDeterminerCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE,
+				oldDeterminerCode, determinerCode, !oldDeterminerCodeESet));
 		}
 	}
 
@@ -994,10 +972,8 @@ public class SubjectPersonImpl extends EntityImpl implements SubjectPerson {
 		determinerCode = DETERMINER_CODE_EDEFAULT;
 		determinerCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE, oldDeterminerCode,
-					DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.SUBJECT_PERSON__DETERMINER_CODE,
+				oldDeterminerCode, DETERMINER_CODE_EDEFAULT, oldDeterminerCodeESet));
 		}
 	}
 

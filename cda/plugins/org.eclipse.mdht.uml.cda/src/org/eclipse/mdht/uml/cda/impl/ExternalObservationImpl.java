@@ -287,9 +287,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -451,10 +450,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -469,10 +466,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -508,10 +503,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__CLASS_CODE,
+				oldClassCode, classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -526,10 +519,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__CLASS_CODE, oldClassCode,
-					CLASS_CODE_EDEFAULT, oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__CLASS_CODE,
+				oldClassCode, CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -565,10 +556,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__MOOD_CODE, oldMoodCode, moodCode,
-					!oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.EXTERNAL_OBSERVATION__MOOD_CODE,
+				oldMoodCode, moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -583,10 +572,8 @@ public class ExternalObservationImpl extends ActImpl implements ExternalObservat
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__MOOD_CODE, oldMoodCode,
-					MOOD_CODE_EDEFAULT, oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.EXTERNAL_OBSERVATION__MOOD_CODE,
+				oldMoodCode, MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 

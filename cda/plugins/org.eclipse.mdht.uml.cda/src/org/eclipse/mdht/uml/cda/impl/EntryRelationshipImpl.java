@@ -443,9 +443,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_ID, newTypeId, newTypeId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_ID, newTypeId,
+				newTypeId));
 		}
 	}
 
@@ -513,10 +512,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SEQUENCE_NUMBER, newSequenceNumber,
-					newSequenceNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SEQUENCE_NUMBER,
+				newSequenceNumber, newSequenceNumber));
 		}
 	}
 
@@ -571,10 +568,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SEPERATABLE_IND, newSeperatableInd,
-					newSeperatableInd));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SEPERATABLE_IND,
+				newSeperatableInd, newSeperatableInd));
 		}
 	}
 
@@ -682,9 +677,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__ENCOUNTER, newEncounter, newEncounter));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__ENCOUNTER,
+				newEncounter, newEncounter));
 		}
 	}
 
@@ -738,10 +732,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__OBSERVATION, newObservation,
-					newObservation));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__OBSERVATION,
+				newObservation, newObservation));
 		}
 	}
 
@@ -796,10 +788,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__OBSERVATION_MEDIA, newObservationMedia,
-					newObservationMedia));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__OBSERVATION_MEDIA,
+				newObservationMedia, newObservationMedia));
 		}
 	}
 
@@ -853,9 +843,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__ORGANIZER, newOrganizer, newOrganizer));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__ORGANIZER,
+				newOrganizer, newOrganizer));
 		}
 	}
 
@@ -909,9 +898,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__PROCEDURE, newProcedure, newProcedure));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__PROCEDURE,
+				newProcedure, newProcedure));
 		}
 	}
 
@@ -966,10 +954,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__REGION_OF_INTEREST, newRegionOfInterest,
-					newRegionOfInterest));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__REGION_OF_INTEREST,
+				newRegionOfInterest, newRegionOfInterest));
 		}
 	}
 
@@ -1026,8 +1012,7 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 			}
 		} else if (eNotificationRequired()) {
 			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SUBSTANCE_ADMINISTRATION,
+				new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SUBSTANCE_ADMINISTRATION,
 					newSubstanceAdministration, newSubstanceAdministration));
 		}
 	}
@@ -1082,9 +1067,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SUPPLY, newSupply, newSupply));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__SUPPLY, newSupply,
+				newSupply));
 		}
 	}
 
@@ -1111,10 +1095,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__NULL_FLAVOR,
+				oldNullFlavor, nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -1129,10 +1111,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__NULL_FLAVOR, oldNullFlavor,
-					NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__NULL_FLAVOR,
+				oldNullFlavor, NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -1168,10 +1148,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		boolean oldTypeCodeESet = typeCodeESet;
 		typeCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_CODE, oldTypeCode, typeCode,
-					!oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_CODE, oldTypeCode,
+				typeCode, !oldTypeCodeESet));
 		}
 	}
 
@@ -1186,10 +1164,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		typeCode = TYPE_CODE_EDEFAULT;
 		typeCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_CODE, oldTypeCode, TYPE_CODE_EDEFAULT,
-					oldTypeCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__TYPE_CODE,
+				oldTypeCode, TYPE_CODE_EDEFAULT, oldTypeCodeESet));
 		}
 	}
 
@@ -1222,10 +1198,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		boolean oldInversionIndESet = inversionIndESet;
 		inversionIndESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__INVERSION_IND, oldInversionInd, inversionInd,
-					!oldInversionIndESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__INVERSION_IND,
+				oldInversionInd, inversionInd, !oldInversionIndESet));
 		}
 	}
 
@@ -1240,10 +1214,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		inversionInd = INVERSION_IND_EDEFAULT;
 		inversionIndESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__INVERSION_IND, oldInversionInd,
-					INVERSION_IND_EDEFAULT, oldInversionIndESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__INVERSION_IND,
+				oldInversionInd, INVERSION_IND_EDEFAULT, oldInversionIndESet));
 		}
 	}
 
@@ -1276,10 +1248,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		boolean oldContextConductionIndESet = contextConductionIndESet;
 		contextConductionIndESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__CONTEXT_CONDUCTION_IND,
-					oldContextConductionInd, contextConductionInd, !oldContextConductionIndESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__CONTEXT_CONDUCTION_IND,
+				oldContextConductionInd, contextConductionInd, !oldContextConductionIndESet));
 		}
 	}
 
@@ -1295,8 +1265,7 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		contextConductionIndESet = false;
 		if (eNotificationRequired()) {
 			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__CONTEXT_CONDUCTION_IND,
+				new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__CONTEXT_CONDUCTION_IND,
 					oldContextConductionInd, CONTEXT_CONDUCTION_IND_EDEFAULT, oldContextConductionIndESet));
 		}
 	}
@@ -1330,10 +1299,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		boolean oldNegationIndESet = negationIndESet;
 		negationIndESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__NEGATION_IND, oldNegationInd, negationInd,
-					!oldNegationIndESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ENTRY_RELATIONSHIP__NEGATION_IND,
+				oldNegationInd, negationInd, !oldNegationIndESet));
 		}
 	}
 
@@ -1348,10 +1315,8 @@ public class EntryRelationshipImpl extends ActRelationshipImpl implements EntryR
 		negationInd = NEGATION_IND_EDEFAULT;
 		negationIndESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__NEGATION_IND, oldNegationInd,
-					NEGATION_IND_EDEFAULT, oldNegationIndESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ENTRY_RELATIONSHIP__NEGATION_IND,
+				oldNegationInd, NEGATION_IND_EDEFAULT, oldNegationIndESet));
 		}
 	}
 

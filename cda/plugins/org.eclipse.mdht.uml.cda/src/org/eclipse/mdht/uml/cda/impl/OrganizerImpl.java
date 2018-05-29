@@ -546,9 +546,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ORGANIZER__STATUS_CODE, newStatusCode, newStatusCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZER__STATUS_CODE, newStatusCode,
+				newStatusCode));
 		}
 	}
 
@@ -602,9 +601,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 				msgs.dispatch();
 			}
 		} else if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ORGANIZER__EFFECTIVE_TIME, newEffectiveTime, newEffectiveTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZER__EFFECTIVE_TIME,
+				newEffectiveTime, newEffectiveTime));
 		}
 	}
 
@@ -787,10 +785,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		boolean oldNullFlavorESet = nullFlavorESet;
 		nullFlavorESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ORGANIZER__NULL_FLAVOR, oldNullFlavor, nullFlavor,
-					!oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZER__NULL_FLAVOR, oldNullFlavor,
+				nullFlavor, !oldNullFlavorESet));
 		}
 	}
 
@@ -805,10 +801,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		nullFlavor = NULL_FLAVOR_EDEFAULT;
 		nullFlavorESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ORGANIZER__NULL_FLAVOR, oldNullFlavor, NULL_FLAVOR_EDEFAULT,
-					oldNullFlavorESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZER__NULL_FLAVOR, oldNullFlavor,
+				NULL_FLAVOR_EDEFAULT, oldNullFlavorESet));
 		}
 	}
 
@@ -844,10 +838,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		boolean oldClassCodeESet = classCodeESet;
 		classCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ORGANIZER__CLASS_CODE, oldClassCode, classCode,
-					!oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZER__CLASS_CODE, oldClassCode,
+				classCode, !oldClassCodeESet));
 		}
 	}
 
@@ -862,10 +854,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		classCode = CLASS_CODE_EDEFAULT;
 		classCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ORGANIZER__CLASS_CODE, oldClassCode, CLASS_CODE_EDEFAULT,
-					oldClassCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZER__CLASS_CODE, oldClassCode,
+				CLASS_CODE_EDEFAULT, oldClassCodeESet));
 		}
 	}
 
@@ -901,9 +891,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		boolean oldMoodCodeESet = moodCodeESet;
 		moodCodeESet = true;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, CDAPackage.ORGANIZER__MOOD_CODE, oldMoodCode, moodCode, !oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDAPackage.ORGANIZER__MOOD_CODE, oldMoodCode,
+				moodCode, !oldMoodCodeESet));
 		}
 	}
 
@@ -918,10 +907,8 @@ public class OrganizerImpl extends ClinicalStatementImpl implements Organizer {
 		moodCode = MOOD_CODE_EDEFAULT;
 		moodCodeESet = false;
 		if (eNotificationRequired()) {
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.UNSET, CDAPackage.ORGANIZER__MOOD_CODE, oldMoodCode, MOOD_CODE_EDEFAULT,
-					oldMoodCodeESet));
+			eNotify(new ENotificationImpl(this, Notification.UNSET, CDAPackage.ORGANIZER__MOOD_CODE, oldMoodCode,
+				MOOD_CODE_EDEFAULT, oldMoodCodeESet));
 		}
 	}
 
