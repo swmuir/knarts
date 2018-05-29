@@ -1009,7 +1009,7 @@
             <xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0" />
             <xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded" />
             <!-- Begin Extension: (SDTC) -->
-            <xs:element name="functionCode" minOccurs="0" />
+            <xs:element ref="sdtc:functionCode" minOccurs="0" />
             <!-- End Extension: (SDTC) -->
             <xs:element name="time" type="IVL_TS" minOccurs="0" />
             <xs:element name="awarenessCode" type="CE" minOccurs="0" />
