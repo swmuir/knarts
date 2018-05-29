@@ -352,7 +352,7 @@ public class ValueSetConstraintsSection extends ResettableModelerPropertySection
 		data.height = 400;
 		table.setLayoutData(data);
 
-		composite.requestLayout();
+		composite.layout();
 	}
 
 	/*
