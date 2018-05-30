@@ -292,7 +292,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 	 * else
 	 * return
 	 * false
-	 * 
+	 *
 	 * @param section
 	 * @return boolean
 	 */
@@ -447,7 +447,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								}
 
 							}
-						} else if (clinicalDocument instanceof org.openhealthtools.mdht.uml.cda.ccd.ContinuityOfCareDocument) {
+						} else {
 
 							org.openhealthtools.mdht.uml.cda.ccd.EncountersSection es = query.getEObject(
 								org.openhealthtools.mdht.uml.cda.ccd.EncountersSection.class);
