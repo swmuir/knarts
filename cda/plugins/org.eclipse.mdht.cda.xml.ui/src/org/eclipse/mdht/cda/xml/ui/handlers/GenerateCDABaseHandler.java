@@ -2999,11 +2999,11 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	static int createDocumentMedadataHeadder(Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("File Name");
+		row2.createCell(offset++).setCellValue("Document ID");
 		row2.createCell(offset++).setCellValue("CDA Specification");
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
 		row2.createCell(offset++).setCellValue("Software");
-		row2.createCell(offset++).setCellValue("Document ID");
 		row2.createCell(offset++).setCellValue("Document Date");
 		row2.createCell(offset++).setCellValue("PCP Name");
 		row2.createCell(offset++).setCellValue("PCP Address");
@@ -3910,6 +3910,9 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		cell.setCellValue(documentMetadata.fileName);
 
 		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentRootID);
+
+		cell = row.createCell(offset++);
 		cell.setCellValue(documentMetadata.documentLibrary);
 
 		cell = row.createCell(offset++);
@@ -3920,9 +3923,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 		cell = row.createCell(offset++);
 		cell.setCellValue(documentMetadata.documentSoftware);
-
-		cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentRootID);
 
 		if (documentMetadata.documentDate != null) {
 			cell = row.createCell(offset++);
