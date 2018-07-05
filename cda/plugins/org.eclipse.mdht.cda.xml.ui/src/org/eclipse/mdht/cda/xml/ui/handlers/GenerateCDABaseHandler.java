@@ -2997,9 +2997,22 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return offset;
 	}
 
+	/**
+	 * @TODO
+	 * 		Added different columns and location for headers - make this user specified
+	 * @param row2
+	 * @param offset
+	 * @return
+	 */
 	static int createDocumentMedadataHeadder(Row row2, int offset) {
-		row2.createCell(offset++).setCellValue("File Name");
-		row2.createCell(offset++).setCellValue("Document ID");
+		return createDocumentMedadataHeadder(row2, offset, true);
+	}
+
+	static int createDocumentMedadataHeadder(Row row2, int offset, boolean fileName) {
+		if (fileName) {
+			row2.createCell(offset++).setCellValue("File Name");
+			row2.createCell(offset++).setCellValue("Document ID");
+		}
 		row2.createCell(offset++).setCellValue("CDA Specification");
 		row2.createCell(offset++).setCellValue("CDA Document Type");
 		row2.createCell(offset++).setCellValue("Organization");
@@ -3029,6 +3042,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	static int createPatientHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Record");
+		row2.createCell(offset++).setCellValue("File Name");
+		row2.createCell(offset++).setCellValue("Document ID");
 		row2.createCell(offset++).setCellValue("Patient ID");
 		if (!omitDOB) {
 			row2.createCell(offset++).setCellValue("Complete ID");
@@ -3038,7 +3053,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 			row2.createCell(offset++).setCellValue("DOB");
 		}
-		offset = createDocumentMedadataHeadder(row2, offset);
+		offset = createDocumentMedadataHeadder(row2, offset, false);
 		return offset;
 	}
 
@@ -3905,12 +3920,20 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	}
 
 	static int serializeDocumentMetadata(Row row, int offset, DocumentMetadata documentMetadata) {
+		return serializeDocumentMetadata(row, offset, documentMetadata, true);
+	}
 
-		Cell cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.fileName);
+	static int serializeDocumentMetadata(Row row, int offset, DocumentMetadata documentMetadata, boolean filename) {
 
-		cell = row.createCell(offset++);
-		cell.setCellValue(documentMetadata.documentRootID);
+		Cell cell = null;
+
+		if (filename) {
+			cell = row.createCell(offset++);
+			cell.setCellValue(documentMetadata.fileName);
+
+			cell = row.createCell(offset++);
+			cell.setCellValue(documentMetadata.documentRootID);
+		}
 
 		cell = row.createCell(offset++);
 		cell.setCellValue(documentMetadata.documentLibrary);
@@ -4239,6 +4262,12 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		cell.setCellValue(row.getRowNum() - 1);
 
 		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.fileName);
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(documentMetadata.documentRootID);
+
+		cell = row.createCell(offset++);
 		StringBuffer sb = new StringBuffer();
 		if (patientRole != null) {
 			for (II ii : patientRole.getIds()) {
@@ -4257,7 +4286,7 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		;
 
 		if (documentMetadata != null) {
-			offset = serializeDocumentMetadata(row, offset, documentMetadata);
+			offset = serializeDocumentMetadata(row, offset, documentMetadata, false);
 		}
 		return offset;
 	}
