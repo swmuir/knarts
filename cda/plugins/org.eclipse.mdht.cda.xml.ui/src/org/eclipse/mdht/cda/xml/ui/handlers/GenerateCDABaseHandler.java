@@ -63,6 +63,7 @@ import org.eclipse.mdht.uml.cda.DocumentationOf;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.InFulfillmentOf;
 import org.eclipse.mdht.uml.cda.InformationRecipient;
+import org.eclipse.mdht.uml.cda.LanguageCommunication;
 import org.eclipse.mdht.uml.cda.ManufacturedProduct;
 import org.eclipse.mdht.uml.cda.Observation;
 import org.eclipse.mdht.uml.cda.Organization;
@@ -97,6 +98,7 @@ import org.eclipse.mdht.uml.hl7.datatypes.PN;
 import org.eclipse.mdht.uml.hl7.datatypes.PQ;
 import org.eclipse.mdht.uml.hl7.datatypes.REAL;
 import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
+import org.eclipse.mdht.uml.hl7.datatypes.TEL;
 import org.eclipse.mdht.uml.hl7.datatypes.util.DatatypesSwitch;
 import org.eclipse.mdht.uml.hl7.vocab.x_DocumentEncounterMood;
 import org.eclipse.swt.SWT;
@@ -2425,6 +2427,17 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return offset;
 	}
 
+	static int addCodeHeader2(Row row1, int offset, String prefix) {
+		row1.createCell(offset++).setCellValue(prefix + " Text");
+		row1.createCell(offset++).setCellValue("Code");
+		row1.getSheet().setColumnHidden(offset - 1, true);
+		row1.createCell(offset++).setCellValue("Code System");
+		row1.getSheet().setColumnHidden(offset - 1, true);
+		row1.createCell(offset++).setCellValue("Code System Name");
+		row1.getSheet().setColumnHidden(offset - 1, true);
+		return offset;
+	}
+
 	static int addSectionHeader(Row row1, int offset) {
 		row1.createCell(offset++).setCellValue("Section Title");
 		row1.createCell(offset++).setCellValue("File Name");
@@ -2488,8 +2501,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	static int appendCode(Row row, int offset, Section setion, CD cd, ED ed) {
 
 		if (cd != null) {
-			// Text
-			row.createCell(offset++).setCellValue(getValue(setion, ed));
+			// Text - only try if section or ed is not null
+			if (setion != null || ed != null) {
+				row.createCell(offset++).setCellValue(getValue(setion, ed));
+			}
 			// Display Name
 			row.createCell(offset++).setCellValue(getValueAsString(setion, cd));
 			// Code
@@ -2499,7 +2514,9 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			// Code System Name
 			row.createCell(offset++).setCellValue(cd.getCodeSystemName());
 		} else {
-			row.createCell(offset++).setCellValue("");
+			if (setion != null || ed != null) {
+				row.createCell(offset++).setCellValue("");
+			}
 			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
@@ -3057,6 +3074,18 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		return offset;
 	}
 
+	static int createDemographicsHeader(Row row1, Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("Name");
+		row2.createCell(offset++).setCellValue("Address");
+		offset = addCodeHeader2(row2, offset, "Race");
+		offset = addCodeHeader2(row2, offset, "Ethnicity");
+		offset = addCodeHeader2(row2, offset, "Gender");
+		offset = addCodeHeader2(row2, offset, "Marital Status");
+		offset = addCodeHeader2(row2, offset, "Langauge");
+		offset = addCodeHeader2(row2, offset, "Telephone");
+		return offset;
+	}
+
 	static int createPatientHeader2(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Recipient Name");
 		row2.createCell(offset++).setCellValue("Recipient Organization");
@@ -3458,6 +3487,29 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			} else if (cd.getOriginalText() != null && !StringUtils.isEmpty(cd.getOriginalText().getText())) {
 
 				sb.append(cd.getOriginalText().getText());
+			} else if (cd.isNullFlavorDefined()) {
+				sb.append(cd.getNullFlavor());
+			}
+
+		}
+
+		return sb.toString();
+	}
+
+	static String getValueAsString(TEL tel) {
+
+		StringBuffer sb = new StringBuffer();
+
+		if (tel != null) {
+
+			if (!StringUtils.isEmpty(tel.getValue())) {
+				sb.append(tel.getValue());
+			} else if (tel.isNullFlavorDefined()) {
+				sb.append(tel.getNullFlavor());
+			}
+
+			if (!tel.getUses().isEmpty()) {
+				sb.append(" " + tel.getUses().get(0));
 			}
 
 		}
@@ -4253,6 +4305,83 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			offset = appendCode(row, offset, resultOrganizer.getSection(), specimenCode, null);
 		}
 		offset = appendOrganizationAndAuthor(row, offset, resultOrganizer.getAuthors());
+		return offset;
+	}
+
+	/*
+	 * race xx
+	 * gender xx
+	 * patient name
+	 * address
+	 * dob XXX
+	 * phone #
+	 * ethnicity
+	 * document id XXX
+	 * language
+	 * phone #
+	 */
+	static int serializePatient2(Row row, int offset, DocumentMetadata documentMetadata, PatientRole patientRole) {
+
+		offset = serializePatient(row, offset, documentMetadata, patientRole);
+
+		if (patientRole != null) {
+			if (patientRole.getPatient() != null) {
+
+				Cell cell = row.createCell(offset++);
+				if (!patientRole.getPatient().getNames().isEmpty()) {
+					cell.setCellValue(getValues(patientRole.getPatient().getNames().get(0)));
+				}
+
+				cell = row.createCell(offset++);
+				if (!patientRole.getAddrs().isEmpty()) {
+					cell.setCellValue(getValues(patientRole.getAddrs().get(0)));
+				}
+
+				if (patientRole.getPatient().getRaceCode() != null) {
+					offset = appendCode(row, offset, null, patientRole.getPatient().getRaceCode(), null);
+				}
+
+				if (patientRole.getPatient().getEthnicGroupCode() != null) {
+					offset = appendCode(row, offset, null, patientRole.getPatient().getEthnicGroupCode(), null);
+				}
+
+				if (patientRole.getPatient().getAdministrativeGenderCode() != null) {
+					offset = appendCode(
+						row, offset, null, patientRole.getPatient().getAdministrativeGenderCode(), null);
+				}
+
+				if (patientRole.getPatient().getMaritalStatusCode() != null) {
+					offset = appendCode(row, offset, null, patientRole.getPatient().getMaritalStatusCode(), null);
+				}
+
+				if (!patientRole.getPatient().getLanguageCommunications().isEmpty()) {
+					LanguageCommunication preferredLanguage = null;
+					for (LanguageCommunication lc : patientRole.getPatient().getLanguageCommunications()) {
+						if (preferredLanguage == null && lc.getLanguageCode() != null) {
+							// get one first one with code as default
+							preferredLanguage = lc;
+						}
+						if (lc.getLanguageCode() != null && lc.getPreferenceInd() != null &&
+								lc.getPreferenceInd().getValue()) {
+							preferredLanguage = lc;
+							// found preferred
+							break;
+						}
+					}
+					if (preferredLanguage != null && preferredLanguage.getLanguageCode() != null) {
+						offset = appendCode(row, offset, null, preferredLanguage.getLanguageCode(), null);
+					}
+				}
+
+				cell = row.createCell(offset++);
+				if (!patientRole.getTelecoms().isEmpty()) {
+					cell.setCellValue(getValueAsString(patientRole.getTelecoms().get(0)));
+				} else {
+					cell.setCellValue("");
+				}
+			}
+
+		}
 		return offset;
 	}
 

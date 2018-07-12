@@ -30,6 +30,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.streaming.SXSSFRow;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -225,11 +226,28 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			sheets.put(documentIndex, new HashMap<Integer, String>());
 		}
 		if (!sheets.get(documentIndex).containsKey(section.eClass().getClassifierID())) {
+
 			String sheetName = sheetName(section);
+			/*
+			 * get and create appears to not use the same length of string
+			 * So walk the collection and see if we have the previous version of section created first
+			 *
+			 *
+			 */
+			for (Integer akey : sheets.get(documentIndex).keySet()) {
+				if (sheetName.startsWith(sheets.get(documentIndex).get(akey))) {
+					sheets.get(documentIndex).put(
+						section.eClass().getClassifierID(), sheets.get(documentIndex).get(akey));
+					return sheets.get(documentIndex).get(akey);
+				}
+			}
+
 			SXSSFWorkbook wb = getWorkbook(document, splitOption);
+
 			SXSSFSheet newSheet = wb.createSheet(sheetName);
 			newSheet.setRandomAccessWindowSize(50);
 			sheets.get(documentIndex).put(section.eClass().getClassifierID(), newSheet.getSheetName());
+
 		}
 		return sheets.get(documentIndex).get(section.eClass().getClassifierID());
 
@@ -255,6 +273,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 			SXSSFSheet sectionsSheet = wb.createSheet("Sections");
 
+			SXSSFSheet encountersSheet = wb.createSheet("Encounters");
+
+			SXSSFSheet demographicsSheet = wb.createSheet("Demographics");
+
 			sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
 
 			SXSSFRow row1 = null;
@@ -262,13 +284,18 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			offset = createPatientHeader(row1, row2, 0);
 			createPatientHeader2(row1, row2, offset);
 
-			SXSSFSheet encountersSheet = wb.createSheet("Encounters");
-
 			row1 = null;
 			row2 = encountersSheet.createRow(0);
 
 			offset = createPatientHeader(row1, row2, 0);
 			createEncounterHeader(row1, row2, offset);
+
+			row1 = null;
+			row2 = demographicsSheet.createRow(0);
+
+			offset = createPatientHeader(row1, row2, 0);
+			offset = createDemographicsHeader(row1, row2, offset);
+
 			workbooks.put(documentIndex, wb);
 			documents.put(documentIndex, document);
 		}
@@ -394,6 +421,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							clinicalDocument.eClass());
 
 						SXSSFSheet documentsSheet = wb.getSheet("Documents");
+						SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
 						SXSSFSheet encountersSheet = wb.getSheet("Encounters");
 
 						List<Encounter> encounters = new ArrayList<Encounter>();
@@ -411,6 +439,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
 						DocumentMetadata documentMetadata = appendToPatientSheet(
 							query, documentsSheet, patientRole, ir, iffo, file.getName());
+
+						appendToDemographicsSheet(query, demographicsSheet, documentMetadata, patientRole);
 
 						getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
 
@@ -629,6 +659,36 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						"_SA.xlsx");
 
 		}
+
+	}
+
+	/**
+	 * @param query
+	 * @param demographicsSheet
+	 * @param patientRole
+	 * @param ir
+	 * @param iffo
+	 * @param string
+	 */
+	private void appendToDemographicsSheet(Query query, SXSSFSheet sheet, DocumentMetadata documentMetadata,
+			PatientRole patientRole) {
+
+		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+		int offset = serializePatient2(row, 0, documentMetadata, patientRole);
+		/*
+		 * race
+		 * gender
+		 * patient name
+		 * address
+		 * dob XXX
+		 * phone #
+		 * ethnicity
+		 * document id XXX
+		 * language
+		 * phone #
+		 */
+		serializeSectionAndFileName(row, offset, null, documentMetadata.fileName);
 
 	}
 
