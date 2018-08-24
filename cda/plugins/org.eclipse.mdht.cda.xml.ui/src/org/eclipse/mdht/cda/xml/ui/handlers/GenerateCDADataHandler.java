@@ -91,6 +91,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		omitDOB = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
 			MDHTPreferences.OMIT_DOB_STORE_VALUE);
 
+		omitUnits = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
+			MDHTPreferences.OMIT_UNITS_STORE_VALUE);
+
 		try {
 
 			boolean completed = true;

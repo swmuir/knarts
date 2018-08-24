@@ -167,6 +167,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	static boolean omitDOB = false;
 
+	static boolean omitUnits = false;
+
 	public class ResultsDialog extends TitleAreaDialog {
 
 		org.eclipse.swt.widgets.Table table;
@@ -3419,10 +3421,13 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				sb.append(pq.getValue().toPlainString() + " ");
 			}
 
-			String unit = StringUtils.isEmpty(pq.getUnit())
-					? ""
-					: pq.getUnit();
-			sb.append(unit);
+			if (!omitUnits) {
+				String unit = StringUtils.isEmpty(pq.getUnit())
+						? ""
+						: pq.getUnit();
+				sb.append(unit);
+			}
+
 		}
 		return sb.toString();
 	}

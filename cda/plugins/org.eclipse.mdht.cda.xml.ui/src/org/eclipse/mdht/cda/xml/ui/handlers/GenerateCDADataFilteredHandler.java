@@ -175,6 +175,9 @@ public class GenerateCDADataFilteredHandler extends GenerateCDABaseHandler {
 		omitDOB = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
 			MDHTPreferences.OMIT_DOB_STORE_VALUE);
 
+		omitUnits = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
+			MDHTPreferences.OMIT_UNITS_STORE_VALUE);
+
 		IWorkbenchWindow window2 = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 		ILabelProvider lp = new ILabelProvider() {

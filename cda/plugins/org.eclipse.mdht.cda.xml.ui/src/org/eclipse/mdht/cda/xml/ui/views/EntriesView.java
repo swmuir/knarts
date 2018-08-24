@@ -34,6 +34,8 @@ import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.part.ViewPart;
@@ -447,7 +449,19 @@ public class EntriesView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		/**
+		 * @TODO Move create browser to shared method
+		 */
 		browser = new Browser(parent, SWT.BORDER);
+		Menu menu = new Menu(browser);
+		MenuItem printMenuItem = new MenuItem(menu, SWT.CASCADE);
+		printMenuItem.setText("Print");
+		printMenuItem.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				browser.execute("window.print();");
+			}
+		});
+		browser.setMenu(menu);
 		if (getSite().getPage().getPerspective() != null) {
 			for (IEditorReference editorReference : getSite().getPage().getEditorReferences()) {
 				if ("org.eclipse.mdht.cda.xml.ui.editors.CDAAnalyzer".equals(editorReference.getId())) {

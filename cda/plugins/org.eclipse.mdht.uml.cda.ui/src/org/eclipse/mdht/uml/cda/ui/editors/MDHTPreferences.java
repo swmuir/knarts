@@ -51,15 +51,23 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 	 */
 	public static String OMIT_DOB_STORE_VALUE = "OmitDOBCheckValue";
 
+	public static String OMIT_UNITS_STORE_VALUE = "OmitUnitsCheckValue";
+
 	private static String OMIT_DOB_CHECK_BOX_LABEL = "Omit DOB and Patient Name from XLS Reports";
 
-	private static String OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP = "Do not include DOB and Patient Name in reports";
+	private static String OMIT_DOB_CHECK_BOX_TOOLTIP = "Do not include DOB and Patient Name in reports";
+
+	private static String OMIT_UNITS_CHECK_BOX_TOOLTIP = "Do not include Units of Measure in reports";
+
+	private static String OMIT_UNITS_CHECK_BOX_LABEL = "Omit Quantity Units from XLS Reports";
 
 	private Button cardinalityCheckBox;
 
 	private Button disablePdfGenerationCheckBox;
 
 	private Button omitDOBCheckBox;
+
+	private Button omitUnitsCheckBox;
 
 	/**
 	 * Creates an new checkbox instance and sets the default
@@ -122,8 +130,11 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 			pdf_composite_textField, PDF_GEN_DISABLE_CHECK_BOX_LABEL, PDF_GEN_DISABLE_CHECK_BOX_TOOLTIP);
 
 		Composite dob_composite_textField = createComposite(parent, 2);
-		omitDOBCheckBox = createCheckBox(
-			dob_composite_textField, OMIT_DOB_CHECK_BOX_LABEL, OMIT_DOB_OMIT_CHECK_BOX_TOOLTIP);
+		omitDOBCheckBox = createCheckBox(dob_composite_textField, OMIT_DOB_CHECK_BOX_LABEL, OMIT_DOB_CHECK_BOX_TOOLTIP);
+
+		Composite units_composite_textField = createComposite(parent, 2);
+		omitUnitsCheckBox = createCheckBox(
+			units_composite_textField, OMIT_UNITS_CHECK_BOX_LABEL, OMIT_UNITS_CHECK_BOX_TOOLTIP);
 
 		initializeValues();
 
@@ -153,6 +164,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		cardinalityCheckBox.setSelection(store.getDefaultBoolean(CARDINALITY_STORE_VALUE));
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
 		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
+		omitUnitsCheckBox.setSelection(store.getBoolean(OMIT_UNITS_STORE_VALUE));
 	}
 
 	/**
@@ -163,6 +175,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		cardinalityCheckBox.setSelection(store.getBoolean(CARDINALITY_STORE_VALUE));
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
 		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
+		omitUnitsCheckBox.setSelection(store.getBoolean(OMIT_UNITS_STORE_VALUE));
 	}
 
 	@Override
@@ -185,11 +198,6 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		store.setValue(CARDINALITY_STORE_VALUE, cardinalityCheckBox.getSelection());
 		store.setValue(PDF_GEN_STORE_VALUE, disablePdfGenerationCheckBox.getSelection());
 		store.setValue(OMIT_DOB_STORE_VALUE, omitDOBCheckBox.getSelection());
-
-		boolean omitDOB = Activator.getDefault().getPreferenceStore().getBoolean(MDHTPreferences.OMIT_DOB_STORE_VALUE);
-		if (omitDOB) {
-			System.out.println(omitDOB);
-		}
-
+		store.setValue(OMIT_UNITS_STORE_VALUE, omitUnitsCheckBox.getSelection());
 	}
 }
