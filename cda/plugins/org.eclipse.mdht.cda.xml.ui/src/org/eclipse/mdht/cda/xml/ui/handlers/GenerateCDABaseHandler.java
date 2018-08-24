@@ -139,6 +139,7 @@ import org.openhealthtools.mdht.uml.cda.consol.ProceduresSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.ReactionObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ResultOrganizer;
 import org.openhealthtools.mdht.uml.cda.consol.ResultsSectionEntriesOptional;
+import org.openhealthtools.mdht.uml.cda.consol.SeverityObservation;
 import org.openhealthtools.mdht.uml.cda.consol.SocialHistorySection;
 import org.openhealthtools.mdht.uml.cda.consol.VitalSignsSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch;
@@ -2501,9 +2502,13 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 	static int appendCode(Row row, int offset, Section setion, CD cd, ED ed) {
 
 		if (cd != null) {
-			// Text - only try if section or ed is not null
+			// If original text is not supplied - see if the ed was supplied
+			ED theED = (cd.getOriginalText() != null
+					? cd.getOriginalText()
+					: ed);
+
 			if (setion != null || ed != null) {
-				row.createCell(offset++).setCellValue(getValue(setion, ed));
+				row.createCell(offset++).setCellValue(getValue(setion, theED));
 			}
 			// Display Name
 			row.createCell(offset++).setCellValue(getValueAsString(setion, cd));
@@ -3436,11 +3441,15 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 					if (!StringUtils.isEmpty(result)) {
 						return StringUtils.abbreviate(result, 1000);
 					} else {
-						return "Missing in narrative " + reference;
+						return "Narrative Issue: ID " + reference + " not found in narrative " + reference;
 					}
 
+				} else {
+					return "Narrative Issue: Reference value is missing ";
 				}
 
+			} else {
+				return "Narrative Issue: Text Element has no content and reference is missing ";
 			}
 
 		}
@@ -3898,6 +3907,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 			offset = appendCode(row, offset, allergyProblemAct.getSection(), material, null);
 
+			SeverityObservation severity = null;
+
 			if (!allergyObservation.getConsolReactionObservations().isEmpty()) {
 				for (ReactionObservation ro : allergyObservation.getConsolReactionObservations()) {
 
@@ -3910,25 +3921,26 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 					}
 					offset = appendCode(row, offset, allergyProblemAct.getSection(), reactionCode, ro.getText());
 
+					if (ro.getSeverityObservation() != null) {
+						severity = ro.getSeverityObservation();
+					}
 					break;
 				}
 			} else {
 				offset = appendCode(row, offset, allergyProblemAct.getSection(), null, null);
 			}
 
-			if (allergyObservation.getConsolSeverityObservation() != null) {
-
+			severity = (severity != null
+					? severity
+					: allergyObservation.getConsolSeverityObservation());
+			if (severity != null) {
 				CD severityCode = null;
-
-				for (ANY any : allergyObservation.getConsolSeverityObservation().getValues()) {
+				for (ANY any : severity.getValues()) {
 					if (any instanceof CD) {
 						severityCode = (CD) any;
 					}
 				}
-				offset = appendCode(
-					row, offset, allergyProblemAct.getSection(), severityCode,
-					allergyObservation.getConsolSeverityObservation().getText());
-
+				offset = appendCode(row, offset, allergyProblemAct.getSection(), severityCode, severity.getText());
 			} else {
 				offset = appendCode(row, offset, allergyProblemAct.getSection(), null, null);
 			}
