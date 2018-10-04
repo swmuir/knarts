@@ -465,7 +465,7 @@ public class GenerateCDADataFilteredHandler extends GenerateCDABaseHandler {
 								newSheet.flushRows();
 								// }
 
-								String sheetName = sheetName(section);
+								String sheetName = sheetName(section.eClass());
 								if (!sectionbyfile.containsKey(sheetName)) {
 									sectionbyfile.put(sheetName, new ArrayList<IFile>());
 								}

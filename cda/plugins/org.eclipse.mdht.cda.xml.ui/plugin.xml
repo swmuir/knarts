@@ -64,7 +64,13 @@
 		<command
 			id="org.eclipse.mdht.cda.xml.ui.commands.generateCDADataFiltered"
 			name="GENERATECDADATAFILTERED"
-			defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataFilteredHandler">
+			defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDADataHandler">
+			<commandParameter id="org.eclipse.mdht.cda.xml.ui.splitbydocument"
+				name="org.eclipse.mdht.cda.xml.ui.splitbydocument" optional="false">
+			</commandParameter>
+			<commandParameter id="org.eclipse.mdht.cda.xml.ui.filter"
+				name="org.eclipse.mdht.cda.xml.ui.splitbydocument" optional="false">
+			</commandParameter>
 		</command>
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.openUsingStylesSheet"
 			name="OPENWITHSTYLESHEET" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.OpenUsingStyleSheet">
@@ -245,6 +251,10 @@
 							</iterate>
 						</with>
 					</visibleWhen>
+					<parameter name="org.eclipse.mdht.cda.xml.ui.splitbydocument"
+						value="CONSOLIDATED"></parameter>
+					<parameter name="org.eclipse.mdht.cda.xml.ui.filter"
+						value="TRUE">	</parameter>
 				</command>
 
 				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.openCDAViewer"

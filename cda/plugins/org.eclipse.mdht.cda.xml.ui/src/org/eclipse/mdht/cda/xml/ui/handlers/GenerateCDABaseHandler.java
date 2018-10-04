@@ -49,6 +49,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -2399,8 +2400,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	}
 
-	protected static String sheetName(Section section) {
-		String name = section.eClass().getName();
+	protected static String sheetName(EClass sectionEClass) {
+		String name = sectionEClass.getName();
 		String[] prettyName = name.split(DIVIDER_PATTERN); // "(?=\\p{Upper})");
 		StringBuilder sb = new StringBuilder();
 		for (String str : prettyName) {
@@ -2410,10 +2411,10 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 				sb.append(str).append(" ");
 			}
 		}
-		if ("CONSOL".equalsIgnoreCase(section.eClass().getEPackage().getNsPrefix())) {
+		if ("CONSOL".equalsIgnoreCase(sectionEClass.getEPackage().getNsPrefix())) {
 			return sb.toString();
 		} else {
-			return section.eClass().getEPackage().getNsPrefix().toUpperCase() + " " + sb.toString();
+			return sectionEClass.getEPackage().getNsPrefix().toUpperCase() + " " + sb.toString();
 		}
 
 	}

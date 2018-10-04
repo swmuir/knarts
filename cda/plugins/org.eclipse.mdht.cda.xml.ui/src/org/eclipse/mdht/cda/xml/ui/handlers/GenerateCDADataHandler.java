@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 seanmuir.
+ * Copyright (c) 2017, 2018 seanmuir.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     seanmuir - initial API and implementation
+ *     seanmuir - add filtering by sections
  *
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
@@ -18,10 +19,13 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
@@ -47,12 +51,17 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.mdht.cda.xml.ui.Activator;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
@@ -67,9 +76,11 @@ import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
 import org.openhealthtools.mdht.uml.cda.consol.EncountersSectionEntriesOptional;
@@ -82,10 +93,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	private static String SPLITBYDOCUMENT = "org.eclipse.mdht.cda.xml.ui.splitbydocument";
 
+	private static String FILTER = "org.eclipse.mdht.cda.xml.ui.filter";
+
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		final String splitOption = event.getParameter(SPLITBYDOCUMENT);
+		final String filterOption = event.getParameter(FILTER);
 
 		// Omit DOB from generated Spreadsheets
 		omitDOB = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
@@ -93,6 +107,88 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		omitUnits = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
 			MDHTPreferences.OMIT_UNITS_STORE_VALUE);
+
+		final HashSet<EClass> theSections = new HashSet<EClass>();
+
+		final HashMap<EClass, HashSet<EClass>> theSectionCache = new HashMap<EClass, HashSet<EClass>>();
+
+		if (filterOption != null) {
+
+			IWorkbenchWindow window2 = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+
+			ILabelProvider lp = new ILabelProvider() {
+
+				@Override
+				public void addListener(ILabelProviderListener listener) {
+
+				}
+
+				@Override
+				public void dispose() {
+
+				}
+
+				@Override
+				public boolean isLabelProperty(Object element, String property) {
+
+					return false;
+				}
+
+				@Override
+				public void removeListener(ILabelProviderListener listener) {
+
+				}
+
+				@Override
+				public Image getImage(Object element) {
+
+					return null;
+				}
+
+				@Override
+				public String getText(Object element) {
+					EClass ec = (EClass) element;
+					String theElementName = ec.getName();
+
+					if (Character.isDigit(theElementName.charAt(theElementName.length() - 1))) {
+						theElementName = theElementName.substring(0, theElementName.length() - 1);
+					}
+
+					String[] nameArray = theElementName.split("(?=\\p{Upper})");
+					StringBuffer sb = new StringBuffer();
+					for (String seg : nameArray) {
+						sb.append(seg).append(" ");
+					}
+					sb.append("(s)");
+
+					return sb.toString();
+				}
+			};
+
+			ElementListSelectionDialog filterSelectionDialog = new ElementListSelectionDialog(window2.getShell(), lp);
+
+			filterSelectionDialog.setTitle("Select Section");
+
+			filterSelectionDialog.setMessage("Select a section(s):");
+
+			filterSelectionDialog.setMultipleSelection(true);
+
+			getFilterHash(theSectionCache);
+
+			filterSelectionDialog.setElements(theSectionCache.keySet().toArray());
+
+			;
+
+			if (filterSelectionDialog.open() != Window.OK) {
+				return null;
+			}
+			// return the selection
+
+			for (Object object : filterSelectionDialog.getResult()) {
+				theSections.add((EClass) object);
+			}
+
+		}
 
 		try {
 
@@ -117,7 +213,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
 										monitor.beginTask("Generate Spreadsheet", folder.members().length);
-										processFolder2(folder, monitor, splitOption);
+										processFolder2(folder, monitor, splitOption, theSections, theSectionCache);
 									}
 								}
 							} catch (IOException e) {
@@ -216,7 +312,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	}
 
-	String getSheet(EClass document, Section section, String splitOption) {
+	String getSheet(EClass document, EClass sectionEClass, String splitOption) {
 		int documentIndex;
 
 		if (CONSOLIDATED.equals(splitOption)) {
@@ -228,9 +324,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		if (!sheets.containsKey(documentIndex)) {
 			sheets.put(documentIndex, new HashMap<Integer, String>());
 		}
-		if (!sheets.get(documentIndex).containsKey(section.eClass().getClassifierID())) {
+		if (!sheets.get(documentIndex).containsKey(sectionEClass.getClassifierID())) {
 
-			String sheetName = sheetName(section);
+			String sheetName = sheetName(sectionEClass);
 			/*
 			 * get and create appears to not use the same length of string
 			 * So walk the collection and see if we have the previous version of section created first
@@ -239,8 +335,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			 */
 			for (Integer akey : sheets.get(documentIndex).keySet()) {
 				if (sheetName.startsWith(sheets.get(documentIndex).get(akey))) {
-					sheets.get(documentIndex).put(
-						section.eClass().getClassifierID(), sheets.get(documentIndex).get(akey));
+					sheets.get(documentIndex).put(sectionEClass.getClassifierID(), sheets.get(documentIndex).get(akey));
 					return sheets.get(documentIndex).get(akey);
 				}
 			}
@@ -249,10 +344,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 			SXSSFSheet newSheet = wb.createSheet(sheetName);
 			newSheet.setRandomAccessWindowSize(50);
-			sheets.get(documentIndex).put(section.eClass().getClassifierID(), newSheet.getSheetName());
+			sheets.get(documentIndex).put(sectionEClass.getClassifierID(), newSheet.getSheetName());
 
 		}
-		return sheets.get(documentIndex).get(section.eClass().getClassifierID());
+		return sheets.get(documentIndex).get(sectionEClass.getClassifierID());
 
 	}
 
@@ -340,7 +435,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return false;
 	}
 
-	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption) throws Exception {
+	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
+			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
 
 		/*
 		 * Set Ratio low as to prevent Zip Bomb Detection
@@ -459,7 +555,29 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetIndex = getSheet(clinicalDocument.eClass(), section, splitOption);
+
+								EClass theSectionEClass = section.eClass();
+
+								if (!sectionFilter.isEmpty() && !sectionFilter.contains(section.eClass())) {
+
+									boolean found = false;
+									for (EClass sectionClass : sectionFilter) {
+										if (theSectionCache.get(sectionClass).contains(section.eClass())) {
+											theSectionEClass = sectionClass;
+											found = true;
+											break;
+										}
+									}
+									if (!found) {
+										continue;
+
+									}
+								}
+								// if (!sectionFilter.contains(section.eClass())) {
+								// continue;
+								// }
+
+								String sheetIndex = getSheet(clinicalDocument.eClass(), theSectionEClass, splitOption);
 								if (!(section instanceof EncountersSectionEntriesOptional)) {
 									SectionSwitch sectionSwitch = new SectionSwitch(
 										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
@@ -493,7 +611,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 							for (Section section : clinicalDocument.getSections()) {
-								String sheetIndex = getSheet(clinicalDocument.eClass(), section, splitOption);
+								String sheetIndex = getSheet(clinicalDocument.eClass(), section.eClass(), splitOption);
 								if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
 									C32SectionSwitch sectionSwitch = new C32SectionSwitch(
 										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
@@ -713,6 +831,82 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		// TODO Auto-generated method stub
 		return count;
+	}
+
+	void getFilterHash(HashMap<EClass, HashSet<EClass>> theSections) {
+
+		TreeIterator<EObject> packageContents = ConsolPackage.eINSTANCE.eAllContents();
+
+		ArrayList<EClass> packageSections = new ArrayList<EClass>();
+
+		ArrayList<EClass> rootSections = new ArrayList<EClass>();
+
+		while (packageContents.hasNext()) {
+
+			EObject packageObject = packageContents.next();
+
+			if (packageObject instanceof EClass) {
+				EClass eClass = (EClass) packageObject;
+				boolean isSection = false;
+				for (EClass eClass2 : eClass.getEAllSuperTypes()) {
+					if ("Section".equals(eClass2.getName())) {
+						isSection = true;
+						break;
+					}
+				}
+
+				if (isSection) {
+					packageSections.add(eClass);
+				}
+
+			}
+
+		}
+
+		Set<EClass> sectionBaseClasses = new HashSet<EClass>();
+
+		for (EClass section : packageSections) {
+			for (EClass parentSection : section.getESuperTypes()) {
+				sectionBaseClasses.add(parentSection);
+			}
+		}
+
+		Comparator<? super EClass> compare = new Comparator<EClass>() {
+
+			@Override
+			public int compare(EClass o1, EClass o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		};
+		Collections.sort(packageSections, compare);
+
+		for (EClass section : packageSections) {
+			if (!sectionBaseClasses.contains(section)) {
+
+				boolean isRealRoot = true;
+				for (EClass sectionAgain : packageSections) {
+					if (sectionAgain.getName().startsWith(section.getName()) &&
+							!sectionAgain.getName().equals(section.getName())) {
+						isRealRoot = false;
+					}
+				}
+				if (isRealRoot) {
+					rootSections.add(section);
+				}
+			}
+		}
+
+		for (EClass ec3 : rootSections) {
+			theSections.put(ec3, new HashSet<EClass>());
+			theSections.get(ec3).addAll(ec3.getEAllSuperTypes());
+			theSections.get(ec3).add(ec3);
+
+			for (EClass sectionAgain : packageSections) {
+				if (ec3.getName().startsWith(sectionAgain.getName()) && !ec3.getName().equals(sectionAgain.getName())) {
+					theSections.get(ec3).add(sectionAgain);
+				}
+			}
+		}
 	}
 
 }
