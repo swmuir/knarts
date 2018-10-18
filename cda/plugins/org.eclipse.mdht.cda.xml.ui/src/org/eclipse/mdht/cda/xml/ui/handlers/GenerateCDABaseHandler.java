@@ -170,6 +170,8 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 
 	static boolean omitUnits = false;
 
+	static String preferenceFilters;
+
 	public class ResultsDialog extends TitleAreaDialog {
 
 		org.eclipse.swt.widgets.Table table;

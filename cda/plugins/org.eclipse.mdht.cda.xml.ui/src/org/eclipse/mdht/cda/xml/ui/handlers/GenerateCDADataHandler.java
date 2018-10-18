@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -108,6 +109,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		omitUnits = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
 			MDHTPreferences.OMIT_UNITS_STORE_VALUE);
 
+		preferenceFilters = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getString(
+			MDHTPreferences.CDA_REPORT_DEFAULT_FILTER);
+
 		final HashSet<EClass> theSections = new HashSet<EClass>();
 
 		final HashMap<EClass, HashSet<EClass>> theSectionCache = new HashMap<EClass, HashSet<EClass>>();
@@ -188,6 +192,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				theSections.add((EClass) object);
 			}
 
+		} else if (filterOption == null && !StringUtils.isEmpty(preferenceFilters)) {
+			getFilterHash(theSectionCache);
+			List<String> result = Arrays.asList(preferenceFilters.split("\\s*,\\s*"));
+			for (String r : result) {
+				if (!theSectionCache.containsKey(ConsolPackage.eINSTANCE.getEClassifier(r))) {
+					System.out.println("aaaa");
+				} else {
+					theSections.add((EClass) ConsolPackage.eINSTANCE.getEClassifier(r));
+				}
+			}
 		}
 
 		try {
@@ -573,9 +587,6 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 									}
 								}
-								// if (!sectionFilter.contains(section.eClass())) {
-								// continue;
-								// }
 
 								String sheetIndex = getSheet(clinicalDocument.eClass(), theSectionEClass, splitOption);
 								if (!(section instanceof EncountersSectionEntriesOptional)) {
