@@ -848,7 +848,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			monitor.subTask(
 				"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
-			if (folder.members().length < 50) {
+			if (false && folder.members().length < 50) {
 				format(fileLocation, monitor);
 			}
 			monitor.subTask(
