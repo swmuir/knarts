@@ -268,9 +268,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 					}
 					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-					ResultsDialog dlg = new ResultsDialog(window.getShell());
-					dlg.create();
-					dlg.open();
+					// ResultsDialog dlg = new ResultsDialog(window.getShell());
+					// dlg.create();
+					// dlg.open();
 				}
 			}
 
