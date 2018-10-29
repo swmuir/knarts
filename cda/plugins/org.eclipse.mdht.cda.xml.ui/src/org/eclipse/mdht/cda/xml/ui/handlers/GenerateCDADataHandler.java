@@ -16,6 +16,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.management.GarbageCollectorMXBean;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +30,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -81,6 +86,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.IConsoleManager;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
@@ -449,8 +458,57 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return false;
 	}
 
+	static String getMemoryUssage() {
+		Map<String, String> memoryMap = new HashMap<>();
+
+		for (GarbageCollectorMXBean gc : ManagementFactory.getGarbageCollectorMXBeans()) {
+			memoryMap.put("gc.getName() count", String.valueOf(gc.getCollectionCount()));
+			memoryMap.put("gc.getName() time", String.valueOf(gc.getCollectionTime()));
+		}
+		MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
+		MemoryUsage memHeapUsage = memBean.getHeapMemoryUsage();
+		MemoryUsage nonHeapUsage = memBean.getNonHeapMemoryUsage();
+		memoryMap.put("heapInit", String.valueOf(memHeapUsage.getInit()));
+		memoryMap.put("heapMax", String.valueOf(memHeapUsage.getMax()));
+		memoryMap.put("heapCommit", String.valueOf(memHeapUsage.getCommitted()));
+		memoryMap.put("heapUsed", String.valueOf(memHeapUsage.getUsed()));
+		memoryMap.put("nonHeapInit", String.valueOf(nonHeapUsage.getInit()));
+		memoryMap.put("nonHeapMax", String.valueOf(nonHeapUsage.getMax()));
+		memoryMap.put("nonHeapCommit", String.valueOf(nonHeapUsage.getCommitted()));
+		memoryMap.put("nonHeapUsed", String.valueOf(nonHeapUsage.getUsed()));
+		return memoryMap.toString();
+	}
+
+	private static final String MDHTCONSOLE = "MDHTCONSOLE";
+
+	private MessageConsole findConsole(String name) {
+		ConsolePlugin plugin = ConsolePlugin.getDefault();
+		IConsoleManager conMan = plugin.getConsoleManager();
+		org.eclipse.ui.console.IConsole[] existing = conMan.getConsoles();
+		for (int i = 0; i < existing.length; i++)
+			if (name.equals(existing[i].getName()))
+				return (MessageConsole) existing[i];
+		// no console found, so create a new one
+		MessageConsole myConsole = new MessageConsole(name, null);
+		conMan.addConsoles(new org.eclipse.ui.console.IConsole[] { myConsole });
+		return myConsole;
+	}
+
 	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
 			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
+
+		MessageConsole myConsole = findConsole(MDHTCONSOLE);
+		// IWorkbench wb = PlatformUI.getWorkbench();
+		// IWorkbenchWindow win = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		// IWorkbenchPage page = win.getActivePage();
+		//
+		// // WorkbenchPage page = ...;// obtain the active page
+		// String id = IConsoleConstants.ID_CONSOLE_VIEW;
+		// IConsoleView view = (IConsoleView) page.showView(id);
+		// view.display(myConsole);
+
+		MessageConsoleStream out = myConsole.newMessageStream();
+		out.println("Hello from Generic console sample action");
 
 		/*
 		 * Set Ratio low as to prevent Zip Bomb Detection
@@ -524,10 +582,15 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								StringUtils.leftPad(String.valueOf(totalFiles), 5) + " Average Time per File " +
 								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
 					try {
+
+						out.println(getMemoryUssage());
+
 						URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
+						out.println("Start Load " + currentProcessingTime);
 						ClinicalDocument clinicalDocument = CDAUtil.load(
 							new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
+						out.println("End Load " + currentProcessingTime);
 
 						SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
 						HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
@@ -558,6 +621,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
 
 						if (clinicalDocument instanceof GeneralHeaderConstraints) {
+							out.println("Start Processing " + currentProcessingTime);
 							EncountersSectionEntriesOptional es = query.getEObject(
 								EncountersSectionEntriesOptional.class);
 
@@ -609,6 +673,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								}
 
 							}
+							out.println("End Processing " + currentProcessingTime);
 						} else {
 
 							org.openhealthtools.mdht.uml.cda.ccd.EncountersSection es = query.getEObject(
