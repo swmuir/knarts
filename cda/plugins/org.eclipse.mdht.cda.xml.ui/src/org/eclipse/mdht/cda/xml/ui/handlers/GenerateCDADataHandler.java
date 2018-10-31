@@ -30,7 +30,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -47,6 +46,7 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -459,24 +459,46 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 	}
 
 	static String getMemoryUssage() {
-		Map<String, String> memoryMap = new HashMap<>();
+		// Map<String, String> memoryMap = new HashMap<>();
+		StringBuffer sb = new StringBuffer();
 
 		for (GarbageCollectorMXBean gc : ManagementFactory.getGarbageCollectorMXBeans()) {
-			memoryMap.put("gc.getName() count", String.valueOf(gc.getCollectionCount()));
-			memoryMap.put("gc.getName() time", String.valueOf(gc.getCollectionTime()));
+			sb.append("gc count");
+			sb.append(String.valueOf(gc.getCollectionCount()));
+			sb.append(System.lineSeparator());
+			sb.append("gc time");
+			sb.append(String.valueOf(gc.getCollectionTime()));
+			sb.append(System.lineSeparator());
 		}
 		MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
 		MemoryUsage memHeapUsage = memBean.getHeapMemoryUsage();
 		MemoryUsage nonHeapUsage = memBean.getNonHeapMemoryUsage();
-		memoryMap.put("heapInit", String.valueOf(memHeapUsage.getInit()));
-		memoryMap.put("heapMax", String.valueOf(memHeapUsage.getMax()));
-		memoryMap.put("heapCommit", String.valueOf(memHeapUsage.getCommitted()));
-		memoryMap.put("heapUsed", String.valueOf(memHeapUsage.getUsed()));
-		memoryMap.put("nonHeapInit", String.valueOf(nonHeapUsage.getInit()));
-		memoryMap.put("nonHeapMax", String.valueOf(nonHeapUsage.getMax()));
-		memoryMap.put("nonHeapCommit", String.valueOf(nonHeapUsage.getCommitted()));
-		memoryMap.put("nonHeapUsed", String.valueOf(nonHeapUsage.getUsed()));
-		return memoryMap.toString();
+		sb.append("heapInit");
+		sb.append(String.valueOf(memHeapUsage.getInit()));
+		sb.append(System.lineSeparator());
+		sb.append("heapMax");
+		sb.append(String.valueOf(memHeapUsage.getMax()));
+		sb.append(System.lineSeparator());
+		sb.append("heapCommit");
+		sb.append(String.valueOf(memHeapUsage.getCommitted()));
+		sb.append(System.lineSeparator());
+		sb.append("heapUsed");
+		sb.append(String.valueOf(memHeapUsage.getUsed()));
+		sb.append(System.lineSeparator());
+		sb.append("nonHeapInit");
+		sb.append(String.valueOf(nonHeapUsage.getInit()));
+		sb.append(System.lineSeparator());
+		sb.append("nonHeapMax");
+		sb.append(String.valueOf(nonHeapUsage.getMax()));
+		sb.append(System.lineSeparator());
+		sb.append("nonHeapCommit");
+		sb.append(String.valueOf(nonHeapUsage.getCommitted()));
+		sb.append(System.lineSeparator());
+		sb.append("nonHeapUsed");
+		sb.append(String.valueOf(nonHeapUsage.getUsed()));
+		sb.append(System.lineSeparator());
+
+		return sb.toString();
 	}
 
 	private static final String MDHTCONSOLE = "MDHTCONSOLE";
@@ -497,18 +519,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
 			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
 
-		MessageConsole myConsole = findConsole(MDHTCONSOLE);
-		// IWorkbench wb = PlatformUI.getWorkbench();
-		// IWorkbenchWindow win = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-		// IWorkbenchPage page = win.getActivePage();
-		//
-		// // WorkbenchPage page = ...;// obtain the active page
-		// String id = IConsoleConstants.ID_CONSOLE_VIEW;
-		// IConsoleView view = (IConsoleView) page.showView(id);
-		// view.display(myConsole);
-
-		MessageConsoleStream out = myConsole.newMessageStream();
-		out.println("Hello from Generic console sample action");
+		MessageConsole mdhtConsole = findConsole(MDHTCONSOLE);
+		mdhtConsole.setWaterMarks(1000, 8000);
+		MessageConsoleStream console = mdhtConsole.newMessageStream();
 
 		/*
 		 * Set Ratio low as to prevent Zip Bomb Detection
@@ -561,6 +574,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 				IFile file = (IFile) resource;
 
+				IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+				long fileSize = fs1.fetchInfo().getLength();
+
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 					files.add(file);
 					monitor.worked(1);
@@ -583,14 +599,15 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
 					try {
 
-						out.println(getMemoryUssage());
+						console.println(getMemoryUssage());
+						console.println("file : " + file.getName() + "  size : " + fileSize);
 
 						URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-						out.println("Start Load " + currentProcessingTime);
+						console.println("Start Load ");
 						ClinicalDocument clinicalDocument = CDAUtil.load(
 							new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
-						out.println("End Load " + currentProcessingTime);
+						console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 
 						SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
 						HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
@@ -621,7 +638,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 						getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
 
 						if (clinicalDocument instanceof GeneralHeaderConstraints) {
-							out.println("Start Processing " + currentProcessingTime);
+							console.println("Start Processing ");
 							EncountersSectionEntriesOptional es = query.getEObject(
 								EncountersSectionEntriesOptional.class);
 
@@ -673,7 +690,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								}
 
 							}
-							out.println("End Processing " + currentProcessingTime);
+							console.println("End Processing " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 						} else {
 
 							org.openhealthtools.mdht.uml.cda.ccd.EncountersSection es = query.getEObject(
@@ -835,11 +852,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			monitor.subTask(
 				"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
 
+			console.println("Start Saving " + currentProcessingTime);
 			FileOutputStream fileOut = new FileOutputStream(fileLocation);
 			wb.write(fileOut);
-			fileOut.close();
-			wb.close();
-			wb.dispose();
+			// fileOut.close();
+			// wb.close();
+			// wb.dispose();
+			console.println("End Saving " + currentProcessingTime);
 
 			monitor.subTask(
 				"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
