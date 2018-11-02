@@ -52,6 +52,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -561,8 +562,35 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		long currentProcessingTime = 1;
 		Stopwatch stopwatch = Stopwatch.createUnstarted();
 
-		int totalFiles = folder.members().length;
+		Comparator<? super IFile> c = new Comparator<IFile>() {
+			@Override
+			public int compare(IFile file1, IFile file2) {
+				try {
+					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file1.getLocationURI());
+					IFileStore fs2 = org.eclipse.core.filesystem.EFS.getStore(file2.getLocationURI());
+					if (fs1.fetchInfo().getLength() < fs2.fetchInfo().getLength()) {
+						return 1;
+					} else {
+						return -1;
+					}
+				} catch (CoreException e) {
+				}
+				return 0;
+			}
+		};
+
+		ArrayList<IFile> documents = new ArrayList<IFile>();
+
 		for (IResource resource : folder.members()) {
+			if (resource instanceof IFile) {
+				documents.add((IFile) resource);
+			}
+		}
+
+		Collections.sort(documents, c);
+
+		int totalFiles = folder.members().length;
+		for (IFile file : documents) {
 			stopwatch.reset();
 			stopwatch.start();
 			if (monitor.isCanceled()) {
@@ -570,171 +598,163 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				break;
 			}
 
-			if (resource instanceof IFile) {
+			IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+			long fileSize = fs1.fetchInfo().getLength();
 
-				IFile file = (IFile) resource;
+			if ("XML".equalsIgnoreCase(file.getFileExtension())) {
+				files.add(file);
+				monitor.worked(1);
+				double estimatedTimeLeft = ((folder.members().length - filectr) * (currentProcessingTime / filectr)) /
+						1000.0;
 
-				IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
-				long fileSize = fs1.fetchInfo().getLength();
+				if (estimatedTimeLeft > 60) {
+					monitor.setTaskName(
+						"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
+								" Minutes ");
+				} else {
+					monitor.setTaskName(
+						"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
+				}
 
-				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
-					files.add(file);
-					monitor.worked(1);
-					double estimatedTimeLeft = ((folder.members().length - filectr) *
-							(currentProcessingTime / filectr)) / 1000.0;
+				monitor.subTask(
+					"Processing File " + StringUtils.leftPad(String.valueOf(filectr++), 5) + " of " +
+							StringUtils.leftPad(String.valueOf(totalFiles), 5) + " Average Time per File " +
+							(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
+				try {
 
-					if (estimatedTimeLeft > 60) {
-						monitor.setTaskName(
-							"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
-									" Minutes ");
-					} else {
-						monitor.setTaskName(
-							"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft) +
-									" Seconds ");
-					}
+					console.println(getMemoryUssage());
+					console.println("file : " + file.getName() + "  size : " + fileSize);
 
-					monitor.subTask(
-						"Processing File " + StringUtils.leftPad(String.valueOf(filectr++), 5) + " of " +
-								StringUtils.leftPad(String.valueOf(totalFiles), 5) + " Average Time per File " +
-								(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
-					try {
+					URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-						console.println(getMemoryUssage());
-						console.println("file : " + file.getName() + "  size : " + fileSize);
+					console.println("Start Load ");
+					ClinicalDocument clinicalDocument = CDAUtil.load(
+						new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
+					console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 
-						URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
+					SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
+					HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
+						clinicalDocument.eClass());
 
-						console.println("Start Load ");
-						ClinicalDocument clinicalDocument = CDAUtil.load(
-							new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
-						console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+					SXSSFSheet documentsSheet = wb.getSheet("Documents");
+					SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
+					SXSSFSheet encountersSheet = wb.getSheet("Encounters");
 
-						SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
-						HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
-							clinicalDocument.eClass());
+					List<Encounter> encounters = new ArrayList<Encounter>();
 
-						SXSSFSheet documentsSheet = wb.getSheet("Documents");
-						SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
-						SXSSFSheet encountersSheet = wb.getSheet("Encounters");
+					Query query = new Query(clinicalDocument);
 
-						List<Encounter> encounters = new ArrayList<Encounter>();
+					// Need to initialize author references because the order of the sections being return is not necessarily the physical order
+					List<Author> authors = query.getEObjects(Author.class);
+					initAuthorReferences(authors, PorO.ORGANIZATION);
+					initAuthorReferences(authors, PorO.PERSON);
 
-						Query query = new Query(clinicalDocument);
+					PatientRole patientRole = query.getEObject(PatientRole.class);
+					ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
+					InformationRecipient ir = query.getEObject(InformationRecipient.class);
+					InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
+					DocumentMetadata documentMetadata = appendToPatientSheet(
+						query, documentsSheet, patientRole, ir, iffo, file.getName());
 
-						// Need to initialize author references because the order of the sections being return is not necessarily the physical order
-						List<Author> authors = query.getEObjects(Author.class);
-						initAuthorReferences(authors, PorO.ORGANIZATION);
-						initAuthorReferences(authors, PorO.PERSON);
+					appendToDemographicsSheet(query, demographicsSheet, documentMetadata, patientRole);
 
-						PatientRole patientRole = query.getEObject(PatientRole.class);
-						ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
-						InformationRecipient ir = query.getEObject(InformationRecipient.class);
-						InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
-						DocumentMetadata documentMetadata = appendToPatientSheet(
-							query, documentsSheet, patientRole, ir, iffo, file.getName());
+					getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
 
-						appendToDemographicsSheet(query, demographicsSheet, documentMetadata, patientRole);
+					if (clinicalDocument instanceof GeneralHeaderConstraints) {
+						console.println("Start Processing ");
+						EncountersSectionEntriesOptional es = query.getEObject(EncountersSectionEntriesOptional.class);
 
-						getDMHash(clinicalDocument.eClass().getClassifierID(), splitOption).put(file, documentMetadata);
+						if (es != null) {
+							encounters.addAll(es.getEncounterActivitiess());
+						}
 
-						if (clinicalDocument instanceof GeneralHeaderConstraints) {
-							console.println("Start Processing ");
-							EncountersSectionEntriesOptional es = query.getEObject(
-								EncountersSectionEntriesOptional.class);
+						appendToEncounterSheet(
+							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
-							if (es != null) {
-								encounters.addAll(es.getEncounterActivitiess());
+						for (Section section : clinicalDocument.getSections()) {
+
+							EClass theSectionEClass = section.eClass();
+
+							if (!sectionFilter.isEmpty() && !sectionFilter.contains(section.eClass())) {
+
+								boolean found = false;
+								for (EClass sectionClass : sectionFilter) {
+									if (theSectionCache.get(sectionClass).contains(section.eClass())) {
+										theSectionEClass = sectionClass;
+										found = true;
+										break;
+									}
+								}
+								if (!found) {
+									continue;
+
+								}
 							}
 
-							appendToEncounterSheet(
-								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
-
-							for (Section section : clinicalDocument.getSections()) {
-
-								EClass theSectionEClass = section.eClass();
-
-								if (!sectionFilter.isEmpty() && !sectionFilter.contains(section.eClass())) {
-
-									boolean found = false;
-									for (EClass sectionClass : sectionFilter) {
-										if (theSectionCache.get(sectionClass).contains(section.eClass())) {
-											theSectionEClass = sectionClass;
-											found = true;
-											break;
-										}
-									}
-									if (!found) {
-										continue;
-
-									}
-								}
-
-								String sheetIndex = getSheet(clinicalDocument.eClass(), theSectionEClass, splitOption);
-								if (!(section instanceof EncountersSectionEntriesOptional)) {
-									SectionSwitch sectionSwitch = new SectionSwitch(
-										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
-										encounters, file.getName());
-									sectionSwitch.doSwitch(section);
-									wb.getSheet(sheetIndex).flushRows();
-								}
-								if (section.getText() != null && section.getText().getText() != null) {
-									if (section.getText().getText().length() < 50) {
-
-									}
-								}
-
-								if (shouldCountSection(section)) {
-									getSectionHash(
-										clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
-
-								}
-
+							String sheetIndex = getSheet(clinicalDocument.eClass(), theSectionEClass, splitOption);
+							if (!(section instanceof EncountersSectionEntriesOptional)) {
+								SectionSwitch sectionSwitch = new SectionSwitch(
+									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+									encounters, file.getName());
+								sectionSwitch.doSwitch(section);
+								wb.getSheet(sheetIndex).flushRows();
 							}
-							console.println("End Processing " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
-						} else {
+							if (section.getText() != null && section.getText().getText() != null) {
+								if (section.getText().getText().length() < 50) {
 
-							org.openhealthtools.mdht.uml.cda.ccd.EncountersSection es = query.getEObject(
-								org.openhealthtools.mdht.uml.cda.ccd.EncountersSection.class);
-
-							if (es != null) {
-								encounters.addAll(es.getEncounters());
+								}
 							}
 
-							appendToEncounterSheet(
-								query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
+							if (shouldCountSection(section)) {
+								getSectionHash(
+									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
 
-							for (Section section : clinicalDocument.getSections()) {
-								String sheetIndex = getSheet(clinicalDocument.eClass(), section.eClass(), splitOption);
-								if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
-									C32SectionSwitch sectionSwitch = new C32SectionSwitch(
-										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
-										encounters, file.getName());
-									Boolean result = sectionSwitch.doSwitch(section);
-									if (!result) {
-										CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
-											query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
-											encounters, file.getName());
-										result = ccdSectionSwitch.doSwitch(section);
-									}
-									wb.getSheet(sheetIndex).flushRows();
-								}
-								if (shouldCountSection(section)) {
-									getSectionHash(
-										clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
-								}
 							}
 
 						}
-						clinicalDocument.eResource().unload();
-						currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
-					} catch (Exception exception) {
-						exception.printStackTrace();
-						errors.put(file, exception);
-					}
-				}
-				stopwatch.stop();
-			}
+						console.println("End Processing " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+					} else {
 
+						org.openhealthtools.mdht.uml.cda.ccd.EncountersSection es = query.getEObject(
+							org.openhealthtools.mdht.uml.cda.ccd.EncountersSection.class);
+
+						if (es != null) {
+							encounters.addAll(es.getEncounters());
+						}
+
+						appendToEncounterSheet(
+							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
+
+						for (Section section : clinicalDocument.getSections()) {
+							String sheetIndex = getSheet(clinicalDocument.eClass(), section.eClass(), splitOption);
+							if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
+								C32SectionSwitch sectionSwitch = new C32SectionSwitch(
+									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+									encounters, file.getName());
+								Boolean result = sectionSwitch.doSwitch(section);
+								if (!result) {
+									CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
+										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+										encounters, file.getName());
+									result = ccdSectionSwitch.doSwitch(section);
+								}
+								wb.getSheet(sheetIndex).flushRows();
+							}
+							if (shouldCountSection(section)) {
+								getSectionHash(
+									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+							}
+						}
+
+					}
+					clinicalDocument.eResource().unload();
+					currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
+				} catch (Exception exception) {
+					exception.printStackTrace();
+					errors.put(file, exception);
+				}
+			}
+			stopwatch.stop();
 		}
 
 		monitor.beginTask("Generate Spreadsheet", folder.members().length);
