@@ -119,7 +119,7 @@ public class PackageCDAHandler extends DeidentifyCDAHandler {
 			}
 			if (resource instanceof IFile && files.contains(resource.getName())) {
 				IFile file = (IFile) resource;
-				IFileStore fs = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+				org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 					documents.add(file);
 					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());

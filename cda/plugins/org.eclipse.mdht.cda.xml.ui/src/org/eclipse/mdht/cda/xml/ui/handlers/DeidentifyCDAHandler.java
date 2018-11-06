@@ -12,9 +12,11 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
@@ -306,8 +308,11 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-		ClinicalDocument clinicalDocument = CDAUtil.load(
-			new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
+		ClinicalDocument clinicalDocument = null;
+		try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
+			clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
+			is.close();
+		}
 
 		Query query = new Query(clinicalDocument);
 
@@ -575,7 +580,11 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 			int i = file.getName().lastIndexOf(file.getFileExtension());
 
 			IFile df = f.getFile(file.getName().substring(0, i - 1) + "_D" + ".xml");
-			CDAUtil.save(clinicalDocument, new FileOutputStream(df.getLocation().toOSString()));
+
+			try (OutputStream fileOut = Files.newOutputStream(Paths.get(df.getLocation().toOSString()))) {
+				CDAUtil.save(clinicalDocument, fileOut);
+			}
+
 		}
 
 		clinicalDocument.eResource().unload();
@@ -608,7 +617,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 			if (resource instanceof IFile) {
 				IFile file = (IFile) resource;
-				IFileStore fs = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
+				org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());
 				if ("XML".equalsIgnoreCase(file.getFileExtension())) {
 					documents.add(file);
 					IFileStore fs1 = org.eclipse.core.filesystem.EFS.getStore(file.getLocationURI());

@@ -13,14 +13,16 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,6 +42,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.streaming.SXSSFRow;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -70,6 +73,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.mdht.cda.xml.ui.Activator;
+import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Encounter;
@@ -78,6 +82,7 @@ import org.eclipse.mdht.uml.cda.InformationRecipient;
 import org.eclipse.mdht.uml.cda.PatientRole;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
+import org.eclipse.mdht.uml.cda.Supply;
 import org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferences;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
@@ -96,15 +101,25 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
 import org.openhealthtools.mdht.uml.cda.consol.EncountersSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
+import org.openhealthtools.mdht.uml.cda.consol.NutritionRecommendation;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityAct;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityEncounter;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityObservation;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityProcedure;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivitySubstanceAdministration;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivitySupply;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareSection;
+import org.openhealthtools.mdht.uml.cda.consol.PlanOfTreatmentSection2;
+import org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch;
 import org.openhealthtools.mdht.uml.cda.hitsp.HITSPPackage;
 
 import com.google.common.base.Stopwatch;
 
 public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
-	private static String SPLITBYDOCUMENT = "org.eclipse.mdht.cda.xml.ui.splitbydocument";
+	private static final String SPLITBYDOCUMENT = "org.eclipse.mdht.cda.xml.ui.splitbydocument";
 
-	private static String FILTER = "org.eclipse.mdht.cda.xml.ui.filter";
+	private static final String FILTER = "org.eclipse.mdht.cda.xml.ui.filter";
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -206,9 +221,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			getFilterHash(theSectionCache);
 			List<String> result = Arrays.asList(preferenceFilters.split("\\s*,\\s*"));
 			for (String r : result) {
-				if (!theSectionCache.containsKey(ConsolPackage.eINSTANCE.getEClassifier(r))) {
-					System.out.println("aaaa");
-				} else {
+				if (theSectionCache.containsKey(ConsolPackage.eINSTANCE.getEClassifier(r))) {
 					theSections.add((EClass) ConsolPackage.eINSTANCE.getEClassifier(r));
 				}
 			}
@@ -268,10 +281,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
 						project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 					}
-					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-					// ResultsDialog dlg = new ResultsDialog(window.getShell());
-					// dlg.create();
-					// dlg.open();
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 				}
 			}
 
@@ -289,7 +299,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	HashMap<Integer, EClass> documents = new HashMap<Integer, EClass>();
 
-	HashMap<Integer, HashMap<Integer, String>> sheets = new HashMap<Integer, HashMap<Integer, String>>();
+	HashMap<Integer, HashMap<String, String>> sheets = new HashMap<Integer, HashMap<String, String>>();
 
 	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> sectionbyfileByDocument = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
 
@@ -336,8 +346,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	}
 
-	String getSheet(EClass document, EClass sectionEClass, String splitOption) {
+	protected String getSheet(EClass document, String sectionIndex, String sheetName, String splitOption) {
 		int documentIndex;
+		// String sectionIndex = String.valueOf(sectionEClass.getClassifierID());
 
 		if (CONSOLIDATED.equals(splitOption)) {
 			documentIndex = 9909;
@@ -346,20 +357,20 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		}
 
 		if (!sheets.containsKey(documentIndex)) {
-			sheets.put(documentIndex, new HashMap<Integer, String>());
+			sheets.put(documentIndex, new HashMap<String, String>());
 		}
-		if (!sheets.get(documentIndex).containsKey(sectionEClass.getClassifierID())) {
+		if (!sheets.get(documentIndex).containsKey(sectionIndex)) {
 
-			String sheetName = sheetName(sectionEClass);
+			// String sheetName = sheetName(sectionEClass);
 			/*
 			 * get and create appears to not use the same length of string
 			 * So walk the collection and see if we have the previous version of section created first
 			 *
 			 *
 			 */
-			for (Integer akey : sheets.get(documentIndex).keySet()) {
+			for (String akey : sheets.get(documentIndex).keySet()) {
 				if (sheetName.startsWith(sheets.get(documentIndex).get(akey))) {
-					sheets.get(documentIndex).put(sectionEClass.getClassifierID(), sheets.get(documentIndex).get(akey));
+					sheets.get(documentIndex).put(sectionIndex, sheets.get(documentIndex).get(akey));
 					return sheets.get(documentIndex).get(akey);
 				}
 			}
@@ -367,11 +378,11 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			SXSSFWorkbook wb = getWorkbook(document, splitOption);
 
 			SXSSFSheet newSheet = wb.createSheet(sheetName);
-			newSheet.setRandomAccessWindowSize(50);
-			sheets.get(documentIndex).put(sectionEClass.getClassifierID(), newSheet.getSheetName());
+			newSheet.setRandomAccessWindowSize(10);
+			sheets.get(documentIndex).put(sectionIndex, newSheet.getSheetName());
 
 		}
-		return sheets.get(documentIndex).get(sectionEClass.getClassifierID());
+		return sheets.get(documentIndex).get(sectionIndex);
 
 	}
 
@@ -387,36 +398,39 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		if (!workbooks.containsKey(documentIndex)) {
 			int offset = 0;
-			SXSSFWorkbook wb = new SXSSFWorkbook(100);
 
-			wb.setCompressTempFiles(true);
+			SXSSFWorkbook wb = new SXSSFWorkbook(10);
 
 			SXSSFSheet documentsSheet = wb.createSheet("Documents");
+			documentsSheet.setRandomAccessWindowSize(10);
 
 			SXSSFSheet sectionsSheet = wb.createSheet("Sections");
+			sectionsSheet.setRandomAccessWindowSize(10);
 
 			SXSSFSheet encountersSheet = wb.createSheet("Encounters");
+			encountersSheet.setRandomAccessWindowSize(10);
 
 			SXSSFSheet demographicsSheet = wb.createSheet("Demographics");
+			demographicsSheet.setRandomAccessWindowSize(10);
 
 			sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
 
 			SXSSFRow row1 = null;
 			SXSSFRow row2 = documentsSheet.createRow(0);
-			offset = createPatientHeader(row1, row2, 0);
-			createPatientHeader2(row1, row2, offset);
+			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+			SpreadsheetSerializer.createPatientHeader2(row1, row2, offset);
 
 			row1 = null;
 			row2 = encountersSheet.createRow(0);
 
-			offset = createPatientHeader(row1, row2, 0);
-			createEncounterHeader(row1, row2, offset);
+			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+			SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
 
 			row1 = null;
 			row2 = demographicsSheet.createRow(0);
 
-			offset = createPatientHeader(row1, row2, 0);
-			offset = createDemographicsHeader(row1, row2, offset);
+			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+			offset = SpreadsheetSerializer.createDemographicsHeader(row1, row2, offset);
 
 			workbooks.put(documentIndex, wb);
 			documents.put(documentIndex, document);
@@ -508,13 +522,322 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		ConsolePlugin plugin = ConsolePlugin.getDefault();
 		IConsoleManager conMan = plugin.getConsoleManager();
 		org.eclipse.ui.console.IConsole[] existing = conMan.getConsoles();
-		for (int i = 0; i < existing.length; i++)
-			if (name.equals(existing[i].getName()))
+		for (int i = 0; i < existing.length; i++) {
+			if (name.equals(existing[i].getName())) {
 				return (MessageConsole) existing[i];
+			}
+		}
 		// no console found, so create a new one
 		MessageConsole myConsole = new MessageConsole(name, null);
 		conMan.addConsoles(new org.eclipse.ui.console.IConsole[] { myConsole });
 		return myConsole;
+	}
+
+	protected class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
+
+		private String splitOption;
+
+		private Query query;
+
+		private SXSSFWorkbook wb;
+
+		private DocumentMetadata documentMetadata;
+
+		private PatientRole patientRole;
+
+		private ServiceEvent serviceEvent;
+
+		private List<Encounter> encounters;
+
+		private IFile file;
+
+		/**
+		 * @param splitOption
+		 * @param query
+		 * @param wb
+		 * @param documentMetadata
+		 * @param patientRole
+		 * @param serviceEvent
+		 * @param encounters
+		 * @param file
+		 */
+		public ProcessSectionSwitch(String splitOption, Query query, SXSSFWorkbook wb,
+				DocumentMetadata documentMetadata, PatientRole patientRole, ServiceEvent serviceEvent,
+				List<Encounter> encounters, IFile file) {
+			super();
+			this.splitOption = splitOption;
+			this.query = query;
+			this.wb = wb;
+			this.documentMetadata = documentMetadata;
+			this.patientRole = patientRole;
+			this.serviceEvent = serviceEvent;
+			this.encounters = encounters;
+			this.file = file;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#casePlanOfCareSection(org.openhealthtools.mdht.uml.cda.consol.PlanOfCareSection)
+		 */
+		@Override
+		public Boolean casePlanOfCareSection(PlanOfCareSection section) {
+
+			section.getInstructionss();
+			for (PlanOfCareActivityAct act : section.getPlanOfCareActivityActs()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(ConsolPackage.eINSTANCE.getPlanOfCareActivityAct().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivityAct()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeProcedureActivityAct(row, offset, act);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, act.getSection(), file.getName());
+
+			}
+			for (PlanOfCareActivityEncounter encounter : section.getPlanOfCareActivityEncounters()) {
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getPlanOfCareActivityEncounter().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivityEncounter()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeEncounter(row, offset, encounter);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, encounter.getSection(), file.getName());
+			}
+			for (PlanOfCareActivityObservation observation : section.getPlanOfCareActivityObservations()) {
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getPlanOfCareActivityObservation().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivityObservation()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeObservation(row, offset, observation);
+				SpreadsheetSerializer.serializeSectionAndFileName(
+					row, offset, observation.getSection(), file.getName());
+			}
+			// section.getPlanOfCareActivityProcedures();
+
+			for (PlanOfCareActivityProcedure act : section.getPlanOfCareActivityProcedures()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getPlanOfCareActivityProcedure().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivityProcedure()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeProcedureActivityProcedure(row, offset, act);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, act.getSection(), file.getName());
+
+			}
+
+			for (PlanOfCareActivitySubstanceAdministration planOfCareActivitySubstanceAdministration : section.getPlanOfCareActivitySubstanceAdministrations()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getPlanOfCareActivitySubstanceAdministration().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivitySubstanceAdministration()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+						row1, row2, offset, "Plan Of Care Activity Substance Administration");
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeSubstanceAdministration(
+					row, offset, planOfCareActivitySubstanceAdministration);
+				SpreadsheetSerializer.serializeSectionAndFileName(
+					row, offset, planOfCareActivitySubstanceAdministration.getSection(), file.getName());
+			}
+
+			for (PlanOfCareActivitySupply supply : section.getPlanOfCareActivitySupplies()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getPlanOfCareActivitySupply().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivitySupply()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+						row1, row2, offset, "Plan Of Care Activity Substance Administration");
+					// emptySectionOffset.put(sheet, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = serializeSupply(row, offset, supply);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, supply.getSection(), file.getName());
+
+			}
+			if (section instanceof PlanOfTreatmentSection2) {
+				for (NutritionRecommendation nutritionRecommendation : ((PlanOfTreatmentSection2) section).getNutritionRecommendations()) {
+
+					String sheetIndex = getSheet(
+						section.getClinicalDocument().eClass(),
+						String.valueOf(
+							section.eClass().getClassifierID() + "." +
+									String.valueOf(
+										ConsolPackage.eINSTANCE.getNutritionRecommendation().getClassifierID())),
+						sheetName(ConsolPackage.eINSTANCE.getNutritionRecommendation()), splitOption);
+					Sheet sheet = wb.getSheet(sheetIndex);
+					if (sheet.getPhysicalNumberOfRows() == 0) {
+						Row row1 = null;
+						Row row2 = sheet.createRow(0);
+						int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+						offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+						offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+							row1, row2, offset, "Plan Of Care Activity Substance Administration");
+						// emptySectionOffset.put(sheet, offset);
+					}
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+					offset = serializeNutritionRecommendation(row, offset, nutritionRecommendation);
+					SpreadsheetSerializer.serializeSectionAndFileName(
+						row, offset, nutritionRecommendation.getSection(), file.getName());
+
+				}
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/**
+		 * @param row
+		 * @param offset
+		 * @param nutritionRecommendation
+		 * @return
+		 */
+		private int serializeNutritionRecommendation(Row row, int offset,
+				NutritionRecommendation nutritionRecommendation) {
+			return offset;
+		}
+
+		/**
+		 * @param row
+		 * @param offset
+		 * @param supply
+		 * @return
+		 */
+		private int serializeSupply(Row row, int offset, Supply supply) {
+
+			return offset;
+		}
+
+		/*
+		 * // * (non-Javadoc)
+		 * // *
+		 * // * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#casePlanOfTreatmentSection2(org.openhealthtools.mdht.uml.cda.consol.
+		 * // * PlanOfTreatmentSection2)
+		 * //
+		 */
+		// @Override
+		// public Boolean casePlanOfTreatmentSection2(PlanOfTreatmentSection2 section) {
+		//
+		// section.getConsolInstruction2s();
+		// section.getConsolPlannedAct2s();
+		// section.getConsolPlannedEncounter2s();
+		// section.getConsolPlannedMedicationActivity2s();
+		// section.getConsolPlannedObservation2s();
+		// section.getConsolPlannedProcedure2s();
+		// section.getConsolPlannedSupply2s();
+		// section.getNutritionRecommendations();
+		//
+		// return super.casePlanOfTreatmentSection2(section);
+		// }
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseSection(org.eclipse.mdht.uml.cda.Section)
+		 */
+		@Override
+		public Boolean caseSection(Section section) {
+
+			String sheetIndex = getSheet(
+				section.getClinicalDocument().eClass(), String.valueOf(section.eClass().getClassifierID()),
+				sheetName(section.eClass()), splitOption);
+			if (!(section instanceof EncountersSectionEntriesOptional)) {
+				SectionSwitch sectionSwitch = new SectionSwitch(
+					query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent, encounters,
+					file.getName());
+				sectionSwitch.doSwitch(section);
+				try {
+					wb.getSheet(sheetIndex).flushRows();
+				} catch (IOException e) {
+
+				}
+			}
+			if (shouldCountSection(section)) {
+				getSectionHash(section.getClinicalDocument().eClass().getClassifierID(), sheetIndex, splitOption).add(
+					file);
+
+			}
+			return Boolean.TRUE;
+		}
+
 	}
 
 	void processFolder2(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
@@ -628,12 +951,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
 					console.println("Start Load ");
-					ClinicalDocument clinicalDocument = CDAUtil.load(
-						new FileInputStream(cdaURI.toFileString()), ((ValidationHandler) null));
-					console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+
+					ClinicalDocument clinicalDocument = null;
+					try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
+						clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
+						console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+						is.close();
+					}
 
 					SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
-					HashMap<String, ArrayList<IFile>> ddsectionbyfile = sectionbyfileByDocument.get(
+					sectionbyfileByDocument.get(
 						clinicalDocument.eClass());
 
 					SXSSFSheet documentsSheet = wb.getSheet("Documents");
@@ -653,7 +980,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					ServiceEvent serviceEvent = query.getEObject(ServiceEvent.class);
 					InformationRecipient ir = query.getEObject(InformationRecipient.class);
 					InFulfillmentOf iffo = query.getEObject(InFulfillmentOf.class);
-					DocumentMetadata documentMetadata = appendToPatientSheet(
+					DocumentMetadata documentMetadata = SpreadsheetSerializer.appendToPatientSheet(
 						query, documentsSheet, patientRole, ir, iffo, file.getName());
 
 					appendToDemographicsSheet(query, demographicsSheet, documentMetadata, patientRole);
@@ -668,19 +995,22 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							encounters.addAll(es.getEncounterActivitiess());
 						}
 
-						appendToEncounterSheet(
+						SpreadsheetSerializer.appendToEncounterSheet(
 							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
+
+						ProcessSectionSwitch pss = new ProcessSectionSwitch(
+							splitOption, query, wb, documentMetadata, patientRole, serviceEvent, encounters, file);
 
 						for (Section section : clinicalDocument.getSections()) {
 
-							EClass theSectionEClass = section.eClass();
+							// EClass theSectionEClass = section.eClass();
 
 							if (!sectionFilter.isEmpty() && !sectionFilter.contains(section.eClass())) {
 
 								boolean found = false;
 								for (EClass sectionClass : sectionFilter) {
 									if (theSectionCache.get(sectionClass).contains(section.eClass())) {
-										theSectionEClass = sectionClass;
+										// theSectionEClass = sectionClass;
 										found = true;
 										break;
 									}
@@ -691,25 +1021,23 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								}
 							}
 
-							String sheetIndex = getSheet(clinicalDocument.eClass(), theSectionEClass, splitOption);
-							if (!(section instanceof EncountersSectionEntriesOptional)) {
-								SectionSwitch sectionSwitch = new SectionSwitch(
-									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
-									encounters, file.getName());
-								sectionSwitch.doSwitch(section);
-								wb.getSheet(sheetIndex).flushRows();
-							}
-							if (section.getText() != null && section.getText().getText() != null) {
-								if (section.getText().getText().length() < 50) {
+							pss.doSwitch(section);
 
-								}
-							}
-
-							if (shouldCountSection(section)) {
-								getSectionHash(
-									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
-
-							}
+							// String sheetIndex = getSheet(
+							// clinicalDocument.eClass(), String.valueOf(theSectionEClass.getClassifierID()),
+							// sheetName(theSectionEClass), splitOption);
+							// if (!(section instanceof EncountersSectionEntriesOptional)) {
+							// SectionSwitch sectionSwitch = new SectionSwitch(
+							// query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+							// encounters, file.getName());
+							// sectionSwitch.doSwitch(section);
+							// wb.getSheet(sheetIndex).flushRows();
+							// }
+							// if (shouldCountSection(section)) {
+							// getSectionHash(
+							// clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);
+							//
+							// }
 
 						}
 						console.println("End Processing " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
@@ -722,11 +1050,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							encounters.addAll(es.getEncounters());
 						}
 
-						appendToEncounterSheet(
+						SpreadsheetSerializer.appendToEncounterSheet(
 							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 						for (Section section : clinicalDocument.getSections()) {
-							String sheetIndex = getSheet(clinicalDocument.eClass(), section.eClass(), splitOption);
+							String sheetIndex = getSheet(
+								clinicalDocument.eClass(), String.valueOf(section.eClass().getClassifierID()),
+								sheetName(section.eClass()), splitOption);
 							if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
 								C32SectionSwitch sectionSwitch = new C32SectionSwitch(
 									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
@@ -788,7 +1118,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			offset = 0;
 			// row1.createCell(offset++).setCellValue("File Name");
 			// row1.createCell(offset++).setCellValue("Document");
-			offset = createDocumentMedadataHeadder(row1, offset++);
+			offset = SpreadsheetSerializer.createDocumentMedadataHeadder(row1, offset++);
 			int metadataoffset = offset;
 
 			// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
@@ -823,16 +1153,14 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 			// CellStyle boldstyle = wb.createCellStyle();
 
-			// boldstyle.setFont(boldFont);
-			int lastRow = 0;
 			for (IFile file : files) {
 				if (getDMHash(eClass, splitOption).containsKey(file)) {
 					offset = 0;
 					row1 = sectionsSheet.createRow(sectionsSheet.getPhysicalNumberOfRows());
 					// row1.createCell(offset++).setCellValue(file.getName());
 					DocumentMetadata documentMetadata = getDMHash(eClass, splitOption).get(file);
-					offset = serializeDocumentMetadata(row1, offset, documentMetadata);
-					lastRow = row1.getRowNum();
+					offset = SpreadsheetSerializer.serializeDocumentMetadata(row1, offset, documentMetadata);
+					row1.getRowNum();
 					for (String sectionclass : sortedKeys) {
 						if (sectionbyfile.get(sectionclass).contains(file)) {
 							Cell cell = row1.createCell(offset++);
@@ -859,7 +1187,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			// }
 
 			String fileLocation = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
-					DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+					CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
 					getFileName(eClass, splitOption) + "_SA.xlsx";
 			File theFile = new File(fileLocation);
 
@@ -870,29 +1198,36 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			}
 
 			monitor.subTask(
-				"Serializing  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+				"Serializing  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+						"_SA.xlsx");
 
 			console.println("Start Saving " + currentProcessingTime);
-			FileOutputStream fileOut = new FileOutputStream(fileLocation);
-			wb.write(fileOut);
-			// fileOut.close();
-			// wb.close();
-			// wb.dispose();
+
+			try (OutputStream fileOut = Files.newOutputStream(Paths.get(fileLocation))) {
+				wb.write(fileOut);
+				fileOut.close();
+				wb.close();
+				wb.dispose();
+			}
+
+			// FileOutputStream = new FileOutputStream();
+
 			console.println("End Saving " + currentProcessingTime);
 
 			monitor.subTask(
-				"Flushing Memory  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
-						"_SA.xlsx");
+				"Flushing Memory  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" +
+						folder.getName().toUpperCase() + "_SA.xlsx");
 
 			monitor.subTask(
-				"Reloading  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "_SA.xlsx");
+				"Reloading  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+						"_SA.xlsx");
 
 			if (false && folder.members().length < 50) {
 				format(fileLocation, monitor);
 			}
 			monitor.subTask(
-				"Completed Saving  " + DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
-						"_SA.xlsx");
+				"Completed Saving  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" +
+						folder.getName().toUpperCase() + "_SA.xlsx");
 
 		}
 
@@ -911,7 +1246,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-		int offset = serializePatient2(row, 0, documentMetadata, patientRole);
+		int offset = SpreadsheetSerializer.serializePatient2(row, 0, documentMetadata, patientRole);
 		/*
 		 * race
 		 * gender
@@ -924,7 +1259,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		 * language
 		 * phone #
 		 */
-		serializeSectionAndFileName(row, offset, null, documentMetadata.fileName);
+		SpreadsheetSerializer.serializeSectionAndFileName(row, offset, null, documentMetadata.fileName);
 
 	}
 
