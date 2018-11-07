@@ -301,13 +301,15 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	HashMap<Integer, HashMap<String, String>> sheets = new HashMap<Integer, HashMap<String, String>>();
 
-	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> sectionbyfileByDocument = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
+	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> sectionbyfileByDocumentxxx = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
 
 	HashMap<Integer, HashMap<IFile, DocumentMetadata>> documentsbyfile = new HashMap<Integer, HashMap<IFile, DocumentMetadata>>();
 
 	protected HashMap<Integer, HashMap<String, ArrayList<IFile>>> documentsbysectionbyfile = new HashMap<Integer, HashMap<String, ArrayList<IFile>>>();
 
 	private static final String CONSOLIDATED = "CONSOLIDATED";
+
+	int fileCount = 0;
 
 	ArrayList<IFile> getSectionHash(int document, String sheetIndex, String splitOption) {
 		int documentIndex;
@@ -319,10 +321,10 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		}
 
 		if (!documentsbysectionbyfile.containsKey(documentIndex)) {
-			documentsbysectionbyfile.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
+			documentsbysectionbyfile.put(documentIndex, new HashMap<String, ArrayList<IFile>>(100));
 		}
 		if (!documentsbysectionbyfile.get(documentIndex).containsKey(sheetIndex)) {
-			documentsbysectionbyfile.get(documentIndex).put(sheetIndex, new ArrayList<IFile>());
+			documentsbysectionbyfile.get(documentIndex).put(sheetIndex, new ArrayList<IFile>(fileCount));
 		}
 		ArrayList<IFile> result = documentsbysectionbyfile.get(documentIndex).get(sheetIndex);
 
@@ -413,7 +415,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			SXSSFSheet demographicsSheet = wb.createSheet("Demographics");
 			demographicsSheet.setRandomAccessWindowSize(10);
 
-			sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
+			// sectionbyfileByDocument.put(documentIndex, new HashMap<String, ArrayList<IFile>>());
 
 			SXSSFRow row1 = null;
 			SXSSFRow row2 = documentsSheet.createRow(0);
@@ -867,7 +869,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		documentDateStyles.clear();
 		sheets.clear();
 
-		sectionbyfileByDocument.clear();
+		// sectionbyfileByDocument.clear();
 		documentsbysectionbyfile.clear();
 		documentsbyfile.clear();
 
@@ -902,13 +904,15 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			}
 		};
 
-		ArrayList<IFile> documents = new ArrayList<IFile>();
+		ArrayList<IFile> documents = new ArrayList<IFile>(folder.members().length + 50);
 
 		for (IResource resource : folder.members()) {
 			if (resource instanceof IFile) {
 				documents.add((IFile) resource);
 			}
 		}
+
+		fileCount = documents.size() + 50;
 
 		Collections.sort(documents, c);
 
@@ -960,8 +964,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					}
 
 					SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
-					sectionbyfileByDocument.get(
-						clinicalDocument.eClass());
+					// sectionbyfileByDocument.get(clinicalDocument.eClass());
 
 					SXSSFSheet documentsSheet = wb.getSheet("Documents");
 					SXSSFSheet demographicsSheet = wb.getSheet("Demographics");
@@ -1079,10 +1082,15 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					}
 					clinicalDocument.eResource().unload();
 					currentProcessingTime += stopwatch.elapsed(TimeUnit.MILLISECONDS);
+					/*
+					 * Setting to null to encourage GC
+					 */
+					clinicalDocument = null;
 				} catch (Exception exception) {
 					exception.printStackTrace();
 					errors.put(file, exception);
 				}
+
 			}
 			stopwatch.stop();
 		}
