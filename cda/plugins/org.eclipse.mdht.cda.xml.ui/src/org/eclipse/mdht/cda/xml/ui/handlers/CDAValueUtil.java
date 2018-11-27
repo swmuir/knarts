@@ -207,8 +207,18 @@ public class CDAValueUtil {
 
 	static Date getDate(SimpleDateFormat format, String value) {
 		try {
-			return format.parse(value);
+			if (value != null) {
+				// Check to see if the lengths are similar to limit exceptions
+				int l = value.length();
+				if (value.contains("-") || value.contains("+")) {
+					l = l - 4;
+				}
+				if (l == format.toPattern().length()) {
+					return format.parse(value);
+				}
+			}
 		} catch (Exception ex) {
+			System.out.println("boom" + value + " " + format.toPattern());
 		}
 		return null;
 	}

@@ -475,7 +475,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return false;
 	}
 
-	static String getMemoryUssage() {
+	long previousHeap = 0;
+
+	String getMemoryUssage() {
 		// Map<String, String> memoryMap = new HashMap<>();
 		StringBuffer sb = new StringBuffer();
 
@@ -490,28 +492,32 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
 		MemoryUsage memHeapUsage = memBean.getHeapMemoryUsage();
 		MemoryUsage nonHeapUsage = memBean.getNonHeapMemoryUsage();
-		sb.append("heapInit");
+		sb.append("heapInit = ");
 		sb.append(String.valueOf(memHeapUsage.getInit()));
 		sb.append(System.lineSeparator());
-		sb.append("heapMax");
+		sb.append("heapMax = ");
 		sb.append(String.valueOf(memHeapUsage.getMax()));
 		sb.append(System.lineSeparator());
-		sb.append("heapCommit");
+		sb.append("heapCommit = ");
 		sb.append(String.valueOf(memHeapUsage.getCommitted()));
 		sb.append(System.lineSeparator());
-		sb.append("heapUsed");
+		sb.append("heapUsed = ");
 		sb.append(String.valueOf(memHeapUsage.getUsed()));
 		sb.append(System.lineSeparator());
-		sb.append("nonHeapInit");
+		sb.append("heapDelta = ");
+		sb.append(String.valueOf(memHeapUsage.getUsed() - previousHeap));
+		previousHeap = memHeapUsage.getUsed();
+		sb.append(System.lineSeparator());
+		sb.append("nonHeapInit = ");
 		sb.append(String.valueOf(nonHeapUsage.getInit()));
 		sb.append(System.lineSeparator());
-		sb.append("nonHeapMax");
+		sb.append("nonHeapMax = ");
 		sb.append(String.valueOf(nonHeapUsage.getMax()));
 		sb.append(System.lineSeparator());
-		sb.append("nonHeapCommit");
+		sb.append("nonHeapCommit = ");
 		sb.append(String.valueOf(nonHeapUsage.getCommitted()));
 		sb.append(System.lineSeparator());
-		sb.append("nonHeapUsed");
+		sb.append("nonHeapUsed ");
 		sb.append(String.valueOf(nonHeapUsage.getUsed()));
 		sb.append(System.lineSeparator());
 
@@ -687,9 +693,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				String sheetIndex = getSheet(
 					section.getClinicalDocument().eClass(),
 					String.valueOf(
-						section.eClass().getClassifierID() + "." +
-								String.valueOf(
-									ConsolPackage.eINSTANCE.getPlanOfCareActivitySubstanceAdministration().getClassifierID())),
+						section.eClass().getClassifierID() + "." + String.valueOf(
+							ConsolPackage.eINSTANCE.getPlanOfCareActivitySubstanceAdministration().getClassifierID())),
 					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivitySubstanceAdministration()), splitOption);
 				Sheet sheet = wb.getSheet(sheetIndex);
 				if (sheet.getPhysicalNumberOfRows() == 0) {
@@ -1024,7 +1029,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 								}
 							}
 
+							console.println("Start Section " + section.eClass().getName());
 							pss.doSwitch(section);
+							console.println("End Section " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 
 							// String sheetIndex = getSheet(
 							// clinicalDocument.eClass(), String.valueOf(theSectionEClass.getClassifierID()),
