@@ -92,7 +92,6 @@ import org.openhealthtools.mdht.uml.cda.consol.MedicationActivity2;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationFreeTextSig;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationsAdministeredSection;
 import org.openhealthtools.mdht.uml.cda.consol.MedicationsSectionEntriesOptional;
-import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareSection;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemConcernAct;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ProblemSectionEntriesOptional;
@@ -988,42 +987,6 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 			}
 			// TODO Auto-generated method stub
 			return super.caseFunctionalStatusSection2(section);
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see
-		 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#casePlanOfCareSection(org.openhealthtools.mdht.uml.cda.consol.PlanOfCareSection)
-		 */
-		@Override
-		public Boolean casePlanOfCareSection(PlanOfCareSection section) {
-
-			// if (!section.getPlanOfCareActivityActs().isEmpty()) {
-			//
-			//
-			// section.getPlanOfCareActivityEncounters();
-			// section.getPlanOfCareActivityObservations();
-			// section.getPlanOfCareActivityProcedures();
-			// section.getPlanOfCareActivitySubstanceAdministrations();
-			// section.getPlanOfCareActivitySupplies();
-			//
-			// if (sheet.getPhysicalNumberOfRows() == 0) {
-			// Row row1 = null;
-			// Row row2 = sheet.createRow(0);
-			//
-			// int offset = createPatientHeader(row1, row2, 0);
-			// offset = createEncounterIDHeader(row1, row2, offset);
-			// offset = createVitalSignsHeader(row1, row2, offset);
-			// emptySectionOffset.put(sheet, offset);
-			// }
-			//
-			// appendToCarePlanSheet(
-			// query, sheet, documentMetadata, patientRole, serviceEvent, section.getOrganizers(), encounters,
-			// fileName);
-			// return Boolean.TRUE;
-
-			return super.casePlanOfCareSection(section);
 		}
 
 		/*

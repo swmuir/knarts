@@ -103,9 +103,10 @@ public class SpreadsheetSerializer {
 		}
 		cell.setCellValue(sb.toString());
 		if (!GenerateCDABaseHandler.omitDOB) {
-			offset = SpreadsheetSerializer.serializePatientDOB(row, offset, patientRole, (patientRole != null
-					? patientRole.getPatient()
-					: null));
+			offset = SpreadsheetSerializer.serializePatientDOB(
+				row, offset, patientRole, (patientRole != null
+						? patientRole.getPatient()
+						: null));
 		}
 		;
 
@@ -1970,6 +1971,304 @@ public class SpreadsheetSerializer {
 		SpreadsheetSerializer.serializeSectionAndFileName(row, offset, null, fileName);
 
 		return documentMetadata;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param act
+	 * @return
+	 */
+	public static int serializeClinicalStatement(Row row, int offset, Act act) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : act.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(act.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = SpreadsheetSerializer.appendCode(row, offset, act.getSection(), act.getCode(), act.getText());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : act.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + CDAValueUtil.getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = CDAValueUtil.getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param act
+	 * @return
+	 */
+	public static int serializeClinicalStatement(Row row, int offset, Observation observation) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : observation.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(observation.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = SpreadsheetSerializer.appendCode(
+			row, offset, observation.getSection(), observation.getCode(), observation.getText());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : observation.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + CDAValueUtil.getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = CDAValueUtil.getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	public static int serializeClinicalStatement(Row row, int offset, SubstanceAdministration substanceAdministration) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : substanceAdministration.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		String time = "";
+		for (SXCM_TS t : substanceAdministration.getEffectiveTimes()) {
+
+			if (!StringUtils.isEmpty(t.getValue())) {
+				time = t.getValue();
+			}
+
+			if (t instanceof IVL_TS) {
+
+				time = CDAValueUtil.getValueAsString((IVL_TS) t);
+
+			}
+
+		}
+
+		Date d = CDAValueUtil.getDate(time);
+
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue(time);
+		}
+
+		// Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(substanceAdministration.getEffectiveTimes().get(0)));
+		// if (d != null) {
+		// row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		// } else {
+		// row.createCell(offset++).setCellValue("");
+		// }
+
+		offset = SpreadsheetSerializer.appendCode(
+			row, offset, substanceAdministration.getSection(), substanceAdministration.getCode(),
+			substanceAdministration.getText());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : substanceAdministration.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + CDAValueUtil.getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = CDAValueUtil.getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param procedure
+	 * @return
+	 */
+	public static int serializeClinicalStatement(Row row, int offset, Procedure procedure) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : procedure.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(procedure.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = SpreadsheetSerializer.appendCode(
+			row, offset, procedure.getSection(), procedure.getCode(), procedure.getText());
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : procedure.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + CDAValueUtil.getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = CDAValueUtil.getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param organizer
+	 * @return
+	 */
+	public static int serializeClinicalStatement(Row row, int offset, Organizer organizer) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : organizer.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(organizer.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = SpreadsheetSerializer.appendCode(row, offset, organizer.getSection(), organizer.getCode(), null);
+
+		String organizationValue = "";
+		String personValue = "";
+		for (Performer2 performer : organizer.getPerformers()) {
+
+			if (performer.getAssignedEntity() != null) {
+				for (Organization organization : performer.getAssignedEntity().getRepresentedOrganizations()) {
+					for (ON on : organization.getNames()) {
+						organizationValue = organizationValue + CDAValueUtil.getValues(on);
+					}
+				}
+				if (performer.getAssignedEntity().getAssignedPerson() != null) {
+					for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
+						personValue = CDAValueUtil.getValues(pn);
+					}
+				}
+			}
+
+		}
+
+		row.createCell(offset++).setCellValue(personValue);
+
+		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	/**
+	 * @param row1
+	 * @param row2
+	 * @param offset
+	 * @return
+	 */
+	public static int createClinicalStatmentHeader(Row row1, Row row2, int offset) {
+		row2.createCell(offset++).setCellValue("ID");
+		row2.createCell(offset++).setCellValue("Date");
+		offset = SpreadsheetSerializer.addCodeHeader(row2, offset, "Code");
+		row2.createCell(offset++).setCellValue("Performer");
+		row2.createCell(offset++).setCellValue("Organization");
+		row2.createCell(offset++).setCellValue("Section Title");
+		row2.createCell(offset++).setCellValue("File Name");
+		return offset;
 	}
 
 }

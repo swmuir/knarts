@@ -77,6 +77,7 @@ import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Encounter;
+import org.eclipse.mdht.uml.cda.Entry;
 import org.eclipse.mdht.uml.cda.InFulfillmentOf;
 import org.eclipse.mdht.uml.cda.InformationRecipient;
 import org.eclipse.mdht.uml.cda.PatientRole;
@@ -101,6 +102,11 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.openhealthtools.mdht.uml.cda.consol.ConsolPackage;
 import org.openhealthtools.mdht.uml.cda.consol.EncountersSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
+import org.openhealthtools.mdht.uml.cda.consol.HandoffCommunicationParticipants;
+import org.openhealthtools.mdht.uml.cda.consol.HealthConcernAct;
+import org.openhealthtools.mdht.uml.cda.consol.HealthConcernsSection;
+import org.openhealthtools.mdht.uml.cda.consol.HealthStatusObservation2;
+import org.openhealthtools.mdht.uml.cda.consol.InterventionsSection2;
 import org.openhealthtools.mdht.uml.cda.consol.NutritionRecommendation;
 import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityAct;
 import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivityEncounter;
@@ -110,6 +116,7 @@ import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivitySubstanceAdmini
 import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareActivitySupply;
 import org.openhealthtools.mdht.uml.cda.consol.PlanOfCareSection;
 import org.openhealthtools.mdht.uml.cda.consol.PlanOfTreatmentSection2;
+import org.openhealthtools.mdht.uml.cda.consol.PlannedInterventionAct;
 import org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch;
 import org.openhealthtools.mdht.uml.cda.hitsp.HITSPPackage;
 
@@ -581,6 +588,182 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			this.serviceEvent = serviceEvent;
 			this.encounters = encounters;
 			this.file = file;
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseInterventionsSection(org.openhealthtools.mdht.uml.cda.consol.InterventionsSection)
+		 */
+		@Override
+		public Boolean caseInterventionsSection2(InterventionsSection2 section) {
+
+			processClinicalStatements(section);
+
+			for (PlannedInterventionAct act : section.getPlannedInterventionActs()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(ConsolPackage.eINSTANCE.getPlannedInterventionAct().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlannedInterventionAct()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeProcedureActivityAct(row, offset, act);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, act.getSection(), file.getName());
+
+			}
+
+			for (HandoffCommunicationParticipants act : section.getHandoffCommunications()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getHandoffCommunicationParticipants().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getHandoffCommunicationParticipants()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeProcedureActivityAct(row, offset, act);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, act.getSection(), file.getName());
+
+			}
+
+			return Boolean.TRUE;
+		}
+
+		/*
+		 * (non-Javadoc)
+		 *
+		 * @see
+		 * org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseHealthConcernsSection(org.openhealthtools.mdht.uml.cda.consol.HealthConcernsSection)
+		 */
+		@Override
+		public Boolean caseHealthConcernsSection(HealthConcernsSection section) {
+
+			processClinicalStatements(section);
+
+			for (HealthConcernAct act : section.getHealthConcernActs()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(ConsolPackage.eINSTANCE.getHealthConcernAct().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getHealthConcernAct()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeProcedureActivityAct(row, offset, act);
+				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, act.getSection(), file.getName());
+
+			}
+
+			for (HealthStatusObservation2 observation : section.getHealthStatusObservation2s()) {
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(),
+					String.valueOf(
+						section.eClass().getClassifierID() + "." +
+								String.valueOf(
+									ConsolPackage.eINSTANCE.getHealthStatusObservation2().getClassifierID())),
+					sheetName(ConsolPackage.eINSTANCE.getPlanOfCareActivityObservation()), splitOption);
+				Sheet sheet = wb.getSheet(sheetIndex);
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null;
+					Row row2 = sheet.createRow(0);
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				}
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+				offset = SpreadsheetSerializer.serializeObservation(row, offset, observation);
+				SpreadsheetSerializer.serializeSectionAndFileName(
+					row, offset, observation.getSection(), file.getName());
+			}
+
+			return Boolean.TRUE;
+		}
+
+		private void processClinicalStatements(Section section) {
+			for (Entry entry : section.getEntries()) {
+
+				String sheetIndex = getSheet(
+					section.getClinicalDocument().eClass(), String.valueOf(section.eClass().getClassifierID()),
+					sheetName(section.eClass()), splitOption);
+
+				Sheet sheet = wb.getSheet(sheetIndex);
+
+				if (sheet.getPhysicalNumberOfRows() == 0) {
+					Row row1 = null; // sheet.createRow(0);
+					Row row2 = sheet.createRow(0);
+
+					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+					offset = SpreadsheetSerializer.createClinicalStatmentHeader(row1, row2, offset);
+				}
+
+				if (entry.getAct() != null) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+					offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getAct());
+					SpreadsheetSerializer.serializeSectionAndFileName(
+						row, offset, entry.getAct().getSection(), file.getName());
+				}
+
+				if (entry.getObservation() != null) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+					offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getObservation());
+					SpreadsheetSerializer.serializeSectionAndFileName(
+						row, offset, entry.getObservation().getSection(), file.getName());
+				}
+
+				if (entry.getProcedure() != null) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+					offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getProcedure());
+					SpreadsheetSerializer.serializeSectionAndFileName(
+						row, offset, entry.getObservation().getSection(), file.getName());
+				}
+
+				if (entry.getOrganizer() != null) {
+					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+					int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
+					offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getOrganizer());
+					SpreadsheetSerializer.serializeSectionAndFileName(
+						row, offset, entry.getObservation().getSection(), file.getName());
+				}
+
+			}
+
 		}
 
 		/*
@@ -592,7 +775,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		@Override
 		public Boolean casePlanOfCareSection(PlanOfCareSection section) {
 
-			section.getInstructionss();
+			processClinicalStatements(section);
+
 			for (PlanOfCareActivityAct act : section.getPlanOfCareActivityActs()) {
 
 				String sheetIndex = getSheet(
@@ -608,7 +792,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
 					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
 					offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
-					// emptySectionOffset.put(sheet, offset);
+
 				}
 				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 				int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -661,7 +845,6 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				SpreadsheetSerializer.serializeSectionAndFileName(
 					row, offset, observation.getSection(), file.getName());
 			}
-			// section.getPlanOfCareActivityProcedures();
 
 			for (PlanOfCareActivityProcedure act : section.getPlanOfCareActivityProcedures()) {
 
