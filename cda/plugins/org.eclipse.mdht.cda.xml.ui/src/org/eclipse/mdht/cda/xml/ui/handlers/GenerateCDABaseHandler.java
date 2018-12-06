@@ -83,7 +83,6 @@ import org.eclipse.swt.widgets.TableItem;
 import org.openhealthtools.mdht.uml.cda.consol.AllergiesSectionEntriesOptional;
 import org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct;
 import org.openhealthtools.mdht.uml.cda.consol.FamilyHistorySection;
-import org.openhealthtools.mdht.uml.cda.consol.FunctionalStatusSection2;
 import org.openhealthtools.mdht.uml.cda.consol.GoalsSection;
 import org.openhealthtools.mdht.uml.cda.consol.HistoryOfPastIllnessSection;
 import org.openhealthtools.mdht.uml.cda.consol.ImmunizationsSectionEntriesOptional;
@@ -978,16 +977,18 @@ public abstract class GenerateCDABaseHandler extends AbstractHandler {
 		 * @see org.openhealthtools.mdht.uml.cda.consol.util.ConsolSwitch#caseFunctionalStatusSection2(org.openhealthtools.mdht.uml.cda.consol.
 		 * FunctionalStatusSection2)
 		 */
-		@Override
-		public Boolean caseFunctionalStatusSection2(FunctionalStatusSection2 section) {
-
-			if (!section.getFunctionalStatusResultObservations().isEmpty()) {
-
-				return Boolean.TRUE;
-			}
-			// TODO Auto-generated method stub
-			return super.caseFunctionalStatusSection2(section);
-		}
+		// @Override
+		// public Boolean caseFunctionalStatusSection2(FunctionalStatusSection2 section) {
+		//
+		//// section.
+		//
+		// if (!section.getFunctionalStatusResultObservations().isEmpty()) {
+		//
+		// return Boolean.TRUE;
+		// }
+		// // TODO Auto-generated method stub
+		// return super.caseFunctionalStatusSection2(section);
+		// }
 
 		/*
 		 * (non-Javadoc)

@@ -53,6 +53,7 @@ import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
 import org.eclipse.mdht.uml.cda.Specimen;
 import org.eclipse.mdht.uml.cda.SubstanceAdministration;
+import org.eclipse.mdht.uml.cda.Supply;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.cda.util.ValidationResult;
@@ -2250,6 +2251,60 @@ public class SpreadsheetSerializer {
 		row.createCell(offset++).setCellValue(personValue);
 
 		row.createCell(offset++).setCellValue(organizationValue);
+
+		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param supply
+	 * @return
+	 */
+	public static int serializeSupply(Row row, int offset, Supply supply) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : supply.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		offset = SpreadsheetSerializer.appendCode(row, offset, supply.getSection(), supply.getCode(), supply.getText());
+
+		if (supply.getStatusCode() != null && !StringUtils.isEmpty(supply.getStatusCode().getCode())) {
+			row.createCell(offset++).setCellValue(supply.getStatusCode().getCode());
+		} else {
+			row.createCell(offset++).setCellValue("Missing Status");
+		}
+
+		String time = "";
+		for (SXCM_TS t : supply.getEffectiveTimes()) {
+
+			if (!StringUtils.isEmpty(t.getValue())) {
+				time = t.getValue();
+			}
+
+			if (t instanceof IVL_TS) {
+
+				time = CDAValueUtil.getValueAsString((IVL_TS) t);
+
+			}
+
+		}
+
+		Date d = CDAValueUtil.getDate(time);
+
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue(time);
+		}
+
+		// row.createCell(offset++).setCellValue(GenerateCDABaseHandler.sigSwitch.doSwitch(substanceAdministration));
+		offset = SpreadsheetSerializer.appendOrganizationAndAuthor(row, offset, supply.getAuthors());
 
 		return offset;
 	}
