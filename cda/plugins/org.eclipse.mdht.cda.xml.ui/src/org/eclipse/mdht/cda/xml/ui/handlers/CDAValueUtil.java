@@ -289,14 +289,14 @@ public class CDAValueUtil {
 	}
 
 	static CellStyle getDocumentDateStyle(Sheet sheet) {
-		if (!GenerateCDABaseHandler.documentDateStyles.containsKey(sheet)) {
+		if (!GenerateCDADataHandler.documentDateStyles.containsKey(sheet)) {
 			CellStyle documentDateStyle = sheet.getWorkbook().createCellStyle();
 			CreationHelper createHelper = sheet.getWorkbook().getCreationHelper();
 			documentDateStyle.setDataFormat(createHelper.createDataFormat().getFormat("mm/dd/yyyy hh:mm AM/PM"));
-			GenerateCDABaseHandler.documentDateStyles.put(sheet, documentDateStyle);
+			GenerateCDADataHandler.documentDateStyles.put(sheet, documentDateStyle);
 		}
 
-		return GenerateCDABaseHandler.documentDateStyles.get(sheet);
+		return GenerateCDADataHandler.documentDateStyles.get(sheet);
 	}
 
 	static String getKey(II ii) {
@@ -346,7 +346,7 @@ public class CDAValueUtil {
 	// static String getKey1234(EN pn) {
 	//
 	// if (pn.getText() != null && pn.getText().trim().length() > 0) {
-	// GenerateCDABaseHandler.names.add(pn.getText());
+	// GenerateCDADataHandler.names.add(pn.getText());
 	// return pn.getText();
 	// }
 	//
@@ -357,7 +357,7 @@ public class CDAValueUtil {
 	// if (b.length() > 0) {
 	// b.append(" ");
 	// }
-	// GenerateCDABaseHandler.names.add(e.getText());
+	// GenerateCDADataHandler.names.add(e.getText());
 	// b.append(e.getText());
 	// }
 	//
@@ -365,7 +365,7 @@ public class CDAValueUtil {
 	// if (b.length() > 0) {
 	// b.append(" ");
 	// }
-	// GenerateCDABaseHandler.names.add(e.getText());
+	// GenerateCDADataHandler.names.add(e.getText());
 	// b.append(e.getText());
 	// }
 	//
@@ -373,7 +373,7 @@ public class CDAValueUtil {
 	// if (b.length() > 0) {
 	// b.append(" ");
 	// }
-	// GenerateCDABaseHandler.names.add(e.getText());
+	// GenerateCDADataHandler.names.add(e.getText());
 	// b.append(e.getText());
 	// }
 	//
@@ -381,7 +381,7 @@ public class CDAValueUtil {
 	// if (b.length() > 0) {
 	// b.append(" ");
 	// }
-	// GenerateCDABaseHandler.names.add(e.getText());
+	// GenerateCDADataHandler.names.add(e.getText());
 	// b.append(e.getText());
 	// }
 	//
@@ -392,7 +392,7 @@ public class CDAValueUtil {
 	static String getNarrativeText(String htmlString) throws IOException {
 		Reader reader = null;
 		reader = new StringReader(htmlString);
-		GenerateCDABaseHandler.ExtractText extractText = new GenerateCDABaseHandler.ExtractText();
+		GenerateCDADataHandler.ExtractText extractText = new GenerateCDADataHandler.ExtractText();
 		ParserDelegator parserDelegator = new ParserDelegator();
 		parserDelegator.parse(reader, extractText, true);
 		return extractText.getText();
@@ -414,7 +414,7 @@ public class CDAValueUtil {
 		return sb.toString();
 	}
 
-	static String getValue(List<Author> authors, GenerateCDABaseHandler.PorO poro) {
+	static String getValue(List<Author> authors, GenerateCDADataHandler.PorO poro) {
 
 		String result = "";
 		String authorId = "";
@@ -429,7 +429,7 @@ public class CDAValueUtil {
 			if (a.getAssignedAuthor() != null) {
 				AssignedAuthor aa = a.getAssignedAuthor();
 
-				if (GenerateCDABaseHandler.PorO.ORGANIZATION.equals(poro)) {
+				if (GenerateCDADataHandler.PorO.ORGANIZATION.equals(poro)) {
 					if (aa.getRepresentedOrganization() != null) {
 						for (ON on : aa.getRepresentedOrganization().getNames()) {
 							result = getValues(on);
@@ -437,7 +437,7 @@ public class CDAValueUtil {
 					}
 				}
 
-				if (GenerateCDABaseHandler.PorO.PERSON.equals(poro)) {
+				if (GenerateCDADataHandler.PorO.PERSON.equals(poro)) {
 					if (aa.getAssignedPerson() != null) {
 						for (PN pn : aa.getAssignedPerson().getNames()) {
 							result = getValues(pn);
@@ -450,13 +450,13 @@ public class CDAValueUtil {
 		}
 
 		if (!StringUtils.isEmpty(authorId) && StringUtils.isEmpty(result)) {
-			if (GenerateCDABaseHandler.PorO.ORGANIZATION.equals(poro)) {
-				if (GenerateCDABaseHandler.organizations.containsKey(authorId)) {
-					result = GenerateCDABaseHandler.organizations.get(authorId) + "*";
+			if (GenerateCDADataHandler.PorO.ORGANIZATION.equals(poro)) {
+				if (GenerateCDADataHandler.organizations.containsKey(authorId)) {
+					result = GenerateCDADataHandler.organizations.get(authorId) + "*";
 				}
 			} else {
-				if (GenerateCDABaseHandler.authors.containsKey(authorId)) {
-					result = GenerateCDABaseHandler.authors.get(authorId) + "*";
+				if (GenerateCDADataHandler.authors.containsKey(authorId)) {
+					result = GenerateCDADataHandler.authors.get(authorId) + "*";
 				}
 			}
 
@@ -477,7 +477,7 @@ public class CDAValueUtil {
 				sb.append(pq.getValue().toPlainString() + " ");
 			}
 
-			if (!GenerateCDABaseHandler.omitUnits) {
+			if (!GenerateCDADataHandler.omitUnits) {
 				String unit = StringUtils.isEmpty(pq.getUnit())
 						? ""
 						: pq.getUnit();
@@ -624,7 +624,7 @@ public class CDAValueUtil {
 	public static String getValues(EN pn) {
 
 		if (pn.getText() != null && pn.getText().trim().length() > 0) {
-			GenerateCDABaseHandler.names.add(pn.getText());
+			GenerateCDADataHandler.names.add(pn.getText());
 			return pn.getText();
 		}
 
@@ -634,7 +634,7 @@ public class CDAValueUtil {
 			if (b.length() > 0) {
 				b.append(" ");
 			}
-			GenerateCDABaseHandler.names.add(e.getText());
+			GenerateCDADataHandler.names.add(e.getText());
 			b.append(e.getText());
 		}
 
@@ -642,7 +642,7 @@ public class CDAValueUtil {
 			if (b.length() > 0) {
 				b.append(" ");
 			}
-			GenerateCDABaseHandler.names.add(e.getText());
+			GenerateCDADataHandler.names.add(e.getText());
 			b.append(e.getText());
 		}
 
@@ -650,7 +650,7 @@ public class CDAValueUtil {
 			if (b.length() > 0) {
 				b.append(" ");
 			}
-			GenerateCDABaseHandler.names.add(e.getText());
+			GenerateCDADataHandler.names.add(e.getText());
 			b.append(e.getText());
 		}
 
@@ -658,7 +658,7 @@ public class CDAValueUtil {
 			if (b.length() > 0) {
 				b.append(" ");
 			}
-			GenerateCDABaseHandler.names.add(e.getText());
+			GenerateCDADataHandler.names.add(e.getText());
 			b.append(e.getText());
 		}
 

@@ -11,12 +11,9 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
@@ -26,7 +23,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
-import org.eclipse.mdht.cda.xml.ui.handlers.GenerateCDABaseHandler.ActByEncounterPredicate;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.Organizer;
 import org.eclipse.mdht.uml.cda.PatientRole;
@@ -49,8 +45,6 @@ import org.openhealthtools.mdht.uml.cda.ihe.AllergyIntoleranceConcern;
 import org.openhealthtools.mdht.uml.cda.ihe.ProblemConcernEntry;
 import org.openhealthtools.mdht.uml.cda.ihe.ProblemEntry;
 import org.openhealthtools.mdht.uml.cda.ihe.ProblemEntryReactionObservationContainer;
-
-import com.google.common.collect.Collections2;
 
 class C32SectionSwitch extends HITSPSwitch<Boolean> {
 
@@ -310,40 +304,19 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 	private void appendToAllergiesSheet(Query query2, Sheet sheet2, DocumentMetadata organizationAndSoftware,
 			PatientRole patientRole2, ServiceEvent serviceEvent2, EList<AllergyIntoleranceConcern> sas,
 			List<Encounter> encounters2, String fileName2) {
-		Set<AllergyIntoleranceConcern> sets = new HashSet<AllergyIntoleranceConcern>();
 
-		for (Encounter encounter : encounters) {
-			ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
+		for (AllergyIntoleranceConcern sa : sas) {
 
-			Collection<AllergyIntoleranceConcern> byEncouter = Collections2.filter(sas, predicate);
+			int offset = 0;
 
-			for (AllergyIntoleranceConcern sa : byEncouter) {
-				if (sets.add(sa)) {
-					int offset = 0;
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			offset = SpreadsheetSerializer.serializePatient(row, offset, organizationAndSoftware, patientRole);
 
-					offset = SpreadsheetSerializer.serializePatient(row, offset, organizationAndSoftware, patientRole);
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+			offset = serializeAllergyProblemAct(row, offset, sa);
 
-					offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter);
-
-					offset = serializeAllergyProblemAct(row, offset, sa);
-
-					SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
-
-		for (AllergyIntoleranceConcern sa : sets) {
-
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = SpreadsheetSerializer.serializePatient(row, 0, organizationAndSoftware, patientRole);
-				offset = serializeAllergyProblemAct(row, ++offset, sa);
-				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				// serializeFileName(row, offset, fileName);
-			}
+			SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
 
@@ -361,39 +334,19 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 	private void appendToProblemsSheet(Query query, Sheet sheet, PatientRole patientRole2, ServiceEvent serviceEvent,
 			EList<ProblemConcernEntry> problemConcernEntries, List<Encounter> encounters, String fileName2) {
 
-		Set<ProblemConcernEntry> sets = new HashSet<ProblemConcernEntry>();
-
-		for (Encounter encounter : encounters) {
-			ActByEncounterPredicate predicate = new ActByEncounterPredicate(encounter);
-
-			Collection<ProblemConcernEntry> byEncouter = Collections2.filter(problemConcernEntries, predicate);
-
-			for (ProblemConcernEntry sa : byEncouter) {
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = SpreadsheetSerializer.serializePatient(row, offset, documentMetadata, patientRole);
-
-					offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter);
-
-					offset = serializeProblemConcernAct(row, offset, sa);
-
-					SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				}
-
-			}
-		}
-
 		for (ProblemConcernEntry sa : problemConcernEntries) {
 
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = SpreadsheetSerializer.serializePatient(row, 0, documentMetadata, patientRole);
-				offset = serializeProblemConcernAct(row, ++offset, sa);
-				SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-			}
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = SpreadsheetSerializer.serializePatient(row, offset, documentMetadata, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeProblemConcernAct(row, offset, sa);
+
+			SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
 

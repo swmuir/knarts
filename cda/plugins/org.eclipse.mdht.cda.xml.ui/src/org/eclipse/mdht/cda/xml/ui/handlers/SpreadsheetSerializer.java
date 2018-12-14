@@ -12,16 +12,16 @@
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+import java.util.Queue;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
@@ -56,6 +56,7 @@ import org.eclipse.mdht.uml.cda.SubstanceAdministration;
 import org.eclipse.mdht.uml.cda.Supply;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.mdht.uml.cda.util.ValidationResult;
 import org.eclipse.mdht.uml.hl7.datatypes.AD;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
@@ -72,8 +73,6 @@ import org.openhealthtools.mdht.uml.cda.consol.GeneralHeaderConstraints;
 import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityObservation;
 import org.openhealthtools.mdht.uml.cda.consol.ReactionObservation;
 import org.openhealthtools.mdht.uml.cda.consol.SeverityObservation;
-
-import com.google.common.collect.Collections2;
 
 /**
  * @author seanmuir
@@ -103,7 +102,7 @@ public class SpreadsheetSerializer {
 			}
 		}
 		cell.setCellValue(sb.toString());
-		if (!GenerateCDABaseHandler.omitDOB) {
+		if (!GenerateCDADataHandler.omitDOB) {
 			offset = SpreadsheetSerializer.serializePatientDOB(
 				row, offset, patientRole, (patientRole != null
 						? patientRole.getPatient()
@@ -300,7 +299,7 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue(time);
 		}
 
-		row.createCell(offset++).setCellValue(GenerateCDABaseHandler.sigSwitch.doSwitch(substanceAdministration));
+		row.createCell(offset++).setCellValue(GenerateCDADataHandler.sigSwitch.doSwitch(substanceAdministration));
 		offset = SpreadsheetSerializer.appendOrganizationAndAuthor(row, offset, substanceAdministration.getAuthors());
 
 		return offset;
@@ -422,7 +421,7 @@ public class SpreadsheetSerializer {
 		StringBuffer sb = new StringBuffer();
 
 		if (diagnostic.getChildren().size() > 0) {
-			GenerateCDABaseHandler.processDiagnostic(diagnostic, vr);
+			SpreadsheetSerializer.processDiagnostic(diagnostic, vr);
 		}
 
 		sb = new StringBuffer();
@@ -561,7 +560,22 @@ public class SpreadsheetSerializer {
 
 	}
 
-	static int serializeEncounterID(Row row, int offset, Encounter encounter) {
+	static int serializeEnounterID(Row row, int offset, Act act, List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, act);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	static int serializeEncounterID(Row row, int offset, Encounter encounter, MatchEncounterBy result) {
 
 		Cell cell = row.createCell(offset++);
 
@@ -571,6 +585,9 @@ public class SpreadsheetSerializer {
 		}
 
 		cell.setCellValue(sb.toString());
+
+		cell = row.createCell(offset++);
+		cell.setCellValue(result.getMatch());
 
 		return offset;
 
@@ -1106,7 +1123,7 @@ public class SpreadsheetSerializer {
 		ValidationResult vr = new ValidationResult();
 
 		if (diagnostic.getChildren().size() > 0) {
-			GenerateCDABaseHandler.processDiagnostic(diagnostic, vr);
+			SpreadsheetSerializer.processDiagnostic(diagnostic, vr);
 		}
 
 		sb = new StringBuffer();
@@ -1130,11 +1147,11 @@ public class SpreadsheetSerializer {
 
 	}
 
-	private static void appendToCarePlanSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
-			PatientRole patientRole, ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers,
-			List<Encounter> encounters, String fileName) {
-
-	}
+	// private static void appendToCarePlanSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
+	// PatientRole patientRole, ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers,
+	// List<Encounter> encounters, String fileName) {
+	//
+	// }
 
 	/**
 	 * @param query2
@@ -1149,45 +1166,18 @@ public class SpreadsheetSerializer {
 			PatientRole patientRole, ServiceEvent serviceEvent, List<Organizer> vitalSignsOrganizers,
 			List<Encounter> encounters, String fileName) {
 
-		Set<Organizer> sets = new HashSet<Organizer>();
+		for (Organizer organizer : vitalSignsOrganizers) {
 
-		for (Encounter encounter : encounters) {
-
-			GenerateCDABaseHandler.OrganizerByEncounterPredicate predicate = new GenerateCDABaseHandler.OrganizerByEncounterPredicate(
-				encounter);
-
-			Collection<Organizer> byEncouter = Collections2.filter(vitalSignsOrganizers, predicate);
-
-			for (Organizer organizer : byEncouter) {
-				if (sets.add(organizer)) {
-					for (Observation observation : organizer.getObservations()) {
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-						int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-						offset = serializeEncounterID(row, offset, encounter);
-						offset = serializeOrganizer(row, offset, organizer, false, false);
-						offset = serializeObservation(row, offset, observation);
-						serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-					}
-
-				}
-
-			}
-		}
-
-		for (Organizer sa : vitalSignsOrganizers) {
-
-			if (sets.add(sa)) {
-				for (Observation observation : sa.getObservations()) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-					offset = serializeOrganizer(row, ++offset, sa, false, false);
-					offset = serializeObservation(row, offset, observation);
-					serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
-				}
+			for (Observation observation : organizer.getObservations()) {
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
+				offset = SpreadsheetSerializer.serializeEnounterID(row, offset, organizer, encounters);
+				offset = serializeOrganizer(row, offset, organizer, false, false);
+				offset = serializeObservation(row, offset, observation);
+				serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
 			}
 
 		}
-
 	}
 
 	/**
@@ -1203,44 +1193,21 @@ public class SpreadsheetSerializer {
 			PatientRole patientRole, ServiceEvent serviceEvent, EList<Act> procedureActivityActs,
 			List<Encounter> encounters, String fileName) {
 
-		Set<Act> sets = new HashSet<Act>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.ActByEncounterPredicate predicate = new GenerateCDABaseHandler.ActByEncounterPredicate(
-				encounter);
-
-			Collection<Act> byEncouter = Collections2.filter(procedureActivityActs, predicate);
-
-			for (Act sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-					offset = serializeEncounterID(row, offset, encounter);
-
-					offset = serializeProcedureActivityAct(row, offset, sa);
-
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
-
 		for (Act sa : procedureActivityActs) {
 
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-				offset = serializeProcedureActivityAct(row, ++offset, sa);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-			}
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeProcedureActivityAct(row, offset, sa);
+
+			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
-
 	}
 
 	static int appendCode(Row row, int offset, Section setion, CD cd, ED ed) {
@@ -1290,50 +1257,26 @@ public class SpreadsheetSerializer {
 			EList<ProcedureActivityObservation> procedureActivityObservations, List<Encounter> encounters,
 			String fileName) {
 
-		Set<ProcedureActivityObservation> sets = new HashSet<ProcedureActivityObservation>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.ObservationByEncounterPredicate predicate = new GenerateCDABaseHandler.ObservationByEncounterPredicate(
-				encounter);
-
-			Collection<ProcedureActivityObservation> byEncouter = Collections2.filter(
-				procedureActivityObservations, predicate);
-
-			for (ProcedureActivityObservation sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-					offset = serializeEncounterID(row, offset, encounter);
-
-					offset = serializeProcedureActivityObservation(row, offset, sa);
-
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
-
 		for (ProcedureActivityObservation sa : procedureActivityObservations) {
 
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-				offset = serializeProcedureActivityObservation(row, ++offset, sa);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-			}
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeProcedureActivityObservation(row, offset, sa);
+
+			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
-
 	}
 
 	static int appendOrganizationAndAuthor(Row row, int offset, EList<Author> authors) {
-		String organization = CDAValueUtil.getValue(authors, GenerateCDABaseHandler.PorO.ORGANIZATION);
-		String person = CDAValueUtil.getValue(authors, GenerateCDABaseHandler.PorO.PERSON);
+		String organization = CDAValueUtil.getValue(authors, GenerateCDADataHandler.PorO.ORGANIZATION);
+		String person = CDAValueUtil.getValue(authors, GenerateCDADataHandler.PorO.PERSON);
 		row.createCell(offset++).setCellValue(organization);
 		row.createCell(offset++).setCellValue(person);
 		return offset;
@@ -1351,41 +1294,20 @@ public class SpreadsheetSerializer {
 	static void appendProcedureToProcedureSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
 			PatientRole patientRole, ServiceEvent serviceEvent, EList<Procedure> procedureActivityProcedures,
 			List<Encounter> encounters, String fileName) {
-		Set<Procedure> sets = new HashSet<Procedure>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.ProcedureByEncounterPredicate predicate = new GenerateCDABaseHandler.ProcedureByEncounterPredicate(
-				encounter);
-
-			Collection<Procedure> byEncouter = Collections2.filter(procedureActivityProcedures, predicate);
-
-			for (Procedure sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-					offset = serializeEncounterID(row, offset, encounter);
-
-					offset = serializeProcedureActivityProcedure(row, offset, sa);
-
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
 
 		for (Procedure sa : procedureActivityProcedures) {
 
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-				offset = serializeProcedureActivityProcedure(row, ++offset, sa);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-			}
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeProcedureActivityProcedure(row, offset, sa);
+
+			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
 
@@ -1414,45 +1336,21 @@ public class SpreadsheetSerializer {
 			List<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sas, List<Encounter> encounters,
 			String fileName) {
 
-		Set<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct> sets = new HashSet<org.openhealthtools.mdht.uml.cda.consol.AllergyProblemAct>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.ActByEncounterPredicate predicate = new GenerateCDABaseHandler.ActByEncounterPredicate(
-				encounter);
-
-			Collection<AllergyProblemAct> byEncouter = Collections2.filter(sas, predicate);
-
-			for (AllergyProblemAct sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-					offset = serializeEncounterID(row, offset, encounter);
-
-					offset = serializeAllergyProblemAct(row, offset, sa);
-
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
-
 		for (AllergyProblemAct sa : sas) {
 
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-				offset = serializeAllergyProblemAct(row, ++offset, sa);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-				// serializeFileName(row, offset, fileName);
-			}
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeAllergyProblemAct(row, offset, sa);
+
+			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 
 		}
-
 	}
 
 	/**
@@ -1477,54 +1375,17 @@ public class SpreadsheetSerializer {
 	static void appendToResultsSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
 			PatientRole patientRole, ServiceEvent serviceEvent, List<? extends Organizer> results,
 			List<Encounter> encounters, String fileName) {
-
-		Set<Organizer> sets = new HashSet<Organizer>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.OrganizerByEncounterPredicate predicate = new GenerateCDABaseHandler.OrganizerByEncounterPredicate(
-				encounter);
-
-			Collection<? extends Organizer> byEncouter = Collections2.filter(results, predicate);
-
-			for (Organizer sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					for (Observation resultObservation : sa.getObservations()) {
-
-						int offset = 0;
-
-						Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-						offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-						offset = serializeEncounterID(row, offset, encounter);
-
-						offset = serializeOrganizer(row, offset, sa, true, false);
-
-						offset = serializeObservation(row, offset, resultObservation);
-
-						serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-					}
-
-				}
-			}
-		}
-
 		for (Organizer sa : results) {
-
-			if (sets.add(sa)) {
-				for (Observation resultObservation : sa.getObservations()) {
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-					int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-					offset = serializeOrganizer(row, ++offset, sa, true, false);
-					offset = serializeObservation(row, offset, resultObservation);
-					serializeSectionAndFileName(row, offset, resultObservation.getSection(), fileName);
-				}
+			for (Observation resultObservation : sa.getObservations()) {
+				int offset = 0;
+				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+				offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+				offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+				offset = serializeOrganizer(row, offset, sa, true, false);
+				offset = serializeObservation(row, offset, resultObservation);
+				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 			}
-
 		}
-
 	}
 
 	/**
@@ -1537,51 +1398,14 @@ public class SpreadsheetSerializer {
 	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
 			PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters,
 			List<? extends SubstanceAdministration> sas, String fileName) {
-
-		Set<SubstanceAdministration> sets = new HashSet<SubstanceAdministration>();
-
-		for (Encounter encounter : encounters) {
-			GenerateCDABaseHandler.SubstanceAdministrationByEncounterPredicate predicate = new GenerateCDABaseHandler.SubstanceAdministrationByEncounterPredicate(
-				encounter);
-
-			@SuppressWarnings("unchecked")
-			Collection<SubstanceAdministration> byEncouter = (Collection<SubstanceAdministration>) Collections2.filter(
-				sas, predicate);
-
-			for (SubstanceAdministration sa : byEncouter) {
-
-				if (sets.add(sa)) {
-					int offset = 0;
-
-					Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-					offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
-
-					offset = serializeEncounterID(row, offset, encounter);
-
-					offset = serializeSubstanceAdministration(row, offset, sa);
-
-					serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-
-				}
-			}
-		}
-
 		for (SubstanceAdministration sa : sas) {
-
-			if (sets.add(sa)) {
-				Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
-
-				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
-
-				row.createCell(offset++).setCellValue("NO ENCOUNTER");
-
-				offset = serializeSubstanceAdministration(row, offset, sa);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
-			}
-
+			int offset = 0;
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+			offset = serializeSubstanceAdministration(row, offset, sa);
+			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
 		}
-
 	}
 
 	static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
@@ -1725,7 +1549,7 @@ public class SpreadsheetSerializer {
 		row2.createCell(offset++).setCellValue("File Name");
 		row2.createCell(offset++).setCellValue("Document ID");
 		row2.createCell(offset++).setCellValue("Patient ID");
-		if (!GenerateCDABaseHandler.omitDOB) {
+		if (!GenerateCDADataHandler.omitDOB) {
 			row2.createCell(offset++).setCellValue("Complete ID");
 			row2.createCell(offset++).setCellValue("Patient Name");
 			if (!"Documents".equals(row2.getSheet().getSheetName())) {
@@ -2303,7 +2127,7 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue(time);
 		}
 
-		// row.createCell(offset++).setCellValue(GenerateCDABaseHandler.sigSwitch.doSwitch(substanceAdministration));
+		// row.createCell(offset++).setCellValue(GenerateCDADataHandler.sigSwitch.doSwitch(substanceAdministration));
 		offset = SpreadsheetSerializer.appendOrganizationAndAuthor(row, offset, supply.getAuthors());
 
 		return offset;
@@ -2324,6 +2148,533 @@ public class SpreadsheetSerializer {
 		row2.createCell(offset++).setCellValue("Section Title");
 		row2.createCell(offset++).setCellValue("File Name");
 		return offset;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param observation
+	 * @param encounters
+	 * @return
+	 */
+	public static int serializeEnounterID(Row row, int offset, Observation observation, List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, observation);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param procedure
+	 * @param encounters
+	 * @return
+	 */
+	public static int serializeEnounterID(Row row, int offset, Procedure procedure, List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, procedure);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param organizer
+	 * @param encounters
+	 * @return
+	 */
+	public static int serializeEnounterID(Row row, int offset, Organizer organizer, List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, organizer);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param supply
+	 * @param encounters
+	 * @return
+	 */
+	public static int serializeEnounterID(Row row, int offset, Supply supply, List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, supply);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param planOfCareActivitySubstanceAdministration
+	 * @param encounters
+	 * @return
+	 */
+	public static int serializeEnounterID(Row row, int offset, SubstanceAdministration substanceAdministration,
+			List<Encounter> encounters) {
+		for (Encounter encounter : encounters) {
+			MatchEncounterBy result = SpreadsheetSerializer.matchesEncounter(encounter, substanceAdministration);
+			if (result != MatchEncounterBy.NOMATCH) {
+				offset = SpreadsheetSerializer.serializeEncounterID(row, offset, encounter, result);
+				return offset;
+			}
+		}
+
+		Cell cell = row.createCell(offset++);
+		cell = row.createCell(offset++);
+		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset++;
+	}
+
+	/**
+	 * @param query
+	 * @param demographicsSheet
+	 * @param patientRole
+	 * @param ir
+	 * @param iffo
+	 * @param string
+	 */
+	public static void appendToDemographicsSheet(Query query, SXSSFSheet sheet, DocumentMetadata documentMetadata,
+			PatientRole patientRole) {
+
+		Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+		int offset = serializePatient2(row, 0, documentMetadata, patientRole);
+		/*
+		 * race
+		 * gender
+		 * patient name
+		 * address
+		 * dob XXX
+		 * phone #
+		 * ethnicity
+		 * document id XXX
+		 * language
+		 * phone #
+		 */
+		serializeSectionAndFileName(row, offset, null, documentMetadata.fileName);
+
+	}
+
+	/**
+	 *
+	 * @TODO Fix with proper date comparison routines
+	 * @param encounter
+	 * @param date
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	static boolean isWithinEncounterDateRate(Encounter encounter, Date date) {
+
+		if (encounter.getEffectiveTime() != null) {
+			if (!StringUtils.isEmpty(encounter.getEffectiveTime().getValue())) {
+
+				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getValue());
+				if (edate != null) {
+
+					if (edate.compareTo(date) == 0) {
+						return true;
+					}
+
+					if (edate.getYear() == date.getYear()) {
+						if (edate.getMonth() == date.getMonth()) {
+							if (edate.getDay() == date.getDay()) {
+								return true;
+							}
+						}
+					}
+				}
+			}
+
+			if (encounter.getEffectiveTime().getLow() != null &&
+					!StringUtils.isEmpty(encounter.getEffectiveTime().getLow().getValue())) {
+				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getLow().getValue());
+				if (edate.getYear() == date.getYear()) {
+					if (edate.getMonth() == date.getMonth()) {
+						if (edate.getDay() == date.getDay()) {
+							return true;
+						}
+
+					}
+				}
+
+			}
+
+			if (encounter.getEffectiveTime().getHigh() != null &&
+					!StringUtils.isEmpty(encounter.getEffectiveTime().getLow().getValue())) {
+				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getHigh().getValue());
+				if (edate != null && date != null) {
+					if (edate.getYear() == date.getYear()) {
+						if (edate.getMonth() == date.getMonth()) {
+							if (edate.getDay() == date.getDay()) {
+								return true;
+							}
+
+						}
+					}
+				}
+
+			}
+		}
+
+		return false;
+	}
+
+	public static MatchEncounterBy matchesEncounter(Encounter encounter, Observation observation) {
+		for (II ii : observation.getIds()) {
+			for (II iii : encounter.getIds()) {
+				if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+					return MatchEncounterBy.BYID;
+				}
+			}
+		}
+
+		Date observationTime = null;
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+
+		if (observation.getEffectiveTime() != null) {
+			IVL_TS ivlts = observation.getEffectiveTime();
+			if (observationTime == null && ivlts.getLow() != null && !StringUtils.isEmpty(ivlts.getLow().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+			}
+
+			if (observationTime == null && ivlts.getHigh() != null &&
+					!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getHigh().getValue());
+			}
+		}
+
+		if (observationTime == null) {
+			for (Author author : observation.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					observationTime = CDAValueUtil.getDate(author.getTime().getValue());
+					result = MatchEncounterBy.BYAUTHORID;
+				}
+			}
+		}
+
+		if (observationTime != null && isWithinEncounterDateRate(encounter, observationTime)) {
+			return result;
+		}
+
+		return MatchEncounterBy.NOMATCH;
+
+	}
+
+	enum MatchEncounterBy {
+		BYID("MatchedUsingID"), BYEFFECTIVETIME("MatchedUsingEffectiveTime"), BYAUTHORID("MatchedUsingAuthor"), NOMATCH(
+				"NoMatch");
+
+		private String match;
+
+		public String getMatch() {
+			return this.match;
+		}
+
+		private MatchEncounterBy(String match) {
+			this.match = match;
+		}
+	}
+
+	static MatchEncounterBy matchesEncounter(Encounter encounter, Act act) {
+
+		for (II ii : act.getIds()) {
+			for (II iii : encounter.getIds()) {
+				if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+					return MatchEncounterBy.BYID;
+				}
+			}
+		}
+
+		Date observationTime = null;
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+
+		if (act.getEffectiveTime() != null) {
+			IVL_TS ivlts = act.getEffectiveTime();
+			if (observationTime == null && ivlts.getLow() != null && !StringUtils.isEmpty(ivlts.getLow().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+			}
+
+			if (observationTime == null && ivlts.getHigh() != null &&
+					!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getHigh().getValue());
+			}
+		}
+
+		if (observationTime == null) {
+			for (Author author : act.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					observationTime = CDAValueUtil.getDate(author.getTime().getValue());
+					result = MatchEncounterBy.BYAUTHORID;
+				}
+			}
+		}
+
+		if (observationTime != null && isWithinEncounterDateRate(encounter, observationTime)) {
+			return result;
+		}
+
+		return MatchEncounterBy.NOMATCH;
+
+	}
+
+	/**
+	 * @param encounter2
+	 * @param organizer
+	 * @return
+	 */
+	static MatchEncounterBy matchesEncounter(Encounter encounter, Organizer organizer) {
+
+		for (II ii : organizer.getIds()) {
+			for (II iii : encounter.getIds()) {
+				if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+					return MatchEncounterBy.BYID;
+				}
+			}
+		}
+
+		Date observationTime = null;
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+
+		if (organizer.getEffectiveTime() != null) {
+			IVL_TS ivlts = organizer.getEffectiveTime();
+			if (observationTime == null && ivlts.getLow() != null && !StringUtils.isEmpty(ivlts.getLow().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+			}
+
+			if (observationTime == null && ivlts.getHigh() != null &&
+					!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getHigh().getValue());
+			}
+		}
+
+		if (observationTime == null) {
+			for (Author author : organizer.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					observationTime = CDAValueUtil.getDate(author.getTime().getValue());
+					result = MatchEncounterBy.BYAUTHORID;
+				}
+			}
+		}
+
+		if (observationTime != null && isWithinEncounterDateRate(encounter, observationTime)) {
+			return result;
+		}
+
+		return MatchEncounterBy.NOMATCH;
+
+	}
+
+	static MatchEncounterBy matchesEncounter(Encounter encounter, Procedure procedure) {
+
+		for (II ii : procedure.getIds()) {
+			for (II iii : encounter.getIds()) {
+				if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+					return MatchEncounterBy.BYID;
+				}
+			}
+		}
+
+		Date observationTime = null;
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+		if (procedure.getEffectiveTime() != null) {
+			IVL_TS ivlts = procedure.getEffectiveTime();
+			if (observationTime == null && ivlts.getLow() != null && !StringUtils.isEmpty(ivlts.getLow().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+			}
+
+			if (observationTime == null && ivlts.getHigh() != null &&
+					!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
+				observationTime = CDAValueUtil.getDate(ivlts.getHigh().getValue());
+			}
+		}
+
+		if (observationTime == null) {
+			for (Author author : procedure.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					observationTime = CDAValueUtil.getDate(author.getTime().getValue());
+					result = MatchEncounterBy.BYAUTHORID;
+				}
+			}
+		}
+
+		if (observationTime != null && isWithinEncounterDateRate(encounter, observationTime)) {
+			return result;
+		}
+
+		return MatchEncounterBy.NOMATCH;
+
+	}
+
+	static MatchEncounterBy matchesEncounter(Encounter encounter, SubstanceAdministration item) {
+
+		for (Encounter e : item.getEncounters()) {
+
+			for (II ii : e.getIds()) {
+				for (II iii : encounter.getIds()) {
+					if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+						return MatchEncounterBy.BYID;
+					}
+
+				}
+			}
+
+		}
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+		Date substanceAdminTime = null;
+
+		for (SXCM_TS ts : item.getEffectiveTimes()) {
+			if (ts instanceof IVL_TS) {
+				IVL_TS ivlts = (IVL_TS) ts;
+				if (ivlts.getLow() != null) {
+					if (ivlts.getLow().getValue() != null) {
+						substanceAdminTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+					}
+				}
+			} else {
+				if (!StringUtils.isEmpty(ts.getValue())) {
+					substanceAdminTime = CDAValueUtil.getDate(ts.getValue());
+				}
+			}
+
+		}
+
+		if (substanceAdminTime == null) {
+			for (Author author : item.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					substanceAdminTime = CDAValueUtil.getDate(author.getTime().getValue());
+				}
+			}
+		}
+
+		if (substanceAdminTime != null && isWithinEncounterDateRate(encounter, substanceAdminTime)) {
+			return result;
+
+		}
+		return MatchEncounterBy.NOMATCH;
+	}
+
+	/**
+	 * @param encounter
+	 * @param supply
+	 * @return
+	 */
+	public static MatchEncounterBy matchesEncounter(Encounter encounter, Supply supply) {
+		for (Encounter e : supply.getEncounters()) {
+
+			for (II ii : e.getIds()) {
+				for (II iii : encounter.getIds()) {
+					if (CDAValueUtil.getKey(ii).equals(CDAValueUtil.getKey(iii))) {
+						return MatchEncounterBy.BYID;
+					}
+
+				}
+			}
+
+		}
+
+		Date supplyTime = null;
+
+		MatchEncounterBy result = MatchEncounterBy.BYEFFECTIVETIME;
+
+		for (SXCM_TS ts : supply.getEffectiveTimes()) {
+			if (ts instanceof IVL_TS) {
+				IVL_TS ivlts = (IVL_TS) ts;
+				if (ivlts.getLow() != null) {
+					if (ivlts.getLow().getValue() != null) {
+						supplyTime = CDAValueUtil.getDate(ivlts.getLow().getValue());
+					}
+				}
+			} else {
+				if (!StringUtils.isEmpty(ts.getValue())) {
+					supplyTime = CDAValueUtil.getDate(ts.getValue());
+				}
+			}
+
+		}
+
+		if (supplyTime == null) {
+			for (Author author : supply.getAuthors()) {
+				if (author.getTime() != null && !StringUtils.isEmpty(author.getTime().getValue())) {
+					supplyTime = CDAValueUtil.getDate(author.getTime().getValue());
+					result = MatchEncounterBy.BYAUTHORID;
+				}
+			}
+		}
+
+		if (supplyTime != null && isWithinEncounterDateRate(encounter, supplyTime)) {
+			return result;
+
+		}
+		return MatchEncounterBy.NOMATCH;
+	}
+
+	static void processDiagnostic(Diagnostic diagnostic, ValidationHandler handler) {
+		Queue<Diagnostic> queue = new LinkedList<Diagnostic>();
+		queue.add(diagnostic); // root
+		while (!queue.isEmpty()) {
+			Diagnostic d = queue.remove();
+			if (GenerateCDADataHandler.shouldHandle(d)) {
+				handleDiagnostic(d, handler); // visit
+			}
+			for (Diagnostic childDiagnostic : d.getChildren()) { // process successors
+				queue.add(childDiagnostic);
+			}
+		}
+	}
+
+	static void handleDiagnostic(Diagnostic diagnostic, ValidationHandler handler) {
+		switch (diagnostic.getSeverity()) {
+			case Diagnostic.ERROR:
+				handler.handleError(diagnostic);
+				break;
+			case Diagnostic.WARNING:
+				handler.handleWarning(diagnostic);
+				break;
+			case Diagnostic.INFO:
+				handler.handleInfo(diagnostic);
+				break;
+		}
 	}
 
 }
