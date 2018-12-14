@@ -1540,6 +1540,8 @@ public class SpreadsheetSerializer {
 
 	static int createEncounterIDHeader(Row row1, Row row2, int offset) {
 		row2.createCell(offset++).setCellValue("Encounter ID");
+		row2.createCell(offset++).setCellValue("Encounter Match");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 
 		return offset;
 	}
