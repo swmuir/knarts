@@ -519,21 +519,21 @@ public class SpreadsheetSerializer {
 				if (!StringUtils.isEmpty(ivlts.getValue())) {
 
 					Date d = CDAValueUtil.getDate(ivlts.getValue());
-
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 
 			}
 			if (ivlts.getLow() != null) {
 				if (!StringUtils.isEmpty(ivlts.getLow().getValue())) {
-
 					Date d = CDAValueUtil.getDate(ivlts.getLow().getValue());
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					} else {
+						System.out.println("invalid date");
+					}
 
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
 				}
 
 			}
@@ -544,7 +544,9 @@ public class SpreadsheetSerializer {
 					if (sb.length() > 0) {
 						sb.append(" - ");
 					}
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 			}
 		}
@@ -636,10 +638,9 @@ public class SpreadsheetSerializer {
 				if (!StringUtils.isEmpty(ivlts.getValue())) {
 
 					Date d = CDAValueUtil.getDate(ivlts.getValue());
-
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 
 			}
@@ -647,21 +648,21 @@ public class SpreadsheetSerializer {
 				if (!StringUtils.isEmpty(ivlts.getLow().getValue())) {
 
 					Date d = CDAValueUtil.getDate(ivlts.getLow().getValue());
-
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 
 			}
 			if (ivlts.getHigh() != null) {
 				if (!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
-
 					Date d = CDAValueUtil.getDate(ivlts.getHigh().getValue());
 					if (sb.length() > 0) {
 						sb.append(" - ");
 					}
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 			}
 		}
@@ -676,7 +677,11 @@ public class SpreadsheetSerializer {
 		for (ANY any : resultObservation.getValues()) {
 			value = CDAValueUtil.getAnyValue(resultObservation.getSection(), any);
 		}
-		row.createCell(offset++).setCellValue(value);
+		if (value.length() < 1000) {
+			row.createCell(offset++).setCellValue(value);
+		} else {
+			row.createCell(offset++).setCellValue(value.substring(0, 1000));
+		}
 
 		String referenceRangeValue = "";
 		for (ReferenceRange rr : resultObservation.getReferenceRanges()) {
@@ -724,34 +729,31 @@ public class SpreadsheetSerializer {
 
 			if (ivlts.getValue() != null) {
 				if (!StringUtils.isEmpty(ivlts.getValue())) {
-
 					Date d = CDAValueUtil.getDate(ivlts.getValue());
-
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 
 			}
 			if (ivlts.getLow() != null) {
 				if (!StringUtils.isEmpty(ivlts.getLow().getValue())) {
-
 					Date d = CDAValueUtil.getDate(ivlts.getLow().getValue());
-
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 
 			}
 			if (ivlts.getHigh() != null) {
 				if (!StringUtils.isEmpty(ivlts.getHigh().getValue())) {
-
 					Date d = CDAValueUtil.getDate(ivlts.getHigh().getValue());
 					if (sb.length() > 0) {
 						sb.append(" - ");
 					}
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					}
 				}
 			}
 		}
@@ -2326,21 +2328,7 @@ public class SpreadsheetSerializer {
 			if (encounter.getEffectiveTime().getLow() != null &&
 					!StringUtils.isEmpty(encounter.getEffectiveTime().getLow().getValue())) {
 				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getLow().getValue());
-				if (edate.getYear() == date.getYear()) {
-					if (edate.getMonth() == date.getMonth()) {
-						if (edate.getDay() == date.getDay()) {
-							return true;
-						}
-
-					}
-				}
-
-			}
-
-			if (encounter.getEffectiveTime().getHigh() != null &&
-					!StringUtils.isEmpty(encounter.getEffectiveTime().getLow().getValue())) {
-				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getHigh().getValue());
-				if (edate != null && date != null) {
+				if (edate != null) {
 					if (edate.getYear() == date.getYear()) {
 						if (edate.getMonth() == date.getMonth()) {
 							if (edate.getDay() == date.getDay()) {
@@ -2351,6 +2339,23 @@ public class SpreadsheetSerializer {
 					}
 				}
 
+			}
+
+			if (encounter.getEffectiveTime().getHigh() != null &&
+					!StringUtils.isEmpty(encounter.getEffectiveTime().getLow().getValue())) {
+				Date edate = CDAValueUtil.getDate(encounter.getEffectiveTime().getHigh().getValue());
+				if (edate != null) {
+					if (edate != null && date != null) {
+						if (edate.getYear() == date.getYear()) {
+							if (edate.getMonth() == date.getMonth()) {
+								if (edate.getDay() == date.getDay()) {
+									return true;
+								}
+
+							}
+						}
+					}
+				}
 			}
 		}
 
