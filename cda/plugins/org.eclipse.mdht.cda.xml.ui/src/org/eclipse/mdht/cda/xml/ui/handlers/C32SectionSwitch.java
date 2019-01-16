@@ -33,10 +33,14 @@ import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
 import org.eclipse.mdht.uml.hl7.datatypes.IVL_TS;
+import org.openhealthtools.mdht.uml.cda.ccd.CoverageActivity;
+import org.openhealthtools.mdht.uml.cda.ccd.PolicyActivity;
 import org.openhealthtools.mdht.uml.cda.hitsp.AllergiesReactionsSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.DiagnosticResultsSection;
+import org.openhealthtools.mdht.uml.cda.hitsp.EncountersSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.ImmunizationsSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.MedicationsSection;
+import org.openhealthtools.mdht.uml.cda.hitsp.PayersSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.ProblemListSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.VitalSignsSection;
 import org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch;
@@ -204,6 +208,60 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 	/*
 	 * (non-Javadoc)
 	 *
+	 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseIHE_MedicationsSection(org.openhealthtools.mdht.uml.cda.ihe.MedicationsSection)
+	 */
+	@Override
+	public Boolean caseIHE_MedicationsSection(org.openhealthtools.mdht.uml.cda.ihe.MedicationsSection section) {
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
+			SpreadsheetSerializer.appendToSubstanceAdministrationSheet(
+				query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
+				section.getMedicationActivities(), fileName);
+
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_MedicationsSection(org.openhealthtools.mdht.uml.cda.ccd.MedicationsSection)
+	 */
+	@Override
+	public Boolean caseCCD_MedicationsSection(org.openhealthtools.mdht.uml.cda.ccd.MedicationsSection section) {
+		if (sheet.getPhysicalNumberOfRows() == 0) {
+			Row row1 = null; // sheet.createRow(0);
+			Row row2 = sheet.createRow(0);
+			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			emptySectionOffset.put(sheet, offset);
+		}
+
+		if (section.getMedicationActivities() != null && !section.getMedicationActivities().isEmpty()) {
+			SpreadsheetSerializer.appendToSubstanceAdministrationSheet(
+				query, sheet, documentMetadata, patientRole, serviceEvent, encounters,
+				section.getMedicationActivities(), fileName);
+
+		} else {
+			appendEmptySection(query, sheet, section, fileName);
+		}
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
 	 * @see
 	 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseProblemListSection(org.openhealthtools.mdht.uml.cda.hitsp.ProblemListSection)
 	 */
@@ -235,6 +293,34 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 	/*
 	 * (non-Javadoc)
 	 *
+	 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseEncountersSection(org.openhealthtools.mdht.uml.cda.hitsp.EncountersSection)
+	 */
+	@Override
+	public Boolean caseEncountersSection(EncountersSection section) {
+
+		if (section.getEncounterEntries() != null && !section.getEncounterEntries().isEmpty()) {
+
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+				offset = SpreadsheetSerializer.createVitalSignsHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			SpreadsheetSerializer.appendToEncounterSheet(
+				query, sheet, documentMetadata, patientRole, serviceEvent, section.getOrganizers(), encounters,
+				fileName);
+		}
+
+		return Boolean.TRUE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
 	 * @see
 	 * org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#caseCCD_VitalSignsSection(org.openhealthtools.mdht.uml.cda.ccd.VitalSignsSection)
 	 */
@@ -254,6 +340,35 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 
 			SpreadsheetSerializer.appendToVitalSignsSheet(
 				query, sheet, documentMetadata, patientRole, serviceEvent, section.getOrganizers(), encounters,
+				fileName);
+			return Boolean.TRUE;
+
+		}
+		return Boolean.FALSE;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see org.openhealthtools.mdht.uml.cda.hitsp.util.HITSPSwitch#casePayersSection(org.openhealthtools.mdht.uml.cda.hitsp.PayersSection)
+	 */
+	@Override
+	public Boolean casePayersSection(PayersSection section) {
+
+		if (section.getCoverageActivities() != null && !section.getCoverageActivities().isEmpty()) {
+
+			if (sheet.getPhysicalNumberOfRows() == 0) {
+				Row row1 = null; // sheet.createRow(0);
+				Row row2 = sheet.createRow(0);
+
+				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
+				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
+				offset = SpreadsheetSerializer.createVitalSignsHeader(row1, row2, offset);
+				emptySectionOffset.put(sheet, offset);
+			}
+
+			appendToPayerSheet(
+				query, sheet, documentMetadata, patientRole, serviceEvent, section.getCoverageActivities(), encounters,
 				fileName);
 			return Boolean.TRUE;
 
@@ -563,6 +678,106 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 
 		return offset;
 
+	}
+
+	/**
+	 * @param query
+	 * @param sheet
+	 * @param documentMetadata
+	 * @param patientRole
+	 * @param serviceEvent
+	 * @param coverageActivities
+	 * @param encounters
+	 * @param fileName
+	 */
+	public static void appendToPayerSheet(Query query, Sheet sheet, DocumentMetadata documentMetadata,
+			PatientRole patientRole, ServiceEvent serviceEvent, EList<CoverageActivity> coverageActivities,
+			List<Encounter> encounters, String fileName) {
+
+		for (CoverageActivity sa : coverageActivities) {
+
+			int offset = 0;
+
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+
+			offset = SpreadsheetSerializer.serializePatient(row, offset, documentMetadata, patientRole);
+
+			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
+
+			offset = serializeCoverageActivities(row, offset, sa);
+
+			SpreadsheetSerializer.serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+		}
+
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param coverageActivity
+	 * @return
+	 */
+	private static int serializeCoverageActivities(Row row, int offset, CoverageActivity coverageActivity) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : coverageActivity.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(coverageActivity.getEffectiveTime()));
+		if (d != null) {
+			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
+
+		offset = SpreadsheetSerializer.appendCode(
+			row, offset, coverageActivity.getSection(), coverageActivity.getCode(), coverageActivity.getText());
+
+		coverageActivity.getPolicyActivities();
+
+		// coverageActivity.get
+
+		for (PolicyActivity policyActivity : coverageActivity.getPolicyActivities()) {
+			offset = serializePolicyActivity(row, offset, policyActivity);
+			break;
+		}
+
+		return offset;
+		// }
+	}
+
+	/**
+	 * @param row
+	 * @param offset
+	 * @param policyActivity
+	 * @return
+	 */
+	private static int serializePolicyActivity(Row row, int offset, PolicyActivity policyActivity) {
+		StringBuffer sb = new StringBuffer();
+
+		for (II ii : policyActivity.getIds()) {
+			sb.append(CDAValueUtil.getKey2(ii));
+		}
+
+		row.createCell(offset++).setCellValue(sb.toString());
+
+		sb = new StringBuffer();
+
+		if (policyActivity.getStatusCode() != null && !StringUtils.isEmpty(policyActivity.getStatusCode().getCode())) {
+			row.createCell(offset++).setCellValue(policyActivity.getStatusCode().getCode());
+		} else {
+			row.createCell(offset++).setCellValue("Missing Status");
+		}
+
+		// if (!allergyProblemAct.getAllergyObservations().isEmpty()) {
+
+		return offset;
 	}
 
 }

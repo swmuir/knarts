@@ -1107,22 +1107,29 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 						for (Section section : clinicalDocument.getSections()) {
+							System.out.println(section.getClass().getCanonicalName());
 							String sheetIndex = getSheet(
 								clinicalDocument.eClass(), String.valueOf(section.eClass().getClassifierID()),
 								sheetName(section.eClass()), splitOption);
-							if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
-								C32SectionSwitch sectionSwitch = new C32SectionSwitch(
+							// if (!(section instanceof org.openhealthtools.mdht.uml.cda.ccd.EncountersSection)) {
+							C32SectionSwitch sectionSwitch = new C32SectionSwitch(
+								query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent, encounters,
+								file.getName());
+							Boolean result = sectionSwitch.doSwitch(section);
+							if (!result) {
+								IHESectionSwitch iheSectionSwitch = new IHESectionSwitch(
 									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
 									encounters, file.getName());
-								Boolean result = sectionSwitch.doSwitch(section);
-								if (!result) {
-									CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
-										query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
-										encounters, file.getName());
-									result = ccdSectionSwitch.doSwitch(section);
-								}
-								wb.getSheet(sheetIndex).flushRows();
+								result = iheSectionSwitch.doSwitch(section);
 							}
+							if (!result) {
+								CCDSectionSwitch ccdSectionSwitch = new CCDSectionSwitch(
+									query, wb.getSheet(sheetIndex), documentMetadata, patientRole, serviceEvent,
+									encounters, file.getName());
+								result = ccdSectionSwitch.doSwitch(section);
+							}
+							wb.getSheet(sheetIndex).flushRows();
+							// }
 							if (shouldCountSection(section)) {
 								getSectionHash(
 									clinicalDocument.eClass().getClassifierID(), sheetIndex, splitOption).add(file);

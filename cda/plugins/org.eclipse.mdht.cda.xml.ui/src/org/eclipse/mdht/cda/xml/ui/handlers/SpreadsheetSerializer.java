@@ -2684,4 +2684,27 @@ public class SpreadsheetSerializer {
 		}
 	}
 
+	/**
+	 * @param query
+	 * @param sheet
+	 * @param documentMetadata
+	 * @param patientRole
+	 * @param serviceEvent
+	 * @param organizers
+	 * @param encounters
+	 * @param fileName
+	 */
+	public static void appendToEncounterSheet(Query query, Sheet sheet, DocumentMetadata documentMetadata,
+			PatientRole patientRole, ServiceEvent serviceEvent, EList<Organizer> organizers, List<Encounter> encounters,
+			String fileName) {
+
+		for (Encounter encounter : encounters) {
+			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
+			int offset = serializePatient(row, 0, documentMetadata, patientRole);
+			offset = serializeEncounter(row, offset, encounter);
+			serializeSectionAndFileName(row, offset, encounter.getSection(), fileName);
+		}
+
+	}
+
 }
