@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ConceptMapTargetImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.ConceptMapTargetImplAdapter;
  * @model extendedMetaData="name='ConceptMap.Target' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConceptMapTargetImplAdapter.class)
 public interface ConceptMapTarget extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

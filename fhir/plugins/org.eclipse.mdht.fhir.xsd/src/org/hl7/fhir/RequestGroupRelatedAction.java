@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RequestGroupRelatedActionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.RequestGroupRelatedActionImplAdapter;
  * @model extendedMetaData="name='RequestGroup.RelatedAction' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RequestGroupRelatedActionImplAdapter.class)
 public interface RequestGroupRelatedAction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action Id</b></em>' containment reference.

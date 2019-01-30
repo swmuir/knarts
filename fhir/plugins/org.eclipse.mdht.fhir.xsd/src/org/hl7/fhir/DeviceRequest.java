@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DeviceRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +19,7 @@ import org.hl7.fhir.jaxb.DeviceRequestImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceRequest#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getPriorRequest <em>Prior Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
@@ -31,6 +28,7 @@ import org.hl7.fhir.jaxb.DeviceRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.DeviceRequest#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getCodeReference <em>Code Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getCodeCodeableConcept <em>Code Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
@@ -42,6 +40,7 @@ import org.hl7.fhir.jaxb.DeviceRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.DeviceRequest#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getRelevantHistory <em>Relevant History</em>}</li>
@@ -51,7 +50,6 @@ import org.hl7.fhir.jaxb.DeviceRequestImplAdapter;
  * @model extendedMetaData="name='DeviceRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceRequestImplAdapter.class)
 public interface DeviceRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -70,20 +68,20 @@ public interface DeviceRequest extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Uri> getInstantiates();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -276,6 +274,22 @@ public interface DeviceRequest extends DomainResource {
 	void setCodeCodeableConcept(CodeableConcept value);
 
 	/**
+	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DeviceRequestParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specific parameters for the ordered item.  For example, the prism value for lenses.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Parameter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Parameter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='parameter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DeviceRequestParameter> getParameter();
+
+	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,13 +456,13 @@ public interface DeviceRequest extends DomainResource {
 	 * The individual who initiated the request and has responsibility for its activation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(DeviceRequestRequester)
+	 * @see #setRequester(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Requester()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DeviceRequestRequester getRequester();
+	Reference getRequester();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getRequester <em>Requester</em>}' containment reference.
@@ -458,7 +472,7 @@ public interface DeviceRequest extends DomainResource {
 	 * @see #getRequester()
 	 * @generated
 	 */
-	void setRequester(DeviceRequestRequester value);
+	void setRequester(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Performer Type</b></em>' containment reference.
@@ -543,6 +557,22 @@ public interface DeviceRequest extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getReasonReference();
+
+	/**
+	 * Returns the value of the '<em><b>Insurance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Insurance</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Insurance()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getInsurance();
 
 	/**
 	 * Returns the value of the '<em><b>Supporting Info</b></em>' containment reference list.

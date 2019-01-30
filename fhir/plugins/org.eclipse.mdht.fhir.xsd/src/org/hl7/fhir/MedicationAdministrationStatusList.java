@@ -31,6 +31,16 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	IN_PROGRESS(0, "inProgress", "in-progress"),
 
 	/**
+	 * The '<em><b>Not Done</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_DONE(1, "notDone", "not-done"),
+
+	/**
 	 * The '<em><b>On Hold</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +48,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ON_HOLD(1, "onHold", "on-hold"),
+	ON_HOLD(2, "onHold", "on-hold"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -48,7 +58,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETED(2, "completed", "completed"),
+	COMPLETED(3, "completed", "completed"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(3, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error"),
 
 	/**
 	 * The '<em><b>Stopped</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STOPPED(4, "stopped", "stopped"),
+	STOPPED(5, "stopped", "stopped"),
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(5, "unknown", "unknown");
+	UNKNOWN(6, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>In Progress</b></em>' literal value.
@@ -95,6 +105,20 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	public static final int IN_PROGRESS_VALUE = 0;
 
 	/**
+	 * The '<em><b>Not Done</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Not Done
+	 * <!-- end-model-doc -->
+	 * @see #NOT_DONE
+	 * @model name="notDone" literal="not-done"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_DONE_VALUE = 1;
+
+	/**
 	 * The '<em><b>On Hold</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,7 +130,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ON_HOLD_VALUE = 1;
+	public static final int ON_HOLD_VALUE = 2;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -120,7 +144,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETED_VALUE = 2;
+	public static final int COMPLETED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -134,7 +158,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 3;
+	public static final int ENTERED_IN_ERROR_VALUE = 4;
 
 	/**
 	 * The '<em><b>Stopped</b></em>' literal value.
@@ -148,7 +172,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STOPPED_VALUE = 4;
+	public static final int STOPPED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
@@ -162,7 +186,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 5;
+	public static final int UNKNOWN_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Medication Administration Status List</b></em>' enumerators.
@@ -173,6 +197,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	private static final MedicationAdministrationStatusList[] VALUES_ARRAY =
 		new MedicationAdministrationStatusList[] {
 			IN_PROGRESS,
+			NOT_DONE,
 			ON_HOLD,
 			COMPLETED,
 			ENTERED_IN_ERROR,
@@ -235,6 +260,7 @@ public enum MedicationAdministrationStatusList implements Enumerator {
 	public static MedicationAdministrationStatusList get(int value) {
 		switch (value) {
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
+			case NOT_DONE_VALUE: return NOT_DONE;
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SignatureImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,8 @@ import org.hl7.fhir.jaxb.SignatureImplAdapter;
  *   <li>{@link org.hl7.fhir.Signature#getWhoReference <em>Who Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.Signature#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Signature#getTargetFormat <em>Target Format</em>}</li>
+ *   <li>{@link org.hl7.fhir.Signature#getSigFormat <em>Sig Format</em>}</li>
  *   <li>{@link org.hl7.fhir.Signature#getBlob <em>Blob</em>}</li>
  * </ul>
  *
@@ -35,7 +33,6 @@ import org.hl7.fhir.jaxb.SignatureImplAdapter;
  * @model extendedMetaData="name='Signature' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SignatureImplAdapter.class)
 public interface Signature extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
@@ -188,30 +185,56 @@ public interface Signature extends Element {
 	void setOnBehalfOfReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Content Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Format</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
+	 * A mime type that indicates the technical format of the target resources signed by the signature.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Content Type</em>' containment reference.
-	 * @see #setContentType(Code)
-	 * @see org.hl7.fhir.FhirPackage#getSignature_ContentType()
+	 * @return the value of the '<em>Target Format</em>' containment reference.
+	 * @see #setTargetFormat(Code)
+	 * @see org.hl7.fhir.FhirPackage#getSignature_TargetFormat()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='contentType' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetFormat' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getContentType();
+	Code getTargetFormat();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Signature#getContentType <em>Content Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Signature#getTargetFormat <em>Target Format</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Content Type</em>' containment reference.
-	 * @see #getContentType()
+	 * @param value the new value of the '<em>Target Format</em>' containment reference.
+	 * @see #getTargetFormat()
 	 * @generated
 	 */
-	void setContentType(Code value);
+	void setTargetFormat(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Sig Format</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sig Format</em>' containment reference.
+	 * @see #setSigFormat(Code)
+	 * @see org.hl7.fhir.FhirPackage#getSignature_SigFormat()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='sigFormat' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Code getSigFormat();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Signature#getSigFormat <em>Sig Format</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sig Format</em>' containment reference.
+	 * @see #getSigFormat()
+	 * @generated
+	 */
+	void setSigFormat(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Blob</b></em>' containment reference.

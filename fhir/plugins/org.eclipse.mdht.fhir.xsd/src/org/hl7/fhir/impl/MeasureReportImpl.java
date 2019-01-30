@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,9 +26,6 @@ import org.hl7.fhir.MeasureReportStatus;
 import org.hl7.fhir.MeasureReportType;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MeasureReportStatusImplAdapter;
-import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +39,7 @@ import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getMeasure <em>Measure</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getReportingOrganization <em>Reporting Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getPeriod <em>Period</em>}</li>
@@ -57,8 +49,6 @@ import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MeasureReport", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureReport")
 public class MeasureReportImpl extends DomainResourceImpl implements MeasureReport {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -101,14 +91,14 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	protected Reference measure;
 
 	/**
-	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPatient()
+	 * @see #getSubject()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference patient;
+	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -227,8 +217,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MeasureReportStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public MeasureReportStatus getStatus() {
 		return status;
 	}
@@ -272,8 +260,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MeasureReportTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public MeasureReportType getType() {
 		return type;
 	}
@@ -317,7 +303,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getMeasure() {
 		return measure;
 	}
@@ -361,8 +346,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatient() {
-		return patient;
+	public Reference getSubject() {
+		return subject;
 	}
 
 	/**
@@ -370,11 +355,11 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatient(Reference newPatient, NotificationChain msgs) {
-		Reference oldPatient = patient;
-		patient = newPatient;
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__PATIENT, oldPatient, newPatient);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__SUBJECT, oldSubject, newSubject);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -385,18 +370,18 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatient(Reference newPatient) {
-		if (newPatient != patient) {
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
 			NotificationChain msgs = null;
-			if (patient != null)
-				msgs = ((InternalEObject)patient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__PATIENT, null, msgs);
-			if (newPatient != null)
-				msgs = ((InternalEObject)newPatient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__PATIENT, null, msgs);
-			msgs = basicSetPatient(newPatient, msgs);
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__PATIENT, newPatient, newPatient));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -404,7 +389,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -491,7 +475,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Period getPeriod() {
 		return period;
 	}
@@ -535,7 +518,6 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureReportGroup> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<MeasureReportGroup>(MeasureReportGroup.class, this, FhirPackage.MEASURE_REPORT__GROUP);
@@ -602,8 +584,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return basicSetType(null, msgs);
 			case FhirPackage.MEASURE_REPORT__MEASURE:
 				return basicSetMeasure(null, msgs);
-			case FhirPackage.MEASURE_REPORT__PATIENT:
-				return basicSetPatient(null, msgs);
+			case FhirPackage.MEASURE_REPORT__SUBJECT:
+				return basicSetSubject(null, msgs);
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return basicSetDate(null, msgs);
 			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
@@ -634,8 +616,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return getType();
 			case FhirPackage.MEASURE_REPORT__MEASURE:
 				return getMeasure();
-			case FhirPackage.MEASURE_REPORT__PATIENT:
-				return getPatient();
+			case FhirPackage.MEASURE_REPORT__SUBJECT:
+				return getSubject();
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return getDate();
 			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
@@ -671,8 +653,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 			case FhirPackage.MEASURE_REPORT__MEASURE:
 				setMeasure((Reference)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT__PATIENT:
-				setPatient((Reference)newValue);
+			case FhirPackage.MEASURE_REPORT__SUBJECT:
+				setSubject((Reference)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__DATE:
 				setDate((DateTime)newValue);
@@ -714,8 +696,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 			case FhirPackage.MEASURE_REPORT__MEASURE:
 				setMeasure((Reference)null);
 				return;
-			case FhirPackage.MEASURE_REPORT__PATIENT:
-				setPatient((Reference)null);
+			case FhirPackage.MEASURE_REPORT__SUBJECT:
+				setSubject((Reference)null);
 				return;
 			case FhirPackage.MEASURE_REPORT__DATE:
 				setDate((DateTime)null);
@@ -752,8 +734,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return type != null;
 			case FhirPackage.MEASURE_REPORT__MEASURE:
 				return measure != null;
-			case FhirPackage.MEASURE_REPORT__PATIENT:
-				return patient != null;
+			case FhirPackage.MEASURE_REPORT__SUBJECT:
+				return subject != null;
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return date != null;
 			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:

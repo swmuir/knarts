@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,9 +23,6 @@ import org.hl7.fhir.StructureMapGroup;
 import org.hl7.fhir.StructureMapGroupTypeMode;
 import org.hl7.fhir.StructureMapInput;
 import org.hl7.fhir.StructureMapRule;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.StructureMapGroupTypeModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +42,6 @@ import org.hl7.fhir.jaxb.StructureMapGroupTypeModeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapGroup", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapGroup")
 public class StructureMapGroupImpl extends BackboneElementImpl implements StructureMapGroup {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -137,8 +127,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getName() {
 		return name;
 	}
@@ -182,7 +170,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getExtends() {
 		return extends_;
 	}
@@ -226,8 +213,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StructureMapGroupTypeModeImplAdapter.class)
-	@XmlElement(required = true)
 	public StructureMapGroupTypeMode getTypeMode() {
 		return typeMode;
 	}
@@ -271,7 +256,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDocumentation() {
 		return documentation;
 	}
@@ -315,7 +299,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<StructureMapInput> getInput() {
 		if (input == null) {
 			input = new EObjectContainmentEList<StructureMapInput>(StructureMapInput.class, this, FhirPackage.STRUCTURE_MAP_GROUP__INPUT);
@@ -328,7 +311,6 @@ public class StructureMapGroupImpl extends BackboneElementImpl implements Struct
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<StructureMapRule> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<StructureMapRule>(StructureMapRule.class, this, FhirPackage.STRUCTURE_MAP_GROUP__RULE);

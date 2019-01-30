@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CountImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +18,5 @@ import org.hl7.fhir.jaxb.CountImplAdapter;
  * @model extendedMetaData="name='Count' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CountImplAdapter.class)
 public interface Count extends Quantity {
 } // Count

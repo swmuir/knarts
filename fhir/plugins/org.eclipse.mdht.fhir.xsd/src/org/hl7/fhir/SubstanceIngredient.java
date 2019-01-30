@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SubstanceIngredientImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.SubstanceIngredientImplAdapter;
  * @model extendedMetaData="name='Substance.Ingredient' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SubstanceIngredientImplAdapter.class)
 public interface SubstanceIngredient extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.

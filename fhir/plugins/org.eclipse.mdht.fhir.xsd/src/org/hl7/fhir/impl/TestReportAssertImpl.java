@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,9 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.TestReportActionResult;
 import org.hl7.fhir.TestReportAssert;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TestReportActionResultImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,8 +30,6 @@ import org.hl7.fhir.jaxb.TestReportActionResultImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestReportAssert", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestReportAssert")
 public class TestReportAssertImpl extends BackboneElementImpl implements TestReportAssert {
 	/**
 	 * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
@@ -95,8 +85,6 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TestReportActionResultImplAdapter.class)
-	@XmlElement(required = true)
 	public TestReportActionResult getResult() {
 		return result;
 	}
@@ -140,7 +128,6 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getMessage() {
 		return message;
 	}
@@ -184,7 +171,6 @@ public class TestReportAssertImpl extends BackboneElementImpl implements TestRep
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDetail() {
 		return detail;
 	}

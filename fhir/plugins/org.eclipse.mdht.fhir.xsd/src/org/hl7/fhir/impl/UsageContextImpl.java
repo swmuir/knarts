@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,8 +33,6 @@ import org.hl7.fhir.UsageContext;
  *
  * @generated
  */
-@XmlType(name = "UsageContext", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "UsageContext")
 public class UsageContextImpl extends ElementImpl implements UsageContext {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -104,7 +98,6 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Coding getCode() {
 		return code;
 	}

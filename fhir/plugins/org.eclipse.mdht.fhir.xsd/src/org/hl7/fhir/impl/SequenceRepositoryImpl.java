@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,9 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.RepositoryType;
 import org.hl7.fhir.SequenceRepository;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.RepositoryTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +33,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SequenceRepository", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SequenceRepository")
 public class SequenceRepositoryImpl extends BackboneElementImpl implements SequenceRepository {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -128,8 +118,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RepositoryTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public RepositoryType getType() {
 		return type;
 	}
@@ -173,7 +161,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -217,7 +204,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -261,7 +247,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDatasetId() {
 		return datasetId;
 	}
@@ -305,7 +290,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVariantsetId() {
 		return variantsetId;
 	}
@@ -349,7 +333,6 @@ public class SequenceRepositoryImpl extends BackboneElementImpl implements Seque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getReadsetId() {
 		return readsetId;
 	}

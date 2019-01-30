@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.GoalTargetImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.GoalTargetImplAdapter;
  * @model extendedMetaData="name='Goal.Target' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GoalTargetImplAdapter.class)
 public interface GoalTarget extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Measure</b></em>' containment reference.

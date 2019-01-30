@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,11 +19,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +33,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getFocal <em>Focal</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getBusinessArrangement <em>Business Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimInsuranceImpl#getPreAuthRef <em>Pre Auth Ref</em>}</li>
@@ -48,8 +42,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ClaimInsurance", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimInsurance")
 public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsurance {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -70,6 +62,16 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean focal;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
@@ -135,8 +137,6 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -180,8 +180,6 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getFocal() {
 		return focal;
 	}
@@ -225,7 +223,49 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_INSURANCE__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_INSURANCE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_INSURANCE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_INSURANCE__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getCoverage() {
 		return coverage;
 	}
@@ -269,7 +309,6 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBusinessArrangement() {
 		return businessArrangement;
 	}
@@ -313,8 +352,6 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getPreAuthRef() {
 		if (preAuthRef == null) {
 			preAuthRef = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CLAIM_INSURANCE__PRE_AUTH_REF);
@@ -377,6 +414,8 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 				return basicSetSequence(null, msgs);
 			case FhirPackage.CLAIM_INSURANCE__FOCAL:
 				return basicSetFocal(null, msgs);
+			case FhirPackage.CLAIM_INSURANCE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.CLAIM_INSURANCE__COVERAGE:
 				return basicSetCoverage(null, msgs);
 			case FhirPackage.CLAIM_INSURANCE__BUSINESS_ARRANGEMENT:
@@ -401,6 +440,8 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 				return getSequence();
 			case FhirPackage.CLAIM_INSURANCE__FOCAL:
 				return getFocal();
+			case FhirPackage.CLAIM_INSURANCE__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.CLAIM_INSURANCE__COVERAGE:
 				return getCoverage();
 			case FhirPackage.CLAIM_INSURANCE__BUSINESS_ARRANGEMENT:
@@ -427,6 +468,9 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 				return;
 			case FhirPackage.CLAIM_INSURANCE__FOCAL:
 				setFocal((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.CLAIM_INSURANCE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.CLAIM_INSURANCE__COVERAGE:
 				setCoverage((Reference)newValue);
@@ -459,6 +503,9 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 			case FhirPackage.CLAIM_INSURANCE__FOCAL:
 				setFocal((org.hl7.fhir.Boolean)null);
 				return;
+			case FhirPackage.CLAIM_INSURANCE__IDENTIFIER:
+				setIdentifier((Identifier)null);
+				return;
 			case FhirPackage.CLAIM_INSURANCE__COVERAGE:
 				setCoverage((Reference)null);
 				return;
@@ -487,6 +534,8 @@ public class ClaimInsuranceImpl extends BackboneElementImpl implements ClaimInsu
 				return sequence != null;
 			case FhirPackage.CLAIM_INSURANCE__FOCAL:
 				return focal != null;
+			case FhirPackage.CLAIM_INSURANCE__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.CLAIM_INSURANCE__COVERAGE:
 				return coverage != null;
 			case FhirPackage.CLAIM_INSURANCE__BUSINESS_ARRANGEMENT:

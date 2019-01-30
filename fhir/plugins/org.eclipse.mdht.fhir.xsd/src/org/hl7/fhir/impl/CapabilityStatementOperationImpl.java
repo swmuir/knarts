@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,12 +25,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementOperationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementOperationImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CapabilityStatementOperationImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "CapabilityStatementOperation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CapabilityStatementOperation")
 public class CapabilityStatementOperationImpl extends BackboneElementImpl implements CapabilityStatementOperation {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -56,6 +50,16 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected Reference definition;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Markdown documentation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,8 +85,6 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -126,7 +128,6 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getDefinition() {
 		return definition;
 	}
@@ -170,6 +171,49 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Markdown getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION, oldDocumentation, newDocumentation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocumentation(Markdown newDocumentation) {
+		if (newDocumentation != documentation) {
+			NotificationChain msgs = null;
+			if (documentation != null)
+				msgs = ((InternalEObject)documentation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION, null, msgs);
+			if (newDocumentation != null)
+				msgs = ((InternalEObject)newDocumentation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION, null, msgs);
+			msgs = basicSetDocumentation(newDocumentation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION, newDocumentation, newDocumentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -177,6 +221,8 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				return basicSetName(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
 				return basicSetDefinition(null, msgs);
+			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
+				return basicSetDocumentation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,6 +239,8 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				return getName();
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
 				return getDefinition();
+			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +258,9 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
 				setDefinition((Reference)newValue);
+				return;
+			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
+				setDocumentation((Markdown)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,6 +280,9 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
 				setDefinition((Reference)null);
 				return;
+			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
+				setDocumentation((Markdown)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,6 +299,8 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				return name != null;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
 				return definition != null;
+			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
+				return documentation != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AllergyIntoleranceReactionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,14 +30,13 @@ import org.hl7.fhir.jaxb.AllergyIntoleranceReactionImplAdapter;
  * @model extendedMetaData="name='AllergyIntolerance.Reaction' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AllergyIntoleranceReactionImplAdapter.class)
 public interface AllergyIntoleranceReaction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Substance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.
+	 * Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Substance</em>' containment reference.
 	 * @see #setSubstance(CodeableConcept)

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MedicationAdministrationPerformerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,16 +16,41 @@ import org.hl7.fhir.jaxb.MedicationAdministrationPerformerImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getFunction <em>Function</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getActor <em>Actor</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministrationPerformer#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationPerformer()
  * @model extendedMetaData="name='MedicationAdministration.Performer' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationAdministrationPerformerImplAdapter.class)
 public interface MedicationAdministrationPerformer extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Distinguishes the type of performer in the administration.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Function</em>' containment reference.
+	 * @see #setFunction(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationPerformer_Function()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='function' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getFunction();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationPerformer#getFunction <em>Function</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Function</em>' containment reference.
+	 * @see #getFunction()
+	 * @generated
+	 */
+	void setFunction(CodeableConcept value);
+
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,31 +76,5 @@ public interface MedicationAdministrationPerformer extends BackboneElement {
 	 * @generated
 	 */
 	void setActor(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>On Behalf Of</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization the device or practitioner was acting on behalf of.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>On Behalf Of</em>' containment reference.
-	 * @see #setOnBehalfOf(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministrationPerformer_OnBehalfOf()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onBehalfOf' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOnBehalfOf();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministrationPerformer#getOnBehalfOf <em>On Behalf Of</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Behalf Of</em>' containment reference.
-	 * @see #getOnBehalfOf()
-	 * @generated
-	 */
-	void setOnBehalfOf(Reference value);
 
 } // MedicationAdministrationPerformer

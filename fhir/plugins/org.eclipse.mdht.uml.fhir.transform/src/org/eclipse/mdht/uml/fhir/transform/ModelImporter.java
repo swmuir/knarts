@@ -69,7 +69,7 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
 import org.hl7.fhir.ContactDetail;
-import org.hl7.fhir.DataElement;
+//import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
@@ -134,7 +134,7 @@ public class ModelImporter implements ModelConstants {
 	private Map<String,ValueSet> valueSetMap = new HashMap<String,ValueSet>();
 
 	// key = id, value = DataElement
-	private Map<String,DataElement> dataElementMap = new HashMap<String,DataElement>();
+//	private Map<String,DataElement> dataElementMap = new HashMap<String,DataElement>();
 
 	// key = id, value = ImplementationGuide
 	private Map<String,ImplementationGuide> implementationGuideMap = new HashMap<String,ImplementationGuide>();
@@ -337,22 +337,22 @@ public class ModelImporter implements ModelConstants {
 				valueSetMap.put(profileURI, valueSet);
 				iterator.prune();
 			}
-			else if (child instanceof DataElement) {
-				DataElement dataElement = (DataElement) child;
-				String dataElementURI = null;
-				if (dataElement.getUrl() != null) {
-					dataElementURI = dataElement.getUrl().getValue();
-				}
-				else if (dataElement.getId() != null) {
-					// Added to support HSPC profiles that omit URL
-					dataElementURI = dataElement.getId().getValue();
-				}
-				
-				if (dataElementURI != null) {
-					dataElementMap.put(dataElementURI, dataElement);
-				}
-				iterator.prune();
-			}
+//			else if (child instanceof DataElement) {
+//				DataElement dataElement = (DataElement) child;
+//				String dataElementURI = null;
+//				if (dataElement.getUrl() != null) {
+//					dataElementURI = dataElement.getUrl().getValue();
+//				}
+//				else if (dataElement.getId() != null) {
+//					// Added to support HSPC profiles that omit URL
+//					dataElementURI = dataElement.getId().getValue();
+//				}
+//				
+//				if (dataElementURI != null) {
+//					dataElementMap.put(dataElementURI, dataElement);
+//				}
+//				iterator.prune();
+//			}
 			else if (child instanceof ImplementationGuide) {
 				ImplementationGuide implGuide = (ImplementationGuide) child;
 				implementationGuideMap.put(implGuide.getUrl().getValue(), implGuide);
@@ -394,11 +394,11 @@ public class ModelImporter implements ModelConstants {
 			}
 		}
 
-		if (modelFilter.select(ModelFilter.DefinitionType.DataElement)) {
-			for (DataElement dataElement : dataElementMap.values()) {
-				importDataElement(dataElement);
-			}
-		}
+//		if (modelFilter.select(ModelFilter.DefinitionType.DataElement)) {
+//			for (DataElement dataElement : dataElementMap.values()) {
+//				importDataElement(dataElement);
+//			}
+//		}
 		
 		if (modelFilter.select(ModelFilter.DefinitionType.ImplementationGuide)) {
 			for (ImplementationGuide guide : implementationGuideMap.values()) {
@@ -414,7 +414,7 @@ public class ModelImporter implements ModelConstants {
 						
 		valueSetMap.clear();
 		structureDefinitionMap.clear();
-		dataElementMap.clear();
+//		dataElementMap.clear();
 		implementationGuideMap.clear();
 		searchParameterMap.clear();		
 	}
@@ -685,63 +685,63 @@ public class ModelImporter implements ModelConstants {
 		return valueSetEnum;
 	}
 
-	public Class importDataElement(DataElement dataElement) {
-		// URL should not be null, but it is currently null in HSPC definitions
-		String dataElementUrl = null;
-		if (dataElement.getUrl() != null) {
-			dataElementUrl = dataElement.getUrl().getValue();
-		}
-		else if (dataElement.getId() != null) {
-			dataElementUrl = dataElement.getId().getValue();
-		}
-		
-		if (dataElementUrl == null) {
-			return null;
-		}
-		
-		Class dataElementClass = modelIndexer.getDataElementForURI(dataElementUrl);
-		if (dataElementClass != null) {
-			return dataElementClass;
-		}
-
-		String packageName = PACKAGE_NAME_DATA_ELEMENTS;
-		Package dataElementPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
-		
-		String dataElementName = dataElement.getId().getValue();
-		if (dataElement.getName() != null) {
-			dataElementName = dataElement.getName().getValue();
-		}
-		dataElementClass = dataElementPkg.createOwnedClass(dataElementName, false);
-
-		Profile fhirUmlProfile = UMLUtil.getProfile(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getEPackage(), dataElementClass);
-		org.eclipse.mdht.uml.fhir.DataElement dataElementStereotype = null;
-		if (fhirUmlProfile != null) {
-			dataElementStereotype = (org.eclipse.mdht.uml.fhir.DataElement) UMLUtil.safeApplyStereotype(dataElementClass, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getName()));
-			if (dataElement.getUrl() != null) {
-				dataElementStereotype.setUri(dataElement.getUrl().getValue());
-			}
-			if (dataElement.getId() != null) {
-				dataElementStereotype.setId(dataElement.getId().getValue());
-			}
-			if (dataElement.getName() != null) {
-				dataElementStereotype.setName(dataElement.getName().getValue());
-			}
-			if (dataElement.getVersion() != null) {
-				dataElementStereotype.setVersion(dataElement.getVersion().getValue());
-			}
-			if (dataElement.getPublisher() != null) {
-				dataElementStereotype.setPublisher(dataElement.getPublisher().getValue());
-			}
-		}
-
-		//TODO addElementDefinition()
-		
-		if (dataElementStereotype != null) {
-			modelIndexer.addElement(dataElementStereotype);
-		}
-		
-		return dataElementClass;
-	}
+//	public Class importDataElement(DataElement dataElement) {
+//		// URL should not be null, but it is currently null in HSPC definitions
+//		String dataElementUrl = null;
+//		if (dataElement.getUrl() != null) {
+//			dataElementUrl = dataElement.getUrl().getValue();
+//		}
+//		else if (dataElement.getId() != null) {
+//			dataElementUrl = dataElement.getId().getValue();
+//		}
+//		
+//		if (dataElementUrl == null) {
+//			return null;
+//		}
+//		
+//		Class dataElementClass = modelIndexer.getDataElementForURI(dataElementUrl);
+//		if (dataElementClass != null) {
+//			return dataElementClass;
+//		}
+//
+//		String packageName = PACKAGE_NAME_DATA_ELEMENTS;
+//		Package dataElementPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
+//		
+//		String dataElementName = dataElement.getId().getValue();
+//		if (dataElement.getName() != null) {
+//			dataElementName = dataElement.getName().getValue();
+//		}
+//		dataElementClass = dataElementPkg.createOwnedClass(dataElementName, false);
+//
+//		Profile fhirUmlProfile = UMLUtil.getProfile(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getEPackage(), dataElementClass);
+//		org.eclipse.mdht.uml.fhir.DataElement dataElementStereotype = null;
+//		if (fhirUmlProfile != null) {
+//			dataElementStereotype = (org.eclipse.mdht.uml.fhir.DataElement) UMLUtil.safeApplyStereotype(dataElementClass, fhirUmlProfile.getOwnedStereotype(org.eclipse.mdht.uml.fhir.FHIRPackage.eINSTANCE.getDataElement().getName()));
+//			if (dataElement.getUrl() != null) {
+//				dataElementStereotype.setUri(dataElement.getUrl().getValue());
+//			}
+//			if (dataElement.getId() != null) {
+//				dataElementStereotype.setId(dataElement.getId().getValue());
+//			}
+//			if (dataElement.getName() != null) {
+//				dataElementStereotype.setName(dataElement.getName().getValue());
+//			}
+//			if (dataElement.getVersion() != null) {
+//				dataElementStereotype.setVersion(dataElement.getVersion().getValue());
+//			}
+//			if (dataElement.getPublisher() != null) {
+//				dataElementStereotype.setPublisher(dataElement.getPublisher().getValue());
+//			}
+//		}
+//
+//		//TODO addElementDefinition()
+//		
+//		if (dataElementStereotype != null) {
+//			modelIndexer.addElement(dataElementStereotype);
+//		}
+//		
+//		return dataElementClass;
+//	}
 
 	public Class importProfileForURI(String profileURI) {
 		Class umlClass = modelIndexer.getStructureDefinitionForURI(profileURI);
@@ -1557,7 +1557,7 @@ public class ModelImporter implements ModelConstants {
 				// Problem with expanding ConceptMap.source[x] which contains a Reference(ValueSet)
 				// Detecting that the elementDef is a TypeChoice and returning a Reference instead of a ValueSet
 				if (elementDef.getId().endsWith("[x]"))
-					typeClass = importProfileForURI(REFERENCE_CLASS_NAME);
+					typeClass = importProfileForURI(FHIR_STRUCTURE_URI_BASE + REFERENCE_CLASS_NAME);
 				else
 					typeClass = importProfileForURI(elementDefType.getTargetProfile().getValue());
 			}

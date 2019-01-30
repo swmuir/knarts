@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ImmunizationRecommendationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+ * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,6 +20,8 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendation#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendation#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendation#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendation#getAuthority <em>Authority</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendation#getRecommendation <em>Recommendation</em>}</li>
  * </ul>
  *
@@ -30,7 +29,6 @@ import org.hl7.fhir.jaxb.ImmunizationRecommendationImplAdapter;
  * @model extendedMetaData="name='ImmunizationRecommendation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImmunizationRecommendationImplAdapter.class)
 public interface ImmunizationRecommendation extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -53,7 +51,7 @@ public interface ImmunizationRecommendation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient the recommendations are for.
+	 * The patient the recommendation(s) are for.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)
@@ -73,6 +71,58 @@ public interface ImmunizationRecommendation extends DomainResource {
 	 * @generated
 	 */
 	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date the immunization recommendation(s) were created.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendation_Date()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendation#getDate <em>Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
+	 * @generated
+	 */
+	void setDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Authority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the authority who published the protocol (e.g. ACIP).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Authority</em>' containment reference.
+	 * @see #setAuthority(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendation_Authority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='authority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getAuthority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendation#getAuthority <em>Authority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Authority</em>' containment reference.
+	 * @see #getAuthority()
+	 * @generated
+	 */
+	void setAuthority(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Recommendation</b></em>' containment reference list.

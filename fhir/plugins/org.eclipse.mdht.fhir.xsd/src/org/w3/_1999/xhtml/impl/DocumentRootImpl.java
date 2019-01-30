@@ -2,11 +2,6 @@
  */
 package org.w3._1999.xhtml.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EMap;
@@ -79,47 +74,6 @@ import org.w3._1999.xhtml.TtType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.VarType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.ATypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.AbbrTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.AcronymTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.AddressTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.BTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.BdoTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.BigTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.BlockquoteTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.CaptionTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.CiteTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.CodeTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DdTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DfnTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DlTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.DtTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.EmTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H1TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H2TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H3TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H4TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H5TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.H6TypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.ITypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.KbdTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.LiTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.MapTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.PTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.PreTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.QTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.SampTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.SmallTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.SpanTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.StrongTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.SubTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.SupTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.TdTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.ThTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.TtTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.VarTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -189,8 +143,6 @@ import org.w3._1999.xhtml.jaxb.VarTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DocumentRoot", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "DocumentRoot")
 public class DocumentRootImpl extends MinimalEObjectImpl.Container implements DocumentRoot {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
@@ -258,7 +210,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if (xMLNSPrefixMap == null) {
 			xMLNSPrefixMap = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, XhtmlPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
@@ -271,7 +222,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EMap<String, String> getXSISchemaLocation() {
 		if (xSISchemaLocation == null) {
 			xSISchemaLocation = new EcoreEMap<String,String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY, EStringToStringMapEntryImpl.class, this, XhtmlPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
@@ -284,7 +234,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ATypeImplAdapter.class)
 	public AType getA() {
 		return (AType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_A(), true);
 	}
@@ -312,7 +261,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AbbrTypeImplAdapter.class)
 	public AbbrType getAbbr() {
 		return (AbbrType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Abbr(), true);
 	}
@@ -340,7 +288,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AcronymTypeImplAdapter.class)
 	public AcronymType getAcronym() {
 		return (AcronymType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Acronym(), true);
 	}
@@ -368,7 +315,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AddressTypeImplAdapter.class)
 	public AddressType getAddress() {
 		return (AddressType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Address(), true);
 	}
@@ -423,7 +369,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BTypeImplAdapter.class)
 	public BType getB() {
 		return (BType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_B(), true);
 	}
@@ -451,7 +396,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BdoTypeImplAdapter.class)
 	public BdoType getBdo() {
 		return (BdoType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Bdo(), true);
 	}
@@ -479,7 +423,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BigTypeImplAdapter.class)
 	public BigType getBig() {
 		return (BigType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Big(), true);
 	}
@@ -507,7 +450,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BlockquoteTypeImplAdapter.class)
 	public BlockquoteType getBlockquote() {
 		return (BlockquoteType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Blockquote(), true);
 	}
@@ -562,7 +504,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CaptionTypeImplAdapter.class)
 	public CaptionType getCaption() {
 		return (CaptionType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Caption(), true);
 	}
@@ -590,7 +531,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CiteTypeImplAdapter.class)
 	public CiteType getCite() {
 		return (CiteType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Cite(), true);
 	}
@@ -618,7 +558,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeTypeImplAdapter.class)
 	public CodeType getCode() {
 		return (CodeType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Code(), true);
 	}
@@ -700,7 +639,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DdTypeImplAdapter.class)
 	public DdType getDd() {
 		return (DdType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Dd(), true);
 	}
@@ -728,7 +666,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DfnTypeImplAdapter.class)
 	public DfnType getDfn() {
 		return (DfnType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Dfn(), true);
 	}
@@ -756,7 +693,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DivTypeImplAdapter.class)
 	public DivType getDiv() {
 		return (DivType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Div(), true);
 	}
@@ -784,7 +720,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DlTypeImplAdapter.class)
 	public DlType getDl() {
 		return (DlType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Dl(), true);
 	}
@@ -812,7 +747,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DtTypeImplAdapter.class)
 	public DtType getDt() {
 		return (DtType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Dt(), true);
 	}
@@ -840,7 +774,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(EmTypeImplAdapter.class)
 	public EmType getEm() {
 		return (EmType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Em(), true);
 	}
@@ -868,7 +801,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H1TypeImplAdapter.class)
 	public H1Type getH1() {
 		return (H1Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H1(), true);
 	}
@@ -896,7 +828,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H2TypeImplAdapter.class)
 	public H2Type getH2() {
 		return (H2Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H2(), true);
 	}
@@ -924,7 +855,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H3TypeImplAdapter.class)
 	public H3Type getH3() {
 		return (H3Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H3(), true);
 	}
@@ -952,7 +882,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H4TypeImplAdapter.class)
 	public H4Type getH4() {
 		return (H4Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H4(), true);
 	}
@@ -980,7 +909,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H5TypeImplAdapter.class)
 	public H5Type getH5() {
 		return (H5Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H5(), true);
 	}
@@ -1008,7 +936,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(H6TypeImplAdapter.class)
 	public H6Type getH6() {
 		return (H6Type)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_H6(), true);
 	}
@@ -1063,7 +990,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ITypeImplAdapter.class)
 	public IType getI() {
 		return (IType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_I(), true);
 	}
@@ -1118,7 +1044,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(KbdTypeImplAdapter.class)
 	public KbdType getKbd() {
 		return (KbdType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Kbd(), true);
 	}
@@ -1146,7 +1071,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(LiTypeImplAdapter.class)
 	public LiType getLi() {
 		return (LiType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Li(), true);
 	}
@@ -1174,7 +1098,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MapTypeImplAdapter.class)
 	public MapType getMap() {
 		return (MapType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Map(), true);
 	}
@@ -1229,7 +1152,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PTypeImplAdapter.class)
 	public PType getP() {
 		return (PType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_P(), true);
 	}
@@ -1257,7 +1179,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PreTypeImplAdapter.class)
 	public PreType getPre() {
 		return (PreType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Pre(), true);
 	}
@@ -1285,7 +1206,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(QTypeImplAdapter.class)
 	public QType getQ() {
 		return (QType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Q(), true);
 	}
@@ -1313,7 +1233,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SampTypeImplAdapter.class)
 	public SampType getSamp() {
 		return (SampType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Samp(), true);
 	}
@@ -1341,7 +1260,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SmallTypeImplAdapter.class)
 	public SmallType getSmall() {
 		return (SmallType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Small(), true);
 	}
@@ -1369,7 +1287,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SpanTypeImplAdapter.class)
 	public SpanType getSpan() {
 		return (SpanType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Span(), true);
 	}
@@ -1397,7 +1314,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StrongTypeImplAdapter.class)
 	public StrongType getStrong() {
 		return (StrongType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Strong(), true);
 	}
@@ -1425,7 +1341,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SubTypeImplAdapter.class)
 	public SubType getSub() {
 		return (SubType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Sub(), true);
 	}
@@ -1453,7 +1368,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SupTypeImplAdapter.class)
 	public SupType getSup() {
 		return (SupType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Sup(), true);
 	}
@@ -1535,7 +1449,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TdTypeImplAdapter.class)
 	public TdType getTd() {
 		return (TdType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Td(), true);
 	}
@@ -1590,7 +1503,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ThTypeImplAdapter.class)
 	public ThType getTh() {
 		return (ThType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Th(), true);
 	}
@@ -1645,7 +1557,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TrTypeImplAdapter.class)
 	public TrType getTr() {
 		return (TrType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Tr(), true);
 	}
@@ -1673,7 +1584,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TtTypeImplAdapter.class)
 	public TtType getTt() {
 		return (TtType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Tt(), true);
 	}
@@ -1728,7 +1638,6 @@ public class DocumentRootImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(VarTypeImplAdapter.class)
 	public VarType getVar() {
 		return (VarType)getMixed().get(XhtmlPackage.eINSTANCE.getDocumentRoot_Var(), true);
 	}

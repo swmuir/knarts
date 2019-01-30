@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExpansionProfileFixedVersionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ExpansionProfileFixedVersionImplAdapter;
  * @model extendedMetaData="name='ExpansionProfile.FixedVersion' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExpansionProfileFixedVersionImplAdapter.class)
 public interface ExpansionProfileFixedVersion extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.

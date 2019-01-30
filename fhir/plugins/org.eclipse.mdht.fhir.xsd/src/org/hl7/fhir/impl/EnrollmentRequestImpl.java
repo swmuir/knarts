@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,8 +23,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,14 +38,12 @@ import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getCandidate <em>Candidate</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getCoverage <em>Coverage</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "EnrollmentRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EnrollmentRequest")
 public class EnrollmentRequestImpl extends DomainResourceImpl implements EnrollmentRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -115,14 +106,14 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	protected Reference organization;
 
 	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * The cached value of the '{@link #getCandidate() <em>Candidate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubject()
+	 * @see #getCandidate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subject;
+	protected Reference candidate;
 
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
@@ -158,7 +149,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENROLLMENT_REQUEST__IDENTIFIER);
@@ -171,7 +161,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -215,7 +204,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -388,8 +376,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
+	public Reference getCandidate() {
+		return candidate;
 	}
 
 	/**
@@ -397,11 +385,11 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
+	public NotificationChain basicSetCandidate(Reference newCandidate, NotificationChain msgs) {
+		Reference oldCandidate = candidate;
+		candidate = newCandidate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__SUBJECT, oldSubject, newSubject);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__CANDIDATE, oldCandidate, newCandidate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -412,18 +400,18 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
+	public void setCandidate(Reference newCandidate) {
+		if (newCandidate != candidate) {
 			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
+			if (candidate != null)
+				msgs = ((InternalEObject)candidate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__CANDIDATE, null, msgs);
+			if (newCandidate != null)
+				msgs = ((InternalEObject)newCandidate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__CANDIDATE, null, msgs);
+			msgs = basicSetCandidate(newCandidate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__SUBJECT, newSubject, newSubject));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__CANDIDATE, newCandidate, newCandidate));
 	}
 
 	/**
@@ -489,8 +477,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return basicSetProvider(null, msgs);
 			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
 				return basicSetOrganization(null, msgs);
-			case FhirPackage.ENROLLMENT_REQUEST__SUBJECT:
-				return basicSetSubject(null, msgs);
+			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
+				return basicSetCandidate(null, msgs);
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
 				return basicSetCoverage(null, msgs);
 		}
@@ -517,8 +505,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return getProvider();
 			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
 				return getOrganization();
-			case FhirPackage.ENROLLMENT_REQUEST__SUBJECT:
-				return getSubject();
+			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
+				return getCandidate();
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
 				return getCoverage();
 		}
@@ -553,8 +541,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
 				setOrganization((Reference)newValue);
 				return;
-			case FhirPackage.ENROLLMENT_REQUEST__SUBJECT:
-				setSubject((Reference)newValue);
+			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
+				setCandidate((Reference)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
 				setCoverage((Reference)newValue);
@@ -589,8 +577,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
 				setOrganization((Reference)null);
 				return;
-			case FhirPackage.ENROLLMENT_REQUEST__SUBJECT:
-				setSubject((Reference)null);
+			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
+				setCandidate((Reference)null);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
 				setCoverage((Reference)null);
@@ -619,8 +607,8 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return provider != null;
 			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
 				return organization != null;
-			case FhirPackage.ENROLLMENT_REQUEST__SUBJECT:
-				return subject != null;
+			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
+				return candidate != null;
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
 				return coverage != null;
 		}

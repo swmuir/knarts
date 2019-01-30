@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,9 +22,6 @@ import org.hl7.fhir.ConceptMapDependsOn;
 import org.hl7.fhir.ConceptMapEquivalence;
 import org.hl7.fhir.ConceptMapTarget;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.ConceptMapEquivalenceImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,8 +41,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ConceptMapTarget", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ConceptMapTarget")
 public class ConceptMapTargetImpl extends BackboneElementImpl implements ConceptMapTarget {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -136,7 +126,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getCode() {
 		return code;
 	}
@@ -180,7 +169,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -224,7 +212,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConceptMapEquivalenceImplAdapter.class)
 	public ConceptMapEquivalence getEquivalence() {
 		return equivalence;
 	}
@@ -268,7 +255,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}
@@ -312,7 +298,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ConceptMapDependsOn> getDependsOn() {
 		if (dependsOn == null) {
 			dependsOn = new EObjectContainmentEList<ConceptMapDependsOn>(ConceptMapDependsOn.class, this, FhirPackage.CONCEPT_MAP_TARGET__DEPENDS_ON);
@@ -325,7 +310,6 @@ public class ConceptMapTargetImpl extends BackboneElementImpl implements Concept
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ConceptMapDependsOn> getProduct() {
 		if (product == null) {
 			product = new EObjectContainmentEList<ConceptMapDependsOn>(ConceptMapDependsOn.class, this, FhirPackage.CONCEPT_MAP_TARGET__PRODUCT);

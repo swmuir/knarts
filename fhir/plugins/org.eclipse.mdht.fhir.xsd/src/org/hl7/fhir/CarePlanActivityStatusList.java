@@ -81,6 +81,16 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	CANCELLED(5, "cancelled", "cancelled"),
 
 	/**
+	 * The '<em><b>Stopped</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STOPPED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STOPPED(6, "stopped", "stopped"),
+
+	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +98,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(6, "unknown", "unknown");
+	UNKNOWN(7, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Not Started</b></em>' literal value.
@@ -175,6 +185,20 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	public static final int CANCELLED_VALUE = 5;
 
 	/**
+	 * The '<em><b>Stopped</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Stopped
+	 * <!-- end-model-doc -->
+	 * @see #STOPPED
+	 * @model name="stopped"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STOPPED_VALUE = 6;
+
+	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,7 +210,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 6;
+	public static final int UNKNOWN_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Care Plan Activity Status List</b></em>' enumerators.
@@ -202,6 +226,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 			ON_HOLD,
 			COMPLETED,
 			CANCELLED,
+			STOPPED,
 			UNKNOWN,
 		};
 
@@ -265,6 +290,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 			case ON_HOLD_VALUE: return ON_HOLD;
 			case COMPLETED_VALUE: return COMPLETED;
 			case CANCELLED_VALUE: return CANCELLED;
+			case STOPPED_VALUE: return STOPPED;
 			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;

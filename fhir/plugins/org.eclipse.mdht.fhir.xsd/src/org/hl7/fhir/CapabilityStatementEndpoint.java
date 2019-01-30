@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CapabilityStatementEndpointImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.CapabilityStatementEndpointImplAdapter;
  * @model extendedMetaData="name='CapabilityStatement.Endpoint' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementEndpointImplAdapter.class)
 public interface CapabilityStatementEndpoint extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Protocol</b></em>' containment reference.

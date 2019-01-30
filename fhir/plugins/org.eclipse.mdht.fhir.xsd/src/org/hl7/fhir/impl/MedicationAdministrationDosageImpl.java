@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +15,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationAdministrationDosage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Ratio;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,8 +35,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MedicationAdministrationDosage", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MedicationAdministrationDosage")
 public class MedicationAdministrationDosageImpl extends BackboneElementImpl implements MedicationAdministrationDosage {
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -137,7 +130,6 @@ public class MedicationAdministrationDosageImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}

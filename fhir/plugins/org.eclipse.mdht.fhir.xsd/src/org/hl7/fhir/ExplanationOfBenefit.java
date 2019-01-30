@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ExplanationOfBenefitImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +63,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitImplAdapter.class)
 public interface ExplanationOfBenefit extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -446,13 +442,13 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * Processing outcome errror, partial or complete processing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
+	 * @see #setOutcome(ClaimProcessingCodes)
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefit_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOutcome();
+	ClaimProcessingCodes getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefit#getOutcome <em>Outcome</em>}' containment reference.
@@ -462,7 +458,7 @@ public interface ExplanationOfBenefit extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(CodeableConcept value);
+	void setOutcome(ClaimProcessingCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

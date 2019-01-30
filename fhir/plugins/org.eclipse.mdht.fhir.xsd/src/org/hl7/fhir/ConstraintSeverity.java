@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConstraintSeverityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConstraintSeverityImplAdapter;
  * @model extendedMetaData="name='ConstraintSeverity' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConstraintSeverityImplAdapter.class)
 public interface ConstraintSeverity extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

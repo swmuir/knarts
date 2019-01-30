@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CapabilityStatementImplementationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.CapabilityStatementImplementationImplAdapter;
  * @model extendedMetaData="name='CapabilityStatement.Implementation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementImplementationImplAdapter.class)
 public interface CapabilityStatementImplementation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.FlagStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.FlagStatusImplAdapter;
  * @model extendedMetaData="name='FlagStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FlagStatusImplAdapter.class)
 public interface FlagStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

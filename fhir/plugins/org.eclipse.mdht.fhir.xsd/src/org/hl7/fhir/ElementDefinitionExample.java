@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ElementDefinitionExampleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +62,6 @@ import org.hl7.fhir.jaxb.ElementDefinitionExampleImplAdapter;
  * @model extendedMetaData="name='ElementDefinition.Example' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ElementDefinitionExampleImplAdapter.class)
 public interface ElementDefinitionExample extends Element {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.

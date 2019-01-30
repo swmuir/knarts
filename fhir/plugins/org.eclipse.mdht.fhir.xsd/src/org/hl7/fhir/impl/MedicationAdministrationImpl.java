@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,9 +28,7 @@ import org.hl7.fhir.MedicationAdministrationPerformer;
 import org.hl7.fhir.MedicationAdministrationStatus;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +39,7 @@ import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getCategory <em>Category</em>}</li>
@@ -58,11 +51,10 @@ import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getNotGiven <em>Not Given</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonNotGiven <em>Reason Not Given</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getPrescription <em>Prescription</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationAdministrationImpl#getDosage <em>Dosage</em>}</li>
@@ -71,8 +63,6 @@ import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MedicationAdministration", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MedicationAdministration")
 public class MedicationAdministrationImpl extends DomainResourceImpl implements MedicationAdministration {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -85,14 +75,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getInstantiates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> definition;
+	protected EList<Uri> instantiates;
 
 	/**
 	 * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' containment reference list.
@@ -205,24 +195,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected EList<MedicationAdministrationPerformer> performer;
 
 	/**
-	 * The cached value of the '{@link #getNotGiven() <em>Not Given</em>}' containment reference.
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotGiven()
+	 * @see #getStatusReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean notGiven;
-
-	/**
-	 * The cached value of the '{@link #getReasonNotGiven() <em>Reason Not Given</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReasonNotGiven()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> reasonNotGiven;
+	protected EList<CodeableConcept> statusReason;
 
 	/**
 	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
@@ -245,14 +225,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	protected EList<Reference> reasonReference;
 
 	/**
-	 * The cached value of the '{@link #getPrescription() <em>Prescription</em>}' containment reference.
+	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrescription()
+	 * @see #getRequest()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference prescription;
+	protected Reference request;
 
 	/**
 	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference list.
@@ -318,7 +298,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICATION_ADMINISTRATION__IDENTIFIER);
@@ -331,12 +310,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION);
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES);
 		}
-		return definition;
+		return instantiates;
 	}
 
 	/**
@@ -344,7 +322,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__PART_OF);
@@ -357,8 +334,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MedicationAdministrationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public MedicationAdministrationStatus getStatus() {
 		return status;
 	}
@@ -531,7 +506,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -618,7 +592,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__SUPPORTING_INFORMATION);
@@ -631,7 +604,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveDateTime() {
 		return effectiveDateTime;
 	}
@@ -718,7 +690,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MedicationAdministrationPerformer> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<MedicationAdministrationPerformer>(MedicationAdministrationPerformer.class, this, FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER);
@@ -731,24 +702,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getNotGiven() {
-		return notGiven;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNotGiven(org.hl7.fhir.Boolean newNotGiven, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldNotGiven = notGiven;
-		notGiven = newNotGiven;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, oldNotGiven, newNotGiven);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getStatusReason() {
+		if (statusReason == null) {
+			statusReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON);
 		}
-		return msgs;
+		return statusReason;
 	}
 
 	/**
@@ -756,39 +714,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNotGiven(org.hl7.fhir.Boolean newNotGiven) {
-		if (newNotGiven != notGiven) {
-			NotificationChain msgs = null;
-			if (notGiven != null)
-				msgs = ((InternalEObject)notGiven).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, null, msgs);
-			if (newNotGiven != null)
-				msgs = ((InternalEObject)newNotGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, null, msgs);
-			msgs = basicSetNotGiven(newNotGiven, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN, newNotGiven, newNotGiven));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<CodeableConcept> getReasonNotGiven() {
-		if (reasonNotGiven == null) {
-			reasonNotGiven = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN);
-		}
-		return reasonNotGiven;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE);
@@ -801,7 +726,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE);
@@ -814,8 +738,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPrescription() {
-		return prescription;
+	public Reference getRequest() {
+		return request;
 	}
 
 	/**
@@ -823,11 +747,11 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrescription(Reference newPrescription, NotificationChain msgs) {
-		Reference oldPrescription = prescription;
-		prescription = newPrescription;
+	public NotificationChain basicSetRequest(Reference newRequest, NotificationChain msgs) {
+		Reference oldRequest = request;
+		request = newRequest;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION, oldPrescription, newPrescription);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__REQUEST, oldRequest, newRequest);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -838,18 +762,18 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrescription(Reference newPrescription) {
-		if (newPrescription != prescription) {
+	public void setRequest(Reference newRequest) {
+		if (newRequest != request) {
 			NotificationChain msgs = null;
-			if (prescription != null)
-				msgs = ((InternalEObject)prescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION, null, msgs);
-			if (newPrescription != null)
-				msgs = ((InternalEObject)newPrescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION, null, msgs);
-			msgs = basicSetPrescription(newPrescription, msgs);
+			if (request != null)
+				msgs = ((InternalEObject)request).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__REQUEST, null, msgs);
+			if (newRequest != null)
+				msgs = ((InternalEObject)newRequest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_ADMINISTRATION__REQUEST, null, msgs);
+			msgs = basicSetRequest(newRequest, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION, newPrescription, newPrescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_ADMINISTRATION__REQUEST, newRequest, newRequest));
 	}
 
 	/**
@@ -857,7 +781,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getDevice() {
 		if (device == null) {
 			device = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__DEVICE);
@@ -870,7 +793,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.MEDICATION_ADMINISTRATION__NOTE);
@@ -926,7 +848,6 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
 			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_ADMINISTRATION__EVENT_HISTORY);
@@ -944,8 +865,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__PART_OF:
 				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS:
@@ -968,16 +889,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return basicSetEffectivePeriod(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
-				return basicSetNotGiven(null, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
-				return ((InternalEList<?>)getReasonNotGiven()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON:
+				return ((InternalEList<?>)getStatusReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
 				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
-				return basicSetPrescription(null, msgs);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REQUEST:
+				return basicSetRequest(null, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
 				return ((InternalEList<?>)getDevice()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_ADMINISTRATION__NOTE:
@@ -1000,8 +919,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION:
-				return getDefinition();
+			case FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES:
+				return getInstantiates();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PART_OF:
 				return getPartOf();
 			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS:
@@ -1024,16 +943,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return getEffectivePeriod();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return getPerformer();
-			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
-				return getNotGiven();
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
-				return getReasonNotGiven();
+			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON:
+				return getStatusReason();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
 				return getReasonCode();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
 				return getReasonReference();
-			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
-				return getPrescription();
+			case FhirPackage.MEDICATION_ADMINISTRATION__REQUEST:
+				return getRequest();
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
 				return getDevice();
 			case FhirPackage.MEDICATION_ADMINISTRATION__NOTE:
@@ -1059,9 +976,9 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PART_OF:
 				getPartOf().clear();
@@ -1099,12 +1016,9 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				getPerformer().clear();
 				getPerformer().addAll((Collection<? extends MedicationAdministrationPerformer>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
-				setNotGiven((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
-				getReasonNotGiven().clear();
-				getReasonNotGiven().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON:
+				getStatusReason().clear();
+				getStatusReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
 				getReasonCode().clear();
@@ -1114,8 +1028,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				getReasonReference().clear();
 				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
-				setPrescription((Reference)newValue);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REQUEST:
+				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
 				getDevice().clear();
@@ -1147,8 +1061,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION:
-				getDefinition().clear();
+			case FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES:
+				getInstantiates().clear();
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PART_OF:
 				getPartOf().clear();
@@ -1183,11 +1097,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				getPerformer().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
-				setNotGiven((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
-				getReasonNotGiven().clear();
+			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON:
+				getStatusReason().clear();
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
 				getReasonCode().clear();
@@ -1195,8 +1106,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
 				getReasonReference().clear();
 				return;
-			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
-				setPrescription((Reference)null);
+			case FhirPackage.MEDICATION_ADMINISTRATION__REQUEST:
+				setRequest((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
 				getDevice().clear();
@@ -1224,8 +1135,8 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 		switch (featureID) {
 			case FhirPackage.MEDICATION_ADMINISTRATION__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.MEDICATION_ADMINISTRATION__DEFINITION:
-				return definition != null && !definition.isEmpty();
+			case FhirPackage.MEDICATION_ADMINISTRATION__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__PART_OF:
 				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS:
@@ -1248,16 +1159,14 @@ public class MedicationAdministrationImpl extends DomainResourceImpl implements 
 				return effectivePeriod != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__PERFORMER:
 				return performer != null && !performer.isEmpty();
-			case FhirPackage.MEDICATION_ADMINISTRATION__NOT_GIVEN:
-				return notGiven != null;
-			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_NOT_GIVEN:
-				return reasonNotGiven != null && !reasonNotGiven.isEmpty();
+			case FhirPackage.MEDICATION_ADMINISTRATION__STATUS_REASON:
+				return statusReason != null && !statusReason.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_CODE:
 				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__REASON_REFERENCE:
 				return reasonReference != null && !reasonReference.isEmpty();
-			case FhirPackage.MEDICATION_ADMINISTRATION__PRESCRIPTION:
-				return prescription != null;
+			case FhirPackage.MEDICATION_ADMINISTRATION__REQUEST:
+				return request != null;
 			case FhirPackage.MEDICATION_ADMINISTRATION__DEVICE:
 				return device != null && !device.isEmpty();
 			case FhirPackage.MEDICATION_ADMINISTRATION__NOTE:

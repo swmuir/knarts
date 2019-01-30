@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -37,8 +33,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "ConditionEvidence", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ConditionEvidence")
 public class ConditionEvidenceImpl extends BackboneElementImpl implements ConditionEvidence {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
@@ -84,7 +78,6 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION_EVIDENCE__CODE);
@@ -97,7 +90,6 @@ public class ConditionEvidenceImpl extends BackboneElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONDITION_EVIDENCE__DETAIL);

@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -42,8 +38,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "EncounterParticipant", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EncounterParticipant")
 public class EncounterParticipantImpl extends BackboneElementImpl implements EncounterParticipant {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -99,7 +93,6 @@ public class EncounterParticipantImpl extends BackboneElementImpl implements Enc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER_PARTICIPANT__TYPE);

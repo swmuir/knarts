@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,8 +26,6 @@ import org.hl7.fhir.Time;
  *
  * @generated
  */
-@XmlType(name = "Time", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Time")
 public class TimeImpl extends ElementImpl implements Time {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

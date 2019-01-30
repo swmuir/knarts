@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,9 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.NarrativeStatus;
-import org.hl7.fhir.jaxb.NarrativeStatusImplAdapter;
+
 import org.w3._1999.xhtml.DivType;
-import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +30,6 @@ import org.w3._1999.xhtml.jaxb.DivTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Narrative", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Narrative")
 public class NarrativeImpl extends ElementImpl implements Narrative {
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -83,8 +75,6 @@ public class NarrativeImpl extends ElementImpl implements Narrative {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(NarrativeStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public NarrativeStatus getStatus() {
 		return status;
 	}
@@ -128,8 +118,6 @@ public class NarrativeImpl extends ElementImpl implements Narrative {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DivTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public DivType getDiv() {
 		return div;
 	}

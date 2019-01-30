@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,12 +31,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FamilyHistoryStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,10 +42,9 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getNotDoneReason <em>Not Done Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getName <em>Name</em>}</li>
@@ -81,8 +70,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "FamilyMemberHistory", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "FamilyMemberHistory")
 public class FamilyMemberHistoryImpl extends DomainResourceImpl implements FamilyMemberHistory {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -95,14 +82,14 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getInstantiates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> definition;
+	protected EList<Uri> instantiates;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -115,24 +102,14 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	protected FamilyHistoryStatus status;
 
 	/**
-	 * The cached value of the '{@link #getNotDone() <em>Not Done</em>}' containment reference.
+	 * The cached value of the '{@link #getDataAbsentReason() <em>Data Absent Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotDone()
+	 * @see #getDataAbsentReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean notDone;
-
-	/**
-	 * The cached value of the '{@link #getNotDoneReason() <em>Not Done Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotDoneReason()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept notDoneReason;
+	protected CodeableConcept dataAbsentReason;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -368,7 +345,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER);
@@ -381,12 +357,11 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION);
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES);
 		}
-		return definition;
+		return instantiates;
 	}
 
 	/**
@@ -394,8 +369,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FamilyHistoryStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public FamilyHistoryStatus getStatus() {
 		return status;
 	}
@@ -439,9 +412,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getNotDone() {
-		return notDone;
+	public CodeableConcept getDataAbsentReason() {
+		return dataAbsentReason;
 	}
 
 	/**
@@ -449,11 +421,11 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNotDone(org.hl7.fhir.Boolean newNotDone, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldNotDone = notDone;
-		notDone = newNotDone;
+	public NotificationChain basicSetDataAbsentReason(CodeableConcept newDataAbsentReason, NotificationChain msgs) {
+		CodeableConcept oldDataAbsentReason = dataAbsentReason;
+		dataAbsentReason = newDataAbsentReason;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, oldNotDone, newNotDone);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON, oldDataAbsentReason, newDataAbsentReason);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -464,18 +436,18 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNotDone(org.hl7.fhir.Boolean newNotDone) {
-		if (newNotDone != notDone) {
+	public void setDataAbsentReason(CodeableConcept newDataAbsentReason) {
+		if (newDataAbsentReason != dataAbsentReason) {
 			NotificationChain msgs = null;
-			if (notDone != null)
-				msgs = ((InternalEObject)notDone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, null, msgs);
-			if (newNotDone != null)
-				msgs = ((InternalEObject)newNotDone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, null, msgs);
-			msgs = basicSetNotDone(newNotDone, msgs);
+			if (dataAbsentReason != null)
+				msgs = ((InternalEObject)dataAbsentReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON, null, msgs);
+			if (newDataAbsentReason != null)
+				msgs = ((InternalEObject)newDataAbsentReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON, null, msgs);
+			msgs = basicSetDataAbsentReason(newDataAbsentReason, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE, newNotDone, newNotDone));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON, newDataAbsentReason, newDataAbsentReason));
 	}
 
 	/**
@@ -483,50 +455,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getNotDoneReason() {
-		return notDoneReason;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNotDoneReason(CodeableConcept newNotDoneReason, NotificationChain msgs) {
-		CodeableConcept oldNotDoneReason = notDoneReason;
-		notDoneReason = newNotDoneReason;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, oldNotDoneReason, newNotDoneReason);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNotDoneReason(CodeableConcept newNotDoneReason) {
-		if (newNotDoneReason != notDoneReason) {
-			NotificationChain msgs = null;
-			if (notDoneReason != null)
-				msgs = ((InternalEObject)notDoneReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, null, msgs);
-			if (newNotDoneReason != null)
-				msgs = ((InternalEObject)newNotDoneReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, null, msgs);
-			msgs = basicSetNotDoneReason(newNotDoneReason, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON, newNotDoneReason, newNotDoneReason));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -570,7 +498,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -614,7 +541,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -658,7 +584,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getRelationship() {
 		return relationship;
 	}
@@ -702,7 +627,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -789,7 +713,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBornDate() {
 		return bornDate;
 	}
@@ -833,7 +756,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBornString() {
 		return bornString;
 	}
@@ -963,7 +885,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAgeString() {
 		return ageString;
 	}
@@ -1007,7 +928,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getEstimatedAge() {
 		return estimatedAge;
 	}
@@ -1051,7 +971,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getDeceasedBoolean() {
 		return deceasedBoolean;
 	}
@@ -1181,7 +1100,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDeceasedDate() {
 		return deceasedDate;
 	}
@@ -1225,7 +1143,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDeceasedString() {
 		return deceasedString;
 	}
@@ -1269,7 +1186,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_CODE);
@@ -1282,7 +1198,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__REASON_REFERENCE);
@@ -1295,7 +1210,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__NOTE);
@@ -1308,7 +1222,6 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<FamilyMemberHistoryCondition> getCondition() {
 		if (condition == null) {
 			condition = new EObjectContainmentEList<FamilyMemberHistoryCondition>(FamilyMemberHistoryCondition.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__CONDITION);
@@ -1326,14 +1239,12 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
-				return basicSetNotDone(null, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
-				return basicSetNotDoneReason(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
+				return basicSetDataAbsentReason(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
@@ -1390,14 +1301,12 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
-				return getDefinition();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
+				return getInstantiates();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return getStatus();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
-				return getNotDone();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
-				return getNotDoneReason();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
+				return getDataAbsentReason();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return getPatient();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:
@@ -1457,18 +1366,15 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				setStatus((FamilyHistoryStatus)newValue);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
-				setNotDone((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
-				setNotDoneReason((CodeableConcept)newValue);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
+				setDataAbsentReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				setPatient((Reference)newValue);
@@ -1552,17 +1458,14 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
-				getDefinition().clear();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
+				getInstantiates().clear();
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				setStatus((FamilyHistoryStatus)null);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
-				setNotDone((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
-				setNotDoneReason((CodeableConcept)null);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
+				setDataAbsentReason((CodeableConcept)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				setPatient((Reference)null);
@@ -1641,14 +1544,12 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__DEFINITION:
-				return definition != null && !definition.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return status != null;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE:
-				return notDone != null;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__NOT_DONE_REASON:
-				return notDoneReason != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
+				return dataAbsentReason != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__PATIENT:
 				return patient != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATE:

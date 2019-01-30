@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.FlagImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +32,6 @@ import org.hl7.fhir.jaxb.FlagImplAdapter;
  * @model extendedMetaData="name='Flag' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FlagImplAdapter.class)
 public interface Flag extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -80,30 +76,20 @@ public interface Flag extends DomainResource {
 	void setStatus(FlagStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getFlag_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Flag#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

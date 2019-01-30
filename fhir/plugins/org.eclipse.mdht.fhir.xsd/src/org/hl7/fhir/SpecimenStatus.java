@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SpecimenStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SpecimenStatusImplAdapter;
  * @model extendedMetaData="name='SpecimenStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SpecimenStatusImplAdapter.class)
 public interface SpecimenStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

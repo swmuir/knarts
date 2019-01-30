@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.OrganizationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +34,6 @@ import org.hl7.fhir.jaxb.OrganizationImplAdapter;
  * @model extendedMetaData="name='Organization' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OrganizationImplAdapter.class)
 public interface Organization extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -129,7 +125,7 @@ public interface Organization extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of alternate names that the organization is known as, or was known as in the past.
+	 * A list ofÂ alternate names that the organization is known as, or was known as in the past.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alias</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOrganization_Alias()

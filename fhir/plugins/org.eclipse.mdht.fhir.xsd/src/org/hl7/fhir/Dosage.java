@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DosageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +42,6 @@ import org.hl7.fhir.jaxb.DosageImplAdapter;
  * @model extendedMetaData="name='Dosage' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DosageImplAdapter.class)
 public interface Dosage extends Element {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -105,7 +101,7 @@ public interface Dosage extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Supplemental instruction - e.g. "with meals".
+	 * Supplemental instructions to the patient on how to take the medication  (e.g. "with meals" or"take half to one hour before food") or warnings for the patient about the medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or sunlamps").
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Additional Instruction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDosage_AdditionalInstruction()

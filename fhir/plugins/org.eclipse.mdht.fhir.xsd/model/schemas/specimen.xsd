@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -86,7 +86,7 @@
           </xs:element>
           <xs:element name="request" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Details concerning a test or procedure request that required a specimen to be collected.</xs:documentation>
+              <xs:documentation xml:lang="en">Details concerning a service request that required a specimen to be collected.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="collection" type="Specimen.Collection" minOccurs="0" maxOccurs="1">

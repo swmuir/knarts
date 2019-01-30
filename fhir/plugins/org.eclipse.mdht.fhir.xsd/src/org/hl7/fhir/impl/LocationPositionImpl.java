@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.LocationPosition;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.DecimalImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "LocationPosition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "LocationPosition")
 public class LocationPositionImpl extends BackboneElementImpl implements LocationPosition {
 	/**
 	 * The cached value of the '{@link #getLongitude() <em>Longitude</em>}' containment reference.
@@ -92,8 +84,6 @@ public class LocationPositionImpl extends BackboneElementImpl implements Locatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
-	@XmlElement(required = true)
 	public Decimal getLongitude() {
 		return longitude;
 	}
@@ -137,8 +127,6 @@ public class LocationPositionImpl extends BackboneElementImpl implements Locatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
-	@XmlElement(required = true)
 	public Decimal getLatitude() {
 		return latitude;
 	}
@@ -182,7 +170,6 @@ public class LocationPositionImpl extends BackboneElementImpl implements Locatio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getAltitude() {
 		return altitude;
 	}

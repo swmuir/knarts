@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.IdentifierImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.IdentifierImplAdapter;
  * @model extendedMetaData="name='Identifier' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(IdentifierImplAdapter.class)
 public interface Identifier extends Element {
 	/**
 	 * Returns the value of the '<em><b>Use</b></em>' containment reference.

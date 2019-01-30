@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,16 +22,13 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.SupplyRequest;
-import org.hl7.fhir.SupplyRequestOrderedItem;
-import org.hl7.fhir.SupplyRequestRequester;
+import org.hl7.fhir.SupplyRequestParameter;
 import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
-import org.hl7.fhir.jaxb.SupplyRequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,14 +42,17 @@ import org.hl7.fhir.jaxb.SupplyRequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getOrderedItem <em>Ordered Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getItemCodeableConcept <em>Item Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getItemReference <em>Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getSupplier <em>Supplier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getDeliverFrom <em>Deliver From</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SupplyRequestImpl#getDeliverTo <em>Deliver To</em>}</li>
@@ -65,8 +60,6 @@ import org.hl7.fhir.jaxb.SupplyRequestStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SupplyRequest", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SupplyRequest")
 public class SupplyRequestImpl extends DomainResourceImpl implements SupplyRequest {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -109,14 +102,44 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	protected RequestPriority priority;
 
 	/**
-	 * The cached value of the '{@link #getOrderedItem() <em>Ordered Item</em>}' containment reference.
+	 * The cached value of the '{@link #getItemCodeableConcept() <em>Item Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrderedItem()
+	 * @see #getItemCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected SupplyRequestOrderedItem orderedItem;
+	protected CodeableConcept itemCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getItemReference() <em>Item Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference itemReference;
+
+	/**
+	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantity()
+	 * @generated
+	 * @ordered
+	 */
+	protected Quantity quantity;
+
+	/**
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SupplyRequestParameter> parameter;
 
 	/**
 	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
@@ -166,7 +189,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * @generated
 	 * @ordered
 	 */
-	protected SupplyRequestRequester requester;
+	protected Reference requester;
 
 	/**
 	 * The cached value of the '{@link #getSupplier() <em>Supplier</em>}' containment reference list.
@@ -179,24 +202,24 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	protected EList<Reference> supplier;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reasonCodeableConcept;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
-	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReasonReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reasonReference;
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getDeliverFrom() <em>Deliver From</em>}' containment reference.
@@ -285,7 +308,6 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SupplyRequestStatusImplAdapter.class)
 	public SupplyRequestStatus getStatus() {
 		return status;
 	}
@@ -372,7 +394,6 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -416,8 +437,8 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyRequestOrderedItem getOrderedItem() {
-		return orderedItem;
+	public CodeableConcept getItemCodeableConcept() {
+		return itemCodeableConcept;
 	}
 
 	/**
@@ -425,11 +446,11 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrderedItem(SupplyRequestOrderedItem newOrderedItem, NotificationChain msgs) {
-		SupplyRequestOrderedItem oldOrderedItem = orderedItem;
-		orderedItem = newOrderedItem;
+	public NotificationChain basicSetItemCodeableConcept(CodeableConcept newItemCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldItemCodeableConcept = itemCodeableConcept;
+		itemCodeableConcept = newItemCodeableConcept;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM, oldOrderedItem, newOrderedItem);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT, oldItemCodeableConcept, newItemCodeableConcept);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -440,18 +461,18 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrderedItem(SupplyRequestOrderedItem newOrderedItem) {
-		if (newOrderedItem != orderedItem) {
+	public void setItemCodeableConcept(CodeableConcept newItemCodeableConcept) {
+		if (newItemCodeableConcept != itemCodeableConcept) {
 			NotificationChain msgs = null;
-			if (orderedItem != null)
-				msgs = ((InternalEObject)orderedItem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM, null, msgs);
-			if (newOrderedItem != null)
-				msgs = ((InternalEObject)newOrderedItem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM, null, msgs);
-			msgs = basicSetOrderedItem(newOrderedItem, msgs);
+			if (itemCodeableConcept != null)
+				msgs = ((InternalEObject)itemCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT, null, msgs);
+			if (newItemCodeableConcept != null)
+				msgs = ((InternalEObject)newItemCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetItemCodeableConcept(newItemCodeableConcept, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM, newOrderedItem, newOrderedItem));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT, newItemCodeableConcept, newItemCodeableConcept));
 	}
 
 	/**
@@ -459,7 +480,104 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public Reference getItemReference() {
+		return itemReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetItemReference(Reference newItemReference, NotificationChain msgs) {
+		Reference oldItemReference = itemReference;
+		itemReference = newItemReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE, oldItemReference, newItemReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemReference(Reference newItemReference) {
+		if (newItemReference != itemReference) {
+			NotificationChain msgs = null;
+			if (itemReference != null)
+				msgs = ((InternalEObject)itemReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE, null, msgs);
+			if (newItemReference != null)
+				msgs = ((InternalEObject)newItemReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE, null, msgs);
+			msgs = basicSetItemReference(newItemReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE, newItemReference, newItemReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Quantity getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantity(Quantity newQuantity, NotificationChain msgs) {
+		Quantity oldQuantity = quantity;
+		quantity = newQuantity;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__QUANTITY, oldQuantity, newQuantity);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantity(Quantity newQuantity) {
+		if (newQuantity != quantity) {
+			NotificationChain msgs = null;
+			if (quantity != null)
+				msgs = ((InternalEObject)quantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__QUANTITY, null, msgs);
+			if (newQuantity != null)
+				msgs = ((InternalEObject)newQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__QUANTITY, null, msgs);
+			msgs = basicSetQuantity(newQuantity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__QUANTITY, newQuantity, newQuantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SupplyRequestParameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<SupplyRequestParameter>(SupplyRequestParameter.class, this, FhirPackage.SUPPLY_REQUEST__PARAMETER);
+		}
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -589,7 +707,6 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -633,7 +750,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyRequestRequester getRequester() {
+	public Reference getRequester() {
 		return requester;
 	}
 
@@ -642,8 +759,8 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequester(SupplyRequestRequester newRequester, NotificationChain msgs) {
-		SupplyRequestRequester oldRequester = requester;
+	public NotificationChain basicSetRequester(Reference newRequester, NotificationChain msgs) {
+		Reference oldRequester = requester;
 		requester = newRequester;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__REQUESTER, oldRequester, newRequester);
@@ -657,7 +774,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequester(SupplyRequestRequester newRequester) {
+	public void setRequester(Reference newRequester) {
 		if (newRequester != requester) {
 			NotificationChain msgs = null;
 			if (requester != null)
@@ -676,7 +793,6 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupplier() {
 		if (supplier == null) {
 			supplier = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_REQUEST__SUPPLIER);
@@ -689,23 +805,11 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReasonCodeableConcept() {
-		return reasonCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonCodeableConcept(CodeableConcept newReasonCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldReasonCodeableConcept = reasonCodeableConcept;
-		reasonCodeableConcept = newReasonCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT, oldReasonCodeableConcept, newReasonCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SUPPLY_REQUEST__REASON_CODE);
 		}
-		return msgs;
+		return reasonCode;
 	}
 
 	/**
@@ -713,61 +817,11 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReasonCodeableConcept(CodeableConcept newReasonCodeableConcept) {
-		if (newReasonCodeableConcept != reasonCodeableConcept) {
-			NotificationChain msgs = null;
-			if (reasonCodeableConcept != null)
-				msgs = ((InternalEObject)reasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT, null, msgs);
-			if (newReasonCodeableConcept != null)
-				msgs = ((InternalEObject)newReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetReasonCodeableConcept(newReasonCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT, newReasonCodeableConcept, newReasonCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReasonReference() {
 		return reasonReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonReference(Reference newReasonReference, NotificationChain msgs) {
-		Reference oldReasonReference = reasonReference;
-		reasonReference = newReasonReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE, oldReasonReference, newReasonReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonReference(Reference newReasonReference) {
-		if (newReasonReference != reasonReference) {
-			NotificationChain msgs = null;
-			if (reasonReference != null)
-				msgs = ((InternalEObject)reasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE, null, msgs);
-			if (newReasonReference != null)
-				msgs = ((InternalEObject)newReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE, null, msgs);
-			msgs = basicSetReasonReference(newReasonReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE, newReasonReference, newReasonReference));
 	}
 
 	/**
@@ -872,8 +926,14 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return basicSetCategory(null, msgs);
 			case FhirPackage.SUPPLY_REQUEST__PRIORITY:
 				return basicSetPriority(null, msgs);
-			case FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM:
-				return basicSetOrderedItem(null, msgs);
+			case FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT:
+				return basicSetItemCodeableConcept(null, msgs);
+			case FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE:
+				return basicSetItemReference(null, msgs);
+			case FhirPackage.SUPPLY_REQUEST__QUANTITY:
+				return basicSetQuantity(null, msgs);
+			case FhirPackage.SUPPLY_REQUEST__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_DATE_TIME:
 				return basicSetOccurrenceDateTime(null, msgs);
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_PERIOD:
@@ -886,10 +946,10 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return basicSetRequester(null, msgs);
 			case FhirPackage.SUPPLY_REQUEST__SUPPLIER:
 				return ((InternalEList<?>)getSupplier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT:
-				return basicSetReasonCodeableConcept(null, msgs);
+			case FhirPackage.SUPPLY_REQUEST__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE:
-				return basicSetReasonReference(null, msgs);
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_FROM:
 				return basicSetDeliverFrom(null, msgs);
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_TO:
@@ -914,8 +974,14 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return getCategory();
 			case FhirPackage.SUPPLY_REQUEST__PRIORITY:
 				return getPriority();
-			case FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM:
-				return getOrderedItem();
+			case FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT:
+				return getItemCodeableConcept();
+			case FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE:
+				return getItemReference();
+			case FhirPackage.SUPPLY_REQUEST__QUANTITY:
+				return getQuantity();
+			case FhirPackage.SUPPLY_REQUEST__PARAMETER:
+				return getParameter();
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_DATE_TIME:
 				return getOccurrenceDateTime();
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_PERIOD:
@@ -928,8 +994,8 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return getRequester();
 			case FhirPackage.SUPPLY_REQUEST__SUPPLIER:
 				return getSupplier();
-			case FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
+			case FhirPackage.SUPPLY_REQUEST__REASON_CODE:
+				return getReasonCode();
 			case FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE:
 				return getReasonReference();
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_FROM:
@@ -961,8 +1027,18 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 			case FhirPackage.SUPPLY_REQUEST__PRIORITY:
 				setPriority((RequestPriority)newValue);
 				return;
-			case FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM:
-				setOrderedItem((SupplyRequestOrderedItem)newValue);
+			case FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT:
+				setItemCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE:
+				setItemReference((Reference)newValue);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__QUANTITY:
+				setQuantity((Quantity)newValue);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends SupplyRequestParameter>)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)newValue);
@@ -977,17 +1053,19 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				setAuthoredOn((DateTime)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__REQUESTER:
-				setRequester((SupplyRequestRequester)newValue);
+				setRequester((Reference)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__SUPPLIER:
 				getSupplier().clear();
 				getSupplier().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)newValue);
+			case FhirPackage.SUPPLY_REQUEST__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE:
-				setReasonReference((Reference)newValue);
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_FROM:
 				setDeliverFrom((Reference)newValue);
@@ -1019,8 +1097,17 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 			case FhirPackage.SUPPLY_REQUEST__PRIORITY:
 				setPriority((RequestPriority)null);
 				return;
-			case FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM:
-				setOrderedItem((SupplyRequestOrderedItem)null);
+			case FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT:
+				setItemCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE:
+				setItemReference((Reference)null);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__QUANTITY:
+				setQuantity((Quantity)null);
+				return;
+			case FhirPackage.SUPPLY_REQUEST__PARAMETER:
+				getParameter().clear();
 				return;
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)null);
@@ -1035,16 +1122,16 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				setAuthoredOn((DateTime)null);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__REQUESTER:
-				setRequester((SupplyRequestRequester)null);
+				setRequester((Reference)null);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__SUPPLIER:
 				getSupplier().clear();
 				return;
-			case FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)null);
+			case FhirPackage.SUPPLY_REQUEST__REASON_CODE:
+				getReasonCode().clear();
 				return;
 			case FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE:
-				setReasonReference((Reference)null);
+				getReasonReference().clear();
 				return;
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_FROM:
 				setDeliverFrom((Reference)null);
@@ -1072,8 +1159,14 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return category != null;
 			case FhirPackage.SUPPLY_REQUEST__PRIORITY:
 				return priority != null;
-			case FhirPackage.SUPPLY_REQUEST__ORDERED_ITEM:
-				return orderedItem != null;
+			case FhirPackage.SUPPLY_REQUEST__ITEM_CODEABLE_CONCEPT:
+				return itemCodeableConcept != null;
+			case FhirPackage.SUPPLY_REQUEST__ITEM_REFERENCE:
+				return itemReference != null;
+			case FhirPackage.SUPPLY_REQUEST__QUANTITY:
+				return quantity != null;
+			case FhirPackage.SUPPLY_REQUEST__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_DATE_TIME:
 				return occurrenceDateTime != null;
 			case FhirPackage.SUPPLY_REQUEST__OCCURRENCE_PERIOD:
@@ -1086,10 +1179,10 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 				return requester != null;
 			case FhirPackage.SUPPLY_REQUEST__SUPPLIER:
 				return supplier != null && !supplier.isEmpty();
-			case FhirPackage.SUPPLY_REQUEST__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null;
+			case FhirPackage.SUPPLY_REQUEST__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.SUPPLY_REQUEST__REASON_REFERENCE:
-				return reasonReference != null;
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_FROM:
 				return deliverFrom != null;
 			case FhirPackage.SUPPLY_REQUEST__DELIVER_TO:

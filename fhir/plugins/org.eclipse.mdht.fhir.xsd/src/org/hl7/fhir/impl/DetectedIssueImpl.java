@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,11 +27,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ObservationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DetectedIssueSeverityImplAdapter;
-import org.hl7.fhir.jaxb.ObservationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,8 +51,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DetectedIssue", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DetectedIssue")
 public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIssue {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -241,8 +229,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ObservationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ObservationStatus getStatus() {
 		return status;
 	}
@@ -329,7 +315,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DetectedIssueSeverityImplAdapter.class)
 	public DetectedIssueSeverity getSeverity() {
 		return severity;
 	}
@@ -416,7 +401,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -503,7 +487,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getImplicated() {
 		if (implicated == null) {
 			implicated = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DETECTED_ISSUE__IMPLICATED);
@@ -516,7 +499,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDetail() {
 		return detail;
 	}
@@ -560,7 +542,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getReference() {
 		return reference;
 	}
@@ -604,7 +585,6 @@ public class DetectedIssueImpl extends DomainResourceImpl implements DetectedIss
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DetectedIssueMitigation> getMitigation() {
 		if (mitigation == null) {
 			mitigation = new EObjectContainmentEList<DetectedIssueMitigation>(DetectedIssueMitigation.class, this, FhirPackage.DETECTED_ISSUE__MITIGATION);

@@ -5,11 +5,6 @@ package org.w3._1999.xhtml.impl;
 import java.util.Collection;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,7 +23,6 @@ import org.w3._1999.xhtml.DirType;
 import org.w3._1999.xhtml.LiType;
 import org.w3._1999.xhtml.UlType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.LiTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +44,6 @@ import org.w3._1999.xhtml.jaxb.LiTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "UlType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "UlType")
 public class UlTypeImpl extends MinimalEObjectImpl.Container implements UlType {
 	/**
 	 * The cached value of the '{@link #getLi() <em>Li</em>}' containment reference list.
@@ -236,8 +228,6 @@ public class UlTypeImpl extends MinimalEObjectImpl.Container implements UlType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(LiTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public EList<LiType> getLi() {
 		if (li == null) {
 			li = new EObjectContainmentEList<LiType>(LiType.class, this, XhtmlPackage.UL_TYPE__LI);

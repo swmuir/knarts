@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DeviceMetricImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,33 +34,22 @@ import org.hl7.fhir.jaxb.DeviceMetricImplAdapter;
  * @model extendedMetaData="name='DeviceMetric' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceMetricImplAdapter.class)
 public interface DeviceMetric extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.
+	 * Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDeviceMetric_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceMetric#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

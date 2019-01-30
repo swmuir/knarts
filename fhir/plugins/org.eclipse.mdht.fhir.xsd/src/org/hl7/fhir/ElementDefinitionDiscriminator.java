@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ElementDefinitionDiscriminatorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ElementDefinitionDiscriminatorImplAdapter;
  * @model extendedMetaData="name='ElementDefinition.Discriminator' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ElementDefinitionDiscriminatorImplAdapter.class)
 public interface ElementDefinitionDiscriminator extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

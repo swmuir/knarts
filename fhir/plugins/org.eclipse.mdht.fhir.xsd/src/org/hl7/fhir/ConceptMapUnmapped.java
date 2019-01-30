@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConceptMapUnmappedImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ConceptMapUnmappedImplAdapter;
  * @model extendedMetaData="name='ConceptMap.Unmapped' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConceptMapUnmappedImplAdapter.class)
 public interface ConceptMapUnmapped extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.

@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -51,7 +51,7 @@
         <xs:sequence>
           <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this message definition is (or will be) published. The URL SHOULD include the major version of the message definition. For more information see [Technical and Business Versions](resource.html#versions).</xs:documentation>
+              <xs:documentation xml:lang="en">An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this message definition is (or will be) published.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
@@ -139,9 +139,9 @@
               <xs:documentation xml:lang="en">A MessageDefinition that is superseded by this definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="event" minOccurs="1" maxOccurs="1" type="Coding">
+          <xs:element name="event" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A coded identifier of a supported messaging event.</xs:documentation>
+              <xs:documentation xml:lang="en">Link to the defined event type.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="category" minOccurs="0" maxOccurs="1" type="MessageSignificanceCategory">
@@ -217,6 +217,36 @@
            </xs:annotation>
           </xs:element>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="MessageSignificanceCategory-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="Consequence">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Consequence</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Currency">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Currency</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Notification">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Notification</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MessageSignificanceCategory">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The impact of the content of a message.</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="MessageSignificanceCategory-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MessageDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,14 +47,13 @@ import org.hl7.fhir.jaxb.MessageDefinitionImplAdapter;
  * @model extendedMetaData="name='MessageDefinition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageDefinitionImplAdapter.class)
 public interface MessageDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this message definition is (or will be) published. The URL SHOULD include the major version of the message definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this message definition is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -475,16 +471,16 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A coded identifier of a supported messaging event.
+	 * Link to the defined event type.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference.
-	 * @see #setEvent(Coding)
+	 * @see #setEvent(Uri)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Event()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getEvent();
+	Uri getEvent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getEvent <em>Event</em>}' containment reference.
@@ -494,7 +490,7 @@ public interface MessageDefinition extends DomainResource {
 	 * @see #getEvent()
 	 * @generated
 	 */
-	void setEvent(Coding value);
+	void setEvent(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.

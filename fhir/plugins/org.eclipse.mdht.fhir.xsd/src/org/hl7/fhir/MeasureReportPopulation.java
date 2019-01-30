@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MeasureReportPopulationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,44 +16,16 @@ import org.hl7.fhir.jaxb.MeasureReportPopulationImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureReportPopulation#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportPopulation#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportPopulation#getCount <em>Count</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureReportPopulation#getPatients <em>Patients</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportPopulation#getSubjects <em>Subjects</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation()
  * @model extendedMetaData="name='MeasureReport.Population' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportPopulationImplAdapter.class)
 public interface MeasureReportPopulation extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The identifier of the population being reported, as defined by the population element of the measure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
-
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -110,29 +79,29 @@ public interface MeasureReportPopulation extends BackboneElement {
 	void setCount(org.hl7.fhir.Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Patients</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subjects</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This element refers to a List of patient level MeasureReport resources, one for each patient in this population.
+	 * This element refers to a List of subject level MeasureReport resources, one for each subject in this population.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patients</em>' containment reference.
-	 * @see #setPatients(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation_Patients()
+	 * @return the value of the '<em>Subjects</em>' containment reference.
+	 * @see #setSubjects(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportPopulation_Subjects()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patients' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='subjects' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPatients();
+	Reference getSubjects();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation#getPatients <em>Patients</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportPopulation#getSubjects <em>Subjects</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patients</em>' containment reference.
-	 * @see #getPatients()
+	 * @param value the new value of the '<em>Subjects</em>' containment reference.
+	 * @see #getSubjects()
 	 * @generated
 	 */
-	void setPatients(Reference value);
+	void setSubjects(Reference value);
 
 } // MeasureReportPopulation

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,7 +22,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ObservationReferenceRange;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,8 +41,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ObservationReferenceRange", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ObservationReferenceRange")
 public class ObservationReferenceRangeImpl extends BackboneElementImpl implements ObservationReferenceRange {
 	/**
 	 * The cached value of the '{@link #getLow() <em>Low</em>}' containment reference.
@@ -263,7 +255,6 @@ public class ObservationReferenceRangeImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getAppliesTo() {
 		if (appliesTo == null) {
 			appliesTo = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION_REFERENCE_RANGE__APPLIES_TO);
@@ -319,7 +310,6 @@ public class ObservationReferenceRangeImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}

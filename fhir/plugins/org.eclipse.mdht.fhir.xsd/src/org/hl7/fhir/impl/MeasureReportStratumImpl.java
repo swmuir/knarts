@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,12 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Decimal;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MeasureReportPopulation1;
 import org.hl7.fhir.MeasureReportStratum;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.Quantity;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,8 +38,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MeasureReportStratum", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureReportStratum")
 public class MeasureReportStratumImpl extends BackboneElementImpl implements MeasureReportStratum {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -55,7 +47,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String value;
+	protected CodeableConcept value;
 
 	/**
 	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' containment reference list.
@@ -75,7 +67,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * @generated
 	 * @ordered
 	 */
-	protected Decimal measureScore;
+	protected Quantity measureScore;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,9 +93,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
-	public org.hl7.fhir.String getValue() {
+	public CodeableConcept getValue() {
 		return value;
 	}
 
@@ -112,8 +102,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(org.hl7.fhir.String newValue, NotificationChain msgs) {
-		org.hl7.fhir.String oldValue = value;
+	public NotificationChain basicSetValue(CodeableConcept newValue, NotificationChain msgs) {
+		CodeableConcept oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATUM__VALUE, oldValue, newValue);
@@ -127,7 +117,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(org.hl7.fhir.String newValue) {
+	public void setValue(CodeableConcept newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
@@ -146,7 +136,6 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MeasureReportPopulation1> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasureReportPopulation1>(MeasureReportPopulation1.class, this, FhirPackage.MEASURE_REPORT_STRATUM__POPULATION);
@@ -159,8 +148,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
-	public Decimal getMeasureScore() {
+	public Quantity getMeasureScore() {
 		return measureScore;
 	}
 
@@ -169,8 +157,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMeasureScore(Decimal newMeasureScore, NotificationChain msgs) {
-		Decimal oldMeasureScore = measureScore;
+	public NotificationChain basicSetMeasureScore(Quantity newMeasureScore, NotificationChain msgs) {
+		Quantity oldMeasureScore = measureScore;
 		measureScore = newMeasureScore;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE, oldMeasureScore, newMeasureScore);
@@ -184,7 +172,7 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasureScore(Decimal newMeasureScore) {
+	public void setMeasureScore(Quantity newMeasureScore) {
 		if (newMeasureScore != measureScore) {
 			NotificationChain msgs = null;
 			if (measureScore != null)
@@ -244,14 +232,14 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
-				setValue((org.hl7.fhir.String)newValue);
+				setValue((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				getPopulation().clear();
 				getPopulation().addAll((Collection<? extends MeasureReportPopulation1>)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE:
-				setMeasureScore((Decimal)newValue);
+				setMeasureScore((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -266,13 +254,13 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
-				setValue((org.hl7.fhir.String)null);
+				setValue((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				getPopulation().clear();
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE:
-				setMeasureScore((Decimal)null);
+				setMeasureScore((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);

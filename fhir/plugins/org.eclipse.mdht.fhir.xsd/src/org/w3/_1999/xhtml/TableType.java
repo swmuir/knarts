@@ -6,12 +6,9 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.w3._1999.xhtml.jaxb.TableTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +46,6 @@ import org.w3._1999.xhtml.jaxb.TableTypeImplAdapter;
  * @model extendedMetaData="name='table_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TableTypeImplAdapter.class)
 public interface TableType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Caption</b></em>' containment reference.

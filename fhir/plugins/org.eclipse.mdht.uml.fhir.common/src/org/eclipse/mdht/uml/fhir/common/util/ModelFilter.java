@@ -22,12 +22,12 @@ public class ModelFilter {
 		Extension,
 		StructureDefinition,	// any structure definition resource
 		ValueSet,
-		DataElement,
+//		DataElement,
 		ImplementationGuide
 	}
 
 	public static DefinitionType[] ALL_TYPES = {DefinitionType.DefinedType, DefinitionType.ConstraintProfile, 
-			DefinitionType.Extension, DefinitionType.ValueSet, DefinitionType.DataElement, DefinitionType.ImplementationGuide};
+			DefinitionType.Extension, DefinitionType.ValueSet, /*DefinitionType.DataElement, */DefinitionType.ImplementationGuide};
 
 	public static DefinitionType[] DEFINED_TYPES = {DefinitionType.DefinedType};
 	

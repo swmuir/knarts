@@ -28,7 +28,7 @@ import org.hl7.fhir.AddressType;
 import org.hl7.fhir.AddressUse;
 import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.AdverseEvent;
-import org.hl7.fhir.AdverseEventCategory;
+import org.hl7.fhir.AdverseEventActuality;
 import org.hl7.fhir.AdverseEventCausality;
 import org.hl7.fhir.AdverseEventSuspectEntity;
 import org.hl7.fhir.Age;
@@ -64,7 +64,15 @@ import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.Basic;
 import org.hl7.fhir.Binary;
 import org.hl7.fhir.BindingStrength;
-import org.hl7.fhir.BodySite;
+import org.hl7.fhir.BiologicallyDerivedProduct;
+import org.hl7.fhir.BiologicallyDerivedProductCategory;
+import org.hl7.fhir.BiologicallyDerivedProductCollection;
+import org.hl7.fhir.BiologicallyDerivedProductManipulation;
+import org.hl7.fhir.BiologicallyDerivedProductProcessing;
+import org.hl7.fhir.BiologicallyDerivedProductStatus;
+import org.hl7.fhir.BiologicallyDerivedProductStorage;
+import org.hl7.fhir.BiologicallyDerivedProductStorageScale;
+import org.hl7.fhir.BodyStructure;
 import org.hl7.fhir.Bundle;
 import org.hl7.fhir.BundleEntry;
 import org.hl7.fhir.BundleLink;
@@ -72,11 +80,11 @@ import org.hl7.fhir.BundleRequest;
 import org.hl7.fhir.BundleResponse;
 import org.hl7.fhir.BundleSearch;
 import org.hl7.fhir.BundleType;
+import org.hl7.fhir.CanPushUpdates;
 import org.hl7.fhir.CapabilityStatement;
 import org.hl7.fhir.CapabilityStatementCertificate;
 import org.hl7.fhir.CapabilityStatementDocument;
 import org.hl7.fhir.CapabilityStatementEndpoint;
-import org.hl7.fhir.CapabilityStatementEvent;
 import org.hl7.fhir.CapabilityStatementImplementation;
 import org.hl7.fhir.CapabilityStatementInteraction;
 import org.hl7.fhir.CapabilityStatementInteraction1;
@@ -91,6 +99,7 @@ import org.hl7.fhir.CapabilityStatementSoftware;
 import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.CarePlan;
 import org.hl7.fhir.CarePlanActivity;
+import org.hl7.fhir.CarePlanActivityKind;
 import org.hl7.fhir.CarePlanActivityStatus;
 import org.hl7.fhir.CarePlanDetail;
 import org.hl7.fhir.CarePlanIntent;
@@ -111,12 +120,12 @@ import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
 import org.hl7.fhir.ClaimProcedure;
+import org.hl7.fhir.ClaimProcessingCodes;
 import org.hl7.fhir.ClaimRelated;
 import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
 import org.hl7.fhir.ClaimResponseAdjudication;
 import org.hl7.fhir.ClaimResponseDetail;
-import org.hl7.fhir.ClaimResponseDetail1;
 import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
@@ -129,6 +138,7 @@ import org.hl7.fhir.ClinicalImpressionFinding;
 import org.hl7.fhir.ClinicalImpressionInvestigation;
 import org.hl7.fhir.ClinicalImpressionStatus;
 import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeSearchSupport;
 import org.hl7.fhir.CodeSystem;
 import org.hl7.fhir.CodeSystemConcept;
 import org.hl7.fhir.CodeSystemContentMode;
@@ -143,7 +153,6 @@ import org.hl7.fhir.Communication;
 import org.hl7.fhir.CommunicationPayload;
 import org.hl7.fhir.CommunicationRequest;
 import org.hl7.fhir.CommunicationRequestPayload;
-import org.hl7.fhir.CommunicationRequestRequester;
 import org.hl7.fhir.CompartmentDefinition;
 import org.hl7.fhir.CompartmentDefinitionResource;
 import org.hl7.fhir.CompartmentType;
@@ -172,39 +181,39 @@ import org.hl7.fhir.ConditionalReadStatus;
 import org.hl7.fhir.ConfidentialityClassification;
 import org.hl7.fhir.Consent;
 import org.hl7.fhir.ConsentActor;
-import org.hl7.fhir.ConsentActor1;
 import org.hl7.fhir.ConsentData;
-import org.hl7.fhir.ConsentData1;
 import org.hl7.fhir.ConsentDataMeaning;
-import org.hl7.fhir.ConsentExcept;
-import org.hl7.fhir.ConsentExceptType;
 import org.hl7.fhir.ConsentPolicy;
+import org.hl7.fhir.ConsentProvision;
+import org.hl7.fhir.ConsentProvisionType;
+import org.hl7.fhir.ConsentScopeCodes;
 import org.hl7.fhir.ConsentState;
+import org.hl7.fhir.ConsentVerification;
 import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.ContactPointSystem;
 import org.hl7.fhir.ContactPointUse;
-import org.hl7.fhir.ContentType;
 import org.hl7.fhir.Contract;
 import org.hl7.fhir.ContractAgent;
-import org.hl7.fhir.ContractAgent1;
+import org.hl7.fhir.ContractAsset;
+import org.hl7.fhir.ContractData;
+import org.hl7.fhir.ContractDataMeaning;
 import org.hl7.fhir.ContractFriendly;
 import org.hl7.fhir.ContractLegal;
+import org.hl7.fhir.ContractOffer;
 import org.hl7.fhir.ContractResourceStatusCodes;
 import org.hl7.fhir.ContractRule;
 import org.hl7.fhir.ContractSigner;
 import org.hl7.fhir.ContractTerm;
 import org.hl7.fhir.ContractValuedItem;
-import org.hl7.fhir.ContractValuedItem1;
 import org.hl7.fhir.Contributor;
 import org.hl7.fhir.ContributorType;
 import org.hl7.fhir.Count;
 import org.hl7.fhir.Coverage;
+import org.hl7.fhir.CoverageClass;
+import org.hl7.fhir.CoverageCopay;
 import org.hl7.fhir.CoverageGrouping;
-import org.hl7.fhir.DataElement;
-import org.hl7.fhir.DataElementMapping;
-import org.hl7.fhir.DataElementStringency;
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
@@ -218,6 +227,7 @@ import org.hl7.fhir.DetectedIssueSeverity;
 import org.hl7.fhir.Device;
 import org.hl7.fhir.DeviceComponent;
 import org.hl7.fhir.DeviceComponentProductionSpecification;
+import org.hl7.fhir.DeviceComponentProperty;
 import org.hl7.fhir.DeviceMetric;
 import org.hl7.fhir.DeviceMetricCalibration;
 import org.hl7.fhir.DeviceMetricCalibrationState;
@@ -226,22 +236,21 @@ import org.hl7.fhir.DeviceMetricCategory;
 import org.hl7.fhir.DeviceMetricColor;
 import org.hl7.fhir.DeviceMetricOperationalStatus;
 import org.hl7.fhir.DeviceRequest;
-import org.hl7.fhir.DeviceRequestRequester;
+import org.hl7.fhir.DeviceRequestParameter;
 import org.hl7.fhir.DeviceUdi;
 import org.hl7.fhir.DeviceUseStatement;
 import org.hl7.fhir.DeviceUseStatementStatus;
 import org.hl7.fhir.DiagnosticReport;
-import org.hl7.fhir.DiagnosticReportImage;
-import org.hl7.fhir.DiagnosticReportPerformer;
+import org.hl7.fhir.DiagnosticReportMedia;
 import org.hl7.fhir.DiagnosticReportStatus;
-import org.hl7.fhir.DigitalMediaType;
 import org.hl7.fhir.DiscriminatorType;
 import org.hl7.fhir.Distance;
 import org.hl7.fhir.DocumentManifest;
-import org.hl7.fhir.DocumentManifestContent;
+import org.hl7.fhir.DocumentManifestAgent;
 import org.hl7.fhir.DocumentManifestRelated;
 import org.hl7.fhir.DocumentMode;
 import org.hl7.fhir.DocumentReference;
+import org.hl7.fhir.DocumentReferenceAgent;
 import org.hl7.fhir.DocumentReferenceContent;
 import org.hl7.fhir.DocumentReferenceContext;
 import org.hl7.fhir.DocumentReferenceRelated;
@@ -263,7 +272,9 @@ import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
 import org.hl7.fhir.EligibilityRequest;
+import org.hl7.fhir.EligibilityRequestAuthorization;
 import org.hl7.fhir.EligibilityResponse;
+import org.hl7.fhir.EligibilityResponseAuthorization;
 import org.hl7.fhir.EligibilityResponseBenefitBalance;
 import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.EligibilityResponseFinancial;
@@ -281,13 +292,27 @@ import org.hl7.fhir.Endpoint;
 import org.hl7.fhir.EndpointStatus;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.EnrollmentResponse;
+import org.hl7.fhir.EntryDefinition;
+import org.hl7.fhir.EntryDefinitionRelatedEntry;
 import org.hl7.fhir.EpisodeOfCare;
 import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.EpisodeOfCareStatus;
 import org.hl7.fhir.EpisodeOfCareStatusHistory;
 import org.hl7.fhir.EventCapabilityMode;
+import org.hl7.fhir.EventDefinition;
 import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.EventTiming;
+import org.hl7.fhir.ExampleScenario;
+import org.hl7.fhir.ExampleScenarioActor;
+import org.hl7.fhir.ExampleScenarioActorType;
+import org.hl7.fhir.ExampleScenarioAlternative;
+import org.hl7.fhir.ExampleScenarioContainedInstance;
+import org.hl7.fhir.ExampleScenarioInstance;
+import org.hl7.fhir.ExampleScenarioOperation;
+import org.hl7.fhir.ExampleScenarioOption;
+import org.hl7.fhir.ExampleScenarioProcess;
+import org.hl7.fhir.ExampleScenarioStep;
+import org.hl7.fhir.ExampleScenarioVersion;
 import org.hl7.fhir.ExpansionProfile;
 import org.hl7.fhir.ExpansionProfileDesignation;
 import org.hl7.fhir.ExpansionProfileDesignation1;
@@ -303,7 +328,6 @@ import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.ExplanationOfBenefitBenefitBalance;
 import org.hl7.fhir.ExplanationOfBenefitCareTeam;
 import org.hl7.fhir.ExplanationOfBenefitDetail;
-import org.hl7.fhir.ExplanationOfBenefitDetail1;
 import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.ExplanationOfBenefitFinancial;
 import org.hl7.fhir.ExplanationOfBenefitInformation;
@@ -316,12 +340,14 @@ import org.hl7.fhir.ExplanationOfBenefitProcessNote;
 import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.ExplanationOfBenefitStatus;
 import org.hl7.fhir.ExplanationOfBenefitSubDetail;
+import org.hl7.fhir.ExpressionLanguage;
 import org.hl7.fhir.Extension;
 import org.hl7.fhir.ExtensionContext;
 import org.hl7.fhir.FHIRAllTypes;
 import org.hl7.fhir.FHIRDefinedType;
 import org.hl7.fhir.FHIRDeviceStatus;
 import org.hl7.fhir.FHIRSubstanceStatus;
+import org.hl7.fhir.FailureAction;
 import org.hl7.fhir.FamilyHistoryStatus;
 import org.hl7.fhir.FamilyMemberHistory;
 import org.hl7.fhir.FamilyMemberHistoryCondition;
@@ -334,6 +360,7 @@ import org.hl7.fhir.Goal;
 import org.hl7.fhir.GoalStatus;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.GraphCompartmentRule;
+import org.hl7.fhir.GraphCompartmentUse;
 import org.hl7.fhir.GraphDefinition;
 import org.hl7.fhir.GraphDefinitionCompartment;
 import org.hl7.fhir.GraphDefinitionLink;
@@ -347,41 +374,56 @@ import org.hl7.fhir.GuidanceResponseStatus;
 import org.hl7.fhir.GuideDependencyType;
 import org.hl7.fhir.GuidePageKind;
 import org.hl7.fhir.HTTPVerb;
+import org.hl7.fhir.HazardousDutyWork;
 import org.hl7.fhir.HealthcareService;
 import org.hl7.fhir.HealthcareServiceAvailableTime;
 import org.hl7.fhir.HealthcareServiceNotAvailable;
+import org.hl7.fhir.HistoryOfEmploymentStatus;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.IdentifierUse;
 import org.hl7.fhir.IdentityAssuranceLevel;
-import org.hl7.fhir.ImagingManifest;
-import org.hl7.fhir.ImagingManifestInstance;
-import org.hl7.fhir.ImagingManifestSeries;
-import org.hl7.fhir.ImagingManifestStudy;
 import org.hl7.fhir.ImagingStudy;
 import org.hl7.fhir.ImagingStudyInstance;
 import org.hl7.fhir.ImagingStudySeries;
 import org.hl7.fhir.Immunization;
-import org.hl7.fhir.ImmunizationExplanation;
+import org.hl7.fhir.ImmunizationEducation;
+import org.hl7.fhir.ImmunizationEvaluation;
+import org.hl7.fhir.ImmunizationEvaluationStatusCodes;
 import org.hl7.fhir.ImmunizationPractitioner;
-import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationRecommendation;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
-import org.hl7.fhir.ImmunizationRecommendationProtocol;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
 import org.hl7.fhir.ImmunizationStatusCodes;
-import org.hl7.fhir.ImmunizationVaccinationProtocol;
 import org.hl7.fhir.ImplementationGuide;
 import org.hl7.fhir.ImplementationGuideDependency;
 import org.hl7.fhir.ImplementationGuideGlobal;
+import org.hl7.fhir.ImplementationGuideInput;
+import org.hl7.fhir.ImplementationGuideInputDependency;
+import org.hl7.fhir.ImplementationGuideInputGlobal;
+import org.hl7.fhir.ImplementationGuideInputPackage;
+import org.hl7.fhir.ImplementationGuideInputPage;
+import org.hl7.fhir.ImplementationGuideInputResource;
+import org.hl7.fhir.ImplementationGuideOutput;
+import org.hl7.fhir.ImplementationGuideOutputDependency;
+import org.hl7.fhir.ImplementationGuideOutputGlobal;
+import org.hl7.fhir.ImplementationGuideOutputPage;
+import org.hl7.fhir.ImplementationGuideOutputResource;
 import org.hl7.fhir.ImplementationGuidePackage;
 import org.hl7.fhir.ImplementationGuidePage;
 import org.hl7.fhir.ImplementationGuideResource;
 import org.hl7.fhir.InstanceAvailability;
 import org.hl7.fhir.Instant;
+import org.hl7.fhir.Invoice;
+import org.hl7.fhir.InvoiceLineItem;
+import org.hl7.fhir.InvoiceParticipant;
+import org.hl7.fhir.InvoicePriceComponent;
+import org.hl7.fhir.InvoicePriceComponentType;
+import org.hl7.fhir.InvoiceStatus;
 import org.hl7.fhir.IssueSeverity;
 import org.hl7.fhir.IssueType;
+import org.hl7.fhir.ItemInstance;
 import org.hl7.fhir.Library;
 import org.hl7.fhir.LinkType;
 import org.hl7.fhir.Linkage;
@@ -392,10 +434,12 @@ import org.hl7.fhir.ListEntry;
 import org.hl7.fhir.ListMode;
 import org.hl7.fhir.ListStatus;
 import org.hl7.fhir.Location;
+import org.hl7.fhir.LocationHoursOfOperation;
 import org.hl7.fhir.LocationMode;
 import org.hl7.fhir.LocationPosition;
 import org.hl7.fhir.LocationStatus;
 import org.hl7.fhir.Markdown;
+import org.hl7.fhir.MarketingStatus;
 import org.hl7.fhir.MeasmntPrinciple;
 import org.hl7.fhir.Measure;
 import org.hl7.fhir.MeasureGroup;
@@ -411,30 +455,55 @@ import org.hl7.fhir.MeasureReportType;
 import org.hl7.fhir.MeasureStratifier;
 import org.hl7.fhir.MeasureSupplementalData;
 import org.hl7.fhir.Media;
+import org.hl7.fhir.MediaStatus;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationAdministration;
 import org.hl7.fhir.MedicationAdministrationDosage;
 import org.hl7.fhir.MedicationAdministrationPerformer;
 import org.hl7.fhir.MedicationAdministrationStatus;
 import org.hl7.fhir.MedicationBatch;
-import org.hl7.fhir.MedicationContent;
 import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationDispensePerformer;
 import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.MedicationIngredient;
-import org.hl7.fhir.MedicationPackage;
 import org.hl7.fhir.MedicationRequest;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
 import org.hl7.fhir.MedicationRequestIntent;
-import org.hl7.fhir.MedicationRequestPriority;
-import org.hl7.fhir.MedicationRequestRequester;
 import org.hl7.fhir.MedicationRequestStatus;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.MedicationStatement;
 import org.hl7.fhir.MedicationStatementStatus;
-import org.hl7.fhir.MedicationStatementTaken;
 import org.hl7.fhir.MedicationStatus;
+import org.hl7.fhir.MedicinalProduct;
+import org.hl7.fhir.MedicinalProductAuthorization;
+import org.hl7.fhir.MedicinalProductAuthorizationApplication;
+import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
+import org.hl7.fhir.MedicinalProductAuthorizationProcedure;
+import org.hl7.fhir.MedicinalProductClinicals;
+import org.hl7.fhir.MedicinalProductClinicalsContraindication;
+import org.hl7.fhir.MedicinalProductClinicalsInteractions;
+import org.hl7.fhir.MedicinalProductClinicalsOtherTherapy;
+import org.hl7.fhir.MedicinalProductClinicalsPopulation;
+import org.hl7.fhir.MedicinalProductClinicalsTherapeuticIndication;
+import org.hl7.fhir.MedicinalProductClinicalsUndesirableEffects;
+import org.hl7.fhir.MedicinalProductCountryLanguage;
+import org.hl7.fhir.MedicinalProductDeviceSpec;
+import org.hl7.fhir.MedicinalProductDeviceSpecMaterial;
+import org.hl7.fhir.MedicinalProductIngredient;
+import org.hl7.fhir.MedicinalProductIngredientReferenceStrength;
+import org.hl7.fhir.MedicinalProductIngredientSpecifiedSubstance;
+import org.hl7.fhir.MedicinalProductIngredientStrength;
+import org.hl7.fhir.MedicinalProductIngredientSubstance;
+import org.hl7.fhir.MedicinalProductManufacturingBusinessOperation;
+import org.hl7.fhir.MedicinalProductName;
+import org.hl7.fhir.MedicinalProductNamePart;
+import org.hl7.fhir.MedicinalProductPackaged;
+import org.hl7.fhir.MedicinalProductPackagedBatchIdentifier;
+import org.hl7.fhir.MedicinalProductPackagedManufacturedItem;
+import org.hl7.fhir.MedicinalProductPackagedPackageItem;
+import org.hl7.fhir.MedicinalProductPharmaceutical;
+import org.hl7.fhir.MedicinalProductPharmaceuticalCharacteristics;
 import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
@@ -452,6 +521,7 @@ import org.hl7.fhir.NamingSystemType;
 import org.hl7.fhir.NamingSystemUniqueId;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.NarrativeStatus;
+import org.hl7.fhir.Need;
 import org.hl7.fhir.NoteType;
 import org.hl7.fhir.NutritionOrder;
 import org.hl7.fhir.NutritionOrderAdministration;
@@ -463,10 +533,19 @@ import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.NutritionOrderTexture;
 import org.hl7.fhir.Observation;
 import org.hl7.fhir.ObservationComponent;
+import org.hl7.fhir.ObservationDefinition;
+import org.hl7.fhir.ObservationDefinitionQualifiedInterval;
+import org.hl7.fhir.ObservationDefinitionQuantitativeDetails;
 import org.hl7.fhir.ObservationReferenceRange;
-import org.hl7.fhir.ObservationRelated;
-import org.hl7.fhir.ObservationRelationshipType;
 import org.hl7.fhir.ObservationStatus;
+import org.hl7.fhir.OccupationalData;
+import org.hl7.fhir.OccupationalDataCombatZoneHazardousDuty;
+import org.hl7.fhir.OccupationalDataDuration;
+import org.hl7.fhir.OccupationalDataEmploymentStatus;
+import org.hl7.fhir.OccupationalDataIndustry;
+import org.hl7.fhir.OccupationalDataPastOrPresentOccupation;
+import org.hl7.fhir.OccupationalDataRetirementStatus;
+import org.hl7.fhir.OccupationalDataUsualOccupation;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.OperationDefinition;
 import org.hl7.fhir.OperationDefinitionBinding;
@@ -478,6 +557,9 @@ import org.hl7.fhir.OperationOutcomeIssue;
 import org.hl7.fhir.OperationParameterUse;
 import org.hl7.fhir.Organization;
 import org.hl7.fhir.OrganizationContact;
+import org.hl7.fhir.OrganizationRole;
+import org.hl7.fhir.OrganizationRoleAvailableTime;
+import org.hl7.fhir.OrganizationRoleNotAvailable;
 import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.Parameters;
 import org.hl7.fhir.ParametersParameter;
@@ -512,12 +594,22 @@ import org.hl7.fhir.PractitionerRoleNotAvailable;
 import org.hl7.fhir.Procedure;
 import org.hl7.fhir.ProcedureFocalDevice;
 import org.hl7.fhir.ProcedurePerformer;
-import org.hl7.fhir.ProcedureRequest;
-import org.hl7.fhir.ProcedureRequestRequester;
+import org.hl7.fhir.ProcessOutcomeCodes;
 import org.hl7.fhir.ProcessRequest;
 import org.hl7.fhir.ProcessRequestItem;
 import org.hl7.fhir.ProcessResponse;
 import org.hl7.fhir.ProcessResponseProcessNote;
+import org.hl7.fhir.ProdCharacteristic;
+import org.hl7.fhir.ProductPlan;
+import org.hl7.fhir.ProductPlanBenefit;
+import org.hl7.fhir.ProductPlanBenefit1;
+import org.hl7.fhir.ProductPlanCategory;
+import org.hl7.fhir.ProductPlanContact;
+import org.hl7.fhir.ProductPlanCost;
+import org.hl7.fhir.ProductPlanCoverage;
+import org.hl7.fhir.ProductPlanItem;
+import org.hl7.fhir.ProductPlanPlan;
+import org.hl7.fhir.ProductShelfLife;
 import org.hl7.fhir.PropertyRepresentation;
 import org.hl7.fhir.PropertyType;
 import org.hl7.fhir.Provenance;
@@ -525,6 +617,7 @@ import org.hl7.fhir.ProvenanceAgent;
 import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.ProvenanceEntityRole;
 import org.hl7.fhir.PublicationStatus;
+import org.hl7.fhir.PushTypeAvailable;
 import org.hl7.fhir.QualityType;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuantityComparator;
@@ -542,8 +635,6 @@ import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferenceHandlingPolicy;
 import org.hl7.fhir.ReferenceVersionRules;
-import org.hl7.fhir.ReferralRequest;
-import org.hl7.fhir.ReferralRequestRequester;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
 import org.hl7.fhir.RelatedPerson;
@@ -558,6 +649,7 @@ import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
+import org.hl7.fhir.ResearchStudyObjective;
 import org.hl7.fhir.ResearchStudyStatus;
 import org.hl7.fhir.ResearchSubject;
 import org.hl7.fhir.ResearchSubjectStatus;
@@ -567,6 +659,7 @@ import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
 import org.hl7.fhir.ResponseType;
 import org.hl7.fhir.RestfulCapabilityMode;
+import org.hl7.fhir.RetirementStatus;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.RiskAssessmentPrediction;
 import org.hl7.fhir.SampledData;
@@ -579,20 +672,31 @@ import org.hl7.fhir.SearchParamType;
 import org.hl7.fhir.SearchParameter;
 import org.hl7.fhir.SearchParameterComponent;
 import org.hl7.fhir.Sequence;
+import org.hl7.fhir.SequenceInner;
+import org.hl7.fhir.SequenceOuter;
 import org.hl7.fhir.SequenceQuality;
 import org.hl7.fhir.SequenceReferenceSeq;
 import org.hl7.fhir.SequenceRepository;
+import org.hl7.fhir.SequenceRoc;
+import org.hl7.fhir.SequenceStructureVariant;
 import org.hl7.fhir.SequenceVariant;
 import org.hl7.fhir.ServiceDefinition;
+import org.hl7.fhir.ServiceRequest;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.SlicingRules;
 import org.hl7.fhir.Slot;
 import org.hl7.fhir.SlotStatus;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.SpecimenCollection;
+import org.hl7.fhir.SpecimenContainedPreference;
 import org.hl7.fhir.SpecimenContainer;
+import org.hl7.fhir.SpecimenDefinition;
+import org.hl7.fhir.SpecimenDefinitionContainerAdditive;
+import org.hl7.fhir.SpecimenDefinitionHandling;
+import org.hl7.fhir.SpecimenDefinitionSpecimenToLab;
 import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
+import org.hl7.fhir.Status;
 import org.hl7.fhir.StructureDefinition;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
@@ -619,23 +723,55 @@ import org.hl7.fhir.SubscriptionChannel;
 import org.hl7.fhir.SubscriptionChannelType;
 import org.hl7.fhir.SubscriptionStatus;
 import org.hl7.fhir.Substance;
+import org.hl7.fhir.SubstanceAmount;
+import org.hl7.fhir.SubstanceAmountReferenceRange;
 import org.hl7.fhir.SubstanceIngredient;
 import org.hl7.fhir.SubstanceInstance;
+import org.hl7.fhir.SubstanceMoiety;
+import org.hl7.fhir.SubstancePolymer;
+import org.hl7.fhir.SubstancePolymerDegreeOfPolymerisation;
+import org.hl7.fhir.SubstancePolymerMonomerSet;
+import org.hl7.fhir.SubstancePolymerRepeat;
+import org.hl7.fhir.SubstancePolymerRepeatUnit;
+import org.hl7.fhir.SubstancePolymerStartingMaterial;
+import org.hl7.fhir.SubstancePolymerStructuralRepresentation;
+import org.hl7.fhir.SubstanceReferenceInformation;
+import org.hl7.fhir.SubstanceReferenceInformationClassification;
+import org.hl7.fhir.SubstanceReferenceInformationGene;
+import org.hl7.fhir.SubstanceReferenceInformationGeneElement;
+import org.hl7.fhir.SubstanceReferenceInformationRelationship;
+import org.hl7.fhir.SubstanceReferenceInformationTarget;
+import org.hl7.fhir.SubstanceSpecification;
+import org.hl7.fhir.SubstanceSpecificationIsotope;
+import org.hl7.fhir.SubstanceSpecificationMoiety;
+import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
+import org.hl7.fhir.SubstanceSpecificationOfficialName;
+import org.hl7.fhir.SubstanceSpecificationProperty;
+import org.hl7.fhir.SubstanceSpecificationStructuralRepresentation;
+import org.hl7.fhir.SubstanceSpecificationStructure;
+import org.hl7.fhir.SubstanceSpecificationSubstanceCode;
+import org.hl7.fhir.SubstanceSpecificationSubstanceName;
 import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
 import org.hl7.fhir.SupplyDeliverySuppliedItem;
 import org.hl7.fhir.SupplyRequest;
-import org.hl7.fhir.SupplyRequestOrderedItem;
-import org.hl7.fhir.SupplyRequestRequester;
+import org.hl7.fhir.SupplyRequestParameter;
 import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.SystemRestfulInteraction;
 import org.hl7.fhir.SystemVersionProcessingMode;
 import org.hl7.fhir.Task;
 import org.hl7.fhir.TaskInput;
 import org.hl7.fhir.TaskOutput;
-import org.hl7.fhir.TaskRequester;
 import org.hl7.fhir.TaskRestriction;
 import org.hl7.fhir.TaskStatus;
+import org.hl7.fhir.TerminologyCapabilities;
+import org.hl7.fhir.TerminologyCapabilitiesClosure;
+import org.hl7.fhir.TerminologyCapabilitiesCodeSystem;
+import org.hl7.fhir.TerminologyCapabilitiesExpansion;
+import org.hl7.fhir.TerminologyCapabilitiesFilter;
+import org.hl7.fhir.TerminologyCapabilitiesTranslation;
+import org.hl7.fhir.TerminologyCapabilitiesValidateCode;
+import org.hl7.fhir.TerminologyCapabilitiesVersion;
 import org.hl7.fhir.TestReport;
 import org.hl7.fhir.TestReportAction;
 import org.hl7.fhir.TestReportAction1;
@@ -682,6 +818,7 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.TriggerDefinition;
+import org.hl7.fhir.TriggerDefinitionCondition;
 import org.hl7.fhir.TriggerType;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeRestfulInteraction;
@@ -692,7 +829,15 @@ import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.Use;
+import org.hl7.fhir.UserSession;
+import org.hl7.fhir.UserSessionContext;
+import org.hl7.fhir.UserSessionStatus;
+import org.hl7.fhir.UserSessionStatus1;
+import org.hl7.fhir.UserSessionStatusSource;
+import org.hl7.fhir.UsualOccupation;
 import org.hl7.fhir.Uuid;
+import org.hl7.fhir.ValidationStatus;
+import org.hl7.fhir.ValidationType;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetConcept;
@@ -702,6 +847,10 @@ import org.hl7.fhir.ValueSetExpansion;
 import org.hl7.fhir.ValueSetFilter;
 import org.hl7.fhir.ValueSetInclude;
 import org.hl7.fhir.ValueSetParameter;
+import org.hl7.fhir.VerificationResult;
+import org.hl7.fhir.VerificationResultAttestation;
+import org.hl7.fhir.VerificationResultPrimarySource;
+import org.hl7.fhir.VerificationResultValidator;
 import org.hl7.fhir.VisionBase;
 import org.hl7.fhir.VisionEyes;
 import org.hl7.fhir.VisionPrescription;
@@ -919,16 +1068,17 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.ADVERSE_EVENT_CATEGORY: {
-				AdverseEventCategory adverseEventCategory = (AdverseEventCategory)theEObject;
-				T result = caseAdverseEventCategory(adverseEventCategory);
-				if (result == null) result = caseElement(adverseEventCategory);
+			case FhirPackage.ADVERSE_EVENT_ACTUALITY: {
+				AdverseEventActuality adverseEventActuality = (AdverseEventActuality)theEObject;
+				T result = caseAdverseEventActuality(adverseEventActuality);
+				if (result == null) result = caseElement(adverseEventActuality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case FhirPackage.ADVERSE_EVENT_CAUSALITY: {
 				AdverseEventCausality adverseEventCausality = (AdverseEventCausality)theEObject;
 				T result = caseAdverseEventCausality(adverseEventCausality);
+				if (result == null) result = caseBackboneElement(adverseEventCausality);
 				if (result == null) result = caseElement(adverseEventCausality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1185,11 +1335,72 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.BODY_SITE: {
-				BodySite bodySite = (BodySite)theEObject;
-				T result = caseBodySite(bodySite);
-				if (result == null) result = caseDomainResource(bodySite);
-				if (result == null) result = caseResource(bodySite);
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT: {
+				BiologicallyDerivedProduct biologicallyDerivedProduct = (BiologicallyDerivedProduct)theEObject;
+				T result = caseBiologicallyDerivedProduct(biologicallyDerivedProduct);
+				if (result == null) result = caseDomainResource(biologicallyDerivedProduct);
+				if (result == null) result = caseResource(biologicallyDerivedProduct);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_CATEGORY: {
+				BiologicallyDerivedProductCategory biologicallyDerivedProductCategory = (BiologicallyDerivedProductCategory)theEObject;
+				T result = caseBiologicallyDerivedProductCategory(biologicallyDerivedProductCategory);
+				if (result == null) result = caseElement(biologicallyDerivedProductCategory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_COLLECTION: {
+				BiologicallyDerivedProductCollection biologicallyDerivedProductCollection = (BiologicallyDerivedProductCollection)theEObject;
+				T result = caseBiologicallyDerivedProductCollection(biologicallyDerivedProductCollection);
+				if (result == null) result = caseBackboneElement(biologicallyDerivedProductCollection);
+				if (result == null) result = caseElement(biologicallyDerivedProductCollection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_MANIPULATION: {
+				BiologicallyDerivedProductManipulation biologicallyDerivedProductManipulation = (BiologicallyDerivedProductManipulation)theEObject;
+				T result = caseBiologicallyDerivedProductManipulation(biologicallyDerivedProductManipulation);
+				if (result == null) result = caseBackboneElement(biologicallyDerivedProductManipulation);
+				if (result == null) result = caseElement(biologicallyDerivedProductManipulation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_PROCESSING: {
+				BiologicallyDerivedProductProcessing biologicallyDerivedProductProcessing = (BiologicallyDerivedProductProcessing)theEObject;
+				T result = caseBiologicallyDerivedProductProcessing(biologicallyDerivedProductProcessing);
+				if (result == null) result = caseBackboneElement(biologicallyDerivedProductProcessing);
+				if (result == null) result = caseElement(biologicallyDerivedProductProcessing);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_STATUS: {
+				BiologicallyDerivedProductStatus biologicallyDerivedProductStatus = (BiologicallyDerivedProductStatus)theEObject;
+				T result = caseBiologicallyDerivedProductStatus(biologicallyDerivedProductStatus);
+				if (result == null) result = caseElement(biologicallyDerivedProductStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_STORAGE: {
+				BiologicallyDerivedProductStorage biologicallyDerivedProductStorage = (BiologicallyDerivedProductStorage)theEObject;
+				T result = caseBiologicallyDerivedProductStorage(biologicallyDerivedProductStorage);
+				if (result == null) result = caseBackboneElement(biologicallyDerivedProductStorage);
+				if (result == null) result = caseElement(biologicallyDerivedProductStorage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT_STORAGE_SCALE: {
+				BiologicallyDerivedProductStorageScale biologicallyDerivedProductStorageScale = (BiologicallyDerivedProductStorageScale)theEObject;
+				T result = caseBiologicallyDerivedProductStorageScale(biologicallyDerivedProductStorageScale);
+				if (result == null) result = caseElement(biologicallyDerivedProductStorageScale);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.BODY_STRUCTURE: {
+				BodyStructure bodyStructure = (BodyStructure)theEObject;
+				T result = caseBodyStructure(bodyStructure);
+				if (result == null) result = caseDomainResource(bodyStructure);
+				if (result == null) result = caseResource(bodyStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1254,6 +1465,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.CAN_PUSH_UPDATES: {
+				CanPushUpdates canPushUpdates = (CanPushUpdates)theEObject;
+				T result = caseCanPushUpdates(canPushUpdates);
+				if (result == null) result = caseElement(canPushUpdates);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.CAPABILITY_STATEMENT: {
 				CapabilityStatement capabilityStatement = (CapabilityStatement)theEObject;
 				T result = caseCapabilityStatement(capabilityStatement);
@@ -1283,14 +1501,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseCapabilityStatementEndpoint(capabilityStatementEndpoint);
 				if (result == null) result = caseBackboneElement(capabilityStatementEndpoint);
 				if (result == null) result = caseElement(capabilityStatementEndpoint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.CAPABILITY_STATEMENT_EVENT: {
-				CapabilityStatementEvent capabilityStatementEvent = (CapabilityStatementEvent)theEObject;
-				T result = caseCapabilityStatementEvent(capabilityStatementEvent);
-				if (result == null) result = caseBackboneElement(capabilityStatementEvent);
-				if (result == null) result = caseElement(capabilityStatementEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1402,6 +1612,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseCarePlanActivity(carePlanActivity);
 				if (result == null) result = caseBackboneElement(carePlanActivity);
 				if (result == null) result = caseElement(carePlanActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CARE_PLAN_ACTIVITY_KIND: {
+				CarePlanActivityKind carePlanActivityKind = (CarePlanActivityKind)theEObject;
+				T result = caseCarePlanActivityKind(carePlanActivityKind);
+				if (result == null) result = caseElement(carePlanActivityKind);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1560,6 +1777,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.CLAIM_PROCESSING_CODES: {
+				ClaimProcessingCodes claimProcessingCodes = (ClaimProcessingCodes)theEObject;
+				T result = caseClaimProcessingCodes(claimProcessingCodes);
+				if (result == null) result = caseElement(claimProcessingCodes);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.CLAIM_RELATED: {
 				ClaimRelated claimRelated = (ClaimRelated)theEObject;
 				T result = caseClaimRelated(claimRelated);
@@ -1597,14 +1821,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseClaimResponseDetail(claimResponseDetail);
 				if (result == null) result = caseBackboneElement(claimResponseDetail);
 				if (result == null) result = caseElement(claimResponseDetail);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.CLAIM_RESPONSE_DETAIL1: {
-				ClaimResponseDetail1 claimResponseDetail1 = (ClaimResponseDetail1)theEObject;
-				T result = caseClaimResponseDetail1(claimResponseDetail1);
-				if (result == null) result = caseBackboneElement(claimResponseDetail1);
-				if (result == null) result = caseElement(claimResponseDetail1);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1709,6 +1925,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.CODE_SEARCH_SUPPORT: {
+				CodeSearchSupport codeSearchSupport = (CodeSearchSupport)theEObject;
+				T result = caseCodeSearchSupport(codeSearchSupport);
+				if (result == null) result = caseElement(codeSearchSupport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.CODE_SYSTEM: {
 				CodeSystem codeSystem = (CodeSystem)theEObject;
 				T result = caseCodeSystem(codeSystem);
@@ -1807,14 +2030,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseCommunicationRequestPayload(communicationRequestPayload);
 				if (result == null) result = caseBackboneElement(communicationRequestPayload);
 				if (result == null) result = caseElement(communicationRequestPayload);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.COMMUNICATION_REQUEST_REQUESTER: {
-				CommunicationRequestRequester communicationRequestRequester = (CommunicationRequestRequester)theEObject;
-				T result = caseCommunicationRequestRequester(communicationRequestRequester);
-				if (result == null) result = caseBackboneElement(communicationRequestRequester);
-				if (result == null) result = caseElement(communicationRequestRequester);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2032,14 +2247,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.CONSENT_ACTOR1: {
-				ConsentActor1 consentActor1 = (ConsentActor1)theEObject;
-				T result = caseConsentActor1(consentActor1);
-				if (result == null) result = caseBackboneElement(consentActor1);
-				if (result == null) result = caseElement(consentActor1);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.CONSENT_DATA: {
 				ConsentData consentData = (ConsentData)theEObject;
 				T result = caseConsentData(consentData);
@@ -2048,33 +2255,10 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.CONSENT_DATA1: {
-				ConsentData1 consentData1 = (ConsentData1)theEObject;
-				T result = caseConsentData1(consentData1);
-				if (result == null) result = caseBackboneElement(consentData1);
-				if (result == null) result = caseElement(consentData1);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.CONSENT_DATA_MEANING: {
 				ConsentDataMeaning consentDataMeaning = (ConsentDataMeaning)theEObject;
 				T result = caseConsentDataMeaning(consentDataMeaning);
 				if (result == null) result = caseElement(consentDataMeaning);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.CONSENT_EXCEPT: {
-				ConsentExcept consentExcept = (ConsentExcept)theEObject;
-				T result = caseConsentExcept(consentExcept);
-				if (result == null) result = caseBackboneElement(consentExcept);
-				if (result == null) result = caseElement(consentExcept);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.CONSENT_EXCEPT_TYPE: {
-				ConsentExceptType consentExceptType = (ConsentExceptType)theEObject;
-				T result = caseConsentExceptType(consentExceptType);
-				if (result == null) result = caseElement(consentExceptType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2086,10 +2270,40 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.CONSENT_PROVISION: {
+				ConsentProvision consentProvision = (ConsentProvision)theEObject;
+				T result = caseConsentProvision(consentProvision);
+				if (result == null) result = caseBackboneElement(consentProvision);
+				if (result == null) result = caseElement(consentProvision);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONSENT_PROVISION_TYPE: {
+				ConsentProvisionType consentProvisionType = (ConsentProvisionType)theEObject;
+				T result = caseConsentProvisionType(consentProvisionType);
+				if (result == null) result = caseElement(consentProvisionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONSENT_SCOPE_CODES: {
+				ConsentScopeCodes consentScopeCodes = (ConsentScopeCodes)theEObject;
+				T result = caseConsentScopeCodes(consentScopeCodes);
+				if (result == null) result = caseElement(consentScopeCodes);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.CONSENT_STATE: {
 				ConsentState consentState = (ConsentState)theEObject;
 				T result = caseConsentState(consentState);
 				if (result == null) result = caseElement(consentState);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONSENT_VERIFICATION: {
+				ConsentVerification consentVerification = (ConsentVerification)theEObject;
+				T result = caseConsentVerification(consentVerification);
+				if (result == null) result = caseBackboneElement(consentVerification);
+				if (result == null) result = caseElement(consentVerification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2128,13 +2342,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.CONTENT_TYPE: {
-				ContentType contentType = (ContentType)theEObject;
-				T result = caseContentType(contentType);
-				if (result == null) result = caseElement(contentType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.CONTRACT: {
 				Contract contract = (Contract)theEObject;
 				T result = caseContract(contract);
@@ -2151,11 +2358,26 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.CONTRACT_AGENT1: {
-				ContractAgent1 contractAgent1 = (ContractAgent1)theEObject;
-				T result = caseContractAgent1(contractAgent1);
-				if (result == null) result = caseBackboneElement(contractAgent1);
-				if (result == null) result = caseElement(contractAgent1);
+			case FhirPackage.CONTRACT_ASSET: {
+				ContractAsset contractAsset = (ContractAsset)theEObject;
+				T result = caseContractAsset(contractAsset);
+				if (result == null) result = caseBackboneElement(contractAsset);
+				if (result == null) result = caseElement(contractAsset);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONTRACT_DATA: {
+				ContractData contractData = (ContractData)theEObject;
+				T result = caseContractData(contractData);
+				if (result == null) result = caseBackboneElement(contractData);
+				if (result == null) result = caseElement(contractData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONTRACT_DATA_MEANING: {
+				ContractDataMeaning contractDataMeaning = (ContractDataMeaning)theEObject;
+				T result = caseContractDataMeaning(contractDataMeaning);
+				if (result == null) result = caseElement(contractDataMeaning);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2172,6 +2394,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseContractLegal(contractLegal);
 				if (result == null) result = caseBackboneElement(contractLegal);
 				if (result == null) result = caseElement(contractLegal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.CONTRACT_OFFER: {
+				ContractOffer contractOffer = (ContractOffer)theEObject;
+				T result = caseContractOffer(contractOffer);
+				if (result == null) result = caseBackboneElement(contractOffer);
+				if (result == null) result = caseElement(contractOffer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2214,14 +2444,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.CONTRACT_VALUED_ITEM1: {
-				ContractValuedItem1 contractValuedItem1 = (ContractValuedItem1)theEObject;
-				T result = caseContractValuedItem1(contractValuedItem1);
-				if (result == null) result = caseBackboneElement(contractValuedItem1);
-				if (result == null) result = caseElement(contractValuedItem1);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.CONTRIBUTOR: {
 				Contributor contributor = (Contributor)theEObject;
 				T result = caseContributor(contributor);
@@ -2252,34 +2474,27 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.COVERAGE_CLASS: {
+				CoverageClass coverageClass = (CoverageClass)theEObject;
+				T result = caseCoverageClass(coverageClass);
+				if (result == null) result = caseBackboneElement(coverageClass);
+				if (result == null) result = caseElement(coverageClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.COVERAGE_COPAY: {
+				CoverageCopay coverageCopay = (CoverageCopay)theEObject;
+				T result = caseCoverageCopay(coverageCopay);
+				if (result == null) result = caseBackboneElement(coverageCopay);
+				if (result == null) result = caseElement(coverageCopay);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.COVERAGE_GROUPING: {
 				CoverageGrouping coverageGrouping = (CoverageGrouping)theEObject;
 				T result = caseCoverageGrouping(coverageGrouping);
 				if (result == null) result = caseBackboneElement(coverageGrouping);
 				if (result == null) result = caseElement(coverageGrouping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.DATA_ELEMENT: {
-				DataElement dataElement = (DataElement)theEObject;
-				T result = caseDataElement(dataElement);
-				if (result == null) result = caseDomainResource(dataElement);
-				if (result == null) result = caseResource(dataElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.DATA_ELEMENT_MAPPING: {
-				DataElementMapping dataElementMapping = (DataElementMapping)theEObject;
-				T result = caseDataElementMapping(dataElementMapping);
-				if (result == null) result = caseBackboneElement(dataElementMapping);
-				if (result == null) result = caseElement(dataElementMapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.DATA_ELEMENT_STRINGENCY: {
-				DataElementStringency dataElementStringency = (DataElementStringency)theEObject;
-				T result = caseDataElementStringency(dataElementStringency);
-				if (result == null) result = caseElement(dataElementStringency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2379,6 +2594,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.DEVICE_COMPONENT_PROPERTY: {
+				DeviceComponentProperty deviceComponentProperty = (DeviceComponentProperty)theEObject;
+				T result = caseDeviceComponentProperty(deviceComponentProperty);
+				if (result == null) result = caseBackboneElement(deviceComponentProperty);
+				if (result == null) result = caseElement(deviceComponentProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.DEVICE_METRIC: {
 				DeviceMetric deviceMetric = (DeviceMetric)theEObject;
 				T result = caseDeviceMetric(deviceMetric);
@@ -2438,11 +2661,11 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.DEVICE_REQUEST_REQUESTER: {
-				DeviceRequestRequester deviceRequestRequester = (DeviceRequestRequester)theEObject;
-				T result = caseDeviceRequestRequester(deviceRequestRequester);
-				if (result == null) result = caseBackboneElement(deviceRequestRequester);
-				if (result == null) result = caseElement(deviceRequestRequester);
+			case FhirPackage.DEVICE_REQUEST_PARAMETER: {
+				DeviceRequestParameter deviceRequestParameter = (DeviceRequestParameter)theEObject;
+				T result = caseDeviceRequestParameter(deviceRequestParameter);
+				if (result == null) result = caseBackboneElement(deviceRequestParameter);
+				if (result == null) result = caseElement(deviceRequestParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2477,19 +2700,11 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.DIAGNOSTIC_REPORT_IMAGE: {
-				DiagnosticReportImage diagnosticReportImage = (DiagnosticReportImage)theEObject;
-				T result = caseDiagnosticReportImage(diagnosticReportImage);
-				if (result == null) result = caseBackboneElement(diagnosticReportImage);
-				if (result == null) result = caseElement(diagnosticReportImage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.DIAGNOSTIC_REPORT_PERFORMER: {
-				DiagnosticReportPerformer diagnosticReportPerformer = (DiagnosticReportPerformer)theEObject;
-				T result = caseDiagnosticReportPerformer(diagnosticReportPerformer);
-				if (result == null) result = caseBackboneElement(diagnosticReportPerformer);
-				if (result == null) result = caseElement(diagnosticReportPerformer);
+			case FhirPackage.DIAGNOSTIC_REPORT_MEDIA: {
+				DiagnosticReportMedia diagnosticReportMedia = (DiagnosticReportMedia)theEObject;
+				T result = caseDiagnosticReportMedia(diagnosticReportMedia);
+				if (result == null) result = caseBackboneElement(diagnosticReportMedia);
+				if (result == null) result = caseElement(diagnosticReportMedia);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2497,13 +2712,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				DiagnosticReportStatus diagnosticReportStatus = (DiagnosticReportStatus)theEObject;
 				T result = caseDiagnosticReportStatus(diagnosticReportStatus);
 				if (result == null) result = caseElement(diagnosticReportStatus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.DIGITAL_MEDIA_TYPE: {
-				DigitalMediaType digitalMediaType = (DigitalMediaType)theEObject;
-				T result = caseDigitalMediaType(digitalMediaType);
-				if (result == null) result = caseElement(digitalMediaType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2530,11 +2738,11 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.DOCUMENT_MANIFEST_CONTENT: {
-				DocumentManifestContent documentManifestContent = (DocumentManifestContent)theEObject;
-				T result = caseDocumentManifestContent(documentManifestContent);
-				if (result == null) result = caseBackboneElement(documentManifestContent);
-				if (result == null) result = caseElement(documentManifestContent);
+			case FhirPackage.DOCUMENT_MANIFEST_AGENT: {
+				DocumentManifestAgent documentManifestAgent = (DocumentManifestAgent)theEObject;
+				T result = caseDocumentManifestAgent(documentManifestAgent);
+				if (result == null) result = caseBackboneElement(documentManifestAgent);
+				if (result == null) result = caseElement(documentManifestAgent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2558,6 +2766,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseDocumentReference(documentReference);
 				if (result == null) result = caseDomainResource(documentReference);
 				if (result == null) result = caseResource(documentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.DOCUMENT_REFERENCE_AGENT: {
+				DocumentReferenceAgent documentReferenceAgent = (DocumentReferenceAgent)theEObject;
+				T result = caseDocumentReferenceAgent(documentReferenceAgent);
+				if (result == null) result = caseBackboneElement(documentReferenceAgent);
+				if (result == null) result = caseElement(documentReferenceAgent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2712,11 +2928,27 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.ELIGIBILITY_REQUEST_AUTHORIZATION: {
+				EligibilityRequestAuthorization eligibilityRequestAuthorization = (EligibilityRequestAuthorization)theEObject;
+				T result = caseEligibilityRequestAuthorization(eligibilityRequestAuthorization);
+				if (result == null) result = caseBackboneElement(eligibilityRequestAuthorization);
+				if (result == null) result = caseElement(eligibilityRequestAuthorization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.ELIGIBILITY_RESPONSE: {
 				EligibilityResponse eligibilityResponse = (EligibilityResponse)theEObject;
 				T result = caseEligibilityResponse(eligibilityResponse);
 				if (result == null) result = caseDomainResource(eligibilityResponse);
 				if (result == null) result = caseResource(eligibilityResponse);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ELIGIBILITY_RESPONSE_AUTHORIZATION: {
+				EligibilityResponseAuthorization eligibilityResponseAuthorization = (EligibilityResponseAuthorization)theEObject;
+				T result = caseEligibilityResponseAuthorization(eligibilityResponseAuthorization);
+				if (result == null) result = caseBackboneElement(eligibilityResponseAuthorization);
+				if (result == null) result = caseElement(eligibilityResponseAuthorization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -2853,6 +3085,22 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.ENTRY_DEFINITION: {
+				EntryDefinition entryDefinition = (EntryDefinition)theEObject;
+				T result = caseEntryDefinition(entryDefinition);
+				if (result == null) result = caseDomainResource(entryDefinition);
+				if (result == null) result = caseResource(entryDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ENTRY_DEFINITION_RELATED_ENTRY: {
+				EntryDefinitionRelatedEntry entryDefinitionRelatedEntry = (EntryDefinitionRelatedEntry)theEObject;
+				T result = caseEntryDefinitionRelatedEntry(entryDefinitionRelatedEntry);
+				if (result == null) result = caseBackboneElement(entryDefinitionRelatedEntry);
+				if (result == null) result = caseElement(entryDefinitionRelatedEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.EPISODE_OF_CARE: {
 				EpisodeOfCare episodeOfCare = (EpisodeOfCare)theEObject;
 				T result = caseEpisodeOfCare(episodeOfCare);
@@ -2891,6 +3139,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.EVENT_DEFINITION: {
+				EventDefinition eventDefinition = (EventDefinition)theEObject;
+				T result = caseEventDefinition(eventDefinition);
+				if (result == null) result = caseDomainResource(eventDefinition);
+				if (result == null) result = caseResource(eventDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.EVENT_STATUS: {
 				EventStatus eventStatus = (EventStatus)theEObject;
 				T result = caseEventStatus(eventStatus);
@@ -2902,6 +3158,93 @@ public class FhirSwitch<T> extends Switch<T> {
 				EventTiming eventTiming = (EventTiming)theEObject;
 				T result = caseEventTiming(eventTiming);
 				if (result == null) result = caseElement(eventTiming);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO: {
+				ExampleScenario exampleScenario = (ExampleScenario)theEObject;
+				T result = caseExampleScenario(exampleScenario);
+				if (result == null) result = caseDomainResource(exampleScenario);
+				if (result == null) result = caseResource(exampleScenario);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_ACTOR: {
+				ExampleScenarioActor exampleScenarioActor = (ExampleScenarioActor)theEObject;
+				T result = caseExampleScenarioActor(exampleScenarioActor);
+				if (result == null) result = caseBackboneElement(exampleScenarioActor);
+				if (result == null) result = caseElement(exampleScenarioActor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE: {
+				ExampleScenarioActorType exampleScenarioActorType = (ExampleScenarioActorType)theEObject;
+				T result = caseExampleScenarioActorType(exampleScenarioActorType);
+				if (result == null) result = caseElement(exampleScenarioActorType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_ALTERNATIVE: {
+				ExampleScenarioAlternative exampleScenarioAlternative = (ExampleScenarioAlternative)theEObject;
+				T result = caseExampleScenarioAlternative(exampleScenarioAlternative);
+				if (result == null) result = caseBackboneElement(exampleScenarioAlternative);
+				if (result == null) result = caseElement(exampleScenarioAlternative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_CONTAINED_INSTANCE: {
+				ExampleScenarioContainedInstance exampleScenarioContainedInstance = (ExampleScenarioContainedInstance)theEObject;
+				T result = caseExampleScenarioContainedInstance(exampleScenarioContainedInstance);
+				if (result == null) result = caseBackboneElement(exampleScenarioContainedInstance);
+				if (result == null) result = caseElement(exampleScenarioContainedInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_INSTANCE: {
+				ExampleScenarioInstance exampleScenarioInstance = (ExampleScenarioInstance)theEObject;
+				T result = caseExampleScenarioInstance(exampleScenarioInstance);
+				if (result == null) result = caseBackboneElement(exampleScenarioInstance);
+				if (result == null) result = caseElement(exampleScenarioInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_OPERATION: {
+				ExampleScenarioOperation exampleScenarioOperation = (ExampleScenarioOperation)theEObject;
+				T result = caseExampleScenarioOperation(exampleScenarioOperation);
+				if (result == null) result = caseBackboneElement(exampleScenarioOperation);
+				if (result == null) result = caseElement(exampleScenarioOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_OPTION: {
+				ExampleScenarioOption exampleScenarioOption = (ExampleScenarioOption)theEObject;
+				T result = caseExampleScenarioOption(exampleScenarioOption);
+				if (result == null) result = caseBackboneElement(exampleScenarioOption);
+				if (result == null) result = caseElement(exampleScenarioOption);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_PROCESS: {
+				ExampleScenarioProcess exampleScenarioProcess = (ExampleScenarioProcess)theEObject;
+				T result = caseExampleScenarioProcess(exampleScenarioProcess);
+				if (result == null) result = caseBackboneElement(exampleScenarioProcess);
+				if (result == null) result = caseElement(exampleScenarioProcess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_STEP: {
+				ExampleScenarioStep exampleScenarioStep = (ExampleScenarioStep)theEObject;
+				T result = caseExampleScenarioStep(exampleScenarioStep);
+				if (result == null) result = caseBackboneElement(exampleScenarioStep);
+				if (result == null) result = caseElement(exampleScenarioStep);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.EXAMPLE_SCENARIO_VERSION: {
+				ExampleScenarioVersion exampleScenarioVersion = (ExampleScenarioVersion)theEObject;
+				T result = caseExampleScenarioVersion(exampleScenarioVersion);
+				if (result == null) result = caseBackboneElement(exampleScenarioVersion);
+				if (result == null) result = caseElement(exampleScenarioVersion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3025,14 +3368,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL1: {
-				ExplanationOfBenefitDetail1 explanationOfBenefitDetail1 = (ExplanationOfBenefitDetail1)theEObject;
-				T result = caseExplanationOfBenefitDetail1(explanationOfBenefitDetail1);
-				if (result == null) result = caseBackboneElement(explanationOfBenefitDetail1);
-				if (result == null) result = caseElement(explanationOfBenefitDetail1);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS: {
 				ExplanationOfBenefitDiagnosis explanationOfBenefitDiagnosis = (ExplanationOfBenefitDiagnosis)theEObject;
 				T result = caseExplanationOfBenefitDiagnosis(explanationOfBenefitDiagnosis);
@@ -3128,6 +3463,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.EXPRESSION_LANGUAGE: {
+				ExpressionLanguage expressionLanguage = (ExpressionLanguage)theEObject;
+				T result = caseExpressionLanguage(expressionLanguage);
+				if (result == null) result = caseElement(expressionLanguage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.EXTENSION: {
 				Extension extension = (Extension)theEObject;
 				T result = caseExtension(extension);
@@ -3139,6 +3481,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				ExtensionContext extensionContext = (ExtensionContext)theEObject;
 				T result = caseExtensionContext(extensionContext);
 				if (result == null) result = caseElement(extensionContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.FAILURE_ACTION: {
+				FailureAction failureAction = (FailureAction)theEObject;
+				T result = caseFailureAction(failureAction);
+				if (result == null) result = caseElement(failureAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3252,6 +3601,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.GRAPH_COMPARTMENT_USE: {
+				GraphCompartmentUse graphCompartmentUse = (GraphCompartmentUse)theEObject;
+				T result = caseGraphCompartmentUse(graphCompartmentUse);
+				if (result == null) result = caseElement(graphCompartmentUse);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.GRAPH_DEFINITION: {
 				GraphDefinition graphDefinition = (GraphDefinition)theEObject;
 				T result = caseGraphDefinition(graphDefinition);
@@ -3344,6 +3700,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.HAZARDOUS_DUTY_WORK: {
+				HazardousDutyWork hazardousDutyWork = (HazardousDutyWork)theEObject;
+				T result = caseHazardousDutyWork(hazardousDutyWork);
+				if (result == null) result = caseElement(hazardousDutyWork);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.HEALTHCARE_SERVICE: {
 				HealthcareService healthcareService = (HealthcareService)theEObject;
 				T result = caseHealthcareService(healthcareService);
@@ -3365,6 +3728,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseHealthcareServiceNotAvailable(healthcareServiceNotAvailable);
 				if (result == null) result = caseBackboneElement(healthcareServiceNotAvailable);
 				if (result == null) result = caseElement(healthcareServiceNotAvailable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS: {
+				HistoryOfEmploymentStatus historyOfEmploymentStatus = (HistoryOfEmploymentStatus)theEObject;
+				T result = caseHistoryOfEmploymentStatus(historyOfEmploymentStatus);
+				if (result == null) result = caseElement(historyOfEmploymentStatus);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3410,38 +3780,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.IMAGING_MANIFEST: {
-				ImagingManifest imagingManifest = (ImagingManifest)theEObject;
-				T result = caseImagingManifest(imagingManifest);
-				if (result == null) result = caseDomainResource(imagingManifest);
-				if (result == null) result = caseResource(imagingManifest);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.IMAGING_MANIFEST_INSTANCE: {
-				ImagingManifestInstance imagingManifestInstance = (ImagingManifestInstance)theEObject;
-				T result = caseImagingManifestInstance(imagingManifestInstance);
-				if (result == null) result = caseBackboneElement(imagingManifestInstance);
-				if (result == null) result = caseElement(imagingManifestInstance);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.IMAGING_MANIFEST_SERIES: {
-				ImagingManifestSeries imagingManifestSeries = (ImagingManifestSeries)theEObject;
-				T result = caseImagingManifestSeries(imagingManifestSeries);
-				if (result == null) result = caseBackboneElement(imagingManifestSeries);
-				if (result == null) result = caseElement(imagingManifestSeries);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.IMAGING_MANIFEST_STUDY: {
-				ImagingManifestStudy imagingManifestStudy = (ImagingManifestStudy)theEObject;
-				T result = caseImagingManifestStudy(imagingManifestStudy);
-				if (result == null) result = caseBackboneElement(imagingManifestStudy);
-				if (result == null) result = caseElement(imagingManifestStudy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.IMAGING_STUDY: {
 				ImagingStudy imagingStudy = (ImagingStudy)theEObject;
 				T result = caseImagingStudy(imagingStudy);
@@ -3474,11 +3812,26 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.IMMUNIZATION_EXPLANATION: {
-				ImmunizationExplanation immunizationExplanation = (ImmunizationExplanation)theEObject;
-				T result = caseImmunizationExplanation(immunizationExplanation);
-				if (result == null) result = caseBackboneElement(immunizationExplanation);
-				if (result == null) result = caseElement(immunizationExplanation);
+			case FhirPackage.IMMUNIZATION_EDUCATION: {
+				ImmunizationEducation immunizationEducation = (ImmunizationEducation)theEObject;
+				T result = caseImmunizationEducation(immunizationEducation);
+				if (result == null) result = caseBackboneElement(immunizationEducation);
+				if (result == null) result = caseElement(immunizationEducation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMMUNIZATION_EVALUATION: {
+				ImmunizationEvaluation immunizationEvaluation = (ImmunizationEvaluation)theEObject;
+				T result = caseImmunizationEvaluation(immunizationEvaluation);
+				if (result == null) result = caseDomainResource(immunizationEvaluation);
+				if (result == null) result = caseResource(immunizationEvaluation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES: {
+				ImmunizationEvaluationStatusCodes immunizationEvaluationStatusCodes = (ImmunizationEvaluationStatusCodes)theEObject;
+				T result = caseImmunizationEvaluationStatusCodes(immunizationEvaluationStatusCodes);
+				if (result == null) result = caseElement(immunizationEvaluationStatusCodes);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3487,14 +3840,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseImmunizationPractitioner(immunizationPractitioner);
 				if (result == null) result = caseBackboneElement(immunizationPractitioner);
 				if (result == null) result = caseElement(immunizationPractitioner);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.IMMUNIZATION_REACTION: {
-				ImmunizationReaction immunizationReaction = (ImmunizationReaction)theEObject;
-				T result = caseImmunizationReaction(immunizationReaction);
-				if (result == null) result = caseBackboneElement(immunizationReaction);
-				if (result == null) result = caseElement(immunizationReaction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3514,14 +3859,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.IMMUNIZATION_RECOMMENDATION_PROTOCOL: {
-				ImmunizationRecommendationProtocol immunizationRecommendationProtocol = (ImmunizationRecommendationProtocol)theEObject;
-				T result = caseImmunizationRecommendationProtocol(immunizationRecommendationProtocol);
-				if (result == null) result = caseBackboneElement(immunizationRecommendationProtocol);
-				if (result == null) result = caseElement(immunizationRecommendationProtocol);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION: {
 				ImmunizationRecommendationRecommendation immunizationRecommendationRecommendation = (ImmunizationRecommendationRecommendation)theEObject;
 				T result = caseImmunizationRecommendationRecommendation(immunizationRecommendationRecommendation);
@@ -3534,14 +3871,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				ImmunizationStatusCodes immunizationStatusCodes = (ImmunizationStatusCodes)theEObject;
 				T result = caseImmunizationStatusCodes(immunizationStatusCodes);
 				if (result == null) result = caseElement(immunizationStatusCodes);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.IMMUNIZATION_VACCINATION_PROTOCOL: {
-				ImmunizationVaccinationProtocol immunizationVaccinationProtocol = (ImmunizationVaccinationProtocol)theEObject;
-				T result = caseImmunizationVaccinationProtocol(immunizationVaccinationProtocol);
-				if (result == null) result = caseBackboneElement(immunizationVaccinationProtocol);
-				if (result == null) result = caseElement(immunizationVaccinationProtocol);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3566,6 +3895,94 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseImplementationGuideGlobal(implementationGuideGlobal);
 				if (result == null) result = caseBackboneElement(implementationGuideGlobal);
 				if (result == null) result = caseElement(implementationGuideGlobal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT: {
+				ImplementationGuideInput implementationGuideInput = (ImplementationGuideInput)theEObject;
+				T result = caseImplementationGuideInput(implementationGuideInput);
+				if (result == null) result = caseDomainResource(implementationGuideInput);
+				if (result == null) result = caseResource(implementationGuideInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_DEPENDENCY: {
+				ImplementationGuideInputDependency implementationGuideInputDependency = (ImplementationGuideInputDependency)theEObject;
+				T result = caseImplementationGuideInputDependency(implementationGuideInputDependency);
+				if (result == null) result = caseBackboneElement(implementationGuideInputDependency);
+				if (result == null) result = caseElement(implementationGuideInputDependency);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_GLOBAL: {
+				ImplementationGuideInputGlobal implementationGuideInputGlobal = (ImplementationGuideInputGlobal)theEObject;
+				T result = caseImplementationGuideInputGlobal(implementationGuideInputGlobal);
+				if (result == null) result = caseBackboneElement(implementationGuideInputGlobal);
+				if (result == null) result = caseElement(implementationGuideInputGlobal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_PACKAGE: {
+				ImplementationGuideInputPackage implementationGuideInputPackage = (ImplementationGuideInputPackage)theEObject;
+				T result = caseImplementationGuideInputPackage(implementationGuideInputPackage);
+				if (result == null) result = caseBackboneElement(implementationGuideInputPackage);
+				if (result == null) result = caseElement(implementationGuideInputPackage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_PAGE: {
+				ImplementationGuideInputPage implementationGuideInputPage = (ImplementationGuideInputPage)theEObject;
+				T result = caseImplementationGuideInputPage(implementationGuideInputPage);
+				if (result == null) result = caseBackboneElement(implementationGuideInputPage);
+				if (result == null) result = caseElement(implementationGuideInputPage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_RESOURCE: {
+				ImplementationGuideInputResource implementationGuideInputResource = (ImplementationGuideInputResource)theEObject;
+				T result = caseImplementationGuideInputResource(implementationGuideInputResource);
+				if (result == null) result = caseBackboneElement(implementationGuideInputResource);
+				if (result == null) result = caseElement(implementationGuideInputResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT: {
+				ImplementationGuideOutput implementationGuideOutput = (ImplementationGuideOutput)theEObject;
+				T result = caseImplementationGuideOutput(implementationGuideOutput);
+				if (result == null) result = caseDomainResource(implementationGuideOutput);
+				if (result == null) result = caseResource(implementationGuideOutput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_DEPENDENCY: {
+				ImplementationGuideOutputDependency implementationGuideOutputDependency = (ImplementationGuideOutputDependency)theEObject;
+				T result = caseImplementationGuideOutputDependency(implementationGuideOutputDependency);
+				if (result == null) result = caseBackboneElement(implementationGuideOutputDependency);
+				if (result == null) result = caseElement(implementationGuideOutputDependency);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_GLOBAL: {
+				ImplementationGuideOutputGlobal implementationGuideOutputGlobal = (ImplementationGuideOutputGlobal)theEObject;
+				T result = caseImplementationGuideOutputGlobal(implementationGuideOutputGlobal);
+				if (result == null) result = caseBackboneElement(implementationGuideOutputGlobal);
+				if (result == null) result = caseElement(implementationGuideOutputGlobal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_PAGE: {
+				ImplementationGuideOutputPage implementationGuideOutputPage = (ImplementationGuideOutputPage)theEObject;
+				T result = caseImplementationGuideOutputPage(implementationGuideOutputPage);
+				if (result == null) result = caseBackboneElement(implementationGuideOutputPage);
+				if (result == null) result = caseElement(implementationGuideOutputPage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_RESOURCE: {
+				ImplementationGuideOutputResource implementationGuideOutputResource = (ImplementationGuideOutputResource)theEObject;
+				T result = caseImplementationGuideOutputResource(implementationGuideOutputResource);
+				if (result == null) result = caseBackboneElement(implementationGuideOutputResource);
+				if (result == null) result = caseElement(implementationGuideOutputResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3614,6 +4031,52 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.INVOICE: {
+				Invoice invoice = (Invoice)theEObject;
+				T result = caseInvoice(invoice);
+				if (result == null) result = caseDomainResource(invoice);
+				if (result == null) result = caseResource(invoice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.INVOICE_LINE_ITEM: {
+				InvoiceLineItem invoiceLineItem = (InvoiceLineItem)theEObject;
+				T result = caseInvoiceLineItem(invoiceLineItem);
+				if (result == null) result = caseBackboneElement(invoiceLineItem);
+				if (result == null) result = caseElement(invoiceLineItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.INVOICE_PARTICIPANT: {
+				InvoiceParticipant invoiceParticipant = (InvoiceParticipant)theEObject;
+				T result = caseInvoiceParticipant(invoiceParticipant);
+				if (result == null) result = caseBackboneElement(invoiceParticipant);
+				if (result == null) result = caseElement(invoiceParticipant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.INVOICE_PRICE_COMPONENT: {
+				InvoicePriceComponent invoicePriceComponent = (InvoicePriceComponent)theEObject;
+				T result = caseInvoicePriceComponent(invoicePriceComponent);
+				if (result == null) result = caseBackboneElement(invoicePriceComponent);
+				if (result == null) result = caseElement(invoicePriceComponent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.INVOICE_PRICE_COMPONENT_TYPE: {
+				InvoicePriceComponentType invoicePriceComponentType = (InvoicePriceComponentType)theEObject;
+				T result = caseInvoicePriceComponentType(invoicePriceComponentType);
+				if (result == null) result = caseElement(invoicePriceComponentType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.INVOICE_STATUS: {
+				InvoiceStatus invoiceStatus = (InvoiceStatus)theEObject;
+				T result = caseInvoiceStatus(invoiceStatus);
+				if (result == null) result = caseElement(invoiceStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.ISSUE_SEVERITY: {
 				IssueSeverity issueSeverity = (IssueSeverity)theEObject;
 				T result = caseIssueSeverity(issueSeverity);
@@ -3625,6 +4088,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				IssueType issueType = (IssueType)theEObject;
 				T result = caseIssueType(issueType);
 				if (result == null) result = caseElement(issueType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ITEM_INSTANCE: {
+				ItemInstance itemInstance = (ItemInstance)theEObject;
+				T result = caseItemInstance(itemInstance);
+				if (result == null) result = caseDomainResource(itemInstance);
+				if (result == null) result = caseResource(itemInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3704,6 +4175,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.LOCATION_HOURS_OF_OPERATION: {
+				LocationHoursOfOperation locationHoursOfOperation = (LocationHoursOfOperation)theEObject;
+				T result = caseLocationHoursOfOperation(locationHoursOfOperation);
+				if (result == null) result = caseBackboneElement(locationHoursOfOperation);
+				if (result == null) result = caseElement(locationHoursOfOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.LOCATION_MODE: {
 				LocationMode locationMode = (LocationMode)theEObject;
 				T result = caseLocationMode(locationMode);
@@ -3730,6 +4209,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				Markdown markdown = (Markdown)theEObject;
 				T result = caseMarkdown(markdown);
 				if (result == null) result = caseElement(markdown);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MARKETING_STATUS: {
+				MarketingStatus marketingStatus = (MarketingStatus)theEObject;
+				T result = caseMarketingStatus(marketingStatus);
+				if (result == null) result = caseElement(marketingStatus);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3850,6 +4336,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.MEDIA_STATUS: {
+				MediaStatus mediaStatus = (MediaStatus)theEObject;
+				T result = caseMediaStatus(mediaStatus);
+				if (result == null) result = caseElement(mediaStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.MEDICATION: {
 				Medication medication = (Medication)theEObject;
 				T result = caseMedication(medication);
@@ -3897,14 +4390,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.MEDICATION_CONTENT: {
-				MedicationContent medicationContent = (MedicationContent)theEObject;
-				T result = caseMedicationContent(medicationContent);
-				if (result == null) result = caseBackboneElement(medicationContent);
-				if (result == null) result = caseElement(medicationContent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.MEDICATION_DISPENSE: {
 				MedicationDispense medicationDispense = (MedicationDispense)theEObject;
 				T result = caseMedicationDispense(medicationDispense);
@@ -3944,14 +4429,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.MEDICATION_PACKAGE: {
-				MedicationPackage medicationPackage = (MedicationPackage)theEObject;
-				T result = caseMedicationPackage(medicationPackage);
-				if (result == null) result = caseBackboneElement(medicationPackage);
-				if (result == null) result = caseElement(medicationPackage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.MEDICATION_REQUEST: {
 				MedicationRequest medicationRequest = (MedicationRequest)theEObject;
 				T result = caseMedicationRequest(medicationRequest);
@@ -3972,21 +4449,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				MedicationRequestIntent medicationRequestIntent = (MedicationRequestIntent)theEObject;
 				T result = caseMedicationRequestIntent(medicationRequestIntent);
 				if (result == null) result = caseElement(medicationRequestIntent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.MEDICATION_REQUEST_PRIORITY: {
-				MedicationRequestPriority medicationRequestPriority = (MedicationRequestPriority)theEObject;
-				T result = caseMedicationRequestPriority(medicationRequestPriority);
-				if (result == null) result = caseElement(medicationRequestPriority);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.MEDICATION_REQUEST_REQUESTER: {
-				MedicationRequestRequester medicationRequestRequester = (MedicationRequestRequester)theEObject;
-				T result = caseMedicationRequestRequester(medicationRequestRequester);
-				if (result == null) result = caseBackboneElement(medicationRequestRequester);
-				if (result == null) result = caseElement(medicationRequestRequester);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4020,17 +4482,242 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.MEDICATION_STATEMENT_TAKEN: {
-				MedicationStatementTaken medicationStatementTaken = (MedicationStatementTaken)theEObject;
-				T result = caseMedicationStatementTaken(medicationStatementTaken);
-				if (result == null) result = caseElement(medicationStatementTaken);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.MEDICATION_STATUS: {
 				MedicationStatus medicationStatus = (MedicationStatus)theEObject;
 				T result = caseMedicationStatus(medicationStatus);
 				if (result == null) result = caseElement(medicationStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT: {
+				MedicinalProduct medicinalProduct = (MedicinalProduct)theEObject;
+				T result = caseMedicinalProduct(medicinalProduct);
+				if (result == null) result = caseDomainResource(medicinalProduct);
+				if (result == null) result = caseResource(medicinalProduct);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION: {
+				MedicinalProductAuthorization medicinalProductAuthorization = (MedicinalProductAuthorization)theEObject;
+				T result = caseMedicinalProductAuthorization(medicinalProductAuthorization);
+				if (result == null) result = caseDomainResource(medicinalProductAuthorization);
+				if (result == null) result = caseResource(medicinalProductAuthorization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_APPLICATION: {
+				MedicinalProductAuthorizationApplication medicinalProductAuthorizationApplication = (MedicinalProductAuthorizationApplication)theEObject;
+				T result = caseMedicinalProductAuthorizationApplication(medicinalProductAuthorizationApplication);
+				if (result == null) result = caseBackboneElement(medicinalProductAuthorizationApplication);
+				if (result == null) result = caseElement(medicinalProductAuthorizationApplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION: {
+				MedicinalProductAuthorizationJurisdictionalAuthorization medicinalProductAuthorizationJurisdictionalAuthorization = (MedicinalProductAuthorizationJurisdictionalAuthorization)theEObject;
+				T result = caseMedicinalProductAuthorizationJurisdictionalAuthorization(medicinalProductAuthorizationJurisdictionalAuthorization);
+				if (result == null) result = caseBackboneElement(medicinalProductAuthorizationJurisdictionalAuthorization);
+				if (result == null) result = caseElement(medicinalProductAuthorizationJurisdictionalAuthorization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE: {
+				MedicinalProductAuthorizationProcedure medicinalProductAuthorizationProcedure = (MedicinalProductAuthorizationProcedure)theEObject;
+				T result = caseMedicinalProductAuthorizationProcedure(medicinalProductAuthorizationProcedure);
+				if (result == null) result = caseBackboneElement(medicinalProductAuthorizationProcedure);
+				if (result == null) result = caseElement(medicinalProductAuthorizationProcedure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS: {
+				MedicinalProductClinicals medicinalProductClinicals = (MedicinalProductClinicals)theEObject;
+				T result = caseMedicinalProductClinicals(medicinalProductClinicals);
+				if (result == null) result = caseDomainResource(medicinalProductClinicals);
+				if (result == null) result = caseResource(medicinalProductClinicals);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_CONTRAINDICATION: {
+				MedicinalProductClinicalsContraindication medicinalProductClinicalsContraindication = (MedicinalProductClinicalsContraindication)theEObject;
+				T result = caseMedicinalProductClinicalsContraindication(medicinalProductClinicalsContraindication);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsContraindication);
+				if (result == null) result = caseElement(medicinalProductClinicalsContraindication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_INTERACTIONS: {
+				MedicinalProductClinicalsInteractions medicinalProductClinicalsInteractions = (MedicinalProductClinicalsInteractions)theEObject;
+				T result = caseMedicinalProductClinicalsInteractions(medicinalProductClinicalsInteractions);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsInteractions);
+				if (result == null) result = caseElement(medicinalProductClinicalsInteractions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_OTHER_THERAPY: {
+				MedicinalProductClinicalsOtherTherapy medicinalProductClinicalsOtherTherapy = (MedicinalProductClinicalsOtherTherapy)theEObject;
+				T result = caseMedicinalProductClinicalsOtherTherapy(medicinalProductClinicalsOtherTherapy);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsOtherTherapy);
+				if (result == null) result = caseElement(medicinalProductClinicalsOtherTherapy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_POPULATION: {
+				MedicinalProductClinicalsPopulation medicinalProductClinicalsPopulation = (MedicinalProductClinicalsPopulation)theEObject;
+				T result = caseMedicinalProductClinicalsPopulation(medicinalProductClinicalsPopulation);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsPopulation);
+				if (result == null) result = caseElement(medicinalProductClinicalsPopulation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_THERAPEUTIC_INDICATION: {
+				MedicinalProductClinicalsTherapeuticIndication medicinalProductClinicalsTherapeuticIndication = (MedicinalProductClinicalsTherapeuticIndication)theEObject;
+				T result = caseMedicinalProductClinicalsTherapeuticIndication(medicinalProductClinicalsTherapeuticIndication);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsTherapeuticIndication);
+				if (result == null) result = caseElement(medicinalProductClinicalsTherapeuticIndication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_UNDESIRABLE_EFFECTS: {
+				MedicinalProductClinicalsUndesirableEffects medicinalProductClinicalsUndesirableEffects = (MedicinalProductClinicalsUndesirableEffects)theEObject;
+				T result = caseMedicinalProductClinicalsUndesirableEffects(medicinalProductClinicalsUndesirableEffects);
+				if (result == null) result = caseBackboneElement(medicinalProductClinicalsUndesirableEffects);
+				if (result == null) result = caseElement(medicinalProductClinicalsUndesirableEffects);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_COUNTRY_LANGUAGE: {
+				MedicinalProductCountryLanguage medicinalProductCountryLanguage = (MedicinalProductCountryLanguage)theEObject;
+				T result = caseMedicinalProductCountryLanguage(medicinalProductCountryLanguage);
+				if (result == null) result = caseBackboneElement(medicinalProductCountryLanguage);
+				if (result == null) result = caseElement(medicinalProductCountryLanguage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_DEVICE_SPEC: {
+				MedicinalProductDeviceSpec medicinalProductDeviceSpec = (MedicinalProductDeviceSpec)theEObject;
+				T result = caseMedicinalProductDeviceSpec(medicinalProductDeviceSpec);
+				if (result == null) result = caseDomainResource(medicinalProductDeviceSpec);
+				if (result == null) result = caseResource(medicinalProductDeviceSpec);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_DEVICE_SPEC_MATERIAL: {
+				MedicinalProductDeviceSpecMaterial medicinalProductDeviceSpecMaterial = (MedicinalProductDeviceSpecMaterial)theEObject;
+				T result = caseMedicinalProductDeviceSpecMaterial(medicinalProductDeviceSpecMaterial);
+				if (result == null) result = caseBackboneElement(medicinalProductDeviceSpecMaterial);
+				if (result == null) result = caseElement(medicinalProductDeviceSpecMaterial);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT: {
+				MedicinalProductIngredient medicinalProductIngredient = (MedicinalProductIngredient)theEObject;
+				T result = caseMedicinalProductIngredient(medicinalProductIngredient);
+				if (result == null) result = caseDomainResource(medicinalProductIngredient);
+				if (result == null) result = caseResource(medicinalProductIngredient);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_REFERENCE_STRENGTH: {
+				MedicinalProductIngredientReferenceStrength medicinalProductIngredientReferenceStrength = (MedicinalProductIngredientReferenceStrength)theEObject;
+				T result = caseMedicinalProductIngredientReferenceStrength(medicinalProductIngredientReferenceStrength);
+				if (result == null) result = caseBackboneElement(medicinalProductIngredientReferenceStrength);
+				if (result == null) result = caseElement(medicinalProductIngredientReferenceStrength);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_SPECIFIED_SUBSTANCE: {
+				MedicinalProductIngredientSpecifiedSubstance medicinalProductIngredientSpecifiedSubstance = (MedicinalProductIngredientSpecifiedSubstance)theEObject;
+				T result = caseMedicinalProductIngredientSpecifiedSubstance(medicinalProductIngredientSpecifiedSubstance);
+				if (result == null) result = caseBackboneElement(medicinalProductIngredientSpecifiedSubstance);
+				if (result == null) result = caseElement(medicinalProductIngredientSpecifiedSubstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH: {
+				MedicinalProductIngredientStrength medicinalProductIngredientStrength = (MedicinalProductIngredientStrength)theEObject;
+				T result = caseMedicinalProductIngredientStrength(medicinalProductIngredientStrength);
+				if (result == null) result = caseBackboneElement(medicinalProductIngredientStrength);
+				if (result == null) result = caseElement(medicinalProductIngredientStrength);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_SUBSTANCE: {
+				MedicinalProductIngredientSubstance medicinalProductIngredientSubstance = (MedicinalProductIngredientSubstance)theEObject;
+				T result = caseMedicinalProductIngredientSubstance(medicinalProductIngredientSubstance);
+				if (result == null) result = caseBackboneElement(medicinalProductIngredientSubstance);
+				if (result == null) result = caseElement(medicinalProductIngredientSubstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_MANUFACTURING_BUSINESS_OPERATION: {
+				MedicinalProductManufacturingBusinessOperation medicinalProductManufacturingBusinessOperation = (MedicinalProductManufacturingBusinessOperation)theEObject;
+				T result = caseMedicinalProductManufacturingBusinessOperation(medicinalProductManufacturingBusinessOperation);
+				if (result == null) result = caseBackboneElement(medicinalProductManufacturingBusinessOperation);
+				if (result == null) result = caseElement(medicinalProductManufacturingBusinessOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_NAME: {
+				MedicinalProductName medicinalProductName = (MedicinalProductName)theEObject;
+				T result = caseMedicinalProductName(medicinalProductName);
+				if (result == null) result = caseBackboneElement(medicinalProductName);
+				if (result == null) result = caseElement(medicinalProductName);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_NAME_PART: {
+				MedicinalProductNamePart medicinalProductNamePart = (MedicinalProductNamePart)theEObject;
+				T result = caseMedicinalProductNamePart(medicinalProductNamePart);
+				if (result == null) result = caseBackboneElement(medicinalProductNamePart);
+				if (result == null) result = caseElement(medicinalProductNamePart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED: {
+				MedicinalProductPackaged medicinalProductPackaged = (MedicinalProductPackaged)theEObject;
+				T result = caseMedicinalProductPackaged(medicinalProductPackaged);
+				if (result == null) result = caseDomainResource(medicinalProductPackaged);
+				if (result == null) result = caseResource(medicinalProductPackaged);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_BATCH_IDENTIFIER: {
+				MedicinalProductPackagedBatchIdentifier medicinalProductPackagedBatchIdentifier = (MedicinalProductPackagedBatchIdentifier)theEObject;
+				T result = caseMedicinalProductPackagedBatchIdentifier(medicinalProductPackagedBatchIdentifier);
+				if (result == null) result = caseBackboneElement(medicinalProductPackagedBatchIdentifier);
+				if (result == null) result = caseElement(medicinalProductPackagedBatchIdentifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_MANUFACTURED_ITEM: {
+				MedicinalProductPackagedManufacturedItem medicinalProductPackagedManufacturedItem = (MedicinalProductPackagedManufacturedItem)theEObject;
+				T result = caseMedicinalProductPackagedManufacturedItem(medicinalProductPackagedManufacturedItem);
+				if (result == null) result = caseBackboneElement(medicinalProductPackagedManufacturedItem);
+				if (result == null) result = caseElement(medicinalProductPackagedManufacturedItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM: {
+				MedicinalProductPackagedPackageItem medicinalProductPackagedPackageItem = (MedicinalProductPackagedPackageItem)theEObject;
+				T result = caseMedicinalProductPackagedPackageItem(medicinalProductPackagedPackageItem);
+				if (result == null) result = caseBackboneElement(medicinalProductPackagedPackageItem);
+				if (result == null) result = caseElement(medicinalProductPackagedPackageItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL: {
+				MedicinalProductPharmaceutical medicinalProductPharmaceutical = (MedicinalProductPharmaceutical)theEObject;
+				T result = caseMedicinalProductPharmaceutical(medicinalProductPharmaceutical);
+				if (result == null) result = caseDomainResource(medicinalProductPharmaceutical);
+				if (result == null) result = caseResource(medicinalProductPharmaceutical);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL_CHARACTERISTICS: {
+				MedicinalProductPharmaceuticalCharacteristics medicinalProductPharmaceuticalCharacteristics = (MedicinalProductPharmaceuticalCharacteristics)theEObject;
+				T result = caseMedicinalProductPharmaceuticalCharacteristics(medicinalProductPharmaceuticalCharacteristics);
+				if (result == null) result = caseBackboneElement(medicinalProductPharmaceuticalCharacteristics);
+				if (result == null) result = caseElement(medicinalProductPharmaceuticalCharacteristics);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4163,6 +4850,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.NEED: {
+				Need need = (Need)theEObject;
+				T result = caseNeed(need);
+				if (result == null) result = caseElement(need);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.NOTE_TYPE: {
 				NoteType noteType = (NoteType)theEObject;
 				T result = caseNoteType(noteType);
@@ -4249,6 +4943,30 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.OBSERVATION_DEFINITION: {
+				ObservationDefinition observationDefinition = (ObservationDefinition)theEObject;
+				T result = caseObservationDefinition(observationDefinition);
+				if (result == null) result = caseDomainResource(observationDefinition);
+				if (result == null) result = caseResource(observationDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL: {
+				ObservationDefinitionQualifiedInterval observationDefinitionQualifiedInterval = (ObservationDefinitionQualifiedInterval)theEObject;
+				T result = caseObservationDefinitionQualifiedInterval(observationDefinitionQualifiedInterval);
+				if (result == null) result = caseBackboneElement(observationDefinitionQualifiedInterval);
+				if (result == null) result = caseElement(observationDefinitionQualifiedInterval);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS: {
+				ObservationDefinitionQuantitativeDetails observationDefinitionQuantitativeDetails = (ObservationDefinitionQuantitativeDetails)theEObject;
+				T result = caseObservationDefinitionQuantitativeDetails(observationDefinitionQuantitativeDetails);
+				if (result == null) result = caseBackboneElement(observationDefinitionQuantitativeDetails);
+				if (result == null) result = caseElement(observationDefinitionQuantitativeDetails);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.OBSERVATION_REFERENCE_RANGE: {
 				ObservationReferenceRange observationReferenceRange = (ObservationReferenceRange)theEObject;
 				T result = caseObservationReferenceRange(observationReferenceRange);
@@ -4257,25 +4975,74 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.OBSERVATION_RELATED: {
-				ObservationRelated observationRelated = (ObservationRelated)theEObject;
-				T result = caseObservationRelated(observationRelated);
-				if (result == null) result = caseBackboneElement(observationRelated);
-				if (result == null) result = caseElement(observationRelated);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.OBSERVATION_RELATIONSHIP_TYPE: {
-				ObservationRelationshipType observationRelationshipType = (ObservationRelationshipType)theEObject;
-				T result = caseObservationRelationshipType(observationRelationshipType);
-				if (result == null) result = caseElement(observationRelationshipType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.OBSERVATION_STATUS: {
 				ObservationStatus observationStatus = (ObservationStatus)theEObject;
 				T result = caseObservationStatus(observationStatus);
 				if (result == null) result = caseElement(observationStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA: {
+				OccupationalData occupationalData = (OccupationalData)theEObject;
+				T result = caseOccupationalData(occupationalData);
+				if (result == null) result = caseDomainResource(occupationalData);
+				if (result == null) result = caseResource(occupationalData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_COMBAT_ZONE_HAZARDOUS_DUTY: {
+				OccupationalDataCombatZoneHazardousDuty occupationalDataCombatZoneHazardousDuty = (OccupationalDataCombatZoneHazardousDuty)theEObject;
+				T result = caseOccupationalDataCombatZoneHazardousDuty(occupationalDataCombatZoneHazardousDuty);
+				if (result == null) result = caseBackboneElement(occupationalDataCombatZoneHazardousDuty);
+				if (result == null) result = caseElement(occupationalDataCombatZoneHazardousDuty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_DURATION: {
+				OccupationalDataDuration occupationalDataDuration = (OccupationalDataDuration)theEObject;
+				T result = caseOccupationalDataDuration(occupationalDataDuration);
+				if (result == null) result = caseBackboneElement(occupationalDataDuration);
+				if (result == null) result = caseElement(occupationalDataDuration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_EMPLOYMENT_STATUS: {
+				OccupationalDataEmploymentStatus occupationalDataEmploymentStatus = (OccupationalDataEmploymentStatus)theEObject;
+				T result = caseOccupationalDataEmploymentStatus(occupationalDataEmploymentStatus);
+				if (result == null) result = caseBackboneElement(occupationalDataEmploymentStatus);
+				if (result == null) result = caseElement(occupationalDataEmploymentStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_INDUSTRY: {
+				OccupationalDataIndustry occupationalDataIndustry = (OccupationalDataIndustry)theEObject;
+				T result = caseOccupationalDataIndustry(occupationalDataIndustry);
+				if (result == null) result = caseBackboneElement(occupationalDataIndustry);
+				if (result == null) result = caseElement(occupationalDataIndustry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_PAST_OR_PRESENT_OCCUPATION: {
+				OccupationalDataPastOrPresentOccupation occupationalDataPastOrPresentOccupation = (OccupationalDataPastOrPresentOccupation)theEObject;
+				T result = caseOccupationalDataPastOrPresentOccupation(occupationalDataPastOrPresentOccupation);
+				if (result == null) result = caseBackboneElement(occupationalDataPastOrPresentOccupation);
+				if (result == null) result = caseElement(occupationalDataPastOrPresentOccupation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_RETIREMENT_STATUS: {
+				OccupationalDataRetirementStatus occupationalDataRetirementStatus = (OccupationalDataRetirementStatus)theEObject;
+				T result = caseOccupationalDataRetirementStatus(occupationalDataRetirementStatus);
+				if (result == null) result = caseBackboneElement(occupationalDataRetirementStatus);
+				if (result == null) result = caseElement(occupationalDataRetirementStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.OCCUPATIONAL_DATA_USUAL_OCCUPATION: {
+				OccupationalDataUsualOccupation occupationalDataUsualOccupation = (OccupationalDataUsualOccupation)theEObject;
+				T result = caseOccupationalDataUsualOccupation(occupationalDataUsualOccupation);
+				if (result == null) result = caseBackboneElement(occupationalDataUsualOccupation);
+				if (result == null) result = caseElement(occupationalDataUsualOccupation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4361,6 +5128,30 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseOrganizationContact(organizationContact);
 				if (result == null) result = caseBackboneElement(organizationContact);
 				if (result == null) result = caseElement(organizationContact);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ORGANIZATION_ROLE: {
+				OrganizationRole organizationRole = (OrganizationRole)theEObject;
+				T result = caseOrganizationRole(organizationRole);
+				if (result == null) result = caseDomainResource(organizationRole);
+				if (result == null) result = caseResource(organizationRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ORGANIZATION_ROLE_AVAILABLE_TIME: {
+				OrganizationRoleAvailableTime organizationRoleAvailableTime = (OrganizationRoleAvailableTime)theEObject;
+				T result = caseOrganizationRoleAvailableTime(organizationRoleAvailableTime);
+				if (result == null) result = caseBackboneElement(organizationRoleAvailableTime);
+				if (result == null) result = caseElement(organizationRoleAvailableTime);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.ORGANIZATION_ROLE_NOT_AVAILABLE: {
+				OrganizationRoleNotAvailable organizationRoleNotAvailable = (OrganizationRoleNotAvailable)theEObject;
+				T result = caseOrganizationRoleNotAvailable(organizationRoleNotAvailable);
+				if (result == null) result = caseBackboneElement(organizationRoleNotAvailable);
+				if (result == null) result = caseElement(organizationRoleNotAvailable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4630,19 +5421,10 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.PROCEDURE_REQUEST: {
-				ProcedureRequest procedureRequest = (ProcedureRequest)theEObject;
-				T result = caseProcedureRequest(procedureRequest);
-				if (result == null) result = caseDomainResource(procedureRequest);
-				if (result == null) result = caseResource(procedureRequest);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.PROCEDURE_REQUEST_REQUESTER: {
-				ProcedureRequestRequester procedureRequestRequester = (ProcedureRequestRequester)theEObject;
-				T result = caseProcedureRequestRequester(procedureRequestRequester);
-				if (result == null) result = caseBackboneElement(procedureRequestRequester);
-				if (result == null) result = caseElement(procedureRequestRequester);
+			case FhirPackage.PROCESS_OUTCOME_CODES: {
+				ProcessOutcomeCodes processOutcomeCodes = (ProcessOutcomeCodes)theEObject;
+				T result = caseProcessOutcomeCodes(processOutcomeCodes);
+				if (result == null) result = caseElement(processOutcomeCodes);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4675,6 +5457,92 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseProcessResponseProcessNote(processResponseProcessNote);
 				if (result == null) result = caseBackboneElement(processResponseProcessNote);
 				if (result == null) result = caseElement(processResponseProcessNote);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PROD_CHARACTERISTIC: {
+				ProdCharacteristic prodCharacteristic = (ProdCharacteristic)theEObject;
+				T result = caseProdCharacteristic(prodCharacteristic);
+				if (result == null) result = caseElement(prodCharacteristic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN: {
+				ProductPlan productPlan = (ProductPlan)theEObject;
+				T result = caseProductPlan(productPlan);
+				if (result == null) result = caseDomainResource(productPlan);
+				if (result == null) result = caseResource(productPlan);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_BENEFIT: {
+				ProductPlanBenefit productPlanBenefit = (ProductPlanBenefit)theEObject;
+				T result = caseProductPlanBenefit(productPlanBenefit);
+				if (result == null) result = caseBackboneElement(productPlanBenefit);
+				if (result == null) result = caseElement(productPlanBenefit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_BENEFIT1: {
+				ProductPlanBenefit1 productPlanBenefit1 = (ProductPlanBenefit1)theEObject;
+				T result = caseProductPlanBenefit1(productPlanBenefit1);
+				if (result == null) result = caseBackboneElement(productPlanBenefit1);
+				if (result == null) result = caseElement(productPlanBenefit1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_CATEGORY: {
+				ProductPlanCategory productPlanCategory = (ProductPlanCategory)theEObject;
+				T result = caseProductPlanCategory(productPlanCategory);
+				if (result == null) result = caseBackboneElement(productPlanCategory);
+				if (result == null) result = caseElement(productPlanCategory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_CONTACT: {
+				ProductPlanContact productPlanContact = (ProductPlanContact)theEObject;
+				T result = caseProductPlanContact(productPlanContact);
+				if (result == null) result = caseBackboneElement(productPlanContact);
+				if (result == null) result = caseElement(productPlanContact);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_COST: {
+				ProductPlanCost productPlanCost = (ProductPlanCost)theEObject;
+				T result = caseProductPlanCost(productPlanCost);
+				if (result == null) result = caseBackboneElement(productPlanCost);
+				if (result == null) result = caseElement(productPlanCost);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_COVERAGE: {
+				ProductPlanCoverage productPlanCoverage = (ProductPlanCoverage)theEObject;
+				T result = caseProductPlanCoverage(productPlanCoverage);
+				if (result == null) result = caseBackboneElement(productPlanCoverage);
+				if (result == null) result = caseElement(productPlanCoverage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_ITEM: {
+				ProductPlanItem productPlanItem = (ProductPlanItem)theEObject;
+				T result = caseProductPlanItem(productPlanItem);
+				if (result == null) result = caseBackboneElement(productPlanItem);
+				if (result == null) result = caseElement(productPlanItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_PLAN_PLAN: {
+				ProductPlanPlan productPlanPlan = (ProductPlanPlan)theEObject;
+				T result = caseProductPlanPlan(productPlanPlan);
+				if (result == null) result = caseBackboneElement(productPlanPlan);
+				if (result == null) result = caseElement(productPlanPlan);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PRODUCT_SHELF_LIFE: {
+				ProductShelfLife productShelfLife = (ProductShelfLife)theEObject;
+				T result = caseProductShelfLife(productShelfLife);
+				if (result == null) result = caseElement(productShelfLife);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4727,6 +5595,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				PublicationStatus publicationStatus = (PublicationStatus)theEObject;
 				T result = casePublicationStatus(publicationStatus);
 				if (result == null) result = caseElement(publicationStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.PUSH_TYPE_AVAILABLE: {
+				PushTypeAvailable pushTypeAvailable = (PushTypeAvailable)theEObject;
+				T result = casePushTypeAvailable(pushTypeAvailable);
+				if (result == null) result = caseElement(pushTypeAvailable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -4856,22 +5731,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.REFERRAL_REQUEST: {
-				ReferralRequest referralRequest = (ReferralRequest)theEObject;
-				T result = caseReferralRequest(referralRequest);
-				if (result == null) result = caseDomainResource(referralRequest);
-				if (result == null) result = caseResource(referralRequest);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.REFERRAL_REQUEST_REQUESTER: {
-				ReferralRequestRequester referralRequestRequester = (ReferralRequestRequester)theEObject;
-				T result = caseReferralRequestRequester(referralRequestRequester);
-				if (result == null) result = caseBackboneElement(referralRequestRequester);
-				if (result == null) result = caseElement(referralRequestRequester);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.RELATED_ARTIFACT: {
 				RelatedArtifact relatedArtifact = (RelatedArtifact)theEObject;
 				T result = caseRelatedArtifact(relatedArtifact);
@@ -4977,6 +5836,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.RESEARCH_STUDY_OBJECTIVE: {
+				ResearchStudyObjective researchStudyObjective = (ResearchStudyObjective)theEObject;
+				T result = caseResearchStudyObjective(researchStudyObjective);
+				if (result == null) result = caseBackboneElement(researchStudyObjective);
+				if (result == null) result = caseElement(researchStudyObjective);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.RESEARCH_STUDY_STATUS: {
 				ResearchStudyStatus researchStudyStatus = (ResearchStudyStatus)theEObject;
 				T result = caseResearchStudyStatus(researchStudyStatus);
@@ -5036,6 +5903,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				RestfulCapabilityMode restfulCapabilityMode = (RestfulCapabilityMode)theEObject;
 				T result = caseRestfulCapabilityMode(restfulCapabilityMode);
 				if (result == null) result = caseElement(restfulCapabilityMode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.RETIREMENT_STATUS: {
+				RetirementStatus retirementStatus = (RetirementStatus)theEObject;
+				T result = caseRetirementStatus(retirementStatus);
+				if (result == null) result = caseElement(retirementStatus);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5129,6 +6003,22 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.SEQUENCE_INNER: {
+				SequenceInner sequenceInner = (SequenceInner)theEObject;
+				T result = caseSequenceInner(sequenceInner);
+				if (result == null) result = caseBackboneElement(sequenceInner);
+				if (result == null) result = caseElement(sequenceInner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SEQUENCE_OUTER: {
+				SequenceOuter sequenceOuter = (SequenceOuter)theEObject;
+				T result = caseSequenceOuter(sequenceOuter);
+				if (result == null) result = caseBackboneElement(sequenceOuter);
+				if (result == null) result = caseElement(sequenceOuter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.SEQUENCE_QUALITY: {
 				SequenceQuality sequenceQuality = (SequenceQuality)theEObject;
 				T result = caseSequenceQuality(sequenceQuality);
@@ -5153,6 +6043,22 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.SEQUENCE_ROC: {
+				SequenceRoc sequenceRoc = (SequenceRoc)theEObject;
+				T result = caseSequenceRoc(sequenceRoc);
+				if (result == null) result = caseBackboneElement(sequenceRoc);
+				if (result == null) result = caseElement(sequenceRoc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SEQUENCE_STRUCTURE_VARIANT: {
+				SequenceStructureVariant sequenceStructureVariant = (SequenceStructureVariant)theEObject;
+				T result = caseSequenceStructureVariant(sequenceStructureVariant);
+				if (result == null) result = caseBackboneElement(sequenceStructureVariant);
+				if (result == null) result = caseElement(sequenceStructureVariant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.SEQUENCE_VARIANT: {
 				SequenceVariant sequenceVariant = (SequenceVariant)theEObject;
 				T result = caseSequenceVariant(sequenceVariant);
@@ -5166,6 +6072,14 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseServiceDefinition(serviceDefinition);
 				if (result == null) result = caseDomainResource(serviceDefinition);
 				if (result == null) result = caseResource(serviceDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SERVICE_REQUEST: {
+				ServiceRequest serviceRequest = (ServiceRequest)theEObject;
+				T result = caseServiceRequest(serviceRequest);
+				if (result == null) result = caseDomainResource(serviceRequest);
+				if (result == null) result = caseResource(serviceRequest);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5214,11 +6128,50 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE: {
+				SpecimenContainedPreference specimenContainedPreference = (SpecimenContainedPreference)theEObject;
+				T result = caseSpecimenContainedPreference(specimenContainedPreference);
+				if (result == null) result = caseElement(specimenContainedPreference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.SPECIMEN_CONTAINER: {
 				SpecimenContainer specimenContainer = (SpecimenContainer)theEObject;
 				T result = caseSpecimenContainer(specimenContainer);
 				if (result == null) result = caseBackboneElement(specimenContainer);
 				if (result == null) result = caseElement(specimenContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SPECIMEN_DEFINITION: {
+				SpecimenDefinition specimenDefinition = (SpecimenDefinition)theEObject;
+				T result = caseSpecimenDefinition(specimenDefinition);
+				if (result == null) result = caseDomainResource(specimenDefinition);
+				if (result == null) result = caseResource(specimenDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SPECIMEN_DEFINITION_CONTAINER_ADDITIVE: {
+				SpecimenDefinitionContainerAdditive specimenDefinitionContainerAdditive = (SpecimenDefinitionContainerAdditive)theEObject;
+				T result = caseSpecimenDefinitionContainerAdditive(specimenDefinitionContainerAdditive);
+				if (result == null) result = caseBackboneElement(specimenDefinitionContainerAdditive);
+				if (result == null) result = caseElement(specimenDefinitionContainerAdditive);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING: {
+				SpecimenDefinitionHandling specimenDefinitionHandling = (SpecimenDefinitionHandling)theEObject;
+				T result = caseSpecimenDefinitionHandling(specimenDefinitionHandling);
+				if (result == null) result = caseBackboneElement(specimenDefinitionHandling);
+				if (result == null) result = caseElement(specimenDefinitionHandling);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SPECIMEN_DEFINITION_SPECIMEN_TO_LAB: {
+				SpecimenDefinitionSpecimenToLab specimenDefinitionSpecimenToLab = (SpecimenDefinitionSpecimenToLab)theEObject;
+				T result = caseSpecimenDefinitionSpecimenToLab(specimenDefinitionSpecimenToLab);
+				if (result == null) result = caseBackboneElement(specimenDefinitionSpecimenToLab);
+				if (result == null) result = caseElement(specimenDefinitionSpecimenToLab);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5234,6 +6187,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				SpecimenStatus specimenStatus = (SpecimenStatus)theEObject;
 				T result = caseSpecimenStatus(specimenStatus);
 				if (result == null) result = caseElement(specimenStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.STATUS: {
+				Status status = (Status)theEObject;
+				T result = caseStatus(status);
+				if (result == null) result = caseElement(status);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5442,6 +6402,20 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.SUBSTANCE_AMOUNT: {
+				SubstanceAmount substanceAmount = (SubstanceAmount)theEObject;
+				T result = caseSubstanceAmount(substanceAmount);
+				if (result == null) result = caseElement(substanceAmount);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_AMOUNT_REFERENCE_RANGE: {
+				SubstanceAmountReferenceRange substanceAmountReferenceRange = (SubstanceAmountReferenceRange)theEObject;
+				T result = caseSubstanceAmountReferenceRange(substanceAmountReferenceRange);
+				if (result == null) result = caseElement(substanceAmountReferenceRange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.SUBSTANCE_INGREDIENT: {
 				SubstanceIngredient substanceIngredient = (SubstanceIngredient)theEObject;
 				T result = caseSubstanceIngredient(substanceIngredient);
@@ -5455,6 +6429,197 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseSubstanceInstance(substanceInstance);
 				if (result == null) result = caseBackboneElement(substanceInstance);
 				if (result == null) result = caseElement(substanceInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_MOIETY: {
+				SubstanceMoiety substanceMoiety = (SubstanceMoiety)theEObject;
+				T result = caseSubstanceMoiety(substanceMoiety);
+				if (result == null) result = caseElement(substanceMoiety);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER: {
+				SubstancePolymer substancePolymer = (SubstancePolymer)theEObject;
+				T result = caseSubstancePolymer(substancePolymer);
+				if (result == null) result = caseDomainResource(substancePolymer);
+				if (result == null) result = caseResource(substancePolymer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_DEGREE_OF_POLYMERISATION: {
+				SubstancePolymerDegreeOfPolymerisation substancePolymerDegreeOfPolymerisation = (SubstancePolymerDegreeOfPolymerisation)theEObject;
+				T result = caseSubstancePolymerDegreeOfPolymerisation(substancePolymerDegreeOfPolymerisation);
+				if (result == null) result = caseBackboneElement(substancePolymerDegreeOfPolymerisation);
+				if (result == null) result = caseElement(substancePolymerDegreeOfPolymerisation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_MONOMER_SET: {
+				SubstancePolymerMonomerSet substancePolymerMonomerSet = (SubstancePolymerMonomerSet)theEObject;
+				T result = caseSubstancePolymerMonomerSet(substancePolymerMonomerSet);
+				if (result == null) result = caseBackboneElement(substancePolymerMonomerSet);
+				if (result == null) result = caseElement(substancePolymerMonomerSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_REPEAT: {
+				SubstancePolymerRepeat substancePolymerRepeat = (SubstancePolymerRepeat)theEObject;
+				T result = caseSubstancePolymerRepeat(substancePolymerRepeat);
+				if (result == null) result = caseBackboneElement(substancePolymerRepeat);
+				if (result == null) result = caseElement(substancePolymerRepeat);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_REPEAT_UNIT: {
+				SubstancePolymerRepeatUnit substancePolymerRepeatUnit = (SubstancePolymerRepeatUnit)theEObject;
+				T result = caseSubstancePolymerRepeatUnit(substancePolymerRepeatUnit);
+				if (result == null) result = caseBackboneElement(substancePolymerRepeatUnit);
+				if (result == null) result = caseElement(substancePolymerRepeatUnit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_STARTING_MATERIAL: {
+				SubstancePolymerStartingMaterial substancePolymerStartingMaterial = (SubstancePolymerStartingMaterial)theEObject;
+				T result = caseSubstancePolymerStartingMaterial(substancePolymerStartingMaterial);
+				if (result == null) result = caseBackboneElement(substancePolymerStartingMaterial);
+				if (result == null) result = caseElement(substancePolymerStartingMaterial);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_POLYMER_STRUCTURAL_REPRESENTATION: {
+				SubstancePolymerStructuralRepresentation substancePolymerStructuralRepresentation = (SubstancePolymerStructuralRepresentation)theEObject;
+				T result = caseSubstancePolymerStructuralRepresentation(substancePolymerStructuralRepresentation);
+				if (result == null) result = caseBackboneElement(substancePolymerStructuralRepresentation);
+				if (result == null) result = caseElement(substancePolymerStructuralRepresentation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION: {
+				SubstanceReferenceInformation substanceReferenceInformation = (SubstanceReferenceInformation)theEObject;
+				T result = caseSubstanceReferenceInformation(substanceReferenceInformation);
+				if (result == null) result = caseDomainResource(substanceReferenceInformation);
+				if (result == null) result = caseResource(substanceReferenceInformation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_CLASSIFICATION: {
+				SubstanceReferenceInformationClassification substanceReferenceInformationClassification = (SubstanceReferenceInformationClassification)theEObject;
+				T result = caseSubstanceReferenceInformationClassification(substanceReferenceInformationClassification);
+				if (result == null) result = caseBackboneElement(substanceReferenceInformationClassification);
+				if (result == null) result = caseElement(substanceReferenceInformationClassification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_GENE: {
+				SubstanceReferenceInformationGene substanceReferenceInformationGene = (SubstanceReferenceInformationGene)theEObject;
+				T result = caseSubstanceReferenceInformationGene(substanceReferenceInformationGene);
+				if (result == null) result = caseBackboneElement(substanceReferenceInformationGene);
+				if (result == null) result = caseElement(substanceReferenceInformationGene);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_GENE_ELEMENT: {
+				SubstanceReferenceInformationGeneElement substanceReferenceInformationGeneElement = (SubstanceReferenceInformationGeneElement)theEObject;
+				T result = caseSubstanceReferenceInformationGeneElement(substanceReferenceInformationGeneElement);
+				if (result == null) result = caseBackboneElement(substanceReferenceInformationGeneElement);
+				if (result == null) result = caseElement(substanceReferenceInformationGeneElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_RELATIONSHIP: {
+				SubstanceReferenceInformationRelationship substanceReferenceInformationRelationship = (SubstanceReferenceInformationRelationship)theEObject;
+				T result = caseSubstanceReferenceInformationRelationship(substanceReferenceInformationRelationship);
+				if (result == null) result = caseBackboneElement(substanceReferenceInformationRelationship);
+				if (result == null) result = caseElement(substanceReferenceInformationRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET: {
+				SubstanceReferenceInformationTarget substanceReferenceInformationTarget = (SubstanceReferenceInformationTarget)theEObject;
+				T result = caseSubstanceReferenceInformationTarget(substanceReferenceInformationTarget);
+				if (result == null) result = caseBackboneElement(substanceReferenceInformationTarget);
+				if (result == null) result = caseElement(substanceReferenceInformationTarget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION: {
+				SubstanceSpecification substanceSpecification = (SubstanceSpecification)theEObject;
+				T result = caseSubstanceSpecification(substanceSpecification);
+				if (result == null) result = caseDomainResource(substanceSpecification);
+				if (result == null) result = caseResource(substanceSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE: {
+				SubstanceSpecificationIsotope substanceSpecificationIsotope = (SubstanceSpecificationIsotope)theEObject;
+				T result = caseSubstanceSpecificationIsotope(substanceSpecificationIsotope);
+				if (result == null) result = caseBackboneElement(substanceSpecificationIsotope);
+				if (result == null) result = caseElement(substanceSpecificationIsotope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY: {
+				SubstanceSpecificationMoiety substanceSpecificationMoiety = (SubstanceSpecificationMoiety)theEObject;
+				T result = caseSubstanceSpecificationMoiety(substanceSpecificationMoiety);
+				if (result == null) result = caseBackboneElement(substanceSpecificationMoiety);
+				if (result == null) result = caseElement(substanceSpecificationMoiety);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOLECULAR_WEIGHT: {
+				SubstanceSpecificationMolecularWeight substanceSpecificationMolecularWeight = (SubstanceSpecificationMolecularWeight)theEObject;
+				T result = caseSubstanceSpecificationMolecularWeight(substanceSpecificationMolecularWeight);
+				if (result == null) result = caseBackboneElement(substanceSpecificationMolecularWeight);
+				if (result == null) result = caseElement(substanceSpecificationMolecularWeight);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_OFFICIAL_NAME: {
+				SubstanceSpecificationOfficialName substanceSpecificationOfficialName = (SubstanceSpecificationOfficialName)theEObject;
+				T result = caseSubstanceSpecificationOfficialName(substanceSpecificationOfficialName);
+				if (result == null) result = caseBackboneElement(substanceSpecificationOfficialName);
+				if (result == null) result = caseElement(substanceSpecificationOfficialName);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY: {
+				SubstanceSpecificationProperty substanceSpecificationProperty = (SubstanceSpecificationProperty)theEObject;
+				T result = caseSubstanceSpecificationProperty(substanceSpecificationProperty);
+				if (result == null) result = caseBackboneElement(substanceSpecificationProperty);
+				if (result == null) result = caseElement(substanceSpecificationProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURAL_REPRESENTATION: {
+				SubstanceSpecificationStructuralRepresentation substanceSpecificationStructuralRepresentation = (SubstanceSpecificationStructuralRepresentation)theEObject;
+				T result = caseSubstanceSpecificationStructuralRepresentation(substanceSpecificationStructuralRepresentation);
+				if (result == null) result = caseBackboneElement(substanceSpecificationStructuralRepresentation);
+				if (result == null) result = caseElement(substanceSpecificationStructuralRepresentation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE: {
+				SubstanceSpecificationStructure substanceSpecificationStructure = (SubstanceSpecificationStructure)theEObject;
+				T result = caseSubstanceSpecificationStructure(substanceSpecificationStructure);
+				if (result == null) result = caseBackboneElement(substanceSpecificationStructure);
+				if (result == null) result = caseElement(substanceSpecificationStructure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_SUBSTANCE_CODE: {
+				SubstanceSpecificationSubstanceCode substanceSpecificationSubstanceCode = (SubstanceSpecificationSubstanceCode)theEObject;
+				T result = caseSubstanceSpecificationSubstanceCode(substanceSpecificationSubstanceCode);
+				if (result == null) result = caseBackboneElement(substanceSpecificationSubstanceCode);
+				if (result == null) result = caseElement(substanceSpecificationSubstanceCode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.SUBSTANCE_SPECIFICATION_SUBSTANCE_NAME: {
+				SubstanceSpecificationSubstanceName substanceSpecificationSubstanceName = (SubstanceSpecificationSubstanceName)theEObject;
+				T result = caseSubstanceSpecificationSubstanceName(substanceSpecificationSubstanceName);
+				if (result == null) result = caseBackboneElement(substanceSpecificationSubstanceName);
+				if (result == null) result = caseElement(substanceSpecificationSubstanceName);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5489,19 +6654,11 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.SUPPLY_REQUEST_ORDERED_ITEM: {
-				SupplyRequestOrderedItem supplyRequestOrderedItem = (SupplyRequestOrderedItem)theEObject;
-				T result = caseSupplyRequestOrderedItem(supplyRequestOrderedItem);
-				if (result == null) result = caseBackboneElement(supplyRequestOrderedItem);
-				if (result == null) result = caseElement(supplyRequestOrderedItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FhirPackage.SUPPLY_REQUEST_REQUESTER: {
-				SupplyRequestRequester supplyRequestRequester = (SupplyRequestRequester)theEObject;
-				T result = caseSupplyRequestRequester(supplyRequestRequester);
-				if (result == null) result = caseBackboneElement(supplyRequestRequester);
-				if (result == null) result = caseElement(supplyRequestRequester);
+			case FhirPackage.SUPPLY_REQUEST_PARAMETER: {
+				SupplyRequestParameter supplyRequestParameter = (SupplyRequestParameter)theEObject;
+				T result = caseSupplyRequestParameter(supplyRequestParameter);
+				if (result == null) result = caseBackboneElement(supplyRequestParameter);
+				if (result == null) result = caseElement(supplyRequestParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5550,14 +6707,6 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FhirPackage.TASK_REQUESTER: {
-				TaskRequester taskRequester = (TaskRequester)theEObject;
-				T result = caseTaskRequester(taskRequester);
-				if (result == null) result = caseBackboneElement(taskRequester);
-				if (result == null) result = caseElement(taskRequester);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FhirPackage.TASK_RESTRICTION: {
 				TaskRestriction taskRestriction = (TaskRestriction)theEObject;
 				T result = caseTaskRestriction(taskRestriction);
@@ -5570,6 +6719,70 @@ public class FhirSwitch<T> extends Switch<T> {
 				TaskStatus taskStatus = (TaskStatus)theEObject;
 				T result = caseTaskStatus(taskStatus);
 				if (result == null) result = caseElement(taskStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES: {
+				TerminologyCapabilities terminologyCapabilities = (TerminologyCapabilities)theEObject;
+				T result = caseTerminologyCapabilities(terminologyCapabilities);
+				if (result == null) result = caseDomainResource(terminologyCapabilities);
+				if (result == null) result = caseResource(terminologyCapabilities);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CLOSURE: {
+				TerminologyCapabilitiesClosure terminologyCapabilitiesClosure = (TerminologyCapabilitiesClosure)theEObject;
+				T result = caseTerminologyCapabilitiesClosure(terminologyCapabilitiesClosure);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesClosure);
+				if (result == null) result = caseElement(terminologyCapabilitiesClosure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM: {
+				TerminologyCapabilitiesCodeSystem terminologyCapabilitiesCodeSystem = (TerminologyCapabilitiesCodeSystem)theEObject;
+				T result = caseTerminologyCapabilitiesCodeSystem(terminologyCapabilitiesCodeSystem);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesCodeSystem);
+				if (result == null) result = caseElement(terminologyCapabilitiesCodeSystem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION: {
+				TerminologyCapabilitiesExpansion terminologyCapabilitiesExpansion = (TerminologyCapabilitiesExpansion)theEObject;
+				T result = caseTerminologyCapabilitiesExpansion(terminologyCapabilitiesExpansion);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesExpansion);
+				if (result == null) result = caseElement(terminologyCapabilitiesExpansion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_FILTER: {
+				TerminologyCapabilitiesFilter terminologyCapabilitiesFilter = (TerminologyCapabilitiesFilter)theEObject;
+				T result = caseTerminologyCapabilitiesFilter(terminologyCapabilitiesFilter);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesFilter);
+				if (result == null) result = caseElement(terminologyCapabilitiesFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_TRANSLATION: {
+				TerminologyCapabilitiesTranslation terminologyCapabilitiesTranslation = (TerminologyCapabilitiesTranslation)theEObject;
+				T result = caseTerminologyCapabilitiesTranslation(terminologyCapabilitiesTranslation);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesTranslation);
+				if (result == null) result = caseElement(terminologyCapabilitiesTranslation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_VALIDATE_CODE: {
+				TerminologyCapabilitiesValidateCode terminologyCapabilitiesValidateCode = (TerminologyCapabilitiesValidateCode)theEObject;
+				T result = caseTerminologyCapabilitiesValidateCode(terminologyCapabilitiesValidateCode);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesValidateCode);
+				if (result == null) result = caseElement(terminologyCapabilitiesValidateCode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_VERSION: {
+				TerminologyCapabilitiesVersion terminologyCapabilitiesVersion = (TerminologyCapabilitiesVersion)theEObject;
+				T result = caseTerminologyCapabilitiesVersion(terminologyCapabilitiesVersion);
+				if (result == null) result = caseBackboneElement(terminologyCapabilitiesVersion);
+				if (result == null) result = caseElement(terminologyCapabilitiesVersion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5932,6 +7145,13 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.TRIGGER_DEFINITION_CONDITION: {
+				TriggerDefinitionCondition triggerDefinitionCondition = (TriggerDefinitionCondition)theEObject;
+				T result = caseTriggerDefinitionCondition(triggerDefinitionCondition);
+				if (result == null) result = caseElement(triggerDefinitionCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.TRIGGER_TYPE: {
 				TriggerType triggerType = (TriggerType)theEObject;
 				T result = caseTriggerType(triggerType);
@@ -6002,10 +7222,69 @@ public class FhirSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FhirPackage.USER_SESSION: {
+				UserSession userSession = (UserSession)theEObject;
+				T result = caseUserSession(userSession);
+				if (result == null) result = caseDomainResource(userSession);
+				if (result == null) result = caseResource(userSession);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.USER_SESSION_CONTEXT: {
+				UserSessionContext userSessionContext = (UserSessionContext)theEObject;
+				T result = caseUserSessionContext(userSessionContext);
+				if (result == null) result = caseBackboneElement(userSessionContext);
+				if (result == null) result = caseElement(userSessionContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.USER_SESSION_STATUS: {
+				UserSessionStatus userSessionStatus = (UserSessionStatus)theEObject;
+				T result = caseUserSessionStatus(userSessionStatus);
+				if (result == null) result = caseElement(userSessionStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.USER_SESSION_STATUS1: {
+				UserSessionStatus1 userSessionStatus1 = (UserSessionStatus1)theEObject;
+				T result = caseUserSessionStatus1(userSessionStatus1);
+				if (result == null) result = caseBackboneElement(userSessionStatus1);
+				if (result == null) result = caseElement(userSessionStatus1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.USER_SESSION_STATUS_SOURCE: {
+				UserSessionStatusSource userSessionStatusSource = (UserSessionStatusSource)theEObject;
+				T result = caseUserSessionStatusSource(userSessionStatusSource);
+				if (result == null) result = caseElement(userSessionStatusSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.USUAL_OCCUPATION: {
+				UsualOccupation usualOccupation = (UsualOccupation)theEObject;
+				T result = caseUsualOccupation(usualOccupation);
+				if (result == null) result = caseElement(usualOccupation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FhirPackage.UUID: {
 				Uuid uuid = (Uuid)theEObject;
 				T result = caseUuid(uuid);
 				if (result == null) result = caseElement(uuid);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VALIDATION_STATUS: {
+				ValidationStatus validationStatus = (ValidationStatus)theEObject;
+				T result = caseValidationStatus(validationStatus);
+				if (result == null) result = caseElement(validationStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VALIDATION_TYPE: {
+				ValidationType validationType = (ValidationType)theEObject;
+				T result = caseValidationType(validationType);
+				if (result == null) result = caseElement(validationType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -6078,6 +7357,38 @@ public class FhirSwitch<T> extends Switch<T> {
 				T result = caseValueSetParameter(valueSetParameter);
 				if (result == null) result = caseBackboneElement(valueSetParameter);
 				if (result == null) result = caseElement(valueSetParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VERIFICATION_RESULT: {
+				VerificationResult verificationResult = (VerificationResult)theEObject;
+				T result = caseVerificationResult(verificationResult);
+				if (result == null) result = caseDomainResource(verificationResult);
+				if (result == null) result = caseResource(verificationResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION: {
+				VerificationResultAttestation verificationResultAttestation = (VerificationResultAttestation)theEObject;
+				T result = caseVerificationResultAttestation(verificationResultAttestation);
+				if (result == null) result = caseBackboneElement(verificationResultAttestation);
+				if (result == null) result = caseElement(verificationResultAttestation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE: {
+				VerificationResultPrimarySource verificationResultPrimarySource = (VerificationResultPrimarySource)theEObject;
+				T result = caseVerificationResultPrimarySource(verificationResultPrimarySource);
+				if (result == null) result = caseBackboneElement(verificationResultPrimarySource);
+				if (result == null) result = caseElement(verificationResultPrimarySource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR: {
+				VerificationResultValidator verificationResultValidator = (VerificationResultValidator)theEObject;
+				T result = caseVerificationResultValidator(verificationResultValidator);
+				if (result == null) result = caseBackboneElement(verificationResultValidator);
+				if (result == null) result = caseElement(verificationResultValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -6438,17 +7749,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Adverse Event Category</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Adverse Event Actuality</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Adverse Event Category</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Adverse Event Actuality</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAdverseEventCategory(AdverseEventCategory object) {
+	public T caseAdverseEventActuality(AdverseEventActuality object) {
 		return null;
 	}
 
@@ -6978,17 +8289,137 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Body Site</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Body Site</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBodySite(BodySite object) {
+	public T caseBiologicallyDerivedProduct(BiologicallyDerivedProduct object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductCategory(BiologicallyDerivedProductCategory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Collection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Collection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductCollection(BiologicallyDerivedProductCollection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Manipulation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Manipulation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductManipulation(BiologicallyDerivedProductManipulation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Processing</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Processing</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductProcessing(BiologicallyDerivedProductProcessing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductStatus(BiologicallyDerivedProductStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Storage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Storage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductStorage(BiologicallyDerivedProductStorage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Biologically Derived Product Storage Scale</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Biologically Derived Product Storage Scale</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBiologicallyDerivedProductStorageScale(BiologicallyDerivedProductStorageScale object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Body Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Body Structure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBodyStructure(BodyStructure object) {
 		return null;
 	}
 
@@ -7113,6 +8544,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Can Push Updates</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Can Push Updates</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCanPushUpdates(CanPushUpdates object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Capability Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -7169,21 +8615,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCapabilityStatementEndpoint(CapabilityStatementEndpoint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Capability Statement Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Capability Statement Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCapabilityStatementEvent(CapabilityStatementEvent object) {
 		return null;
 	}
 
@@ -7394,6 +8825,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCarePlanActivity(CarePlanActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Care Plan Activity Kind</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Care Plan Activity Kind</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCarePlanActivityKind(CarePlanActivityKind object) {
 		return null;
 	}
 
@@ -7698,6 +9144,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Claim Processing Codes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Claim Processing Codes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClaimProcessingCodes(ClaimProcessingCodes object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Claim Related</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -7769,21 +9230,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseClaimResponseDetail(ClaimResponseDetail object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Claim Response Detail1</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Claim Response Detail1</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClaimResponseDetail1(ClaimResponseDetail1 object) {
 		return null;
 	}
 
@@ -7983,6 +9429,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Code Search Support</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Code Search Support</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCodeSearchSupport(CodeSearchSupport object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Code System</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -8174,21 +9635,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCommunicationRequestPayload(CommunicationRequestPayload object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Communication Request Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Communication Request Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCommunicationRequestRequester(CommunicationRequestRequester object) {
 		return null;
 	}
 
@@ -8613,21 +10059,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consent Actor1</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consent Actor1</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConsentActor1(ConsentActor1 object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Consent Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -8639,21 +10070,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConsentData(ConsentData object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consent Data1</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consent Data1</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConsentData1(ConsentData1 object) {
 		return null;
 	}
 
@@ -8673,36 +10089,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consent Except</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consent Except</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConsentExcept(ConsentExcept object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Consent Except Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Consent Except Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConsentExceptType(ConsentExceptType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Consent Policy</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -8718,6 +10104,51 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consent Provision</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consent Provision</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsentProvision(ConsentProvision object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consent Provision Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consent Provision Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsentProvisionType(ConsentProvisionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consent Scope Codes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consent Scope Codes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsentScopeCodes(ConsentScopeCodes object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Consent State</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -8729,6 +10160,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConsentState(ConsentState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consent Verification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consent Verification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsentVerification(ConsentVerification object) {
 		return null;
 	}
 
@@ -8808,21 +10254,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Content Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Content Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContentType(ContentType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -8853,17 +10284,47 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Contract Agent1</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Contract Asset</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Contract Agent1</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Contract Asset</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContractAgent1(ContractAgent1 object) {
+	public T caseContractAsset(ContractAsset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contract Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contract Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContractData(ContractData object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contract Data Meaning</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contract Data Meaning</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContractDataMeaning(ContractDataMeaning object) {
 		return null;
 	}
 
@@ -8894,6 +10355,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContractLegal(ContractLegal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contract Offer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contract Offer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContractOffer(ContractOffer object) {
 		return null;
 	}
 
@@ -8973,21 +10449,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Contract Valued Item1</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Contract Valued Item1</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContractValuedItem1(ContractValuedItem1 object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contributor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -9048,6 +10509,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Coverage Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Coverage Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCoverageClass(CoverageClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Coverage Copay</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Coverage Copay</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCoverageCopay(CoverageCopay object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Coverage Grouping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -9059,51 +10550,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCoverageGrouping(CoverageGrouping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataElement(DataElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Element Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Element Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataElementMapping(DataElementMapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Element Stringency</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Element Stringency</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataElementStringency(DataElementStringency object) {
 		return null;
 	}
 
@@ -9303,6 +10749,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Device Component Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Device Component Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeviceComponentProperty(DeviceComponentProperty object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Device Metric</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -9423,17 +10884,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Device Request Requester</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Device Request Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Device Request Requester</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Device Request Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDeviceRequestRequester(DeviceRequestRequester object) {
+	public T caseDeviceRequestParameter(DeviceRequestParameter object) {
 		return null;
 	}
 
@@ -9498,32 +10959,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagnostic Report Image</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Diagnostic Report Media</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagnostic Report Image</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Diagnostic Report Media</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDiagnosticReportImage(DiagnosticReportImage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagnostic Report Performer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagnostic Report Performer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDiagnosticReportPerformer(DiagnosticReportPerformer object) {
+	public T caseDiagnosticReportMedia(DiagnosticReportMedia object) {
 		return null;
 	}
 
@@ -9539,21 +10985,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDiagnosticReportStatus(DiagnosticReportStatus object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Digital Media Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Digital Media Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDigitalMediaType(DigitalMediaType object) {
 		return null;
 	}
 
@@ -9603,17 +11034,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Document Manifest Content</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Document Manifest Agent</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Document Manifest Content</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Document Manifest Agent</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocumentManifestContent(DocumentManifestContent object) {
+	public T caseDocumentManifestAgent(DocumentManifestAgent object) {
 		return null;
 	}
 
@@ -9659,6 +11090,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDocumentReference(DocumentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Document Reference Agent</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Document Reference Agent</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDocumentReferenceAgent(DocumentReferenceAgent object) {
 		return null;
 	}
 
@@ -9978,6 +11424,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eligibility Request Authorization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eligibility Request Authorization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEligibilityRequestAuthorization(EligibilityRequestAuthorization object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Eligibility Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -9989,6 +11450,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEligibilityResponse(EligibilityResponse object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eligibility Response Authorization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eligibility Response Authorization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEligibilityResponseAuthorization(EligibilityResponseAuthorization object) {
 		return null;
 	}
 
@@ -10248,6 +11724,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntryDefinition(EntryDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Definition Related Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Definition Related Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntryDefinitionRelatedEntry(EntryDefinitionRelatedEntry object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Episode Of Care</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -10323,6 +11829,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventDefinition(EventDefinition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Event Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -10349,6 +11870,171 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEventTiming(EventTiming object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenario(ExampleScenario object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioActor(ExampleScenarioActor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Actor Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Actor Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioActorType(ExampleScenarioActorType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioAlternative(ExampleScenarioAlternative object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Contained Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Contained Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioContainedInstance(ExampleScenarioContainedInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioInstance(ExampleScenarioInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioOperation(ExampleScenarioOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioOption(ExampleScenarioOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Process</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Process</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioProcess(ExampleScenarioProcess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioStep(ExampleScenarioStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Example Scenario Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Example Scenario Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExampleScenarioVersion(ExampleScenarioVersion object) {
 		return null;
 	}
 
@@ -10578,21 +12264,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Explanation Of Benefit Detail1</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Explanation Of Benefit Detail1</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExplanationOfBenefitDetail1(ExplanationOfBenefitDetail1 object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Explanation Of Benefit Diagnosis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -10773,6 +12444,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Expression Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression Language</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExpressionLanguage(ExpressionLanguage object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Extension</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -10799,6 +12485,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExtensionContext(ExtensionContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Failure Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Failure Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFailureAction(FailureAction object) {
 		return null;
 	}
 
@@ -11028,6 +12729,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Graph Compartment Use</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Graph Compartment Use</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGraphCompartmentUse(GraphCompartmentUse object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Graph Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11208,6 +12924,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hazardous Duty Work</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hazardous Duty Work</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHazardousDutyWork(HazardousDutyWork object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Healthcare Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11249,6 +12980,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHealthcareServiceNotAvailable(HealthcareServiceNotAvailable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>History Of Employment Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>History Of Employment Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHistoryOfEmploymentStatus(HistoryOfEmploymentStatus object) {
 		return null;
 	}
 
@@ -11343,66 +13089,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Imaging Manifest</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Imaging Manifest</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImagingManifest(ImagingManifest object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Imaging Manifest Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Imaging Manifest Instance</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImagingManifestInstance(ImagingManifestInstance object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Imaging Manifest Series</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Imaging Manifest Series</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImagingManifestSeries(ImagingManifestSeries object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Imaging Manifest Study</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Imaging Manifest Study</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImagingManifestStudy(ImagingManifestStudy object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Imaging Study</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11463,17 +13149,47 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Immunization Explanation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Immunization Education</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Immunization Explanation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Immunization Education</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseImmunizationExplanation(ImmunizationExplanation object) {
+	public T caseImmunizationEducation(ImmunizationEducation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Immunization Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Immunization Evaluation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImmunizationEvaluation(ImmunizationEvaluation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Immunization Evaluation Status Codes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Immunization Evaluation Status Codes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImmunizationEvaluationStatusCodes(ImmunizationEvaluationStatusCodes object) {
 		return null;
 	}
 
@@ -11489,21 +13205,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImmunizationPractitioner(ImmunizationPractitioner object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Immunization Reaction</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Immunization Reaction</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImmunizationReaction(ImmunizationReaction object) {
 		return null;
 	}
 
@@ -11538,21 +13239,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Immunization Recommendation Protocol</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Immunization Recommendation Protocol</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImmunizationRecommendationProtocol(ImmunizationRecommendationProtocol object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Immunization Recommendation Recommendation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11579,21 +13265,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImmunizationStatusCodes(ImmunizationStatusCodes object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Immunization Vaccination Protocol</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Immunization Vaccination Protocol</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImmunizationVaccinationProtocol(ImmunizationVaccinationProtocol object) {
 		return null;
 	}
 
@@ -11639,6 +13310,171 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImplementationGuideGlobal(ImplementationGuideGlobal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInput(ImplementationGuideInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input Dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInputDependency(ImplementationGuideInputDependency object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input Global</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input Global</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInputGlobal(ImplementationGuideInputGlobal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input Package</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInputPackage(ImplementationGuideInputPackage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input Page</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInputPage(ImplementationGuideInputPage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Input Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Input Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideInputResource(ImplementationGuideInputResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Output</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideOutput(ImplementationGuideOutput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Output Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Output Dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideOutputDependency(ImplementationGuideOutputDependency object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Output Global</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Output Global</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideOutputGlobal(ImplementationGuideOutputGlobal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Output Page</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Output Page</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideOutputPage(ImplementationGuideOutputPage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Guide Output Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Guide Output Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationGuideOutputResource(ImplementationGuideOutputResource object) {
 		return null;
 	}
 
@@ -11733,6 +13569,96 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoice(Invoice object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice Line Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice Line Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoiceLineItem(InvoiceLineItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice Participant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice Participant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoiceParticipant(InvoiceParticipant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice Price Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice Price Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoicePriceComponent(InvoicePriceComponent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice Price Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice Price Component Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoicePriceComponentType(InvoicePriceComponentType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invoice Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invoice Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvoiceStatus(InvoiceStatus object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Issue Severity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11759,6 +13685,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIssueType(IssueType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemInstance(ItemInstance object) {
 		return null;
 	}
 
@@ -11913,6 +13854,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Location Hours Of Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Location Hours Of Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLocationHoursOfOperation(LocationHoursOfOperation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Location Mode</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -11969,6 +13925,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMarkdown(Markdown object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Marketing Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Marketing Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMarketingStatus(MarketingStatus object) {
 		return null;
 	}
 
@@ -12198,6 +14169,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Media Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Media Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMediaStatus(MediaStatus object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Medication</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12288,21 +14274,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Medication Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Medication Content</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMedicationContent(MedicationContent object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Medication Dispense</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12378,21 +14349,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Medication Package</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Medication Package</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMedicationPackage(MedicationPackage object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Medication Request</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12434,36 +14390,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMedicationRequestIntent(MedicationRequestIntent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Medication Request Priority</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Medication Request Priority</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMedicationRequestPriority(MedicationRequestPriority object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Medication Request Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Medication Request Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMedicationRequestRequester(MedicationRequestRequester object) {
 		return null;
 	}
 
@@ -12528,21 +14454,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Medication Statement Taken</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Medication Statement Taken</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMedicationStatementTaken(MedicationStatementTaken object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Medication Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12554,6 +14465,441 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMedicationStatus(MedicationStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProduct(MedicinalProduct object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Authorization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Authorization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductAuthorization(MedicinalProductAuthorization object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Application</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductAuthorizationApplication(MedicinalProductAuthorizationApplication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Jurisdictional Authorization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Jurisdictional Authorization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductAuthorizationJurisdictionalAuthorization(MedicinalProductAuthorizationJurisdictionalAuthorization object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Procedure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Authorization Procedure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductAuthorizationProcedure(MedicinalProductAuthorizationProcedure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicals(MedicinalProductClinicals object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Contraindication</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Contraindication</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsContraindication(MedicinalProductClinicalsContraindication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Interactions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Interactions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsInteractions(MedicinalProductClinicalsInteractions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Other Therapy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Other Therapy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsOtherTherapy(MedicinalProductClinicalsOtherTherapy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Population</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Population</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsPopulation(MedicinalProductClinicalsPopulation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Therapeutic Indication</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Therapeutic Indication</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsTherapeuticIndication(MedicinalProductClinicalsTherapeuticIndication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Undesirable Effects</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Clinicals Undesirable Effects</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductClinicalsUndesirableEffects(MedicinalProductClinicalsUndesirableEffects object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Country Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Country Language</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductCountryLanguage(MedicinalProductCountryLanguage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Device Spec</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Device Spec</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductDeviceSpec(MedicinalProductDeviceSpec object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Device Spec Material</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Device Spec Material</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductDeviceSpecMaterial(MedicinalProductDeviceSpecMaterial object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductIngredient(MedicinalProductIngredient object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Reference Strength</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Reference Strength</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductIngredientReferenceStrength(MedicinalProductIngredientReferenceStrength object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Specified Substance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Specified Substance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductIngredientSpecifiedSubstance(MedicinalProductIngredientSpecifiedSubstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Strength</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Strength</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductIngredientStrength(MedicinalProductIngredientStrength object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Substance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Ingredient Substance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductIngredientSubstance(MedicinalProductIngredientSubstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Manufacturing Business Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Manufacturing Business Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductManufacturingBusinessOperation(MedicinalProductManufacturingBusinessOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductName(MedicinalProductName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Name Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Name Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductNamePart(MedicinalProductNamePart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Packaged</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Packaged</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPackaged(MedicinalProductPackaged object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Batch Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Batch Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPackagedBatchIdentifier(MedicinalProductPackagedBatchIdentifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Manufactured Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Manufactured Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPackagedManufacturedItem(MedicinalProductPackagedManufacturedItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Package Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Packaged Package Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPackagedPackageItem(MedicinalProductPackagedPackageItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Pharmaceutical</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Pharmaceutical</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPharmaceutical(MedicinalProductPharmaceutical object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Medicinal Product Pharmaceutical Characteristics</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Medicinal Product Pharmaceutical Characteristics</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMedicinalProductPharmaceuticalCharacteristics(MedicinalProductPharmaceuticalCharacteristics object) {
 		return null;
 	}
 
@@ -12813,6 +15159,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Need</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Need</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeed(Need object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Note Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12978,6 +15339,51 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Observation Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Observation Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObservationDefinition(ObservationDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Observation Definition Qualified Interval</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Observation Definition Qualified Interval</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObservationDefinitionQualifiedInterval(ObservationDefinitionQualifiedInterval object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Observation Definition Quantitative Details</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Observation Definition Quantitative Details</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObservationDefinitionQuantitativeDetails(ObservationDefinitionQuantitativeDetails object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Observation Reference Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -12993,36 +15399,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Observation Related</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Observation Related</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseObservationRelated(ObservationRelated object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Observation Relationship Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Observation Relationship Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseObservationRelationshipType(ObservationRelationshipType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Observation Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -13034,6 +15410,126 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObservationStatus(ObservationStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalData(OccupationalData object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Combat Zone Hazardous Duty</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Combat Zone Hazardous Duty</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataCombatZoneHazardousDuty(OccupationalDataCombatZoneHazardousDuty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Duration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Duration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataDuration(OccupationalDataDuration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Employment Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Employment Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataEmploymentStatus(OccupationalDataEmploymentStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Industry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Industry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataIndustry(OccupationalDataIndustry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Past Or Present Occupation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Past Or Present Occupation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataPastOrPresentOccupation(OccupationalDataPastOrPresentOccupation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Retirement Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Retirement Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataRetirementStatus(OccupationalDataRetirementStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Occupational Data Usual Occupation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Occupational Data Usual Occupation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOccupationalDataUsualOccupation(OccupationalDataUsualOccupation object) {
 		return null;
 	}
 
@@ -13199,6 +15695,51 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOrganizationContact(OrganizationContact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrganizationRole(OrganizationRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Role Available Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Role Available Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrganizationRoleAvailableTime(OrganizationRoleAvailableTime object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Role Not Available</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Role Not Available</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrganizationRoleNotAvailable(OrganizationRoleNotAvailable object) {
 		return null;
 	}
 
@@ -13713,32 +16254,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Procedure Request</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Process Outcome Codes</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Procedure Request</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Process Outcome Codes</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcedureRequest(ProcedureRequest object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Procedure Request Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Procedure Request Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProcedureRequestRequester(ProcedureRequestRequester object) {
+	public T caseProcessOutcomeCodes(ProcessOutcomeCodes object) {
 		return null;
 	}
 
@@ -13799,6 +16325,171 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProcessResponseProcessNote(ProcessResponseProcessNote object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Prod Characteristic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Prod Characteristic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProdCharacteristic(ProdCharacteristic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlan(ProductPlan object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Benefit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Benefit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanBenefit(ProductPlanBenefit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Benefit1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Benefit1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanBenefit1(ProductPlanBenefit1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanCategory(ProductPlanCategory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Contact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Contact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanContact(ProductPlanContact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Cost</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Cost</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanCost(ProductPlanCost object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Coverage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Coverage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanCoverage(ProductPlanCoverage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanItem(ProductPlanItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Plan Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Plan Plan</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductPlanPlan(ProductPlanPlan object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Product Shelf Life</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Product Shelf Life</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProductShelfLife(ProductShelfLife object) {
 		return null;
 	}
 
@@ -13904,6 +16595,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePublicationStatus(PublicationStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Push Type Available</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Push Type Available</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePushTypeAvailable(PushTypeAvailable object) {
 		return null;
 	}
 
@@ -14163,36 +16869,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Referral Request</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Referral Request</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferralRequest(ReferralRequest object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Referral Request Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Referral Request Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferralRequestRequester(ReferralRequestRequester object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Related Artifact</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -14403,6 +17079,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Research Study Objective</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Research Study Objective</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResearchStudyObjective(ResearchStudyObjective object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Research Study Status</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -14534,6 +17225,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRestfulCapabilityMode(RestfulCapabilityMode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Retirement Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Retirement Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRetirementStatus(RetirementStatus object) {
 		return null;
 	}
 
@@ -14718,6 +17424,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Inner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Inner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceInner(SequenceInner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Outer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Outer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceOuter(SequenceOuter object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Sequence Quality</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -14763,6 +17499,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Roc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Roc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceRoc(SequenceRoc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Structure Variant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Structure Variant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceStructureVariant(SequenceStructureVariant object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Sequence Variant</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -14789,6 +17555,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServiceDefinition(ServiceDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Request</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceRequest(ServiceRequest object) {
 		return null;
 	}
 
@@ -14883,6 +17664,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specimen Contained Preference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specimen Contained Preference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecimenContainedPreference(SpecimenContainedPreference object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Specimen Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -14894,6 +17690,66 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpecimenContainer(SpecimenContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specimen Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specimen Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecimenDefinition(SpecimenDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specimen Definition Container Additive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specimen Definition Container Additive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecimenDefinitionContainerAdditive(SpecimenDefinitionContainerAdditive object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specimen Definition Handling</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specimen Definition Handling</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecimenDefinitionHandling(SpecimenDefinitionHandling object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specimen Definition Specimen To Lab</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specimen Definition Specimen To Lab</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecimenDefinitionSpecimenToLab(SpecimenDefinitionSpecimenToLab object) {
 		return null;
 	}
 
@@ -14924,6 +17780,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpecimenStatus(SpecimenStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStatus(Status object) {
 		return null;
 	}
 
@@ -15333,6 +18204,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Amount</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Amount</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceAmount(SubstanceAmount object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Amount Reference Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Amount Reference Range</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceAmountReferenceRange(SubstanceAmountReferenceRange object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Substance Ingredient</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -15359,6 +18260,366 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSubstanceInstance(SubstanceInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Moiety</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Moiety</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceMoiety(SubstanceMoiety object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymer(SubstancePolymer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Degree Of Polymerisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Degree Of Polymerisation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerDegreeOfPolymerisation(SubstancePolymerDegreeOfPolymerisation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Monomer Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Monomer Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerMonomerSet(SubstancePolymerMonomerSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Repeat</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Repeat</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerRepeat(SubstancePolymerRepeat object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Repeat Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Repeat Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerRepeatUnit(SubstancePolymerRepeatUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Starting Material</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Starting Material</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerStartingMaterial(SubstancePolymerStartingMaterial object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Polymer Structural Representation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Polymer Structural Representation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstancePolymerStructuralRepresentation(SubstancePolymerStructuralRepresentation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformation(SubstanceReferenceInformation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information Classification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information Classification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformationClassification(SubstanceReferenceInformationClassification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information Gene</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information Gene</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformationGene(SubstanceReferenceInformationGene object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information Gene Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information Gene Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformationGeneElement(SubstanceReferenceInformationGeneElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformationRelationship(SubstanceReferenceInformationRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Reference Information Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Reference Information Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceReferenceInformationTarget(SubstanceReferenceInformationTarget object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecification(SubstanceSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Isotope</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Isotope</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationIsotope(SubstanceSpecificationIsotope object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Moiety</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Moiety</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationMoiety(SubstanceSpecificationMoiety object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Molecular Weight</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Molecular Weight</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationMolecularWeight(SubstanceSpecificationMolecularWeight object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Official Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Official Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationOfficialName(SubstanceSpecificationOfficialName object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationProperty(SubstanceSpecificationProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Structural Representation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Structural Representation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationStructuralRepresentation(SubstanceSpecificationStructuralRepresentation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Structure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationStructure(SubstanceSpecificationStructure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Substance Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Substance Code</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationSubstanceCode(SubstanceSpecificationSubstanceCode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Substance Specification Substance Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Substance Specification Substance Name</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubstanceSpecificationSubstanceName(SubstanceSpecificationSubstanceName object) {
 		return null;
 	}
 
@@ -15423,32 +18684,17 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Request Ordered Item</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Supply Request Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Request Ordered Item</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Supply Request Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSupplyRequestOrderedItem(SupplyRequestOrderedItem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Request Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Request Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSupplyRequestRequester(SupplyRequestRequester object) {
+	public T caseSupplyRequestParameter(SupplyRequestParameter object) {
 		return null;
 	}
 
@@ -15543,21 +18789,6 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task Requester</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task Requester</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTaskRequester(TaskRequester object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Task Restriction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -15584,6 +18815,126 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTaskStatus(TaskStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilities(TerminologyCapabilities object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Closure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Closure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesClosure(TerminologyCapabilitiesClosure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Code System</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Code System</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesCodeSystem(TerminologyCapabilitiesCodeSystem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Expansion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Expansion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesExpansion(TerminologyCapabilitiesExpansion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesFilter(TerminologyCapabilitiesFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Translation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Translation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesTranslation(TerminologyCapabilitiesTranslation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Validate Code</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Validate Code</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesValidateCode(TerminologyCapabilitiesValidateCode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Terminology Capabilities Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Terminology Capabilities Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerminologyCapabilitiesVersion(TerminologyCapabilitiesVersion object) {
 		return null;
 	}
 
@@ -16278,6 +19629,21 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trigger Definition Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trigger Definition Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTriggerDefinitionCondition(TriggerDefinitionCondition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Trigger Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -16428,6 +19794,96 @@ public class FhirSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Session</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Session</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserSession(UserSession object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Session Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Session Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserSessionContext(UserSessionContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Session Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Session Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserSessionStatus(UserSessionStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Session Status1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Session Status1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserSessionStatus1(UserSessionStatus1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Session Status Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Session Status Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserSessionStatusSource(UserSessionStatusSource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Usual Occupation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Usual Occupation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUsualOccupation(UsualOccupation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Uuid</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -16439,6 +19895,36 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUuid(Uuid object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validation Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validation Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidationStatus(ValidationStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validation Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validation Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidationType(ValidationType object) {
 		return null;
 	}
 
@@ -16574,6 +20060,66 @@ public class FhirSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseValueSetParameter(ValueSetParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Verification Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Verification Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVerificationResult(VerificationResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Verification Result Attestation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Verification Result Attestation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVerificationResultAttestation(VerificationResultAttestation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Verification Result Primary Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Verification Result Primary Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVerificationResultPrimarySource(VerificationResultPrimarySource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Verification Result Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Verification Result Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVerificationResultValidator(VerificationResultValidator object) {
 		return null;
 	}
 

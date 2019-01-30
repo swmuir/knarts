@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -51,7 +51,7 @@
         <xs:sequence>
           <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this plan definition is (or will be) published. The URL SHOULD include the major version of the plan definition. For more information see [Technical and Business Versions](resource.html#versions).</xs:documentation>
+              <xs:documentation xml:lang="en">An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this plan definition is (or will be) published.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
@@ -76,7 +76,7 @@
           </xs:element>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
@@ -111,7 +111,7 @@
           </xs:element>
           <xs:element name="usage" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A detailed description of how the asset is used from a clinical perspective.</xs:documentation>
+              <xs:documentation xml:lang="en">A detailed description of how the plan definition is used from a clinical perspective.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="approvalDate" minOccurs="0" maxOccurs="1" type="date">
@@ -146,7 +146,7 @@
           </xs:element>
           <xs:element name="contributor" minOccurs="0" maxOccurs="unbounded" type="Contributor">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.</xs:documentation>
+              <xs:documentation xml:lang="en">A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
@@ -265,9 +265,9 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="label" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="prefix" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A user-visible label for the action.</xs:documentation>
+              <xs:documentation xml:lang="en">A user-visible prefix for the action.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
@@ -282,7 +282,7 @@
           </xs:element>
           <xs:element name="textEquivalent" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.</xs:documentation>
+              <xs:documentation xml:lang="en">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -335,6 +335,7 @@
               <xs:documentation xml:lang="en">An optional value describing when the action should be performed.</xs:documentation>
             </xs:annotation>
             <xs:element name="timingDateTime" type="dateTime"/>
+            <xs:element name="timingAge" type="Age"/>
             <xs:element name="timingPeriod" type="Period"/>
             <xs:element name="timingDuration" type="Duration"/>
             <xs:element name="timingRange" type="Range"/>

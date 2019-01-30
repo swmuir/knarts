@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.ActionConditionKind;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.RequestGroupCondition;
-import org.hl7.fhir.jaxb.ActionConditionKindImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +30,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RequestGroupCondition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RequestGroupCondition")
 public class RequestGroupConditionImpl extends BackboneElementImpl implements RequestGroupCondition {
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
@@ -104,8 +95,6 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionConditionKindImplAdapter.class)
-	@XmlElement(required = true)
 	public ActionConditionKind getKind() {
 		return kind;
 	}
@@ -149,7 +138,6 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -193,7 +181,6 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getLanguage() {
 		return language;
 	}
@@ -237,7 +224,6 @@ public class RequestGroupConditionImpl extends BackboneElementImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}

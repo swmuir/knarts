@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -64,7 +64,7 @@
               <xs:documentation xml:lang="en">The patient this person is related to.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="relationship" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="relationship" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The nature of the relationship between a patient and the related person.</xs:documentation>
            </xs:annotation>
@@ -101,7 +101,7 @@
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.</xs:documentation>
+              <xs:documentation xml:lang="en">The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>

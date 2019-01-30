@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AuditEventSourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.AuditEventSourceImplAdapter;
  * @model extendedMetaData="name='AuditEvent.Source' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventSourceImplAdapter.class)
 public interface AuditEventSource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Site</b></em>' containment reference.

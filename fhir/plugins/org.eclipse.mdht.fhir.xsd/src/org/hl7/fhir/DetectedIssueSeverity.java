@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DetectedIssueSeverityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DetectedIssueSeverityImplAdapter;
  * @model extendedMetaData="name='DetectedIssueSeverity' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DetectedIssueSeverityImplAdapter.class)
 public interface DetectedIssueSeverity extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

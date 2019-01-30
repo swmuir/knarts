@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.NamingSystemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,14 +31,12 @@ import org.hl7.fhir.jaxb.NamingSystemImplAdapter;
  *   <li>{@link org.hl7.fhir.NamingSystem#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.NamingSystem#getUniqueId <em>Unique Id</em>}</li>
- *   <li>{@link org.hl7.fhir.NamingSystem#getReplacedBy <em>Replaced By</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getNamingSystem()
  * @model extendedMetaData="name='NamingSystem' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NamingSystemImplAdapter.class)
 public interface NamingSystem extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -340,31 +335,5 @@ public interface NamingSystem extends DomainResource {
 	 * @generated
 	 */
 	EList<NamingSystemUniqueId> getUniqueId();
-
-	/**
-	 * Returns the value of the '<em><b>Replaced By</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * For naming systems that are retired, indicates the naming system that should be used in their place (if any).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Replaced By</em>' containment reference.
-	 * @see #setReplacedBy(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getNamingSystem_ReplacedBy()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='replacedBy' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReplacedBy();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.NamingSystem#getReplacedBy <em>Replaced By</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Replaced By</em>' containment reference.
-	 * @see #getReplacedBy()
-	 * @generated
-	 */
-	void setReplacedBy(Reference value);
 
 } // NamingSystem

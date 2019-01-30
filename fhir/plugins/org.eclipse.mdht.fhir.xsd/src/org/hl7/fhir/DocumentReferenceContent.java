@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DocumentReferenceContentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.DocumentReferenceContentImplAdapter;
  * @model extendedMetaData="name='DocumentReference.Content' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentReferenceContentImplAdapter.class)
 public interface DocumentReferenceContent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Attachment</b></em>' containment reference.

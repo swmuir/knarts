@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.ActionParticipantType;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PlanDefinitionParticipant;
-import org.hl7.fhir.jaxb.ActionParticipantTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.ActionParticipantTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PlanDefinitionParticipant", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PlanDefinitionParticipant")
 public class PlanDefinitionParticipantImpl extends BackboneElementImpl implements PlanDefinitionParticipant {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -82,8 +74,6 @@ public class PlanDefinitionParticipantImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ActionParticipantTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public ActionParticipantType getType() {
 		return type;
 	}

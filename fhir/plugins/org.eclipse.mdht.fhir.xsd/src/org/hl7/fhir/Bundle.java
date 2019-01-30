@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.BundleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +20,7 @@ import org.hl7.fhir.jaxb.BundleImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Bundle#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Bundle#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getTotal <em>Total</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getLink <em>Link</em>}</li>
  *   <li>{@link org.hl7.fhir.Bundle#getEntry <em>Entry</em>}</li>
@@ -33,7 +31,6 @@ import org.hl7.fhir.jaxb.BundleImplAdapter;
  * @model extendedMetaData="name='Bundle' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(BundleImplAdapter.class)
 public interface Bundle extends Resource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -86,6 +83,32 @@ public interface Bundle extends Resource {
 	 * @generated
 	 */
 	void setType(BundleType value);
+
+	/**
+	 * Returns the value of the '<em><b>Timestamp</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Timestamp</em>' containment reference.
+	 * @see #setTimestamp(Instant)
+	 * @see org.hl7.fhir.FhirPackage#getBundle_Timestamp()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='timestamp' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Instant getTimestamp();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Bundle#getTimestamp <em>Timestamp</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timestamp</em>' containment reference.
+	 * @see #getTimestamp()
+	 * @generated
+	 */
+	void setTimestamp(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Total</b></em>' containment reference.

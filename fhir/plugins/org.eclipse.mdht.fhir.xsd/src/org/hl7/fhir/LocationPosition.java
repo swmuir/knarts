@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.LocationPositionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.LocationPositionImplAdapter;
  * @model extendedMetaData="name='Location.Position' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(LocationPositionImplAdapter.class)
 public interface LocationPosition extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Longitude</b></em>' containment reference.

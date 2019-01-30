@@ -2,18 +2,20 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -21,8 +23,6 @@ import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResearchSubject;
 import org.hl7.fhir.ResearchSubjectStatus;
-import org.hl7.fhir.jaxb.ResearchSubjectStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,18 +44,16 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ResearchSubject", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ResearchSubject")
 public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchSubject {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -151,7 +149,10 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.RESEARCH_SUBJECT__IDENTIFIER);
+		}
 		return identifier;
 	}
 
@@ -160,42 +161,6 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_SUBJECT__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_SUBJECT__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_SUBJECT__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_SUBJECT__IDENTIFIER, newIdentifier, newIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(ResearchSubjectStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ResearchSubjectStatus getStatus() {
 		return status;
 	}
@@ -282,7 +247,6 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getStudy() {
 		return study;
 	}
@@ -326,7 +290,6 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getIndividual() {
 		return individual;
 	}
@@ -370,7 +333,6 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAssignedArm() {
 		return assignedArm;
 	}
@@ -414,7 +376,6 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getActualArm() {
 		return actualArm;
 	}
@@ -505,7 +466,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.RESEARCH_SUBJECT__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RESEARCH_SUBJECT__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.RESEARCH_SUBJECT__PERIOD:
@@ -557,11 +518,13 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.RESEARCH_SUBJECT__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.RESEARCH_SUBJECT__STATUS:
 				setStatus((ResearchSubjectStatus)newValue);
@@ -597,7 +560,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.RESEARCH_SUBJECT__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.RESEARCH_SUBJECT__STATUS:
 				setStatus((ResearchSubjectStatus)null);
@@ -633,7 +596,7 @@ public class ResearchSubjectImpl extends DomainResourceImpl implements ResearchS
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.RESEARCH_SUBJECT__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.RESEARCH_SUBJECT__STATUS:
 				return status != null;
 			case FhirPackage.RESEARCH_SUBJECT__PERIOD:

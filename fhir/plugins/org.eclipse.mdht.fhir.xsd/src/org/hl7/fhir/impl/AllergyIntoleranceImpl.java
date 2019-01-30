@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,13 +33,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.AllergyIntoleranceCategoryImplAdapter;
-import org.hl7.fhir.jaxb.AllergyIntoleranceClinicalStatusImplAdapter;
-import org.hl7.fhir.jaxb.AllergyIntoleranceCriticalityImplAdapter;
-import org.hl7.fhir.jaxb.AllergyIntoleranceTypeImplAdapter;
-import org.hl7.fhir.jaxb.AllergyIntoleranceVerificationStatusImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,8 +65,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AllergyIntolerance", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AllergyIntolerance")
 public class AllergyIntoleranceImpl extends DomainResourceImpl implements AllergyIntolerance {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -294,7 +280,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ALLERGY_INTOLERANCE__IDENTIFIER);
@@ -307,7 +292,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AllergyIntoleranceClinicalStatusImplAdapter.class)
 	public AllergyIntoleranceClinicalStatus getClinicalStatus() {
 		return clinicalStatus;
 	}
@@ -351,8 +335,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AllergyIntoleranceVerificationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public AllergyIntoleranceVerificationStatus getVerificationStatus() {
 		return verificationStatus;
 	}
@@ -396,7 +378,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AllergyIntoleranceTypeImplAdapter.class)
 	public AllergyIntoleranceType getType() {
 		return type;
 	}
@@ -440,8 +421,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AllergyIntoleranceCategoryImplAdapter.class)
-	@XmlElement
 	public EList<AllergyIntoleranceCategory> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<AllergyIntoleranceCategory>(AllergyIntoleranceCategory.class, this, FhirPackage.ALLERGY_INTOLERANCE__CATEGORY);
@@ -454,7 +433,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AllergyIntoleranceCriticalityImplAdapter.class)
 	public AllergyIntoleranceCriticality getCriticality() {
 		return criticality;
 	}
@@ -541,7 +519,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -585,7 +562,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOnsetDateTime() {
 		return onsetDateTime;
 	}
@@ -758,7 +734,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOnsetString() {
 		return onsetString;
 	}
@@ -802,7 +777,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAssertedDate() {
 		return assertedDate;
 	}
@@ -932,7 +906,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getLastOccurrence() {
 		return lastOccurrence;
 	}
@@ -976,7 +949,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.ALLERGY_INTOLERANCE__NOTE);
@@ -989,7 +961,6 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<AllergyIntoleranceReaction> getReaction() {
 		if (reaction == null) {
 			reaction = new EObjectContainmentEList<AllergyIntoleranceReaction>(AllergyIntoleranceReaction.class, this, FhirPackage.ALLERGY_INTOLERANCE__REACTION);

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EligibilityResponseErrorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +23,6 @@ import org.hl7.fhir.jaxb.EligibilityResponseErrorImplAdapter;
  * @model extendedMetaData="name='EligibilityResponse.Error' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EligibilityResponseErrorImplAdapter.class)
 public interface EligibilityResponseError extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.

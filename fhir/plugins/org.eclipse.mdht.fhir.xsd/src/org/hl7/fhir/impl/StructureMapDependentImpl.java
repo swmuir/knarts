@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,8 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.StructureMapDependent;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +35,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapDependent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapDependent")
 public class StructureMapDependentImpl extends BackboneElementImpl implements StructureMapDependent {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -89,8 +80,6 @@ public class StructureMapDependentImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getName() {
 		return name;
 	}
@@ -134,8 +123,6 @@ public class StructureMapDependentImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public EList<org.hl7.fhir.String> getVariable() {
 		if (variable == null) {
 			variable = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.STRUCTURE_MAP_DEPENDENT__VARIABLE);

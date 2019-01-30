@@ -4,10 +4,7 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.ecore.EObject;
-import org.w3._1999.xhtml.jaxb.ImgTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +35,6 @@ import org.w3._1999.xhtml.jaxb.ImgTypeImplAdapter;
  * @model extendedMetaData="name='img_._type' kind='empty'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImgTypeImplAdapter.class)
 public interface ImgType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Alt</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EncounterParticipantImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.EncounterParticipantImplAdapter;
  * @model extendedMetaData="name='Encounter.Participant' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterParticipantImplAdapter.class)
 public interface EncounterParticipant extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.

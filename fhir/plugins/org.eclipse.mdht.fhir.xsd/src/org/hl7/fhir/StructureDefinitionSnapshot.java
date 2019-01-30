@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.StructureDefinitionSnapshotImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.StructureDefinitionSnapshotImplAdapter;
  * @model extendedMetaData="name='StructureDefinition.Snapshot' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureDefinitionSnapshotImplAdapter.class)
 public interface StructureDefinitionSnapshot extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.

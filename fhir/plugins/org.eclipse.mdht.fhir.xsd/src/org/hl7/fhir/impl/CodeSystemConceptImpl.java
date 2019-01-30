@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,8 +22,6 @@ import org.hl7.fhir.CodeSystemConcept;
 import org.hl7.fhir.CodeSystemDesignation;
 import org.hl7.fhir.CodeSystemProperty1;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +41,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CodeSystemConcept", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CodeSystemConcept")
 public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSystemConcept {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -135,8 +126,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement(required = true)
 	public Code getCode() {
 		return code;
 	}
@@ -180,7 +169,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -224,7 +212,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDefinition() {
 		return definition;
 	}
@@ -268,7 +255,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemDesignation> getDesignation() {
 		if (designation == null) {
 			designation = new EObjectContainmentEList<CodeSystemDesignation>(CodeSystemDesignation.class, this, FhirPackage.CODE_SYSTEM_CONCEPT__DESIGNATION);
@@ -281,7 +267,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemProperty1> getProperty() {
 		if (property == null) {
 			property = new EObjectContainmentEList<CodeSystemProperty1>(CodeSystemProperty1.class, this, FhirPackage.CODE_SYSTEM_CONCEPT__PROPERTY);
@@ -294,7 +279,6 @@ public class CodeSystemConceptImpl extends BackboneElementImpl implements CodeSy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemConcept> getConcept() {
 		if (concept == null) {
 			concept = new EObjectContainmentEList<CodeSystemConcept>(CodeSystemConcept.class, this, FhirPackage.CODE_SYSTEM_CONCEPT__CONCEPT);

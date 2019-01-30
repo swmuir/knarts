@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,18 +30,10 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeSystemContentModeImplAdapter;
-import org.hl7.fhir.jaxb.CodeSystemHierarchyMeaningImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +64,7 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getCompositional <em>Compositional</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getVersionNeeded <em>Version Needed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getSupplements <em>Supplements</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getCount <em>Count</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemImpl#getProperty <em>Property</em>}</li>
@@ -85,8 +73,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CodeSystem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CodeSystem")
 public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -299,6 +285,16 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	protected CodeSystemContentMode content;
 
 	/**
+	 * The cached value of the '{@link #getSupplements() <em>Supplements</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplements()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference supplements;
+
+	/**
 	 * The cached value of the '{@link #getCount() <em>Count</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,7 +358,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -449,7 +444,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -493,7 +487,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -537,7 +530,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -581,8 +573,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -626,7 +616,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -670,7 +659,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -714,7 +702,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -758,7 +745,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CODE_SYSTEM__CONTACT);
@@ -771,7 +757,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -815,7 +800,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.CODE_SYSTEM__USE_CONTEXT);
@@ -828,7 +812,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CODE_SYSTEM__JURISDICTION);
@@ -841,7 +824,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -885,7 +867,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -929,7 +910,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getCaseSensitive() {
 		return caseSensitive;
 	}
@@ -973,7 +953,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueSet() {
 		return valueSet;
 	}
@@ -1017,7 +996,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeSystemHierarchyMeaningImplAdapter.class)
 	public CodeSystemHierarchyMeaning getHierarchyMeaning() {
 		return hierarchyMeaning;
 	}
@@ -1061,7 +1039,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getCompositional() {
 		return compositional;
 	}
@@ -1105,7 +1082,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getVersionNeeded() {
 		return versionNeeded;
 	}
@@ -1149,8 +1125,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeSystemContentModeImplAdapter.class)
-	@XmlElement(required = true)
 	public CodeSystemContentMode getContent() {
 		return content;
 	}
@@ -1194,7 +1168,49 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
+	public Reference getSupplements() {
+		return supplements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSupplements(Reference newSupplements, NotificationChain msgs) {
+		Reference oldSupplements = supplements;
+		supplements = newSupplements;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__SUPPLEMENTS, oldSupplements, newSupplements);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupplements(Reference newSupplements) {
+		if (newSupplements != supplements) {
+			NotificationChain msgs = null;
+			if (supplements != null)
+				msgs = ((InternalEObject)supplements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__SUPPLEMENTS, null, msgs);
+			if (newSupplements != null)
+				msgs = ((InternalEObject)newSupplements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__SUPPLEMENTS, null, msgs);
+			msgs = basicSetSupplements(newSupplements, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__SUPPLEMENTS, newSupplements, newSupplements));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UnsignedInt getCount() {
 		return count;
 	}
@@ -1238,7 +1254,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemFilter> getFilter() {
 		if (filter == null) {
 			filter = new EObjectContainmentEList<CodeSystemFilter>(CodeSystemFilter.class, this, FhirPackage.CODE_SYSTEM__FILTER);
@@ -1251,7 +1266,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemProperty> getProperty() {
 		if (property == null) {
 			property = new EObjectContainmentEList<CodeSystemProperty>(CodeSystemProperty.class, this, FhirPackage.CODE_SYSTEM__PROPERTY);
@@ -1264,7 +1278,6 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeSystemConcept> getConcept() {
 		if (concept == null) {
 			concept = new EObjectContainmentEList<CodeSystemConcept>(CodeSystemConcept.class, this, FhirPackage.CODE_SYSTEM__CONCEPT);
@@ -1322,6 +1335,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return basicSetVersionNeeded(null, msgs);
 			case FhirPackage.CODE_SYSTEM__CONTENT:
 				return basicSetContent(null, msgs);
+			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
+				return basicSetSupplements(null, msgs);
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				return basicSetCount(null, msgs);
 			case FhirPackage.CODE_SYSTEM__FILTER:
@@ -1384,6 +1399,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return getVersionNeeded();
 			case FhirPackage.CODE_SYSTEM__CONTENT:
 				return getContent();
+			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
+				return getSupplements();
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				return getCount();
 			case FhirPackage.CODE_SYSTEM__FILTER:
@@ -1470,6 +1487,9 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return;
 			case FhirPackage.CODE_SYSTEM__CONTENT:
 				setContent((CodeSystemContentMode)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
+				setSupplements((Reference)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				setCount((UnsignedInt)newValue);
@@ -1561,6 +1581,9 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__CONTENT:
 				setContent((CodeSystemContentMode)null);
 				return;
+			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
+				setSupplements((Reference)null);
+				return;
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				setCount((UnsignedInt)null);
 				return;
@@ -1627,6 +1650,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				return versionNeeded != null;
 			case FhirPackage.CODE_SYSTEM__CONTENT:
 				return content != null;
+			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
+				return supplements != null;
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				return count != null;
 			case FhirPackage.CODE_SYSTEM__FILTER:

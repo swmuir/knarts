@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,8 +22,6 @@ import org.hl7.fhir.ConceptMapGroup;
 import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +41,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ConceptMapGroup", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ConceptMapGroup")
 public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptMapGroup {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -135,7 +126,6 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSource() {
 		return source;
 	}
@@ -179,7 +169,6 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getSourceVersion() {
 		return sourceVersion;
 	}
@@ -223,7 +212,6 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getTarget() {
 		return target;
 	}
@@ -267,7 +255,6 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTargetVersion() {
 		return targetVersion;
 	}
@@ -311,7 +298,6 @@ public class ConceptMapGroupImpl extends BackboneElementImpl implements ConceptM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<ConceptMapElement> getElement() {
 		if (element == null) {
 			element = new EObjectContainmentEList<ConceptMapElement>(ConceptMapElement.class, this, FhirPackage.CONCEPT_MAP_GROUP__ELEMENT);

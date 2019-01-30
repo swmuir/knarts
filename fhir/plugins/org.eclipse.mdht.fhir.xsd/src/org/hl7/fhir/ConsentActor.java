@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConsentActorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.ConsentActorImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+ * A record of a healthcare consumerâ€™s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,14 +24,13 @@ import org.hl7.fhir.jaxb.ConsentActorImplAdapter;
  * @model extendedMetaData="name='Consent.Actor' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConsentActorImplAdapter.class)
 public interface ConsentActor extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How the individual is involved in the resources content that is described in the consent.
+	 * How the individual is involved in the resources content that is described in the exception.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference.
 	 * @see #setRole(CodeableConcept)

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,12 +29,6 @@ import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetExpansion;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,8 +61,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ValueSet", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ValueSet")
 public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -289,7 +276,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -333,7 +319,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.VALUE_SET__IDENTIFIER);
@@ -346,7 +331,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -390,7 +374,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -434,7 +417,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -478,8 +460,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -523,7 +503,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -567,7 +546,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -611,7 +589,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -655,7 +632,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.VALUE_SET__CONTACT);
@@ -668,7 +644,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -712,7 +687,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.VALUE_SET__USE_CONTEXT);
@@ -725,7 +699,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.VALUE_SET__JURISDICTION);
@@ -738,7 +711,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getImmutable() {
 		return immutable;
 	}
@@ -782,7 +754,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -826,7 +797,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -870,7 +840,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExtensible() {
 		return extensible;
 	}

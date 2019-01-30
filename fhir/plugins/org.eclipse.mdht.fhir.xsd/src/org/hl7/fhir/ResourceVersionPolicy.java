@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ResourceVersionPolicyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ResourceVersionPolicyImplAdapter;
  * @model extendedMetaData="name='ResourceVersionPolicy' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ResourceVersionPolicyImplAdapter.class)
 public interface ResourceVersionPolicy extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

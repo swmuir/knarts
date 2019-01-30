@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ClaimInsuranceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +19,7 @@ import org.hl7.fhir.jaxb.ClaimInsuranceImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimInsurance#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInsurance#getFocal <em>Focal</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimInsurance#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInsurance#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInsurance#getBusinessArrangement <em>Business Arrangement</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimInsurance#getPreAuthRef <em>Pre Auth Ref</em>}</li>
@@ -32,7 +30,6 @@ import org.hl7.fhir.jaxb.ClaimInsuranceImplAdapter;
  * @model extendedMetaData="name='Claim.Insurance' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClaimInsuranceImplAdapter.class)
 public interface ClaimInsurance extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -85,6 +82,32 @@ public interface ClaimInsurance extends BackboneElement {
 	 * @generated
 	 */
 	void setFocal(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The business identifier for the instance: claim number, pre-determination or pre-authorization number.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getClaimInsurance_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimInsurance#getIdentifier <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.

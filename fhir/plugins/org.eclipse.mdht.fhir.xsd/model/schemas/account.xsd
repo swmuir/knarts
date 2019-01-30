@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -51,7 +51,7 @@
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).</xs:documentation>
+              <xs:documentation xml:lang="en">Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="0" maxOccurs="1" type="AccountStatus">
@@ -85,11 +85,6 @@
 This period may be different to the coveragePeriod which is the duration of time that services may occur.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="balance" minOccurs="0" maxOccurs="1" type="Money">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="coverage" type="Account.Coverage" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account.</xs:documentation>
@@ -108,6 +103,11 @@ This period may be different to the coveragePeriod which is the duration of time
           <xs:element name="guarantor" type="Account.Guarantor" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Parties financially responsible for the account.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="partOf" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Reference to a parent Account.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>

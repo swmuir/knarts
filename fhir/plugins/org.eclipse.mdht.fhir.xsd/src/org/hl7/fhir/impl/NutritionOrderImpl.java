@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -32,8 +28,6 @@ import org.hl7.fhir.NutritionOrderOralDiet;
 import org.hl7.fhir.NutritionOrderStatus;
 import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.NutritionOrderStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,12 +49,11 @@ import org.hl7.fhir.jaxb.NutritionOrderStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getOralDiet <em>Oral Diet</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getSupplement <em>Supplement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getEnteralFormula <em>Enteral Formula</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "NutritionOrder", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "NutritionOrder")
 public class NutritionOrderImpl extends DomainResourceImpl implements NutritionOrder {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -183,6 +176,16 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	protected NutritionOrderEnteralFormula enteralFormula;
 
 	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -206,7 +209,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.NUTRITION_ORDER__IDENTIFIER);
@@ -219,7 +221,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(NutritionOrderStatusImplAdapter.class)
 	public NutritionOrderStatus getStatus() {
 		return status;
 	}
@@ -263,7 +264,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -350,8 +350,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
 	public DateTime getDateTime() {
 		return dateTime;
 	}
@@ -438,7 +436,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAllergyIntolerance() {
 		if (allergyIntolerance == null) {
 			allergyIntolerance = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.NUTRITION_ORDER__ALLERGY_INTOLERANCE);
@@ -451,7 +448,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getFoodPreferenceModifier() {
 		if (foodPreferenceModifier == null) {
 			foodPreferenceModifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NUTRITION_ORDER__FOOD_PREFERENCE_MODIFIER);
@@ -464,7 +460,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getExcludeFoodModifier() {
 		if (excludeFoodModifier == null) {
 			excludeFoodModifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NUTRITION_ORDER__EXCLUDE_FOOD_MODIFIER);
@@ -520,7 +515,6 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<NutritionOrderSupplement> getSupplement() {
 		if (supplement == null) {
 			supplement = new EObjectContainmentEList<NutritionOrderSupplement>(NutritionOrderSupplement.class, this, FhirPackage.NUTRITION_ORDER__SUPPLEMENT);
@@ -576,6 +570,18 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.NUTRITION_ORDER__NOTE);
+		}
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -603,6 +609,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 				return ((InternalEList<?>)getSupplement()).basicRemove(otherEnd, msgs);
 			case FhirPackage.NUTRITION_ORDER__ENTERAL_FORMULA:
 				return basicSetEnteralFormula(null, msgs);
+			case FhirPackage.NUTRITION_ORDER__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -639,6 +647,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 				return getSupplement();
 			case FhirPackage.NUTRITION_ORDER__ENTERAL_FORMULA:
 				return getEnteralFormula();
+			case FhirPackage.NUTRITION_ORDER__NOTE:
+				return getNote();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -693,6 +703,10 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 			case FhirPackage.NUTRITION_ORDER__ENTERAL_FORMULA:
 				setEnteralFormula((NutritionOrderEnteralFormula)newValue);
 				return;
+			case FhirPackage.NUTRITION_ORDER__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -741,6 +755,9 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 			case FhirPackage.NUTRITION_ORDER__ENTERAL_FORMULA:
 				setEnteralFormula((NutritionOrderEnteralFormula)null);
 				return;
+			case FhirPackage.NUTRITION_ORDER__NOTE:
+				getNote().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -777,6 +794,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 				return supplement != null && !supplement.isEmpty();
 			case FhirPackage.NUTRITION_ORDER__ENTERAL_FORMULA:
 				return enteralFormula != null;
+			case FhirPackage.NUTRITION_ORDER__NOTE:
+				return note != null && !note.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

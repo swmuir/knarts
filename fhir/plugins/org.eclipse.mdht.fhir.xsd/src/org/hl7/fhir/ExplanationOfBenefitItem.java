@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ExplanationOfBenefitItemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,10 +18,10 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitItemImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getCareTeamLinkId <em>Care Team Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getDiagnosisLinkId <em>Diagnosis Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getProcedureLinkId <em>Procedure Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getInformationLinkId <em>Information Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getCareTeamSequence <em>Care Team Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getDiagnosisSequence <em>Diagnosis Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getProcedureSequence <em>Procedure Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getInformationSequence <em>Information Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getService <em>Service</em>}</li>
@@ -52,7 +49,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitItemImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.Item' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitItemImplAdapter.class)
 public interface ExplanationOfBenefitItem extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -81,68 +77,68 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Care Team Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Care Team Sequence</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Careteam applicable for this service or product line.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Care Team Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_CareTeamLinkId()
+	 * @return the value of the '<em>Care Team Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_CareTeamSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='careTeamLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='careTeamSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getCareTeamLinkId();
+	EList<PositiveInt> getCareTeamSequence();
 
 	/**
-	 * Returns the value of the '<em><b>Diagnosis Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Diagnosis Sequence</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Diagnosis applicable for this service or product line.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Diagnosis Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_DiagnosisLinkId()
+	 * @return the value of the '<em>Diagnosis Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_DiagnosisSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='diagnosisLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='diagnosisSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getDiagnosisLinkId();
+	EList<PositiveInt> getDiagnosisSequence();
 
 	/**
-	 * Returns the value of the '<em><b>Procedure Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Procedure Sequence</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Procedures applicable for this service or product line.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Procedure Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_ProcedureLinkId()
+	 * @return the value of the '<em>Procedure Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_ProcedureSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='procedureLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='procedureSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getProcedureLinkId();
+	EList<PositiveInt> getProcedureSequence();
 
 	/**
-	 * Returns the value of the '<em><b>Information Link Id</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Information Sequence</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.PositiveInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Exceptions, special conditions and supporting information pplicable for this service or product line.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Information Link Id</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_InformationLinkId()
+	 * @return the value of the '<em>Information Sequence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_InformationSequence()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='informationLinkId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='informationSequence' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<PositiveInt> getInformationLinkId();
+	EList<PositiveInt> getInformationSequence();
 
 	/**
 	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AllergyIntoleranceCategoryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AllergyIntoleranceCategoryImplAdapter;
  * @model extendedMetaData="name='AllergyIntoleranceCategory' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AllergyIntoleranceCategoryImplAdapter.class)
 public interface AllergyIntoleranceCategory extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

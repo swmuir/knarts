@@ -58,7 +58,17 @@ public enum MedicationRequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INSTANCE_ORDER(3, "instanceOrder", "instance-order");
+	INSTANCE_ORDER(3, "instanceOrder", "instance-order"),
+
+	/**
+	 * The '<em><b>Option</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OPTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OPTION(4, "option", "option");
 
 	/**
 	 * The '<em><b>Proposal</b></em>' literal value.
@@ -117,6 +127,20 @@ public enum MedicationRequestIntentList implements Enumerator {
 	public static final int INSTANCE_ORDER_VALUE = 3;
 
 	/**
+	 * The '<em><b>Option</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Option
+	 * <!-- end-model-doc -->
+	 * @see #OPTION
+	 * @model name="option"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OPTION_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Medication Request Intent List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +152,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 			PLAN,
 			ORDER,
 			INSTANCE_ORDER,
+			OPTION,
 		};
 
 	/**
@@ -188,6 +213,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 			case PLAN_VALUE: return PLAN;
 			case ORDER_VALUE: return ORDER;
 			case INSTANCE_ORDER_VALUE: return INSTANCE_ORDER;
+			case OPTION_VALUE: return OPTION;
 		}
 		return null;
 	}

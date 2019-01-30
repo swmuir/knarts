@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,12 +25,16 @@ import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
+import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.ContactPoint;
+import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Count;
+import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.Distance;
+import org.hl7.fhir.Dosage;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HumanName;
@@ -46,6 +45,7 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Meta;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.Oid;
+import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.ParametersParameter;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
@@ -53,29 +53,16 @@ import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.ResourceContainer;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
+import org.hl7.fhir.TriggerDefinition;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.OidImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
+import org.hl7.fhir.UsageContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,6 +110,14 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueSampledData <em>Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueSignature <em>Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueTiming <em>Value Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueDosage <em>Value Dosage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueContactDetail <em>Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueContributor <em>Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueRelatedArtifact <em>Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueUsageContext <em>Value Usage Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getValueMeta <em>Value Meta</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ParametersParameterImpl#getPart <em>Part</em>}</li>
@@ -130,8 +125,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ParametersParameter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ParametersParameter")
 public class ParametersParameterImpl extends BackboneElementImpl implements ParametersParameter {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -514,6 +507,86 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	protected Timing valueTiming;
 
 	/**
+	 * The cached value of the '{@link #getValueDosage() <em>Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDosage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Dosage valueDosage;
+
+	/**
+	 * The cached value of the '{@link #getValueContactDetail() <em>Value Contact Detail</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueContactDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContactDetail valueContactDetail;
+
+	/**
+	 * The cached value of the '{@link #getValueContributor() <em>Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueContributor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Contributor valueContributor;
+
+	/**
+	 * The cached value of the '{@link #getValueDataRequirement() <em>Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDataRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataRequirement valueDataRequirement;
+
+	/**
+	 * The cached value of the '{@link #getValueParameterDefinition() <em>Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueParameterDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterDefinition valueParameterDefinition;
+
+	/**
+	 * The cached value of the '{@link #getValueRelatedArtifact() <em>Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueRelatedArtifact()
+	 * @generated
+	 * @ordered
+	 */
+	protected RelatedArtifact valueRelatedArtifact;
+
+	/**
+	 * The cached value of the '{@link #getValueTriggerDefinition() <em>Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueTriggerDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TriggerDefinition valueTriggerDefinition;
+
+	/**
+	 * The cached value of the '{@link #getValueUsageContext() <em>Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueUsageContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected UsageContext valueUsageContext;
+
+	/**
 	 * The cached value of the '{@link #getValueMeta() <em>Value Meta</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,8 +640,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -612,7 +683,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getValueBase64Binary() {
 		return valueBase64Binary;
 	}
@@ -656,7 +726,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -700,7 +769,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getValueCode() {
 		return valueCode;
 	}
@@ -744,7 +812,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getValueDate() {
 		return valueDate;
 	}
@@ -788,7 +855,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -832,7 +898,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValueDecimal() {
 		return valueDecimal;
 	}
@@ -876,7 +941,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getValueId() {
 		return valueId;
 	}
@@ -920,7 +984,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getValueInstant() {
 		return valueInstant;
 	}
@@ -964,7 +1027,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -1008,7 +1070,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getValueMarkdown() {
 		return valueMarkdown;
 	}
@@ -1052,7 +1113,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(OidImplAdapter.class)
 	public Oid getValueOid() {
 		return valueOid;
 	}
@@ -1096,7 +1156,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getValuePositiveInt() {
 		return valuePositiveInt;
 	}
@@ -1140,7 +1199,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -1184,7 +1242,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -1228,7 +1285,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getValueUnsignedInt() {
 		return valueUnsignedInt;
 	}
@@ -1272,7 +1328,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getValueUri() {
 		return valueUri;
 	}
@@ -2219,6 +2274,350 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Dosage getValueDosage() {
+		return valueDosage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDosage(Dosage newValueDosage, NotificationChain msgs) {
+		Dosage oldValueDosage = valueDosage;
+		valueDosage = newValueDosage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE, oldValueDosage, newValueDosage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDosage(Dosage newValueDosage) {
+		if (newValueDosage != valueDosage) {
+			NotificationChain msgs = null;
+			if (valueDosage != null)
+				msgs = ((InternalEObject)valueDosage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE, null, msgs);
+			if (newValueDosage != null)
+				msgs = ((InternalEObject)newValueDosage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE, null, msgs);
+			msgs = basicSetValueDosage(newValueDosage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE, newValueDosage, newValueDosage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContactDetail getValueContactDetail() {
+		return valueContactDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueContactDetail(ContactDetail newValueContactDetail, NotificationChain msgs) {
+		ContactDetail oldValueContactDetail = valueContactDetail;
+		valueContactDetail = newValueContactDetail;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL, oldValueContactDetail, newValueContactDetail);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueContactDetail(ContactDetail newValueContactDetail) {
+		if (newValueContactDetail != valueContactDetail) {
+			NotificationChain msgs = null;
+			if (valueContactDetail != null)
+				msgs = ((InternalEObject)valueContactDetail).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL, null, msgs);
+			if (newValueContactDetail != null)
+				msgs = ((InternalEObject)newValueContactDetail).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL, null, msgs);
+			msgs = basicSetValueContactDetail(newValueContactDetail, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL, newValueContactDetail, newValueContactDetail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Contributor getValueContributor() {
+		return valueContributor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueContributor(Contributor newValueContributor, NotificationChain msgs) {
+		Contributor oldValueContributor = valueContributor;
+		valueContributor = newValueContributor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR, oldValueContributor, newValueContributor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueContributor(Contributor newValueContributor) {
+		if (newValueContributor != valueContributor) {
+			NotificationChain msgs = null;
+			if (valueContributor != null)
+				msgs = ((InternalEObject)valueContributor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR, null, msgs);
+			if (newValueContributor != null)
+				msgs = ((InternalEObject)newValueContributor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR, null, msgs);
+			msgs = basicSetValueContributor(newValueContributor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR, newValueContributor, newValueContributor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataRequirement getValueDataRequirement() {
+		return valueDataRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDataRequirement(DataRequirement newValueDataRequirement, NotificationChain msgs) {
+		DataRequirement oldValueDataRequirement = valueDataRequirement;
+		valueDataRequirement = newValueDataRequirement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, oldValueDataRequirement, newValueDataRequirement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDataRequirement(DataRequirement newValueDataRequirement) {
+		if (newValueDataRequirement != valueDataRequirement) {
+			NotificationChain msgs = null;
+			if (valueDataRequirement != null)
+				msgs = ((InternalEObject)valueDataRequirement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, null, msgs);
+			if (newValueDataRequirement != null)
+				msgs = ((InternalEObject)newValueDataRequirement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, null, msgs);
+			msgs = basicSetValueDataRequirement(newValueDataRequirement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT, newValueDataRequirement, newValueDataRequirement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDefinition getValueParameterDefinition() {
+		return valueParameterDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueParameterDefinition(ParameterDefinition newValueParameterDefinition, NotificationChain msgs) {
+		ParameterDefinition oldValueParameterDefinition = valueParameterDefinition;
+		valueParameterDefinition = newValueParameterDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, oldValueParameterDefinition, newValueParameterDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueParameterDefinition(ParameterDefinition newValueParameterDefinition) {
+		if (newValueParameterDefinition != valueParameterDefinition) {
+			NotificationChain msgs = null;
+			if (valueParameterDefinition != null)
+				msgs = ((InternalEObject)valueParameterDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, null, msgs);
+			if (newValueParameterDefinition != null)
+				msgs = ((InternalEObject)newValueParameterDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, null, msgs);
+			msgs = basicSetValueParameterDefinition(newValueParameterDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION, newValueParameterDefinition, newValueParameterDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelatedArtifact getValueRelatedArtifact() {
+		return valueRelatedArtifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueRelatedArtifact(RelatedArtifact newValueRelatedArtifact, NotificationChain msgs) {
+		RelatedArtifact oldValueRelatedArtifact = valueRelatedArtifact;
+		valueRelatedArtifact = newValueRelatedArtifact;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT, oldValueRelatedArtifact, newValueRelatedArtifact);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueRelatedArtifact(RelatedArtifact newValueRelatedArtifact) {
+		if (newValueRelatedArtifact != valueRelatedArtifact) {
+			NotificationChain msgs = null;
+			if (valueRelatedArtifact != null)
+				msgs = ((InternalEObject)valueRelatedArtifact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT, null, msgs);
+			if (newValueRelatedArtifact != null)
+				msgs = ((InternalEObject)newValueRelatedArtifact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT, null, msgs);
+			msgs = basicSetValueRelatedArtifact(newValueRelatedArtifact, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT, newValueRelatedArtifact, newValueRelatedArtifact));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TriggerDefinition getValueTriggerDefinition() {
+		return valueTriggerDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueTriggerDefinition(TriggerDefinition newValueTriggerDefinition, NotificationChain msgs) {
+		TriggerDefinition oldValueTriggerDefinition = valueTriggerDefinition;
+		valueTriggerDefinition = newValueTriggerDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, oldValueTriggerDefinition, newValueTriggerDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueTriggerDefinition(TriggerDefinition newValueTriggerDefinition) {
+		if (newValueTriggerDefinition != valueTriggerDefinition) {
+			NotificationChain msgs = null;
+			if (valueTriggerDefinition != null)
+				msgs = ((InternalEObject)valueTriggerDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, null, msgs);
+			if (newValueTriggerDefinition != null)
+				msgs = ((InternalEObject)newValueTriggerDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, null, msgs);
+			msgs = basicSetValueTriggerDefinition(newValueTriggerDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION, newValueTriggerDefinition, newValueTriggerDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UsageContext getValueUsageContext() {
+		return valueUsageContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueUsageContext(UsageContext newValueUsageContext, NotificationChain msgs) {
+		UsageContext oldValueUsageContext = valueUsageContext;
+		valueUsageContext = newValueUsageContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT, oldValueUsageContext, newValueUsageContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueUsageContext(UsageContext newValueUsageContext) {
+		if (newValueUsageContext != valueUsageContext) {
+			NotificationChain msgs = null;
+			if (valueUsageContext != null)
+				msgs = ((InternalEObject)valueUsageContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT, null, msgs);
+			if (newValueUsageContext != null)
+				msgs = ((InternalEObject)newValueUsageContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT, null, msgs);
+			msgs = basicSetValueUsageContext(newValueUsageContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT, newValueUsageContext, newValueUsageContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Meta getValueMeta() {
 		return valueMeta;
 	}
@@ -2305,7 +2704,6 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ParametersParameter> getPart() {
 		if (part == null) {
 			part = new EObjectContainmentEList<ParametersParameter>(ParametersParameter.class, this, FhirPackage.PARAMETERS_PARAMETER__PART);
@@ -2397,6 +2795,22 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return basicSetValueSignature(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TIMING:
 				return basicSetValueTiming(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE:
+				return basicSetValueDosage(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL:
+				return basicSetValueContactDetail(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR:
+				return basicSetValueContributor(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return basicSetValueDataRequirement(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return basicSetValueParameterDefinition(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT:
+				return basicSetValueRelatedArtifact(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return basicSetValueTriggerDefinition(null, msgs);
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT:
+				return basicSetValueUsageContext(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_META:
 				return basicSetValueMeta(null, msgs);
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
@@ -2491,6 +2905,22 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return getValueSignature();
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TIMING:
 				return getValueTiming();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE:
+				return getValueDosage();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL:
+				return getValueContactDetail();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR:
+				return getValueContributor();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return getValueDataRequirement();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return getValueParameterDefinition();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT:
+				return getValueRelatedArtifact();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return getValueTriggerDefinition();
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT:
+				return getValueUsageContext();
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_META:
 				return getValueMeta();
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:
@@ -2623,6 +3053,30 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TIMING:
 				setValueTiming((Timing)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE:
+				setValueDosage((Dosage)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL:
+				setValueContactDetail((ContactDetail)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR:
+				setValueContributor((Contributor)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				setValueDataRequirement((DataRequirement)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				setValueParameterDefinition((ParameterDefinition)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT:
+				setValueRelatedArtifact((RelatedArtifact)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				setValueTriggerDefinition((TriggerDefinition)newValue);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT:
+				setValueUsageContext((UsageContext)newValue);
 				return;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_META:
 				setValueMeta((Meta)newValue);
@@ -2760,6 +3214,30 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TIMING:
 				setValueTiming((Timing)null);
 				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE:
+				setValueDosage((Dosage)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL:
+				setValueContactDetail((ContactDetail)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR:
+				setValueContributor((Contributor)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				setValueDataRequirement((DataRequirement)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				setValueParameterDefinition((ParameterDefinition)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT:
+				setValueRelatedArtifact((RelatedArtifact)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				setValueTriggerDefinition((TriggerDefinition)null);
+				return;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT:
+				setValueUsageContext((UsageContext)null);
+				return;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_META:
 				setValueMeta((Meta)null);
 				return;
@@ -2857,6 +3335,22 @@ public class ParametersParameterImpl extends BackboneElementImpl implements Para
 				return valueSignature != null;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TIMING:
 				return valueTiming != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DOSAGE:
+				return valueDosage != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTACT_DETAIL:
+				return valueContactDetail != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_CONTRIBUTOR:
+				return valueContributor != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_DATA_REQUIREMENT:
+				return valueDataRequirement != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_PARAMETER_DEFINITION:
+				return valueParameterDefinition != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_RELATED_ARTIFACT:
+				return valueRelatedArtifact != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_TRIGGER_DEFINITION:
+				return valueTriggerDefinition != null;
+			case FhirPackage.PARAMETERS_PARAMETER__VALUE_USAGE_CONTEXT:
+				return valueUsageContext != null;
 			case FhirPackage.PARAMETERS_PARAMETER__VALUE_META:
 				return valueMeta != null;
 			case FhirPackage.PARAMETERS_PARAMETER__RESOURCE:

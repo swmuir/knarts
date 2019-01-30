@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.OperationOutcomeIssueImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.OperationOutcomeIssueImplAdapter;
  * @model extendedMetaData="name='OperationOutcome.Issue' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OperationOutcomeIssueImplAdapter.class)
 public interface OperationOutcomeIssue extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Severity</b></em>' containment reference.

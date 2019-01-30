@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.NutritionOrderImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,13 +30,13 @@ import org.hl7.fhir.jaxb.NutritionOrderImplAdapter;
  *   <li>{@link org.hl7.fhir.NutritionOrder#getOralDiet <em>Oral Diet</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getSupplement <em>Supplement</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getEnteralFormula <em>Enteral Formula</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getNutritionOrder()
  * @model extendedMetaData="name='NutritionOrder' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NutritionOrderImplAdapter.class)
 public interface NutritionOrder extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -225,7 +222,7 @@ public interface NutritionOrder extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
+	 * This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patientâ€™s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exclude Food Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_ExcludeFoodModifier()
@@ -302,5 +299,21 @@ public interface NutritionOrder extends DomainResource {
 	 * @generated
 	 */
 	void setEnteralFormula(NutritionOrderEnteralFormula value);
+
+	/**
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Comments made about the {{title}} by the requester, performer, subject or other participants.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Note()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Annotation> getNote();
 
 } // NutritionOrder

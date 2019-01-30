@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.StructureDefinitionDifferentialImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.StructureDefinitionDifferentialImplAdapter;
  * @model extendedMetaData="name='StructureDefinition.Differential' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(StructureDefinitionDifferentialImplAdapter.class)
 public interface StructureDefinitionDifferential extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.

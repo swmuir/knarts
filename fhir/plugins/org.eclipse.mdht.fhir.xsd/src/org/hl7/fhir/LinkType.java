@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.LinkTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.LinkTypeImplAdapter;
  * @model extendedMetaData="name='LinkType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(LinkTypeImplAdapter.class)
 public interface LinkType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,8 +26,8 @@ import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
  *   <li>{@link org.hl7.fhir.DocumentReference#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getIndexed <em>Indexed</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getRelatesTo <em>Relates To</em>}</li>
@@ -44,7 +41,6 @@ import org.hl7.fhir.jaxb.DocumentReferenceImplAdapter;
  * @model extendedMetaData="name='DocumentReference' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentReferenceImplAdapter.class)
 public interface DocumentReference extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Master Identifier</b></em>' containment reference.
@@ -150,7 +146,7 @@ public interface DocumentReference extends DomainResource {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Type()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -245,46 +241,46 @@ public interface DocumentReference extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Indexed</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * When the document reference was created.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Indexed</em>' containment reference.
-	 * @see #setIndexed(Instant)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Indexed()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='indexed' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Date</em>' containment reference.
+	 * @see #setDate(Instant)
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Date()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Instant getIndexed();
+	Instant getDate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getIndexed <em>Indexed</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getDate <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Indexed</em>' containment reference.
-	 * @see #getIndexed()
+	 * @param value the new value of the '<em>Date</em>' containment reference.
+	 * @see #getDate()
 	 * @generated
 	 */
-	void setIndexed(Instant value);
+	void setDate(Instant value);
 
 	/**
-	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DocumentReferenceAgent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies who is responsible for adding the information to the document.
+	 * An actor taking an active role in the document.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Author</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Author()
+	 * @return the value of the '<em>Agent</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Agent()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getAuthor();
+	EList<DocumentReferenceAgent> getAgent();
 
 	/**
 	 * Returns the value of the '<em><b>Authenticator</b></em>' containment reference.

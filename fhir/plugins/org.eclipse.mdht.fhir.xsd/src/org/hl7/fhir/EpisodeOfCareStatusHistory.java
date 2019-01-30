@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EpisodeOfCareStatusHistoryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.EpisodeOfCareStatusHistoryImplAdapter;
  * @model extendedMetaData="name='EpisodeOfCare.StatusHistory' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EpisodeOfCareStatusHistoryImplAdapter.class)
 public interface EpisodeOfCareStatusHistory extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.

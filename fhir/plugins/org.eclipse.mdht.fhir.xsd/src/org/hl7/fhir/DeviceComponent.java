@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DeviceComponentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,39 +28,29 @@ import org.hl7.fhir.jaxb.DeviceComponentImplAdapter;
  *   <li>{@link org.hl7.fhir.DeviceComponent#getMeasurementPrinciple <em>Measurement Principle</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceComponent#getProductionSpecification <em>Production Specification</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceComponent#getLanguageCode <em>Language Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceComponent#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDeviceComponent()
  * @model extendedMetaData="name='DeviceComponent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceComponentImplAdapter.class)
 public interface DeviceComponent extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The locally assigned unique identification by the software. For example: handle ID.
+	 * Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDeviceComponent_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceComponent#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -278,5 +265,21 @@ public interface DeviceComponent extends DomainResource {
 	 * @generated
 	 */
 	void setLanguageCode(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DeviceComponentProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Other device properties expressed as a `type` which identifies the property and a value(s) either as a quantity or a code.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Property</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceComponent_Property()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='property' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DeviceComponentProperty> getProperty();
 
 } // DeviceComponent

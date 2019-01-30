@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,7 +21,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptRule3;
 import org.hl7.fhir.TestScriptRuleset1;
-import org.hl7.fhir.jaxb.IdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +36,6 @@ import org.hl7.fhir.jaxb.IdImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestScriptRuleset1", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptRuleset1")
 public class TestScriptRuleset1Impl extends BackboneElementImpl implements TestScriptRuleset1 {
 	/**
 	 * The cached value of the '{@link #getRulesetId() <em>Ruleset Id</em>}' containment reference.
@@ -89,8 +81,6 @@ public class TestScriptRuleset1Impl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getRulesetId() {
 		return rulesetId;
 	}
@@ -134,7 +124,6 @@ public class TestScriptRuleset1Impl extends BackboneElementImpl implements TestS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptRule3> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<TestScriptRule3>(TestScriptRule3.class, this, FhirPackage.TEST_SCRIPT_RULESET1__RULE);

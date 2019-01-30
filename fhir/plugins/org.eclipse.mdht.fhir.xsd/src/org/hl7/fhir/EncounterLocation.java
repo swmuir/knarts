@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EncounterLocationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.EncounterLocationImplAdapter;
  * @model extendedMetaData="name='Encounter.Location' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterLocationImplAdapter.class)
 public interface EncounterLocation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference.

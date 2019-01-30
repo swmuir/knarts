@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MedicationAdministrationStatusImplAdapter;
  * @model extendedMetaData="name='MedicationAdministrationStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationAdministrationStatusImplAdapter.class)
 public interface MedicationAdministrationStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

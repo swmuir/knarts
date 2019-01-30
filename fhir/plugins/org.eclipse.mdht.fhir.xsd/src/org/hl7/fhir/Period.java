@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PeriodImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.PeriodImplAdapter;
  * @model extendedMetaData="name='Period' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PeriodImplAdapter.class)
 public interface Period extends Element {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' containment reference.

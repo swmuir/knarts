@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,14 +25,12 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getResourceType <em>Resource Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimPayeeImpl#getParty <em>Party</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ClaimPayee", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimPayee")
 public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -49,14 +43,14 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getResourceType() <em>Resource Type</em>}' containment reference.
+	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceType()
+	 * @see #getResource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding resourceType;
+	protected Coding resource;
 
 	/**
 	 * The cached value of the '{@link #getParty() <em>Party</em>}' containment reference.
@@ -92,7 +86,6 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -136,8 +129,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getResourceType() {
-		return resourceType;
+	public Coding getResource() {
+		return resource;
 	}
 
 	/**
@@ -145,11 +138,11 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResourceType(Coding newResourceType, NotificationChain msgs) {
-		Coding oldResourceType = resourceType;
-		resourceType = newResourceType;
+	public NotificationChain basicSetResource(Coding newResource, NotificationChain msgs) {
+		Coding oldResource = resource;
+		resource = newResource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, oldResourceType, newResourceType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE, oldResource, newResource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -160,18 +153,18 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceType(Coding newResourceType) {
-		if (newResourceType != resourceType) {
+	public void setResource(Coding newResource) {
+		if (newResource != resource) {
 			NotificationChain msgs = null;
-			if (resourceType != null)
-				msgs = ((InternalEObject)resourceType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, null, msgs);
-			if (newResourceType != null)
-				msgs = ((InternalEObject)newResourceType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, null, msgs);
-			msgs = basicSetResourceType(newResourceType, msgs);
+			if (resource != null)
+				msgs = ((InternalEObject)resource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE, null, msgs);
+			if (newResource != null)
+				msgs = ((InternalEObject)newResource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_PAYEE__RESOURCE, null, msgs);
+			msgs = basicSetResource(newResource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE, newResourceType, newResourceType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PAYEE__RESOURCE, newResource, newResource));
 	}
 
 	/**
@@ -227,8 +220,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
-				return basicSetResourceType(null, msgs);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE:
+				return basicSetResource(null, msgs);
 			case FhirPackage.CLAIM_PAYEE__PARTY:
 				return basicSetParty(null, msgs);
 		}
@@ -245,8 +238,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return getType();
-			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
-				return getResourceType();
+			case FhirPackage.CLAIM_PAYEE__RESOURCE:
+				return getResource();
 			case FhirPackage.CLAIM_PAYEE__PARTY:
 				return getParty();
 		}
@@ -264,8 +257,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
-				setResourceType((Coding)newValue);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE:
+				setResource((Coding)newValue);
 				return;
 			case FhirPackage.CLAIM_PAYEE__PARTY:
 				setParty((Reference)newValue);
@@ -285,8 +278,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
-				setResourceType((Coding)null);
+			case FhirPackage.CLAIM_PAYEE__RESOURCE:
+				setResource((Coding)null);
 				return;
 			case FhirPackage.CLAIM_PAYEE__PARTY:
 				setParty((Reference)null);
@@ -305,8 +298,8 @@ public class ClaimPayeeImpl extends BackboneElementImpl implements ClaimPayee {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PAYEE__TYPE:
 				return type != null;
-			case FhirPackage.CLAIM_PAYEE__RESOURCE_TYPE:
-				return resourceType != null;
+			case FhirPackage.CLAIM_PAYEE__RESOURCE:
+				return resource != null;
 			case FhirPackage.CLAIM_PAYEE__PARTY:
 				return party != null;
 		}

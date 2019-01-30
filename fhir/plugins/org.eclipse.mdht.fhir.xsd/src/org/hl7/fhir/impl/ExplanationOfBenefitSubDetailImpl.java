@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,8 +26,6 @@ import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +36,6 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitSubDetailImpl#getService <em>Service</em>}</li>
@@ -60,8 +52,6 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefitSubDetail", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefitSubDetail")
 public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl implements ExplanationOfBenefitSubDetail {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
@@ -72,16 +62,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * @ordered
 	 */
 	protected PositiveInt sequence;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
@@ -227,8 +207,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement(required = true)
 	public PositiveInt getSequence() {
 		return sequence;
 	}
@@ -265,50 +243,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE, newSequence, newSequence));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement(required = true)
-	public CodeableConcept getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE, newType, newType));
 	}
 
 	/**
@@ -445,7 +379,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__MODIFIER);
@@ -458,7 +391,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getProgramCode() {
 		if (programCode == null) {
 			programCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__PROGRAM_CODE);
@@ -557,7 +489,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactor() {
 		return factor;
 	}
@@ -644,7 +575,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getUdi() {
 		if (udi == null) {
 			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__UDI);
@@ -657,8 +587,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__NOTE_NUMBER);
@@ -671,7 +599,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication>(ExplanationOfBenefitAdjudication.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__ADJUDICATION);
@@ -689,8 +616,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				return basicSetType(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
 				return basicSetRevenue(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
@@ -729,8 +654,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE:
 				return getSequence();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				return getType();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
 				return getRevenue();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:
@@ -770,9 +693,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE:
 				setSequence((PositiveInt)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
 				setRevenue((CodeableConcept)newValue);
@@ -830,9 +750,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				setType((CodeableConcept)null);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
 				setRevenue((CodeableConcept)null);
 				return;
@@ -883,8 +800,6 @@ public class ExplanationOfBenefitSubDetailImpl extends BackboneElementImpl imple
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__TYPE:
-				return type != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__REVENUE:
 				return revenue != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL__CATEGORY:

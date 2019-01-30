@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -34,9 +28,6 @@ import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.Time;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,10 +41,11 @@ import org.hl7.fhir.jaxb.TimeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueString <em>Value String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueRange <em>Value Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueRatio <em>Value Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueSampledData <em>Value Sampled Data</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueAttachment <em>Value Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationComponentImpl#getValuePeriod <em>Value Period</em>}</li>
@@ -64,8 +56,6 @@ import org.hl7.fhir.jaxb.TimeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ObservationComponent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ObservationComponent")
 public class ObservationComponentImpl extends BackboneElementImpl implements ObservationComponent {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -108,6 +98,26 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	protected org.hl7.fhir.String valueString;
 
 	/**
+	 * The cached value of the '{@link #getValueBoolean() <em>Value Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueBoolean()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean valueBoolean;
+
+	/**
+	 * The cached value of the '{@link #getValueInteger() <em>Value Integer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueInteger()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Integer valueInteger;
+
+	/**
 	 * The cached value of the '{@link #getValueRange() <em>Value Range</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,16 +146,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * @ordered
 	 */
 	protected SampledData valueSampledData;
-
-	/**
-	 * The cached value of the '{@link #getValueAttachment() <em>Value Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueAttachment()
-	 * @generated
-	 * @ordered
-	 */
-	protected Attachment valueAttachment;
 
 	/**
 	 * The cached value of the '{@link #getValueTime() <em>Value Time</em>}' containment reference.
@@ -231,7 +231,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -361,7 +360,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -398,6 +396,92 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING, newValueString, newValueString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getValueBoolean() {
+		return valueBoolean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueBoolean(org.hl7.fhir.Boolean newValueBoolean, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldValueBoolean = valueBoolean;
+		valueBoolean = newValueBoolean;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN, oldValueBoolean, newValueBoolean);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueBoolean(org.hl7.fhir.Boolean newValueBoolean) {
+		if (newValueBoolean != valueBoolean) {
+			NotificationChain msgs = null;
+			if (valueBoolean != null)
+				msgs = ((InternalEObject)valueBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN, null, msgs);
+			if (newValueBoolean != null)
+				msgs = ((InternalEObject)newValueBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN, null, msgs);
+			msgs = basicSetValueBoolean(newValueBoolean, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN, newValueBoolean, newValueBoolean));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Integer getValueInteger() {
+		return valueInteger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueInteger(org.hl7.fhir.Integer newValueInteger, NotificationChain msgs) {
+		org.hl7.fhir.Integer oldValueInteger = valueInteger;
+		valueInteger = newValueInteger;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER, oldValueInteger, newValueInteger);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueInteger(org.hl7.fhir.Integer newValueInteger) {
+		if (newValueInteger != valueInteger) {
+			NotificationChain msgs = null;
+			if (valueInteger != null)
+				msgs = ((InternalEObject)valueInteger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER, null, msgs);
+			if (newValueInteger != null)
+				msgs = ((InternalEObject)newValueInteger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER, null, msgs);
+			msgs = basicSetValueInteger(newValueInteger, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER, newValueInteger, newValueInteger));
 	}
 
 	/**
@@ -534,50 +618,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attachment getValueAttachment() {
-		return valueAttachment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetValueAttachment(Attachment newValueAttachment, NotificationChain msgs) {
-		Attachment oldValueAttachment = valueAttachment;
-		valueAttachment = newValueAttachment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT, oldValueAttachment, newValueAttachment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValueAttachment(Attachment newValueAttachment) {
-		if (newValueAttachment != valueAttachment) {
-			NotificationChain msgs = null;
-			if (valueAttachment != null)
-				msgs = ((InternalEObject)valueAttachment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT, null, msgs);
-			if (newValueAttachment != null)
-				msgs = ((InternalEObject)newValueAttachment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT, null, msgs);
-			msgs = basicSetValueAttachment(newValueAttachment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT, newValueAttachment, newValueAttachment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getValueTime() {
 		return valueTime;
 	}
@@ -621,7 +661,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getValueDateTime() {
 		return valueDateTime;
 	}
@@ -794,7 +833,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ObservationReferenceRange> getReferenceRange() {
 		if (referenceRange == null) {
 			referenceRange = new EObjectContainmentEList<ObservationReferenceRange>(ObservationReferenceRange.class, this, FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE);
@@ -818,14 +856,16 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				return basicSetValueCodeableConcept(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING:
 				return basicSetValueString(null, msgs);
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN:
+				return basicSetValueBoolean(null, msgs);
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER:
+				return basicSetValueInteger(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RANGE:
 				return basicSetValueRange(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RATIO:
 				return basicSetValueRatio(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_SAMPLED_DATA:
 				return basicSetValueSampledData(null, msgs);
-			case FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT:
-				return basicSetValueAttachment(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_TIME:
 				return basicSetValueTime(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_DATE_TIME:
@@ -858,14 +898,16 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				return getValueCodeableConcept();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING:
 				return getValueString();
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN:
+				return getValueBoolean();
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER:
+				return getValueInteger();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RANGE:
 				return getValueRange();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RATIO:
 				return getValueRatio();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_SAMPLED_DATA:
 				return getValueSampledData();
-			case FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT:
-				return getValueAttachment();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_TIME:
 				return getValueTime();
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_DATE_TIME:
@@ -903,6 +945,12 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING:
 				setValueString((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN:
+				setValueBoolean((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER:
+				setValueInteger((org.hl7.fhir.Integer)newValue);
+				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RANGE:
 				setValueRange((Range)newValue);
 				return;
@@ -911,9 +959,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_SAMPLED_DATA:
 				setValueSampledData((SampledData)newValue);
-				return;
-			case FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT:
-				setValueAttachment((Attachment)newValue);
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_TIME:
 				setValueTime((Time)newValue);
@@ -958,6 +1003,12 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING:
 				setValueString((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN:
+				setValueBoolean((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER:
+				setValueInteger((org.hl7.fhir.Integer)null);
+				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RANGE:
 				setValueRange((Range)null);
 				return;
@@ -966,9 +1017,6 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_SAMPLED_DATA:
 				setValueSampledData((SampledData)null);
-				return;
-			case FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT:
-				setValueAttachment((Attachment)null);
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_TIME:
 				setValueTime((Time)null);
@@ -1008,14 +1056,16 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				return valueCodeableConcept != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_STRING:
 				return valueString != null;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_BOOLEAN:
+				return valueBoolean != null;
+			case FhirPackage.OBSERVATION_COMPONENT__VALUE_INTEGER:
+				return valueInteger != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RANGE:
 				return valueRange != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_RATIO:
 				return valueRatio != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_SAMPLED_DATA:
 				return valueSampledData != null;
-			case FhirPackage.OBSERVATION_COMPONENT__VALUE_ATTACHMENT:
-				return valueAttachment != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_TIME:
 				return valueTime != null;
 			case FhirPackage.OBSERVATION_COMPONENT__VALUE_DATE_TIME:

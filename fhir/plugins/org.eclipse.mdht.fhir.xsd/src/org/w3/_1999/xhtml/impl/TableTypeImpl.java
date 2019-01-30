@@ -7,11 +7,6 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -38,8 +33,6 @@ import org.w3._1999.xhtml.TfootType;
 import org.w3._1999.xhtml.TheadType;
 import org.w3._1999.xhtml.TrType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.CaptionTypeImplAdapter;
-import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,8 +67,6 @@ import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TableType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "TableType")
 public class TableTypeImpl extends MinimalEObjectImpl.Container implements TableType {
 	/**
 	 * The cached value of the '{@link #getCaption() <em>Caption</em>}' containment reference.
@@ -478,7 +469,6 @@ public class TableTypeImpl extends MinimalEObjectImpl.Container implements Table
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CaptionTypeImplAdapter.class)
 	public CaptionType getCaption() {
 		return caption;
 	}
@@ -522,7 +512,6 @@ public class TableTypeImpl extends MinimalEObjectImpl.Container implements Table
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ColType> getCol() {
 		if (col == null) {
 			col = new EObjectContainmentEList<ColType>(ColType.class, this, XhtmlPackage.TABLE_TYPE__COL);
@@ -535,7 +524,6 @@ public class TableTypeImpl extends MinimalEObjectImpl.Container implements Table
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ColgroupType> getColgroup() {
 		if (colgroup == null) {
 			colgroup = new EObjectContainmentEList<ColgroupType>(ColgroupType.class, this, XhtmlPackage.TABLE_TYPE__COLGROUP);
@@ -634,7 +622,6 @@ public class TableTypeImpl extends MinimalEObjectImpl.Container implements Table
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TbodyType> getTbody() {
 		if (tbody == null) {
 			tbody = new EObjectContainmentEList<TbodyType>(TbodyType.class, this, XhtmlPackage.TABLE_TYPE__TBODY);
@@ -647,8 +634,6 @@ public class TableTypeImpl extends MinimalEObjectImpl.Container implements Table
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TrTypeImplAdapter.class)
-	@XmlElement
 	public EList<TrType> getTr() {
 		if (tr == null) {
 			tr = new EObjectContainmentEList<TrType>(TrType.class, this, XhtmlPackage.TABLE_TYPE__TR);

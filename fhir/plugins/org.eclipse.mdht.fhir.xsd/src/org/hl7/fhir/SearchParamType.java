@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SearchParamTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SearchParamTypeImplAdapter;
  * @model extendedMetaData="name='SearchParamType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SearchParamTypeImplAdapter.class)
 public interface SearchParamType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ContractAgentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ContractAgentImplAdapter;
  * @model extendedMetaData="name='Contract.Agent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ContractAgentImplAdapter.class)
 public interface ContractAgent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.

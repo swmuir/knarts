@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.FHIRAllTypesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.FHIRAllTypesImplAdapter;
  * @model extendedMetaData="name='FHIRAllTypes' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(FHIRAllTypesImplAdapter.class)
 public interface FHIRAllTypes extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

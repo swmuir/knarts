@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CapabilityStatementKindImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.CapabilityStatementKindImplAdapter;
  * @model extendedMetaData="name='CapabilityStatementKind' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementKindImplAdapter.class)
 public interface CapabilityStatementKind extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,7 +15,6 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,8 +32,6 @@ import org.hl7.fhir.jaxb.DecimalImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefitAdjudication", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefitAdjudication")
 public class ExplanationOfBenefitAdjudicationImpl extends BackboneElementImpl implements ExplanationOfBenefitAdjudication {
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -105,7 +97,6 @@ public class ExplanationOfBenefitAdjudicationImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCategory() {
 		return category;
 	}
@@ -235,7 +226,6 @@ public class ExplanationOfBenefitAdjudicationImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValue() {
 		return value;
 	}

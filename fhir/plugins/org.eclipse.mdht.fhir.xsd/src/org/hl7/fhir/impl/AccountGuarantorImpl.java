@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.AccountGuarantor;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +30,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AccountGuarantor", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AccountGuarantor")
 public class AccountGuarantorImpl extends BackboneElementImpl implements AccountGuarantor {
 	/**
 	 * The cached value of the '{@link #getParty() <em>Party</em>}' containment reference.
@@ -93,7 +85,6 @@ public class AccountGuarantorImpl extends BackboneElementImpl implements Account
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getParty() {
 		return party;
 	}
@@ -137,7 +128,6 @@ public class AccountGuarantorImpl extends BackboneElementImpl implements Account
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getOnHold() {
 		return onHold;
 	}

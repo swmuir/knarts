@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ActivityDefinitionDynamicValueImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.ActivityDefinitionDynamicValueImplAdapter;
  * @model extendedMetaData="name='ActivityDefinition.DynamicValue' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ActivityDefinitionDynamicValueImplAdapter.class)
 public interface ActivityDefinitionDynamicValue extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

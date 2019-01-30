@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,8 +21,6 @@ import org.hl7.fhir.CapabilityStatementCertificate;
 import org.hl7.fhir.CapabilityStatementSecurity;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,8 +38,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CapabilityStatementSecurity", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CapabilityStatementSecurity")
 public class CapabilityStatementSecurityImpl extends BackboneElementImpl implements CapabilityStatementSecurity {
 	/**
 	 * The cached value of the '{@link #getCors() <em>Cors</em>}' containment reference.
@@ -112,7 +103,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getCors() {
 		return cors;
 	}
@@ -156,7 +146,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getService() {
 		if (service == null) {
 			service = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CAPABILITY_STATEMENT_SECURITY__SERVICE);
@@ -169,7 +158,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -213,7 +201,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CapabilityStatementCertificate> getCertificate() {
 		if (certificate == null) {
 			certificate = new EObjectContainmentEList<CapabilityStatementCertificate>(CapabilityStatementCertificate.class, this, FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE);

@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.ConsentPolicy;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +28,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ConsentPolicy", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ConsentPolicy")
 public class ConsentPolicyImpl extends BackboneElementImpl implements ConsentPolicy {
 	/**
 	 * The cached value of the '{@link #getAuthority() <em>Authority</em>}' containment reference.
@@ -80,7 +73,6 @@ public class ConsentPolicyImpl extends BackboneElementImpl implements ConsentPol
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getAuthority() {
 		return authority;
 	}
@@ -124,7 +116,6 @@ public class ConsentPolicyImpl extends BackboneElementImpl implements ConsentPol
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUri() {
 		return uri;
 	}

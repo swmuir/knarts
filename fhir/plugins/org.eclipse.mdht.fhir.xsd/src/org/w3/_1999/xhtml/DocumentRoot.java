@@ -2,14 +2,11 @@
  */
 package org.w3._1999.xhtml;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EMap;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.w3._1999.xhtml.jaxb.DocumentRootImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,7 +79,6 @@ import org.w3._1999.xhtml.jaxb.DocumentRootImplAdapter;
  * @model extendedMetaData="name='' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(DocumentRootImplAdapter.class)
 public interface DocumentRoot extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
@@ -113,7 +109,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_XMLNSPrefixMap()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
 	 * @generated
 	 */
@@ -131,7 +127,7 @@ public interface DocumentRoot extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.w3._1999.xhtml.XhtmlPackage#getDocumentRoot_XSISchemaLocation()
-	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
 	 * @generated
 	 */

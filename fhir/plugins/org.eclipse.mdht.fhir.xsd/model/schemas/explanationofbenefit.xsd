@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -124,7 +124,7 @@
               <xs:documentation xml:lang="en">The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="outcome" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="outcome" minOccurs="0" maxOccurs="1" type="ClaimProcessingCodes">
             <xs:annotation>
               <xs:documentation xml:lang="en">Processing outcome errror, partial or complete processing.</xs:documentation>
            </xs:annotation>
@@ -286,7 +286,7 @@
               <xs:documentation xml:lang="en">Type of Party to be reimbursed: Subscriber, provider, other.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="resourceType" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="resource" minOccurs="0" maxOccurs="1" type="Coding">
             <xs:annotation>
               <xs:documentation xml:lang="en">organization | patient | practitioner | relatedperson.</xs:documentation>
            </xs:annotation>
@@ -505,22 +505,22 @@
               <xs:documentation xml:lang="en">A service line number.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="careTeamLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="careTeamSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Careteam applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="diagnosisLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="diagnosisSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Diagnosis applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="procedureLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="procedureSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Procedures applicable for this service or product line.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="informationLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="informationSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">Exceptions, special conditions and supporting information pplicable for this service or product line.</xs:documentation>
            </xs:annotation>
@@ -667,11 +667,6 @@
               <xs:documentation xml:lang="en">A service line number.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The type of product or service.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="revenue" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of reveneu or cost center providing the product and/or service.</xs:documentation>
@@ -753,11 +748,6 @@
               <xs:documentation xml:lang="en">A service line number.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The type of product or service.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="revenue" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of reveneu or cost center providing the product and/or service.</xs:documentation>
@@ -829,75 +819,24 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="sequenceLinkId" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
+          <xs:element name="itemSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">List of input service items which this service line is intended to replace.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="revenue" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="detailSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of reveneu or cost center providing the product and/or service.</xs:documentation>
+              <xs:documentation xml:lang="en">The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="category" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="subDetailSequence" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Health Care Service Type Codes  to identify the classification of service or benefits.</xs:documentation>
+              <xs:documentation xml:lang="en">The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="service" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="modifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="fee" minOccurs="0" maxOccurs="1" type="Money">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The fee charged for the professional service or product.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="noteNumber" minOccurs="0" maxOccurs="unbounded" type="positiveInt">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A list of note references to the notes provided below.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="adjudication" type="ExplanationOfBenefit.Adjudication" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The adjudications results.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="detail" type="ExplanationOfBenefit.Detail1" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The second tier service adjudications for payor added services.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ExplanationOfBenefit.Detail1">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="revenue" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The type of reveneu or cost center providing the product and/or service.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="category" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Health Care Service Type Codes  to identify the classification of service or benefits.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="service" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="modifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -977,7 +916,7 @@
               <xs:documentation xml:lang="en">An integer associated with each note which may be referred to from each service line item.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="NoteType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The note purpose: Print/Display.</xs:documentation>
            </xs:annotation>

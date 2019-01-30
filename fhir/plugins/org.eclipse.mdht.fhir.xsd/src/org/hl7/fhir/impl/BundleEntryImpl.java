@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,7 +25,6 @@ import org.hl7.fhir.BundleSearch;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ResourceContainer;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +44,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "BundleEntry", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "BundleEntry")
 public class BundleEntryImpl extends BackboneElementImpl implements BundleEntry {
 	/**
 	 * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference list.
@@ -137,7 +129,6 @@ public class BundleEntryImpl extends BackboneElementImpl implements BundleEntry 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<BundleLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<BundleLink>(BundleLink.class, this, FhirPackage.BUNDLE_ENTRY__LINK);
@@ -150,7 +141,6 @@ public class BundleEntryImpl extends BackboneElementImpl implements BundleEntry 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getFullUrl() {
 		return fullUrl;
 	}

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,10 +28,6 @@ import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.RequestIntentImplAdapter;
-import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
-import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,11 +45,12 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupImpl#getAction <em>Action</em>}</li>
@@ -66,8 +58,6 @@ import org.hl7.fhir.jaxb.RequestStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RequestGroup", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RequestGroup")
 public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -150,6 +140,16 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	protected RequestPriority priority;
 
 	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept code;
+
+	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,24 +190,24 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	protected Reference author;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reasonCodeableConcept;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
-	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReasonReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reasonReference;
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -253,7 +253,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.REQUEST_GROUP__IDENTIFIER);
@@ -266,7 +265,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__DEFINITION);
@@ -279,7 +277,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__BASED_ON);
@@ -292,7 +289,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__REPLACES);
@@ -348,8 +344,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public RequestStatus getStatus() {
 		return status;
 	}
@@ -393,8 +387,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestIntentImplAdapter.class)
-	@XmlElement(required = true)
 	public RequestIntent getIntent() {
 		return intent;
 	}
@@ -438,7 +430,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -475,6 +466,49 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__CODE, oldCode, newCode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
+			NotificationChain msgs = null;
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__CODE, newCode, newCode));
 	}
 
 	/**
@@ -568,7 +602,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAuthoredOn() {
 		return authoredOn;
 	}
@@ -655,23 +688,11 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReasonCodeableConcept() {
-		return reasonCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonCodeableConcept(CodeableConcept newReasonCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldReasonCodeableConcept = reasonCodeableConcept;
-		reasonCodeableConcept = newReasonCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT, oldReasonCodeableConcept, newReasonCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.REQUEST_GROUP__REASON_CODE);
 		}
-		return msgs;
+		return reasonCode;
 	}
 
 	/**
@@ -679,26 +700,10 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReasonCodeableConcept(CodeableConcept newReasonCodeableConcept) {
-		if (newReasonCodeableConcept != reasonCodeableConcept) {
-			NotificationChain msgs = null;
-			if (reasonCodeableConcept != null)
-				msgs = ((InternalEObject)reasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT, null, msgs);
-			if (newReasonCodeableConcept != null)
-				msgs = ((InternalEObject)newReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetReasonCodeableConcept(newReasonCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.REQUEST_GROUP__REASON_REFERENCE);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT, newReasonCodeableConcept, newReasonCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReasonReference() {
 		return reasonReference;
 	}
 
@@ -707,41 +712,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReasonReference(Reference newReasonReference, NotificationChain msgs) {
-		Reference oldReasonReference = reasonReference;
-		reasonReference = newReasonReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__REASON_REFERENCE, oldReasonReference, newReasonReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonReference(Reference newReasonReference) {
-		if (newReasonReference != reasonReference) {
-			NotificationChain msgs = null;
-			if (reasonReference != null)
-				msgs = ((InternalEObject)reasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__REASON_REFERENCE, null, msgs);
-			if (newReasonReference != null)
-				msgs = ((InternalEObject)newReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP__REASON_REFERENCE, null, msgs);
-			msgs = basicSetReasonReference(newReasonReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP__REASON_REFERENCE, newReasonReference, newReasonReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.REQUEST_GROUP__NOTE);
@@ -754,7 +724,6 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<RequestGroupAction> getAction() {
 		if (action == null) {
 			action = new EObjectContainmentEList<RequestGroupAction>(RequestGroupAction.class, this, FhirPackage.REQUEST_GROUP__ACTION);
@@ -786,6 +755,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return basicSetIntent(null, msgs);
 			case FhirPackage.REQUEST_GROUP__PRIORITY:
 				return basicSetPriority(null, msgs);
+			case FhirPackage.REQUEST_GROUP__CODE:
+				return basicSetCode(null, msgs);
 			case FhirPackage.REQUEST_GROUP__SUBJECT:
 				return basicSetSubject(null, msgs);
 			case FhirPackage.REQUEST_GROUP__CONTEXT:
@@ -794,10 +765,10 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return basicSetAuthoredOn(null, msgs);
 			case FhirPackage.REQUEST_GROUP__AUTHOR:
 				return basicSetAuthor(null, msgs);
-			case FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT:
-				return basicSetReasonCodeableConcept(null, msgs);
+			case FhirPackage.REQUEST_GROUP__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REQUEST_GROUP__REASON_REFERENCE:
-				return basicSetReasonReference(null, msgs);
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REQUEST_GROUP__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REQUEST_GROUP__ACTION:
@@ -830,6 +801,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return getIntent();
 			case FhirPackage.REQUEST_GROUP__PRIORITY:
 				return getPriority();
+			case FhirPackage.REQUEST_GROUP__CODE:
+				return getCode();
 			case FhirPackage.REQUEST_GROUP__SUBJECT:
 				return getSubject();
 			case FhirPackage.REQUEST_GROUP__CONTEXT:
@@ -838,8 +811,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return getAuthoredOn();
 			case FhirPackage.REQUEST_GROUP__AUTHOR:
 				return getAuthor();
-			case FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
+			case FhirPackage.REQUEST_GROUP__REASON_CODE:
+				return getReasonCode();
 			case FhirPackage.REQUEST_GROUP__REASON_REFERENCE:
 				return getReasonReference();
 			case FhirPackage.REQUEST_GROUP__NOTE:
@@ -887,6 +860,9 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 			case FhirPackage.REQUEST_GROUP__PRIORITY:
 				setPriority((RequestPriority)newValue);
 				return;
+			case FhirPackage.REQUEST_GROUP__CODE:
+				setCode((CodeableConcept)newValue);
+				return;
 			case FhirPackage.REQUEST_GROUP__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
@@ -899,11 +875,13 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 			case FhirPackage.REQUEST_GROUP__AUTHOR:
 				setAuthor((Reference)newValue);
 				return;
-			case FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)newValue);
+			case FhirPackage.REQUEST_GROUP__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP__REASON_REFERENCE:
-				setReasonReference((Reference)newValue);
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP__NOTE:
 				getNote().clear();
@@ -949,6 +927,9 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 			case FhirPackage.REQUEST_GROUP__PRIORITY:
 				setPriority((RequestPriority)null);
 				return;
+			case FhirPackage.REQUEST_GROUP__CODE:
+				setCode((CodeableConcept)null);
+				return;
 			case FhirPackage.REQUEST_GROUP__SUBJECT:
 				setSubject((Reference)null);
 				return;
@@ -961,11 +942,11 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 			case FhirPackage.REQUEST_GROUP__AUTHOR:
 				setAuthor((Reference)null);
 				return;
-			case FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)null);
+			case FhirPackage.REQUEST_GROUP__REASON_CODE:
+				getReasonCode().clear();
 				return;
 			case FhirPackage.REQUEST_GROUP__REASON_REFERENCE:
-				setReasonReference((Reference)null);
+				getReasonReference().clear();
 				return;
 			case FhirPackage.REQUEST_GROUP__NOTE:
 				getNote().clear();
@@ -1001,6 +982,8 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return intent != null;
 			case FhirPackage.REQUEST_GROUP__PRIORITY:
 				return priority != null;
+			case FhirPackage.REQUEST_GROUP__CODE:
+				return code != null;
 			case FhirPackage.REQUEST_GROUP__SUBJECT:
 				return subject != null;
 			case FhirPackage.REQUEST_GROUP__CONTEXT:
@@ -1009,10 +992,10 @@ public class RequestGroupImpl extends DomainResourceImpl implements RequestGroup
 				return authoredOn != null;
 			case FhirPackage.REQUEST_GROUP__AUTHOR:
 				return author != null;
-			case FhirPackage.REQUEST_GROUP__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null;
+			case FhirPackage.REQUEST_GROUP__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.REQUEST_GROUP__REASON_REFERENCE:
-				return reasonReference != null;
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.REQUEST_GROUP__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.REQUEST_GROUP__ACTION:

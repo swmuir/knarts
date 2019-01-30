@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Codes indicating the relative importance of a communication request.
+ * Codes indicating the relative importance of a communication.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.RequestPriorityImplAdapter;
  * @model extendedMetaData="name='RequestPriority' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RequestPriorityImplAdapter.class)
 public interface RequestPriority extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

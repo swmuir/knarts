@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.EncounterStatus;
 import org.hl7.fhir.EncounterStatusHistory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
-import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.EncounterStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "EncounterStatusHistory", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EncounterStatusHistory")
 public class EncounterStatusHistoryImpl extends BackboneElementImpl implements EncounterStatusHistory {
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -82,8 +74,6 @@ public class EncounterStatusHistoryImpl extends BackboneElementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(EncounterStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public EncounterStatus getStatus() {
 		return status;
 	}
@@ -127,7 +117,6 @@ public class EncounterStatusHistoryImpl extends BackboneElementImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Period getPeriod() {
 		return period;
 	}

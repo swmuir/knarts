@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,8 +14,6 @@ import org.hl7.fhir.BundleSearch;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SearchEntryMode;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.SearchEntryModeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.SearchEntryModeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "BundleSearch", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "BundleSearch")
 public class BundleSearchImpl extends BackboneElementImpl implements BundleSearch {
 	/**
 	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference.
@@ -82,7 +74,6 @@ public class BundleSearchImpl extends BackboneElementImpl implements BundleSearc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SearchEntryModeImplAdapter.class)
 	public SearchEntryMode getMode() {
 		return mode;
 	}
@@ -126,7 +117,6 @@ public class BundleSearchImpl extends BackboneElementImpl implements BundleSearc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getScore() {
 		return score;
 	}

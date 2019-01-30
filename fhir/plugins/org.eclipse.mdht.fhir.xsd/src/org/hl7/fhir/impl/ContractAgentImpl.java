@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,8 +36,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "ContractAgent", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ContractAgent")
 public class ContractAgentImpl extends BackboneElementImpl implements ContractAgent {
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' containment reference.
@@ -87,7 +81,6 @@ public class ContractAgentImpl extends BackboneElementImpl implements ContractAg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getActor() {
 		return actor;
 	}
@@ -131,7 +124,6 @@ public class ContractAgentImpl extends BackboneElementImpl implements ContractAg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getRole() {
 		if (role == null) {
 			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_AGENT__ROLE);

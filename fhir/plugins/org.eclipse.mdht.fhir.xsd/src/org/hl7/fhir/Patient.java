@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PatientImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +43,6 @@ import org.hl7.fhir.jaxb.PatientImplAdapter;
  * @model extendedMetaData="name='Patient' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PatientImplAdapter.class)
 public interface Patient extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -234,7 +230,7 @@ public interface Patient extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Addresses for the individual.
+	 * An address for the individual.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPatient_Address()
@@ -388,7 +384,7 @@ public interface Patient extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Languages which may be used to communicate with the patient about his or her health.
+	 * A language which may be used to communicate with the patient about his or her health.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Communication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPatient_Communication()

@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,9 +16,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QualityType;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SequenceQuality;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.QualityTypeImplAdapter;
+import org.hl7.fhir.SequenceRoc;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,12 +40,11 @@ import org.hl7.fhir.jaxb.QualityTypeImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getPrecision <em>Precision</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getRecall <em>Recall</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getFScore <em>FScore</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SequenceQualityImpl#getRoc <em>Roc</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "SequenceQuality", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SequenceQuality")
 public class SequenceQualityImpl extends BackboneElementImpl implements SequenceQuality {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -195,6 +187,16 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	protected Decimal fScore;
 
 	/**
+	 * The cached value of the '{@link #getRoc() <em>Roc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceRoc roc;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -218,8 +220,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(QualityTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public QualityType getType() {
 		return type;
 	}
@@ -306,7 +306,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getStart() {
 		return start;
 	}
@@ -350,7 +349,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getEnd() {
 		return end;
 	}
@@ -480,7 +478,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getTruthTP() {
 		return truthTP;
 	}
@@ -524,7 +521,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getQueryTP() {
 		return queryTP;
 	}
@@ -568,7 +564,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getTruthFN() {
 		return truthFN;
 	}
@@ -612,7 +607,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getQueryFP() {
 		return queryFP;
 	}
@@ -656,7 +650,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getGtFP() {
 		return gtFP;
 	}
@@ -700,7 +693,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPrecision() {
 		return precision;
 	}
@@ -744,7 +736,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getRecall() {
 		return recall;
 	}
@@ -788,7 +779,6 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFScore() {
 		return fScore;
 	}
@@ -832,6 +822,49 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceRoc getRoc() {
+		return roc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRoc(SequenceRoc newRoc, NotificationChain msgs) {
+		SequenceRoc oldRoc = roc;
+		roc = newRoc;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__ROC, oldRoc, newRoc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoc(SequenceRoc newRoc) {
+		if (newRoc != roc) {
+			NotificationChain msgs = null;
+			if (roc != null)
+				msgs = ((InternalEObject)roc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__ROC, null, msgs);
+			if (newRoc != null)
+				msgs = ((InternalEObject)newRoc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SEQUENCE_QUALITY__ROC, null, msgs);
+			msgs = basicSetRoc(newRoc, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEQUENCE_QUALITY__ROC, newRoc, newRoc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -863,6 +896,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return basicSetRecall(null, msgs);
 			case FhirPackage.SEQUENCE_QUALITY__FSCORE:
 				return basicSetFScore(null, msgs);
+			case FhirPackage.SEQUENCE_QUALITY__ROC:
+				return basicSetRoc(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -903,6 +938,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return getRecall();
 			case FhirPackage.SEQUENCE_QUALITY__FSCORE:
 				return getFScore();
+			case FhirPackage.SEQUENCE_QUALITY__ROC:
+				return getRoc();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -956,6 +993,9 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return;
 			case FhirPackage.SEQUENCE_QUALITY__FSCORE:
 				setFScore((Decimal)newValue);
+				return;
+			case FhirPackage.SEQUENCE_QUALITY__ROC:
+				setRoc((SequenceRoc)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1011,6 +1051,9 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 			case FhirPackage.SEQUENCE_QUALITY__FSCORE:
 				setFScore((Decimal)null);
 				return;
+			case FhirPackage.SEQUENCE_QUALITY__ROC:
+				setRoc((SequenceRoc)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1051,6 +1094,8 @@ public class SequenceQualityImpl extends BackboneElementImpl implements Sequence
 				return recall != null;
 			case FhirPackage.SEQUENCE_QUALITY__FSCORE:
 				return fScore != null;
+			case FhirPackage.SEQUENCE_QUALITY__ROC:
+				return roc != null;
 		}
 		return super.eIsSet(featureID);
 	}

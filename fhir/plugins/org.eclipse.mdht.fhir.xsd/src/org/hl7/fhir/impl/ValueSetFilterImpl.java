@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,8 +14,6 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FilterOperator;
 import org.hl7.fhir.ValueSetFilter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.FilterOperatorImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +30,6 @@ import org.hl7.fhir.jaxb.FilterOperatorImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ValueSetFilter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ValueSetFilter")
 public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetFilter {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
@@ -94,8 +85,6 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement(required = true)
 	public Code getProperty() {
 		return property;
 	}
@@ -139,8 +128,6 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FilterOperatorImplAdapter.class)
-	@XmlElement(required = true)
 	public FilterOperator getOp() {
 		return op;
 	}
@@ -184,8 +171,6 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
-	@XmlElement(required = true)
 	public Code getValue() {
 		return value;
 	}

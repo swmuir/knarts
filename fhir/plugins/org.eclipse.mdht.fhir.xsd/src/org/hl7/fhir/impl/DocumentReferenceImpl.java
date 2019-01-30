@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,6 +21,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CompositionStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DocumentReference;
+import org.hl7.fhir.DocumentReferenceAgent;
 import org.hl7.fhir.DocumentReferenceContent;
 import org.hl7.fhir.DocumentReferenceContext;
 import org.hl7.fhir.DocumentReferenceRelatesTo;
@@ -34,11 +30,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DocumentReferenceStatusImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +47,8 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getIndexed <em>Indexed</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthenticator <em>Authenticator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getRelatesTo <em>Relates To</em>}</li>
@@ -69,8 +60,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DocumentReference", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DocumentReference")
 public class DocumentReferenceImpl extends DomainResourceImpl implements DocumentReference {
 	/**
 	 * The cached value of the '{@link #getMasterIdentifier() <em>Master Identifier</em>}' containment reference.
@@ -153,24 +142,24 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getIndexed() <em>Indexed</em>}' containment reference.
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIndexed()
+	 * @see #getDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Instant indexed;
+	protected Instant date;
 
 	/**
-	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
+	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAuthor()
+	 * @see #getAgent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> author;
+	protected EList<DocumentReferenceAgent> agent;
 
 	/**
 	 * The cached value of the '{@link #getAuthenticator() <em>Authenticator</em>}' containment reference.
@@ -309,7 +298,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DOCUMENT_REFERENCE__IDENTIFIER);
@@ -322,8 +310,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DocumentReferenceStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public DocumentReferenceStatus getStatus() {
 		return status;
 	}
@@ -367,7 +353,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CompositionStatusImplAdapter.class)
 	public CompositionStatus getDocStatus() {
 		return docStatus;
 	}
@@ -411,7 +396,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -541,7 +525,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -585,10 +568,8 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
-	public Instant getIndexed() {
-		return indexed;
+	public Instant getDate() {
+		return date;
 	}
 
 	/**
@@ -596,11 +577,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIndexed(Instant newIndexed, NotificationChain msgs) {
-		Instant oldIndexed = indexed;
-		indexed = newIndexed;
+	public NotificationChain basicSetDate(Instant newDate, NotificationChain msgs) {
+		Instant oldDate = date;
+		date = newDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__INDEXED, oldIndexed, newIndexed);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DATE, oldDate, newDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -611,18 +592,18 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIndexed(Instant newIndexed) {
-		if (newIndexed != indexed) {
+	public void setDate(Instant newDate) {
+		if (newDate != date) {
 			NotificationChain msgs = null;
-			if (indexed != null)
-				msgs = ((InternalEObject)indexed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__INDEXED, null, msgs);
-			if (newIndexed != null)
-				msgs = ((InternalEObject)newIndexed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__INDEXED, null, msgs);
-			msgs = basicSetIndexed(newIndexed, msgs);
+			if (date != null)
+				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__INDEXED, newIndexed, newIndexed));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__DATE, newDate, newDate));
 	}
 
 	/**
@@ -630,12 +611,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Reference> getAuthor() {
-		if (author == null) {
-			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE__AUTHOR);
+	public EList<DocumentReferenceAgent> getAgent() {
+		if (agent == null) {
+			agent = new EObjectContainmentEList<DocumentReferenceAgent>(DocumentReferenceAgent.class, this, FhirPackage.DOCUMENT_REFERENCE__AGENT);
 		}
-		return author;
+		return agent;
 	}
 
 	/**
@@ -729,7 +709,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<DocumentReferenceRelatesTo> getRelatesTo() {
 		if (relatesTo == null) {
 			relatesTo = new EObjectContainmentEList<DocumentReferenceRelatesTo>(DocumentReferenceRelatesTo.class, this, FhirPackage.DOCUMENT_REFERENCE__RELATES_TO);
@@ -742,7 +721,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -786,7 +764,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DOCUMENT_REFERENCE__SECURITY_LABEL);
@@ -799,7 +776,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<DocumentReferenceContent> getContent() {
 		if (content == null) {
 			content = new EObjectContainmentEList<DocumentReferenceContent>(DocumentReferenceContent.class, this, FhirPackage.DOCUMENT_REFERENCE__CONTENT);
@@ -874,10 +850,10 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return basicSetSubject(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return basicSetIndexed(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__DATE:
+				return basicSetDate(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
+				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return basicSetAuthenticator(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
@@ -920,10 +896,10 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return getSubject();
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				return getCreated();
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return getIndexed();
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return getAuthor();
+			case FhirPackage.DOCUMENT_REFERENCE__DATE:
+				return getDate();
+			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
+				return getAgent();
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return getAuthenticator();
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
@@ -976,12 +952,12 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				setIndexed((Instant)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__DATE:
+				setDate((Instant)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				getAuthor().clear();
-				getAuthor().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
+				getAgent().clear();
+				getAgent().addAll((Collection<? extends DocumentReferenceAgent>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				setAuthenticator((Reference)newValue);
@@ -1043,11 +1019,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				setIndexed((Instant)null);
+			case FhirPackage.DOCUMENT_REFERENCE__DATE:
+				setDate((Instant)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				getAuthor().clear();
+			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
+				getAgent().clear();
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				setAuthenticator((Reference)null);
@@ -1098,10 +1074,10 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return subject != null;
 			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
 				return created != null;
-			case FhirPackage.DOCUMENT_REFERENCE__INDEXED:
-				return indexed != null;
-			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
-				return author != null && !author.isEmpty();
+			case FhirPackage.DOCUMENT_REFERENCE__DATE:
+				return date != null;
+			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
+				return agent != null && !agent.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return authenticator != null;
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:

@@ -4,10 +4,6 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.UriImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Uri</b></em>'.
@@ -30,7 +26,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * @model extendedMetaData="name='uri' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(UriImplAdapter.class)
 public interface Uri extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

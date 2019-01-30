@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ResearchStudyArm;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,14 +23,12 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyArmImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ResearchStudyArmImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ResearchStudyArmImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ResearchStudyArmImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ResearchStudyArm", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ResearchStudyArm")
 public class ResearchStudyArmImpl extends BackboneElementImpl implements ResearchStudyArm {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -49,14 +41,14 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	protected org.hl7.fhir.String name;
 
 	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCode()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept code;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -92,8 +84,6 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -137,8 +127,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCode() {
-		return code;
+	public CodeableConcept getType() {
+		return type;
 	}
 
 	/**
@@ -146,11 +136,11 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
-		CodeableConcept oldCode = code;
-		code = newCode;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY_ARM__CODE, oldCode, newCode);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY_ARM__TYPE, oldType, newType);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -161,18 +151,18 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(CodeableConcept newCode) {
-		if (newCode != code) {
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
 			NotificationChain msgs = null;
-			if (code != null)
-				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY_ARM__CODE, null, msgs);
-			if (newCode != null)
-				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY_ARM__CODE, null, msgs);
-			msgs = basicSetCode(newCode, msgs);
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY_ARM__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RESEARCH_STUDY_ARM__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY_ARM__CODE, newCode, newCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RESEARCH_STUDY_ARM__TYPE, newType, newType));
 	}
 
 	/**
@@ -180,7 +170,6 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -229,8 +218,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 		switch (featureID) {
 			case FhirPackage.RESEARCH_STUDY_ARM__NAME:
 				return basicSetName(null, msgs);
-			case FhirPackage.RESEARCH_STUDY_ARM__CODE:
-				return basicSetCode(null, msgs);
+			case FhirPackage.RESEARCH_STUDY_ARM__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.RESEARCH_STUDY_ARM__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 		}
@@ -247,8 +236,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 		switch (featureID) {
 			case FhirPackage.RESEARCH_STUDY_ARM__NAME:
 				return getName();
-			case FhirPackage.RESEARCH_STUDY_ARM__CODE:
-				return getCode();
+			case FhirPackage.RESEARCH_STUDY_ARM__TYPE:
+				return getType();
 			case FhirPackage.RESEARCH_STUDY_ARM__DESCRIPTION:
 				return getDescription();
 		}
@@ -266,8 +255,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 			case FhirPackage.RESEARCH_STUDY_ARM__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.RESEARCH_STUDY_ARM__CODE:
-				setCode((CodeableConcept)newValue);
+			case FhirPackage.RESEARCH_STUDY_ARM__TYPE:
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.RESEARCH_STUDY_ARM__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -287,8 +276,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 			case FhirPackage.RESEARCH_STUDY_ARM__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.RESEARCH_STUDY_ARM__CODE:
-				setCode((CodeableConcept)null);
+			case FhirPackage.RESEARCH_STUDY_ARM__TYPE:
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.RESEARCH_STUDY_ARM__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -307,8 +296,8 @@ public class ResearchStudyArmImpl extends BackboneElementImpl implements Researc
 		switch (featureID) {
 			case FhirPackage.RESEARCH_STUDY_ARM__NAME:
 				return name != null;
-			case FhirPackage.RESEARCH_STUDY_ARM__CODE:
-				return code != null;
+			case FhirPackage.RESEARCH_STUDY_ARM__TYPE:
+				return type != null;
 			case FhirPackage.RESEARCH_STUDY_ARM__DESCRIPTION:
 				return description != null;
 		}

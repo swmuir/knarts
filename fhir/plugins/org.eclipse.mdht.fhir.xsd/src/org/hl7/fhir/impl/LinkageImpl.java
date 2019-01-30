@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,7 +21,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Linkage;
 import org.hl7.fhir.LinkageItem;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,8 +37,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Linkage", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Linkage")
 public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	/**
 	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
@@ -100,7 +92,6 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -187,7 +178,6 @@ public class LinkageImpl extends DomainResourceImpl implements Linkage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<LinkageItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<LinkageItem>(LinkageItem.class, this, FhirPackage.LINKAGE__ITEM);

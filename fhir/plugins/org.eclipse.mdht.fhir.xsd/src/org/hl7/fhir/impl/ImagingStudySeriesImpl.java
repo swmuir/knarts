@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,11 +26,6 @@ import org.hl7.fhir.InstanceAvailability;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.InstanceAvailabilityImplAdapter;
-import org.hl7.fhir.jaxb.OidImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +44,7 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getLaterality <em>Laterality</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getStarted <em>Started</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getInstance <em>Instance</em>}</li>
@@ -61,8 +52,6 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ImagingStudySeries", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ImagingStudySeries")
 public class ImagingStudySeriesImpl extends BackboneElementImpl implements ImagingStudySeries {
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
@@ -155,6 +144,16 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	protected Coding laterality;
 
 	/**
+	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecimen()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> specimen;
+
+	/**
 	 * The cached value of the '{@link #getStarted() <em>Started</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,8 +207,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(OidImplAdapter.class)
-	@XmlElement(required = true)
 	public Oid getUid() {
 		return uid;
 	}
@@ -253,7 +250,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getNumber() {
 		return number;
 	}
@@ -297,7 +293,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Coding getModality() {
 		return modality;
 	}
@@ -341,7 +336,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -385,7 +379,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getNumberOfInstances() {
 		return numberOfInstances;
 	}
@@ -429,7 +422,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstanceAvailabilityImplAdapter.class)
 	public InstanceAvailability getAvailability() {
 		return availability;
 	}
@@ -473,7 +465,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT);
@@ -572,7 +563,18 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public EList<Reference> getSpecimen() {
+		if (specimen == null) {
+			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN);
+		}
+		return specimen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getStarted() {
 		return started;
 	}
@@ -616,7 +618,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPerformer() {
 		if (performer == null) {
 			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY_SERIES__PERFORMER);
@@ -629,7 +630,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ImagingStudyInstance> getInstance() {
 		if (instance == null) {
 			instance = new EObjectContainmentEList<ImagingStudyInstance>(ImagingStudyInstance.class, this, FhirPackage.IMAGING_STUDY_SERIES__INSTANCE);
@@ -663,6 +663,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
 				return basicSetLaterality(null, msgs);
+			case FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN:
+				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__STARTED:
 				return basicSetStarted(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__PERFORMER:
@@ -699,6 +701,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return getBodySite();
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
 				return getLaterality();
+			case FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN:
+				return getSpecimen();
 			case FhirPackage.IMAGING_STUDY_SERIES__STARTED:
 				return getStarted();
 			case FhirPackage.IMAGING_STUDY_SERIES__PERFORMER:
@@ -745,6 +749,10 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
 				setLaterality((Coding)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN:
+				getSpecimen().clear();
+				getSpecimen().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__STARTED:
 				setStarted((DateTime)newValue);
@@ -796,6 +804,9 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
 				setLaterality((Coding)null);
 				return;
+			case FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN:
+				getSpecimen().clear();
+				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__STARTED:
 				setStarted((DateTime)null);
 				return;
@@ -835,6 +846,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return bodySite != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__LATERALITY:
 				return laterality != null;
+			case FhirPackage.IMAGING_STUDY_SERIES__SPECIMEN:
+				return specimen != null && !specimen.isEmpty();
 			case FhirPackage.IMAGING_STUDY_SERIES__STARTED:
 				return started != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__PERFORMER:

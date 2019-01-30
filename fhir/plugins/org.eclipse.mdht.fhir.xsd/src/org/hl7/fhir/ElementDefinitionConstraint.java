@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ElementDefinitionConstraintImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.ElementDefinitionConstraintImplAdapter;
  * @model extendedMetaData="name='ElementDefinition.Constraint' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ElementDefinitionConstraintImplAdapter.class)
 public interface ElementDefinitionConstraint extends Element {
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' containment reference.

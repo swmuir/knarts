@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CommunicationRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +28,14 @@ import org.hl7.fhir.jaxb.CommunicationRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getRecipient <em>Recipient</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getAbout <em>About</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getPayload <em>Payload</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getAuthoredOn <em>Authored On</em>}</li>
- *   <li>{@link org.hl7.fhir.CommunicationRequest#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}</li>
+ *   <li>{@link org.hl7.fhir.CommunicationRequest#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CommunicationRequest#getNote <em>Note</em>}</li>
@@ -48,7 +45,6 @@ import org.hl7.fhir.jaxb.CommunicationRequestImplAdapter;
  * @model extendedMetaData="name='CommunicationRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CommunicationRequestImplAdapter.class)
 public interface CommunicationRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -251,20 +247,20 @@ public interface CommunicationRequest extends DomainResource {
 	EList<Reference> getRecipient();
 
 	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>About</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resources which were related to producing this communication request.
+	 * Other resources that pertain to this communication request and to which this communication request should be associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Topic()
+	 * @return the value of the '<em>About</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_About()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='topic' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='about' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getTopic();
+	EList<Reference> getAbout();
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
@@ -389,6 +385,32 @@ public interface CommunicationRequest extends DomainResource {
 	void setAuthoredOn(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Requester</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The device, individual, or organization who initiated the request and has responsibility for its activation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Requester</em>' containment reference.
+	 * @see #setRequester(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Requester()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequester();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Requester</em>' containment reference.
+	 * @see #getRequester()
+	 * @generated
+	 */
+	void setRequester(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Sender</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,32 +435,6 @@ public interface CommunicationRequest extends DomainResource {
 	 * @generated
 	 */
 	void setSender(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Requester</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The individual who initiated the request and has responsibility for its activation.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(CommunicationRequestRequester)
-	 * @see org.hl7.fhir.FhirPackage#getCommunicationRequest_Requester()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CommunicationRequestRequester getRequester();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CommunicationRequest#getRequester <em>Requester</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requester</em>' containment reference.
-	 * @see #getRequester()
-	 * @generated
-	 */
-	void setRequester(CommunicationRequestRequester value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.

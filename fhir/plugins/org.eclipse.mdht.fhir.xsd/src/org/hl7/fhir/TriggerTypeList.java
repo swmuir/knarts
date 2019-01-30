@@ -41,6 +41,16 @@ public enum TriggerTypeList implements Enumerator {
 	PERIODIC(1, "periodic", "periodic"),
 
 	/**
+	 * The '<em><b>Data Changed</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATA_CHANGED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATA_CHANGED(2, "dataChanged", "data-changed"),
+
+	/**
 	 * The '<em><b>Data Added</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_ADDED(2, "dataAdded", "data-added"),
+	DATA_ADDED(3, "dataAdded", "data-added"),
 
 	/**
 	 * The '<em><b>Data Modified</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_MODIFIED(3, "dataModified", "data-modified"),
+	DATA_MODIFIED(4, "dataModified", "data-modified"),
 
 	/**
 	 * The '<em><b>Data Removed</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_REMOVED(4, "dataRemoved", "data-removed"),
+	DATA_REMOVED(5, "dataRemoved", "data-removed"),
 
 	/**
 	 * The '<em><b>Data Accessed</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_ACCESSED(5, "dataAccessed", "data-accessed"),
+	DATA_ACCESSED(6, "dataAccessed", "data-accessed"),
 
 	/**
 	 * The '<em><b>Data Access Ended</b></em>' literal object.
@@ -88,7 +98,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_ACCESS_ENDED(6, "dataAccessEnded", "data-access-ended");
+	DATA_ACCESS_ENDED(7, "dataAccessEnded", "data-access-ended");
 
 	/**
 	 * The '<em><b>Named Event</b></em>' literal value.
@@ -119,6 +129,20 @@ public enum TriggerTypeList implements Enumerator {
 	public static final int PERIODIC_VALUE = 1;
 
 	/**
+	 * The '<em><b>Data Changed</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Data Changed
+	 * <!-- end-model-doc -->
+	 * @see #DATA_CHANGED
+	 * @model name="dataChanged" literal="data-changed"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATA_CHANGED_VALUE = 2;
+
+	/**
 	 * The '<em><b>Data Added</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,21 +154,21 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_ADDED_VALUE = 2;
+	public static final int DATA_ADDED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Data Modified</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Data Modified
+	 * Data Updated
 	 * <!-- end-model-doc -->
 	 * @see #DATA_MODIFIED
 	 * @model name="dataModified" literal="data-modified"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_MODIFIED_VALUE = 3;
+	public static final int DATA_MODIFIED_VALUE = 4;
 
 	/**
 	 * The '<em><b>Data Removed</b></em>' literal value.
@@ -158,7 +182,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_REMOVED_VALUE = 4;
+	public static final int DATA_REMOVED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Data Accessed</b></em>' literal value.
@@ -172,7 +196,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_ACCESSED_VALUE = 5;
+	public static final int DATA_ACCESSED_VALUE = 6;
 
 	/**
 	 * The '<em><b>Data Access Ended</b></em>' literal value.
@@ -186,7 +210,7 @@ public enum TriggerTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_ACCESS_ENDED_VALUE = 6;
+	public static final int DATA_ACCESS_ENDED_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Trigger Type List</b></em>' enumerators.
@@ -198,6 +222,7 @@ public enum TriggerTypeList implements Enumerator {
 		new TriggerTypeList[] {
 			NAMED_EVENT,
 			PERIODIC,
+			DATA_CHANGED,
 			DATA_ADDED,
 			DATA_MODIFIED,
 			DATA_REMOVED,
@@ -261,6 +286,7 @@ public enum TriggerTypeList implements Enumerator {
 		switch (value) {
 			case NAMED_EVENT_VALUE: return NAMED_EVENT;
 			case PERIODIC_VALUE: return PERIODIC;
+			case DATA_CHANGED_VALUE: return DATA_CHANGED;
 			case DATA_ADDED_VALUE: return DATA_ADDED;
 			case DATA_MODIFIED_VALUE: return DATA_MODIFIED;
 			case DATA_REMOVED_VALUE: return DATA_REMOVED;

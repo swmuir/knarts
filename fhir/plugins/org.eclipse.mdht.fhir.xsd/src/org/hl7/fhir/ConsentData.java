@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConsentDataImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.ConsentDataImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+ * A record of a healthcare consumerâ€™s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConsentDataImplAdapter;
  * @model extendedMetaData="name='Consent.Data' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConsentDataImplAdapter.class)
 public interface ConsentData extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Meaning</b></em>' containment reference.

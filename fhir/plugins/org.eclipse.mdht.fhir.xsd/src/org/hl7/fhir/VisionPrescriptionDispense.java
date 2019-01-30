@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.VisionPrescriptionDispenseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +38,6 @@ import org.hl7.fhir.jaxb.VisionPrescriptionDispenseImplAdapter;
  * @model extendedMetaData="name='VisionPrescription.Dispense' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(VisionPrescriptionDispenseImplAdapter.class)
 public interface VisionPrescriptionDispense extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Product</b></em>' containment reference.

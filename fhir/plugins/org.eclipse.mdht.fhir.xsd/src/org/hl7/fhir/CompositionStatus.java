@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
  * @model extendedMetaData="name='CompositionStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CompositionStatusImplAdapter.class)
 public interface CompositionStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

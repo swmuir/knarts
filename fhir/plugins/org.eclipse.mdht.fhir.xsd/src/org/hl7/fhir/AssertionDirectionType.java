@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AssertionDirectionTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AssertionDirectionTypeImplAdapter;
  * @model extendedMetaData="name='AssertionDirectionType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AssertionDirectionTypeImplAdapter.class)
 public interface AssertionDirectionType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

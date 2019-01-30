@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.PractitionerRoleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +38,6 @@ import org.hl7.fhir.jaxb.PractitionerRoleImplAdapter;
  * @model extendedMetaData="name='PractitionerRole' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PractitionerRoleImplAdapter.class)
 public interface PractitionerRole extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -64,7 +60,7 @@ public interface PractitionerRole extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this practitioner's record is in active use.
+	 * Whether this practitioner role record is in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' containment reference.
 	 * @see #setActive(org.hl7.fhir.Boolean)
@@ -116,7 +112,7 @@ public interface PractitionerRole extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Practitioner that is able to provide the defined services for the organation.
+	 * Practitioner that is able to provide the defined services for the organization.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Practitioner</em>' containment reference.
 	 * @see #setPractitioner(Reference)

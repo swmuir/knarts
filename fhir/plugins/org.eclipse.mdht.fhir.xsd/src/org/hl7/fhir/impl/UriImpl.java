@@ -4,9 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.lang.String;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -29,8 +26,6 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
-@XmlType(name = "Uri", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Uri")
 public class UriImpl extends ElementImpl implements Uri {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

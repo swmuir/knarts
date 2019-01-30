@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,13 +26,7 @@ import org.hl7.fhir.NamingSystem;
 import org.hl7.fhir.NamingSystemType;
 import org.hl7.fhir.NamingSystemUniqueId;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.NamingSystemTypeImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,13 +49,10 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getUniqueId <em>Unique Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.NamingSystemImpl#getReplacedBy <em>Replaced By</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "NamingSystem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "NamingSystem")
 public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -199,16 +185,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	protected EList<NamingSystemUniqueId> uniqueId;
 
 	/**
-	 * The cached value of the '{@link #getReplacedBy() <em>Replaced By</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReplacedBy()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference replacedBy;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -232,8 +208,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -277,8 +251,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -322,8 +294,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(NamingSystemTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public NamingSystemType getKind() {
 		return kind;
 	}
@@ -367,8 +337,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -412,7 +380,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -456,7 +423,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.NAMING_SYSTEM__CONTACT);
@@ -469,7 +435,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getResponsible() {
 		return responsible;
 	}
@@ -556,7 +521,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -600,7 +564,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.NAMING_SYSTEM__USE_CONTEXT);
@@ -613,7 +576,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.NAMING_SYSTEM__JURISDICTION);
@@ -626,7 +588,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getUsage() {
 		return usage;
 	}
@@ -670,55 +631,11 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<NamingSystemUniqueId> getUniqueId() {
 		if (uniqueId == null) {
 			uniqueId = new EObjectContainmentEList<NamingSystemUniqueId>(NamingSystemUniqueId.class, this, FhirPackage.NAMING_SYSTEM__UNIQUE_ID);
 		}
 		return uniqueId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReplacedBy() {
-		return replacedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReplacedBy(Reference newReplacedBy, NotificationChain msgs) {
-		Reference oldReplacedBy = replacedBy;
-		replacedBy = newReplacedBy;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__REPLACED_BY, oldReplacedBy, newReplacedBy);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReplacedBy(Reference newReplacedBy) {
-		if (newReplacedBy != replacedBy) {
-			NotificationChain msgs = null;
-			if (replacedBy != null)
-				msgs = ((InternalEObject)replacedBy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__REPLACED_BY, null, msgs);
-			if (newReplacedBy != null)
-				msgs = ((InternalEObject)newReplacedBy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NAMING_SYSTEM__REPLACED_BY, null, msgs);
-			msgs = basicSetReplacedBy(newReplacedBy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NAMING_SYSTEM__REPLACED_BY, newReplacedBy, newReplacedBy));
 	}
 
 	/**
@@ -755,8 +672,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return basicSetUsage(null, msgs);
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
 				return ((InternalEList<?>)getUniqueId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.NAMING_SYSTEM__REPLACED_BY:
-				return basicSetReplacedBy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -795,8 +710,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return getUsage();
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
 				return getUniqueId();
-			case FhirPackage.NAMING_SYSTEM__REPLACED_BY:
-				return getReplacedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -853,9 +766,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				getUniqueId().clear();
 				getUniqueId().addAll((Collection<? extends NamingSystemUniqueId>)newValue);
 				return;
-			case FhirPackage.NAMING_SYSTEM__REPLACED_BY:
-				setReplacedBy((Reference)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -907,9 +817,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
 				getUniqueId().clear();
 				return;
-			case FhirPackage.NAMING_SYSTEM__REPLACED_BY:
-				setReplacedBy((Reference)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -948,8 +855,6 @@ public class NamingSystemImpl extends DomainResourceImpl implements NamingSystem
 				return usage != null;
 			case FhirPackage.NAMING_SYSTEM__UNIQUE_ID:
 				return uniqueId != null && !uniqueId.isEmpty();
-			case FhirPackage.NAMING_SYSTEM__REPLACED_BY:
-				return replacedBy != null;
 		}
 		return super.eIsSet(featureID);
 	}

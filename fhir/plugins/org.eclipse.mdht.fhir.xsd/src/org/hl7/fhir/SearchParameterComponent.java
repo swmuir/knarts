@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SearchParameterComponentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SearchParameterComponentImplAdapter;
  * @model extendedMetaData="name='SearchParameter.Component' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SearchParameterComponentImplAdapter.class)
 public interface SearchParameterComponent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.

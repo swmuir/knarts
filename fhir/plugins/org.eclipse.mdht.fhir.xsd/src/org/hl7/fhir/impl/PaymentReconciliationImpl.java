@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,9 +28,7 @@ import org.hl7.fhir.PaymentReconciliationDetail;
 import org.hl7.fhir.PaymentReconciliationProcessNote;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,8 +56,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PaymentReconciliation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PaymentReconciliation")
 public class PaymentReconciliationImpl extends DomainResourceImpl implements PaymentReconciliation {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -134,7 +125,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected RemittanceOutcome outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -230,7 +221,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PAYMENT_RECONCILIATION__IDENTIFIER);
@@ -243,7 +233,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -330,7 +319,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -460,7 +448,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public RemittanceOutcome getOutcome() {
 		return outcome;
 	}
 
@@ -469,8 +457,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
+		RemittanceOutcome oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__OUTCOME, oldOutcome, newOutcome);
@@ -484,7 +472,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(RemittanceOutcome newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -503,7 +491,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -633,7 +620,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PaymentReconciliationDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<PaymentReconciliationDetail>(PaymentReconciliationDetail.class, this, FhirPackage.PAYMENT_RECONCILIATION__DETAIL);
@@ -732,7 +718,6 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<PaymentReconciliationProcessNote> getProcessNote() {
 		if (processNote == null) {
 			processNote = new EObjectContainmentEList<PaymentReconciliationProcessNote>(PaymentReconciliationProcessNote.class, this, FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE);
@@ -849,7 +834,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((RemittanceOutcome)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -905,7 +890,7 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((RemittanceOutcome)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);

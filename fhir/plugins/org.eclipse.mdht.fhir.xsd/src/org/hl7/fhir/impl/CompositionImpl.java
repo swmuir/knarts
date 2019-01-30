@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,10 +29,6 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CompositionStatusImplAdapter;
-import org.hl7.fhir.jaxb.ConfidentialityClassificationImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,8 +57,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Composition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Composition")
 public class CompositionImpl extends DomainResourceImpl implements Composition {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -286,8 +275,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CompositionStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public CompositionStatus getStatus() {
 		return status;
 	}
@@ -331,7 +318,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -418,7 +404,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -505,8 +490,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -550,7 +533,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<Reference> getAuthor() {
 		if (author == null) {
 			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMPOSITION__AUTHOR);
@@ -563,8 +545,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -608,7 +588,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConfidentialityClassificationImplAdapter.class)
 	public ConfidentialityClassification getConfidentiality() {
 		return confidentiality;
 	}
@@ -652,7 +631,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CompositionAttester> getAttester() {
 		if (attester == null) {
 			attester = new EObjectContainmentEList<CompositionAttester>(CompositionAttester.class, this, FhirPackage.COMPOSITION__ATTESTER);
@@ -708,7 +686,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CompositionRelatesTo> getRelatesTo() {
 		if (relatesTo == null) {
 			relatesTo = new EObjectContainmentEList<CompositionRelatesTo>(CompositionRelatesTo.class, this, FhirPackage.COMPOSITION__RELATES_TO);
@@ -721,7 +698,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CompositionEvent> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<CompositionEvent>(CompositionEvent.class, this, FhirPackage.COMPOSITION__EVENT);
@@ -734,7 +710,6 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CompositionSection> getSection() {
 		if (section == null) {
 			section = new EObjectContainmentEList<CompositionSection>(CompositionSection.class, this, FhirPackage.COMPOSITION__SECTION);

@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -89,6 +89,11 @@
               <xs:documentation xml:lang="en">Indicates how quickly the request should be addressed with respect to other requests.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="code" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A code that identifies what the overall request group is.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The subject for which the request group was created.</xs:documentation>
@@ -109,13 +114,16 @@
               <xs:documentation xml:lang="en">Provides a reference to the author of the request group.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
+          <xs:element name="reasonCode" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="reasonCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="reasonReference" type="Reference"/>
-          </xs:choice>
+              <xs:documentation xml:lang="en">Describes the reason for the request group in coded or textual form.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reasonReference" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates another resource whose existence justifies this request group.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
             <xs:annotation>
               <xs:documentation xml:lang="en">Provides a mechanism to communicate additional information about the response.</xs:documentation>
@@ -137,9 +145,9 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="label" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="prefix" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A user-visible label for the action.</xs:documentation>
+              <xs:documentation xml:lang="en">A user-visible prefix for the action.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
@@ -154,7 +162,7 @@
           </xs:element>
           <xs:element name="textEquivalent" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.</xs:documentation>
+              <xs:documentation xml:lang="en">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -182,6 +190,7 @@
               <xs:documentation xml:lang="en">An optional value describing when the action should be performed.</xs:documentation>
             </xs:annotation>
             <xs:element name="timingDateTime" type="dateTime"/>
+            <xs:element name="timingAge" type="Age"/>
             <xs:element name="timingPeriod" type="Period"/>
             <xs:element name="timingDuration" type="Duration"/>
             <xs:element name="timingRange" type="Range"/>
@@ -292,6 +301,61 @@
             <xs:element name="offsetRange" type="Range"/>
           </xs:choice>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RequestIntent-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="proposal">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Proposal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="plan">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Plan</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="order">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Order</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="original-order">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Original Order</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="reflex-order">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reflex Order</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="filler-order">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Filler Order</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="instance-order">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Instance Order</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="option">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Option</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RequestIntent">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Codes indicating the degree of authority/intentionality associated with a request</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="RequestIntent-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

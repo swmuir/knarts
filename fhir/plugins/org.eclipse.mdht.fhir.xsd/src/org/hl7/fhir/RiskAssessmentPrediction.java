@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RiskAssessmentPredictionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.RiskAssessmentPredictionImplAdapter;
  * @model extendedMetaData="name='RiskAssessment.Prediction' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RiskAssessmentPredictionImplAdapter.class)
 public interface RiskAssessmentPrediction extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.

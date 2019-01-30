@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,14 +32,6 @@ import org.hl7.fhir.QuestionnaireItem;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,28 +46,27 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getSubjectType <em>Subject Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getApprovalDate <em>Approval Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getLastReviewDate <em>Last Review Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getJurisdiction <em>Jurisdiction</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getSubjectType <em>Subject Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireImpl#getItem <em>Item</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "Questionnaire", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Questionnaire")
 public class QuestionnaireImpl extends DomainResourceImpl implements Questionnaire {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -133,6 +119,16 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected org.hl7.fhir.String title;
 
 	/**
+	 * The cached value of the '{@link #getDerivedFrom() <em>Derived From</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDerivedFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> derivedFrom;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,6 +147,16 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean experimental;
+
+	/**
+	 * The cached value of the '{@link #getSubjectType() <em>Subject Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceType> subjectType;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -173,6 +179,36 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected org.hl7.fhir.String publisher;
 
 	/**
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContact()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContactDetail> contact;
+
+	/**
+	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
+
+	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +227,16 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * @ordered
 	 */
 	protected Markdown purpose;
+
+	/**
+	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getApprovalDate() <em>Approval Date</em>}' containment reference.
@@ -223,46 +269,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	protected Period effectivePeriod;
 
 	/**
-	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUseContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UsageContext> useContext;
-
-	/**
-	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getJurisdiction()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> jurisdiction;
-
-	/**
-	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContact()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ContactDetail> contact;
-
-	/**
-	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCopyright()
-	 * @generated
-	 * @ordered
-	 */
-	protected Markdown copyright;
-
-	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -271,16 +277,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * @ordered
 	 */
 	protected EList<Coding> code;
-
-	/**
-	 * The cached value of the '{@link #getSubjectType() <em>Subject Type</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ResourceType> subjectType;
 
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
@@ -316,7 +312,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -360,7 +355,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.QUESTIONNAIRE__IDENTIFIER);
@@ -373,7 +367,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -417,7 +410,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -461,7 +453,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -505,8 +496,18 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
+	public EList<Uri> getDerivedFrom() {
+		if (derivedFrom == null) {
+			derivedFrom = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.QUESTIONNAIRE__DERIVED_FROM);
+		}
+		return derivedFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -550,7 +551,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -594,7 +594,18 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
+	public EList<ResourceType> getSubjectType() {
+		if (subjectType == null) {
+			subjectType = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE);
+		}
+		return subjectType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getDate() {
 		return date;
 	}
@@ -638,7 +649,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -682,7 +692,42 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
+	public EList<ContactDetail> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.QUESTIONNAIRE__CONTACT);
+		}
+		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UsageContext> getUseContext() {
+		if (useContext == null) {
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.QUESTIONNAIRE__USE_CONTEXT);
+		}
+		return useContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.QUESTIONNAIRE__JURISDICTION);
+		}
+		return jurisdiction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Markdown getDescription() {
 		return description;
 	}
@@ -726,7 +771,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -770,7 +814,49 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
+	public Markdown getCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
+		copyright = newCopyright;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__COPYRIGHT, oldCopyright, newCopyright);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCopyright(Markdown newCopyright) {
+		if (newCopyright != copyright) {
+			NotificationChain msgs = null;
+			if (copyright != null)
+				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__COPYRIGHT, null, msgs);
+			if (newCopyright != null)
+				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__COPYRIGHT, null, msgs);
+			msgs = basicSetCopyright(newCopyright, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__COPYRIGHT, newCopyright, newCopyright));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Date getApprovalDate() {
 		return approvalDate;
 	}
@@ -814,7 +900,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getLastReviewDate() {
 		return lastReviewDate;
 	}
@@ -901,90 +986,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<UsageContext> getUseContext() {
-		if (useContext == null) {
-			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.QUESTIONNAIRE__USE_CONTEXT);
-		}
-		return useContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<CodeableConcept> getJurisdiction() {
-		if (jurisdiction == null) {
-			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.QUESTIONNAIRE__JURISDICTION);
-		}
-		return jurisdiction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
-	public EList<ContactDetail> getContact() {
-		if (contact == null) {
-			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.QUESTIONNAIRE__CONTACT);
-		}
-		return contact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
-	public Markdown getCopyright() {
-		return copyright;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
-		Markdown oldCopyright = copyright;
-		copyright = newCopyright;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__COPYRIGHT, oldCopyright, newCopyright);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCopyright(Markdown newCopyright) {
-		if (newCopyright != copyright) {
-			NotificationChain msgs = null;
-			if (copyright != null)
-				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__COPYRIGHT, null, msgs);
-			if (newCopyright != null)
-				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE__COPYRIGHT, null, msgs);
-			msgs = basicSetCopyright(newCopyright, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE__COPYRIGHT, newCopyright, newCopyright));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<Coding> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.QUESTIONNAIRE__CODE);
@@ -997,21 +998,6 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement
-	public EList<ResourceType> getSubjectType() {
-		if (subjectType == null) {
-			subjectType = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE);
-		}
-		return subjectType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<QuestionnaireItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<QuestionnaireItem>(QuestionnaireItem.class, this, FhirPackage.QUESTIONNAIRE__ITEM);
@@ -1037,36 +1023,38 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return basicSetName(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return basicSetTitle(null, msgs);
+			case FhirPackage.QUESTIONNAIRE__DERIVED_FROM:
+				return ((InternalEList<?>)getDerivedFrom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
+				return ((InternalEList<?>)getSubjectType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__DATE:
 				return basicSetDate(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__PUBLISHER:
 				return basicSetPublisher(null, msgs);
+			case FhirPackage.QUESTIONNAIRE__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__PURPOSE:
 				return basicSetPurpose(null, msgs);
+			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
+				return basicSetCopyright(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__APPROVAL_DATE:
 				return basicSetApprovalDate(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__LAST_REVIEW_DATE:
 				return basicSetLastReviewDate(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__EFFECTIVE_PERIOD:
 				return basicSetEffectivePeriod(null, msgs);
-			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
-				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
-				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE__CONTACT:
-				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
-				return basicSetCopyright(null, msgs);
 			case FhirPackage.QUESTIONNAIRE__CODE:
 				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
-				return ((InternalEList<?>)getSubjectType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE__ITEM:
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 		}
@@ -1091,36 +1079,38 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return getName();
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return getTitle();
+			case FhirPackage.QUESTIONNAIRE__DERIVED_FROM:
+				return getDerivedFrom();
 			case FhirPackage.QUESTIONNAIRE__STATUS:
 				return getStatus();
 			case FhirPackage.QUESTIONNAIRE__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
+				return getSubjectType();
 			case FhirPackage.QUESTIONNAIRE__DATE:
 				return getDate();
 			case FhirPackage.QUESTIONNAIRE__PUBLISHER:
 				return getPublisher();
+			case FhirPackage.QUESTIONNAIRE__CONTACT:
+				return getContact();
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return getUseContext();
+			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.QUESTIONNAIRE__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.QUESTIONNAIRE__PURPOSE:
 				return getPurpose();
+			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
+				return getCopyright();
 			case FhirPackage.QUESTIONNAIRE__APPROVAL_DATE:
 				return getApprovalDate();
 			case FhirPackage.QUESTIONNAIRE__LAST_REVIEW_DATE:
 				return getLastReviewDate();
 			case FhirPackage.QUESTIONNAIRE__EFFECTIVE_PERIOD:
 				return getEffectivePeriod();
-			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
-				return getUseContext();
-			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
-				return getJurisdiction();
-			case FhirPackage.QUESTIONNAIRE__CONTACT:
-				return getContact();
-			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
-				return getCopyright();
 			case FhirPackage.QUESTIONNAIRE__CODE:
 				return getCode();
-			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
-				return getSubjectType();
 			case FhirPackage.QUESTIONNAIRE__ITEM:
 				return getItem();
 		}
@@ -1152,11 +1142,19 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.QUESTIONNAIRE__DERIVED_FROM:
+				getDerivedFrom().clear();
+				getDerivedFrom().addAll((Collection<? extends Uri>)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE__STATUS:
 				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
+				getSubjectType().clear();
+				getSubjectType().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__DATE:
 				setDate((DateTime)newValue);
@@ -1164,11 +1162,26 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.QUESTIONNAIRE__CONTACT:
+				getContact().clear();
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				getUseContext().clear();
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE__DESCRIPTION:
 				setDescription((Markdown)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__PURPOSE:
 				setPurpose((Markdown)newValue);
+				return;
+			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__APPROVAL_DATE:
 				setApprovalDate((Date)newValue);
@@ -1179,28 +1192,9 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
-				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
-				getJurisdiction().clear();
-				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE__CONTACT:
-				getContact().clear();
-				getContact().addAll((Collection<? extends ContactDetail>)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
-				setCopyright((Markdown)newValue);
-				return;
 			case FhirPackage.QUESTIONNAIRE__CODE:
 				getCode().clear();
 				getCode().addAll((Collection<? extends Coding>)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
-				getSubjectType().clear();
-				getSubjectType().addAll((Collection<? extends ResourceType>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE__ITEM:
 				getItem().clear();
@@ -1233,11 +1227,17 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				setTitle((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE__DERIVED_FROM:
+				getDerivedFrom().clear();
+				return;
 			case FhirPackage.QUESTIONNAIRE__STATUS:
 				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
+				getSubjectType().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE__DATE:
 				setDate((DateTime)null);
@@ -1245,11 +1245,23 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.QUESTIONNAIRE__CONTACT:
+				getContact().clear();
+				return;
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				getUseContext().clear();
+				return;
+			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
+				getJurisdiction().clear();
+				return;
 			case FhirPackage.QUESTIONNAIRE__DESCRIPTION:
 				setDescription((Markdown)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE__PURPOSE:
 				setPurpose((Markdown)null);
+				return;
+			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE__APPROVAL_DATE:
 				setApprovalDate((Date)null);
@@ -1260,23 +1272,8 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 			case FhirPackage.QUESTIONNAIRE__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
-				getUseContext().clear();
-				return;
-			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
-				getJurisdiction().clear();
-				return;
-			case FhirPackage.QUESTIONNAIRE__CONTACT:
-				getContact().clear();
-				return;
-			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
-				setCopyright((Markdown)null);
-				return;
 			case FhirPackage.QUESTIONNAIRE__CODE:
 				getCode().clear();
-				return;
-			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
-				getSubjectType().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE__ITEM:
 				getItem().clear();
@@ -1303,36 +1300,38 @@ public class QuestionnaireImpl extends DomainResourceImpl implements Questionnai
 				return name != null;
 			case FhirPackage.QUESTIONNAIRE__TITLE:
 				return title != null;
+			case FhirPackage.QUESTIONNAIRE__DERIVED_FROM:
+				return derivedFrom != null && !derivedFrom.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__STATUS:
 				return status != null;
 			case FhirPackage.QUESTIONNAIRE__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
+				return subjectType != null && !subjectType.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__DATE:
 				return date != null;
 			case FhirPackage.QUESTIONNAIRE__PUBLISHER:
 				return publisher != null;
+			case FhirPackage.QUESTIONNAIRE__CONTACT:
+				return contact != null && !contact.isEmpty();
+			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
+				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__DESCRIPTION:
 				return description != null;
 			case FhirPackage.QUESTIONNAIRE__PURPOSE:
 				return purpose != null;
+			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
+				return copyright != null;
 			case FhirPackage.QUESTIONNAIRE__APPROVAL_DATE:
 				return approvalDate != null;
 			case FhirPackage.QUESTIONNAIRE__LAST_REVIEW_DATE:
 				return lastReviewDate != null;
 			case FhirPackage.QUESTIONNAIRE__EFFECTIVE_PERIOD:
 				return effectivePeriod != null;
-			case FhirPackage.QUESTIONNAIRE__USE_CONTEXT:
-				return useContext != null && !useContext.isEmpty();
-			case FhirPackage.QUESTIONNAIRE__JURISDICTION:
-				return jurisdiction != null && !jurisdiction.isEmpty();
-			case FhirPackage.QUESTIONNAIRE__CONTACT:
-				return contact != null && !contact.isEmpty();
-			case FhirPackage.QUESTIONNAIRE__COPYRIGHT:
-				return copyright != null;
 			case FhirPackage.QUESTIONNAIRE__CODE:
 				return code != null && !code.isEmpty();
-			case FhirPackage.QUESTIONNAIRE__SUBJECT_TYPE:
-				return subjectType != null && !subjectType.isEmpty();
 			case FhirPackage.QUESTIONNAIRE__ITEM:
 				return item != null && !item.isEmpty();
 		}

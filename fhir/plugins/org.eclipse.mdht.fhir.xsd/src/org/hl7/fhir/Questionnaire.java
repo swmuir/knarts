@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.QuestionnaireImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,21 +23,22 @@ import org.hl7.fhir.jaxb.QuestionnaireImplAdapter;
  *   <li>{@link org.hl7.fhir.Questionnaire#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getSubjectType <em>Subject Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPurpose <em>Purpose</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getApprovalDate <em>Approval Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getLastReviewDate <em>Last Review Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getJurisdiction <em>Jurisdiction</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getCode <em>Code</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getSubjectType <em>Subject Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getItem <em>Item</em>}</li>
  * </ul>
  *
@@ -48,14 +46,13 @@ import org.hl7.fhir.jaxb.QuestionnaireImplAdapter;
  * @model extendedMetaData="name='Questionnaire' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(QuestionnaireImplAdapter.class)
 public interface Questionnaire extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this questionnaire is (or will be) published. The URL SHOULD include the major version of the questionnaire. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -171,6 +168,22 @@ public interface Questionnaire extends DomainResource {
 	void setTitle(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL of a Questionnaire that this Questionnaire is based on.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Derived From</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_DerivedFrom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='derivedFrom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getDerivedFrom();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +234,22 @@ public interface Questionnaire extends DomainResource {
 	 * @generated
 	 */
 	void setExperimental(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The types of subjects that can be the subject of responses created for the questionnaire.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_SubjectType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subjectType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ResourceType> getSubjectType();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
@@ -275,6 +304,54 @@ public interface Questionnaire extends DomainResource {
 	void setPublisher(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Contact details to assist a user in finding and communicating with the publisher.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Contact</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Contact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContactDetail> getContact();
+
+	/**
+	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Use Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_UseContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<UsageContext> getUseContext();
+
+	/**
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A legal or geographic region in which the questionnaire is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getJurisdiction();
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,6 +402,32 @@ public interface Questionnaire extends DomainResource {
 	 * @generated
 	 */
 	void setPurpose(Markdown value);
+
+	/**
+	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Copyright</em>' containment reference.
+	 * @see #setCopyright(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Copyright()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='copyright' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Markdown getCopyright();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Questionnaire#getCopyright <em>Copyright</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Copyright</em>' containment reference.
+	 * @see #getCopyright()
+	 * @generated
+	 */
+	void setCopyright(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Approval Date</b></em>' containment reference.
@@ -405,80 +508,6 @@ public interface Questionnaire extends DomainResource {
 	void setEffectivePeriod(Period value);
 
 	/**
-	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Use Context</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_UseContext()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<UsageContext> getUseContext();
-
-	/**
-	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A legal or geographic region in which the questionnaire is intended to be used.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Jurisdiction()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getJurisdiction();
-
-	/**
-	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContactDetail}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contact details to assist a user in finding and communicating with the publisher.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Contact</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Contact()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='contact' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContactDetail> getContact();
-
-	/**
-	 * Returns the value of the '<em><b>Copyright</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Copyright</em>' containment reference.
-	 * @see #setCopyright(Markdown)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Copyright()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='copyright' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Markdown getCopyright();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Questionnaire#getCopyright <em>Copyright</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Copyright</em>' containment reference.
-	 * @see #getCopyright()
-	 * @generated
-	 */
-	void setCopyright(Markdown value);
-
-	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Coding}.
 	 * <!-- begin-user-doc -->
@@ -493,22 +522,6 @@ public interface Questionnaire extends DomainResource {
 	 * @generated
 	 */
 	EList<Coding> getCode();
-
-	/**
-	 * Returns the value of the '<em><b>Subject Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The types of subjects that can be the subject of responses created for the questionnaire.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_SubjectType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subjectType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ResourceType> getSubjectType();
 
 	/**
 	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.

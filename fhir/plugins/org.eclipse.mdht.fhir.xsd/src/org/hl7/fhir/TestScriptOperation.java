@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TestScriptOperationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.TestScriptOperationImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -42,7 +39,6 @@ import org.hl7.fhir.jaxb.TestScriptOperationImplAdapter;
  * @model extendedMetaData="name='TestScript.Operation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptOperationImplAdapter.class)
 public interface TestScriptOperation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -153,16 +149,16 @@ public interface TestScriptOperation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content-type or mime-type to use for RESTful operation in the 'Accept' header.
+	 * The mime-type to use for RESTful operation in the 'Accept' header.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Accept</em>' containment reference.
-	 * @see #setAccept(ContentType)
+	 * @see #setAccept(Code)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_Accept()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='accept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ContentType getAccept();
+	Code getAccept();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getAccept <em>Accept</em>}' containment reference.
@@ -172,23 +168,23 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @see #getAccept()
 	 * @generated
 	 */
-	void setAccept(ContentType value);
+	void setAccept(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Content Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+	 * The mime-type to use for RESTful operation in the 'Content-Type' header.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content Type</em>' containment reference.
-	 * @see #setContentType(ContentType)
+	 * @see #setContentType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_ContentType()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='contentType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ContentType getContentType();
+	Code getContentType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getContentType <em>Content Type</em>}' containment reference.
@@ -198,7 +194,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @see #getContentType()
 	 * @generated
 	 */
-	void setContentType(ContentType value);
+	void setContentType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Destination</b></em>' containment reference.

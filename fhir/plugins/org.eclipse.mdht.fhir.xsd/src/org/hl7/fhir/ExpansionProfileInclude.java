@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ExpansionProfileIncludeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ExpansionProfileIncludeImplAdapter;
  * @model extendedMetaData="name='ExpansionProfile.Include' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExpansionProfileIncludeImplAdapter.class)
 public interface ExpansionProfileInclude extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Designation</b></em>' containment reference list.

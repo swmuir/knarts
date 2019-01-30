@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.GroupMemberImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.GroupMemberImplAdapter;
  * @model extendedMetaData="name='Group.Member' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GroupMemberImplAdapter.class)
 public interface GroupMember extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Entity</b></em>' containment reference.

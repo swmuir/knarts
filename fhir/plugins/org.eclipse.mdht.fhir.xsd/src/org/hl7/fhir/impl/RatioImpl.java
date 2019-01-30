@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,8 +28,6 @@ import org.hl7.fhir.Ratio;
  *
  * @generated
  */
-@XmlType(name = "Ratio", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Ratio")
 public class RatioImpl extends ElementImpl implements Ratio {
 	/**
 	 * The cached value of the '{@link #getNumerator() <em>Numerator</em>}' containment reference.

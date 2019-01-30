@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CapabilityStatementOperationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,13 +18,13 @@ import org.hl7.fhir.jaxb.CapabilityStatementOperationImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.CapabilityStatementOperation#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementOperation#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.CapabilityStatementOperation#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCapabilityStatementOperation()
  * @model extendedMetaData="name='CapabilityStatement.Operation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementOperationImplAdapter.class)
 public interface CapabilityStatementOperation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -80,5 +77,31 @@ public interface CapabilityStatementOperation extends BackboneElement {
 	 * @generated
 	 */
 	void setDefinition(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Documentation</em>' containment reference.
+	 * @see #setDocumentation(Markdown)
+	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementOperation_Documentation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Markdown getDocumentation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementOperation#getDocumentation <em>Documentation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Documentation</em>' containment reference.
+	 * @see #getDocumentation()
+	 * @generated
+	 */
+	void setDocumentation(Markdown value);
 
 } // CapabilityStatementOperation

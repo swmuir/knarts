@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TriggerDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.TriggerDefinitionImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A description of a triggering event.
+ * A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -21,19 +18,19 @@ import org.hl7.fhir.jaxb.TriggerDefinitionImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.TriggerDefinition#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventName <em>Event Name</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventTimingTiming <em>Event Timing Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventTimingReference <em>Event Timing Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventTimingDate <em>Event Timing Date</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventTimingDateTime <em>Event Timing Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.TriggerDefinition#getEventData <em>Event Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getTimingTiming <em>Timing Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getTimingReference <em>Timing Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getTimingDate <em>Timing Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getData <em>Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.TriggerDefinition#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getTriggerDefinition()
  * @model extendedMetaData="name='TriggerDefinition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TriggerDefinitionImplAdapter.class)
 public interface TriggerDefinition extends Element {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -62,163 +59,189 @@ public interface TriggerDefinition extends Element {
 	void setType(TriggerType value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the event (if this is a named-event trigger).
+	 * A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event Name</em>' containment reference.
-	 * @see #setEventName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventName()
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_Name()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getEventName();
+	org.hl7.fhir.String getName();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventName <em>Event Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getName <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Name</em>' containment reference.
-	 * @see #getEventName()
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setEventName(org.hl7.fhir.String value);
+	void setName(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Timing Timing</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Timing Timing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Event Timing Timing</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Timing Timing</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Timing Timing</em>' containment reference.
-	 * @see #setEventTimingTiming(Timing)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventTimingTiming()
+	 * @return the value of the '<em>Timing Timing</em>' containment reference.
+	 * @see #setTimingTiming(Timing)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_TimingTiming()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventTimingTiming' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='timingTiming' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Timing getEventTimingTiming();
+	Timing getTimingTiming();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventTimingTiming <em>Event Timing Timing</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getTimingTiming <em>Timing Timing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Timing Timing</em>' containment reference.
-	 * @see #getEventTimingTiming()
+	 * @param value the new value of the '<em>Timing Timing</em>' containment reference.
+	 * @see #getTimingTiming()
 	 * @generated
 	 */
-	void setEventTimingTiming(Timing value);
+	void setTimingTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Timing Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Timing Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Event Timing Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Timing Reference</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Timing Reference</em>' containment reference.
-	 * @see #setEventTimingReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventTimingReference()
+	 * @return the value of the '<em>Timing Reference</em>' containment reference.
+	 * @see #setTimingReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_TimingReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventTimingReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='timingReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEventTimingReference();
+	Reference getTimingReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventTimingReference <em>Event Timing Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getTimingReference <em>Timing Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Timing Reference</em>' containment reference.
-	 * @see #getEventTimingReference()
+	 * @param value the new value of the '<em>Timing Reference</em>' containment reference.
+	 * @see #getTimingReference()
 	 * @generated
 	 */
-	void setEventTimingReference(Reference value);
+	void setTimingReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Timing Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Timing Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Event Timing Date</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Timing Date</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Timing Date</em>' containment reference.
-	 * @see #setEventTimingDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventTimingDate()
+	 * @return the value of the '<em>Timing Date</em>' containment reference.
+	 * @see #setTimingDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_TimingDate()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventTimingDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='timingDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getEventTimingDate();
+	Date getTimingDate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventTimingDate <em>Event Timing Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getTimingDate <em>Timing Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Timing Date</em>' containment reference.
-	 * @see #getEventTimingDate()
+	 * @param value the new value of the '<em>Timing Date</em>' containment reference.
+	 * @see #getTimingDate()
 	 * @generated
 	 */
-	void setEventTimingDate(Date value);
+	void setTimingDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Timing Date Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Timing Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Event Timing Date Time</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Timing Date Time</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Timing Date Time</em>' containment reference.
-	 * @see #setEventTimingDateTime(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventTimingDateTime()
+	 * @return the value of the '<em>Timing Date Time</em>' containment reference.
+	 * @see #setTimingDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_TimingDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventTimingDateTime' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='timingDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getEventTimingDateTime();
+	DateTime getTimingDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventTimingDateTime <em>Event Timing Date Time</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getTimingDateTime <em>Timing Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Timing Date Time</em>' containment reference.
-	 * @see #getEventTimingDateTime()
+	 * @param value the new value of the '<em>Timing Date Time</em>' containment reference.
+	 * @see #getTimingDateTime()
 	 * @generated
 	 */
-	void setEventTimingDateTime(DateTime value);
+	void setTimingDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Data</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Data</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The triggering data of the event (if this is a data trigger).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event Data</em>' containment reference.
-	 * @see #setEventData(DataRequirement)
-	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_EventData()
+	 * @return the value of the '<em>Data</em>' containment reference.
+	 * @see #setData(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_Data()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventData' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DataRequirement getEventData();
+	DataRequirement getData();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getEventData <em>Event Data</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getData <em>Data</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Data</em>' containment reference.
-	 * @see #getEventData()
+	 * @param value the new value of the '<em>Data</em>' containment reference.
+	 * @see #getData()
 	 * @generated
 	 */
-	void setEventData(DataRequirement value);
+	void setData(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Condition</em>' containment reference.
+	 * @see #setCondition(TriggerDefinitionCondition)
+	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_Condition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinitionCondition getCondition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getCondition <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' containment reference.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(TriggerDefinitionCondition value);
 
 } // TriggerDefinition

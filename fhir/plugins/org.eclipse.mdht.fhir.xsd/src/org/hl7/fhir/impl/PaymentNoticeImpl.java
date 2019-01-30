@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,9 +25,6 @@ import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.PaymentNotice;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +48,6 @@ import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PaymentNotice", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PaymentNotice")
 public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNotice {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -183,7 +173,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.PAYMENT_NOTICE__IDENTIFIER);
@@ -196,7 +185,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -326,7 +314,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getStatusDate() {
 		return statusDate;
 	}
@@ -370,7 +357,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}

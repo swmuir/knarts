@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,9 +21,6 @@ import org.hl7.fhir.DaysOfWeek;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HealthcareServiceAvailableTime;
 import org.hl7.fhir.Time;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DaysOfWeekImplAdapter;
-import org.hl7.fhir.jaxb.TimeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,8 +38,6 @@ import org.hl7.fhir.jaxb.TimeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "HealthcareServiceAvailableTime", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "HealthcareServiceAvailableTime")
 public class HealthcareServiceAvailableTimeImpl extends BackboneElementImpl implements HealthcareServiceAvailableTime {
 	/**
 	 * The cached value of the '{@link #getDaysOfWeek() <em>Days Of Week</em>}' containment reference list.
@@ -113,8 +103,6 @@ public class HealthcareServiceAvailableTimeImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DaysOfWeekImplAdapter.class)
-	@XmlElement
 	public EList<DaysOfWeek> getDaysOfWeek() {
 		if (daysOfWeek == null) {
 			daysOfWeek = new EObjectContainmentEList<DaysOfWeek>(DaysOfWeek.class, this, FhirPackage.HEALTHCARE_SERVICE_AVAILABLE_TIME__DAYS_OF_WEEK);
@@ -127,7 +115,6 @@ public class HealthcareServiceAvailableTimeImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAllDay() {
 		return allDay;
 	}
@@ -171,7 +158,6 @@ public class HealthcareServiceAvailableTimeImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getAvailableStartTime() {
 		return availableStartTime;
 	}
@@ -215,7 +201,6 @@ public class HealthcareServiceAvailableTimeImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TimeImplAdapter.class)
 	public Time getAvailableEndTime() {
 		return availableEndTime;
 	}

@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,9 +14,6 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,8 +31,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ElementDefinitionMapping", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ElementDefinitionMapping")
 public class ElementDefinitionMappingImpl extends ElementImpl implements ElementDefinitionMapping {
 	/**
 	 * The cached value of the '{@link #getIdentity() <em>Identity</em>}' containment reference.
@@ -106,8 +96,6 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
-	@XmlElement(required = true)
 	public Id getIdentity() {
 		return identity;
 	}
@@ -151,7 +139,6 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getLanguage() {
 		return language;
 	}
@@ -195,8 +182,6 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getMap() {
 		return map;
 	}
@@ -240,7 +225,6 @@ public class ElementDefinitionMappingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

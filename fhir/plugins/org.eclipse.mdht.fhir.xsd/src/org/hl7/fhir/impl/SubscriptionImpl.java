@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,9 +24,6 @@ import org.hl7.fhir.Instant;
 import org.hl7.fhir.Subscription;
 import org.hl7.fhir.SubscriptionChannel;
 import org.hl7.fhir.SubscriptionStatus;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.SubscriptionStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,8 +45,6 @@ import org.hl7.fhir.jaxb.SubscriptionStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Subscription", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Subscription")
 public class SubscriptionImpl extends DomainResourceImpl implements Subscription {
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -160,8 +150,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SubscriptionStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public SubscriptionStatus getStatus() {
 		return status;
 	}
@@ -205,7 +193,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.SUBSCRIPTION__CONTACT);
@@ -218,7 +205,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getEnd() {
 		return end;
 	}
@@ -262,8 +248,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getReason() {
 		return reason;
 	}
@@ -307,8 +291,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getCriteria() {
 		return criteria;
 	}
@@ -352,7 +334,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getError() {
 		return error;
 	}
@@ -396,7 +377,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public SubscriptionChannel getChannel() {
 		return channel;
 	}
@@ -440,7 +420,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getTag() {
 		if (tag == null) {
 			tag = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.SUBSCRIPTION__TAG);

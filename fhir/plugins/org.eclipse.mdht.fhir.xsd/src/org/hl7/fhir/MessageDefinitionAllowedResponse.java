@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MessageDefinitionAllowedResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MessageDefinitionAllowedResponseImplAdapter;
  * @model extendedMetaData="name='MessageDefinition.AllowedResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageDefinitionAllowedResponseImplAdapter.class)
 public interface MessageDefinitionAllowedResponse extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' containment reference.

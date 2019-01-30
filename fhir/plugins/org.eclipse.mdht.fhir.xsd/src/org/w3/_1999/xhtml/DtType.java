@@ -4,10 +4,6 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.DtTypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Dt Type</b></em>'.
@@ -30,7 +26,6 @@ import org.w3._1999.xhtml.jaxb.DtTypeImplAdapter;
  * @model extendedMetaData="name='dt_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(DtTypeImplAdapter.class)
 public interface DtType extends Inline {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' attribute.

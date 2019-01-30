@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,8 +29,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "DocumentReferenceRelated", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DocumentReferenceRelated")
 public class DocumentReferenceRelatedImpl extends BackboneElementImpl implements DocumentReferenceRelated {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.

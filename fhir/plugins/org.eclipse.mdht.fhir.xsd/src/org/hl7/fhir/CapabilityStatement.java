@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CapabilityStatementImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +41,6 @@ import org.hl7.fhir.jaxb.CapabilityStatementImplAdapter;
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getFormat <em>Format</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getPatchFormat <em>Patch Format</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getImplementationGuide <em>Implementation Guide</em>}</li>
- *   <li>{@link org.hl7.fhir.CapabilityStatement#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getRest <em>Rest</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getMessaging <em>Messaging</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getDocument <em>Document</em>}</li>
@@ -54,14 +50,13 @@ import org.hl7.fhir.jaxb.CapabilityStatementImplAdapter;
  * @model extendedMetaData="name='CapabilityStatement' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementImplAdapter.class)
 public interface CapabilityStatement extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -583,22 +578,6 @@ public interface CapabilityStatement extends DomainResource {
 	 * @generated
 	 */
 	EList<Uri> getImplementationGuide();
-
-	/**
-	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Profile</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_Profile()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Rest</b></em>' containment reference list.

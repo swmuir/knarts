@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.BundleLinkImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.BundleLinkImplAdapter;
  * @model extendedMetaData="name='Bundle.Link' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(BundleLinkImplAdapter.class)
 public interface BundleLink extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Relation</b></em>' containment reference.

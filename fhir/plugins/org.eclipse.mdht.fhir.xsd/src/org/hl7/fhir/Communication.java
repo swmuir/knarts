@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CommunicationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +19,19 @@ import org.hl7.fhir.jaxb.CommunicationImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Communication#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getInResponseTo <em>In Response To</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getNotDoneReason <em>Not Done Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getAbout <em>About</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSent <em>Sent</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getReceived <em>Received</em>}</li>
@@ -47,7 +46,6 @@ import org.hl7.fhir.jaxb.CommunicationImplAdapter;
  * @model extendedMetaData="name='Communication' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CommunicationImplAdapter.class)
 public interface Communication extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -66,20 +64,20 @@ public interface Communication extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A protocol, guideline, or other definition that was adhered to in whole or in part by this communication event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_Definition()
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_Instantiates()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Uri> getInstantiates();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -114,6 +112,22 @@ public interface Communication extends DomainResource {
 	EList<Reference> getPartOf();
 
 	/**
+	 * Returns the value of the '<em><b>In Response To</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Prior communication that this communication is in response to.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>In Response To</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_InResponseTo()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='inResponseTo' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getInResponseTo();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,56 +154,30 @@ public interface Communication extends DomainResource {
 	void setStatus(EventStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, indicates that the described communication event did not actually occur.
+	 * Captures the reason for the current state of the Communication.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done</em>' containment reference.
-	 * @see #setNotDone(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_NotDone()
+	 * @return the value of the '<em>Status Reason</em>' containment reference.
+	 * @see #setStatusReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_StatusReason()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getNotDone();
+	CodeableConcept getStatusReason();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Communication#getNotDone <em>Not Done</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Communication#getStatusReason <em>Status Reason</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done</em>' containment reference.
-	 * @see #getNotDone()
+	 * @param value the new value of the '<em>Status Reason</em>' containment reference.
+	 * @see #getStatusReason()
 	 * @generated
 	 */
-	void setNotDone(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Not Done Reason</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes why the communication event did not occur in coded and/or textual form.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #setNotDoneReason(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_NotDoneReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDoneReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getNotDoneReason();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Communication#getNotDoneReason <em>Not Done Reason</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done Reason</em>' containment reference.
-	 * @see #getNotDoneReason()
-	 * @generated
-	 */
-	void setNotDoneReason(CodeableConcept value);
+	void setStatusReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
@@ -206,6 +194,32 @@ public interface Communication extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getCategory();
+
+	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_Priority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Communication#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Medium</b></em>' containment reference list.
@@ -255,7 +269,7 @@ public interface Communication extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
+	 * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient. Â Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Recipient</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCommunication_Recipient()
@@ -266,20 +280,46 @@ public interface Communication extends DomainResource {
 	EList<Reference> getRecipient();
 
 	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resources which were responsible for or related to producing this communication.
+	 * Description of the purpose/content, similar to a subject line in an email.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference list.
+	 * @return the value of the '<em>Topic</em>' containment reference.
+	 * @see #setTopic(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getCommunication_Topic()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='topic' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getTopic();
+	CodeableConcept getTopic();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Communication#getTopic <em>Topic</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Topic</em>' containment reference.
+	 * @see #getTopic()
+	 * @generated
+	 */
+	void setTopic(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>About</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Other resources that pertain to this communication and to which this communication should be associated.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>About</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_About()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='about' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getAbout();
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' containment reference.

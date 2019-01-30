@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SubstanceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,6 @@ import org.hl7.fhir.jaxb.SubstanceImplAdapter;
  * @model extendedMetaData="name='Substance' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SubstanceImplAdapter.class)
 public interface Substance extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

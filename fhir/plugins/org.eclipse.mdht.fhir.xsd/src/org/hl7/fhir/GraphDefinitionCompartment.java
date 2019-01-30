@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.GraphDefinitionCompartmentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +16,7 @@ import org.hl7.fhir.jaxb.GraphDefinitionCompartmentImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.GraphDefinitionCompartment#getUse <em>Use</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionCompartment#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionCompartment#getRule <em>Rule</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionCompartment#getExpression <em>Expression</em>}</li>
@@ -29,8 +27,33 @@ import org.hl7.fhir.jaxb.GraphDefinitionCompartmentImplAdapter;
  * @model extendedMetaData="name='GraphDefinition.Compartment' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GraphDefinitionCompartmentImplAdapter.class)
 public interface GraphDefinitionCompartment extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Use</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Use</em>' containment reference.
+	 * @see #setUse(GraphCompartmentUse)
+	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionCompartment_Use()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='use' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	GraphCompartmentUse getUse();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinitionCompartment#getUse <em>Use</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use</em>' containment reference.
+	 * @see #getUse()
+	 * @generated
+	 */
+	void setUse(GraphCompartmentUse value);
+
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

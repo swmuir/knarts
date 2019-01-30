@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,11 +17,8 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
+import org.hl7.fhir.TriggerDefinitionCondition;
 import org.hl7.fhir.TriggerType;
-import org.hl7.fhir.jaxb.DateImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.TriggerTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,18 +29,17 @@ import org.hl7.fhir.jaxb.TriggerTypeImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventName <em>Event Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventTimingTiming <em>Event Timing Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventTimingReference <em>Event Timing Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventTimingDate <em>Event Timing Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventTimingDateTime <em>Event Timing Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getEventData <em>Event Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getTimingTiming <em>Timing Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getTimingReference <em>Timing Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getTimingDate <em>Timing Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getData <em>Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TriggerDefinitionImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "TriggerDefinition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TriggerDefinition")
 public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinition {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -61,64 +52,74 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	protected TriggerType type;
 
 	/**
-	 * The cached value of the '{@link #getEventName() <em>Event Name</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventName()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String eventName;
+	protected org.hl7.fhir.String name;
 
 	/**
-	 * The cached value of the '{@link #getEventTimingTiming() <em>Event Timing Timing</em>}' containment reference.
+	 * The cached value of the '{@link #getTimingTiming() <em>Timing Timing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventTimingTiming()
+	 * @see #getTimingTiming()
 	 * @generated
 	 * @ordered
 	 */
-	protected Timing eventTimingTiming;
+	protected Timing timingTiming;
 
 	/**
-	 * The cached value of the '{@link #getEventTimingReference() <em>Event Timing Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getTimingReference() <em>Timing Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventTimingReference()
+	 * @see #getTimingReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference eventTimingReference;
+	protected Reference timingReference;
 
 	/**
-	 * The cached value of the '{@link #getEventTimingDate() <em>Event Timing Date</em>}' containment reference.
+	 * The cached value of the '{@link #getTimingDate() <em>Timing Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventTimingDate()
+	 * @see #getTimingDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date eventTimingDate;
+	protected Date timingDate;
 
 	/**
-	 * The cached value of the '{@link #getEventTimingDateTime() <em>Event Timing Date Time</em>}' containment reference.
+	 * The cached value of the '{@link #getTimingDateTime() <em>Timing Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventTimingDateTime()
+	 * @see #getTimingDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime eventTimingDateTime;
+	protected DateTime timingDateTime;
 
 	/**
-	 * The cached value of the '{@link #getEventData() <em>Event Data</em>}' containment reference.
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventData()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected DataRequirement eventData;
+	protected DataRequirement data;
+
+	/**
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TriggerDefinitionCondition condition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,8 +145,6 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TriggerTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public TriggerType getType() {
 		return type;
 	}
@@ -189,9 +188,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	public org.hl7.fhir.String getEventName() {
-		return eventName;
+	public org.hl7.fhir.String getName() {
+		return name;
 	}
 
 	/**
@@ -199,11 +197,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventName(org.hl7.fhir.String newEventName, NotificationChain msgs) {
-		org.hl7.fhir.String oldEventName = eventName;
-		eventName = newEventName;
+	public NotificationChain basicSetName(org.hl7.fhir.String newName, NotificationChain msgs) {
+		org.hl7.fhir.String oldName = name;
+		name = newName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_NAME, oldEventName, newEventName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__NAME, oldName, newName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -214,18 +212,18 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventName(org.hl7.fhir.String newEventName) {
-		if (newEventName != eventName) {
+	public void setName(org.hl7.fhir.String newName) {
+		if (newName != name) {
 			NotificationChain msgs = null;
-			if (eventName != null)
-				msgs = ((InternalEObject)eventName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_NAME, null, msgs);
-			if (newEventName != null)
-				msgs = ((InternalEObject)newEventName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_NAME, null, msgs);
-			msgs = basicSetEventName(newEventName, msgs);
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_NAME, newEventName, newEventName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__NAME, newName, newName));
 	}
 
 	/**
@@ -233,8 +231,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Timing getEventTimingTiming() {
-		return eventTimingTiming;
+	public Timing getTimingTiming() {
+		return timingTiming;
 	}
 
 	/**
@@ -242,11 +240,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventTimingTiming(Timing newEventTimingTiming, NotificationChain msgs) {
-		Timing oldEventTimingTiming = eventTimingTiming;
-		eventTimingTiming = newEventTimingTiming;
+	public NotificationChain basicSetTimingTiming(Timing newTimingTiming, NotificationChain msgs) {
+		Timing oldTimingTiming = timingTiming;
+		timingTiming = newTimingTiming;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING, oldEventTimingTiming, newEventTimingTiming);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING, oldTimingTiming, newTimingTiming);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -257,18 +255,18 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventTimingTiming(Timing newEventTimingTiming) {
-		if (newEventTimingTiming != eventTimingTiming) {
+	public void setTimingTiming(Timing newTimingTiming) {
+		if (newTimingTiming != timingTiming) {
 			NotificationChain msgs = null;
-			if (eventTimingTiming != null)
-				msgs = ((InternalEObject)eventTimingTiming).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING, null, msgs);
-			if (newEventTimingTiming != null)
-				msgs = ((InternalEObject)newEventTimingTiming).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING, null, msgs);
-			msgs = basicSetEventTimingTiming(newEventTimingTiming, msgs);
+			if (timingTiming != null)
+				msgs = ((InternalEObject)timingTiming).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING, null, msgs);
+			if (newTimingTiming != null)
+				msgs = ((InternalEObject)newTimingTiming).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING, null, msgs);
+			msgs = basicSetTimingTiming(newTimingTiming, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING, newEventTimingTiming, newEventTimingTiming));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING, newTimingTiming, newTimingTiming));
 	}
 
 	/**
@@ -276,8 +274,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEventTimingReference() {
-		return eventTimingReference;
+	public Reference getTimingReference() {
+		return timingReference;
 	}
 
 	/**
@@ -285,11 +283,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventTimingReference(Reference newEventTimingReference, NotificationChain msgs) {
-		Reference oldEventTimingReference = eventTimingReference;
-		eventTimingReference = newEventTimingReference;
+	public NotificationChain basicSetTimingReference(Reference newTimingReference, NotificationChain msgs) {
+		Reference oldTimingReference = timingReference;
+		timingReference = newTimingReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE, oldEventTimingReference, newEventTimingReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE, oldTimingReference, newTimingReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -300,18 +298,18 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventTimingReference(Reference newEventTimingReference) {
-		if (newEventTimingReference != eventTimingReference) {
+	public void setTimingReference(Reference newTimingReference) {
+		if (newTimingReference != timingReference) {
 			NotificationChain msgs = null;
-			if (eventTimingReference != null)
-				msgs = ((InternalEObject)eventTimingReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE, null, msgs);
-			if (newEventTimingReference != null)
-				msgs = ((InternalEObject)newEventTimingReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE, null, msgs);
-			msgs = basicSetEventTimingReference(newEventTimingReference, msgs);
+			if (timingReference != null)
+				msgs = ((InternalEObject)timingReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE, null, msgs);
+			if (newTimingReference != null)
+				msgs = ((InternalEObject)newTimingReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE, null, msgs);
+			msgs = basicSetTimingReference(newTimingReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE, newEventTimingReference, newEventTimingReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE, newTimingReference, newTimingReference));
 	}
 
 	/**
@@ -319,9 +317,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
-	public Date getEventTimingDate() {
-		return eventTimingDate;
+	public Date getTimingDate() {
+		return timingDate;
 	}
 
 	/**
@@ -329,11 +326,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventTimingDate(Date newEventTimingDate, NotificationChain msgs) {
-		Date oldEventTimingDate = eventTimingDate;
-		eventTimingDate = newEventTimingDate;
+	public NotificationChain basicSetTimingDate(Date newTimingDate, NotificationChain msgs) {
+		Date oldTimingDate = timingDate;
+		timingDate = newTimingDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE, oldEventTimingDate, newEventTimingDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_DATE, oldTimingDate, newTimingDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -344,18 +341,18 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventTimingDate(Date newEventTimingDate) {
-		if (newEventTimingDate != eventTimingDate) {
+	public void setTimingDate(Date newTimingDate) {
+		if (newTimingDate != timingDate) {
 			NotificationChain msgs = null;
-			if (eventTimingDate != null)
-				msgs = ((InternalEObject)eventTimingDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE, null, msgs);
-			if (newEventTimingDate != null)
-				msgs = ((InternalEObject)newEventTimingDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE, null, msgs);
-			msgs = basicSetEventTimingDate(newEventTimingDate, msgs);
+			if (timingDate != null)
+				msgs = ((InternalEObject)timingDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_DATE, null, msgs);
+			if (newTimingDate != null)
+				msgs = ((InternalEObject)newTimingDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_DATE, null, msgs);
+			msgs = basicSetTimingDate(newTimingDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE, newEventTimingDate, newEventTimingDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_DATE, newTimingDate, newTimingDate));
 	}
 
 	/**
@@ -363,9 +360,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	public DateTime getEventTimingDateTime() {
-		return eventTimingDateTime;
+	public DateTime getTimingDateTime() {
+		return timingDateTime;
 	}
 
 	/**
@@ -373,11 +369,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventTimingDateTime(DateTime newEventTimingDateTime, NotificationChain msgs) {
-		DateTime oldEventTimingDateTime = eventTimingDateTime;
-		eventTimingDateTime = newEventTimingDateTime;
+	public NotificationChain basicSetTimingDateTime(DateTime newTimingDateTime, NotificationChain msgs) {
+		DateTime oldTimingDateTime = timingDateTime;
+		timingDateTime = newTimingDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME, oldEventTimingDateTime, newEventTimingDateTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME, oldTimingDateTime, newTimingDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -388,18 +384,18 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventTimingDateTime(DateTime newEventTimingDateTime) {
-		if (newEventTimingDateTime != eventTimingDateTime) {
+	public void setTimingDateTime(DateTime newTimingDateTime) {
+		if (newTimingDateTime != timingDateTime) {
 			NotificationChain msgs = null;
-			if (eventTimingDateTime != null)
-				msgs = ((InternalEObject)eventTimingDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME, null, msgs);
-			if (newEventTimingDateTime != null)
-				msgs = ((InternalEObject)newEventTimingDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME, null, msgs);
-			msgs = basicSetEventTimingDateTime(newEventTimingDateTime, msgs);
+			if (timingDateTime != null)
+				msgs = ((InternalEObject)timingDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME, null, msgs);
+			if (newTimingDateTime != null)
+				msgs = ((InternalEObject)newTimingDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME, null, msgs);
+			msgs = basicSetTimingDateTime(newTimingDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME, newEventTimingDateTime, newEventTimingDateTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME, newTimingDateTime, newTimingDateTime));
 	}
 
 	/**
@@ -407,8 +403,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataRequirement getEventData() {
-		return eventData;
+	public DataRequirement getData() {
+		return data;
 	}
 
 	/**
@@ -416,11 +412,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventData(DataRequirement newEventData, NotificationChain msgs) {
-		DataRequirement oldEventData = eventData;
-		eventData = newEventData;
+	public NotificationChain basicSetData(DataRequirement newData, NotificationChain msgs) {
+		DataRequirement oldData = data;
+		data = newData;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_DATA, oldEventData, newEventData);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__DATA, oldData, newData);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -431,18 +427,61 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventData(DataRequirement newEventData) {
-		if (newEventData != eventData) {
+	public void setData(DataRequirement newData) {
+		if (newData != data) {
 			NotificationChain msgs = null;
-			if (eventData != null)
-				msgs = ((InternalEObject)eventData).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_DATA, null, msgs);
-			if (newEventData != null)
-				msgs = ((InternalEObject)newEventData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__EVENT_DATA, null, msgs);
-			msgs = basicSetEventData(newEventData, msgs);
+			if (data != null)
+				msgs = ((InternalEObject)data).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__DATA, null, msgs);
+			if (newData != null)
+				msgs = ((InternalEObject)newData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__DATA, null, msgs);
+			msgs = basicSetData(newData, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__EVENT_DATA, newEventData, newEventData));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__DATA, newData, newData));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TriggerDefinitionCondition getCondition() {
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCondition(TriggerDefinitionCondition newCondition, NotificationChain msgs) {
+		TriggerDefinitionCondition oldCondition = condition;
+		condition = newCondition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__CONDITION, oldCondition, newCondition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCondition(TriggerDefinitionCondition newCondition) {
+		if (newCondition != condition) {
+			NotificationChain msgs = null;
+			if (condition != null)
+				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__CONDITION, null, msgs);
+			if (newCondition != null)
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__CONDITION, null, msgs);
+			msgs = basicSetCondition(newCondition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__CONDITION, newCondition, newCondition));
 	}
 
 	/**
@@ -455,18 +494,20 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 		switch (featureID) {
 			case FhirPackage.TRIGGER_DEFINITION__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_NAME:
-				return basicSetEventName(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING:
-				return basicSetEventTimingTiming(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE:
-				return basicSetEventTimingReference(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE:
-				return basicSetEventTimingDate(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME:
-				return basicSetEventTimingDateTime(null, msgs);
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_DATA:
-				return basicSetEventData(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__NAME:
+				return basicSetName(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING:
+				return basicSetTimingTiming(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE:
+				return basicSetTimingReference(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE:
+				return basicSetTimingDate(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
+				return basicSetTimingDateTime(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__DATA:
+				return basicSetData(null, msgs);
+			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
+				return basicSetCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -481,18 +522,20 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 		switch (featureID) {
 			case FhirPackage.TRIGGER_DEFINITION__TYPE:
 				return getType();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_NAME:
-				return getEventName();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING:
-				return getEventTimingTiming();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE:
-				return getEventTimingReference();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE:
-				return getEventTimingDate();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME:
-				return getEventTimingDateTime();
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_DATA:
-				return getEventData();
+			case FhirPackage.TRIGGER_DEFINITION__NAME:
+				return getName();
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING:
+				return getTimingTiming();
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE:
+				return getTimingReference();
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE:
+				return getTimingDate();
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
+				return getTimingDateTime();
+			case FhirPackage.TRIGGER_DEFINITION__DATA:
+				return getData();
+			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
+				return getCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -508,23 +551,26 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 			case FhirPackage.TRIGGER_DEFINITION__TYPE:
 				setType((TriggerType)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_NAME:
-				setEventName((org.hl7.fhir.String)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__NAME:
+				setName((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING:
-				setEventTimingTiming((Timing)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING:
+				setTimingTiming((Timing)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE:
-				setEventTimingReference((Reference)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE:
+				setTimingReference((Reference)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE:
-				setEventTimingDate((Date)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE:
+				setTimingDate((Date)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME:
-				setEventTimingDateTime((DateTime)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
+				setTimingDateTime((DateTime)newValue);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_DATA:
-				setEventData((DataRequirement)newValue);
+			case FhirPackage.TRIGGER_DEFINITION__DATA:
+				setData((DataRequirement)newValue);
+				return;
+			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
+				setCondition((TriggerDefinitionCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -541,23 +587,26 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 			case FhirPackage.TRIGGER_DEFINITION__TYPE:
 				setType((TriggerType)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_NAME:
-				setEventName((org.hl7.fhir.String)null);
+			case FhirPackage.TRIGGER_DEFINITION__NAME:
+				setName((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING:
-				setEventTimingTiming((Timing)null);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING:
+				setTimingTiming((Timing)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE:
-				setEventTimingReference((Reference)null);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE:
+				setTimingReference((Reference)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE:
-				setEventTimingDate((Date)null);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE:
+				setTimingDate((Date)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME:
-				setEventTimingDateTime((DateTime)null);
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
+				setTimingDateTime((DateTime)null);
 				return;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_DATA:
-				setEventData((DataRequirement)null);
+			case FhirPackage.TRIGGER_DEFINITION__DATA:
+				setData((DataRequirement)null);
+				return;
+			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
+				setCondition((TriggerDefinitionCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -573,18 +622,20 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 		switch (featureID) {
 			case FhirPackage.TRIGGER_DEFINITION__TYPE:
 				return type != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_NAME:
-				return eventName != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_TIMING:
-				return eventTimingTiming != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_REFERENCE:
-				return eventTimingReference != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE:
-				return eventTimingDate != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_TIMING_DATE_TIME:
-				return eventTimingDateTime != null;
-			case FhirPackage.TRIGGER_DEFINITION__EVENT_DATA:
-				return eventData != null;
+			case FhirPackage.TRIGGER_DEFINITION__NAME:
+				return name != null;
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_TIMING:
+				return timingTiming != null;
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_REFERENCE:
+				return timingReference != null;
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE:
+				return timingDate != null;
+			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
+				return timingDateTime != null;
+			case FhirPackage.TRIGGER_DEFINITION__DATA:
+				return data != null;
+			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
+				return condition != null;
 		}
 		return super.eIsSet(featureID);
 	}

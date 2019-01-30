@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ClinicalImpressionFindingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.ClinicalImpressionFindingImplAdapter;
  * @model extendedMetaData="name='ClinicalImpression.Finding' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClinicalImpressionFindingImplAdapter.class)
 public interface ClinicalImpressionFinding extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Item Codeable Concept</b></em>' containment reference.

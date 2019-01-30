@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -54,7 +54,7 @@
               <xs:documentation xml:lang="en">This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="definition" minOccurs="0" maxOccurs="unbounded" type="Reference">
+          <xs:element name="instantiates" minOccurs="0" maxOccurs="unbounded" type="uri">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.</xs:documentation>
            </xs:annotation>
@@ -196,12 +196,12 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="category" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="kind" minOccurs="0" maxOccurs="1" type="CarePlanActivityKind">
             <xs:annotation>
-              <xs:documentation xml:lang="en">High-level categorization of the type of activity in a care plan.</xs:documentation>
+              <xs:documentation xml:lang="en">A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="definition" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="instantiates" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.</xs:documentation>
            </xs:annotation>
@@ -218,7 +218,7 @@
           </xs:element>
           <xs:element name="reasonReference" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.</xs:documentation>
+              <xs:documentation xml:lang="en">Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="goal" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -282,6 +282,96 @@
            </xs:annotation>
           </xs:element>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="CarePlanActivityKind-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="Appointment">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Appointment</xs:documentation>
+          <xs:documentation xml:lang="en">Appointment</xs:documentation>
+          <xs:documentation xml:lang="it">Appuntamento</xs:documentation>
+          <xs:documentation xml:lang="fr">RendezVous</xs:documentation>
+          <xs:documentation xml:lang="es">Cita</xs:documentation>
+          <xs:documentation xml:lang="zh">预约</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CommunicationRequest">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">CommunicationRequest</xs:documentation>
+          <xs:documentation xml:lang="en">CommunicationRequest</xs:documentation>
+          <xs:documentation xml:lang="it">RichiestaDiComunicazione</xs:documentation>
+          <xs:documentation xml:lang="fr">DemandeDeCommunication</xs:documentation>
+          <xs:documentation xml:lang="es">ComunicaciónRequerimiento</xs:documentation>
+          <xs:documentation xml:lang="zh">通讯请求</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DeviceRequest">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">DeviceRequest</xs:documentation>
+          <xs:documentation xml:lang="en">DeviceRequest</xs:documentation>
+          <xs:documentation xml:lang="it">RichiestaDispositivo</xs:documentation>
+          <xs:documentation xml:lang="fr">DemandeUtilisationDispositif</xs:documentation>
+          <xs:documentation xml:lang="es">SolicitudDeDispositivo</xs:documentation>
+          <xs:documentation xml:lang="zh">装置请求</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MedicationRequest">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">MedicationRequest</xs:documentation>
+          <xs:documentation xml:lang="en">MedicationRequest</xs:documentation>
+          <xs:documentation xml:lang="fr">PrescriptionMédicamenteuseTODO</xs:documentation>
+          <xs:documentation xml:lang="zh">药物请求</xs:documentation>
+          <xs:documentation xml:lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NutritionOrder">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">NutritionOrder</xs:documentation>
+          <xs:documentation xml:lang="en">NutritionOrder</xs:documentation>
+          <xs:documentation xml:lang="fr">OrdreNutrition</xs:documentation>
+          <xs:documentation xml:lang="es">OrdenNutrición</xs:documentation>
+          <xs:documentation xml:lang="zh">营养医嘱</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Task">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Task</xs:documentation>
+          <xs:documentation xml:lang="en">Task</xs:documentation>
+          <xs:documentation xml:lang="es">Tarea</xs:documentation>
+          <xs:documentation xml:lang="zh">任务</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ServiceRequest">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">ServiceRequest</xs:documentation>
+          <xs:documentation xml:lang="en">ServiceRequest</xs:documentation>
+          <xs:documentation xml:lang="it">RichiestaDiServizio</xs:documentation>
+          <xs:documentation xml:lang="fr">DemandeService</xs:documentation>
+          <xs:documentation xml:lang="es">PeticiónServicio</xs:documentation>
+          <xs:documentation xml:lang="zh">服务项目请求</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VisionPrescription">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">VisionPrescription</xs:documentation>
+          <xs:documentation xml:lang="en">VisionPrescription</xs:documentation>
+          <xs:documentation xml:lang="fr">PrescriptionVision</xs:documentation>
+          <xs:documentation xml:lang="es">PrescripcionDeVision</xs:documentation>
+          <xs:documentation xml:lang="zh">视力处方</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CarePlanActivityKind">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="CarePlanActivityKind-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -365,6 +455,11 @@
       <xs:enumeration value="cancelled">
         <xs:annotation>
           <xs:documentation xml:lang="en">Cancelled</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="stopped">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Stopped</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="unknown">

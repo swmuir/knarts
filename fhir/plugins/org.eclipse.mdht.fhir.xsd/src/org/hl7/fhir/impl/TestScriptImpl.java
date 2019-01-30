@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -43,12 +38,6 @@ import org.hl7.fhir.TestScriptTest;
 import org.hl7.fhir.TestScriptVariable;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,8 +77,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestScript", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScript")
 public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -375,8 +362,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -463,7 +448,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -507,8 +491,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -552,7 +534,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -596,8 +577,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -641,7 +620,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -685,7 +663,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -729,7 +706,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -773,7 +749,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.TEST_SCRIPT__CONTACT);
@@ -786,7 +761,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -830,7 +804,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.TEST_SCRIPT__USE_CONTEXT);
@@ -843,7 +816,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.TEST_SCRIPT__JURISDICTION);
@@ -856,7 +828,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -900,7 +871,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -944,7 +914,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptOrigin> getOrigin() {
 		if (origin == null) {
 			origin = new EObjectContainmentEList<TestScriptOrigin>(TestScriptOrigin.class, this, FhirPackage.TEST_SCRIPT__ORIGIN);
@@ -957,7 +926,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptDestination> getDestination() {
 		if (destination == null) {
 			destination = new EObjectContainmentEList<TestScriptDestination>(TestScriptDestination.class, this, FhirPackage.TEST_SCRIPT__DESTINATION);
@@ -1013,7 +981,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptFixture> getFixture() {
 		if (fixture == null) {
 			fixture = new EObjectContainmentEList<TestScriptFixture>(TestScriptFixture.class, this, FhirPackage.TEST_SCRIPT__FIXTURE);
@@ -1026,7 +993,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getProfile() {
 		if (profile == null) {
 			profile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TEST_SCRIPT__PROFILE);
@@ -1039,7 +1005,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptVariable> getVariable() {
 		if (variable == null) {
 			variable = new EObjectContainmentEList<TestScriptVariable>(TestScriptVariable.class, this, FhirPackage.TEST_SCRIPT__VARIABLE);
@@ -1052,7 +1017,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptRule> getRule() {
 		if (rule == null) {
 			rule = new EObjectContainmentEList<TestScriptRule>(TestScriptRule.class, this, FhirPackage.TEST_SCRIPT__RULE);
@@ -1065,7 +1029,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptRuleset> getRuleset() {
 		if (ruleset == null) {
 			ruleset = new EObjectContainmentEList<TestScriptRuleset>(TestScriptRuleset.class, this, FhirPackage.TEST_SCRIPT__RULESET);
@@ -1121,7 +1084,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<TestScriptTest> getTest() {
 		if (test == null) {
 			test = new EObjectContainmentEList<TestScriptTest>(TestScriptTest.class, this, FhirPackage.TEST_SCRIPT__TEST);

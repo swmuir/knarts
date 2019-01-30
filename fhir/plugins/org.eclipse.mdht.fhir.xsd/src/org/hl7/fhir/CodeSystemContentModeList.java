@@ -58,7 +58,17 @@ public enum CodeSystemContentModeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETE(3, "complete", "complete");
+	COMPLETE(3, "complete", "complete"),
+
+	/**
+	 * The '<em><b>Supplement</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUPPLEMENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUPPLEMENT(4, "supplement", "supplement");
 
 	/**
 	 * The '<em><b>Not Present</b></em>' literal value.
@@ -117,6 +127,20 @@ public enum CodeSystemContentModeList implements Enumerator {
 	public static final int COMPLETE_VALUE = 3;
 
 	/**
+	 * The '<em><b>Supplement</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Supplement
+	 * <!-- end-model-doc -->
+	 * @see #SUPPLEMENT
+	 * @model name="supplement"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUPPLEMENT_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Code System Content Mode List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +152,7 @@ public enum CodeSystemContentModeList implements Enumerator {
 			EXAMPLE,
 			FRAGMENT,
 			COMPLETE,
+			SUPPLEMENT,
 		};
 
 	/**
@@ -188,6 +213,7 @@ public enum CodeSystemContentModeList implements Enumerator {
 			case EXAMPLE_VALUE: return EXAMPLE;
 			case FRAGMENT_VALUE: return FRAGMENT;
 			case COMPLETE_VALUE: return COMPLETE;
+			case SUPPLEMENT_VALUE: return SUPPLEMENT;
 		}
 		return null;
 	}

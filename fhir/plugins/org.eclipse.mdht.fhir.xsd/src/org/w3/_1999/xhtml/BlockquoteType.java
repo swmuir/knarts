@@ -4,10 +4,6 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.BlockquoteTypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Blockquote Type</b></em>'.
@@ -31,7 +27,6 @@ import org.w3._1999.xhtml.jaxb.BlockquoteTypeImplAdapter;
  * @model extendedMetaData="name='blockquote_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(BlockquoteTypeImplAdapter.class)
 public interface BlockquoteType extends Block {
 	/**
 	 * Returns the value of the '<em><b>Cite</b></em>' attribute.

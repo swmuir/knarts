@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ContractImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,42 +20,34 @@ import org.hl7.fhir.jaxb.ContractImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.Contract#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getApplies <em>Applies</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getAuthority <em>Authority</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getDomain <em>Domain</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getAction <em>Action</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getActionReason <em>Action Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getDecisionType <em>Decision Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getSecurityLabel <em>Security Label</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getAgent <em>Agent</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getSigner <em>Signer</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getValuedItem <em>Valued Item</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getTerm <em>Term</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getBindingAttachment <em>Binding Attachment</em>}</li>
- *   <li>{@link org.hl7.fhir.Contract#getBindingReference <em>Binding Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getSigner <em>Signer</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getFriendly <em>Friendly</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getLegal <em>Legal</em>}</li>
  *   <li>{@link org.hl7.fhir.Contract#getRule <em>Rule</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getLegallyBindingAttachment <em>Legally Binding Attachment</em>}</li>
+ *   <li>{@link org.hl7.fhir.Contract#getLegallyBindingReference <em>Legally Binding Reference</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getContract()
  * @model extendedMetaData="name='Contract' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ContractImplAdapter.class)
 public interface Contract extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unique identifier for this Contract.
+	 * Unique identifier for this Contract or a derivative that references a Source Contract.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -104,6 +93,32 @@ public interface Contract extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(ContractResourceStatusCodes value);
+
+	/**
+	 * Returns the value of the '<em><b>Content Derivative</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The minimal content derived from the basal information source at a specific stage in its lifecycle.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Content Derivative</em>' containment reference.
+	 * @see #setContentDerivative(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getContract_ContentDerivative()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contentDerivative' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getContentDerivative();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content Derivative</em>' containment reference.
+	 * @see #getContentDerivative()
+	 * @generated
+	 */
+	void setContentDerivative(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.
@@ -172,22 +187,6 @@ public interface Contract extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getSubject();
-
-	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The matter of concern in the context of this agreement.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Topic()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='topic' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getTopic();
 
 	/**
 	 * Returns the value of the '<em><b>Authority</b></em>' containment reference list.
@@ -264,154 +263,6 @@ public interface Contract extends DomainResource {
 	EList<CodeableConcept> getSubType();
 
 	/**
-	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Action stipulated by this Contract.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Action()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getAction();
-
-	/**
-	 * Returns the value of the '<em><b>Action Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reason for action stipulated by this Contract.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_ActionReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actionReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getActionReason();
-
-	/**
-	 * Returns the value of the '<em><b>Decision Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The type of decision made by a grantor with respect to an offer made by a grantee.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Decision Type</em>' containment reference.
-	 * @see #setDecisionType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getContract_DecisionType()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='decisionType' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getDecisionType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Contract#getDecisionType <em>Decision Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Decision Type</em>' containment reference.
-	 * @see #getDecisionType()
-	 * @generated
-	 */
-	void setDecisionType(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Content Derivative</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The minimal content derived from the basal information source at a specific stage in its lifecycle.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Content Derivative</em>' containment reference.
-	 * @see #setContentDerivative(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getContract_ContentDerivative()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='contentDerivative' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getContentDerivative();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Contract#getContentDerivative <em>Content Derivative</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Content Derivative</em>' containment reference.
-	 * @see #getContentDerivative()
-	 * @generated
-	 */
-	void setContentDerivative(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Security Label</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Security Label</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_SecurityLabel()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='securityLabel' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getSecurityLabel();
-
-	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractAgent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Agent()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContractAgent> getAgent();
-
-	/**
-	 * Returns the value of the '<em><b>Signer</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractSigner}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Signer</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_Signer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='signer' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContractSigner> getSigner();
-
-	/**
-	 * Returns the value of the '<em><b>Valued Item</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractValuedItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contract Valued Item List.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Valued Item</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContract_ValuedItem()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valuedItem' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContractValuedItem> getValuedItem();
-
-	/**
 	 * Returns the value of the '<em><b>Term</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ContractTerm}.
 	 * <!-- begin-user-doc -->
@@ -428,58 +279,20 @@ public interface Contract extends DomainResource {
 	EList<ContractTerm> getTerm();
 
 	/**
-	 * Returns the value of the '<em><b>Binding Attachment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Signer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractSigner}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Binding Attachment</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding Attachment</em>' containment reference.
-	 * @see #setBindingAttachment(Attachment)
-	 * @see org.hl7.fhir.FhirPackage#getContract_BindingAttachment()
+	 * <!-- begin-model-doc -->
+	 * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Signer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContract_Signer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bindingAttachment' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='signer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Attachment getBindingAttachment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Contract#getBindingAttachment <em>Binding Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding Attachment</em>' containment reference.
-	 * @see #getBindingAttachment()
-	 * @generated
-	 */
-	void setBindingAttachment(Attachment value);
-
-	/**
-	 * Returns the value of the '<em><b>Binding Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Binding Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Binding Reference</em>' containment reference.
-	 * @see #setBindingReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getContract_BindingReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='bindingReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getBindingReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Contract#getBindingReference <em>Binding Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Binding Reference</em>' containment reference.
-	 * @see #getBindingReference()
-	 * @generated
-	 */
-	void setBindingReference(Reference value);
+	EList<ContractSigner> getSigner();
 
 	/**
 	 * Returns the value of the '<em><b>Friendly</b></em>' containment reference list.
@@ -514,19 +327,83 @@ public interface Contract extends DomainResource {
 	EList<ContractLegal> getLegal();
 
 	/**
-	 * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractRule}.
+	 * Returns the value of the '<em><b>Rule</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * List of Computable Policy Rule Language Representations of this Contract.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rule</em>' containment reference list.
+	 * @return the value of the '<em>Rule</em>' containment reference.
+	 * @see #setRule(ContractRule)
 	 * @see org.hl7.fhir.FhirPackage#getContract_Rule()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ContractRule> getRule();
+	ContractRule getRule();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getRule <em>Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule</em>' containment reference.
+	 * @see #getRule()
+	 * @generated
+	 */
+	void setRule(ContractRule value);
+
+	/**
+	 * Returns the value of the '<em><b>Legally Binding Attachment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Legally Binding Attachment</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Legally Binding Attachment</em>' containment reference.
+	 * @see #setLegallyBindingAttachment(Attachment)
+	 * @see org.hl7.fhir.FhirPackage#getContract_LegallyBindingAttachment()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='legallyBindingAttachment' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Attachment getLegallyBindingAttachment();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getLegallyBindingAttachment <em>Legally Binding Attachment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Legally Binding Attachment</em>' containment reference.
+	 * @see #getLegallyBindingAttachment()
+	 * @generated
+	 */
+	void setLegallyBindingAttachment(Attachment value);
+
+	/**
+	 * Returns the value of the '<em><b>Legally Binding Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Legally Binding Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Legally Binding Reference</em>' containment reference.
+	 * @see #setLegallyBindingReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getContract_LegallyBindingReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='legallyBindingReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getLegallyBindingReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Contract#getLegallyBindingReference <em>Legally Binding Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Legally Binding Reference</em>' containment reference.
+	 * @see #getLegallyBindingReference()
+	 * @generated
+	 */
+	void setLegallyBindingReference(Reference value);
 
 } // Contract

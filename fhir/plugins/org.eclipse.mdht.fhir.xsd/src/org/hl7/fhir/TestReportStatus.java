@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestReportStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.TestReportStatusImplAdapter;
  * @model extendedMetaData="name='TestReportStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestReportStatusImplAdapter.class)
 public interface TestReportStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

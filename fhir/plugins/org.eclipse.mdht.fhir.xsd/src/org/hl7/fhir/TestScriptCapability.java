@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TestScriptCapabilityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +10,7 @@ import org.hl7.fhir.jaxb.TestScriptCapabilityImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.TestScriptCapabilityImplAdapter;
  * @model extendedMetaData="name='TestScript.Capability' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptCapabilityImplAdapter.class)
 public interface TestScriptCapability extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' containment reference.

@@ -6,10 +6,6 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.w3._1999.xhtml.jaxb.ATypeImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>AType</b></em>'.
@@ -43,7 +39,6 @@ import org.w3._1999.xhtml.jaxb.ATypeImplAdapter;
  * @model extendedMetaData="name='a_._type' kind='mixed'"
  * @generated
  */
-@XmlJavaTypeAdapter(ATypeImplAdapter.class)
 public interface AType extends AContent {
 	/**
 	 * Returns the value of the '<em><b>Accesskey</b></em>' attribute.

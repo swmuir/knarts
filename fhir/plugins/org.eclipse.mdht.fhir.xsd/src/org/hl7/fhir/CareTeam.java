@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CareTeamImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +29,7 @@ import org.hl7.fhir.jaxb.CareTeamImplAdapter;
  *   <li>{@link org.hl7.fhir.CareTeam#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getManagingOrganization <em>Managing Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -39,7 +37,6 @@ import org.hl7.fhir.jaxb.CareTeamImplAdapter;
  * @model extendedMetaData="name='CareTeam' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CareTeamImplAdapter.class)
 public interface CareTeam extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -266,6 +263,22 @@ public interface CareTeam extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getManagingOrganization();
+
+	/**
+	 * Returns the value of the '<em><b>Telecom</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContactPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A central contact detail for the care team (that applies to all members).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Telecom</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Telecom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='telecom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContactPoint> getTelecom();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

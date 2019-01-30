@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.RepositoryTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.RepositoryTypeImplAdapter;
  * @model extendedMetaData="name='repositoryType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RepositoryTypeImplAdapter.class)
 public interface RepositoryType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

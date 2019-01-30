@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Copyright (c) 2011+, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
+
+  Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
+  valid. Implementers will still need to be familiar with the content of the specification and with
+  any profiles that apply to the resources in order to make a conformant implementation.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="1.0">
+  <xs:include schemaLocation="fhir-base.xsd"/>
+  <xs:element name="OccupationalData" type="OccupationalData">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="OccupationalData">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DomainResource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Business identifier assigned to the occupational data record.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of this {{title}}. Enables tracking the life-cycle of the content.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Who the occupational data is collected about.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="date" minOccurs="1" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Occupational Data author time.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="author" minOccurs="1" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Occupational Data author.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="employmentStatus" type="OccupationalData.EmploymentStatus" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Employment status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="retirementStatus" type="OccupationalData.RetirementStatus" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Retirement status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="combatZoneHazardousDuty" type="OccupationalData.CombatZoneHazardousDuty" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Combat Zone Hazardous Duty.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="usualOccupation" type="OccupationalData.UsualOccupation" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="pastOrPresentOccupation" type="OccupationalData.PastOrPresentOccupation" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Past Or Present Occupation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.EmploymentStatus">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="HistoryOfEmploymentStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">74165-2.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Employment status effective time.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectiveDateTime" type="dateTime"/>
+            <xs:element name="effectivePeriod" type="Period"/>
+          </xs:choice>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Employment status value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.RetirementStatus">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="RetirementStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">87510-4.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Retirement status effective time.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectiveDateTime" type="dateTime"/>
+            <xs:element name="effectivePeriod" type="Period"/>
+          </xs:choice>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Retirement status value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.CombatZoneHazardousDuty">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="unbounded" type="HazardousDutyWork">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">87511-2.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Combat Zone Hazardous Duty effective time.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectiveDateTime" type="dateTime"/>
+            <xs:element name="effectivePeriod" type="Period"/>
+          </xs:choice>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Combat Zone Hazardous Duty value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.UsualOccupation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="UsualOccupation">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">21843-8.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation effective time.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectiveDateTime" type="dateTime"/>
+            <xs:element name="effectivePeriod" type="Period"/>
+          </xs:choice>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="duration" type="OccupationalData.Duration" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation duration.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="industry" type="OccupationalData.Industry" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation industry.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.Duration">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation duration code.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation duration value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.Industry">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation industry code.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Usual Occupation industry value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OccupationalData.PastOrPresentOccupation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Patient’s or family member's work information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Past Or Present Occupation code.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Past Or Present Occupation effective time.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectiveDateTime" type="dateTime"/>
+            <xs:element name="effectivePeriod" type="Period"/>
+          </xs:choice>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Past Or Present Occupation value.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RetirementStatus-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="87510-4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Retirement Status</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RetirementStatus">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">87510-4 Retirement Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="RetirementStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="HistoryOfEmploymentStatus-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="74165-2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">History of employment status NIOSH</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="HistoryOfEmploymentStatus">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">74165-2 History of Employment Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="HistoryOfEmploymentStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="HazardousDutyWork-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="87511-2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Hazardous Duty Work</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="HazardousDutyWork">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">87511-2 Hazardous Duty Work (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="HazardousDutyWork-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="UsualOccupation-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="21843-8">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">History of Usual occupation</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UsualOccupation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">21843-8 Usual Occupation (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="UsualOccupation-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

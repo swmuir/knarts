@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.OperationDefinitionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,7 @@ import org.hl7.fhir.jaxb.OperationDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.OperationDefinition#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getPurpose <em>Purpose</em>}</li>
- *   <li>{@link org.hl7.fhir.OperationDefinition#getIdempotent <em>Idempotent</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getAffectsState <em>Affects State</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getBase <em>Base</em>}</li>
@@ -42,6 +39,8 @@ import org.hl7.fhir.jaxb.OperationDefinitionImplAdapter;
  *   <li>{@link org.hl7.fhir.OperationDefinition#getSystem <em>System</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getInstance <em>Instance</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getInputProfile <em>Input Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getOutputProfile <em>Output Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getOverload <em>Overload</em>}</li>
  * </ul>
@@ -50,14 +49,13 @@ import org.hl7.fhir.jaxb.OperationDefinitionImplAdapter;
  * @model extendedMetaData="name='OperationDefinition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OperationDefinitionImplAdapter.class)
 public interface OperationDefinition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published. The URL SHOULD include the major version of the operation definition. For more information see [Technical and Business Versions](resource.html#versions).
+	 * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this operation definition is (or will be) published.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -361,30 +359,30 @@ public interface OperationDefinition extends DomainResource {
 	void setPurpose(Markdown value);
 
 	/**
-	 * Returns the value of the '<em><b>Idempotent</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Affects State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+	 * Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Idempotent</em>' containment reference.
-	 * @see #setIdempotent(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Idempotent()
+	 * @return the value of the '<em>Affects State</em>' containment reference.
+	 * @see #setAffectsState(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_AffectsState()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='idempotent' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='affectsState' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getIdempotent();
+	org.hl7.fhir.Boolean getAffectsState();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getIdempotent <em>Idempotent</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getAffectsState <em>Affects State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Idempotent</em>' containment reference.
-	 * @see #getIdempotent()
+	 * @param value the new value of the '<em>Affects State</em>' containment reference.
+	 * @see #getAffectsState()
 	 * @generated
 	 */
-	void setIdempotent(org.hl7.fhir.Boolean value);
+	void setAffectsState(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -420,13 +418,13 @@ public interface OperationDefinition extends DomainResource {
 	 * Additional information about how to use this operation or named query.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comment</em>' containment reference.
-	 * @see #setComment(org.hl7.fhir.String)
+	 * @see #setComment(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Comment()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getComment();
+	Markdown getComment();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getComment <em>Comment</em>}' containment reference.
@@ -436,7 +434,7 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getComment()
 	 * @generated
 	 */
-	void setComment(org.hl7.fhir.String value);
+	void setComment(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
@@ -557,6 +555,58 @@ public interface OperationDefinition extends DomainResource {
 	 * @generated
 	 */
 	void setInstance(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Input Profile</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional validation information for the in parameters. The profile is a constraint on the parameters resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Input Profile</em>' containment reference.
+	 * @see #setInputProfile(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_InputProfile()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='inputProfile' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getInputProfile();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getInputProfile <em>Input Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Input Profile</em>' containment reference.
+	 * @see #getInputProfile()
+	 * @generated
+	 */
+	void setInputProfile(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Profile</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Additional validation information for the out parameters. The profile is a constraint on the parameters resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Output Profile</em>' containment reference.
+	 * @see #setOutputProfile(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_OutputProfile()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='outputProfile' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getOutputProfile();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getOutputProfile <em>Output Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Profile</em>' containment reference.
+	 * @see #getOutputProfile()
+	 * @generated
+	 */
+	void setOutputProfile(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ImagingStudySeriesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +26,7 @@ import org.hl7.fhir.jaxb.ImagingStudySeriesImplAdapter;
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getLaterality <em>Laterality</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudySeries#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getStarted <em>Started</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getInstance <em>Instance</em>}</li>
@@ -38,7 +36,6 @@ import org.hl7.fhir.jaxb.ImagingStudySeriesImplAdapter;
  * @model extendedMetaData="name='ImagingStudy.Series' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ImagingStudySeriesImplAdapter.class)
 public interface ImagingStudySeries extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' containment reference.
@@ -265,6 +262,22 @@ public interface ImagingStudySeries extends BackboneElement {
 	void setLaterality(Coding value);
 
 	/**
+	 * Returns the value of the '<em><b>Specimen</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The specimen imaged, e.g., for whole slide imaging of a biopsy.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Specimen</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Specimen()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='specimen' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSpecimen();
+
+	/**
 	 * Returns the value of the '<em><b>Started</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,7 +309,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The physician or operator (often the radiology technician)  who performed the series. The performer is recorded at the series level, since each series in a study may be performed by a different practitioner, at different times, and using different devices. A series may be performed by multiple practitioners.
+	 * The physician or operator (often the radiology technician) who performed the series.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Performer()

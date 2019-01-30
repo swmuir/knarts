@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MedicationRequestDispenseRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.MedicationRequestDispenseRequestImplAdapter;
  * @model extendedMetaData="name='MedicationRequest.DispenseRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationRequestDispenseRequestImplAdapter.class)
 public interface MedicationRequestDispenseRequest extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Validity Period</b></em>' containment reference.
@@ -63,16 +59,16 @@ public interface MedicationRequestDispenseRequest extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
+	 * An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.  A prescriber may explicitly say that zero refills are permitted after the initial dispense.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number Of Repeats Allowed</em>' containment reference.
-	 * @see #setNumberOfRepeatsAllowed(PositiveInt)
+	 * @see #setNumberOfRepeatsAllowed(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestDispenseRequest_NumberOfRepeatsAllowed()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='numberOfRepeatsAllowed' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getNumberOfRepeatsAllowed();
+	UnsignedInt getNumberOfRepeatsAllowed();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestDispenseRequest#getNumberOfRepeatsAllowed <em>Number Of Repeats Allowed</em>}' containment reference.
@@ -82,7 +78,7 @@ public interface MedicationRequestDispenseRequest extends BackboneElement {
 	 * @see #getNumberOfRepeatsAllowed()
 	 * @generated
 	 */
-	void setNumberOfRepeatsAllowed(PositiveInt value);
+	void setNumberOfRepeatsAllowed(UnsignedInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.

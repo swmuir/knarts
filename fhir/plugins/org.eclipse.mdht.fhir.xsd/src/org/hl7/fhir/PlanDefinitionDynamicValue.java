@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PlanDefinitionDynamicValueImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +26,6 @@ import org.hl7.fhir.jaxb.PlanDefinitionDynamicValueImplAdapter;
  * @model extendedMetaData="name='PlanDefinition.DynamicValue' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PlanDefinitionDynamicValueImplAdapter.class)
 public interface PlanDefinitionDynamicValue extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.

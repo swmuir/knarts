@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GroupMember;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +30,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "GroupMember", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "GroupMember")
 public class GroupMemberImpl extends BackboneElementImpl implements GroupMember {
 	/**
 	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
@@ -93,7 +85,6 @@ public class GroupMemberImpl extends BackboneElementImpl implements GroupMember 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getEntity() {
 		return entity;
 	}
@@ -180,7 +171,6 @@ public class GroupMemberImpl extends BackboneElementImpl implements GroupMember 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getInactive() {
 		return inactive;
 	}

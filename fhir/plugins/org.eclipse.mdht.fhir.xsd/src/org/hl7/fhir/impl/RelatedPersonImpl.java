@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,9 +29,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedPerson;
-import org.hl7.fhir.jaxb.AdministrativeGenderImplAdapter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,8 +53,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "RelatedPerson", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "RelatedPerson")
 public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPerson {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -95,14 +85,14 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	protected Reference patient;
 
 	/**
-	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference.
+	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRelationship()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept relationship;
+	protected EList<CodeableConcept> relationship;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference list.
@@ -198,7 +188,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.RELATED_PERSON__IDENTIFIER);
@@ -211,7 +200,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -255,7 +243,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getPatient() {
 		return patient;
 	}
@@ -299,7 +286,10 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getRelationship() {
+	public EList<CodeableConcept> getRelationship() {
+		if (relationship == null) {
+			relationship = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RELATED_PERSON__RELATIONSHIP);
+		}
 		return relationship;
 	}
 
@@ -308,41 +298,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelationship(CodeableConcept newRelationship, NotificationChain msgs) {
-		CodeableConcept oldRelationship = relationship;
-		relationship = newRelationship;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__RELATIONSHIP, oldRelationship, newRelationship);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRelationship(CodeableConcept newRelationship) {
-		if (newRelationship != relationship) {
-			NotificationChain msgs = null;
-			if (relationship != null)
-				msgs = ((InternalEObject)relationship).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__RELATIONSHIP, null, msgs);
-			if (newRelationship != null)
-				msgs = ((InternalEObject)newRelationship).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_PERSON__RELATIONSHIP, null, msgs);
-			msgs = basicSetRelationship(newRelationship, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_PERSON__RELATIONSHIP, newRelationship, newRelationship));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<HumanName> getName() {
 		if (name == null) {
 			name = new EObjectContainmentEList<HumanName>(HumanName.class, this, FhirPackage.RELATED_PERSON__NAME);
@@ -355,7 +310,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.RELATED_PERSON__TELECOM);
@@ -368,7 +322,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(AdministrativeGenderImplAdapter.class)
 	public AdministrativeGender getGender() {
 		return gender;
 	}
@@ -412,7 +365,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getBirthDate() {
 		return birthDate;
 	}
@@ -456,7 +408,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Address> getAddress() {
 		if (address == null) {
 			address = new EObjectContainmentEList<Address>(Address.class, this, FhirPackage.RELATED_PERSON__ADDRESS);
@@ -469,7 +420,6 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Attachment> getPhoto() {
 		if (photo == null) {
 			photo = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.RELATED_PERSON__PHOTO);
@@ -535,7 +485,7 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
-				return basicSetRelationship(null, msgs);
+				return ((InternalEList<?>)getRelationship()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RELATED_PERSON__NAME:
 				return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RELATED_PERSON__TELECOM:
@@ -608,7 +558,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				setPatient((Reference)newValue);
 				return;
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
-				setRelationship((CodeableConcept)newValue);
+				getRelationship().clear();
+				getRelationship().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.RELATED_PERSON__NAME:
 				getName().clear();
@@ -657,7 +608,7 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				setPatient((Reference)null);
 				return;
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
-				setRelationship((CodeableConcept)null);
+				getRelationship().clear();
 				return;
 			case FhirPackage.RELATED_PERSON__NAME:
 				getName().clear();
@@ -699,7 +650,7 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 			case FhirPackage.RELATED_PERSON__PATIENT:
 				return patient != null;
 			case FhirPackage.RELATED_PERSON__RELATIONSHIP:
-				return relationship != null;
+				return relationship != null && !relationship.isEmpty();
 			case FhirPackage.RELATED_PERSON__NAME:
 				return name != null && !name.isEmpty();
 			case FhirPackage.RELATED_PERSON__TELECOM:

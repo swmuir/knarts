@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,8 +21,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.NameUse;
 import org.hl7.fhir.Period;
-import org.hl7.fhir.jaxb.NameUseImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +41,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "HumanName", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "HumanName")
 public class HumanNameImpl extends ElementImpl implements HumanName {
 	/**
 	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
@@ -145,7 +136,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(NameUseImplAdapter.class)
 	public NameUse getUse() {
 		return use;
 	}
@@ -189,7 +179,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -233,7 +222,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getFamily() {
 		return family;
 	}
@@ -277,8 +265,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getGiven() {
 		if (given == null) {
 			given = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.HUMAN_NAME__GIVEN);
@@ -291,8 +277,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getPrefix() {
 		if (prefix == null) {
 			prefix = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.HUMAN_NAME__PREFIX);
@@ -305,8 +289,6 @@ public class HumanNameImpl extends ElementImpl implements HumanName {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getSuffix() {
 		if (suffix == null) {
 			suffix = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.HUMAN_NAME__SUFFIX);

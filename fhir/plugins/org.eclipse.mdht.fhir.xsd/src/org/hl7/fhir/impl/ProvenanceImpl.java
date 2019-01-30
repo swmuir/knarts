@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,7 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Period;
@@ -32,8 +28,6 @@ import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +38,8 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getTarget <em>Target</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getOccurredPeriod <em>Occurred Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getOccurredDateTime <em>Occurred Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceImpl#getLocation <em>Location</em>}</li>
@@ -57,8 +52,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Provenance", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Provenance")
 public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -71,14 +64,24 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	protected EList<Reference> target;
 
 	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurredPeriod() <em>Occurred Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
+	 * @see #getOccurredPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period period;
+	protected Period occurredPeriod;
+
+	/**
+	 * The cached value of the '{@link #getOccurredDateTime() <em>Occurred Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurredDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime occurredDateTime;
 
 	/**
 	 * The cached value of the '{@link #getRecorded() <em>Recorded</em>}' containment reference.
@@ -118,7 +121,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> reason;
+	protected EList<CodeableConcept> reason;
 
 	/**
 	 * The cached value of the '{@link #getActivity() <em>Activity</em>}' containment reference.
@@ -128,7 +131,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding activity;
+	protected CodeableConcept activity;
 
 	/**
 	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
@@ -184,7 +187,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<Reference> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.PROVENANCE__TARGET);
@@ -197,8 +199,8 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getPeriod() {
-		return period;
+	public Period getOccurredPeriod() {
+		return occurredPeriod;
 	}
 
 	/**
@@ -206,11 +208,11 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
-		Period oldPeriod = period;
-		period = newPeriod;
+	public NotificationChain basicSetOccurredPeriod(Period newOccurredPeriod, NotificationChain msgs) {
+		Period oldOccurredPeriod = occurredPeriod;
+		occurredPeriod = newOccurredPeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__PERIOD, oldPeriod, newPeriod);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__OCCURRED_PERIOD, oldOccurredPeriod, newOccurredPeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -221,18 +223,18 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPeriod(Period newPeriod) {
-		if (newPeriod != period) {
+	public void setOccurredPeriod(Period newOccurredPeriod) {
+		if (newOccurredPeriod != occurredPeriod) {
 			NotificationChain msgs = null;
-			if (period != null)
-				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__PERIOD, null, msgs);
-			if (newPeriod != null)
-				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__PERIOD, null, msgs);
-			msgs = basicSetPeriod(newPeriod, msgs);
+			if (occurredPeriod != null)
+				msgs = ((InternalEObject)occurredPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__OCCURRED_PERIOD, null, msgs);
+			if (newOccurredPeriod != null)
+				msgs = ((InternalEObject)newOccurredPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__OCCURRED_PERIOD, null, msgs);
+			msgs = basicSetOccurredPeriod(newOccurredPeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__PERIOD, newPeriod, newPeriod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__OCCURRED_PERIOD, newOccurredPeriod, newOccurredPeriod));
 	}
 
 	/**
@@ -240,8 +242,49 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
+	public DateTime getOccurredDateTime() {
+		return occurredDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurredDateTime(DateTime newOccurredDateTime, NotificationChain msgs) {
+		DateTime oldOccurredDateTime = occurredDateTime;
+		occurredDateTime = newOccurredDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__OCCURRED_DATE_TIME, oldOccurredDateTime, newOccurredDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurredDateTime(DateTime newOccurredDateTime) {
+		if (newOccurredDateTime != occurredDateTime) {
+			NotificationChain msgs = null;
+			if (occurredDateTime != null)
+				msgs = ((InternalEObject)occurredDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__OCCURRED_DATE_TIME, null, msgs);
+			if (newOccurredDateTime != null)
+				msgs = ((InternalEObject)newOccurredDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE__OCCURRED_DATE_TIME, null, msgs);
+			msgs = basicSetOccurredDateTime(newOccurredDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__OCCURRED_DATE_TIME, newOccurredDateTime, newOccurredDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Instant getRecorded() {
 		return recorded;
 	}
@@ -285,8 +328,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
 	public EList<Uri> getPolicy() {
 		if (policy == null) {
 			policy = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROVENANCE__POLICY);
@@ -342,10 +383,9 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<Coding> getReason() {
+	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
-			reason = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.PROVENANCE__REASON);
+			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PROVENANCE__REASON);
 		}
 		return reason;
 	}
@@ -355,7 +395,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getActivity() {
+	public CodeableConcept getActivity() {
 		return activity;
 	}
 
@@ -364,8 +404,8 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetActivity(Coding newActivity, NotificationChain msgs) {
-		Coding oldActivity = activity;
+	public NotificationChain basicSetActivity(CodeableConcept newActivity, NotificationChain msgs) {
+		CodeableConcept oldActivity = activity;
 		activity = newActivity;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE__ACTIVITY, oldActivity, newActivity);
@@ -379,7 +419,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActivity(Coding newActivity) {
+	public void setActivity(CodeableConcept newActivity) {
 		if (newActivity != activity) {
 			NotificationChain msgs = null;
 			if (activity != null)
@@ -398,7 +438,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public EList<ProvenanceAgent> getAgent() {
 		if (agent == null) {
 			agent = new EObjectContainmentEList<ProvenanceAgent>(ProvenanceAgent.class, this, FhirPackage.PROVENANCE__AGENT);
@@ -411,7 +450,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ProvenanceEntity> getEntity() {
 		if (entity == null) {
 			entity = new EObjectContainmentEList<ProvenanceEntity>(ProvenanceEntity.class, this, FhirPackage.PROVENANCE__ENTITY);
@@ -424,7 +462,6 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Signature> getSignature() {
 		if (signature == null) {
 			signature = new EObjectContainmentEList<Signature>(Signature.class, this, FhirPackage.PROVENANCE__SIGNATURE);
@@ -442,8 +479,10 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE__TARGET:
 				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROVENANCE__PERIOD:
-				return basicSetPeriod(null, msgs);
+			case FhirPackage.PROVENANCE__OCCURRED_PERIOD:
+				return basicSetOccurredPeriod(null, msgs);
+			case FhirPackage.PROVENANCE__OCCURRED_DATE_TIME:
+				return basicSetOccurredDateTime(null, msgs);
 			case FhirPackage.PROVENANCE__RECORDED:
 				return basicSetRecorded(null, msgs);
 			case FhirPackage.PROVENANCE__POLICY:
@@ -474,8 +513,10 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE__TARGET:
 				return getTarget();
-			case FhirPackage.PROVENANCE__PERIOD:
-				return getPeriod();
+			case FhirPackage.PROVENANCE__OCCURRED_PERIOD:
+				return getOccurredPeriod();
+			case FhirPackage.PROVENANCE__OCCURRED_DATE_TIME:
+				return getOccurredDateTime();
 			case FhirPackage.PROVENANCE__RECORDED:
 				return getRecorded();
 			case FhirPackage.PROVENANCE__POLICY:
@@ -509,8 +550,11 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				getTarget().clear();
 				getTarget().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.PROVENANCE__PERIOD:
-				setPeriod((Period)newValue);
+			case FhirPackage.PROVENANCE__OCCURRED_PERIOD:
+				setOccurredPeriod((Period)newValue);
+				return;
+			case FhirPackage.PROVENANCE__OCCURRED_DATE_TIME:
+				setOccurredDateTime((DateTime)newValue);
 				return;
 			case FhirPackage.PROVENANCE__RECORDED:
 				setRecorded((Instant)newValue);
@@ -524,10 +568,10 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				return;
 			case FhirPackage.PROVENANCE__REASON:
 				getReason().clear();
-				getReason().addAll((Collection<? extends Coding>)newValue);
+				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.PROVENANCE__ACTIVITY:
-				setActivity((Coding)newValue);
+				setActivity((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PROVENANCE__AGENT:
 				getAgent().clear();
@@ -556,8 +600,11 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 			case FhirPackage.PROVENANCE__TARGET:
 				getTarget().clear();
 				return;
-			case FhirPackage.PROVENANCE__PERIOD:
-				setPeriod((Period)null);
+			case FhirPackage.PROVENANCE__OCCURRED_PERIOD:
+				setOccurredPeriod((Period)null);
+				return;
+			case FhirPackage.PROVENANCE__OCCURRED_DATE_TIME:
+				setOccurredDateTime((DateTime)null);
 				return;
 			case FhirPackage.PROVENANCE__RECORDED:
 				setRecorded((Instant)null);
@@ -572,7 +619,7 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 				getReason().clear();
 				return;
 			case FhirPackage.PROVENANCE__ACTIVITY:
-				setActivity((Coding)null);
+				setActivity((CodeableConcept)null);
 				return;
 			case FhirPackage.PROVENANCE__AGENT:
 				getAgent().clear();
@@ -597,8 +644,10 @@ public class ProvenanceImpl extends DomainResourceImpl implements Provenance {
 		switch (featureID) {
 			case FhirPackage.PROVENANCE__TARGET:
 				return target != null && !target.isEmpty();
-			case FhirPackage.PROVENANCE__PERIOD:
-				return period != null;
+			case FhirPackage.PROVENANCE__OCCURRED_PERIOD:
+				return occurredPeriod != null;
+			case FhirPackage.PROVENANCE__OCCURRED_DATE_TIME:
+				return occurredDateTime != null;
 			case FhirPackage.PROVENANCE__RECORDED:
 				return recorded != null;
 			case FhirPackage.PROVENANCE__POLICY:

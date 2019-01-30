@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.SupplyDeliveryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +37,6 @@ import org.hl7.fhir.jaxb.SupplyDeliveryImplAdapter;
  * @model extendedMetaData="name='SupplyDelivery' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SupplyDeliveryImplAdapter.class)
 public interface SupplyDelivery extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

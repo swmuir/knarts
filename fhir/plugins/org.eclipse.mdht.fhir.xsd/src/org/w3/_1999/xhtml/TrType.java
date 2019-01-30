@@ -4,14 +4,11 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.util.FeatureMap;
-import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +39,6 @@ import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
  * @model extendedMetaData="name='tr_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TrTypeImplAdapter.class)
 public interface TrType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' attribute list.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ProcedureFocalDeviceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ProcedureFocalDeviceImplAdapter;
  * @model extendedMetaData="name='Procedure.FocalDevice' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProcedureFocalDeviceImplAdapter.class)
 public interface ProcedureFocalDevice extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference.

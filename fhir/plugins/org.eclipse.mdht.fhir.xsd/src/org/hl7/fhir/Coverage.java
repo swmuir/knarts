@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CoverageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +25,16 @@ import org.hl7.fhir.jaxb.CoverageImplAdapter;
  *   <li>{@link org.hl7.fhir.Coverage#getSubscriber <em>Subscriber</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getSubscriberId <em>Subscriber Id</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getBeneficiary <em>Beneficiary</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getPayor <em>Payor</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getGrouping <em>Grouping</em>}</li>
- *   <li>{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getOrder <em>Order</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getNetwork <em>Network</em>}</li>
+ *   <li>{@link org.hl7.fhir.Coverage#getCopay <em>Copay</em>}</li>
  *   <li>{@link org.hl7.fhir.Coverage#getContract <em>Contract</em>}</li>
  * </ul>
  *
@@ -43,7 +42,6 @@ import org.hl7.fhir.jaxb.CoverageImplAdapter;
  * @model extendedMetaData="name='Coverage' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CoverageImplAdapter.class)
 public interface Coverage extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -218,6 +216,32 @@ public interface Coverage extends DomainResource {
 	void setBeneficiary(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Dependent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A unique identifier for a dependent under the coverage.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Dependent</em>' containment reference.
+	 * @see #setDependent(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Dependent()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dependent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDependent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dependent</em>' containment reference.
+	 * @see #getDependent()
+	 * @generated
+	 */
+	void setDependent(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,6 +310,22 @@ public interface Coverage extends DomainResource {
 	EList<Reference> getPayor();
 
 	/**
+	 * Returns the value of the '<em><b>Class</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CoverageClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Class</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Class()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='class' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CoverageClass> getClass_();
+
+	/**
 	 * Returns the value of the '<em><b>Grouping</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,32 +350,6 @@ public interface Coverage extends DomainResource {
 	 * @generated
 	 */
 	void setGrouping(CoverageGrouping value);
-
-	/**
-	 * Returns the value of the '<em><b>Dependent</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A unique identifier for a dependent under the coverage.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Dependent</em>' containment reference.
-	 * @see #setDependent(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getCoverage_Dependent()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dependent' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getDependent();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Coverage#getDependent <em>Dependent</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dependent</em>' containment reference.
-	 * @see #getDependent()
-	 * @generated
-	 */
-	void setDependent(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -414,6 +428,22 @@ public interface Coverage extends DomainResource {
 	 * @generated
 	 */
 	void setNetwork(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Copay</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CoverageCopay}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Copay</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCoverage_Copay()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='copay' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CoverageCopay> getCopay();
 
 	/**
 	 * Returns the value of the '<em><b>Contract</b></em>' containment reference list.

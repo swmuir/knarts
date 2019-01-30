@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,8 +30,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "ProcedurePerformer", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ProcedurePerformer")
 public class ProcedurePerformerImpl extends BackboneElementImpl implements ProcedurePerformer {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
@@ -134,7 +128,6 @@ public class ProcedurePerformerImpl extends BackboneElementImpl implements Proce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getActor() {
 		return actor;
 	}

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TestScriptAssertImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.TestScriptAssertImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.
+ * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -49,7 +46,6 @@ import org.hl7.fhir.jaxb.TestScriptAssertImplAdapter;
  * @model extendedMetaData="name='TestScript.Assert' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TestScriptAssertImplAdapter.class)
 public interface TestScriptAssert extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
@@ -212,16 +208,16 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+	 * The mime-type contents to compare against the request or response message 'Content-Type' header.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content Type</em>' containment reference.
-	 * @see #setContentType(ContentType)
+	 * @see #setContentType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_ContentType()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='contentType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ContentType getContentType();
+	Code getContentType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getContentType <em>Content Type</em>}' containment reference.
@@ -231,7 +227,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @see #getContentType()
 	 * @generated
 	 */
-	void setContentType(ContentType value);
+	void setContentType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EpisodeOfCareStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.EpisodeOfCareStatusImplAdapter;
  * @model extendedMetaData="name='EpisodeOfCareStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EpisodeOfCareStatusImplAdapter.class)
 public interface EpisodeOfCareStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

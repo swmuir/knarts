@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -45,8 +41,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "CarePlanActivity", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CarePlanActivity")
 public class CarePlanActivityImpl extends BackboneElementImpl implements CarePlanActivity {
 	/**
 	 * The cached value of the '{@link #getOutcomeCodeableConcept() <em>Outcome Codeable Concept</em>}' containment reference list.
@@ -122,7 +116,6 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getOutcomeCodeableConcept() {
 		if (outcomeCodeableConcept == null) {
 			outcomeCodeableConcept = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_CODEABLE_CONCEPT);
@@ -135,7 +128,6 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getOutcomeReference() {
 		if (outcomeReference == null) {
 			outcomeReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_PLAN_ACTIVITY__OUTCOME_REFERENCE);
@@ -148,7 +140,6 @@ public class CarePlanActivityImpl extends BackboneElementImpl implements CarePla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getProgress() {
 		if (progress == null) {
 			progress = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_PLAN_ACTIVITY__PROGRESS);

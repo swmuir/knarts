@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,8 +14,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageHeaderDestination;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,12 +26,11 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderDestinationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderDestinationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderDestinationImpl#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageHeaderDestinationImpl#getReceiver <em>Receiver</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MessageHeaderDestination", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MessageHeaderDestination")
 public class MessageHeaderDestinationImpl extends BackboneElementImpl implements MessageHeaderDestination {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -71,6 +63,16 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	protected Uri endpoint;
 
 	/**
+	 * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReceiver()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference receiver;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -94,7 +96,6 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -181,8 +182,6 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getEndpoint() {
 		return endpoint;
 	}
@@ -226,6 +225,49 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getReceiver() {
+		return receiver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReceiver(Reference newReceiver, NotificationChain msgs) {
+		Reference oldReceiver = receiver;
+		receiver = newReceiver;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER, oldReceiver, newReceiver);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReceiver(Reference newReceiver) {
+		if (newReceiver != receiver) {
+			NotificationChain msgs = null;
+			if (receiver != null)
+				msgs = ((InternalEObject)receiver).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER, null, msgs);
+			if (newReceiver != null)
+				msgs = ((InternalEObject)newReceiver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER, null, msgs);
+			msgs = basicSetReceiver(newReceiver, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER, newReceiver, newReceiver));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -235,6 +277,8 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				return basicSetTarget(null, msgs);
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
 				return basicSetEndpoint(null, msgs);
+			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
+				return basicSetReceiver(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -253,6 +297,8 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				return getTarget();
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
 				return getEndpoint();
+			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
+				return getReceiver();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +319,9 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				return;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
 				setEndpoint((Uri)newValue);
+				return;
+			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
+				setReceiver((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,6 +344,9 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
 				setEndpoint((Uri)null);
 				return;
+			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
+				setReceiver((Reference)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -313,6 +365,8 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				return target != null;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
 				return endpoint != null;
+			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
+				return receiver != null;
 		}
 		return super.eIsSet(featureID);
 	}

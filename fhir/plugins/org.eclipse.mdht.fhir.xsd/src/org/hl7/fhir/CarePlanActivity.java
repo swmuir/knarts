@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CarePlanActivityImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.CarePlanActivityImplAdapter;
  * @model extendedMetaData="name='CarePlan.Activity' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CarePlanActivityImplAdapter.class)
 public interface CarePlanActivity extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Outcome Codeable Concept</b></em>' containment reference list.
@@ -55,7 +51,7 @@ public interface CarePlanActivity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Details of the outcome or action resulting from the activity.  The reference to an "event" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a ìrequestî resource).
+	 * Details of the outcome or action resulting from the activity.  The reference to an "event" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a ‚Äúrequest‚Äù resource).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome Reference</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanActivity_OutcomeReference()

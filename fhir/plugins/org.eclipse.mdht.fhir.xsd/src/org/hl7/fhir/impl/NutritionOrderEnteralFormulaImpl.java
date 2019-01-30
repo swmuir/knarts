@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,7 +22,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.NutritionOrderAdministration;
 import org.hl7.fhir.NutritionOrderEnteralFormula;
 import org.hl7.fhir.Quantity;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +44,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "NutritionOrderEnteralFormula", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "NutritionOrderEnteralFormula")
 public class NutritionOrderEnteralFormulaImpl extends BackboneElementImpl implements NutritionOrderEnteralFormula {
 	/**
 	 * The cached value of the '{@link #getBaseFormulaType() <em>Base Formula Type</em>}' containment reference.
@@ -210,7 +202,6 @@ public class NutritionOrderEnteralFormulaImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBaseFormulaProductName() {
 		return baseFormulaProductName;
 	}
@@ -297,7 +288,6 @@ public class NutritionOrderEnteralFormulaImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAdditiveProductName() {
 		return additiveProductName;
 	}
@@ -427,7 +417,6 @@ public class NutritionOrderEnteralFormulaImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<NutritionOrderAdministration> getAdministration() {
 		if (administration == null) {
 			administration = new EObjectContainmentEList<NutritionOrderAdministration>(NutritionOrderAdministration.class, this, FhirPackage.NUTRITION_ORDER_ENTERAL_FORMULA__ADMINISTRATION);
@@ -483,7 +472,6 @@ public class NutritionOrderEnteralFormulaImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAdministrationInstruction() {
 		return administrationInstruction;
 	}

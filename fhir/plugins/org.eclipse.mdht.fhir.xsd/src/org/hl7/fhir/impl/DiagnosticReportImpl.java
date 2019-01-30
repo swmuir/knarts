@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,18 +21,13 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DiagnosticReport;
-import org.hl7.fhir.DiagnosticReportImage;
-import org.hl7.fhir.DiagnosticReportPerformer;
+import org.hl7.fhir.DiagnosticReportMedia;
 import org.hl7.fhir.DiagnosticReportStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DiagnosticReportStatusImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,10 +48,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getResultsInterpreter <em>Results Interpreter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getSpecimen <em>Specimen</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getImagingStudy <em>Imaging Study</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getConclusion <em>Conclusion</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCodedDiagnosis <em>Coded Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getPresentedForm <em>Presented Form</em>}</li>
@@ -69,8 +60,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "DiagnosticReport", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DiagnosticReport")
 public class DiagnosticReportImpl extends DomainResourceImpl implements DiagnosticReport {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -180,7 +169,17 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DiagnosticReportPerformer> performer;
+	protected EList<Reference> performer;
+
+	/**
+	 * The cached value of the '{@link #getResultsInterpreter() <em>Results Interpreter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResultsInterpreter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> resultsInterpreter;
 
 	/**
 	 * The cached value of the '{@link #getSpecimen() <em>Specimen</em>}' containment reference list.
@@ -213,14 +212,14 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	protected EList<Reference> imagingStudy;
 
 	/**
-	 * The cached value of the '{@link #getImage() <em>Image</em>}' containment reference list.
+	 * The cached value of the '{@link #getMedia() <em>Media</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImage()
+	 * @see #getMedia()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DiagnosticReportImage> image;
+	protected EList<DiagnosticReportMedia> media;
 
 	/**
 	 * The cached value of the '{@link #getConclusion() <em>Conclusion</em>}' containment reference.
@@ -276,7 +275,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.DIAGNOSTIC_REPORT__IDENTIFIER);
@@ -289,7 +287,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getBasedOn() {
 		if (basedOn == null) {
 			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__BASED_ON);
@@ -302,8 +299,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DiagnosticReportStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public DiagnosticReportStatus getStatus() {
 		return status;
 	}
@@ -390,7 +385,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -520,7 +514,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEffectiveDateTime() {
 		return effectiveDateTime;
 	}
@@ -607,7 +600,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
 	public Instant getIssued() {
 		return issued;
 	}
@@ -651,10 +643,9 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<DiagnosticReportPerformer> getPerformer() {
+	public EList<Reference> getPerformer() {
 		if (performer == null) {
-			performer = new EObjectContainmentEList<DiagnosticReportPerformer>(DiagnosticReportPerformer.class, this, FhirPackage.DIAGNOSTIC_REPORT__PERFORMER);
+			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__PERFORMER);
 		}
 		return performer;
 	}
@@ -664,7 +655,18 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<Reference> getResultsInterpreter() {
+		if (resultsInterpreter == null) {
+			resultsInterpreter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER);
+		}
+		return resultsInterpreter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getSpecimen() {
 		if (specimen == null) {
 			specimen = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN);
@@ -677,7 +679,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getResult() {
 		if (result == null) {
 			result = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__RESULT);
@@ -690,7 +691,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getImagingStudy() {
 		if (imagingStudy == null) {
 			imagingStudy = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY);
@@ -703,12 +703,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<DiagnosticReportImage> getImage() {
-		if (image == null) {
-			image = new EObjectContainmentEList<DiagnosticReportImage>(DiagnosticReportImage.class, this, FhirPackage.DIAGNOSTIC_REPORT__IMAGE);
+	public EList<DiagnosticReportMedia> getMedia() {
+		if (media == null) {
+			media = new EObjectContainmentEList<DiagnosticReportMedia>(DiagnosticReportMedia.class, this, FhirPackage.DIAGNOSTIC_REPORT__MEDIA);
 		}
-		return image;
+		return media;
 	}
 
 	/**
@@ -716,7 +715,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getConclusion() {
 		return conclusion;
 	}
@@ -760,7 +758,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCodedDiagnosis() {
 		if (codedDiagnosis == null) {
 			codedDiagnosis = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS);
@@ -773,7 +770,6 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Attachment> getPresentedForm() {
 		if (presentedForm == null) {
 			presentedForm = new EObjectContainmentEList<Attachment>(Attachment.class, this, FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM);
@@ -811,14 +807,16 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return basicSetIssued(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER:
+				return ((InternalEList<?>)getResultsInterpreter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return ((InternalEList<?>)getSpecimen()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:
 				return ((InternalEList<?>)getResult()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY:
 				return ((InternalEList<?>)getImagingStudy()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT__IMAGE:
-				return ((InternalEList<?>)getImage()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__MEDIA:
+				return ((InternalEList<?>)getMedia()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return basicSetConclusion(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
@@ -859,14 +857,16 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return getIssued();
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return getPerformer();
+			case FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER:
+				return getResultsInterpreter();
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return getSpecimen();
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:
 				return getResult();
 			case FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY:
 				return getImagingStudy();
-			case FhirPackage.DIAGNOSTIC_REPORT__IMAGE:
-				return getImage();
+			case FhirPackage.DIAGNOSTIC_REPORT__MEDIA:
+				return getMedia();
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return getConclusion();
 			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
@@ -920,7 +920,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				getPerformer().clear();
-				getPerformer().addAll((Collection<? extends DiagnosticReportPerformer>)newValue);
+				getPerformer().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER:
+				getResultsInterpreter().clear();
+				getResultsInterpreter().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				getSpecimen().clear();
@@ -934,9 +938,9 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				getImagingStudy().clear();
 				getImagingStudy().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__IMAGE:
-				getImage().clear();
-				getImage().addAll((Collection<? extends DiagnosticReportImage>)newValue);
+			case FhirPackage.DIAGNOSTIC_REPORT__MEDIA:
+				getMedia().clear();
+				getMedia().addAll((Collection<? extends DiagnosticReportMedia>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				setConclusion((org.hl7.fhir.String)newValue);
@@ -994,6 +998,9 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				getPerformer().clear();
 				return;
+			case FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER:
+				getResultsInterpreter().clear();
+				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				getSpecimen().clear();
 				return;
@@ -1003,8 +1010,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY:
 				getImagingStudy().clear();
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__IMAGE:
-				getImage().clear();
+			case FhirPackage.DIAGNOSTIC_REPORT__MEDIA:
+				getMedia().clear();
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				setConclusion((org.hl7.fhir.String)null);
@@ -1049,14 +1056,16 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return issued != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__PERFORMER:
 				return performer != null && !performer.isEmpty();
+			case FhirPackage.DIAGNOSTIC_REPORT__RESULTS_INTERPRETER:
+				return resultsInterpreter != null && !resultsInterpreter.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__SPECIMEN:
 				return specimen != null && !specimen.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__RESULT:
 				return result != null && !result.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__IMAGING_STUDY:
 				return imagingStudy != null && !imagingStudy.isEmpty();
-			case FhirPackage.DIAGNOSTIC_REPORT__IMAGE:
-				return image != null && !image.isEmpty();
+			case FhirPackage.DIAGNOSTIC_REPORT__MEDIA:
+				return media != null && !media.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return conclusion != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:

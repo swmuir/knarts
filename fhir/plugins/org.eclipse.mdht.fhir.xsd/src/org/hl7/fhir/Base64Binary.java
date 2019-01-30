@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
  * @model extendedMetaData="name='base64Binary' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 public interface Base64Binary extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

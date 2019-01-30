@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,10 +22,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetContains;
 import org.hl7.fhir.ValueSetDesignation;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,8 +43,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ValueSetContains", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ValueSetContains")
 public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSetContains {
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
@@ -159,7 +148,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getSystem() {
 		return system;
 	}
@@ -203,7 +191,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAbstract() {
 		return abstract_;
 	}
@@ -247,7 +234,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getInactive() {
 		return inactive;
 	}
@@ -291,7 +277,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -335,7 +320,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getCode() {
 		return code;
 	}
@@ -379,7 +363,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -423,7 +406,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ValueSetDesignation> getDesignation() {
 		if (designation == null) {
 			designation = new EObjectContainmentEList<ValueSetDesignation>(ValueSetDesignation.class, this, FhirPackage.VALUE_SET_CONTAINS__DESIGNATION);
@@ -436,7 +418,6 @@ public class ValueSetContainsImpl extends BackboneElementImpl implements ValueSe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ValueSetContains> getContains() {
 		if (contains == null) {
 			contains = new EObjectContainmentEList<ValueSetContains>(ValueSetContains.class, this, FhirPackage.VALUE_SET_CONTAINS__CONTAINS);

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PatientAnimalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.PatientAnimalImplAdapter;
  * @model extendedMetaData="name='Patient.Animal' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PatientAnimalImplAdapter.class)
 public interface PatientAnimal extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Species</b></em>' containment reference.

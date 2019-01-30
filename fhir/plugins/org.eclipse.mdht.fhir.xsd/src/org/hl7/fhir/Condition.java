@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ConditionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,11 +34,11 @@ import org.hl7.fhir.jaxb.ConditionImplAdapter;
  *   <li>{@link org.hl7.fhir.Condition#getOnsetString <em>Onset String</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementDateTime <em>Abatement Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementAge <em>Abatement Age</em>}</li>
- *   <li>{@link org.hl7.fhir.Condition#getAbatementBoolean <em>Abatement Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementPeriod <em>Abatement Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementRange <em>Abatement Range</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAbatementString <em>Abatement String</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Condition#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getStage <em>Stage</em>}</li>
  *   <li>{@link org.hl7.fhir.Condition#getEvidence <em>Evidence</em>}</li>
@@ -52,7 +49,6 @@ import org.hl7.fhir.jaxb.ConditionImplAdapter;
  * @model extendedMetaData="name='Condition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConditionImplAdapter.class)
 public interface Condition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -448,33 +444,6 @@ public interface Condition extends DomainResource {
 	void setAbatementAge(Age value);
 
 	/**
-	 * Returns the value of the '<em><b>Abatement Boolean</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Abatement Boolean</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abatement Boolean</em>' containment reference.
-	 * @see #setAbatementBoolean(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getCondition_AbatementBoolean()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='abatementBoolean' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getAbatementBoolean();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getAbatementBoolean <em>Abatement Boolean</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Abatement Boolean</em>' containment reference.
-	 * @see #getAbatementBoolean()
-	 * @generated
-	 */
-	void setAbatementBoolean(org.hl7.fhir.Boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Abatement Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -582,6 +551,32 @@ public interface Condition extends DomainResource {
 	void setAssertedDate(DateTime value);
 
 	/**
+	 * Returns the value of the '<em><b>Recorder</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Individual who recorded the record and takes responsibility for its content.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recorder</em>' containment reference.
+	 * @see #setRecorder(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCondition_Recorder()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recorder' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRecorder();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Condition#getRecorder <em>Recorder</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recorder</em>' containment reference.
+	 * @see #getRecorder()
+	 * @generated
+	 */
+	void setRecorder(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Asserter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,30 +603,20 @@ public interface Condition extends DomainResource {
 	void setAsserter(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Stage</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Stage</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ConditionStage}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Clinical stage or grade of a condition. May include formal severity assessments.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Stage</em>' containment reference.
-	 * @see #setStage(ConditionStage)
+	 * @return the value of the '<em>Stage</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCondition_Stage()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='stage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConditionStage getStage();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Condition#getStage <em>Stage</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stage</em>' containment reference.
-	 * @see #getStage()
-	 * @generated
-	 */
-	void setStage(ConditionStage value);
+	EList<ConditionStage> getStage();
 
 	/**
 	 * Returns the value of the '<em><b>Evidence</b></em>' containment reference list.

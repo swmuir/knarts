@@ -78,7 +78,27 @@ public enum MedicationStatementStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ON_HOLD(5, "onHold", "on-hold");
+	ON_HOLD(5, "onHold", "on-hold"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(6, "unknown", "unknown"),
+
+	/**
+	 * The '<em><b>Not Taken</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_TAKEN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_TAKEN(7, "notTaken", "not-taken");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -165,6 +185,34 @@ public enum MedicationStatementStatusList implements Enumerator {
 	public static final int ON_HOLD_VALUE = 5;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 6;
+
+	/**
+	 * The '<em><b>Not Taken</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Not Taken
+	 * <!-- end-model-doc -->
+	 * @see #NOT_TAKEN
+	 * @model name="notTaken" literal="not-taken"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_TAKEN_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Medication Statement Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +226,8 @@ public enum MedicationStatementStatusList implements Enumerator {
 			INTENDED,
 			STOPPED,
 			ON_HOLD,
+			UNKNOWN,
+			NOT_TAKEN,
 		};
 
 	/**
@@ -240,6 +290,8 @@ public enum MedicationStatementStatusList implements Enumerator {
 			case INTENDED_VALUE: return INTENDED;
 			case STOPPED_VALUE: return STOPPED;
 			case ON_HOLD_VALUE: return ON_HOLD;
+			case UNKNOWN_VALUE: return UNKNOWN;
+			case NOT_TAKEN_VALUE: return NOT_TAKEN;
 		}
 		return null;
 	}

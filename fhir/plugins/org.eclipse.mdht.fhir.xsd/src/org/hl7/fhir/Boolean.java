@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.BooleanImplAdapter;
  * @model extendedMetaData="name='boolean' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 public interface Boolean extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

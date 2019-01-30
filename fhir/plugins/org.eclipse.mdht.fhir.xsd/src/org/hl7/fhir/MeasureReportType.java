@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.MeasureReportTypeImplAdapter;
  * @model extendedMetaData="name='MeasureReportType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportTypeImplAdapter.class)
 public interface MeasureReportType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

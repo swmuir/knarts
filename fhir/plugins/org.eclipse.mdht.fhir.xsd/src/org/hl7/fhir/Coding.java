@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.CodingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +28,6 @@ import org.hl7.fhir.jaxb.CodingImplAdapter;
  * @model extendedMetaData="name='Coding' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CodingImplAdapter.class)
 public interface Coding extends Element {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
@@ -64,7 +60,7 @@ public interface Coding extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
+	 * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)

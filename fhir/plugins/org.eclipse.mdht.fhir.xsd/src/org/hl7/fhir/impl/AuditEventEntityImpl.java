@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,8 +24,6 @@ import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.Base64BinaryImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,8 +47,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AuditEventEntity", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AuditEventEntity")
 public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEventEntity {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -396,7 +387,6 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Coding> getSecurityLabel() {
 		if (securityLabel == null) {
 			securityLabel = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.AUDIT_EVENT_ENTITY__SECURITY_LABEL);
@@ -409,7 +399,6 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -453,7 +442,6 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -497,7 +485,6 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(Base64BinaryImplAdapter.class)
 	public Base64Binary getQuery() {
 		return query;
 	}
@@ -541,7 +528,6 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<AuditEventDetail> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<AuditEventDetail>(AuditEventDetail.class, this, FhirPackage.AUDIT_EVENT_ENTITY__DETAIL);

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.MessageHeaderResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.MessageHeaderResponseImplAdapter;
  * @model extendedMetaData="name='MessageHeader.Response' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageHeaderResponseImplAdapter.class)
 public interface MessageHeaderResponse extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

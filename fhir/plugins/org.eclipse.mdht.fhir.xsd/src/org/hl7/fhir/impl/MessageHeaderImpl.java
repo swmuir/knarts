@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,13 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Instant;
 import org.hl7.fhir.MessageHeader;
 import org.hl7.fhir.MessageHeaderDestination;
 import org.hl7.fhir.MessageHeaderResponse;
 import org.hl7.fhir.MessageHeaderSource;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,9 +37,7 @@ import org.hl7.fhir.jaxb.InstantImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getDestination <em>Destination</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getSender <em>Sender</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getSource <em>Source</em>}</li>
@@ -53,12 +45,11 @@ import org.hl7.fhir.jaxb.InstantImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MessageHeader", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MessageHeader")
 public class MessageHeaderImpl extends DomainResourceImpl implements MessageHeader {
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
@@ -81,16 +72,6 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	protected EList<MessageHeaderDestination> destination;
 
 	/**
-	 * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReceiver()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference receiver;
-
-	/**
 	 * The cached value of the '{@link #getSender() <em>Sender</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,16 +80,6 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * @ordered
 	 */
 	protected Reference sender;
-
-	/**
-	 * The cached value of the '{@link #getTimestamp() <em>Timestamp</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimestamp()
-	 * @generated
-	 * @ordered
-	 */
-	protected Instant timestamp;
 
 	/**
 	 * The cached value of the '{@link #getEnterer() <em>Enterer</em>}' containment reference.
@@ -181,6 +152,16 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	protected EList<Reference> focus;
 
 	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri definition;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -204,7 +185,6 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Coding getEvent() {
 		return event;
 	}
@@ -248,55 +228,11 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MessageHeaderDestination> getDestination() {
 		if (destination == null) {
 			destination = new EObjectContainmentEList<MessageHeaderDestination>(MessageHeaderDestination.class, this, FhirPackage.MESSAGE_HEADER__DESTINATION);
 		}
 		return destination;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReceiver() {
-		return receiver;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReceiver(Reference newReceiver, NotificationChain msgs) {
-		Reference oldReceiver = receiver;
-		receiver = newReceiver;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__RECEIVER, oldReceiver, newReceiver);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReceiver(Reference newReceiver) {
-		if (newReceiver != receiver) {
-			NotificationChain msgs = null;
-			if (receiver != null)
-				msgs = ((InternalEObject)receiver).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__RECEIVER, null, msgs);
-			if (newReceiver != null)
-				msgs = ((InternalEObject)newReceiver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__RECEIVER, null, msgs);
-			msgs = basicSetReceiver(newReceiver, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__RECEIVER, newReceiver, newReceiver));
 	}
 
 	/**
@@ -340,51 +276,6 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__SENDER, newSender, newSender));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
-	public Instant getTimestamp() {
-		return timestamp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTimestamp(Instant newTimestamp, NotificationChain msgs) {
-		Instant oldTimestamp = timestamp;
-		timestamp = newTimestamp;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__TIMESTAMP, oldTimestamp, newTimestamp);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTimestamp(Instant newTimestamp) {
-		if (newTimestamp != timestamp) {
-			NotificationChain msgs = null;
-			if (timestamp != null)
-				msgs = ((InternalEObject)timestamp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__TIMESTAMP, null, msgs);
-			if (newTimestamp != null)
-				msgs = ((InternalEObject)newTimestamp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__TIMESTAMP, null, msgs);
-			msgs = basicSetTimestamp(newTimestamp, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__TIMESTAMP, newTimestamp, newTimestamp));
 	}
 
 	/**
@@ -478,7 +369,6 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public MessageHeaderSource getSource() {
 		return source;
 	}
@@ -651,12 +541,54 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getFocus() {
 		if (focus == null) {
 			focus = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_HEADER__FOCUS);
 		}
 		return focus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
+		Uri oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__DEFINITION, oldDefinition, newDefinition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(Uri newDefinition) {
+		if (newDefinition != definition) {
+			NotificationChain msgs = null;
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__DEFINITION, newDefinition, newDefinition));
 	}
 
 	/**
@@ -671,12 +603,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return basicSetEvent(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return ((InternalEList<?>)getDestination()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MESSAGE_HEADER__RECEIVER:
-				return basicSetReceiver(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__SENDER:
 				return basicSetSender(null, msgs);
-			case FhirPackage.MESSAGE_HEADER__TIMESTAMP:
-				return basicSetTimestamp(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__ENTERER:
 				return basicSetEnterer(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__AUTHOR:
@@ -691,6 +619,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return basicSetResponse(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__FOCUS:
 				return ((InternalEList<?>)getFocus()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MESSAGE_HEADER__DEFINITION:
+				return basicSetDefinition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -707,12 +637,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return getEvent();
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return getDestination();
-			case FhirPackage.MESSAGE_HEADER__RECEIVER:
-				return getReceiver();
 			case FhirPackage.MESSAGE_HEADER__SENDER:
 				return getSender();
-			case FhirPackage.MESSAGE_HEADER__TIMESTAMP:
-				return getTimestamp();
 			case FhirPackage.MESSAGE_HEADER__ENTERER:
 				return getEnterer();
 			case FhirPackage.MESSAGE_HEADER__AUTHOR:
@@ -727,6 +653,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return getResponse();
 			case FhirPackage.MESSAGE_HEADER__FOCUS:
 				return getFocus();
+			case FhirPackage.MESSAGE_HEADER__DEFINITION:
+				return getDefinition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -747,14 +675,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				getDestination().clear();
 				getDestination().addAll((Collection<? extends MessageHeaderDestination>)newValue);
 				return;
-			case FhirPackage.MESSAGE_HEADER__RECEIVER:
-				setReceiver((Reference)newValue);
-				return;
 			case FhirPackage.MESSAGE_HEADER__SENDER:
 				setSender((Reference)newValue);
-				return;
-			case FhirPackage.MESSAGE_HEADER__TIMESTAMP:
-				setTimestamp((Instant)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER__ENTERER:
 				setEnterer((Reference)newValue);
@@ -778,6 +700,9 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				getFocus().clear();
 				getFocus().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.MESSAGE_HEADER__DEFINITION:
+				setDefinition((Uri)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -796,14 +721,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				getDestination().clear();
 				return;
-			case FhirPackage.MESSAGE_HEADER__RECEIVER:
-				setReceiver((Reference)null);
-				return;
 			case FhirPackage.MESSAGE_HEADER__SENDER:
 				setSender((Reference)null);
-				return;
-			case FhirPackage.MESSAGE_HEADER__TIMESTAMP:
-				setTimestamp((Instant)null);
 				return;
 			case FhirPackage.MESSAGE_HEADER__ENTERER:
 				setEnterer((Reference)null);
@@ -826,6 +745,9 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 			case FhirPackage.MESSAGE_HEADER__FOCUS:
 				getFocus().clear();
 				return;
+			case FhirPackage.MESSAGE_HEADER__DEFINITION:
+				setDefinition((Uri)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -842,12 +764,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return event != null;
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return destination != null && !destination.isEmpty();
-			case FhirPackage.MESSAGE_HEADER__RECEIVER:
-				return receiver != null;
 			case FhirPackage.MESSAGE_HEADER__SENDER:
 				return sender != null;
-			case FhirPackage.MESSAGE_HEADER__TIMESTAMP:
-				return timestamp != null;
 			case FhirPackage.MESSAGE_HEADER__ENTERER:
 				return enterer != null;
 			case FhirPackage.MESSAGE_HEADER__AUTHOR:
@@ -862,6 +780,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				return response != null;
 			case FhirPackage.MESSAGE_HEADER__FOCUS:
 				return focus != null && !focus.isEmpty();
+			case FhirPackage.MESSAGE_HEADER__DEFINITION:
+				return definition != null;
 		}
 		return super.eIsSet(featureID);
 	}

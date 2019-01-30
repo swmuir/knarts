@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +14,6 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.ExpansionProfileDesignation2;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.CodeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,8 +29,6 @@ import org.hl7.fhir.jaxb.CodeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ExpansionProfileDesignation2", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExpansionProfileDesignation2")
 public class ExpansionProfileDesignation2Impl extends BackboneElementImpl implements ExpansionProfileDesignation2 {
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' containment reference.
@@ -81,7 +74,6 @@ public class ExpansionProfileDesignation2Impl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CodeImplAdapter.class)
 	public Code getLanguage() {
 		return language;
 	}

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CapabilityStatementRestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,6 @@ import org.hl7.fhir.jaxb.CapabilityStatementRestImplAdapter;
  * @model extendedMetaData="name='CapabilityStatement.Rest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementRestImplAdapter.class)
 public interface CapabilityStatementRest extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.

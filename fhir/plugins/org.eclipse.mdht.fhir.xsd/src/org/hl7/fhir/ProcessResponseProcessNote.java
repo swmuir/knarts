@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ProcessResponseProcessNoteImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ProcessResponseProcessNoteImplAdapter;
  * @model extendedMetaData="name='ProcessResponse.ProcessNote' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProcessResponseProcessNoteImplAdapter.class)
 public interface ProcessResponseProcessNote extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -37,13 +33,13 @@ public interface ProcessResponseProcessNote extends BackboneElement {
 	 * The note purpose: Print/Display.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
+	 * @see #setType(NoteType)
 	 * @see org.hl7.fhir.FhirPackage#getProcessResponseProcessNote_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	NoteType getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcessResponseProcessNote#getType <em>Type</em>}' containment reference.
@@ -53,7 +49,7 @@ public interface ProcessResponseProcessNote extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setType(NoteType value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

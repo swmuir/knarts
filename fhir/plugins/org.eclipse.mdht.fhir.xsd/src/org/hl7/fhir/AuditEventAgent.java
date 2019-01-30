@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AuditEventAgentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +17,7 @@ import org.hl7.fhir.jaxb.AuditEventAgentImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.AuditEventAgent#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getUserId <em>User Id</em>}</li>
@@ -37,8 +35,33 @@ import org.hl7.fhir.jaxb.AuditEventAgentImplAdapter;
  * @model extendedMetaData="name='AuditEvent.Agent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventAgentImplAdapter.class)
 public interface AuditEventAgent extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specification of the participation type the user plays when performing the event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventAgent#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
+
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.

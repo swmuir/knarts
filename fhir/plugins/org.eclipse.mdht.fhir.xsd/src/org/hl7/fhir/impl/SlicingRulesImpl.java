@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.SlicingRulesList;
  *
  * @generated
  */
-@XmlType(name = "SlicingRules", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SlicingRules")
 public class SlicingRulesImpl extends ElementImpl implements SlicingRules {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

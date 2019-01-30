@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,9 +21,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SubscriptionChannel;
 import org.hl7.fhir.SubscriptionChannelType;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.SubscriptionChannelTypeImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,8 +38,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SubscriptionChannel", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SubscriptionChannel")
 public class SubscriptionChannelImpl extends BackboneElementImpl implements SubscriptionChannel {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -113,8 +103,6 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SubscriptionChannelTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public SubscriptionChannelType getType() {
 		return type;
 	}
@@ -158,7 +146,6 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getEndpoint() {
 		return endpoint;
 	}
@@ -202,7 +189,6 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPayload() {
 		return payload;
 	}
@@ -246,8 +232,6 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getHeader() {
 		if (header == null) {
 			header = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.SUBSCRIPTION_CHANNEL__HEADER);

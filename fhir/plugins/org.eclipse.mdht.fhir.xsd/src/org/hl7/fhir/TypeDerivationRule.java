@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TypeDerivationRuleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.TypeDerivationRuleImplAdapter;
  * @model extendedMetaData="name='TypeDerivationRule' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TypeDerivationRuleImplAdapter.class)
 public interface TypeDerivationRule extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

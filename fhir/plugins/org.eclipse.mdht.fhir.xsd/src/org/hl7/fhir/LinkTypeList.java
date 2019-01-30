@@ -66,7 +66,7 @@ public enum LinkTypeList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Replaced-by
-	 * vervangen
+	 * Vervangen door
 	 * <!-- end-model-doc -->
 	 * @see #REPLACED_BY
 	 * @model name="replacedBy" literal="replaced-by"
@@ -81,6 +81,7 @@ public enum LinkTypeList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Replaces
+	 * Vervangt
 	 * <!-- end-model-doc -->
 	 * @see #REPLACES
 	 * @model name="replaces"
@@ -95,7 +96,7 @@ public enum LinkTypeList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Refer
-	 * verwijzing
+	 * Verwijzing
 	 * <!-- end-model-doc -->
 	 * @see #REFER
 	 * @model name="refer"
@@ -110,7 +111,7 @@ public enum LinkTypeList implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * See also
-	 * zie ook
+	 * Zie ook
 	 * <!-- end-model-doc -->
 	 * @see #SEEALSO
 	 * @model name="seealso"

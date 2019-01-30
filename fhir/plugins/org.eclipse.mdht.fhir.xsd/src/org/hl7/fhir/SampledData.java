@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SampledDataImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.hl7.fhir.jaxb.SampledDataImplAdapter;
  * @model extendedMetaData="name='SampledData' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SampledDataImplAdapter.class)
 public interface SampledData extends Element {
 	/**
 	 * Returns the value of the '<em><b>Origin</b></em>' containment reference.
@@ -201,7 +197,7 @@ public interface SampledData extends Element {
 	 * @return the value of the '<em>Data</em>' containment reference.
 	 * @see #setData(SampledDataDataType)
 	 * @see org.hl7.fhir.FhirPackage#getSampledData_Data()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
 	 * @generated
 	 */

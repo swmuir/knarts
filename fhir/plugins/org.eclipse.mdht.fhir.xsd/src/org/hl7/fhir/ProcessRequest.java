@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ProcessRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +39,6 @@ import org.hl7.fhir.jaxb.ProcessRequestImplAdapter;
  * @model extendedMetaData="name='ProcessRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProcessRequestImplAdapter.class)
 public interface ProcessRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.

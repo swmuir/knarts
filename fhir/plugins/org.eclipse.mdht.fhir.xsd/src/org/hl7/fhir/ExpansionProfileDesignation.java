@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExpansionProfileDesignationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ExpansionProfileDesignationImplAdapter;
  * @model extendedMetaData="name='ExpansionProfile.Designation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExpansionProfileDesignationImplAdapter.class)
 public interface ExpansionProfileDesignation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Include</b></em>' containment reference.

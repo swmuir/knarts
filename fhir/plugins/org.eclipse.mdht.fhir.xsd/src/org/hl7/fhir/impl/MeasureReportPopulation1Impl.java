@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,10 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureReportPopulation1;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,27 +23,14 @@ import org.hl7.fhir.jaxb.IntegerImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportPopulation1Impl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportPopulation1Impl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportPopulation1Impl#getCount <em>Count</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportPopulation1Impl#getPatients <em>Patients</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportPopulation1Impl#getSubjects <em>Subjects</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MeasureReportPopulation1", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureReportPopulation1")
 public class MeasureReportPopulation1Impl extends BackboneElementImpl implements MeasureReportPopulation1 {
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier identifier;
-
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -71,14 +52,14 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	protected org.hl7.fhir.Integer count;
 
 	/**
-	 * The cached value of the '{@link #getPatients() <em>Patients</em>}' containment reference.
+	 * The cached value of the '{@link #getSubjects() <em>Subjects</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPatients()
+	 * @see #getSubjects()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference patients;
+	protected Reference subjects;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,49 +78,6 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMeasureReportPopulation1();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getIdentifier() {
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -190,7 +128,6 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getCount() {
 		return count;
 	}
@@ -234,8 +171,8 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPatients() {
-		return patients;
+	public Reference getSubjects() {
+		return subjects;
 	}
 
 	/**
@@ -243,11 +180,11 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatients(Reference newPatients, NotificationChain msgs) {
-		Reference oldPatients = patients;
-		patients = newPatients;
+	public NotificationChain basicSetSubjects(Reference newSubjects, NotificationChain msgs) {
+		Reference oldSubjects = subjects;
+		subjects = newSubjects;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS, oldPatients, newPatients);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS, oldSubjects, newSubjects);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -258,18 +195,18 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPatients(Reference newPatients) {
-		if (newPatients != patients) {
+	public void setSubjects(Reference newSubjects) {
+		if (newSubjects != subjects) {
 			NotificationChain msgs = null;
-			if (patients != null)
-				msgs = ((InternalEObject)patients).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS, null, msgs);
-			if (newPatients != null)
-				msgs = ((InternalEObject)newPatients).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS, null, msgs);
-			msgs = basicSetPatients(newPatients, msgs);
+			if (subjects != null)
+				msgs = ((InternalEObject)subjects).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS, null, msgs);
+			if (newSubjects != null)
+				msgs = ((InternalEObject)newSubjects).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS, null, msgs);
+			msgs = basicSetSubjects(newSubjects, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS, newPatients, newPatients));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS, newSubjects, newSubjects));
 	}
 
 	/**
@@ -280,14 +217,12 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
 			case FhirPackage.MEASURE_REPORT_POPULATION1__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.MEASURE_REPORT_POPULATION1__COUNT:
 				return basicSetCount(null, msgs);
-			case FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS:
-				return basicSetPatients(null, msgs);
+			case FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS:
+				return basicSetSubjects(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -300,14 +235,12 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER:
-				return getIdentifier();
 			case FhirPackage.MEASURE_REPORT_POPULATION1__CODE:
 				return getCode();
 			case FhirPackage.MEASURE_REPORT_POPULATION1__COUNT:
 				return getCount();
-			case FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS:
-				return getPatients();
+			case FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS:
+				return getSubjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,17 +253,14 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__COUNT:
 				setCount((org.hl7.fhir.Integer)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS:
-				setPatients((Reference)newValue);
+			case FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS:
+				setSubjects((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,17 +274,14 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__CODE:
 				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__COUNT:
 				setCount((org.hl7.fhir.Integer)null);
 				return;
-			case FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS:
-				setPatients((Reference)null);
+			case FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS:
+				setSubjects((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -368,14 +295,12 @@ public class MeasureReportPopulation1Impl extends BackboneElementImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_REPORT_POPULATION1__IDENTIFIER:
-				return identifier != null;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__CODE:
 				return code != null;
 			case FhirPackage.MEASURE_REPORT_POPULATION1__COUNT:
 				return count != null;
-			case FhirPackage.MEASURE_REPORT_POPULATION1__PATIENTS:
-				return patients != null;
+			case FhirPackage.MEASURE_REPORT_POPULATION1__SUBJECTS:
+				return subjects != null;
 		}
 		return super.eIsSet(featureID);
 	}

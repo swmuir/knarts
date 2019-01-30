@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,7 +15,6 @@ import org.hl7.fhir.EncounterLocationStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.EncounterLocationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +31,6 @@ import org.hl7.fhir.jaxb.EncounterLocationStatusImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "EncounterLocation", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EncounterLocation")
 public class EncounterLocationImpl extends BackboneElementImpl implements EncounterLocation {
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
@@ -94,7 +86,6 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getLocation() {
 		return location;
 	}
@@ -138,7 +129,6 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(EncounterLocationStatusImplAdapter.class)
 	public EncounterLocationStatus getStatus() {
 		return status;
 	}

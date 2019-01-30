@@ -4,12 +4,9 @@ package org.w3._1999.xhtml;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.w3._1999.xhtml.jaxb.UlTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +31,6 @@ import org.w3._1999.xhtml.jaxb.UlTypeImplAdapter;
  * @model extendedMetaData="name='ul_._type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(UlTypeImplAdapter.class)
 public interface UlType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Li</b></em>' containment reference list.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TaskStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.TaskStatusImplAdapter;
  * @model extendedMetaData="name='TaskStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TaskStatusImplAdapter.class)
 public interface TaskStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

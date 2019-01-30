@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.ecore.EObject;
-import org.hl7.fhir.jaxb.ResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.ResourceImplAdapter;
  * @model extendedMetaData="name='Resource' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ResourceImplAdapter.class)
 public interface Resource extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' containment reference.
@@ -63,7 +59,7 @@ public interface Resource extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
+	 * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Meta</em>' containment reference.
 	 * @see #setMeta(Meta)

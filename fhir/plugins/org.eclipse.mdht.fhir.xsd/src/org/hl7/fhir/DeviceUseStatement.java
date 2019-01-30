@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.DeviceUseStatementImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,16 +19,18 @@ import org.hl7.fhir.jaxb.DeviceUseStatementImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceUseStatement#getWhenUsed <em>When Used</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getDerivedFrom <em>Derived From</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingPeriod <em>Timing Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getTimingDateTime <em>Timing Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getRecordedOn <em>Recorded On</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getDevice <em>Device</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceUseStatement#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceUseStatement#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceUseStatement#getNote <em>Note</em>}</li>
  * </ul>
@@ -40,7 +39,6 @@ import org.hl7.fhir.jaxb.DeviceUseStatementImplAdapter;
  * @model extendedMetaData="name='DeviceUseStatement' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceUseStatementImplAdapter.class)
 public interface DeviceUseStatement extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -57,6 +55,22 @@ public interface DeviceUseStatement extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan, proposal or order that is fulfilled in whole or in part by this DeviceUseStatement.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -111,30 +125,20 @@ public interface DeviceUseStatement extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>When Used</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The time period over which the device was used.
+	 * Allows linking the DeviceUseStatement to the underlying Request, or to other information that supports or is used to derive the DeviceUseStatement.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>When Used</em>' containment reference.
-	 * @see #setWhenUsed(Period)
-	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_WhenUsed()
+	 * @return the value of the '<em>Derived From</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_DerivedFrom()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='whenUsed' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='derivedFrom' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getWhenUsed();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceUseStatement#getWhenUsed <em>When Used</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>When Used</em>' containment reference.
-	 * @see #getWhenUsed()
-	 * @generated
-	 */
-	void setWhenUsed(Period value);
+	EList<Reference> getDerivedFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Timing Timing</b></em>' containment reference.
@@ -296,27 +300,43 @@ public interface DeviceUseStatement extends DomainResource {
 	void setDevice(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Indication</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Reason or justification for the use of the device.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Indication</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_Indication()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='indication' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getIndication();
+	EList<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates another resource whose existence justifies this DeviceUseStatement.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceUseStatement_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the site on the subject's body where the device was used ( i.e. the target site).
+	 * Indicates the anotomic location on the subject's body where the device was used ( i.e. the target).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(CodeableConcept)

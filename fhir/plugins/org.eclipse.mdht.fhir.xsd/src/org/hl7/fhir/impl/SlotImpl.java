@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,10 +24,6 @@ import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Slot;
 import org.hl7.fhir.SlotStatus;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.InstantImplAdapter;
-import org.hl7.fhir.jaxb.SlotStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,8 +48,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Slot", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Slot")
 public class SlotImpl extends DomainResourceImpl implements Slot {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -194,7 +183,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SLOT__IDENTIFIER);
@@ -250,7 +238,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getServiceType() {
 		if (serviceType == null) {
 			serviceType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SLOT__SERVICE_TYPE);
@@ -263,7 +250,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSpecialty() {
 		if (specialty == null) {
 			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SLOT__SPECIALTY);
@@ -319,7 +305,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSchedule() {
 		return schedule;
 	}
@@ -363,8 +348,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(SlotStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public SlotStatus getStatus() {
 		return status;
 	}
@@ -408,8 +391,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
 	public Instant getStart() {
 		return start;
 	}
@@ -453,8 +434,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(InstantImplAdapter.class)
-	@XmlElement(required = true)
 	public Instant getEnd() {
 		return end;
 	}
@@ -498,7 +477,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getOverbooked() {
 		return overbooked;
 	}
@@ -542,7 +520,6 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}

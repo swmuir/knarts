@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.RelatedPersonImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +35,6 @@ import org.hl7.fhir.jaxb.RelatedPersonImplAdapter;
  * @model extendedMetaData="name='RelatedPerson' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(RelatedPersonImplAdapter.class)
 public interface RelatedPerson extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -109,30 +105,20 @@ public interface RelatedPerson extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The nature of the relationship between a patient and the related person.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Relationship</em>' containment reference.
-	 * @see #setRelationship(CodeableConcept)
+	 * @return the value of the '<em>Relationship</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRelatedPerson_Relationship()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getRelationship();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RelatedPerson#getRelationship <em>Relationship</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relationship</em>' containment reference.
-	 * @see #getRelationship()
-	 * @generated
-	 */
-	void setRelationship(CodeableConcept value);
+	EList<CodeableConcept> getRelationship();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference list.
@@ -255,7 +241,7 @@ public interface RelatedPerson extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.
+	 * The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Period</em>' containment reference.
 	 * @see #setPeriod(Period)

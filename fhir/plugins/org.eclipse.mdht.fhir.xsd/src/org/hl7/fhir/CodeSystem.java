@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CodeSystemImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +39,7 @@ import org.hl7.fhir.jaxb.CodeSystemImplAdapter;
  *   <li>{@link org.hl7.fhir.CodeSystem#getCompositional <em>Compositional</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystem#getVersionNeeded <em>Version Needed</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystem#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.CodeSystem#getSupplements <em>Supplements</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystem#getCount <em>Count</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystem#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystem#getProperty <em>Property</em>}</li>
@@ -52,14 +50,13 @@ import org.hl7.fhir.jaxb.CodeSystemImplAdapter;
  * @model extendedMetaData="name='CodeSystem' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CodeSystemImplAdapter.class)
 public interface CodeSystem extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this code system is (or will be) published. The URL SHOULD include the major version of the code system. For more information see [Technical and Business Versions](resource.html#versions). This is used in [Coding]{datatypes.html#Coding}.system.
+	 * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this code system is (or will be) published. This is used in [Coding](datatypes.html#Coding).system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -111,7 +108,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier that is used to identify this version of the code system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the code system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. This is used in [Coding]{datatypes.html#Coding}.version.
+	 * The identifier that is used to identify this version of the code system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the code system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. This is used in [Coding](datatypes.html#Coding).version.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -569,6 +566,32 @@ public interface CodeSystem extends DomainResource {
 	 * @generated
 	 */
 	void setContent(CodeSystemContentMode value);
+
+	/**
+	 * Returns the value of the '<em><b>Supplements</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the code system that this code system supplement is adding designations and properties too.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supplements</em>' containment reference.
+	 * @see #setSupplements(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_Supplements()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supplements' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSupplements();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CodeSystem#getSupplements <em>Supplements</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supplements</em>' containment reference.
+	 * @see #getSupplements()
+	 * @generated
+	 */
+	void setSupplements(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Count</b></em>' containment reference.

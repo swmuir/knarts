@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.TaskInputImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +54,14 @@ import org.hl7.fhir.jaxb.TaskInputImplAdapter;
  *   <li>{@link org.hl7.fhir.TaskInput#getValueSampledData <em>Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskInput#getValueSignature <em>Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskInput#getValueTiming <em>Value Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueDosage <em>Value Dosage</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueContactDetail <em>Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueContributor <em>Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueRelatedArtifact <em>Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskInput#getValueUsageContext <em>Value Usage Context</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskInput#getValueMeta <em>Value Meta</em>}</li>
  * </ul>
  *
@@ -64,7 +69,6 @@ import org.hl7.fhir.jaxb.TaskInputImplAdapter;
  * @model extendedMetaData="name='Task.Input' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TaskInputImplAdapter.class)
 public interface TaskInput extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -1090,6 +1094,222 @@ public interface TaskInput extends BackboneElement {
 	 * @generated
 	 */
 	void setValueTiming(Timing value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #setValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getValueDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueDosage <em>Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #getValueDosage()
+	 * @generated
+	 */
+	void setValueDosage(Dosage value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Contact Detail</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Contact Detail</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Contact Detail</em>' containment reference.
+	 * @see #setValueContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueContactDetail()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueContactDetail' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ContactDetail getValueContactDetail();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueContactDetail <em>Value Contact Detail</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Contact Detail</em>' containment reference.
+	 * @see #getValueContactDetail()
+	 * @generated
+	 */
+	void setValueContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Contributor</em>' containment reference.
+	 * @see #setValueContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getValueContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueContributor <em>Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Contributor</em>' containment reference.
+	 * @see #getValueContributor()
+	 * @generated
+	 */
+	void setValueContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #setValueDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getValueDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueDataRequirement <em>Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #getValueDataRequirement()
+	 * @generated
+	 */
+	void setValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #setValueParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getValueParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueParameterDefinition <em>Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #getValueParameterDefinition()
+	 * @generated
+	 */
+	void setValueParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Related Artifact</em>' containment reference.
+	 * @see #setValueRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getValueRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueRelatedArtifact <em>Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Related Artifact</em>' containment reference.
+	 * @see #getValueRelatedArtifact()
+	 * @generated
+	 */
+	void setValueRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #setValueTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getValueTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueTriggerDefinition <em>Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #getValueTriggerDefinition()
+	 * @generated
+	 */
+	void setValueTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Usage Context</em>' containment reference.
+	 * @see #setValueUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getTaskInput_ValueUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getValueUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskInput#getValueUsageContext <em>Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Usage Context</em>' containment reference.
+	 * @see #getValueUsageContext()
+	 * @generated
+	 */
+	void setValueUsageContext(UsageContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Meta</b></em>' containment reference.

@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Apr 19, 2017 07:44+1000 for FHIR v3.0.1 
+  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -61,7 +61,7 @@
           </xs:element>
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="MeasureReportType">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="measure" minOccurs="1" maxOccurs="1" type="Reference">
@@ -69,9 +69,9 @@
               <xs:documentation xml:lang="en">A reference to the Measure that was evaluated to produce this report.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="patient" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Optional Patient if the report was requested for a single patient.</xs:documentation>
+              <xs:documentation xml:lang="en">Optional subject identifying the individual or individuals the report is for.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
@@ -110,9 +110,9 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="1" maxOccurs="1" type="Identifier">
+          <xs:element name="code" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier of the population group as defined in the measure definition.</xs:documentation>
+              <xs:documentation xml:lang="en">The meaning of the population group as defined in the measure definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="population" type="MeasureReport.Population" minOccurs="0" maxOccurs="unbounded">
@@ -120,7 +120,7 @@
               <xs:documentation xml:lang="en">The populations that make up the population group, one for each type of population appropriate for the measure.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="measureScore" minOccurs="0" maxOccurs="1" type="decimal">
+          <xs:element name="measureScore" minOccurs="0" maxOccurs="1" type="Quantity">
             <xs:annotation>
               <xs:documentation xml:lang="en">The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.</xs:documentation>
            </xs:annotation>
@@ -141,11 +141,6 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier of the population being reported, as defined by the population element of the measure.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of the population.</xs:documentation>
@@ -156,9 +151,9 @@
               <xs:documentation xml:lang="en">The number of members of the population.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="patients" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="subjects" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This element refers to a List of patient level MeasureReport resources, one for each patient in this population.</xs:documentation>
+              <xs:documentation xml:lang="en">This element refers to a List of subject level MeasureReport resources, one for each subject in this population.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -172,9 +167,9 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
+          <xs:element name="code" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier of this stratifier, as defined in the measure definition.</xs:documentation>
+              <xs:documentation xml:lang="en">The meaning of this stratifier, as defined in the measure definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="stratum" type="MeasureReport.Stratum" minOccurs="0" maxOccurs="unbounded">
@@ -193,9 +188,9 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="value" minOccurs="1" maxOccurs="1" type="string">
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique.</xs:documentation>
+              <xs:documentation xml:lang="en">The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="population" type="MeasureReport.Population1" minOccurs="0" maxOccurs="unbounded">
@@ -203,7 +198,7 @@
               <xs:documentation xml:lang="en">The populations that make up the stratum, one for each type of population appropriate to the measure.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="measureScore" minOccurs="0" maxOccurs="1" type="decimal">
+          <xs:element name="measureScore" minOccurs="0" maxOccurs="1" type="Quantity">
             <xs:annotation>
               <xs:documentation xml:lang="en">The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.</xs:documentation>
            </xs:annotation>
@@ -219,11 +214,6 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier of the population being reported, as defined by the population element of the measure.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of the population.</xs:documentation>
@@ -234,9 +224,9 @@
               <xs:documentation xml:lang="en">The number of members of the population in this stratum.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="patients" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="subjects" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.</xs:documentation>
+              <xs:documentation xml:lang="en">This element refers to a List of subject level MeasureReport resources, one for each subject in this population in this stratum.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -280,9 +270,9 @@
           <xs:documentation xml:lang="en">Individual</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="patient-list">
+      <xs:enumeration value="subject-list">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Patient List</xs:documentation>
+          <xs:documentation xml:lang="en">Subject List</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="summary">

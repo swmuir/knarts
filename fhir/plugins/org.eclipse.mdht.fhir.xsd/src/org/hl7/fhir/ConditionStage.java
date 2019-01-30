@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ConditionStageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,13 +19,13 @@ import org.hl7.fhir.jaxb.ConditionStageImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.ConditionStage#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.hl7.fhir.ConditionStage#getAssessment <em>Assessment</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConditionStage#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getConditionStage()
  * @model extendedMetaData="name='Condition.Stage' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConditionStageImplAdapter.class)
 public interface ConditionStage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Summary</b></em>' containment reference.
@@ -71,5 +68,31 @@ public interface ConditionStage extends BackboneElement {
 	 * @generated
 	 */
 	EList<Reference> getAssessment();
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The kind of staging, such as pathological or clinical staging.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getConditionStage_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ConditionStage#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
 
 } // ConditionStage

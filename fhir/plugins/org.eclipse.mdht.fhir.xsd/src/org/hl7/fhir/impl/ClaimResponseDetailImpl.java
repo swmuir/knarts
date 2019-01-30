@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,7 +22,6 @@ import org.hl7.fhir.ClaimResponseDetail;
 import org.hl7.fhir.ClaimResponseSubDetail;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +31,7 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseDetailImpl#getSequenceLinkId <em>Sequence Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimResponseDetailImpl#getDetailSequence <em>Detail Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseDetailImpl#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseDetailImpl#getAdjudication <em>Adjudication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseDetailImpl#getSubDetail <em>Sub Detail</em>}</li>
@@ -45,18 +39,16 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ClaimResponseDetail", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimResponseDetail")
 public class ClaimResponseDetailImpl extends BackboneElementImpl implements ClaimResponseDetail {
 	/**
-	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference.
+	 * The cached value of the '{@link #getDetailSequence() <em>Detail Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceLinkId()
+	 * @see #getDetailSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt sequenceLinkId;
+	protected PositiveInt detailSequence;
 
 	/**
 	 * The cached value of the '{@link #getNoteNumber() <em>Note Number</em>}' containment reference list.
@@ -112,10 +104,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement(required = true)
-	public PositiveInt getSequenceLinkId() {
-		return sequenceLinkId;
+	public PositiveInt getDetailSequence() {
+		return detailSequence;
 	}
 
 	/**
@@ -123,11 +113,11 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSequenceLinkId(PositiveInt newSequenceLinkId, NotificationChain msgs) {
-		PositiveInt oldSequenceLinkId = sequenceLinkId;
-		sequenceLinkId = newSequenceLinkId;
+	public NotificationChain basicSetDetailSequence(PositiveInt newDetailSequence, NotificationChain msgs) {
+		PositiveInt oldDetailSequence = detailSequence;
+		detailSequence = newDetailSequence;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID, oldSequenceLinkId, newSequenceLinkId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE, oldDetailSequence, newDetailSequence);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -138,18 +128,18 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSequenceLinkId(PositiveInt newSequenceLinkId) {
-		if (newSequenceLinkId != sequenceLinkId) {
+	public void setDetailSequence(PositiveInt newDetailSequence) {
+		if (newDetailSequence != detailSequence) {
 			NotificationChain msgs = null;
-			if (sequenceLinkId != null)
-				msgs = ((InternalEObject)sequenceLinkId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID, null, msgs);
-			if (newSequenceLinkId != null)
-				msgs = ((InternalEObject)newSequenceLinkId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID, null, msgs);
-			msgs = basicSetSequenceLinkId(newSequenceLinkId, msgs);
+			if (detailSequence != null)
+				msgs = ((InternalEObject)detailSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE, null, msgs);
+			if (newDetailSequence != null)
+				msgs = ((InternalEObject)newDetailSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE, null, msgs);
+			msgs = basicSetDetailSequence(newDetailSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID, newSequenceLinkId, newSequenceLinkId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE, newDetailSequence, newDetailSequence));
 	}
 
 	/**
@@ -157,8 +147,6 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER);
@@ -171,7 +159,6 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ClaimResponseAdjudication>(ClaimResponseAdjudication.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__ADJUDICATION);
@@ -184,7 +171,6 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ClaimResponseSubDetail> getSubDetail() {
 		if (subDetail == null) {
 			subDetail = new EObjectContainmentEList<ClaimResponseSubDetail>(ClaimResponseSubDetail.class, this, FhirPackage.CLAIM_RESPONSE_DETAIL__SUB_DETAIL);
@@ -200,8 +186,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID:
-				return basicSetSequenceLinkId(null, msgs);
+			case FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE:
+				return basicSetDetailSequence(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER:
 				return ((InternalEList<?>)getNoteNumber()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__ADJUDICATION:
@@ -220,8 +206,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID:
-				return getSequenceLinkId();
+			case FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE:
+				return getDetailSequence();
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER:
 				return getNoteNumber();
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__ADJUDICATION:
@@ -241,8 +227,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID:
-				setSequenceLinkId((PositiveInt)newValue);
+			case FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE:
+				setDetailSequence((PositiveInt)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER:
 				getNoteNumber().clear();
@@ -268,8 +254,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID:
-				setSequenceLinkId((PositiveInt)null);
+			case FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE:
+				setDetailSequence((PositiveInt)null);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER:
 				getNoteNumber().clear();
@@ -292,8 +278,8 @@ public class ClaimResponseDetailImpl extends BackboneElementImpl implements Clai
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.CLAIM_RESPONSE_DETAIL__SEQUENCE_LINK_ID:
-				return sequenceLinkId != null;
+			case FhirPackage.CLAIM_RESPONSE_DETAIL__DETAIL_SEQUENCE:
+				return detailSequence != null;
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__NOTE_NUMBER:
 				return noteNumber != null && !noteNumber.isEmpty();
 			case FhirPackage.CLAIM_RESPONSE_DETAIL__ADJUDICATION:

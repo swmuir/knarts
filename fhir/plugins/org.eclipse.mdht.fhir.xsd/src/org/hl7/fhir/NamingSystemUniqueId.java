@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.NamingSystemUniqueIdImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.NamingSystemUniqueIdImplAdapter;
  * @model extendedMetaData="name='NamingSystem.UniqueId' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NamingSystemUniqueIdImplAdapter.class)
 public interface NamingSystemUniqueId extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AccountCoverageImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AccountCoverageImplAdapter;
  * @model extendedMetaData="name='Account.Coverage' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AccountCoverageImplAdapter.class)
 public interface AccountCoverage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference.

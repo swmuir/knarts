@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,8 +32,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "CareTeamParticipant", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CareTeamParticipant")
 public class CareTeamParticipantImpl extends BackboneElementImpl implements CareTeamParticipant {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.

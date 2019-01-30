@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,11 +14,6 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.StructureMapParameter;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IdImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +32,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "StructureMapParameter", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "StructureMapParameter")
 public class StructureMapParameterImpl extends BackboneElementImpl implements StructureMapParameter {
 	/**
 	 * The cached value of the '{@link #getValueId() <em>Value Id</em>}' containment reference.
@@ -118,7 +107,6 @@ public class StructureMapParameterImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IdImplAdapter.class)
 	public Id getValueId() {
 		return valueId;
 	}
@@ -162,7 +150,6 @@ public class StructureMapParameterImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getValueString() {
 		return valueString;
 	}
@@ -206,7 +193,6 @@ public class StructureMapParameterImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValueBoolean() {
 		return valueBoolean;
 	}
@@ -250,7 +236,6 @@ public class StructureMapParameterImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getValueInteger() {
 		return valueInteger;
 	}
@@ -294,7 +279,6 @@ public class StructureMapParameterImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getValueDecimal() {
 		return valueDecimal;
 	}

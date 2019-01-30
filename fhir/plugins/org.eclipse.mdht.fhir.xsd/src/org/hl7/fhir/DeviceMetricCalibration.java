@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DeviceMetricCalibrationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.DeviceMetricCalibrationImplAdapter;
  * @model extendedMetaData="name='DeviceMetric.Calibration' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DeviceMetricCalibrationImplAdapter.class)
 public interface DeviceMetricCalibration extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

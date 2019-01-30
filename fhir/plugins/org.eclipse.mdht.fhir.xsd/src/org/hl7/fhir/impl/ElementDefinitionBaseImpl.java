@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,8 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.ElementDefinitionBase;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +29,6 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ElementDefinitionBase", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ElementDefinitionBase")
 public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDefinitionBase {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
@@ -93,8 +84,6 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -138,8 +127,6 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
-	@XmlElement(required = true)
 	public UnsignedInt getMin() {
 		return min;
 	}
@@ -183,8 +170,6 @@ public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}

@@ -58,7 +58,17 @@ public enum IdentifierUseList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SECONDARY(3, "secondary", "secondary");
+	SECONDARY(3, "secondary", "secondary"),
+
+	/**
+	 * The '<em><b>Old</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OLD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OLD(4, "old", "old");
 
 	/**
 	 * The '<em><b>Usual</b></em>' literal value.
@@ -117,6 +127,20 @@ public enum IdentifierUseList implements Enumerator {
 	public static final int SECONDARY_VALUE = 3;
 
 	/**
+	 * The '<em><b>Old</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Old
+	 * <!-- end-model-doc -->
+	 * @see #OLD
+	 * @model name="old"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OLD_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Identifier Use List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +152,7 @@ public enum IdentifierUseList implements Enumerator {
 			OFFICIAL,
 			TEMP,
 			SECONDARY,
+			OLD,
 		};
 
 	/**
@@ -188,6 +213,7 @@ public enum IdentifierUseList implements Enumerator {
 			case OFFICIAL_VALUE: return OFFICIAL;
 			case TEMP_VALUE: return TEMP;
 			case SECONDARY_VALUE: return SECONDARY;
+			case OLD_VALUE: return OLD;
 		}
 		return null;
 	}

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureReportStratifierImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.MeasureReportStratifierImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureReportStratifier#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportStratifier#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportStratifier#getStratum <em>Stratum</em>}</li>
  * </ul>
  *
@@ -28,33 +25,32 @@ import org.hl7.fhir.jaxb.MeasureReportStratifierImplAdapter;
  * @model extendedMetaData="name='MeasureReport.Stratifier' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportStratifierImplAdapter.class)
 public interface MeasureReportStratifier extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier of this stratifier, as defined in the measure definition.
+	 * The meaning of this stratifier, as defined in the measure definition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratifier_Identifier()
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratifier_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportStratifier#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportStratifier#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Stratum</b></em>' containment reference list.

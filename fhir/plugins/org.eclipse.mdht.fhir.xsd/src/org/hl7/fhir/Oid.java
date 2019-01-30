@@ -4,10 +4,6 @@ package org.hl7.fhir;
 
 import java.lang.String;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.OidImplAdapter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Oid</b></em>'.
@@ -15,7 +11,7 @@ import org.hl7.fhir.jaxb.OidImplAdapter;
  *
  * <!-- begin-model-doc -->
  * An OID represented as a URI
- * RFC 3001. See also ISO/IEC 8824:1990 €
+ * RFC 3001. See also ISO/IEC 8824:1990 â‚¬
  * If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -30,7 +26,6 @@ import org.hl7.fhir.jaxb.OidImplAdapter;
  * @model extendedMetaData="name='oid' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(OidImplAdapter.class)
 public interface Oid extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

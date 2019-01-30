@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EventStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.EventStatusImplAdapter;
  * @model extendedMetaData="name='EventStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EventStatusImplAdapter.class)
 public interface EventStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

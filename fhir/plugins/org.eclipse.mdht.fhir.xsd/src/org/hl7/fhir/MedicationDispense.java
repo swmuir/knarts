@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MedicationDispenseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +28,7 @@ import org.hl7.fhir.jaxb.MedicationDispenseImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getAuthorizingPrescription <em>Authorizing Prescription</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getQuantity <em>Quantity</em>}</li>
@@ -43,9 +41,8 @@ import org.hl7.fhir.jaxb.MedicationDispenseImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getSubstitution <em>Substitution</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDetectedIssue <em>Detected Issue</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getNotDone <em>Not Done</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getNotDoneReasonCodeableConcept <em>Not Done Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getNotDoneReasonReference <em>Not Done Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
@@ -53,7 +50,6 @@ import org.hl7.fhir.jaxb.MedicationDispenseImplAdapter;
  * @model extendedMetaData="name='MedicationDispense' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationDispenseImplAdapter.class)
 public interface MedicationDispense extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -267,7 +263,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication.
+	 * Indicates who or what performed the event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Performer()
@@ -276,6 +272,32 @@ public interface MedicationDispense extends DomainResource {
 	 * @generated
 	 */
 	EList<MedicationDispensePerformer> getPerformer();
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The principal physical locaiton where the dispense was performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Location</em>' containment reference.
+	 * @see #setLocation(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Location()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getLocation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getLocation <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' containment reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Authorizing Prescription</b></em>' containment reference list.
@@ -540,84 +562,58 @@ public interface MedicationDispense extends DomainResource {
 	EList<Reference> getDetectedIssue();
 
 	/**
-	 * Returns the value of the '<em><b>Not Done</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * True if the dispense was not performed for some reason.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Not Done</em>' containment reference.
-	 * @see #setNotDone(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_NotDone()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDone' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getNotDone();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getNotDone <em>Not Done</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done</em>' containment reference.
-	 * @see #getNotDone()
-	 * @generated
-	 */
-	void setNotDone(org.hl7.fhir.Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Not Done Reason Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status Reason Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Not Done Reason Codeable Concept</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Status Reason Codeable Concept</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Not Done Reason Codeable Concept</em>' containment reference.
-	 * @see #setNotDoneReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_NotDoneReasonCodeableConcept()
+	 * @return the value of the '<em>Status Reason Codeable Concept</em>' containment reference.
+	 * @see #setStatusReasonCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonCodeableConcept()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDoneReasonCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='statusReasonCodeableConcept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getNotDoneReasonCodeableConcept();
+	CodeableConcept getStatusReasonCodeableConcept();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getNotDoneReasonCodeableConcept <em>Not Done Reason Codeable Concept</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done Reason Codeable Concept</em>' containment reference.
-	 * @see #getNotDoneReasonCodeableConcept()
+	 * @param value the new value of the '<em>Status Reason Codeable Concept</em>' containment reference.
+	 * @see #getStatusReasonCodeableConcept()
 	 * @generated
 	 */
-	void setNotDoneReasonCodeableConcept(CodeableConcept value);
+	void setStatusReasonCodeableConcept(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Not Done Reason Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Status Reason Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Not Done Reason Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Status Reason Reference</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Not Done Reason Reference</em>' containment reference.
-	 * @see #setNotDoneReasonReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_NotDoneReasonReference()
+	 * @return the value of the '<em>Status Reason Reference</em>' containment reference.
+	 * @see #setStatusReasonReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='notDoneReasonReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='statusReasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getNotDoneReasonReference();
+	Reference getStatusReasonReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getNotDoneReasonReference <em>Not Done Reason Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not Done Reason Reference</em>' containment reference.
-	 * @see #getNotDoneReasonReference()
+	 * @param value the new value of the '<em>Status Reason Reference</em>' containment reference.
+	 * @see #getStatusReasonReference()
 	 * @generated
 	 */
-	void setNotDoneReasonReference(Reference value);
+	void setStatusReasonReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.

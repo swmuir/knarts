@@ -4,10 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,12 +32,11 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ConditionStageImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionStageImpl#getAssessment <em>Assessment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConditionStageImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ConditionStage", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ConditionStage")
 public class ConditionStageImpl extends BackboneElementImpl implements ConditionStage {
 	/**
 	 * The cached value of the '{@link #getSummary() <em>Summary</em>}' containment reference.
@@ -62,6 +57,16 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 	 * @ordered
 	 */
 	protected EList<Reference> assessment;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,12 +135,54 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAssessment() {
 		if (assessment == null) {
 			assessment = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CONDITION_STAGE__ASSESSMENT);
 		}
 		return assessment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION_STAGE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION_STAGE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION_STAGE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION_STAGE__TYPE, newType, newType));
 	}
 
 	/**
@@ -150,6 +197,8 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 				return basicSetSummary(null, msgs);
 			case FhirPackage.CONDITION_STAGE__ASSESSMENT:
 				return ((InternalEList<?>)getAssessment()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONDITION_STAGE__TYPE:
+				return basicSetType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,6 +215,8 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 				return getSummary();
 			case FhirPackage.CONDITION_STAGE__ASSESSMENT:
 				return getAssessment();
+			case FhirPackage.CONDITION_STAGE__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,6 +237,9 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 				getAssessment().clear();
 				getAssessment().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.CONDITION_STAGE__TYPE:
+				setType((CodeableConcept)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,6 +258,9 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 			case FhirPackage.CONDITION_STAGE__ASSESSMENT:
 				getAssessment().clear();
 				return;
+			case FhirPackage.CONDITION_STAGE__TYPE:
+				setType((CodeableConcept)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,6 +277,8 @@ public class ConditionStageImpl extends BackboneElementImpl implements Condition
 				return summary != null;
 			case FhirPackage.CONDITION_STAGE__ASSESSMENT:
 				return assessment != null && !assessment.isEmpty();
+			case FhirPackage.CONDITION_STAGE__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}

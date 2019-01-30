@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.NutritionOrderNutrientImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.NutritionOrderNutrientImplAdapter;
  * @model extendedMetaData="name='NutritionOrder.Nutrient' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(NutritionOrderNutrientImplAdapter.class)
 public interface NutritionOrderNutrient extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference.

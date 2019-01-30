@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.EncounterDiagnosisImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.EncounterDiagnosisImplAdapter;
  * @model extendedMetaData="name='Encounter.Diagnosis' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterDiagnosisImplAdapter.class)
 public interface EncounterDiagnosis extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -61,7 +57,7 @@ public interface EncounterDiagnosis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
+	 * Role that this diagnosis has within the encounter (e.g. admission, billing, discharge â€¦).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference.
 	 * @see #setRole(CodeableConcept)

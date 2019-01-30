@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AppointmentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +35,7 @@ import org.hl7.fhir.jaxb.AppointmentImplAdapter;
  *   <li>{@link org.hl7.fhir.Appointment#getSlot <em>Slot</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getComment <em>Comment</em>}</li>
+ *   <li>{@link org.hl7.fhir.Appointment#getPatientInstruction <em>Patient Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getIncomingReferral <em>Incoming Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.Appointment#getRequestedPeriod <em>Requested Period</em>}</li>
@@ -47,7 +45,6 @@ import org.hl7.fhir.jaxb.AppointmentImplAdapter;
  * @model extendedMetaData="name='Appointment' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AppointmentImplAdapter.class)
 public interface Appointment extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -420,6 +417,32 @@ public interface Appointment extends DomainResource {
 	 * @generated
 	 */
 	void setComment(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Patient Instruction</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Patient Instruction</em>' containment reference.
+	 * @see #setPatientInstruction(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getAppointment_PatientInstruction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patientInstruction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPatientInstruction();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Appointment#getPatientInstruction <em>Patient Instruction</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Patient Instruction</em>' containment reference.
+	 * @see #getPatientInstruction()
+	 * @generated
+	 */
+	void setPatientInstruction(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Incoming Referral</b></em>' containment reference list.

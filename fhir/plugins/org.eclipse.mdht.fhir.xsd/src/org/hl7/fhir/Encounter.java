@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.EncounterImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +24,7 @@ import org.hl7.fhir.jaxb.EncounterImplAdapter;
  *   <li>{@link org.hl7.fhir.Encounter#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getClassHistory <em>Class History</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getServiceType <em>Service Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getEpisodeOfCare <em>Episode Of Care</em>}</li>
@@ -48,7 +46,6 @@ import org.hl7.fhir.jaxb.EncounterImplAdapter;
  * @model extendedMetaData="name='Encounter' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(EncounterImplAdapter.class)
 public interface Encounter extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -169,6 +166,32 @@ public interface Encounter extends DomainResource {
 	EList<CodeableConcept> getType();
 
 	/**
+	 * Returns the value of the '<em><b>Service Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Broad categorization of the service that is to be provided (e.g. cardiology).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Service Type</em>' containment reference.
+	 * @see #setServiceType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_ServiceType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='serviceType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getServiceType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Encounter#getServiceType <em>Service Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Service Type</em>' containment reference.
+	 * @see #getServiceType()
+	 * @generated
+	 */
+	void setServiceType(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,7 +222,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient ro group present at the encounter.
+	 * The patient or group present at the encounter.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
@@ -258,7 +281,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The list of people responsible for providing the service.
+	 * TheÂ list ofÂ peopleÂ responsible for providing the service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_Participant()
@@ -441,7 +464,9 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.
+	 * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.
+	 * 
+	 * Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service Provider</em>' containment reference.
 	 * @see #setServiceProvider(Reference)

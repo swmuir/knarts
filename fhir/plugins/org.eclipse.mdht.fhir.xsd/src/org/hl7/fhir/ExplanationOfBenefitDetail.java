@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ExplanationOfBenefitDetailImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +18,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitDetailImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getService <em>Service</em>}</li>
@@ -41,7 +37,6 @@ import org.hl7.fhir.jaxb.ExplanationOfBenefitDetailImplAdapter;
  * @model extendedMetaData="name='ExplanationOfBenefit.Detail' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExplanationOfBenefitDetailImplAdapter.class)
 public interface ExplanationOfBenefitDetail extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
@@ -68,32 +63,6 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * @generated
 	 */
 	void setSequence(PositiveInt value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The type of product or service.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_Type()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getType();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitDetail#getType <em>Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Revenue</b></em>' containment reference.

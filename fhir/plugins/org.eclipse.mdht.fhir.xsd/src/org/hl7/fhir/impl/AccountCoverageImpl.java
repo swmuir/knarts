@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,7 +14,6 @@ import org.hl7.fhir.AccountCoverage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +29,6 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "AccountCoverage", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "AccountCoverage")
 public class AccountCoverageImpl extends BackboneElementImpl implements AccountCoverage {
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
@@ -82,7 +74,6 @@ public class AccountCoverageImpl extends BackboneElementImpl implements AccountC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getCoverage() {
 		return coverage;
 	}
@@ -126,7 +117,6 @@ public class AccountCoverageImpl extends BackboneElementImpl implements AccountC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
 	public PositiveInt getPriority() {
 		return priority;
 	}

@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
-@XmlType(name = "EventStatus", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EventStatus")
 public class EventStatusImpl extends ElementImpl implements EventStatus {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

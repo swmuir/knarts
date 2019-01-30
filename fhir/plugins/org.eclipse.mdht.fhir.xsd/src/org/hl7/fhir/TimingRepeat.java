@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TimingRepeatImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +41,6 @@ import org.hl7.fhir.jaxb.TimingRepeatImplAdapter;
  * @model extendedMetaData="name='Timing.Repeat' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TimingRepeatImplAdapter.class)
 public interface TimingRepeat extends Element {
 	/**
 	 * Returns the value of the '<em><b>Bounds Duration</b></em>' containment reference.
@@ -132,7 +128,7 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A total count of the desired number of repetitions.
+	 * A total count of the desired number of repetitions across the duration of the entire timing specification.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Count</em>' containment reference.
 	 * @see #setCount(org.hl7.fhir.Integer)
@@ -425,7 +421,7 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Real world events that the occurrence of the event should be tied to.
+	 * An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>When</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_When()

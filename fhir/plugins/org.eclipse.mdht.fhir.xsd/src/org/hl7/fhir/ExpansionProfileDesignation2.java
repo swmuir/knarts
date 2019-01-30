@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ExpansionProfileDesignation2ImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ExpansionProfileDesignation2ImplAdapter;
  * @model extendedMetaData="name='ExpansionProfile.Designation2' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ExpansionProfileDesignation2ImplAdapter.class)
 public interface ExpansionProfileDesignation2 extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' containment reference.

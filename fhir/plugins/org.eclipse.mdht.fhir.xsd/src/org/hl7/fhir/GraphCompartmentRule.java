@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.GraphCompartmentRuleImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.GraphCompartmentRuleImplAdapter;
  * @model extendedMetaData="name='GraphCompartmentRule' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GraphCompartmentRuleImplAdapter.class)
 public interface GraphCompartmentRule extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

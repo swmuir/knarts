@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.TimingImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.TimingImplAdapter;
  * @model extendedMetaData="name='Timing' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(TimingImplAdapter.class)
 public interface Timing extends Element {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
@@ -79,7 +75,7 @@ public interface Timing extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
+	 * A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)

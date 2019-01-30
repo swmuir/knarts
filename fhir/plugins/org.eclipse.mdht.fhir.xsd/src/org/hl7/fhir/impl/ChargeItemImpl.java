@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,11 +32,6 @@ import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.ChargeItemStatusImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,8 +70,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ChargeItem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ChargeItem")
 public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -400,8 +388,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
 	public EList<Uri> getDefinition() {
 		if (definition == null) {
 			definition = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CHARGE_ITEM__DEFINITION);
@@ -414,8 +400,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ChargeItemStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public ChargeItemStatus getStatus() {
 		return status;
 	}
@@ -459,7 +443,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getPartOf() {
 		if (partOf == null) {
 			partOf = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__PART_OF);
@@ -472,7 +455,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -516,7 +498,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -603,7 +584,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOccurrenceDateTime() {
 		return occurrenceDateTime;
 	}
@@ -733,7 +713,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ChargeItemParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<ChargeItemParticipant>(ChargeItemParticipant.class, this, FhirPackage.CHARGE_ITEM__PARTICIPANT);
@@ -875,7 +854,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getBodysite() {
 		if (bodysite == null) {
 			bodysite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CHARGE_ITEM__BODYSITE);
@@ -888,7 +866,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getFactorOverride() {
 		return factorOverride;
 	}
@@ -975,7 +952,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOverrideReason() {
 		return overrideReason;
 	}
@@ -1062,7 +1038,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getEnteredDate() {
 		return enteredDate;
 	}
@@ -1106,7 +1081,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReason() {
 		if (reason == null) {
 			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CHARGE_ITEM__REASON);
@@ -1119,7 +1093,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getService() {
 		if (service == null) {
 			service = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__SERVICE);
@@ -1132,7 +1105,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getAccount() {
 		if (account == null) {
 			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__ACCOUNT);
@@ -1145,7 +1117,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CHARGE_ITEM__NOTE);
@@ -1158,7 +1129,6 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getSupportingInformation() {
 		if (supportingInformation == null) {
 			supportingInformation = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__SUPPORTING_INFORMATION);

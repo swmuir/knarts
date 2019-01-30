@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CapabilityStatementResourceImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +19,7 @@ import org.hl7.fhir.jaxb.CapabilityStatementResourceImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getSupportedProfile <em>Supported Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getVersioning <em>Versioning</em>}</li>
@@ -35,13 +33,13 @@ import org.hl7.fhir.jaxb.CapabilityStatementResourceImplAdapter;
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getSearchInclude <em>Search Include</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getSearchRevInclude <em>Search Rev Include</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getSearchParam <em>Search Param</em>}</li>
+ *   <li>{@link org.hl7.fhir.CapabilityStatementResource#getOperation <em>Operation</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource()
  * @model extendedMetaData="name='CapabilityStatement.Resource' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CapabilityStatementResourceImplAdapter.class)
 public interface CapabilityStatementResource extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -96,6 +94,22 @@ public interface CapabilityStatementResource extends BackboneElement {
 	void setProfile(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Supported Profile</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Supported Profile</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_SupportedProfile()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='supportedProfile' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSupportedProfile();
+
+	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,7 +145,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interaction</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Interaction()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='interaction' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -382,5 +396,21 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * @generated
 	 */
 	EList<CapabilityStatementSearchParam> getSearchParam();
+
+	/**
+	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CapabilityStatementOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Operation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Operation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='operation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CapabilityStatementOperation> getOperation();
 
 } // CapabilityStatementResource

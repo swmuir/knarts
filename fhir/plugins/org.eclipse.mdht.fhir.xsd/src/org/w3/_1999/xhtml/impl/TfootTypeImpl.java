@@ -5,11 +5,6 @@ package org.w3._1999.xhtml.impl;
 import java.util.Collection;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,7 +25,6 @@ import org.w3._1999.xhtml.TfootType;
 import org.w3._1999.xhtml.TrType;
 import org.w3._1999.xhtml.ValignType;
 import org.w3._1999.xhtml.XhtmlPackage;
-import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +50,6 @@ import org.w3._1999.xhtml.jaxb.TrTypeImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TfootType", namespace = "http://www.w3.org/1999/xhtml")
-@XmlRootElement(name = "TfootType")
 public class TfootTypeImpl extends MinimalEObjectImpl.Container implements TfootType {
 	/**
 	 * The cached value of the '{@link #getTr() <em>Tr</em>}' containment reference list.
@@ -340,8 +332,6 @@ public class TfootTypeImpl extends MinimalEObjectImpl.Container implements Tfoot
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(TrTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public EList<TrType> getTr() {
 		if (tr == null) {
 			tr = new EObjectContainmentEList<TrType>(TrType.class, this, XhtmlPackage.TFOOT_TYPE__TR);

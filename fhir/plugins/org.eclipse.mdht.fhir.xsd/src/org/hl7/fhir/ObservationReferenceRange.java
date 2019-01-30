@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ObservationReferenceRangeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.ObservationReferenceRangeImplAdapter;
  * @model extendedMetaData="name='Observation.ReferenceRange' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ObservationReferenceRangeImplAdapter.class)
 public interface ObservationReferenceRange extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Low</b></em>' containment reference.

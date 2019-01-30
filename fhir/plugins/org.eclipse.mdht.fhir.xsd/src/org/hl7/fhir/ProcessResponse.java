@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ProcessResponseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +37,6 @@ import org.hl7.fhir.jaxb.ProcessResponseImplAdapter;
  * @model extendedMetaData="name='ProcessResponse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ProcessResponseImplAdapter.class)
 public interface ProcessResponse extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -170,13 +166,13 @@ public interface ProcessResponse extends DomainResource {
 	 * Transaction status: error, complete, held.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
-	 * @see #setOutcome(CodeableConcept)
+	 * @see #setOutcome(ProcessOutcomeCodes)
 	 * @see org.hl7.fhir.FhirPackage#getProcessResponse_Outcome()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getOutcome();
+	ProcessOutcomeCodes getOutcome();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ProcessResponse#getOutcome <em>Outcome</em>}' containment reference.
@@ -186,7 +182,7 @@ public interface ProcessResponse extends DomainResource {
 	 * @see #getOutcome()
 	 * @generated
 	 */
-	void setOutcome(CodeableConcept value);
+	void setOutcome(ProcessOutcomeCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Disposition</b></em>' containment reference.

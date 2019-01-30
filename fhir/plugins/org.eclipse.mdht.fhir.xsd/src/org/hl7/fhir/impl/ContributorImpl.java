@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,8 +21,6 @@ import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.Contributor;
 import org.hl7.fhir.ContributorType;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.jaxb.ContributorTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,8 +37,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Contributor", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Contributor")
 public class ContributorImpl extends ElementImpl implements Contributor {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -101,8 +92,6 @@ public class ContributorImpl extends ElementImpl implements Contributor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ContributorTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public ContributorType getType() {
 		return type;
 	}
@@ -146,8 +135,6 @@ public class ContributorImpl extends ElementImpl implements Contributor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -191,7 +178,6 @@ public class ContributorImpl extends ElementImpl implements Contributor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.CONTRIBUTOR__CONTACT);

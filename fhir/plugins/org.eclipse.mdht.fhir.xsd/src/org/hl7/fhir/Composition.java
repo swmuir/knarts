@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.CompositionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +39,6 @@ import org.hl7.fhir.jaxb.CompositionImplAdapter;
  * @model extendedMetaData="name='Composition' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(CompositionImplAdapter.class)
 public interface Composition extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
@@ -158,7 +154,7 @@ public interface Composition extends DomainResource {
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getComposition_Subject()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */

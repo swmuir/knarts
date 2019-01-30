@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.GuidanceResponseStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.GuidanceResponseStatusImplAdapter;
  * @model extendedMetaData="name='GuidanceResponseStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GuidanceResponseStatusImplAdapter.class)
 public interface GuidanceResponseStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

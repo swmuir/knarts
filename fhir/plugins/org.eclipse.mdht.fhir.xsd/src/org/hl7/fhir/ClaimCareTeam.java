@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ClaimCareTeamImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,6 @@ import org.hl7.fhir.jaxb.ClaimCareTeamImplAdapter;
  * @model extendedMetaData="name='Claim.CareTeam' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ClaimCareTeamImplAdapter.class)
 public interface ClaimCareTeam extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.

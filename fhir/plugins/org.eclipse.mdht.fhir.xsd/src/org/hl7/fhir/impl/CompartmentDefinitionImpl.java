@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,13 +28,6 @@ import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.CompartmentTypeImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,8 +56,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CompartmentDefinition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CompartmentDefinition")
 public class CompartmentDefinitionImpl extends DomainResourceImpl implements CompartmentDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -245,8 +231,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement(required = true)
 	public Uri getUrl() {
 		return url;
 	}
@@ -290,8 +274,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -335,7 +317,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -379,8 +360,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -424,7 +403,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -468,7 +446,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getDate() {
 		return date;
 	}
@@ -512,7 +489,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -556,7 +532,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.COMPARTMENT_DEFINITION__CONTACT);
@@ -569,7 +544,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -613,7 +587,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -657,7 +630,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.COMPARTMENT_DEFINITION__USE_CONTEXT);
@@ -670,7 +642,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMPARTMENT_DEFINITION__JURISDICTION);
@@ -683,8 +654,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CompartmentTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public CompartmentType getCode() {
 		return code;
 	}
@@ -728,8 +697,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Boolean getSearch() {
 		return search;
 	}
@@ -773,7 +740,6 @@ public class CompartmentDefinitionImpl extends DomainResourceImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CompartmentDefinitionResource> getResource() {
 		if (resource == null) {
 			resource = new EObjectContainmentEList<CompartmentDefinitionResource>(CompartmentDefinitionResource.class, this, FhirPackage.COMPARTMENT_DEFINITION__RESOURCE);

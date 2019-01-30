@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.IssueTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.IssueTypeImplAdapter;
  * @model extendedMetaData="name='IssueType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(IssueTypeImplAdapter.class)
 public interface IssueType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

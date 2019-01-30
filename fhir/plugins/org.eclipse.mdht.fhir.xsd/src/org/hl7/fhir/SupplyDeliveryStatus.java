@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.SupplyDeliveryStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.SupplyDeliveryStatusImplAdapter;
  * @model extendedMetaData="name='SupplyDeliveryStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(SupplyDeliveryStatusImplAdapter.class)
 public interface SupplyDeliveryStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

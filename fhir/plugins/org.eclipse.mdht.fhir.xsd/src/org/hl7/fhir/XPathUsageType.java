@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.XPathUsageTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.XPathUsageTypeImplAdapter;
  * @model extendedMetaData="name='XPathUsageType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(XPathUsageTypeImplAdapter.class)
 public interface XPathUsageType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

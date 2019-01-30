@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ConditionalReadStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ConditionalReadStatusImplAdapter;
  * @model extendedMetaData="name='ConditionalReadStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ConditionalReadStatusImplAdapter.class)
 public interface ConditionalReadStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

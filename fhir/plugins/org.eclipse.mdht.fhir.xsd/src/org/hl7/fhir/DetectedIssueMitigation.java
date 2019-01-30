@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.DetectedIssueMitigationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +25,6 @@ import org.hl7.fhir.jaxb.DetectedIssueMitigationImplAdapter;
  * @model extendedMetaData="name='DetectedIssue.Mitigation' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(DetectedIssueMitigationImplAdapter.class)
 public interface DetectedIssueMitigation extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Action</b></em>' containment reference.

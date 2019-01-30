@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.ResearchStudyStatusList;
  *
  * @generated
  */
-@XmlType(name = "ResearchStudyStatus", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ResearchStudyStatus")
 public class ResearchStudyStatusImpl extends ElementImpl implements ResearchStudyStatus {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -39,7 +34,7 @@ public class ResearchStudyStatusImpl extends ElementImpl implements ResearchStud
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ResearchStudyStatusList VALUE_EDEFAULT = ResearchStudyStatusList.DRAFT;
+	protected static final ResearchStudyStatusList VALUE_EDEFAULT = ResearchStudyStatusList.ACTIVE;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

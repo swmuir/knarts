@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ResearchStudyImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,12 +23,15 @@ import org.hl7.fhir.jaxb.ResearchStudyImplAdapter;
  *   <li>{@link org.hl7.fhir.ResearchStudy#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudy#getPrimaryPurposeType <em>Primary Purpose Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudy#getPhase <em>Phase</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudy#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getKeyword <em>Keyword</em>}</li>
- *   <li>{@link org.hl7.fhir.ResearchStudy#getJurisdiction <em>Jurisdiction</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudy#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getEnrollment <em>Enrollment</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getPeriod <em>Period</em>}</li>
@@ -41,13 +41,13 @@ import org.hl7.fhir.jaxb.ResearchStudyImplAdapter;
  *   <li>{@link org.hl7.fhir.ResearchStudy#getReasonStopped <em>Reason Stopped</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ResearchStudy#getArm <em>Arm</em>}</li>
+ *   <li>{@link org.hl7.fhir.ResearchStudy#getObjective <em>Objective</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getResearchStudy()
  * @model extendedMetaData="name='ResearchStudy' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ResearchStudyImplAdapter.class)
 public interface ResearchStudy extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -150,6 +150,58 @@ public interface ResearchStudy extends DomainResource {
 	void setStatus(ResearchStudyStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Primary Purpose Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of study based upon the intent of the study's activities. A classification of the intent of the study.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Primary Purpose Type</em>' containment reference.
+	 * @see #setPrimaryPurposeType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_PrimaryPurposeType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='primaryPurposeType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getPrimaryPurposeType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResearchStudy#getPrimaryPurposeType <em>Primary Purpose Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary Purpose Type</em>' containment reference.
+	 * @see #getPrimaryPurposeType()
+	 * @generated
+	 */
+	void setPrimaryPurposeType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Phase</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Phase</em>' containment reference.
+	 * @see #setPhase(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Phase()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='phase' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getPhase();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ResearchStudy#getPhase <em>Phase</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Phase</em>' containment reference.
+	 * @see #getPhase()
+	 * @generated
+	 */
+	void setPhase(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
@@ -171,7 +223,7 @@ public interface ResearchStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The condition(s), medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.
+	 * The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Focus</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Focus()
@@ -180,6 +232,22 @@ public interface ResearchStudy extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getFocus();
+
+	/**
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Condition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Condition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getCondition();
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.
@@ -230,20 +298,20 @@ public interface ResearchStudy extends DomainResource {
 	EList<CodeableConcept> getKeyword();
 
 	/**
-	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates a country, state or other region where the study is taking place.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Jurisdiction()
+	 * @return the value of the '<em>Location</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Location()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getJurisdiction();
+	EList<CodeableConcept> getLocation();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
@@ -318,7 +386,7 @@ public interface ResearchStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization responsible for the execution of the study.
+	 * An organization that initiates the investigation and is legally responsible for the study.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sponsor</em>' containment reference.
 	 * @see #setSponsor(Reference)
@@ -344,7 +412,7 @@ public interface ResearchStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the individual who has primary oversite of the execution of the study.
+	 * A researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for IRB approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Principal Investigator</em>' containment reference.
 	 * @see #setPrincipalInvestigator(Reference)
@@ -371,7 +439,7 @@ public interface ResearchStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Clinic, hospital or other healthcare location that is participating in the study.
+	 * A facility in which study activities are conducted.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Site</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Site()
@@ -413,7 +481,7 @@ public interface ResearchStudy extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Comments made about the event by the performer, subject or other participants.
+	 * Comments made about the study by the performer, subject or other participants.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Note()
@@ -438,5 +506,21 @@ public interface ResearchStudy extends DomainResource {
 	 * @generated
 	 */
 	EList<ResearchStudyArm> getArm();
+
+	/**
+	 * Returns the value of the '<em><b>Objective</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ResearchStudyObjective}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Objective</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getResearchStudy_Objective()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='objective' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ResearchStudyObjective> getObjective();
 
 } // ResearchStudy

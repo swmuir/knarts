@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PatientCommunicationImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.PatientCommunicationImplAdapter;
  * @model extendedMetaData="name='Patient.Communication' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PatientCommunicationImplAdapter.class)
 public interface PatientCommunication extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' containment reference.

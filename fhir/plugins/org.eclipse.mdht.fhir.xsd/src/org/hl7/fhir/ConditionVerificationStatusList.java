@@ -21,6 +21,16 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ConditionVerificationStatusList implements Enumerator {
 	/**
+	 * The '<em><b>Unconfirmed</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNCONFIRMED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNCONFIRMED(0, "unconfirmed", "unconfirmed"),
+
+	/**
 	 * The '<em><b>Provisional</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28,7 +38,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROVISIONAL(0, "provisional", "provisional"),
+	PROVISIONAL(1, "provisional", "provisional"),
 
 	/**
 	 * The '<em><b>Differential</b></em>' literal object.
@@ -38,7 +48,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIFFERENTIAL(1, "differential", "differential"),
+	DIFFERENTIAL(2, "differential", "differential"),
 
 	/**
 	 * The '<em><b>Confirmed</b></em>' literal object.
@@ -48,7 +58,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONFIRMED(2, "confirmed", "confirmed"),
+	CONFIRMED(3, "confirmed", "confirmed"),
 
 	/**
 	 * The '<em><b>Refuted</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REFUTED(3, "refuted", "refuted"),
+	REFUTED(4, "refuted", "refuted"),
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal object.
@@ -68,17 +78,21 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(4, "enteredInError", "entered-in-error"),
+	ENTERED_IN_ERROR(5, "enteredInError", "entered-in-error");
 
 	/**
-	 * The '<em><b>Unknown</b></em>' literal object.
+	 * The '<em><b>Unconfirmed</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #UNKNOWN_VALUE
+	 * <!-- begin-model-doc -->
+	 * Unconfirmed
+	 * <!-- end-model-doc -->
+	 * @see #UNCONFIRMED
+	 * @model name="unconfirmed"
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(5, "unknown", "unknown");
+	public static final int UNCONFIRMED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Provisional</b></em>' literal value.
@@ -92,7 +106,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROVISIONAL_VALUE = 0;
+	public static final int PROVISIONAL_VALUE = 1;
 
 	/**
 	 * The '<em><b>Differential</b></em>' literal value.
@@ -106,7 +120,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DIFFERENTIAL_VALUE = 1;
+	public static final int DIFFERENTIAL_VALUE = 2;
 
 	/**
 	 * The '<em><b>Confirmed</b></em>' literal value.
@@ -120,7 +134,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONFIRMED_VALUE = 2;
+	public static final int CONFIRMED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Refuted</b></em>' literal value.
@@ -134,7 +148,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REFUTED_VALUE = 3;
+	public static final int REFUTED_VALUE = 4;
 
 	/**
 	 * The '<em><b>Entered In Error</b></em>' literal value.
@@ -148,21 +162,7 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTERED_IN_ERROR_VALUE = 4;
-
-	/**
-	 * The '<em><b>Unknown</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Unknown
-	 * <!-- end-model-doc -->
-	 * @see #UNKNOWN
-	 * @model name="unknown"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int UNKNOWN_VALUE = 5;
+	public static final int ENTERED_IN_ERROR_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Condition Verification Status List</b></em>' enumerators.
@@ -172,12 +172,12 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 */
 	private static final ConditionVerificationStatusList[] VALUES_ARRAY =
 		new ConditionVerificationStatusList[] {
+			UNCONFIRMED,
 			PROVISIONAL,
 			DIFFERENTIAL,
 			CONFIRMED,
 			REFUTED,
 			ENTERED_IN_ERROR,
-			UNKNOWN,
 		};
 
 	/**
@@ -234,12 +234,12 @@ public enum ConditionVerificationStatusList implements Enumerator {
 	 */
 	public static ConditionVerificationStatusList get(int value) {
 		switch (value) {
+			case UNCONFIRMED_VALUE: return UNCONFIRMED;
 			case PROVISIONAL_VALUE: return PROVISIONAL;
 			case DIFFERENTIAL_VALUE: return DIFFERENTIAL;
 			case CONFIRMED_VALUE: return CONFIRMED;
 			case REFUTED_VALUE: return REFUTED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
-			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

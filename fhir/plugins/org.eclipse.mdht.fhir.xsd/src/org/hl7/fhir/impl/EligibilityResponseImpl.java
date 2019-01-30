@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,16 +20,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EligibilityResponse;
+import org.hl7.fhir.EligibilityResponseAuthorization;
 import org.hl7.fhir.EligibilityResponseError;
 import org.hl7.fhir.EligibilityResponseInsurance;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,14 +48,14 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getInforce <em>Inforce</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getInsurance <em>Insurance</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getPreAuthRef <em>Pre Auth Ref</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getAuthorization <em>Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getForm <em>Form</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EligibilityResponseImpl#getError <em>Error</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "EligibilityResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EligibilityResponse")
 public class EligibilityResponseImpl extends DomainResourceImpl implements EligibilityResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -132,7 +125,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected RemittanceOutcome outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -173,6 +166,26 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * @ordered
 	 */
 	protected EList<EligibilityResponseInsurance> insurance;
+
+	/**
+	 * The cached value of the '{@link #getPreAuthRef() <em>Pre Auth Ref</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreAuthRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String preAuthRef;
+
+	/**
+	 * The cached value of the '{@link #getAuthorization() <em>Authorization</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthorization()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EligibilityResponseAuthorization> authorization;
 
 	/**
 	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
@@ -218,7 +231,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ELIGIBILITY_RESPONSE__IDENTIFIER);
@@ -231,7 +243,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -275,7 +286,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -448,7 +458,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public RemittanceOutcome getOutcome() {
 		return outcome;
 	}
 
@@ -457,8 +467,8 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
+		RemittanceOutcome oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -472,7 +482,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(RemittanceOutcome newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -491,7 +501,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -578,7 +587,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getInforce() {
 		return inforce;
 	}
@@ -622,12 +630,66 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EligibilityResponseInsurance> getInsurance() {
 		if (insurance == null) {
 			insurance = new EObjectContainmentEList<EligibilityResponseInsurance>(EligibilityResponseInsurance.class, this, FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE);
 		}
 		return insurance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getPreAuthRef() {
+		return preAuthRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPreAuthRef(org.hl7.fhir.String newPreAuthRef, NotificationChain msgs) {
+		org.hl7.fhir.String oldPreAuthRef = preAuthRef;
+		preAuthRef = newPreAuthRef;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF, oldPreAuthRef, newPreAuthRef);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPreAuthRef(org.hl7.fhir.String newPreAuthRef) {
+		if (newPreAuthRef != preAuthRef) {
+			NotificationChain msgs = null;
+			if (preAuthRef != null)
+				msgs = ((InternalEObject)preAuthRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF, null, msgs);
+			if (newPreAuthRef != null)
+				msgs = ((InternalEObject)newPreAuthRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF, null, msgs);
+			msgs = basicSetPreAuthRef(newPreAuthRef, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF, newPreAuthRef, newPreAuthRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EligibilityResponseAuthorization> getAuthorization() {
+		if (authorization == null) {
+			authorization = new EObjectContainmentEList<EligibilityResponseAuthorization>(EligibilityResponseAuthorization.class, this, FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION);
+		}
+		return authorization;
 	}
 
 	/**
@@ -678,7 +740,6 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<EligibilityResponseError> getError() {
 		if (error == null) {
 			error = new EObjectContainmentEList<EligibilityResponseError>(EligibilityResponseError.class, this, FhirPackage.ELIGIBILITY_RESPONSE__ERROR);
@@ -716,6 +777,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return basicSetInforce(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE:
 				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF:
+				return basicSetPreAuthRef(null, msgs);
+			case FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION:
+				return ((InternalEList<?>)getAuthorization()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
 				return basicSetForm(null, msgs);
 			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
@@ -754,6 +819,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return getInforce();
 			case FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE:
 				return getInsurance();
+			case FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF:
+				return getPreAuthRef();
+			case FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION:
+				return getAuthorization();
 			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
 				return getForm();
 			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:
@@ -791,7 +860,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((RemittanceOutcome)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -805,6 +874,13 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 			case FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE:
 				getInsurance().clear();
 				getInsurance().addAll((Collection<? extends EligibilityResponseInsurance>)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF:
+				setPreAuthRef((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION:
+				getAuthorization().clear();
+				getAuthorization().addAll((Collection<? extends EligibilityResponseAuthorization>)newValue);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
 				setForm((CodeableConcept)newValue);
@@ -844,7 +920,7 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((RemittanceOutcome)null);
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
@@ -857,6 +933,12 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE:
 				getInsurance().clear();
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF:
+				setPreAuthRef((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION:
+				getAuthorization().clear();
 				return;
 			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
 				setForm((CodeableConcept)null);
@@ -898,6 +980,10 @@ public class EligibilityResponseImpl extends DomainResourceImpl implements Eligi
 				return inforce != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__INSURANCE:
 				return insurance != null && !insurance.isEmpty();
+			case FhirPackage.ELIGIBILITY_RESPONSE__PRE_AUTH_REF:
+				return preAuthRef != null;
+			case FhirPackage.ELIGIBILITY_RESPONSE__AUTHORIZATION:
+				return authorization != null && !authorization.isEmpty();
 			case FhirPackage.ELIGIBILITY_RESPONSE__FORM:
 				return form != null;
 			case FhirPackage.ELIGIBILITY_RESPONSE__ERROR:

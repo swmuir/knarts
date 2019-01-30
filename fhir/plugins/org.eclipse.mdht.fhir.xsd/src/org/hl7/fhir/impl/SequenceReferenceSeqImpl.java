@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,8 +14,6 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SequenceReferenceSeq;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +35,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "SequenceReferenceSeq", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "SequenceReferenceSeq")
 public class SequenceReferenceSeqImpl extends BackboneElementImpl implements SequenceReferenceSeq {
 	/**
 	 * The cached value of the '{@link #getChromosome() <em>Chromosome</em>}' containment reference.
@@ -192,7 +183,6 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getGenomeBuild() {
 		return genomeBuild;
 	}
@@ -322,7 +312,6 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getReferenceSeqString() {
 		return referenceSeqString;
 	}
@@ -366,7 +355,6 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getStrand() {
 		return strand;
 	}
@@ -410,8 +398,6 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getWindowStart() {
 		return windowStart;
 	}
@@ -455,8 +441,6 @@ public class SequenceReferenceSeqImpl extends BackboneElementImpl implements Seq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
-	@XmlElement(required = true)
 	public org.hl7.fhir.Integer getWindowEnd() {
 		return windowEnd;
 	}

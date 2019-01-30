@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -32,8 +29,6 @@ import org.hl7.fhir.Reference;
  *
  * @generated
  */
-@XmlType(name = "ContractRule", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ContractRule")
 public class ContractRuleImpl extends BackboneElementImpl implements ContractRule {
 	/**
 	 * The cached value of the '{@link #getContentAttachment() <em>Content Attachment</em>}' containment reference.

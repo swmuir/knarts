@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,9 +15,6 @@ import org.hl7.fhir.MessageDefinitionFocus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.jaxb.ResourceTypeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,8 +32,6 @@ import org.hl7.fhir.jaxb.UnsignedIntImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MessageDefinitionFocus", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MessageDefinitionFocus")
 public class MessageDefinitionFocusImpl extends BackboneElementImpl implements MessageDefinitionFocus {
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -107,8 +97,6 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ResourceTypeImplAdapter.class)
-	@XmlElement(required = true)
 	public ResourceType getCode() {
 		return code;
 	}
@@ -195,7 +183,6 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UnsignedIntImplAdapter.class)
 	public UnsignedInt getMin() {
 		return min;
 	}
@@ -239,7 +226,6 @@ public class MessageDefinitionFocusImpl extends BackboneElementImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getMax() {
 		return max;
 	}

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,12 +22,11 @@ import org.hl7.fhir.CareTeam;
 import org.hl7.fhir.CareTeamParticipant;
 import org.hl7.fhir.CareTeamStatus;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.CareTeamStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,13 +47,12 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getManagingOrganization <em>Managing Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getTelecom <em>Telecom</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "CareTeam", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CareTeam")
 public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -172,6 +165,16 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	protected EList<Reference> managingOrganization;
 
 	/**
+	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTelecom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContactPoint> telecom;
+
+	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,7 +208,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CARE_TEAM__IDENTIFIER);
@@ -218,7 +220,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CareTeamStatusImplAdapter.class)
 	public CareTeamStatus getStatus() {
 		return status;
 	}
@@ -262,7 +263,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM__CATEGORY);
@@ -275,7 +275,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -448,7 +447,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CareTeamParticipant> getParticipant() {
 		if (participant == null) {
 			participant = new EObjectContainmentEList<CareTeamParticipant>(CareTeamParticipant.class, this, FhirPackage.CARE_TEAM__PARTICIPANT);
@@ -461,7 +459,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReasonCode() {
 		if (reasonCode == null) {
 			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM__REASON_CODE);
@@ -474,7 +471,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReasonReference() {
 		if (reasonReference == null) {
 			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__REASON_REFERENCE);
@@ -487,7 +483,6 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getManagingOrganization() {
 		if (managingOrganization == null) {
 			managingOrganization = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION);
@@ -500,7 +495,18 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
+	public EList<ContactPoint> getTelecom() {
+		if (telecom == null) {
+			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.CARE_TEAM__TELECOM);
+		}
+		return telecom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CARE_TEAM__NOTE);
@@ -538,6 +544,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return ((InternalEList<?>)getManagingOrganization()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_TEAM__TELECOM:
+				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_TEAM__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
@@ -574,6 +582,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return getReasonReference();
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return getManagingOrganization();
+			case FhirPackage.CARE_TEAM__TELECOM:
+				return getTelecom();
 			case FhirPackage.CARE_TEAM__NOTE:
 				return getNote();
 		}
@@ -628,6 +638,10 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				getManagingOrganization().clear();
 				getManagingOrganization().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.CARE_TEAM__TELECOM:
+				getTelecom().clear();
+				getTelecom().addAll((Collection<? extends ContactPoint>)newValue);
+				return;
 			case FhirPackage.CARE_TEAM__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
@@ -677,6 +691,9 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				getManagingOrganization().clear();
 				return;
+			case FhirPackage.CARE_TEAM__TELECOM:
+				getTelecom().clear();
+				return;
 			case FhirPackage.CARE_TEAM__NOTE:
 				getNote().clear();
 				return;
@@ -714,6 +731,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.CARE_TEAM__MANAGING_ORGANIZATION:
 				return managingOrganization != null && !managingOrganization.isEmpty();
+			case FhirPackage.CARE_TEAM__TELECOM:
+				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.CARE_TEAM__NOTE:
 				return note != null && !note.isEmpty();
 		}

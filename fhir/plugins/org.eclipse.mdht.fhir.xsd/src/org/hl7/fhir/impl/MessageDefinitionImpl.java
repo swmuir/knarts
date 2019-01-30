@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,7 +18,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -37,13 +31,6 @@ import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.MarkdownImplAdapter;
-import org.hl7.fhir.jaxb.MessageSignificanceCategoryImplAdapter;
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,8 +67,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "MessageDefinition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MessageDefinition")
 public class MessageDefinitionImpl extends DomainResourceImpl implements MessageDefinition {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -271,7 +256,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding event;
+	protected Uri event;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -337,7 +322,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
 	public Uri getUrl() {
 		return url;
 	}
@@ -424,7 +408,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getVersion() {
 		return version;
 	}
@@ -468,7 +451,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -512,7 +494,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getTitle() {
 		return title;
 	}
@@ -556,8 +537,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
-	@XmlElement(required = true)
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -601,7 +580,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getExperimental() {
 		return experimental;
 	}
@@ -645,8 +623,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
-	@XmlElement(required = true)
 	public DateTime getDate() {
 		return date;
 	}
@@ -690,7 +666,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPublisher() {
 		return publisher;
 	}
@@ -734,7 +709,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactDetail> getContact() {
 		if (contact == null) {
 			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.MESSAGE_DEFINITION__CONTACT);
@@ -747,7 +721,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getDescription() {
 		return description;
 	}
@@ -791,7 +764,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<UsageContext> getUseContext() {
 		if (useContext == null) {
 			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.MESSAGE_DEFINITION__USE_CONTEXT);
@@ -804,7 +776,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getJurisdiction() {
 		if (jurisdiction == null) {
 			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MESSAGE_DEFINITION__JURISDICTION);
@@ -817,7 +788,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -861,7 +831,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MarkdownImplAdapter.class)
 	public Markdown getCopyright() {
 		return copyright;
 	}
@@ -948,7 +917,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getParent() {
 		if (parent == null) {
 			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_DEFINITION__PARENT);
@@ -961,7 +929,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getReplaces() {
 		if (replaces == null) {
 			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_DEFINITION__REPLACES);
@@ -974,8 +941,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
-	public Coding getEvent() {
+	public Uri getEvent() {
 		return event;
 	}
 
@@ -984,8 +950,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEvent(Coding newEvent, NotificationChain msgs) {
-		Coding oldEvent = event;
+	public NotificationChain basicSetEvent(Uri newEvent, NotificationChain msgs) {
+		Uri oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT, oldEvent, newEvent);
@@ -999,7 +965,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvent(Coding newEvent) {
+	public void setEvent(Uri newEvent) {
 		if (newEvent != event) {
 			NotificationChain msgs = null;
 			if (event != null)
@@ -1018,7 +984,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(MessageSignificanceCategoryImplAdapter.class)
 	public MessageSignificanceCategory getCategory() {
 		return category;
 	}
@@ -1062,7 +1027,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MessageDefinitionFocus> getFocus() {
 		if (focus == null) {
 			focus = new EObjectContainmentEList<MessageDefinitionFocus>(MessageDefinitionFocus.class, this, FhirPackage.MESSAGE_DEFINITION__FOCUS);
@@ -1075,7 +1039,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getResponseRequired() {
 		return responseRequired;
 	}
@@ -1119,7 +1082,6 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<MessageDefinitionAllowedResponse> getAllowedResponse() {
 		if (allowedResponse == null) {
 			allowedResponse = new EObjectContainmentEList<MessageDefinitionAllowedResponse>(MessageDefinitionAllowedResponse.class, this, FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE);
@@ -1312,7 +1274,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				getReplaces().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				setEvent((Coding)newValue);
+				setEvent((Uri)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				setCategory((MessageSignificanceCategory)newValue);
@@ -1395,7 +1357,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				getReplaces().clear();
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				setEvent((Coding)null);
+				setEvent((Uri)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				setCategory((MessageSignificanceCategory)null);

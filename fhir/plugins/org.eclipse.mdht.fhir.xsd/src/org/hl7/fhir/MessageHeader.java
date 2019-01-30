@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,9 +20,7 @@ import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
  * <ul>
  *   <li>{@link org.hl7.fhir.MessageHeader#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getDestination <em>Destination</em>}</li>
- *   <li>{@link org.hl7.fhir.MessageHeader#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getSender <em>Sender</em>}</li>
- *   <li>{@link org.hl7.fhir.MessageHeader#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getSource <em>Source</em>}</li>
@@ -33,13 +28,13 @@ import org.hl7.fhir.jaxb.MessageHeaderImplAdapter;
  *   <li>{@link org.hl7.fhir.MessageHeader#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeader#getDefinition <em>Definition</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMessageHeader()
  * @model extendedMetaData="name='MessageHeader' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MessageHeaderImplAdapter.class)
 public interface MessageHeader extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference.
@@ -84,32 +79,6 @@ public interface MessageHeader extends DomainResource {
 	EList<MessageHeaderDestination> getDestination();
 
 	/**
-	 * Returns the value of the '<em><b>Receiver</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Receiver</em>' containment reference.
-	 * @see #setReceiver(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Receiver()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='receiver' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReceiver();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getReceiver <em>Receiver</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Receiver</em>' containment reference.
-	 * @see #getReceiver()
-	 * @generated
-	 */
-	void setReceiver(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Sender</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,32 +103,6 @@ public interface MessageHeader extends DomainResource {
 	 * @generated
 	 */
 	void setSender(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Timestamp</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The time that the message was sent.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Timestamp</em>' containment reference.
-	 * @see #setTimestamp(Instant)
-	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Timestamp()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='timestamp' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Instant getTimestamp();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getTimestamp <em>Timestamp</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timestamp</em>' containment reference.
-	 * @see #getTimestamp()
-	 * @generated
-	 */
-	void setTimestamp(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Enterer</b></em>' containment reference.
@@ -332,5 +275,31 @@ public interface MessageHeader extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getFocus();
+
+	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Permanent link to the MessageDefinition for this message.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition</em>' containment reference.
+	 * @see #setDefinition(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Definition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getDefinition <em>Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' containment reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(Uri value);
 
 } // MessageHeader

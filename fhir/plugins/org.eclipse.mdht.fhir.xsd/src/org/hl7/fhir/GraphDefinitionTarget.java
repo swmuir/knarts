@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.GraphDefinitionTargetImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +18,7 @@ import org.hl7.fhir.jaxb.GraphDefinitionTargetImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.GraphDefinitionTarget#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.GraphDefinitionTarget#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionTarget#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionTarget#getCompartment <em>Compartment</em>}</li>
  *   <li>{@link org.hl7.fhir.GraphDefinitionTarget#getLink <em>Link</em>}</li>
@@ -30,7 +28,6 @@ import org.hl7.fhir.jaxb.GraphDefinitionTargetImplAdapter;
  * @model extendedMetaData="name='GraphDefinition.Target' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GraphDefinitionTargetImplAdapter.class)
 public interface GraphDefinitionTarget extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -57,6 +54,32 @@ public interface GraphDefinitionTarget extends BackboneElement {
 	 * @generated
 	 */
 	void setType(ResourceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Params</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A set of parameters to look up.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Params</em>' containment reference.
+	 * @see #setParams(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionTarget_Params()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='params' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getParams();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinitionTarget#getParams <em>Params</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Params</em>' containment reference.
+	 * @see #getParams()
+	 * @generated
+	 */
+	void setParams(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.

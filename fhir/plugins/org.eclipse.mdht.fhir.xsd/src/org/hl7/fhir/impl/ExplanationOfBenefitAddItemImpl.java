@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,11 +20,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ExplanationOfBenefitAddItem;
 import org.hl7.fhir.ExplanationOfBenefitAdjudication;
-import org.hl7.fhir.ExplanationOfBenefitDetail1;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PositiveInt;
-import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,51 +32,48 @@ import org.hl7.fhir.jaxb.PositiveIntImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getSequenceLinkId <em>Sequence Link Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getRevenue <em>Revenue</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getItemSequence <em>Item Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getDetailSequence <em>Detail Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getSubDetailSequence <em>Sub Detail Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getFee <em>Fee</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getNoteNumber <em>Note Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getAdjudication <em>Adjudication</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitAddItemImpl#getDetail <em>Detail</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "ExplanationOfBenefitAddItem", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ExplanationOfBenefitAddItem")
 public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl implements ExplanationOfBenefitAddItem {
 	/**
-	 * The cached value of the '{@link #getSequenceLinkId() <em>Sequence Link Id</em>}' containment reference list.
+	 * The cached value of the '{@link #getItemSequence() <em>Item Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceLinkId()
+	 * @see #getItemSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PositiveInt> sequenceLinkId;
+	protected EList<PositiveInt> itemSequence;
 
 	/**
-	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
+	 * The cached value of the '{@link #getDetailSequence() <em>Detail Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRevenue()
+	 * @see #getDetailSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept revenue;
+	protected EList<PositiveInt> detailSequence;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getSubDetailSequence() <em>Sub Detail Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategory()
+	 * @see #getSubDetailSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected EList<PositiveInt> subDetailSequence;
 
 	/**
 	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
@@ -136,16 +126,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	protected EList<ExplanationOfBenefitAdjudication> adjudication;
 
 	/**
-	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDetail()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ExplanationOfBenefitDetail1> detail;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -169,13 +149,11 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
-	public EList<PositiveInt> getSequenceLinkId() {
-		if (sequenceLinkId == null) {
-			sequenceLinkId = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID);
+	public EList<PositiveInt> getItemSequence() {
+		if (itemSequence == null) {
+			itemSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE);
 		}
-		return sequenceLinkId;
+		return itemSequence;
 	}
 
 	/**
@@ -183,23 +161,11 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getRevenue() {
-		return revenue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRevenue(CodeableConcept newRevenue, NotificationChain msgs) {
-		CodeableConcept oldRevenue = revenue;
-		revenue = newRevenue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE, oldRevenue, newRevenue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<PositiveInt> getDetailSequence() {
+		if (detailSequence == null) {
+			detailSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE);
 		}
-		return msgs;
+		return detailSequence;
 	}
 
 	/**
@@ -207,61 +173,11 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRevenue(CodeableConcept newRevenue) {
-		if (newRevenue != revenue) {
-			NotificationChain msgs = null;
-			if (revenue != null)
-				msgs = ((InternalEObject)revenue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE, null, msgs);
-			if (newRevenue != null)
-				msgs = ((InternalEObject)newRevenue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE, null, msgs);
-			msgs = basicSetRevenue(newRevenue, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<PositiveInt> getSubDetailSequence() {
+		if (subDetailSequence == null) {
+			subDetailSequence = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE, newRevenue, newRevenue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getCategory() {
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY, newCategory, newCategory));
+		return subDetailSequence;
 	}
 
 	/**
@@ -312,7 +228,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getModifier() {
 		if (modifier == null) {
 			modifier = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__MODIFIER);
@@ -368,8 +283,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(PositiveIntImplAdapter.class)
-	@XmlElement
 	public EList<PositiveInt> getNoteNumber() {
 		if (noteNumber == null) {
 			noteNumber = new EObjectContainmentEList<PositiveInt>(PositiveInt.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__NOTE_NUMBER);
@@ -382,7 +295,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ExplanationOfBenefitAdjudication> getAdjudication() {
 		if (adjudication == null) {
 			adjudication = new EObjectContainmentEList<ExplanationOfBenefitAdjudication>(ExplanationOfBenefitAdjudication.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ADJUDICATION);
@@ -395,28 +307,15 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
-	public EList<ExplanationOfBenefitDetail1> getDetail() {
-		if (detail == null) {
-			detail = new EObjectContainmentEList<ExplanationOfBenefitDetail1>(ExplanationOfBenefitDetail1.class, this, FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL);
-		}
-		return detail;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID:
-				return ((InternalEList<?>)getSequenceLinkId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE:
-				return basicSetRevenue(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY:
-				return basicSetCategory(null, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE:
+				return ((InternalEList<?>)getItemSequence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE:
+				return ((InternalEList<?>)getDetailSequence()).basicRemove(otherEnd, msgs);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE:
+				return ((InternalEList<?>)getSubDetailSequence()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SERVICE:
 				return basicSetService(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__MODIFIER:
@@ -427,8 +326,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 				return ((InternalEList<?>)getNoteNumber()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ADJUDICATION:
 				return ((InternalEList<?>)getAdjudication()).basicRemove(otherEnd, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL:
-				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -441,12 +338,12 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID:
-				return getSequenceLinkId();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE:
-				return getRevenue();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY:
-				return getCategory();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE:
+				return getItemSequence();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE:
+				return getDetailSequence();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE:
+				return getSubDetailSequence();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SERVICE:
 				return getService();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__MODIFIER:
@@ -457,8 +354,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 				return getNoteNumber();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ADJUDICATION:
 				return getAdjudication();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL:
-				return getDetail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -472,15 +367,17 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID:
-				getSequenceLinkId().clear();
-				getSequenceLinkId().addAll((Collection<? extends PositiveInt>)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE:
+				getItemSequence().clear();
+				getItemSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE:
-				setRevenue((CodeableConcept)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE:
+				getDetailSequence().clear();
+				getDetailSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE:
+				getSubDetailSequence().clear();
+				getSubDetailSequence().addAll((Collection<? extends PositiveInt>)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SERVICE:
 				setService((CodeableConcept)newValue);
@@ -500,10 +397,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 				getAdjudication().clear();
 				getAdjudication().addAll((Collection<? extends ExplanationOfBenefitAdjudication>)newValue);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL:
-				getDetail().clear();
-				getDetail().addAll((Collection<? extends ExplanationOfBenefitDetail1>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -516,14 +409,14 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID:
-				getSequenceLinkId().clear();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE:
+				getItemSequence().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE:
-				setRevenue((CodeableConcept)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE:
+				getDetailSequence().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY:
-				setCategory((CodeableConcept)null);
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE:
+				getSubDetailSequence().clear();
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SERVICE:
 				setService((CodeableConcept)null);
@@ -540,9 +433,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ADJUDICATION:
 				getAdjudication().clear();
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL:
-				getDetail().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -555,12 +445,12 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SEQUENCE_LINK_ID:
-				return sequenceLinkId != null && !sequenceLinkId.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__REVENUE:
-				return revenue != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__CATEGORY:
-				return category != null;
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ITEM_SEQUENCE:
+				return itemSequence != null && !itemSequence.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL_SEQUENCE:
+				return detailSequence != null && !detailSequence.isEmpty();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SUB_DETAIL_SEQUENCE:
+				return subDetailSequence != null && !subDetailSequence.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__SERVICE:
 				return service != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__MODIFIER:
@@ -571,8 +461,6 @@ public class ExplanationOfBenefitAddItemImpl extends BackboneElementImpl impleme
 				return noteNumber != null && !noteNumber.isEmpty();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__ADJUDICATION:
 				return adjudication != null && !adjudication.isEmpty();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM__DETAIL:
-				return detail != null && !detail.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

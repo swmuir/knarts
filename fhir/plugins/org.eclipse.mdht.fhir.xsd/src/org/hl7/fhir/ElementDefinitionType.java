@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ElementDefinitionTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,6 @@ import org.hl7.fhir.jaxb.ElementDefinitionTypeImplAdapter;
  * @model extendedMetaData="name='ElementDefinition.Type' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ElementDefinitionTypeImplAdapter.class)
 public interface ElementDefinitionType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -65,7 +61,7 @@ public interface ElementDefinitionType extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+	 * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
 	 * @see #setProfile(Uri)
@@ -91,7 +87,7 @@ public interface ElementDefinitionType extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
+	 * Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target Profile</em>' containment reference.
 	 * @see #setTargetProfile(Uri)

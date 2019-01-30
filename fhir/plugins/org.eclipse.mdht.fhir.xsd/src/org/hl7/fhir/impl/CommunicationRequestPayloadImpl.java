@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,7 +14,6 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CommunicationRequestPayload;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,8 +30,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "CommunicationRequestPayload", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "CommunicationRequestPayload")
 public class CommunicationRequestPayloadImpl extends BackboneElementImpl implements CommunicationRequestPayload {
 	/**
 	 * The cached value of the '{@link #getContentString() <em>Content String</em>}' containment reference.
@@ -92,7 +85,6 @@ public class CommunicationRequestPayloadImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getContentString() {
 		return contentString;
 	}

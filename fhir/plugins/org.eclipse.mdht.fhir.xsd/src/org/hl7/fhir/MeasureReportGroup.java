@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MeasureReportGroupImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +17,7 @@ import org.hl7.fhir.jaxb.MeasureReportGroupImplAdapter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MeasureReportGroup#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportGroup#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getMeasureScore <em>Measure Score</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportGroup#getStratifier <em>Stratifier</em>}</li>
@@ -30,33 +27,32 @@ import org.hl7.fhir.jaxb.MeasureReportGroupImplAdapter;
  * @model extendedMetaData="name='MeasureReport.Group' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MeasureReportGroupImplAdapter.class)
 public interface MeasureReportGroup extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier of the population group as defined in the measure definition.
+	 * The meaning of the population group as defined in the measure definition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReportGroup_Identifier()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportGroup_Code()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportGroup#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportGroup#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Population</b></em>' containment reference list.
@@ -82,13 +78,13 @@ public interface MeasureReportGroup extends BackboneElement {
 	 * The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Measure Score</em>' containment reference.
-	 * @see #setMeasureScore(Decimal)
+	 * @see #setMeasureScore(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReportGroup_MeasureScore()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='measureScore' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Decimal getMeasureScore();
+	Quantity getMeasureScore();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportGroup#getMeasureScore <em>Measure Score</em>}' containment reference.
@@ -98,7 +94,7 @@ public interface MeasureReportGroup extends BackboneElement {
 	 * @see #getMeasureScore()
 	 * @generated
 	 */
-	void setMeasureScore(Decimal value);
+	void setMeasureScore(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Stratifier</b></em>' containment reference list.

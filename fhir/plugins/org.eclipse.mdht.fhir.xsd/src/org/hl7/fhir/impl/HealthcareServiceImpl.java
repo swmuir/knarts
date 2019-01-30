@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,8 +26,6 @@ import org.hl7.fhir.HealthcareServiceAvailableTime;
 import org.hl7.fhir.HealthcareServiceNotAvailable;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,8 +63,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "HealthcareService", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "HealthcareService")
 public class HealthcareServiceImpl extends DomainResourceImpl implements HealthcareService {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -337,7 +328,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.HEALTHCARE_SERVICE__IDENTIFIER);
@@ -350,7 +340,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getActive() {
 		return active;
 	}
@@ -480,7 +469,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__TYPE);
@@ -493,7 +481,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getSpecialty() {
 		if (specialty == null) {
 			specialty = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__SPECIALTY);
@@ -506,7 +493,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getLocation() {
 		if (location == null) {
 			location = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.HEALTHCARE_SERVICE__LOCATION);
@@ -519,7 +505,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getName() {
 		return name;
 	}
@@ -563,7 +548,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getComment() {
 		return comment;
 	}
@@ -607,7 +591,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExtraDetails() {
 		return extraDetails;
 	}
@@ -694,7 +677,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<ContactPoint> getTelecom() {
 		if (telecom == null) {
 			telecom = new EObjectContainmentEList<ContactPoint>(ContactPoint.class, this, FhirPackage.HEALTHCARE_SERVICE__TELECOM);
@@ -707,7 +689,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getCoverageArea() {
 		if (coverageArea == null) {
 			coverageArea = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.HEALTHCARE_SERVICE__COVERAGE_AREA);
@@ -720,7 +701,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getServiceProvisionCode() {
 		if (serviceProvisionCode == null) {
 			serviceProvisionCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__SERVICE_PROVISION_CODE);
@@ -776,7 +756,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getEligibilityNote() {
 		return eligibilityNote;
 	}
@@ -820,8 +799,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.String> getProgramName() {
 		if (programName == null) {
 			programName = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.HEALTHCARE_SERVICE__PROGRAM_NAME);
@@ -834,7 +811,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCharacteristic() {
 		if (characteristic == null) {
 			characteristic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__CHARACTERISTIC);
@@ -847,7 +823,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getReferralMethod() {
 		if (referralMethod == null) {
 			referralMethod = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.HEALTHCARE_SERVICE__REFERRAL_METHOD);
@@ -860,7 +835,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getAppointmentRequired() {
 		return appointmentRequired;
 	}
@@ -904,7 +878,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<HealthcareServiceAvailableTime> getAvailableTime() {
 		if (availableTime == null) {
 			availableTime = new EObjectContainmentEList<HealthcareServiceAvailableTime>(HealthcareServiceAvailableTime.class, this, FhirPackage.HEALTHCARE_SERVICE__AVAILABLE_TIME);
@@ -917,7 +890,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<HealthcareServiceNotAvailable> getNotAvailable() {
 		if (notAvailable == null) {
 			notAvailable = new EObjectContainmentEList<HealthcareServiceNotAvailable>(HealthcareServiceNotAvailable.class, this, FhirPackage.HEALTHCARE_SERVICE__NOT_AVAILABLE);
@@ -930,7 +902,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAvailabilityExceptions() {
 		return availabilityExceptions;
 	}
@@ -974,7 +945,6 @@ public class HealthcareServiceImpl extends DomainResourceImpl implements Healthc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.HEALTHCARE_SERVICE__ENDPOINT);

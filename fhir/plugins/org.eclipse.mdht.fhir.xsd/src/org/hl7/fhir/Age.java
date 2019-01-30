@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AgeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +18,5 @@ import org.hl7.fhir.jaxb.AgeImplAdapter;
  * @model extendedMetaData="name='Age' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AgeImplAdapter.class)
 public interface Age extends Quantity {
 } // Age

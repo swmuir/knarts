@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.AuditEventImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +21,7 @@ import org.hl7.fhir.jaxb.AuditEventImplAdapter;
  *   <li>{@link org.hl7.fhir.AuditEvent#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEvent#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEvent#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEvent#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEvent#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEvent#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEvent#getOutcomeDesc <em>Outcome Desc</em>}</li>
@@ -37,7 +35,6 @@ import org.hl7.fhir.jaxb.AuditEventImplAdapter;
  * @model extendedMetaData="name='AuditEvent' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventImplAdapter.class)
 public interface AuditEvent extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -106,6 +103,32 @@ public interface AuditEvent extends DomainResource {
 	 * @generated
 	 */
 	void setAction(AuditEventAction value);
+
+	/**
+	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The period during which the activity occurred.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period</em>' containment reference.
+	 * @see #setPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEvent_Period()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEvent#getPeriod <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Period</em>' containment reference.
+	 * @see #getPeriod()
+	 * @generated
+	 */
+	void setPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Recorded</b></em>' containment reference.

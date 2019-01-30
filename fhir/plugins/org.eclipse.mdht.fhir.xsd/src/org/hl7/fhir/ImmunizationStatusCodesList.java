@@ -38,7 +38,17 @@ public enum ImmunizationStatusCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(1, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(1, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Not Done</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_DONE(2, "notDone", "not-done");
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -69,6 +79,20 @@ public enum ImmunizationStatusCodesList implements Enumerator {
 	public static final int ENTERED_IN_ERROR_VALUE = 1;
 
 	/**
+	 * The '<em><b>Not Done</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Not Done
+	 * <!-- end-model-doc -->
+	 * @see #NOT_DONE
+	 * @model name="notDone" literal="not-done"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_DONE_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Immunization Status Codes List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +102,7 @@ public enum ImmunizationStatusCodesList implements Enumerator {
 		new ImmunizationStatusCodesList[] {
 			COMPLETED,
 			ENTERED_IN_ERROR,
+			NOT_DONE,
 		};
 
 	/**
@@ -136,6 +161,7 @@ public enum ImmunizationStatusCodesList implements Enumerator {
 		switch (value) {
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case NOT_DONE_VALUE: return NOT_DONE;
 		}
 		return null;
 	}

@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.MedicationRequestImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,9 +19,6 @@ import org.hl7.fhir.jaxb.MedicationRequestImplAdapter;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationRequest#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationRequest#getBasedOn <em>Based On</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getCategory <em>Category</em>}</li>
@@ -36,9 +30,16 @@ import org.hl7.fhir.jaxb.MedicationRequestImplAdapter;
  *   <li>{@link org.hl7.fhir.MedicationRequest#getSupportingInformation <em>Supporting Information</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getRequester <em>Requester</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getBasedOn <em>Based On</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getStatusReason <em>Status Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequest#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequest#getDispenseRequest <em>Dispense Request</em>}</li>
@@ -52,7 +53,6 @@ import org.hl7.fhir.jaxb.MedicationRequestImplAdapter;
  * @model extendedMetaData="name='MedicationRequest' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(MedicationRequestImplAdapter.class)
 public interface MedicationRequest extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -69,64 +69,6 @@ public interface MedicationRequest extends DomainResource {
 	 * @generated
 	 */
 	EList<Identifier> getIdentifier();
-
-	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Protocol or definition followed by this request.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Definition()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getDefinition();
-
-	/**
-	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A plan or request that is fulfilled in whole or in part by this medication request.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Based On</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_BasedOn()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getBasedOn();
-
-	/**
-	 * Returns the value of the '<em><b>Group Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Group Identifier</em>' containment reference.
-	 * @see #setGroupIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_GroupIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='groupIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getGroupIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getGroupIdentifier <em>Group Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group Identifier</em>' containment reference.
-	 * @see #getGroupIdentifier()
-	 * @generated
-	 */
-	void setGroupIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -181,30 +123,20 @@ public interface MedicationRequest extends DomainResource {
 	void setIntent(MedicationRequestIntent value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the type of medication order and where the medication is expected to be consumed or administered.
+	 * Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient) or the type of treatment (i.e. chemotherapy or endocrine).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -214,13 +146,13 @@ public interface MedicationRequest extends DomainResource {
 	 * Indicates how quickly the Medication Request should be addressed with respect to other requests.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
-	 * @see #setPriority(MedicationRequestPriority)
+	 * @see #setPriority(RequestPriority)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Priority()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationRequestPriority getPriority();
+	RequestPriority getPriority();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getPriority <em>Priority</em>}' containment reference.
@@ -230,7 +162,7 @@ public interface MedicationRequest extends DomainResource {
 	 * @see #getPriority()
 	 * @generated
 	 */
-	void setPriority(MedicationRequestPriority value);
+	void setPriority(RequestPriority value);
 
 	/**
 	 * Returns the value of the '<em><b>Medication Codeable Concept</b></em>' containment reference.
@@ -388,13 +320,13 @@ public interface MedicationRequest extends DomainResource {
 	 * The individual, organization or device that initiated the request and has responsibility for its activation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requester</em>' containment reference.
-	 * @see #setRequester(MedicationRequestRequester)
+	 * @see #setRequester(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Requester()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='requester' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationRequestRequester getRequester();
+	Reference getRequester();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getRequester <em>Requester</em>}' containment reference.
@@ -404,7 +336,59 @@ public interface MedicationRequest extends DomainResource {
 	 * @see #getRequester()
 	 * @generated
 	 */
-	void setRequester(MedicationRequestRequester value);
+	void setRequester(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The specified desired performer of the medication treatment (e.g. the performer of the medication administration).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Performer</em>' containment reference.
+	 * @see #setPerformer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Performer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPerformer();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getPerformer <em>Performer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Performer</em>' containment reference.
+	 * @see #getPerformer()
+	 * @generated
+	 */
+	void setPerformer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Performer Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the type of performer of the administration of the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Performer Type</em>' containment reference.
+	 * @see #setPerformerType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_PerformerType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='performerType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getPerformerType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getPerformerType <em>Performer Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Performer Type</em>' containment reference.
+	 * @see #getPerformerType()
+	 * @generated
+	 */
+	void setPerformerType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Recorder</b></em>' containment reference.
@@ -463,6 +447,106 @@ public interface MedicationRequest extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getReasonReference();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Instantiates()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getInstantiates();
+
+	/**
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A plan or request that is fulfilled in whole or in part by this medication request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_BasedOn()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getBasedOn();
+
+	/**
+	 * Returns the value of the '<em><b>Group Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #setGroupIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_GroupIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='groupIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getGroupIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getGroupIdentifier <em>Group Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group Identifier</em>' containment reference.
+	 * @see #getGroupIdentifier()
+	 * @generated
+	 */
+	void setGroupIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Captures the reason for the current state of the MedicationRequest.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Reason</em>' containment reference.
+	 * @see #setStatusReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_StatusReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getStatusReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequest#getStatusReason <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason</em>' containment reference.
+	 * @see #getStatusReason()
+	 * @generated
+	 */
+	void setStatusReason(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Insurance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be in delivering the requested service.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Insurance</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequest_Insurance()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getInsurance();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

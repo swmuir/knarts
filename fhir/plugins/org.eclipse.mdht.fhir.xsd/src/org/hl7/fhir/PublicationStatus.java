@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +9,7 @@ import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * 
+ * ProductPlan status
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.PublicationStatusImplAdapter;
  * @model extendedMetaData="name='PublicationStatus' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(PublicationStatusImplAdapter.class)
 public interface PublicationStatus extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

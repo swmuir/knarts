@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.GoalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +40,6 @@ import org.hl7.fhir.jaxb.GoalImplAdapter;
  * @model extendedMetaData="name='Goal' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(GoalImplAdapter.class)
 public interface Goal extends DomainResource {
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
@@ -165,7 +161,7 @@ public interface Goal extends DomainResource {
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getGoal_Subject()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */

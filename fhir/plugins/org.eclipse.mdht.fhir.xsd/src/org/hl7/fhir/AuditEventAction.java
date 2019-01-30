@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.AuditEventActionImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.AuditEventActionImplAdapter;
  * @model extendedMetaData="name='AuditEventAction' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(AuditEventActionImplAdapter.class)
 public interface AuditEventAction extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

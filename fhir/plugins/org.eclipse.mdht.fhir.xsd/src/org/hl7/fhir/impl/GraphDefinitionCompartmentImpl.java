@@ -2,11 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -18,10 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CompartmentType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GraphCompartmentRule;
+import org.hl7.fhir.GraphCompartmentUse;
 import org.hl7.fhir.GraphDefinitionCompartment;
-import org.hl7.fhir.jaxb.CompartmentTypeImplAdapter;
-import org.hl7.fhir.jaxb.GraphCompartmentRuleImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +24,7 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.GraphDefinitionCompartmentImpl#getUse <em>Use</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionCompartmentImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionCompartmentImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GraphDefinitionCompartmentImpl#getExpression <em>Expression</em>}</li>
@@ -39,9 +33,17 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "GraphDefinitionCompartment", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "GraphDefinitionCompartment")
 public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implements GraphDefinitionCompartment {
+	/**
+	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUse()
+	 * @generated
+	 * @ordered
+	 */
+	protected GraphCompartmentUse use;
+
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -106,8 +108,49 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(CompartmentTypeImplAdapter.class)
-	@XmlElement(required = true)
+	public GraphCompartmentUse getUse() {
+		return use;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUse(GraphCompartmentUse newUse, NotificationChain msgs) {
+		GraphCompartmentUse oldUse = use;
+		use = newUse;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE, oldUse, newUse);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUse(GraphCompartmentUse newUse) {
+		if (newUse != use) {
+			NotificationChain msgs = null;
+			if (use != null)
+				msgs = ((InternalEObject)use).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE, null, msgs);
+			if (newUse != null)
+				msgs = ((InternalEObject)newUse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE, null, msgs);
+			msgs = basicSetUse(newUse, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE, newUse, newUse));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CompartmentType getCode() {
 		return code;
 	}
@@ -151,8 +194,6 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(GraphCompartmentRuleImplAdapter.class)
-	@XmlElement(required = true)
 	public GraphCompartmentRule getRule() {
 		return rule;
 	}
@@ -196,7 +237,6 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getExpression() {
 		return expression;
 	}
@@ -240,7 +280,6 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -287,6 +326,8 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE:
+				return basicSetUse(null, msgs);
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__RULE:
@@ -307,6 +348,8 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE:
+				return getUse();
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__CODE:
 				return getCode();
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__RULE:
@@ -327,6 +370,9 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE:
+				setUse((GraphCompartmentUse)newValue);
+				return;
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__CODE:
 				setCode((CompartmentType)newValue);
 				return;
@@ -351,6 +397,9 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE:
+				setUse((GraphCompartmentUse)null);
+				return;
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__CODE:
 				setCode((CompartmentType)null);
 				return;
@@ -375,6 +424,8 @@ public class GraphDefinitionCompartmentImpl extends BackboneElementImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__USE:
+				return use != null;
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__CODE:
 				return code != null;
 			case FhirPackage.GRAPH_DEFINITION_COMPARTMENT__RULE:

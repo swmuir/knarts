@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,10 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.NoteType;
 import org.hl7.fhir.PaymentReconciliationProcessNote;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +28,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "PaymentReconciliationProcessNote", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "PaymentReconciliationProcessNote")
 public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl implements PaymentReconciliationProcessNote {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -44,7 +37,7 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected NoteType type;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -80,7 +73,7 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
+	public NoteType getType() {
 		return type;
 	}
 
@@ -89,8 +82,8 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
+	public NotificationChain basicSetType(NoteType newType, NotificationChain msgs) {
+		NoteType oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE__TYPE, oldType, newType);
@@ -104,7 +97,7 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
+	public void setType(NoteType newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -123,7 +116,6 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -203,7 +195,7 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE__TYPE:
-				setType((CodeableConcept)newValue);
+				setType((NoteType)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE__TEXT:
 				setText((org.hl7.fhir.String)newValue);
@@ -221,7 +213,7 @@ public class PaymentReconciliationProcessNoteImpl extends BackboneElementImpl im
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE__TYPE:
-				setType((CodeableConcept)null);
+				setType((NoteType)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_PROCESS_NOTE__TEXT:
 				setText((org.hl7.fhir.String)null);

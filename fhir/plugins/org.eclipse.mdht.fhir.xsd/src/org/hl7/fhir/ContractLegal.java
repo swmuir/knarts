@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.ContractLegalImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.ContractLegalImplAdapter;
  * @model extendedMetaData="name='Contract.Legal' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ContractLegalImplAdapter.class)
 public interface ContractLegal extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Content Attachment</b></em>' containment reference.

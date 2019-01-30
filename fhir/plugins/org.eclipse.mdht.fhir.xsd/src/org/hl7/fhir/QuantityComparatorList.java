@@ -68,7 +68,7 @@ public enum QuantityComparatorList implements Enumerator {
 	 * Less than
 	 * <!-- end-model-doc -->
 	 * @see #_
-	 * @model literal="<"
+	 * @model literal="&lt;"
 	 * @generated
 	 * @ordered
 	 */
@@ -82,7 +82,7 @@ public enum QuantityComparatorList implements Enumerator {
 	 * Less or Equal to
 	 * <!-- end-model-doc -->
 	 * @see #_1
-	 * @model literal="<="
+	 * @model literal="&lt;="
 	 * @generated
 	 * @ordered
 	 */
@@ -96,7 +96,7 @@ public enum QuantityComparatorList implements Enumerator {
 	 * Greater or Equal to
 	 * <!-- end-model-doc -->
 	 * @see #_2
-	 * @model literal=">="
+	 * @model literal="&gt;="
 	 * @generated
 	 * @ordered
 	 */
@@ -110,7 +110,7 @@ public enum QuantityComparatorList implements Enumerator {
 	 * Greater than
 	 * <!-- end-model-doc -->
 	 * @see #_3
-	 * @model literal=">"
+	 * @model literal="&gt;"
 	 * @generated
 	 * @ordered
 	 */

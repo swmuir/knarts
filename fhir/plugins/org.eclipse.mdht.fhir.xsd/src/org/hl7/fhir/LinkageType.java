@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.LinkageTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.LinkageTypeImplAdapter;
  * @model extendedMetaData="name='LinkageType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(LinkageTypeImplAdapter.class)
 public interface LinkageType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,11 +31,6 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.ConditionClinicalStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.ConditionVerificationStatusImplAdapter;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,11 +56,11 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getOnsetString <em>Onset String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementDateTime <em>Abatement Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementAge <em>Abatement Age</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementBoolean <em>Abatement Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementPeriod <em>Abatement Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementRange <em>Abatement Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementString <em>Abatement String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getStage <em>Stage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getEvidence <em>Evidence</em>}</li>
@@ -79,8 +69,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "Condition", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "Condition")
 public class ConditionImpl extends DomainResourceImpl implements Condition {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -243,16 +231,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected Age abatementAge;
 
 	/**
-	 * The cached value of the '{@link #getAbatementBoolean() <em>Abatement Boolean</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbatementBoolean()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean abatementBoolean;
-
-	/**
 	 * The cached value of the '{@link #getAbatementPeriod() <em>Abatement Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +271,16 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected DateTime assertedDate;
 
 	/**
+	 * The cached value of the '{@link #getRecorder() <em>Recorder</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecorder()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference recorder;
+
+	/**
 	 * The cached value of the '{@link #getAsserter() <em>Asserter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,14 +291,14 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected Reference asserter;
 
 	/**
-	 * The cached value of the '{@link #getStage() <em>Stage</em>}' containment reference.
+	 * The cached value of the '{@link #getStage() <em>Stage</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStage()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConditionStage stage;
+	protected EList<ConditionStage> stage;
 
 	/**
 	 * The cached value of the '{@link #getEvidence() <em>Evidence</em>}' containment reference list.
@@ -356,7 +344,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CONDITION__IDENTIFIER);
@@ -369,7 +356,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConditionClinicalStatusCodesImplAdapter.class)
 	public ConditionClinicalStatusCodes getClinicalStatus() {
 		return clinicalStatus;
 	}
@@ -413,7 +399,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(ConditionVerificationStatusImplAdapter.class)
 	public ConditionVerificationStatus getVerificationStatus() {
 		return verificationStatus;
 	}
@@ -457,7 +442,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getCategory() {
 		if (category == null) {
 			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION__CATEGORY);
@@ -556,7 +540,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<CodeableConcept> getBodySite() {
 		if (bodySite == null) {
 			bodySite = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONDITION__BODY_SITE);
@@ -569,7 +552,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getSubject() {
 		return subject;
 	}
@@ -656,7 +638,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getOnsetDateTime() {
 		return onsetDateTime;
 	}
@@ -829,7 +810,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getOnsetString() {
 		return onsetString;
 	}
@@ -873,7 +853,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAbatementDateTime() {
 		return abatementDateTime;
 	}
@@ -953,50 +932,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ABATEMENT_AGE, newAbatementAge, newAbatementAge));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
-	public org.hl7.fhir.Boolean getAbatementBoolean() {
-		return abatementBoolean;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAbatementBoolean(org.hl7.fhir.Boolean newAbatementBoolean, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldAbatementBoolean = abatementBoolean;
-		abatementBoolean = newAbatementBoolean;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ABATEMENT_BOOLEAN, oldAbatementBoolean, newAbatementBoolean);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAbatementBoolean(org.hl7.fhir.Boolean newAbatementBoolean) {
-		if (newAbatementBoolean != abatementBoolean) {
-			NotificationChain msgs = null;
-			if (abatementBoolean != null)
-				msgs = ((InternalEObject)abatementBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ABATEMENT_BOOLEAN, null, msgs);
-			if (newAbatementBoolean != null)
-				msgs = ((InternalEObject)newAbatementBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ABATEMENT_BOOLEAN, null, msgs);
-			msgs = basicSetAbatementBoolean(newAbatementBoolean, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ABATEMENT_BOOLEAN, newAbatementBoolean, newAbatementBoolean));
 	}
 
 	/**
@@ -1090,7 +1025,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getAbatementString() {
 		return abatementString;
 	}
@@ -1134,7 +1068,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getAssertedDate() {
 		return assertedDate;
 	}
@@ -1171,6 +1104,49 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ASSERTED_DATE, newAssertedDate, newAssertedDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRecorder() {
+		return recorder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecorder(Reference newRecorder, NotificationChain msgs) {
+		Reference oldRecorder = recorder;
+		recorder = newRecorder;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__RECORDER, oldRecorder, newRecorder);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecorder(Reference newRecorder) {
+		if (newRecorder != recorder) {
+			NotificationChain msgs = null;
+			if (recorder != null)
+				msgs = ((InternalEObject)recorder).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__RECORDER, null, msgs);
+			if (newRecorder != null)
+				msgs = ((InternalEObject)newRecorder).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__RECORDER, null, msgs);
+			msgs = basicSetRecorder(newRecorder, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__RECORDER, newRecorder, newRecorder));
 	}
 
 	/**
@@ -1221,7 +1197,10 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionStage getStage() {
+	public EList<ConditionStage> getStage() {
+		if (stage == null) {
+			stage = new EObjectContainmentEList<ConditionStage>(ConditionStage.class, this, FhirPackage.CONDITION__STAGE);
+		}
 		return stage;
 	}
 
@@ -1230,41 +1209,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStage(ConditionStage newStage, NotificationChain msgs) {
-		ConditionStage oldStage = stage;
-		stage = newStage;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__STAGE, oldStage, newStage);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStage(ConditionStage newStage) {
-		if (newStage != stage) {
-			NotificationChain msgs = null;
-			if (stage != null)
-				msgs = ((InternalEObject)stage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__STAGE, null, msgs);
-			if (newStage != null)
-				msgs = ((InternalEObject)newStage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__STAGE, null, msgs);
-			msgs = basicSetStage(newStage, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__STAGE, newStage, newStage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@XmlElement
 	public EList<ConditionEvidence> getEvidence() {
 		if (evidence == null) {
 			evidence = new EObjectContainmentEList<ConditionEvidence>(ConditionEvidence.class, this, FhirPackage.CONDITION__EVIDENCE);
@@ -1277,7 +1221,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.CONDITION__NOTE);
@@ -1325,8 +1268,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return basicSetAbatementDateTime(null, msgs);
 			case FhirPackage.CONDITION__ABATEMENT_AGE:
 				return basicSetAbatementAge(null, msgs);
-			case FhirPackage.CONDITION__ABATEMENT_BOOLEAN:
-				return basicSetAbatementBoolean(null, msgs);
 			case FhirPackage.CONDITION__ABATEMENT_PERIOD:
 				return basicSetAbatementPeriod(null, msgs);
 			case FhirPackage.CONDITION__ABATEMENT_RANGE:
@@ -1335,10 +1276,12 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return basicSetAbatementString(null, msgs);
 			case FhirPackage.CONDITION__ASSERTED_DATE:
 				return basicSetAssertedDate(null, msgs);
+			case FhirPackage.CONDITION__RECORDER:
+				return basicSetRecorder(null, msgs);
 			case FhirPackage.CONDITION__ASSERTER:
 				return basicSetAsserter(null, msgs);
 			case FhirPackage.CONDITION__STAGE:
-				return basicSetStage(null, msgs);
+				return ((InternalEList<?>)getStage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONDITION__EVIDENCE:
 				return ((InternalEList<?>)getEvidence()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONDITION__NOTE:
@@ -1387,8 +1330,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return getAbatementDateTime();
 			case FhirPackage.CONDITION__ABATEMENT_AGE:
 				return getAbatementAge();
-			case FhirPackage.CONDITION__ABATEMENT_BOOLEAN:
-				return getAbatementBoolean();
 			case FhirPackage.CONDITION__ABATEMENT_PERIOD:
 				return getAbatementPeriod();
 			case FhirPackage.CONDITION__ABATEMENT_RANGE:
@@ -1397,6 +1338,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return getAbatementString();
 			case FhirPackage.CONDITION__ASSERTED_DATE:
 				return getAssertedDate();
+			case FhirPackage.CONDITION__RECORDER:
+				return getRecorder();
 			case FhirPackage.CONDITION__ASSERTER:
 				return getAsserter();
 			case FhirPackage.CONDITION__STAGE:
@@ -1469,9 +1412,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ABATEMENT_AGE:
 				setAbatementAge((Age)newValue);
 				return;
-			case FhirPackage.CONDITION__ABATEMENT_BOOLEAN:
-				setAbatementBoolean((org.hl7.fhir.Boolean)newValue);
-				return;
 			case FhirPackage.CONDITION__ABATEMENT_PERIOD:
 				setAbatementPeriod((Period)newValue);
 				return;
@@ -1484,11 +1424,15 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ASSERTED_DATE:
 				setAssertedDate((DateTime)newValue);
 				return;
+			case FhirPackage.CONDITION__RECORDER:
+				setRecorder((Reference)newValue);
+				return;
 			case FhirPackage.CONDITION__ASSERTER:
 				setAsserter((Reference)newValue);
 				return;
 			case FhirPackage.CONDITION__STAGE:
-				setStage((ConditionStage)newValue);
+				getStage().clear();
+				getStage().addAll((Collection<? extends ConditionStage>)newValue);
 				return;
 			case FhirPackage.CONDITION__EVIDENCE:
 				getEvidence().clear();
@@ -1558,9 +1502,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ABATEMENT_AGE:
 				setAbatementAge((Age)null);
 				return;
-			case FhirPackage.CONDITION__ABATEMENT_BOOLEAN:
-				setAbatementBoolean((org.hl7.fhir.Boolean)null);
-				return;
 			case FhirPackage.CONDITION__ABATEMENT_PERIOD:
 				setAbatementPeriod((Period)null);
 				return;
@@ -1573,11 +1514,14 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ASSERTED_DATE:
 				setAssertedDate((DateTime)null);
 				return;
+			case FhirPackage.CONDITION__RECORDER:
+				setRecorder((Reference)null);
+				return;
 			case FhirPackage.CONDITION__ASSERTER:
 				setAsserter((Reference)null);
 				return;
 			case FhirPackage.CONDITION__STAGE:
-				setStage((ConditionStage)null);
+				getStage().clear();
 				return;
 			case FhirPackage.CONDITION__EVIDENCE:
 				getEvidence().clear();
@@ -1629,8 +1573,6 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return abatementDateTime != null;
 			case FhirPackage.CONDITION__ABATEMENT_AGE:
 				return abatementAge != null;
-			case FhirPackage.CONDITION__ABATEMENT_BOOLEAN:
-				return abatementBoolean != null;
 			case FhirPackage.CONDITION__ABATEMENT_PERIOD:
 				return abatementPeriod != null;
 			case FhirPackage.CONDITION__ABATEMENT_RANGE:
@@ -1639,10 +1581,12 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return abatementString != null;
 			case FhirPackage.CONDITION__ASSERTED_DATE:
 				return assertedDate != null;
+			case FhirPackage.CONDITION__RECORDER:
+				return recorder != null;
 			case FhirPackage.CONDITION__ASSERTER:
 				return asserter != null;
 			case FhirPackage.CONDITION__STAGE:
-				return stage != null;
+				return stage != null && !stage.isEmpty();
 			case FhirPackage.CONDITION__EVIDENCE:
 				return evidence != null && !evidence.isEmpty();
 			case FhirPackage.CONDITION__NOTE:

@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,10 +21,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.TestScriptCapability;
 import org.hl7.fhir.Uri;
-import org.hl7.fhir.jaxb.BooleanImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.UriImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,8 +41,6 @@ import org.hl7.fhir.jaxb.UriImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "TestScriptCapability", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "TestScriptCapability")
 public class TestScriptCapabilityImpl extends BackboneElementImpl implements TestScriptCapability {
 	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
@@ -147,7 +136,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getRequired() {
 		return required;
 	}
@@ -191,7 +179,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(BooleanImplAdapter.class)
 	public org.hl7.fhir.Boolean getValidated() {
 		return validated;
 	}
@@ -235,7 +222,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDescription() {
 		return description;
 	}
@@ -279,8 +265,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
-	@XmlElement
 	public EList<org.hl7.fhir.Integer> getOrigin() {
 		if (origin == null) {
 			origin = new EObjectContainmentEList<org.hl7.fhir.Integer>(org.hl7.fhir.Integer.class, this, FhirPackage.TEST_SCRIPT_CAPABILITY__ORIGIN);
@@ -293,7 +277,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getDestination() {
 		return destination;
 	}
@@ -337,8 +320,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(UriImplAdapter.class)
-	@XmlElement
 	public EList<Uri> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.TEST_SCRIPT_CAPABILITY__LINK);
@@ -351,7 +332,6 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement(required = true)
 	public Reference getCapabilities() {
 		return capabilities;
 	}

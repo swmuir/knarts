@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,11 +25,6 @@ import org.hl7.fhir.Quantity;
 import org.hl7.fhir.VisionBase;
 import org.hl7.fhir.VisionEyes;
 import org.hl7.fhir.VisionPrescriptionDispense;
-import org.hl7.fhir.jaxb.DecimalImplAdapter;
-import org.hl7.fhir.jaxb.IntegerImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
-import org.hl7.fhir.jaxb.VisionBaseImplAdapter;
-import org.hl7.fhir.jaxb.VisionEyesImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,8 +53,6 @@ import org.hl7.fhir.jaxb.VisionEyesImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "VisionPrescriptionDispense", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "VisionPrescriptionDispense")
 public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implements VisionPrescriptionDispense {
 	/**
 	 * The cached value of the '{@link #getProduct() <em>Product</em>}' containment reference.
@@ -283,7 +271,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(VisionEyesImplAdapter.class)
 	public VisionEyes getEye() {
 		return eye;
 	}
@@ -327,7 +314,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getSphere() {
 		return sphere;
 	}
@@ -371,7 +357,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getCylinder() {
 		return cylinder;
 	}
@@ -415,7 +400,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(IntegerImplAdapter.class)
 	public org.hl7.fhir.Integer getAxis() {
 		return axis;
 	}
@@ -459,7 +443,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPrism() {
 		return prism;
 	}
@@ -503,7 +486,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(VisionBaseImplAdapter.class)
 	public VisionBase getBase() {
 		return base;
 	}
@@ -547,7 +529,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getAdd() {
 		return add;
 	}
@@ -591,7 +572,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getPower() {
 		return power;
 	}
@@ -635,7 +615,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getBackCurve() {
 		return backCurve;
 	}
@@ -679,7 +658,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DecimalImplAdapter.class)
 	public Decimal getDiameter() {
 		return diameter;
 	}
@@ -766,7 +744,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getColor() {
 		return color;
 	}
@@ -810,7 +787,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getBrand() {
 		return brand;
 	}
@@ -854,7 +830,6 @@ public class VisionPrescriptionDispenseImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.VISION_PRESCRIPTION_DISPENSE__NOTE);

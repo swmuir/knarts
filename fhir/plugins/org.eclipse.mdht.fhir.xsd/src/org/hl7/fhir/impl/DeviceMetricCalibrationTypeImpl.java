@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,8 +25,6 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
-@XmlType(name = "DeviceMetricCalibrationType", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "DeviceMetricCalibrationType")
 public class DeviceMetricCalibrationTypeImpl extends ElementImpl implements DeviceMetricCalibrationType {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

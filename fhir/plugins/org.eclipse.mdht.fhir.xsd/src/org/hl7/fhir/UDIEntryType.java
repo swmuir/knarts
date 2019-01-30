@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.UDIEntryTypeImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.UDIEntryTypeImplAdapter;
  * @model extendedMetaData="name='UDIEntryType' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(UDIEntryTypeImplAdapter.class)
 public interface UDIEntryType extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

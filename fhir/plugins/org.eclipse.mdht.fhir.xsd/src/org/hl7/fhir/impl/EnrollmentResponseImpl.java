@@ -4,11 +4,6 @@ package org.hl7.fhir.impl;
 
 import java.util.Collection;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -22,16 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EnrollmentResponse;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.jaxb.DateTimeImplAdapter;
-import org.hl7.fhir.jaxb.FinancialResourceStatusCodesImplAdapter;
-import org.hl7.fhir.jaxb.StringImplAdapter;
+import org.hl7.fhir.RemittanceOutcome;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,8 +46,6 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "EnrollmentResponse", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "EnrollmentResponse")
 public class EnrollmentResponseImpl extends DomainResourceImpl implements EnrollmentResponse {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
@@ -95,7 +85,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept outcome;
+	protected RemittanceOutcome outcome;
 
 	/**
 	 * The cached value of the '{@link #getDisposition() <em>Disposition</em>}' containment reference.
@@ -171,7 +161,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlElement
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.ENROLLMENT_RESPONSE__IDENTIFIER);
@@ -184,7 +173,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(FinancialResourceStatusCodesImplAdapter.class)
 	public FinancialResourceStatusCodes getStatus() {
 		return status;
 	}
@@ -271,7 +259,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOutcome() {
+	public RemittanceOutcome getOutcome() {
 		return outcome;
 	}
 
@@ -280,8 +268,8 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutcome(CodeableConcept newOutcome, NotificationChain msgs) {
-		CodeableConcept oldOutcome = outcome;
+	public NotificationChain basicSetOutcome(RemittanceOutcome newOutcome, NotificationChain msgs) {
+		RemittanceOutcome oldOutcome = outcome;
 		outcome = newOutcome;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__OUTCOME, oldOutcome, newOutcome);
@@ -295,7 +283,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutcome(CodeableConcept newOutcome) {
+	public void setOutcome(RemittanceOutcome newOutcome) {
 		if (newOutcome != outcome) {
 			NotificationChain msgs = null;
 			if (outcome != null)
@@ -314,7 +302,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getDisposition() {
 		return disposition;
 	}
@@ -358,7 +345,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateTimeImplAdapter.class)
 	public DateTime getCreated() {
 		return created;
 	}
@@ -606,7 +592,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				setRequest((Reference)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)newValue);
+				setOutcome((RemittanceOutcome)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
@@ -645,7 +631,7 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				setRequest((Reference)null);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__OUTCOME:
-				setOutcome((CodeableConcept)null);
+				setOutcome((RemittanceOutcome)null);
 				return;
 			case FhirPackage.ENROLLMENT_RESPONSE__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);

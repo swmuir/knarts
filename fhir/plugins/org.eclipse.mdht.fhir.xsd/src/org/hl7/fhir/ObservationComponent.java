@@ -2,10 +2,7 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.util.EList;
-import org.hl7.fhir.jaxb.ObservationComponentImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,10 +21,11 @@ import org.hl7.fhir.jaxb.ObservationComponentImplAdapter;
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueString <em>Value String</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationComponent#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationComponent#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueRange <em>Value Range</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueRatio <em>Value Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueSampledData <em>Value Sampled Data</em>}</li>
- *   <li>{@link org.hl7.fhir.ObservationComponent#getValueAttachment <em>Value Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationComponent#getValuePeriod <em>Value Period</em>}</li>
@@ -40,7 +38,6 @@ import org.hl7.fhir.jaxb.ObservationComponentImplAdapter;
  * @model extendedMetaData="name='Observation.Component' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(ObservationComponentImplAdapter.class)
 public interface ObservationComponent extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -150,6 +147,60 @@ public interface ObservationComponent extends BackboneElement {
 	void setValueString(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Value Boolean</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Boolean</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #setValueBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getObservationComponent_ValueBoolean()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueBoolean' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getValueBoolean();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationComponent#getValueBoolean <em>Value Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Boolean</em>' containment reference.
+	 * @see #getValueBoolean()
+	 * @generated
+	 */
+	void setValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Integer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Integer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Integer</em>' containment reference.
+	 * @see #setValueInteger(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getObservationComponent_ValueInteger()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueInteger' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getValueInteger();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationComponent#getValueInteger <em>Value Integer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Integer</em>' containment reference.
+	 * @see #getValueInteger()
+	 * @generated
+	 */
+	void setValueInteger(org.hl7.fhir.Integer value);
+
+	/**
 	 * Returns the value of the '<em><b>Value Range</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -229,33 +280,6 @@ public interface ObservationComponent extends BackboneElement {
 	 * @generated
 	 */
 	void setValueSampledData(SampledData value);
-
-	/**
-	 * Returns the value of the '<em><b>Value Attachment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Attachment</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Attachment</em>' containment reference.
-	 * @see #setValueAttachment(Attachment)
-	 * @see org.hl7.fhir.FhirPackage#getObservationComponent_ValueAttachment()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueAttachment' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Attachment getValueAttachment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ObservationComponent#getValueAttachment <em>Value Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Attachment</em>' containment reference.
-	 * @see #getValueAttachment()
-	 * @generated
-	 */
-	void setValueAttachment(Attachment value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Time</b></em>' containment reference.
@@ -343,7 +367,7 @@ public interface ObservationComponent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Provides a reason why the expected value in the element Observation.value[x] is missing.
+	 * Provides a reason why the expected value in the element Observation.component.value[x] is missing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Data Absent Reason</em>' containment reference.
 	 * @see #setDataAbsentReason(CodeableConcept)

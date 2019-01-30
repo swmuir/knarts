@@ -2,9 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import org.hl7.fhir.jaxb.IdentifierUseImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +24,6 @@ import org.hl7.fhir.jaxb.IdentifierUseImplAdapter;
  * @model extendedMetaData="name='IdentifierUse' kind='elementOnly'"
  * @generated
  */
-@XmlJavaTypeAdapter(IdentifierUseImplAdapter.class)
 public interface IdentifierUse extends Element {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

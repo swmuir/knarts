@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,10 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MeasureStratifier;
-import org.hl7.fhir.jaxb.StringImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,25 +22,34 @@ import org.hl7.fhir.jaxb.StringImplAdapter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MeasureStratifierImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureStratifierImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureStratifierImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureStratifierImpl#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureStratifierImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-@XmlType(name = "MeasureStratifier", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "MeasureStratifier")
 public class MeasureStratifierImpl extends BackboneElementImpl implements MeasureStratifier {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected CodeableConcept code;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String description;
 
 	/**
 	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' containment reference.
@@ -91,8 +95,8 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
-		return identifier;
+	public CodeableConcept getCode() {
+		return code;
 	}
 
 	/**
@@ -100,11 +104,11 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__CODE, oldCode, newCode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -115,18 +119,18 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__IDENTIFIER, newIdentifier, newIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__CODE, newCode, newCode));
 	}
 
 	/**
@@ -134,7 +138,49 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
+	public org.hl7.fhir.String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
+		org.hl7.fhir.String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(org.hl7.fhir.String newDescription) {
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_STRATIFIER__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_STRATIFIER__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getCriteria() {
 		return criteria;
 	}
@@ -178,7 +224,6 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(StringImplAdapter.class)
 	public org.hl7.fhir.String getPath() {
 		return path;
 	}
@@ -225,8 +270,10 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_STRATIFIER__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+			case FhirPackage.MEASURE_STRATIFIER__CODE:
+				return basicSetCode(null, msgs);
+			case FhirPackage.MEASURE_STRATIFIER__DESCRIPTION:
+				return basicSetDescription(null, msgs);
 			case FhirPackage.MEASURE_STRATIFIER__CRITERIA:
 				return basicSetCriteria(null, msgs);
 			case FhirPackage.MEASURE_STRATIFIER__PATH:
@@ -243,8 +290,10 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_STRATIFIER__IDENTIFIER:
-				return getIdentifier();
+			case FhirPackage.MEASURE_STRATIFIER__CODE:
+				return getCode();
+			case FhirPackage.MEASURE_STRATIFIER__DESCRIPTION:
+				return getDescription();
 			case FhirPackage.MEASURE_STRATIFIER__CRITERIA:
 				return getCriteria();
 			case FhirPackage.MEASURE_STRATIFIER__PATH:
@@ -261,8 +310,11 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_STRATIFIER__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+			case FhirPackage.MEASURE_STRATIFIER__CODE:
+				setCode((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEASURE_STRATIFIER__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE_STRATIFIER__CRITERIA:
 				setCriteria((org.hl7.fhir.String)newValue);
@@ -282,8 +334,11 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_STRATIFIER__IDENTIFIER:
-				setIdentifier((Identifier)null);
+			case FhirPackage.MEASURE_STRATIFIER__CODE:
+				setCode((CodeableConcept)null);
+				return;
+			case FhirPackage.MEASURE_STRATIFIER__DESCRIPTION:
+				setDescription((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE_STRATIFIER__CRITERIA:
 				setCriteria((org.hl7.fhir.String)null);
@@ -303,8 +358,10 @@ public class MeasureStratifierImpl extends BackboneElementImpl implements Measur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEASURE_STRATIFIER__IDENTIFIER:
-				return identifier != null;
+			case FhirPackage.MEASURE_STRATIFIER__CODE:
+				return code != null;
+			case FhirPackage.MEASURE_STRATIFIER__DESCRIPTION:
+				return description != null;
 			case FhirPackage.MEASURE_STRATIFIER__CRITERIA:
 				return criteria != null;
 			case FhirPackage.MEASURE_STRATIFIER__PATH:

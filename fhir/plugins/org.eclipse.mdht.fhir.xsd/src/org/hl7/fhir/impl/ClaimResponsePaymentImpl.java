@@ -2,10 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,7 +16,6 @@ import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
-import org.hl7.fhir.jaxb.DateImplAdapter;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,8 +35,6 @@ import org.hl7.fhir.jaxb.DateImplAdapter;
  *
  * @generated
  */
-@XmlType(name = "ClaimResponsePayment", namespace = "http://hl7.org/fhir")
-@XmlRootElement(name = "ClaimResponsePayment")
 public class ClaimResponsePaymentImpl extends BackboneElementImpl implements ClaimResponsePayment {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -256,7 +249,6 @@ public class ClaimResponsePaymentImpl extends BackboneElementImpl implements Cla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@XmlJavaTypeAdapter(DateImplAdapter.class)
 	public Date getDate() {
 		return date;
 	}
