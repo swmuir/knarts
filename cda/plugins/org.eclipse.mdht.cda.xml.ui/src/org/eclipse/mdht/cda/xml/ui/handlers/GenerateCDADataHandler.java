@@ -823,20 +823,20 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 			SXSSFRow row1 = null;
 			SXSSFRow row2 = documentsSheet.createRow(0);
-			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			SpreadsheetSerializer.createPatientHeader2(row1, row2, offset);
+			offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			SheetHeaderUtil.createPatientHeader2(row1, row2, offset);
 
 			row1 = null;
 			row2 = encountersSheet.createRow(0);
 
-			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			SheetHeaderUtil.createEncounterHeader(row1, row2, offset);
 
 			row1 = null;
 			row2 = demographicsSheet.createRow(0);
 
-			offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createDemographicsHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createDemographicsHeader(row1, row2, offset);
 
 			workbooks.put(documentIndex, wb);
 			documents.put(documentIndex, document);
@@ -879,7 +879,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 					if (PorO.ORGANIZATION.equals(poro)) {
 						organizations.put(authorId, result);
 					} else {
-						this.authors.put(authorId, result);
+						GenerateCDADataHandler.authors.put(authorId, result);
 					}
 
 				}
@@ -1107,7 +1107,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							query, encountersSheet, documentMetadata, patientRole, encounters, file.getName());
 
 						for (Section section : clinicalDocument.getSections()) {
-							System.out.println(section.getClass().getCanonicalName());
+
 							String sheetIndex = getSheet(
 								clinicalDocument.eClass(), String.valueOf(section.eClass().getClassifierID()),
 								sheetName(section.eClass()), splitOption);
@@ -1183,7 +1183,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 			offset = 0;
 			// row1.createCell(offset++).setCellValue("File Name");
 			// row1.createCell(offset++).setCellValue("Document");
-			offset = SpreadsheetSerializer.createDocumentMedadataHeadder(row1, offset++);
+			offset = SheetHeaderUtil.createDocumentMedadataHeadder(row1, offset++);
 			int metadataoffset = offset;
 
 			// undo to go back to two rows for headers row1.createCell(offset++).setCellValue("Document Type");
@@ -1287,6 +1287,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				"Reloading  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
 						"_SA.xlsx");
 
+			/**
+			 * @TODO Add preference for formatting
+			 */
 			if (false && folder.members().length < 50) {
 				format(fileLocation, monitor);
 			}

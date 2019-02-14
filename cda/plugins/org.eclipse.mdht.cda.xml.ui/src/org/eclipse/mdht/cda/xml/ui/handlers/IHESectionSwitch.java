@@ -70,9 +70,9 @@ public class IHESectionSwitch extends IHESwitch<Boolean> {
 		if (sheet.getPhysicalNumberOfRows() == 0) {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
 			emptySectionOffset.put(sheet, offset);
 		}
 

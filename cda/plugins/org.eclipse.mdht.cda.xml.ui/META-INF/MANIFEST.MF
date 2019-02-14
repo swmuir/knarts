@@ -34,7 +34,8 @@ Require-Bundle: org.eclipse.ui;visibility:=reexport,
  org.eclipse.emf.common,
  org.eclipse.ui.workbench,
  org.eclipse.core.filesystem,
- org.eclipse.ui.console
+ org.eclipse.ui.console,
+ org.apache.commons.lang3
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
@@ -44,4 +45,5 @@ Bundle-ClassPath: .,
  poi-3.16/ooxml-lib/curvesapi-1.04.jar,
  poi-3.16/ooxml-lib/xmlbeans-2.6.0.jar,
  poi-3.16/lib/commons-codec-1.10.jar,
- poi-3.16/lib/commons-collections4-4.1.jar
+ poi-3.16/lib/commons-collections4-4.1.jar,
+ jericho/jericho-html-3.4.jar

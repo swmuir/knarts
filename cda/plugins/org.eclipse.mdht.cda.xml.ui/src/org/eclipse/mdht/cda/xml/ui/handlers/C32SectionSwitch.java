@@ -92,9 +92,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
 
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createAllergyHeader(row1, row2, offset);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createAllergyHeader(row1, row2, offset);
 			emptySectionOffset.put(sheet, offset);
 		}
 
@@ -133,9 +133,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 				Row row1 = null; // sheet.createRow(0);
 				Row row2 = sheet.createRow(0);
 
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createResultsHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createResultsHeader(row1, row2, offset);
 				emptySectionOffset.put(sheet, offset);
 			}
 
@@ -159,9 +159,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
 
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Immunization");
 			emptySectionOffset.put(sheet, offset);
 		}
 		if (section.getSubstanceAdministrations() != null && !section.getSubstanceAdministrations().isEmpty()) {
@@ -188,9 +188,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 		if (sheet.getPhysicalNumberOfRows() == 0) {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
 			emptySectionOffset.put(sheet, offset);
 		}
 
@@ -215,9 +215,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 		if (sheet.getPhysicalNumberOfRows() == 0) {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
 			emptySectionOffset.put(sheet, offset);
 		}
 
@@ -242,9 +242,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 		if (sheet.getPhysicalNumberOfRows() == 0) {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createSubstanceAdministrationHeader(row1, row2, offset, "Medications");
 			emptySectionOffset.put(sheet, offset);
 		}
 
@@ -271,9 +271,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 			Row row1 = null; // sheet.createRow(0);
 			Row row2 = sheet.createRow(0);
 
-			int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-			offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-			offset = SpreadsheetSerializer.createProblemHeader(row1, row2, offset);
+			int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+			offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+			offset = SheetHeaderUtil.createProblemHeader(row1, row2, offset);
 			emptySectionOffset.put(sheet, offset);
 
 		}
@@ -304,9 +304,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 				Row row1 = null; // sheet.createRow(0);
 				Row row2 = sheet.createRow(0);
 
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createVitalSignsHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createVitalSignsHeader(row1, row2, offset);
 				emptySectionOffset.put(sheet, offset);
 			}
 
@@ -332,9 +332,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 				Row row1 = null; // sheet.createRow(0);
 				Row row2 = sheet.createRow(0);
 
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createVitalSignsHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createVitalSignsHeader(row1, row2, offset);
 				emptySectionOffset.put(sheet, offset);
 			}
 
@@ -361,9 +361,9 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 				Row row1 = null; // sheet.createRow(0);
 				Row row2 = sheet.createRow(0);
 
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createVitalSignsHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createVitalSignsHeader(row1, row2, offset);
 				emptySectionOffset.put(sheet, offset);
 			}
 
@@ -643,10 +643,12 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 				if (!StringUtils.isEmpty(ivlts.getLow().getValue())) {
 
 					d = CDAValueUtil.getDate(ivlts.getLow().getValue());
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					} else {
+						sb.append(ivlts.getLow().getValue());
+					}
 
-					;
-
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
 				}
 
 			}
@@ -657,7 +659,11 @@ class C32SectionSwitch extends HITSPSwitch<Boolean> {
 					if (sb.length() > 0) {
 						sb.append(" - ");
 					}
-					sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					if (d != null) {
+						sb.append(CDAValueUtil.DATE_PRETTY.format(d));
+					} else {
+						sb.append(ivlts.getLow().getValue());
+					}
 				}
 			}
 		}

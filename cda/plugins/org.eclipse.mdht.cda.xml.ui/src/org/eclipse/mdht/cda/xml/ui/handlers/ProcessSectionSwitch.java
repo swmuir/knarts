@@ -19,7 +19,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
-import org.eclipse.mdht.cda.xml.ui.handlers.SpreadsheetSerializer.MatchEncounterBy;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.Entry;
 import org.eclipse.mdht.uml.cda.PatientRole;
@@ -124,9 +123,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -148,9 +147,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -172,9 +171,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -196,9 +195,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -221,9 +220,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -245,9 +244,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -269,9 +268,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -292,9 +291,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -315,9 +314,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSubstanceAdministrationHeader(
 					row1, row2, offset, "Plan Of Care Activity Substance Administration");
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -339,9 +338,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -376,9 +375,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -402,9 +401,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -440,9 +439,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -464,9 +463,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = SpreadsheetSerializer.serializePatient(row, 0, this.documentMetadata, patientRole);
@@ -491,9 +490,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 				Row row1 = null; // sheet.createRow(0);
 				Row row2 = sheet.createRow(0);
 
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createClinicalStatmentHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createClinicalStatmentHeader(row1, row2, offset);
 			}
 
 			if (entry.getAct() != null) {
@@ -521,7 +520,7 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 				offset = SpreadsheetSerializer.serializeEnounterID(row, offset, entry.getProcedure(), encounters);
 				offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getProcedure());
 				SpreadsheetSerializer.serializeSectionAndFileName(
-					row, offset, entry.getObservation().getSection(), file.getName());
+					row, offset, entry.getProcedure().getSection(), file.getName());
 			}
 
 			if (entry.getOrganizer() != null) {
@@ -566,9 +565,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createProcedureHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createProcedureHeader(row1, row2, offset);
 
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -590,9 +589,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createEncounterHeader(row1, row2, offset);
 				// emptySectionOffset.put(sheet, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -614,9 +613,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSocialHistoryHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSocialHistoryHeader(row1, row2, offset);
 				// emptySectionOffset.put(sheet, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -639,9 +638,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createEncounterHeader(row1, row2, offset);
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createEncounterHeader(row1, row2, offset);
 				// emptySectionOffset.put(sheet, offset);
 			}
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
@@ -666,9 +665,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSubstanceAdministrationHeader(
 					row1, row2, offset, "Plan Of Care Activity Substance Administration");
 				// emptySectionOffset.put(sheet, offset);
 			}
@@ -694,9 +693,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 			if (sheet.getPhysicalNumberOfRows() == 0) {
 				Row row1 = null;
 				Row row2 = sheet.createRow(0);
-				int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-				offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-				offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+				int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+				offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+				offset = SheetHeaderUtil.createSubstanceAdministrationHeader(
 					row1, row2, offset, "Plan Of Care Activity Substance Administration");
 				// emptySectionOffset.put(sheet, offset);
 			}
@@ -721,9 +720,9 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 				if (sheet.getPhysicalNumberOfRows() == 0) {
 					Row row1 = null;
 					Row row2 = sheet.createRow(0);
-					int offset = SpreadsheetSerializer.createPatientHeader(row1, row2, 0);
-					offset = SpreadsheetSerializer.createEncounterIDHeader(row1, row2, offset);
-					offset = SpreadsheetSerializer.createSubstanceAdministrationHeader(
+					int offset = SheetHeaderUtil.createPatientHeader(row1, row2, 0);
+					offset = SheetHeaderUtil.createEncounterIDHeader(row1, row2, offset);
+					offset = SheetHeaderUtil.createSubstanceAdministrationHeader(
 						row1, row2, offset, "Plan Of Care Activity Substance Administration");
 					// emptySectionOffset.put(sheet, offset);
 				}

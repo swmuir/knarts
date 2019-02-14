@@ -128,11 +128,32 @@ public class StrucDocTextOperations {
 
 	public static String getText(FeatureMap featureMap) {
 		StringBuffer buffer = new StringBuffer("");
-		for (FeatureMap.Entry entry : featureMap) {
-			if (FeatureMapUtil.isText(entry)) {
-				buffer.append(entry.getValue().toString());
+		for (int i = 0, size = featureMap.size(); i < size; ++i) {
+			EStructuralFeature feature = featureMap.getEStructuralFeature(i);
+			if (FeatureMapUtil.isText(feature)) {
+				if (buffer.length() > 0) {
+					buffer.append(" ");
+				}
+				buffer.append(featureMap.getValue(i).toString());
+			} else if (FeatureMapUtil.isComment(feature)) {
+				if (buffer.length() > 0) {
+					buffer.append(" ");
+				}
+				buffer.append(featureMap.getValue(i).toString());
+			} else if (FeatureMapUtil.isCDATA(feature)) {
+				buffer.append(featureMap.getValue(i).toString());
+				if (buffer.length() > 0) {
+					buffer.append(" ");
+				}
+			} else if (feature instanceof EReference) {
+
+				buffer.append(
+					"<" + feature.getName() + ">" + getText(((AnyType) featureMap.getValue(i)).getMixed()) + "</" +
+							feature.getName() + ">");
 			}
 		}
+
 		return buffer.toString();
 	}
+
 } // StrucDocTextOperations

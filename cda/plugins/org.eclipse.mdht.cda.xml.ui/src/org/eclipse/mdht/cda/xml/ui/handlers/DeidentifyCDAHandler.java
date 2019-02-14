@@ -43,6 +43,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -312,6 +313,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 		try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
 			clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
 			is.close();
+		} catch (IOWrappedException iowe) {
+			System.out.println("error processing " + cdaURI.toFileString());
+			return;
 		}
 
 		Query query = new Query(clinicalDocument);
@@ -686,7 +690,9 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 				totalBytes -= fileSize;
 
-				estimatedTimeLeft = (totalBytes / ratePerSecond) / 1000;
+				if (ratePerSecond != 0) {
+					estimatedTimeLeft = (totalBytes / ratePerSecond) / 1000;
+				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -722,6 +728,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 								throws InvocationTargetException, InterruptedException {
 
 							try {
+								@SuppressWarnings("unchecked")
 								Iterator<Object> iter = iss.iterator();
 								while (iter.hasNext() && !monitor.isCanceled()) {
 									// IFile indexfile = null;

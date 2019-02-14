@@ -45,6 +45,10 @@
 			name="DEIDENTIFYCDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.DeidentifyCDAHandler">
 		</command>
 		
+			<command id="org.eclipse.mdht.cda.xml.ui.commands.stripCDANarrativeHandler"
+			name="STRIPCDANARRATIVEHANDLER" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.StripCDANarrativeHandler">
+		</command>
+		
 		<command id="org.eclipse.mdht.cda.xml.ui.commands.packageCDA"
 			name="packageCDA" defaultHandler="org.eclipse.mdht.cda.xml.ui.handlers.PackageCDAHandler">
 		</command>
@@ -143,6 +147,25 @@
 
 				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.deidentifyCDA"
 					label="Deidentify CDA Document(s)" id="org.eclipse.mdht.cda.xml.ui.menu.deidentifyCDA"
+					mnemonic="D">
+					<visibleWhen>
+						<with variable="selection">
+							<iterate ifEmpty="false" operator="or">
+								<or>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFolder" />
+									</and>
+									<and>
+										<instanceof value="org.eclipse.core.resources.IFile" />
+									</and>
+								</or>
+							</iterate>
+						</with>
+					</visibleWhen>
+				</command>
+				
+				<command commandId="org.eclipse.mdht.cda.xml.ui.commands.stripCDANarrativeHandler"
+					label="Remove Narrative CDA Document(s)" id="org.eclipse.mdht.cda.xml.ui.menu.stripCDANarrativeHandler"
 					mnemonic="D">
 					<visibleWhen>
 						<with variable="selection">
