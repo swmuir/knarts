@@ -70,9 +70,9 @@ public class CDAValueUtil {
 		 */
 		public String fileName = "";
 
-		public AD pcpAddress;
+		public String pcpAddress;
 
-		public PN pcpName;
+		public String pcpName;
 
 	}
 

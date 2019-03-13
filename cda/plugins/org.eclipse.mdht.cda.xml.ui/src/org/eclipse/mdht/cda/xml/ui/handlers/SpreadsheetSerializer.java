@@ -876,12 +876,12 @@ public class SpreadsheetSerializer {
 						if ("PCP".equals(performer.getFunctionCode().getCode())) {
 							if (performer.getAssignedEntity() != null) {
 								for (AD ad : performer.getAssignedEntity().getAddrs()) {
-									documentMetadata.pcpAddress = ad;
+									documentMetadata.pcpAddress = CDAValueUtil.getValues(ad);
 									break;
 								}
 								if (performer.getAssignedEntity().getAssignedPerson() != null) {
 									for (PN pn : performer.getAssignedEntity().getAssignedPerson().getNames()) {
-										documentMetadata.pcpName = pn;
+										documentMetadata.pcpName = CDAValueUtil.getValues(pn);
 										break;
 									}
 								}
@@ -1096,14 +1096,14 @@ public class SpreadsheetSerializer {
 
 		if (documentMetadata.pcpName != null) {
 			cell = row.createCell(offset++);
-			cell.setCellValue(CDAValueUtil.getValues(documentMetadata.pcpName));
+			cell.setCellValue(documentMetadata.pcpName);
 		} else {
 			row.createCell(offset++);
 		}
 
 		if (documentMetadata.pcpAddress != null) {
 			cell = row.createCell(offset++);
-			cell.setCellValue(CDAValueUtil.getValues(documentMetadata.pcpAddress));
+			cell.setCellValue(documentMetadata.pcpAddress);
 		} else {
 			row.createCell(offset++);
 		}
