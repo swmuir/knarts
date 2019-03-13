@@ -381,7 +381,7 @@ public class CDAUtil {
 
 	private static int uriCounter = 0;
 
-	private static URI generateURI() {
+	public static URI generateURI() {
 		URI uri = URI.createURI("http:///resource" + uriCounter + ".xml");
 		uriCounter++;
 		return uri;
