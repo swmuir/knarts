@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.mdht.cda.xml.ui.handlers;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +23,7 @@ import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -888,6 +890,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		}
 	}
 
+	public static String formatSize(long v) {
+		if (v < 1024)
+			return v + " B";
+		int z = (63 - Long.numberOfLeadingZeros(v)) / 10;
+		return String.format("%.1f %sB", (double) v / (1L << (z * 10)), " KMGTPE".charAt(z));
+	}
+
 	void processFolder(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
 			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
 
@@ -962,6 +971,13 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		Collections.sort(documents, c);
 
+		String fileLocation2 = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
+				CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "performance.log";
+
+		Path path = Paths.get(fileLocation2);
+
+		BufferedWriter performance = Files.newBufferedWriter(path);
+
 		int totalFiles = folder.members().length;
 		for (IFile file : documents) {
 			stopwatch.reset();
@@ -982,17 +998,20 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 				if (estimatedTimeLeft > 60) {
 					monitor.setTaskName(
-						"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) +
-								" Minutes ");
+						"Processing " + file.getName() + ", " + StringUtils.leftPad(String.valueOf(filectr++), 5) +
+								" of " + StringUtils.leftPad(String.valueOf(totalFiles), 5) +
+								", Estimated Time to finish : " + ((int) estimatedTimeLeft / 60) + " Minutes ");
 				} else {
 					monitor.setTaskName(
-						"Generate Spreadsheet, Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
+						"Processing " + file.getName() + ", " + StringUtils.leftPad(String.valueOf(filectr++), 5) +
+								" of " + StringUtils.leftPad(String.valueOf(totalFiles), 5) +
+								", Estimated Time to finish : " + ((int) estimatedTimeLeft) + " Seconds ");
 				}
 
-				monitor.subTask(
-					"Processing File " + StringUtils.leftPad(String.valueOf(filectr++), 5) + " of " +
-							StringUtils.leftPad(String.valueOf(totalFiles), 5) + " Average Time per File " +
-							(currentProcessingTime / filectr) / 1000.0 + " Seconds ");
+				// monitor.subTask(
+				// "Processing File " + StringUtils.leftPad(String.valueOf(filectr++), 5) + " of " +
+				// StringUtils.leftPad(String.valueOf(totalFiles), 5) + " General Performance" +
+				// fileSize / (currentProcessingTime / 1000.0) + " Bytes per Second ");
 				try {
 
 					console.println(getMemoryUssage());
@@ -1093,6 +1112,17 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 							// }
 
 						}
+
+						long t = stopwatch.elapsed(TimeUnit.MILLISECONDS);
+						String s = file.getName() + " : " + formatSize(fileSize) + " took " + t / 1000.0 +
+								" Second(s) at " +
+								String.format("%.2f MB/S", (fileSize / (1024 * 1024)) / (t / 1000.0));
+						monitor.subTask(s);
+
+						performance.write(s);
+						performance.newLine();
+						performance.flush();
+
 						console.println("End Processing " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 					} else {
 

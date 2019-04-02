@@ -39,9 +39,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -52,6 +50,7 @@ import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.StrucDocText;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.dnd.Clipboard;
@@ -179,17 +178,15 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 
 	}
 
-	public void stripNarratives(ResourceSet rs, final IFile file) throws Exception {
+	public void stripNarratives(final IFile file) throws Exception {
 
 		URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
 		ClinicalDocument clinicalDocument = null;
 
 		try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
-			//
-			;
-			// clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
-			clinicalDocument = CDAUtil.load(rs, CDAUtil.generateURI(), is, null);
+
+			clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
 			is.close();
 		} catch (IOWrappedException iowe) {
 			System.out.println("error processing " + cdaURI.toFileString());
@@ -224,16 +221,14 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 
 		}
 
-		// clinicalDocument.eResource().unload();
-
-		rs.getResources().remove(clinicalDocument.eResource());
+		clinicalDocument.eResource().unload();
 	}
 
 	ArrayList<IFile> documents = new ArrayList<IFile>();
 
 	protected static DecimalFormat format2Places = new DecimalFormat(".##");
 
-	protected void processFolder(ResourceSet rs, IFolder folder, IProgressMonitor monitor) throws CoreException {
+	protected void processFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
 
 		int filectr = 1;
 		long currentProcessingTime = 1;
@@ -251,7 +246,7 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 			}
 
 			if (resource instanceof IFolder && !resource.getName().equals("NarrativeRemoved")) {
-				processFolder(rs, (IFolder) resource, monitor);
+				processFolder((IFolder) resource, monitor);
 			}
 
 			if (resource instanceof IFile) {
@@ -291,7 +286,6 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 
 		currentProcessingTime = 0;
 		long estimatedTimeLeft = 0;
-
 		for (IFile document : documents) {
 			monitor.worked(1);
 
@@ -318,14 +312,11 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 			try {
 				stopwatch.reset();
 				stopwatch.start();
-				stripNarratives(rs, document);
+				stripNarratives(document);
 				stopwatch.stop();
 				currentProcessingTime = stopwatch.elapsed(TimeUnit.MILLISECONDS);
 
-				long denominator = stopwatch.elapsed(TimeUnit.MILLISECONDS);
-				long ratePerSecond = fileSize / (denominator > 0
-						? denominator
-						: 1);
+				long ratePerSecond = fileSize / stopwatch.elapsed(TimeUnit.MILLISECONDS);
 
 				totalBytes -= fileSize;
 
@@ -352,8 +343,6 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 
 		try {
 
-			ResourceSet rs = CDAUtil.createResourceSet((EClass) null);
-
 			ProgressMonitorDialog pd = new ProgressMonitorDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 
@@ -376,10 +365,10 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 									if (o instanceof IFolder) {
 										IFolder folder = (IFolder) o;
 										monitor.beginTask("DeIdentify CDA Documents", folder.members().length);
-										processFolder(rs, folder, monitor);
+										processFolder(folder, monitor);
 									}
 									if (o instanceof IFile) {
-										stripNarratives(rs, (IFile) o);
+										stripNarratives((IFile) o);
 									}
 								}
 							} catch (PartInitException e) {
