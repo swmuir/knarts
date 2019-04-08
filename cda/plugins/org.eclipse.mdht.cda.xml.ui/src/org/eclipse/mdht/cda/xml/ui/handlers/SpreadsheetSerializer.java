@@ -25,6 +25,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
@@ -125,7 +126,9 @@ public class SpreadsheetSerializer {
 			Row row = sheet.createRow(sheet.getPhysicalNumberOfRows());
 			int offset = serializePatient(row, 0, documentMetadata, patientRole);
 			offset = serializeEncounter(row, offset, encounter);
-			serializeSectionAndFileName(row, offset, encounter.getSection(), fileName);
+			offset = serializeSectionAndFileName(row, offset, encounter.getSection(), fileName);
+			offset = appendValidation(row, offset, encounter);
+
 		}
 
 	}
@@ -781,7 +784,9 @@ public class SpreadsheetSerializer {
 
 			offset = serializeProcedureActivityProcedure(row, offset, sa);
 
-			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+			offset = serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+
+			offset = appendValidation(row, offset, sa);
 
 		}
 
@@ -802,6 +807,7 @@ public class SpreadsheetSerializer {
 				int offset = serializePatient(row, 0, organizationAndSoftware, patientRole);
 				offset = serializeEncounter(row, offset, encoutner);
 				serializeSectionAndFileName(row, offset, encoutner.getSection(), fileName);
+				offset = appendValidation(row, offset, encoutner);
 			}
 		}
 	}
@@ -948,7 +954,8 @@ public class SpreadsheetSerializer {
 				offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
 				offset = serializeOrganizer(row, offset, sa, true, false);
 				offset = serializeObservation(row, offset, resultObservation);
-				serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+				offset = serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+				offset = appendValidation(row, offset, sa);
 			}
 		}
 	}
@@ -969,7 +976,8 @@ public class SpreadsheetSerializer {
 			offset = serializePatient(row, offset, organizationAndSoftware, patientRole);
 			offset = SpreadsheetSerializer.serializeEnounterID(row, offset, sa, encounters);
 			offset = serializeSubstanceAdministration(row, offset, sa);
-			serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+			offset = serializeSectionAndFileName(row, offset, sa.getSection(), fileName);
+			offset = appendValidation(row, offset, sa);
 		}
 	}
 
@@ -995,6 +1003,7 @@ public class SpreadsheetSerializer {
 				offset = serializeOrganizer(row, offset, organizer, false, false);
 				offset = serializeObservation(row, offset, observation);
 				serializeSectionAndFileName(row, offset, observation.getSection(), fileName);
+				offset = appendValidation(row, offset, observation);
 			}
 
 		}
@@ -1999,6 +2008,31 @@ public class SpreadsheetSerializer {
 		Cell cell = row.createCell(offset++);
 		cell = row.createCell(offset++);
 		cell.setCellValue(MatchEncounterBy.NOMATCH.getMatch());
+		return offset;
+	}
+
+	public static int appendValidation(Row row, int offset, EObject target) {
+
+		if (!GenerateCDADataHandler.omitValidation) {
+
+			Diagnostic diagnostic = Diagnostician.INSTANCE.validate(target);
+
+			ValidationResult vr = new ValidationResult();
+
+			if (diagnostic.getChildren().size() > 0) {
+				processDiagnostic(diagnostic, vr);
+			}
+
+			StringBuffer sb = new StringBuffer();
+
+			for (Diagnostic dq : vr.getErrorDiagnostics()) {
+
+				sb.append(dq.getMessage()).append("\r");
+
+			}
+			row.createCell(offset++).setCellValue(sb.toString());
+		}
+
 		return offset;
 	}
 

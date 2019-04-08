@@ -268,6 +268,8 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 	static boolean omitUnits = false;
 
+	static boolean omitValidation = false;
+
 	static HashMap<String, String> organizations = new HashMap<String, String>();
 
 	static String preferenceFilters;
@@ -349,6 +351,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		preferenceFilters = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getString(
 			MDHTPreferences.CDA_REPORT_DEFAULT_FILTER);
+
+		omitValidation = org.eclipse.mdht.uml.cda.ui.internal.Activator.getDefault().getPreferenceStore().getBoolean(
+			MDHTPreferences.OMIT_VALIDATION_STORE_VALUE);
 
 		final HashSet<EClass> theSections = new HashSet<EClass>();
 

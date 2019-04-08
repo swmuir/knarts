@@ -583,7 +583,7 @@ public class DeidentifyCDAHandler extends AbstractHandler {
 
 			int i = file.getName().lastIndexOf(file.getFileExtension());
 
-			IFile df = f.getFile(file.getName().substring(0, i - 1) + "_D" + ".xml");
+			IFile df = f.getFile(file.getName().substring(0, i - 1) + "_DeIdentified.xml");
 
 			try (OutputStream fileOut = Files.newOutputStream(Paths.get(df.getLocation().toOSString()))) {
 				CDAUtil.save(clinicalDocument, fileOut);

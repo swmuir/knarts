@@ -84,6 +84,8 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 
 	public static String OMIT_UNITS_STORE_VALUE = "OmitUnitsCheckValue";
 
+	public static String OMIT_VALIDATION_STORE_VALUE = "OmitValidationStoreValue";
+
 	public static String CDA_REPORT_DEFAULT_FILTER = "CDAReportDefaultFilter";
 
 	private static String OMIT_DOB_CHECK_BOX_LABEL = "Omit DOB and Patient Name from XLS Reports";
@@ -94,10 +96,14 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 
 	private static String OMIT_UNITS_CHECK_BOX_LABEL = "Omit Quantity Units from XLS Reports";
 
+	private static String OMIT_VALIDATION_CHECK_BOX_LABEL = "Omit CDA Validation from XLS Reports";
+
+	private static String OMIT_VALIDATION_CHECK_BOX_TOOLTIP = "Do not include DCDA Validation in reports";
+
 	/**
 	 * FilterListSelectionDialog
 	 * The dialog buttons were not easily accessible to change the text for OK and Cancel
-	 * 
+	 *
 	 * @TODO This might not be the correct way to do this
 	 * @author seanmuir
 	 *
@@ -140,6 +146,8 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 	private Button omitUnitsCheckBox;
 
 	private Text cdaReportFilterText;
+
+	private Button omitValidationCheckBox;
 
 	final ArrayList<String> cdaReportfilters = new ArrayList<String>();
 
@@ -324,6 +332,10 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		Composite dob_composite_textField = createComposite(parent, 2);
 		omitDOBCheckBox = createCheckBox(dob_composite_textField, OMIT_DOB_CHECK_BOX_LABEL, OMIT_DOB_CHECK_BOX_TOOLTIP);
 
+		Composite validateion_composite_textField = createComposite(parent, 2);
+		omitValidationCheckBox = createCheckBox(
+			validateion_composite_textField, OMIT_VALIDATION_CHECK_BOX_LABEL, OMIT_VALIDATION_CHECK_BOX_TOOLTIP);
+
 		Composite units_composite_textField = createComposite(parent, 2);
 		omitUnitsCheckBox = createCheckBox(
 			units_composite_textField, OMIT_UNITS_CHECK_BOX_LABEL, OMIT_UNITS_CHECK_BOX_TOOLTIP);
@@ -372,6 +384,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
 		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
 		omitUnitsCheckBox.setSelection(store.getBoolean(OMIT_UNITS_STORE_VALUE));
+		omitValidationCheckBox.setSelection(store.getBoolean(OMIT_VALIDATION_STORE_VALUE));
 		cdaReportFilterText.setText(NONE);
 	}
 
@@ -384,6 +397,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		disablePdfGenerationCheckBox.setSelection(store.getBoolean(PDF_GEN_STORE_VALUE));
 		omitDOBCheckBox.setSelection(store.getBoolean(OMIT_DOB_STORE_VALUE));
 		omitUnitsCheckBox.setSelection(store.getBoolean(OMIT_UNITS_STORE_VALUE));
+		omitValidationCheckBox.setSelection(store.getBoolean(OMIT_VALIDATION_STORE_VALUE));
 		String preferenceFilters = store.getString(CDA_REPORT_DEFAULT_FILTER);
 		cdaReportFilterText.setText(formatFilterNames(Arrays.asList(preferenceFilters.split("\\s*,\\s*"))));
 	}
@@ -409,6 +423,7 @@ public class MDHTPreferences extends PreferencePage implements IWorkbenchPrefere
 		store.setValue(PDF_GEN_STORE_VALUE, disablePdfGenerationCheckBox.getSelection());
 		store.setValue(OMIT_DOB_STORE_VALUE, omitDOBCheckBox.getSelection());
 		store.setValue(OMIT_UNITS_STORE_VALUE, omitUnitsCheckBox.getSelection());
+		store.setValue(OMIT_VALIDATION_STORE_VALUE, omitValidationCheckBox.getSelection());
 		StringBuilder sb = new StringBuilder();
 		for (String filter : cdaReportfilters) {
 			if (sb.length() > 0) {
