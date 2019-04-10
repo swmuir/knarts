@@ -529,7 +529,7 @@ class ProcessSectionSwitch extends ConsolSwitch<Boolean> {
 				offset = SpreadsheetSerializer.serializeEnounterID(row, offset, entry.getOrganizer(), encounters);
 				offset = SpreadsheetSerializer.serializeClinicalStatement(row, offset, entry.getOrganizer());
 				SpreadsheetSerializer.serializeSectionAndFileName(
-					row, offset, entry.getObservation().getSection(), file.getName());
+					row, offset, entry.getOrganizer().getSection(), file.getName());
 			}
 
 		}

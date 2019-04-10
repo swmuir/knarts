@@ -23,7 +23,6 @@ import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +39,7 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.text.html.HTMLEditorKit;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.poi.openxml4j.util.ZipSecureFile;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -71,6 +71,7 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -84,6 +85,7 @@ import org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.DocumentMetadata;
 import org.eclipse.mdht.uml.cda.AssignedAuthor;
 import org.eclipse.mdht.uml.cda.Author;
 import org.eclipse.mdht.uml.cda.ClinicalDocument;
+import org.eclipse.mdht.uml.cda.DocumentRoot;
 import org.eclipse.mdht.uml.cda.Encounter;
 import org.eclipse.mdht.uml.cda.InFulfillmentOf;
 import org.eclipse.mdht.uml.cda.InformationRecipient;
@@ -93,7 +95,7 @@ import org.eclipse.mdht.uml.cda.ServiceEvent;
 import org.eclipse.mdht.uml.cda.ui.editors.MDHTPreferences;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
-import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.cda.util.ValidationResult;
 import org.eclipse.mdht.uml.hl7.datatypes.II;
 import org.eclipse.mdht.uml.hl7.datatypes.ON;
 import org.eclipse.mdht.uml.hl7.datatypes.PN;
@@ -458,6 +460,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 				try {
 					pd.run(true, true, new IRunnableWithProgress() {
+
 						public void run(IProgressMonitor monitor)
 								throws InvocationTargetException, InterruptedException {
 							try {
@@ -503,7 +506,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				}
 			}
 
-		} catch (Exception e) {
+		} catch (
+
+		Exception e) {
 			ILog log = org.eclipse.mdht.cda.xml.ui.Activator.getDefault().getLog();
 			log.log(
 				new Status(
@@ -902,6 +907,24 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		return String.format("%.1f %sB", (double) v / (1L << (z * 10)), " KMGTPE".charAt(z));
 	}
 
+	private static String getPath(EObject eObject) {
+		String path = "";
+		while (eObject != null && !(eObject instanceof DocumentRoot)) {
+			EStructuralFeature feature = eObject.eContainingFeature();
+			EObject container = eObject.eContainer();
+			Object value = container.eGet(feature);
+			if (feature.isMany()) {
+				List<?> list = (List<?>) value;
+				int index = list.indexOf(eObject) + 1;
+				path = "/" + feature.getName() + "[" + index + "]" + path;
+			} else {
+				path = "/" + feature.getName() + "[1]" + path;
+			}
+			eObject = eObject.eContainer();
+		}
+		return path;
+	}
+
 	void processFolder(IFolder folder, IProgressMonitor monitor, String splitOption, HashSet<EClass> sectionFilter,
 			HashMap<EClass, HashSet<EClass>> theSectionCache) throws Exception {
 
@@ -979,9 +1002,16 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 		String fileLocation2 = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
 				CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() + "performance.log";
 
-		Path path = Paths.get(fileLocation2);
+		String fileLocation3 = folder.getParent().getLocation().toOSString() + System.getProperty("file.separator") +
+				CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" + folder.getName().toUpperCase() +
+				"validatation.csv";
 
-		BufferedWriter performance = Files.newBufferedWriter(path);
+		BufferedWriter performance = Files.newBufferedWriter(Paths.get(fileLocation2));
+
+		BufferedWriter validation = Files.newBufferedWriter(Paths.get(fileLocation3));
+
+		validation.write("File,Rule,XPath");
+		validation.newLine();
 
 		int totalFiles = folder.members().length;
 		for (IFile file : documents) {
@@ -1028,9 +1058,34 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 					ClinicalDocument clinicalDocument = null;
 					try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
-						clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
+
+						ValidationResult vr = null;
+						if (!omitValidation) {
+							vr = new ValidationResult();
+						}
+						// ValidationResult result = new ValidationResult();
+						// System.out.println("\n***** Sample validation results *****");
+
+						clinicalDocument = CDAUtil.load(is, vr);
 						console.println("End Load " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
 						is.close();
+						if (vr != null) {
+							if (!vr.getErrorDiagnostics().isEmpty()) {
+								for (Diagnostic diagnostic : vr.getErrorDiagnostics()) {
+									validation.write(
+										file.getName() + "," + StringEscapeUtils.escapeCsv(diagnostic.getMessage()));
+
+									if (diagnostic.getData().size() > 0 &&
+											diagnostic.getData().get(0) instanceof EObject) {
+										validation.write("," + getPath((EObject) diagnostic.getData().get(0)));
+									}
+
+									validation.newLine();
+								}
+								validation.flush();
+
+							}
+						}
 					}
 
 					SXSSFWorkbook wb = this.getWorkbook(clinicalDocument.eClass(), splitOption);
@@ -1189,7 +1244,9 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 		monitor.beginTask("Generate Spreadsheet", folder.members().length);
 
-		for (Integer eClass : workbooks.keySet()) {
+		for (
+
+		Integer eClass : workbooks.keySet()) {
 
 			HashMap<String, ArrayList<IFile>> sectionbyfile = documentsbysectionbyfile.get(eClass);
 
@@ -1332,6 +1389,14 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 				"Completed Saving  " + CDAValueUtil.DATE_FORMAT3.format(new Date()) + "_" +
 						folder.getName().toUpperCase() + "_SA.xlsx");
 
+		}
+
+		if (performance != null) {
+			performance.close();
+		}
+
+		if (validation != null) {
+			validation.close();
 		}
 
 	}
