@@ -83,16 +83,16 @@ public interface MeasurePopulation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
+	 * An expression that specifies the criteria for the population, typically the name of an expression in a library.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Criteria</em>' containment reference.
-	 * @see #setCriteria(org.hl7.fhir.String)
+	 * @see #setCriteria(Expression)
 	 * @see org.hl7.fhir.FhirPackage#getMeasurePopulation_Criteria()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='criteria' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCriteria();
+	Expression getCriteria();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasurePopulation#getCriteria <em>Criteria</em>}' containment reference.
@@ -102,6 +102,6 @@ public interface MeasurePopulation extends BackboneElement {
 	 * @see #getCriteria()
 	 * @generated
 	 */
-	void setCriteria(org.hl7.fhir.String value);
+	void setCriteria(Expression value);
 
 } // MeasurePopulation

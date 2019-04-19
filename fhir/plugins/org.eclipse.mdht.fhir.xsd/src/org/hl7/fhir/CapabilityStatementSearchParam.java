@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -58,16 +58,16 @@ public interface CapabilityStatementSearchParam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
+	 * An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Uri)
+	 * @see #setDefinition(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSearchParam_Definition()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getDefinition();
+	Canonical getDefinition();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementSearchParam#getDefinition <em>Definition</em>}' containment reference.
@@ -77,7 +77,7 @@ public interface CapabilityStatementSearchParam extends BackboneElement {
 	 * @see #getDefinition()
 	 * @generated
 	 */
-	void setDefinition(Uri value);
+	void setDefinition(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -113,13 +113,13 @@ public interface CapabilityStatementSearchParam extends BackboneElement {
 	 * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
-	 * @see #setDocumentation(org.hl7.fhir.String)
+	 * @see #setDocumentation(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSearchParam_Documentation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDocumentation();
+	Markdown getDocumentation();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementSearchParam#getDocumentation <em>Documentation</em>}' containment reference.
@@ -129,6 +129,6 @@ public interface CapabilityStatementSearchParam extends BackboneElement {
 	 * @see #getDocumentation()
 	 * @generated
 	 */
-	void setDocumentation(org.hl7.fhir.String value);
+	void setDocumentation(Markdown value);
 
 } // CapabilityStatementSearchParam

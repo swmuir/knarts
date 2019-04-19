@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
+ * Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
  * <!-- end-model-doc -->
  *
  * <p>

@@ -34,7 +34,7 @@ public interface ExplanationOfBenefitFinancial extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Deductable, visits, benefit amount.
+	 * Classification of benefit being provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)

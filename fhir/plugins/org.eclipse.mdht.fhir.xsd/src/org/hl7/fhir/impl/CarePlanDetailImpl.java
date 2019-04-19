@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CarePlanActivityKind;
 import org.hl7.fhir.CarePlanActivityStatus;
 import org.hl7.fhir.CarePlanDetail;
@@ -37,14 +38,15 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getStatusReason <em>Status Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getProhibited <em>Prohibited</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getDoNotPerform <em>Do Not Perform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getScheduledTiming <em>Scheduled Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getScheduledPeriod <em>Scheduled Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CarePlanDetailImpl#getScheduledString <em>Scheduled String</em>}</li>
@@ -71,14 +73,24 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	protected CarePlanActivityKind kind;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -138,17 +150,17 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String statusReason;
+	protected CodeableConcept statusReason;
 
 	/**
-	 * The cached value of the '{@link #getProhibited() <em>Prohibited</em>}' containment reference.
+	 * The cached value of the '{@link #getDoNotPerform() <em>Do Not Perform</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProhibited()
+	 * @see #getDoNotPerform()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean prohibited;
+	protected org.hl7.fhir.Boolean doNotPerform;
 
 	/**
 	 * The cached value of the '{@link #getScheduledTiming() <em>Scheduled Timing</em>}' containment reference.
@@ -317,8 +329,11 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getInstantiates() {
-		return instantiates;
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL);
+		}
+		return instantiatesCanonical;
 	}
 
 	/**
@@ -326,33 +341,11 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInstantiates(Uri newInstantiates, NotificationChain msgs) {
-		Uri oldInstantiates = instantiates;
-		instantiates = newInstantiates;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES, oldInstantiates, newInstantiates);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInstantiates(Uri newInstantiates) {
-		if (newInstantiates != instantiates) {
-			NotificationChain msgs = null;
-			if (instantiates != null)
-				msgs = ((InternalEObject)instantiates).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES, null, msgs);
-			if (newInstantiates != null)
-				msgs = ((InternalEObject)newInstantiates).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES, null, msgs);
-			msgs = basicSetInstantiates(newInstantiates, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES, newInstantiates, newInstantiates));
+		return instantiatesUri;
 	}
 
 	/**
@@ -482,7 +475,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getStatusReason() {
+	public CodeableConcept getStatusReason() {
 		return statusReason;
 	}
 
@@ -491,8 +484,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatusReason(org.hl7.fhir.String newStatusReason, NotificationChain msgs) {
-		org.hl7.fhir.String oldStatusReason = statusReason;
+	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
+		CodeableConcept oldStatusReason = statusReason;
 		statusReason = newStatusReason;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON, oldStatusReason, newStatusReason);
@@ -506,7 +499,7 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatusReason(org.hl7.fhir.String newStatusReason) {
+	public void setStatusReason(CodeableConcept newStatusReason) {
 		if (newStatusReason != statusReason) {
 			NotificationChain msgs = null;
 			if (statusReason != null)
@@ -525,8 +518,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getProhibited() {
-		return prohibited;
+	public org.hl7.fhir.Boolean getDoNotPerform() {
+		return doNotPerform;
 	}
 
 	/**
@@ -534,11 +527,11 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProhibited(org.hl7.fhir.Boolean newProhibited, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldProhibited = prohibited;
-		prohibited = newProhibited;
+	public NotificationChain basicSetDoNotPerform(org.hl7.fhir.Boolean newDoNotPerform, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldDoNotPerform = doNotPerform;
+		doNotPerform = newDoNotPerform;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__PROHIBITED, oldProhibited, newProhibited);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM, oldDoNotPerform, newDoNotPerform);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -549,18 +542,18 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProhibited(org.hl7.fhir.Boolean newProhibited) {
-		if (newProhibited != prohibited) {
+	public void setDoNotPerform(org.hl7.fhir.Boolean newDoNotPerform) {
+		if (newDoNotPerform != doNotPerform) {
 			NotificationChain msgs = null;
-			if (prohibited != null)
-				msgs = ((InternalEObject)prohibited).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__PROHIBITED, null, msgs);
-			if (newProhibited != null)
-				msgs = ((InternalEObject)newProhibited).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__PROHIBITED, null, msgs);
-			msgs = basicSetProhibited(newProhibited, msgs);
+			if (doNotPerform != null)
+				msgs = ((InternalEObject)doNotPerform).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM, null, msgs);
+			if (newDoNotPerform != null)
+				msgs = ((InternalEObject)newDoNotPerform).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM, null, msgs);
+			msgs = basicSetDoNotPerform(newDoNotPerform, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__PROHIBITED, newProhibited, newProhibited));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM, newDoNotPerform, newDoNotPerform));
 	}
 
 	/**
@@ -972,8 +965,10 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN_DETAIL__KIND:
 				return basicSetKind(null, msgs);
-			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES:
-				return basicSetInstantiates(null, msgs);
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_PLAN_DETAIL__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.CARE_PLAN_DETAIL__REASON_CODE:
@@ -986,8 +981,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
 				return basicSetStatusReason(null, msgs);
-			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
-				return basicSetProhibited(null, msgs);
+			case FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM:
+				return basicSetDoNotPerform(null, msgs);
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_TIMING:
 				return basicSetScheduledTiming(null, msgs);
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_PERIOD:
@@ -1022,8 +1017,10 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN_DETAIL__KIND:
 				return getKind();
-			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.CARE_PLAN_DETAIL__CODE:
 				return getCode();
 			case FhirPackage.CARE_PLAN_DETAIL__REASON_CODE:
@@ -1036,8 +1033,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				return getStatus();
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
 				return getStatusReason();
-			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
-				return getProhibited();
+			case FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM:
+				return getDoNotPerform();
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_TIMING:
 				return getScheduledTiming();
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_PERIOD:
@@ -1074,8 +1071,13 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 			case FhirPackage.CARE_PLAN_DETAIL__KIND:
 				setKind((CarePlanActivityKind)newValue);
 				return;
-			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES:
-				setInstantiates((Uri)newValue);
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__CODE:
 				setCode((CodeableConcept)newValue);
@@ -1096,10 +1098,10 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				setStatus((CarePlanActivityStatus)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
-				setStatusReason((org.hl7.fhir.String)newValue);
+				setStatusReason((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
-				setProhibited((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM:
+				setDoNotPerform((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_TIMING:
 				setScheduledTiming((Timing)newValue);
@@ -1147,8 +1149,11 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 			case FhirPackage.CARE_PLAN_DETAIL__KIND:
 				setKind((CarePlanActivityKind)null);
 				return;
-			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES:
-				setInstantiates((Uri)null);
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__CODE:
 				setCode((CodeableConcept)null);
@@ -1166,10 +1171,10 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				setStatus((CarePlanActivityStatus)null);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
-				setStatusReason((org.hl7.fhir.String)null);
+				setStatusReason((CodeableConcept)null);
 				return;
-			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
-				setProhibited((org.hl7.fhir.Boolean)null);
+			case FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM:
+				setDoNotPerform((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_TIMING:
 				setScheduledTiming((Timing)null);
@@ -1215,8 +1220,10 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 		switch (featureID) {
 			case FhirPackage.CARE_PLAN_DETAIL__KIND:
 				return kind != null;
-			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES:
-				return instantiates != null;
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.CARE_PLAN_DETAIL__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.CARE_PLAN_DETAIL__CODE:
 				return code != null;
 			case FhirPackage.CARE_PLAN_DETAIL__REASON_CODE:
@@ -1229,8 +1236,8 @@ public class CarePlanDetailImpl extends BackboneElementImpl implements CarePlanD
 				return status != null;
 			case FhirPackage.CARE_PLAN_DETAIL__STATUS_REASON:
 				return statusReason != null;
-			case FhirPackage.CARE_PLAN_DETAIL__PROHIBITED:
-				return prohibited != null;
+			case FhirPackage.CARE_PLAN_DETAIL__DO_NOT_PERFORM:
+				return doNotPerform != null;
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_TIMING:
 				return scheduledTiming != null;
 			case FhirPackage.CARE_PLAN_DETAIL__SCHEDULED_PERIOD:

@@ -25,10 +25,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Observation#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getEffectiveTiming <em>Effective Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getEffectiveInstant <em>Effective Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getValueQuantity <em>Value Quantity</em>}</li>
@@ -44,7 +46,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Observation#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getInterpretation <em>Interpretation</em>}</li>
- *   <li>{@link org.hl7.fhir.Observation#getComment <em>Comment</em>}</li>
+ *   <li>{@link org.hl7.fhir.Observation#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.Observation#getSpecimen <em>Specimen</em>}</li>
@@ -82,7 +84,7 @@ public interface Observation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A plan, proposal or order that is fulfilled in whole or in part by this event.
+	 * A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservation_BasedOn()
@@ -181,7 +183,7 @@ public interface Observation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.
+	 * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
@@ -203,30 +205,46 @@ public interface Observation extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Focus</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Focus</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_Focus()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='focus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getFocus();
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -308,6 +326,33 @@ public interface Observation extends DomainResource {
 	 * @generated
 	 */
 	void setEffectiveTiming(Timing value);
+
+	/**
+	 * Returns the value of the '<em><b>Effective Instant</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective Instant</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective Instant</em>' containment reference.
+	 * @see #setEffectiveInstant(Instant)
+	 * @see org.hl7.fhir.FhirPackage#getObservation_EffectiveInstant()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='effectiveInstant' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Instant getEffectiveInstant();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Observation#getEffectiveInstant <em>Effective Instant</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Effective Instant</em>' containment reference.
+	 * @see #getEffectiveInstant()
+	 * @generated
+	 */
+	void setEffectiveInstant(Instant value);
 
 	/**
 	 * Returns the value of the '<em><b>Issued</b></em>' containment reference.
@@ -675,56 +720,36 @@ public interface Observation extends DomainResource {
 	void setDataAbsentReason(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Interpretation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Interpretation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
+	 * A categorical assessment of an observation value.  For example, high, low, normal.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Interpretation</em>' containment reference.
-	 * @see #setInterpretation(CodeableConcept)
+	 * @return the value of the '<em>Interpretation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservation_Interpretation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='interpretation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getInterpretation();
+	EList<CodeableConcept> getInterpretation();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getInterpretation <em>Interpretation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interpretation</em>' containment reference.
-	 * @see #getInterpretation()
-	 * @generated
-	 */
-	void setInterpretation(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+	 * Comments about the observation or the results.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment</em>' containment reference.
-	 * @see #setComment(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getObservation_Comment()
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservation_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getComment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Observation#getComment <em>Comment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comment</em>' containment reference.
-	 * @see #getComment()
-	 * @generated
-	 */
-	void setComment(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 	/**
 	 * Returns the value of the '<em><b>Body Site</b></em>' containment reference.
@@ -836,7 +861,7 @@ public interface Observation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Guidance on how to interpret the value by comparison to a normal or recommended range.
+	 * Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an "OR".   In other words, to represent two distinct target populations, two `referenceRange` elements would be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference Range</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservation_ReferenceRange()

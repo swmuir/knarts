@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Goal#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Goal#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getLifecycleStatus <em>Lifecycle Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Goal#getAchievementStatus <em>Achievement Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Goal#getDescription <em>Description</em>}</li>
@@ -47,7 +48,7 @@ public interface Goal extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+	 * Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGoal_Identifier()
@@ -58,30 +59,56 @@ public interface Goal extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Lifecycle Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates whether the goal has been reached and is still considered relevant.
+	 * The state of the goal throughout its lifecycle.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(GoalStatus)
-	 * @see org.hl7.fhir.FhirPackage#getGoal_Status()
+	 * @return the value of the '<em>Lifecycle Status</em>' containment reference.
+	 * @see #setLifecycleStatus(GoalLifecycleStatus)
+	 * @see org.hl7.fhir.FhirPackage#getGoal_LifecycleStatus()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='lifecycleStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	GoalStatus getStatus();
+	GoalLifecycleStatus getLifecycleStatus();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Goal#getStatus <em>Status</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Goal#getLifecycleStatus <em>Lifecycle Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status</em>' containment reference.
-	 * @see #getStatus()
+	 * @param value the new value of the '<em>Lifecycle Status</em>' containment reference.
+	 * @see #getLifecycleStatus()
 	 * @generated
 	 */
-	void setStatus(GoalStatus value);
+	void setLifecycleStatus(GoalLifecycleStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Achievement Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Describes the progression, or lack thereof, towards the goal against the target.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Achievement Status</em>' containment reference.
+	 * @see #setAchievementStatus(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getGoal_AchievementStatus()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='achievementStatus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getAchievementStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Goal#getAchievementStatus <em>Achievement Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Achievement Status</em>' containment reference.
+	 * @see #getAchievementStatus()
+	 * @generated
+	 */
+	void setAchievementStatus(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
@@ -232,30 +259,20 @@ public interface Goal extends DomainResource {
 	void setStartCodeableConcept(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.GoalTarget}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates what should be done by when.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(GoalTarget)
+	 * @return the value of the '<em>Target</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGoal_Target()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	GoalTarget getTarget();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Goal#getTarget <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' containment reference.
-	 * @see #getTarget()
-	 * @generated
-	 */
-	void setTarget(GoalTarget value);
+	EList<GoalTarget> getTarget();
 
 	/**
 	 * Returns the value of the '<em><b>Status Date</b></em>' containment reference.

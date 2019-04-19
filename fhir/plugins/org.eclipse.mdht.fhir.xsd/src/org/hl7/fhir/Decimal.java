@@ -2,7 +2,6 @@
  */
 package org.hl7.fhir;
 
-import java.math.BigDecimal;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,7 +10,7 @@ import java.math.BigDecimal;
  *
  * <!-- begin-model-doc -->
  * A rational number with implicit precision
- * Do not use a IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)
+ * Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -36,13 +35,13 @@ public interface Decimal extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(BigDecimal)
+	 * @see #setValue(Object)
 	 * @see org.hl7.fhir.FhirPackage#getDecimal_Value()
 	 * @model dataType="org.hl7.fhir.DecimalPrimitive"
 	 *        extendedMetaData="kind='attribute' name='value'"
 	 * @generated
 	 */
-	BigDecimal getValue();
+	Object getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Decimal#getValue <em>Value</em>}' attribute.
@@ -52,6 +51,6 @@ public interface Decimal extends Element {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(BigDecimal value);
+	void setValue(Object value);
 
 } // Decimal

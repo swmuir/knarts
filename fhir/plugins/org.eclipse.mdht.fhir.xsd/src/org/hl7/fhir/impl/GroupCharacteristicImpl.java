@@ -16,6 +16,7 @@ import org.hl7.fhir.GroupCharacteristic;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +31,7 @@ import org.hl7.fhir.Range;
  *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getValueBoolean <em>Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getValueRange <em>Value Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getValueReference <em>Value Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getExclude <em>Exclude</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupCharacteristicImpl#getPeriod <em>Period</em>}</li>
  * </ul>
@@ -86,6 +88,16 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 	 * @ordered
 	 */
 	protected Range valueRange;
+
+	/**
+	 * The cached value of the '{@link #getValueReference() <em>Value Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference valueReference;
 
 	/**
 	 * The cached value of the '{@link #getExclude() <em>Exclude</em>}' containment reference.
@@ -346,6 +358,49 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getValueReference() {
+		return valueReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueReference(Reference newValueReference, NotificationChain msgs) {
+		Reference oldValueReference = valueReference;
+		valueReference = newValueReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE, oldValueReference, newValueReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueReference(Reference newValueReference) {
+		if (newValueReference != valueReference) {
+			NotificationChain msgs = null;
+			if (valueReference != null)
+				msgs = ((InternalEObject)valueReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE, null, msgs);
+			if (newValueReference != null)
+				msgs = ((InternalEObject)newValueReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE, null, msgs);
+			msgs = basicSetValueReference(newValueReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE, newValueReference, newValueReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Boolean getExclude() {
 		return exclude;
 	}
@@ -445,6 +500,8 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 				return basicSetValueQuantity(null, msgs);
 			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_RANGE:
 				return basicSetValueRange(null, msgs);
+			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE:
+				return basicSetValueReference(null, msgs);
 			case FhirPackage.GROUP_CHARACTERISTIC__EXCLUDE:
 				return basicSetExclude(null, msgs);
 			case FhirPackage.GROUP_CHARACTERISTIC__PERIOD:
@@ -471,6 +528,8 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 				return getValueQuantity();
 			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_RANGE:
 				return getValueRange();
+			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE:
+				return getValueReference();
 			case FhirPackage.GROUP_CHARACTERISTIC__EXCLUDE:
 				return getExclude();
 			case FhirPackage.GROUP_CHARACTERISTIC__PERIOD:
@@ -501,6 +560,9 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 				return;
 			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_RANGE:
 				setValueRange((Range)newValue);
+				return;
+			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE:
+				setValueReference((Reference)newValue);
 				return;
 			case FhirPackage.GROUP_CHARACTERISTIC__EXCLUDE:
 				setExclude((org.hl7.fhir.Boolean)newValue);
@@ -535,6 +597,9 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_RANGE:
 				setValueRange((Range)null);
 				return;
+			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE:
+				setValueReference((Reference)null);
+				return;
 			case FhirPackage.GROUP_CHARACTERISTIC__EXCLUDE:
 				setExclude((org.hl7.fhir.Boolean)null);
 				return;
@@ -563,6 +628,8 @@ public class GroupCharacteristicImpl extends BackboneElementImpl implements Grou
 				return valueQuantity != null;
 			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_RANGE:
 				return valueRange != null;
+			case FhirPackage.GROUP_CHARACTERISTIC__VALUE_REFERENCE:
+				return valueReference != null;
 			case FhirPackage.GROUP_CHARACTERISTIC__EXCLUDE:
 				return exclude != null;
 			case FhirPackage.GROUP_CHARACTERISTIC__PERIOD:

@@ -18,8 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.ChargeItem;
-import org.hl7.fhir.ChargeItemParticipant;
+import org.hl7.fhir.ChargeItemPerformer;
 import org.hl7.fhir.ChargeItemStatus;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
@@ -42,7 +43,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getDefinitionUri <em>Definition Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getDefinitionCanonical <em>Definition Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getCode <em>Code</em>}</li>
@@ -51,9 +53,10 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getPerformingOrganization <em>Performing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getRequestingOrganization <em>Requesting Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getCostCenter <em>Cost Center</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getBodysite <em>Bodysite</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getFactorOverride <em>Factor Override</em>}</li>
@@ -63,6 +66,8 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getEnteredDate <em>Entered Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getProductReference <em>Product Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ChargeItemImpl#getSupportingInformation <em>Supporting Information</em>}</li>
@@ -72,24 +77,34 @@ import org.hl7.fhir.Uri;
  */
 public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getDefinitionUri() <em>Definition Uri</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getDefinitionUri()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> definition;
+	protected EList<Uri> definitionUri;
+
+	/**
+	 * The cached value of the '{@link #getDefinitionCanonical() <em>Definition Canonical</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinitionCanonical()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Canonical> definitionCanonical;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -172,14 +187,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	protected Timing occurrenceTiming;
 
 	/**
-	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
+	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParticipant()
+	 * @see #getPerformer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ChargeItemParticipant> participant;
+	protected EList<ChargeItemPerformer> performer;
 
 	/**
 	 * The cached value of the '{@link #getPerformingOrganization() <em>Performing Organization</em>}' containment reference.
@@ -200,6 +215,16 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * @ordered
 	 */
 	protected Reference requestingOrganization;
+
+	/**
+	 * The cached value of the '{@link #getCostCenter() <em>Cost Center</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCostCenter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference costCenter;
 
 	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
@@ -292,6 +317,26 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	protected EList<Reference> service;
 
 	/**
+	 * The cached value of the '{@link #getProductReference() <em>Product Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference productReference;
+
+	/**
+	 * The cached value of the '{@link #getProductCodeableConcept() <em>Product Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept productCodeableConcept;
+
+	/**
 	 * The cached value of the '{@link #getAccount() <em>Account</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,7 +390,10 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CHARGE_ITEM__IDENTIFIER);
+		}
 		return identifier;
 	}
 
@@ -354,14 +402,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Uri> getDefinitionUri() {
+		if (definitionUri == null) {
+			definitionUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CHARGE_ITEM__DEFINITION_URI);
 		}
-		return msgs;
+		return definitionUri;
 	}
 
 	/**
@@ -369,30 +414,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Canonical> getDefinitionCanonical() {
+		if (definitionCanonical == null) {
+			definitionCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__IDENTIFIER, newIdentifier, newIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Uri> getDefinition() {
-		if (definition == null) {
-			definition = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CHARGE_ITEM__DEFINITION);
-		}
-		return definition;
+		return definitionCanonical;
 	}
 
 	/**
@@ -713,11 +739,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ChargeItemParticipant> getParticipant() {
-		if (participant == null) {
-			participant = new EObjectContainmentEList<ChargeItemParticipant>(ChargeItemParticipant.class, this, FhirPackage.CHARGE_ITEM__PARTICIPANT);
+	public EList<ChargeItemPerformer> getPerformer() {
+		if (performer == null) {
+			performer = new EObjectContainmentEList<ChargeItemPerformer>(ChargeItemPerformer.class, this, FhirPackage.CHARGE_ITEM__PERFORMER);
 		}
-		return participant;
+		return performer;
 	}
 
 	/**
@@ -804,6 +830,49 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION, newRequestingOrganization, newRequestingOrganization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getCostCenter() {
+		return costCenter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCostCenter(Reference newCostCenter, NotificationChain msgs) {
+		Reference oldCostCenter = costCenter;
+		costCenter = newCostCenter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__COST_CENTER, oldCostCenter, newCostCenter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCostCenter(Reference newCostCenter) {
+		if (newCostCenter != costCenter) {
+			NotificationChain msgs = null;
+			if (costCenter != null)
+				msgs = ((InternalEObject)costCenter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__COST_CENTER, null, msgs);
+			if (newCostCenter != null)
+				msgs = ((InternalEObject)newCostCenter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__COST_CENTER, null, msgs);
+			msgs = basicSetCostCenter(newCostCenter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__COST_CENTER, newCostCenter, newCostCenter));
 	}
 
 	/**
@@ -1105,6 +1174,92 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getProductReference() {
+		return productReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProductReference(Reference newProductReference, NotificationChain msgs) {
+		Reference oldProductReference = productReference;
+		productReference = newProductReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE, oldProductReference, newProductReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProductReference(Reference newProductReference) {
+		if (newProductReference != productReference) {
+			NotificationChain msgs = null;
+			if (productReference != null)
+				msgs = ((InternalEObject)productReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE, null, msgs);
+			if (newProductReference != null)
+				msgs = ((InternalEObject)newProductReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE, null, msgs);
+			msgs = basicSetProductReference(newProductReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE, newProductReference, newProductReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getProductCodeableConcept() {
+		return productCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProductCodeableConcept(CodeableConcept newProductCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldProductCodeableConcept = productCodeableConcept;
+		productCodeableConcept = newProductCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT, oldProductCodeableConcept, newProductCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProductCodeableConcept(CodeableConcept newProductCodeableConcept) {
+		if (newProductCodeableConcept != productCodeableConcept) {
+			NotificationChain msgs = null;
+			if (productCodeableConcept != null)
+				msgs = ((InternalEObject)productCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT, null, msgs);
+			if (newProductCodeableConcept != null)
+				msgs = ((InternalEObject)newProductCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetProductCodeableConcept(newProductCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT, newProductCodeableConcept, newProductCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Reference> getAccount() {
 		if (account == null) {
 			account = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CHARGE_ITEM__ACCOUNT);
@@ -1145,9 +1300,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.CHARGE_ITEM__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
-			case FhirPackage.CHARGE_ITEM__DEFINITION:
-				return ((InternalEList<?>)getDefinition()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CHARGE_ITEM__DEFINITION_URI:
+				return ((InternalEList<?>)getDefinitionUri()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL:
+				return ((InternalEList<?>)getDefinitionCanonical()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.CHARGE_ITEM__PART_OF:
@@ -1164,12 +1321,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return basicSetOccurrencePeriod(null, msgs);
 			case FhirPackage.CHARGE_ITEM__OCCURRENCE_TIMING:
 				return basicSetOccurrenceTiming(null, msgs);
-			case FhirPackage.CHARGE_ITEM__PARTICIPANT:
-				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CHARGE_ITEM__PERFORMER:
+				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__PERFORMING_ORGANIZATION:
 				return basicSetPerformingOrganization(null, msgs);
 			case FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION:
 				return basicSetRequestingOrganization(null, msgs);
+			case FhirPackage.CHARGE_ITEM__COST_CENTER:
+				return basicSetCostCenter(null, msgs);
 			case FhirPackage.CHARGE_ITEM__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.CHARGE_ITEM__BODYSITE:
@@ -1188,6 +1347,10 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE:
+				return basicSetProductReference(null, msgs);
+			case FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT:
+				return basicSetProductCodeableConcept(null, msgs);
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
 				return ((InternalEList<?>)getAccount()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CHARGE_ITEM__NOTE:
@@ -1208,8 +1371,10 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 		switch (featureID) {
 			case FhirPackage.CHARGE_ITEM__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.CHARGE_ITEM__DEFINITION:
-				return getDefinition();
+			case FhirPackage.CHARGE_ITEM__DEFINITION_URI:
+				return getDefinitionUri();
+			case FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL:
+				return getDefinitionCanonical();
 			case FhirPackage.CHARGE_ITEM__STATUS:
 				return getStatus();
 			case FhirPackage.CHARGE_ITEM__PART_OF:
@@ -1226,12 +1391,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return getOccurrencePeriod();
 			case FhirPackage.CHARGE_ITEM__OCCURRENCE_TIMING:
 				return getOccurrenceTiming();
-			case FhirPackage.CHARGE_ITEM__PARTICIPANT:
-				return getParticipant();
+			case FhirPackage.CHARGE_ITEM__PERFORMER:
+				return getPerformer();
 			case FhirPackage.CHARGE_ITEM__PERFORMING_ORGANIZATION:
 				return getPerformingOrganization();
 			case FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION:
 				return getRequestingOrganization();
+			case FhirPackage.CHARGE_ITEM__COST_CENTER:
+				return getCostCenter();
 			case FhirPackage.CHARGE_ITEM__QUANTITY:
 				return getQuantity();
 			case FhirPackage.CHARGE_ITEM__BODYSITE:
@@ -1250,6 +1417,10 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return getReason();
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return getService();
+			case FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE:
+				return getProductReference();
+			case FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT:
+				return getProductCodeableConcept();
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
 				return getAccount();
 			case FhirPackage.CHARGE_ITEM__NOTE:
@@ -1270,11 +1441,16 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CHARGE_ITEM__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.CHARGE_ITEM__DEFINITION:
-				getDefinition().clear();
-				getDefinition().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.CHARGE_ITEM__DEFINITION_URI:
+				getDefinitionUri().clear();
+				getDefinitionUri().addAll((Collection<? extends Uri>)newValue);
+				return;
+			case FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL:
+				getDefinitionCanonical().clear();
+				getDefinitionCanonical().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__STATUS:
 				setStatus((ChargeItemStatus)newValue);
@@ -1301,15 +1477,18 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 			case FhirPackage.CHARGE_ITEM__OCCURRENCE_TIMING:
 				setOccurrenceTiming((Timing)newValue);
 				return;
-			case FhirPackage.CHARGE_ITEM__PARTICIPANT:
-				getParticipant().clear();
-				getParticipant().addAll((Collection<? extends ChargeItemParticipant>)newValue);
+			case FhirPackage.CHARGE_ITEM__PERFORMER:
+				getPerformer().clear();
+				getPerformer().addAll((Collection<? extends ChargeItemPerformer>)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__PERFORMING_ORGANIZATION:
 				setPerformingOrganization((Reference)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION:
 				setRequestingOrganization((Reference)newValue);
+				return;
+			case FhirPackage.CHARGE_ITEM__COST_CENTER:
+				setCostCenter((Reference)newValue);
 				return;
 			case FhirPackage.CHARGE_ITEM__QUANTITY:
 				setQuantity((Quantity)newValue);
@@ -1341,6 +1520,12 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				getService().clear();
 				getService().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE:
+				setProductReference((Reference)newValue);
+				return;
+			case FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT:
+				setProductCodeableConcept((CodeableConcept)newValue);
+				return;
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
 				getAccount().clear();
 				getAccount().addAll((Collection<? extends Reference>)newValue);
@@ -1366,10 +1551,13 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CHARGE_ITEM__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
-			case FhirPackage.CHARGE_ITEM__DEFINITION:
-				getDefinition().clear();
+			case FhirPackage.CHARGE_ITEM__DEFINITION_URI:
+				getDefinitionUri().clear();
+				return;
+			case FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL:
+				getDefinitionCanonical().clear();
 				return;
 			case FhirPackage.CHARGE_ITEM__STATUS:
 				setStatus((ChargeItemStatus)null);
@@ -1395,14 +1583,17 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 			case FhirPackage.CHARGE_ITEM__OCCURRENCE_TIMING:
 				setOccurrenceTiming((Timing)null);
 				return;
-			case FhirPackage.CHARGE_ITEM__PARTICIPANT:
-				getParticipant().clear();
+			case FhirPackage.CHARGE_ITEM__PERFORMER:
+				getPerformer().clear();
 				return;
 			case FhirPackage.CHARGE_ITEM__PERFORMING_ORGANIZATION:
 				setPerformingOrganization((Reference)null);
 				return;
 			case FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION:
 				setRequestingOrganization((Reference)null);
+				return;
+			case FhirPackage.CHARGE_ITEM__COST_CENTER:
+				setCostCenter((Reference)null);
 				return;
 			case FhirPackage.CHARGE_ITEM__QUANTITY:
 				setQuantity((Quantity)null);
@@ -1431,6 +1622,12 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				getService().clear();
 				return;
+			case FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE:
+				setProductReference((Reference)null);
+				return;
+			case FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT:
+				setProductCodeableConcept((CodeableConcept)null);
+				return;
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
 				getAccount().clear();
 				return;
@@ -1453,9 +1650,11 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CHARGE_ITEM__IDENTIFIER:
-				return identifier != null;
-			case FhirPackage.CHARGE_ITEM__DEFINITION:
-				return definition != null && !definition.isEmpty();
+				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.CHARGE_ITEM__DEFINITION_URI:
+				return definitionUri != null && !definitionUri.isEmpty();
+			case FhirPackage.CHARGE_ITEM__DEFINITION_CANONICAL:
+				return definitionCanonical != null && !definitionCanonical.isEmpty();
 			case FhirPackage.CHARGE_ITEM__STATUS:
 				return status != null;
 			case FhirPackage.CHARGE_ITEM__PART_OF:
@@ -1472,12 +1671,14 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return occurrencePeriod != null;
 			case FhirPackage.CHARGE_ITEM__OCCURRENCE_TIMING:
 				return occurrenceTiming != null;
-			case FhirPackage.CHARGE_ITEM__PARTICIPANT:
-				return participant != null && !participant.isEmpty();
+			case FhirPackage.CHARGE_ITEM__PERFORMER:
+				return performer != null && !performer.isEmpty();
 			case FhirPackage.CHARGE_ITEM__PERFORMING_ORGANIZATION:
 				return performingOrganization != null;
 			case FhirPackage.CHARGE_ITEM__REQUESTING_ORGANIZATION:
 				return requestingOrganization != null;
+			case FhirPackage.CHARGE_ITEM__COST_CENTER:
+				return costCenter != null;
 			case FhirPackage.CHARGE_ITEM__QUANTITY:
 				return quantity != null;
 			case FhirPackage.CHARGE_ITEM__BODYSITE:
@@ -1496,6 +1697,10 @@ public class ChargeItemImpl extends DomainResourceImpl implements ChargeItem {
 				return reason != null && !reason.isEmpty();
 			case FhirPackage.CHARGE_ITEM__SERVICE:
 				return service != null && !service.isEmpty();
+			case FhirPackage.CHARGE_ITEM__PRODUCT_REFERENCE:
+				return productReference != null;
+			case FhirPackage.CHARGE_ITEM__PRODUCT_CODEABLE_CONCEPT:
+				return productCodeableConcept != null;
 			case FhirPackage.CHARGE_ITEM__ACCOUNT:
 				return account != null && !account.isEmpty();
 			case FhirPackage.CHARGE_ITEM__NOTE:

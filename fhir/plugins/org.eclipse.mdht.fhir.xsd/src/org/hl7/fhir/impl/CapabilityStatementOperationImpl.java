@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference definition;
+	protected Canonical definition;
 
 	/**
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
@@ -128,7 +128,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getDefinition() {
+	public Canonical getDefinition() {
 		return definition;
 	}
 
@@ -137,8 +137,8 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
+	public NotificationChain basicSetDefinition(Canonical newDefinition, NotificationChain msgs) {
+		Canonical oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION, oldDefinition, newDefinition);
@@ -152,7 +152,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Reference newDefinition) {
+	public void setDefinition(Canonical newDefinition) {
 		if (newDefinition != definition) {
 			NotificationChain msgs = null;
 			if (definition != null)
@@ -257,7 +257,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
-				setDefinition((Reference)newValue);
+				setDefinition((Canonical)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
 				setDocumentation((Markdown)newValue);
@@ -278,7 +278,7 @@ public class CapabilityStatementOperationImpl extends BackboneElementImpl implem
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DEFINITION:
-				setDefinition((Reference)null);
+				setDefinition((Canonical)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_OPERATION__DOCUMENTATION:
 				setDocumentation((Markdown)null);

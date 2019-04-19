@@ -51,7 +51,7 @@ public interface BundleEntry extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Absolute URL for the resource.  The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: 
+	 * The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: 
 	 * * fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)
 	 * * Results from operations might involve resources that are not identified.
 	 * <!-- end-model-doc -->
@@ -79,7 +79,7 @@ public interface BundleEntry extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Resources for the entry.
+	 * The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
 	 * @see #setResource(ResourceContainer)
@@ -131,7 +131,7 @@ public interface BundleEntry extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional information about how this entry should be processed as part of a transaction.
+	 * Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request</em>' containment reference.
 	 * @see #setRequest(BundleRequest)
@@ -157,7 +157,7 @@ public interface BundleEntry extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional information about how this entry should be processed as part of a transaction.
+	 * Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Response</em>' containment reference.
 	 * @see #setResponse(BundleResponse)

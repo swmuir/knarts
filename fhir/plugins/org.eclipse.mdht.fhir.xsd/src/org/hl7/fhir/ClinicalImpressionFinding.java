@@ -29,11 +29,10 @@ public interface ClinicalImpressionFinding extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Item Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specific text or code for finding or diagnosis, which may include ruled-out or resolved conditions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item Codeable Concept</em>' containment reference.
 	 * @see #setItemCodeableConcept(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpressionFinding_ItemCodeableConcept()
@@ -56,11 +55,10 @@ public interface ClinicalImpressionFinding extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Item Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specific reference for finding or diagnosis, which may include ruled-out or resolved conditions.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item Reference</em>' containment reference.
 	 * @see #setItemReference(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpressionFinding_ItemReference()

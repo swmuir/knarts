@@ -54,7 +54,7 @@ public interface Schedule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this schedule record is in active use, or should not be used (such as was entered in error).
+	 * Whether this schedule record is in active use or should not be used (such as was entered in error).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' containment reference.
 	 * @see #setActive(org.hl7.fhir.Boolean)
@@ -76,30 +76,20 @@ public interface Schedule extends DomainResource {
 	void setActive(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Service Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A broad categorisation of the service that is to be performed during this appointment.
+	 * A broad categorization of the service that is to be performed during this appointment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Category</em>' containment reference.
-	 * @see #setServiceCategory(CodeableConcept)
+	 * @return the value of the '<em>Service Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSchedule_ServiceCategory()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='serviceCategory' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getServiceCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Schedule#getServiceCategory <em>Service Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Category</em>' containment reference.
-	 * @see #getServiceCategory()
-	 * @generated
-	 */
-	void setServiceCategory(CodeableConcept value);
+	EList<CodeableConcept> getServiceCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Service Type</b></em>' containment reference list.
@@ -139,7 +129,7 @@ public interface Schedule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, PractitionerRole, Device, Patient or RelatedPerson.
+	 * Slots that reference this schedule resource provide the availability details to these referenced resource(s).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSchedule_Actor()
@@ -154,7 +144,7 @@ public interface Schedule extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
+	 * The period of time that the slots that reference this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Planning Horizon</em>' containment reference.
 	 * @see #setPlanningHorizon(Period)

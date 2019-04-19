@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Dosage;
+import org.hl7.fhir.DosageDoseAndRate;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
-import org.hl7.fhir.Range;
 import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Timing;
 
@@ -43,19 +43,15 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DosageImpl#getDoseRange <em>Dose Range</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DosageImpl#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DosageImpl#getDoseAndRate <em>Dose And Rate</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DosageImpl#getMaxDosePerLifetime <em>Max Dose Per Lifetime</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DosageImpl#getRateRatio <em>Rate Ratio</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DosageImpl#getRateRange <em>Rate Range</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DosageImpl#getRateQuantity <em>Rate Quantity</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DosageImpl extends ElementImpl implements Dosage {
+public class DosageImpl extends BackboneElementImpl implements Dosage {
 	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -157,24 +153,14 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	protected CodeableConcept method;
 
 	/**
-	 * The cached value of the '{@link #getDoseRange() <em>Dose Range</em>}' containment reference.
+	 * The cached value of the '{@link #getDoseAndRate() <em>Dose And Rate</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoseRange()
+	 * @see #getDoseAndRate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Range doseRange;
-
-	/**
-	 * The cached value of the '{@link #getDoseQuantity() <em>Dose Quantity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDoseQuantity()
-	 * @generated
-	 * @ordered
-	 */
-	protected Quantity doseQuantity;
+	protected EList<DosageDoseAndRate> doseAndRate;
 
 	/**
 	 * The cached value of the '{@link #getMaxDosePerPeriod() <em>Max Dose Per Period</em>}' containment reference.
@@ -205,36 +191,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * @ordered
 	 */
 	protected Quantity maxDosePerLifetime;
-
-	/**
-	 * The cached value of the '{@link #getRateRatio() <em>Rate Ratio</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRateRatio()
-	 * @generated
-	 * @ordered
-	 */
-	protected Ratio rateRatio;
-
-	/**
-	 * The cached value of the '{@link #getRateRange() <em>Rate Range</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRateRange()
-	 * @generated
-	 * @ordered
-	 */
-	protected Range rateRange;
-
-	/**
-	 * The cached value of the '{@link #getRateQuantity() <em>Rate Quantity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRateQuantity()
-	 * @generated
-	 * @ordered
-	 */
-	protected Quantity rateQuantity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -659,85 +615,11 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Range getDoseRange() {
-		return doseRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDoseRange(Range newDoseRange, NotificationChain msgs) {
-		Range oldDoseRange = doseRange;
-		doseRange = newDoseRange;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__DOSE_RANGE, oldDoseRange, newDoseRange);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<DosageDoseAndRate> getDoseAndRate() {
+		if (doseAndRate == null) {
+			doseAndRate = new EObjectContainmentEList<DosageDoseAndRate>(DosageDoseAndRate.class, this, FhirPackage.DOSAGE__DOSE_AND_RATE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDoseRange(Range newDoseRange) {
-		if (newDoseRange != doseRange) {
-			NotificationChain msgs = null;
-			if (doseRange != null)
-				msgs = ((InternalEObject)doseRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__DOSE_RANGE, null, msgs);
-			if (newDoseRange != null)
-				msgs = ((InternalEObject)newDoseRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__DOSE_RANGE, null, msgs);
-			msgs = basicSetDoseRange(newDoseRange, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__DOSE_RANGE, newDoseRange, newDoseRange));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Quantity getDoseQuantity() {
-		return doseQuantity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDoseQuantity(Quantity newDoseQuantity, NotificationChain msgs) {
-		Quantity oldDoseQuantity = doseQuantity;
-		doseQuantity = newDoseQuantity;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__DOSE_QUANTITY, oldDoseQuantity, newDoseQuantity);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDoseQuantity(Quantity newDoseQuantity) {
-		if (newDoseQuantity != doseQuantity) {
-			NotificationChain msgs = null;
-			if (doseQuantity != null)
-				msgs = ((InternalEObject)doseQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__DOSE_QUANTITY, null, msgs);
-			if (newDoseQuantity != null)
-				msgs = ((InternalEObject)newDoseQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__DOSE_QUANTITY, null, msgs);
-			msgs = basicSetDoseQuantity(newDoseQuantity, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__DOSE_QUANTITY, newDoseQuantity, newDoseQuantity));
+		return doseAndRate;
 	}
 
 	/**
@@ -874,135 +756,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Ratio getRateRatio() {
-		return rateRatio;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRateRatio(Ratio newRateRatio, NotificationChain msgs) {
-		Ratio oldRateRatio = rateRatio;
-		rateRatio = newRateRatio;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_RATIO, oldRateRatio, newRateRatio);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRateRatio(Ratio newRateRatio) {
-		if (newRateRatio != rateRatio) {
-			NotificationChain msgs = null;
-			if (rateRatio != null)
-				msgs = ((InternalEObject)rateRatio).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_RATIO, null, msgs);
-			if (newRateRatio != null)
-				msgs = ((InternalEObject)newRateRatio).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_RATIO, null, msgs);
-			msgs = basicSetRateRatio(newRateRatio, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_RATIO, newRateRatio, newRateRatio));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Range getRateRange() {
-		return rateRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRateRange(Range newRateRange, NotificationChain msgs) {
-		Range oldRateRange = rateRange;
-		rateRange = newRateRange;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_RANGE, oldRateRange, newRateRange);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRateRange(Range newRateRange) {
-		if (newRateRange != rateRange) {
-			NotificationChain msgs = null;
-			if (rateRange != null)
-				msgs = ((InternalEObject)rateRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_RANGE, null, msgs);
-			if (newRateRange != null)
-				msgs = ((InternalEObject)newRateRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_RANGE, null, msgs);
-			msgs = basicSetRateRange(newRateRange, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_RANGE, newRateRange, newRateRange));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Quantity getRateQuantity() {
-		return rateQuantity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRateQuantity(Quantity newRateQuantity, NotificationChain msgs) {
-		Quantity oldRateQuantity = rateQuantity;
-		rateQuantity = newRateQuantity;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_QUANTITY, oldRateQuantity, newRateQuantity);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRateQuantity(Quantity newRateQuantity) {
-		if (newRateQuantity != rateQuantity) {
-			NotificationChain msgs = null;
-			if (rateQuantity != null)
-				msgs = ((InternalEObject)rateQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_QUANTITY, null, msgs);
-			if (newRateQuantity != null)
-				msgs = ((InternalEObject)newRateQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOSAGE__RATE_QUANTITY, null, msgs);
-			msgs = basicSetRateQuantity(newRateQuantity, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOSAGE__RATE_QUANTITY, newRateQuantity, newRateQuantity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1026,22 +779,14 @@ public class DosageImpl extends ElementImpl implements Dosage {
 				return basicSetRoute(null, msgs);
 			case FhirPackage.DOSAGE__METHOD:
 				return basicSetMethod(null, msgs);
-			case FhirPackage.DOSAGE__DOSE_RANGE:
-				return basicSetDoseRange(null, msgs);
-			case FhirPackage.DOSAGE__DOSE_QUANTITY:
-				return basicSetDoseQuantity(null, msgs);
+			case FhirPackage.DOSAGE__DOSE_AND_RATE:
+				return ((InternalEList<?>)getDoseAndRate()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_PERIOD:
 				return basicSetMaxDosePerPeriod(null, msgs);
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_ADMINISTRATION:
 				return basicSetMaxDosePerAdministration(null, msgs);
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_LIFETIME:
 				return basicSetMaxDosePerLifetime(null, msgs);
-			case FhirPackage.DOSAGE__RATE_RATIO:
-				return basicSetRateRatio(null, msgs);
-			case FhirPackage.DOSAGE__RATE_RANGE:
-				return basicSetRateRange(null, msgs);
-			case FhirPackage.DOSAGE__RATE_QUANTITY:
-				return basicSetRateQuantity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1074,22 +819,14 @@ public class DosageImpl extends ElementImpl implements Dosage {
 				return getRoute();
 			case FhirPackage.DOSAGE__METHOD:
 				return getMethod();
-			case FhirPackage.DOSAGE__DOSE_RANGE:
-				return getDoseRange();
-			case FhirPackage.DOSAGE__DOSE_QUANTITY:
-				return getDoseQuantity();
+			case FhirPackage.DOSAGE__DOSE_AND_RATE:
+				return getDoseAndRate();
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_PERIOD:
 				return getMaxDosePerPeriod();
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_ADMINISTRATION:
 				return getMaxDosePerAdministration();
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_LIFETIME:
 				return getMaxDosePerLifetime();
-			case FhirPackage.DOSAGE__RATE_RATIO:
-				return getRateRatio();
-			case FhirPackage.DOSAGE__RATE_RANGE:
-				return getRateRange();
-			case FhirPackage.DOSAGE__RATE_QUANTITY:
-				return getRateQuantity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1134,11 +871,9 @@ public class DosageImpl extends ElementImpl implements Dosage {
 			case FhirPackage.DOSAGE__METHOD:
 				setMethod((CodeableConcept)newValue);
 				return;
-			case FhirPackage.DOSAGE__DOSE_RANGE:
-				setDoseRange((Range)newValue);
-				return;
-			case FhirPackage.DOSAGE__DOSE_QUANTITY:
-				setDoseQuantity((Quantity)newValue);
+			case FhirPackage.DOSAGE__DOSE_AND_RATE:
+				getDoseAndRate().clear();
+				getDoseAndRate().addAll((Collection<? extends DosageDoseAndRate>)newValue);
 				return;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_PERIOD:
 				setMaxDosePerPeriod((Ratio)newValue);
@@ -1148,15 +883,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 				return;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_LIFETIME:
 				setMaxDosePerLifetime((Quantity)newValue);
-				return;
-			case FhirPackage.DOSAGE__RATE_RATIO:
-				setRateRatio((Ratio)newValue);
-				return;
-			case FhirPackage.DOSAGE__RATE_RANGE:
-				setRateRange((Range)newValue);
-				return;
-			case FhirPackage.DOSAGE__RATE_QUANTITY:
-				setRateQuantity((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1200,11 +926,8 @@ public class DosageImpl extends ElementImpl implements Dosage {
 			case FhirPackage.DOSAGE__METHOD:
 				setMethod((CodeableConcept)null);
 				return;
-			case FhirPackage.DOSAGE__DOSE_RANGE:
-				setDoseRange((Range)null);
-				return;
-			case FhirPackage.DOSAGE__DOSE_QUANTITY:
-				setDoseQuantity((Quantity)null);
+			case FhirPackage.DOSAGE__DOSE_AND_RATE:
+				getDoseAndRate().clear();
 				return;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_PERIOD:
 				setMaxDosePerPeriod((Ratio)null);
@@ -1214,15 +937,6 @@ public class DosageImpl extends ElementImpl implements Dosage {
 				return;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_LIFETIME:
 				setMaxDosePerLifetime((Quantity)null);
-				return;
-			case FhirPackage.DOSAGE__RATE_RATIO:
-				setRateRatio((Ratio)null);
-				return;
-			case FhirPackage.DOSAGE__RATE_RANGE:
-				setRateRange((Range)null);
-				return;
-			case FhirPackage.DOSAGE__RATE_QUANTITY:
-				setRateQuantity((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1256,22 +970,14 @@ public class DosageImpl extends ElementImpl implements Dosage {
 				return route != null;
 			case FhirPackage.DOSAGE__METHOD:
 				return method != null;
-			case FhirPackage.DOSAGE__DOSE_RANGE:
-				return doseRange != null;
-			case FhirPackage.DOSAGE__DOSE_QUANTITY:
-				return doseQuantity != null;
+			case FhirPackage.DOSAGE__DOSE_AND_RATE:
+				return doseAndRate != null && !doseAndRate.isEmpty();
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_PERIOD:
 				return maxDosePerPeriod != null;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_ADMINISTRATION:
 				return maxDosePerAdministration != null;
 			case FhirPackage.DOSAGE__MAX_DOSE_PER_LIFETIME:
 				return maxDosePerLifetime != null;
-			case FhirPackage.DOSAGE__RATE_RATIO:
-				return rateRatio != null;
-			case FhirPackage.DOSAGE__RATE_RANGE:
-				return rateRange != null;
-			case FhirPackage.DOSAGE__RATE_QUANTITY:
-				return rateQuantity != null;
 		}
 		return super.eIsSet(featureID);
 	}

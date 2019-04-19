@@ -16,11 +16,10 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideId <em>Nuclide Id</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideName <em>Nuclide Name</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getSubstitutionType <em>Substitution Type</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideHalfLife <em>Nuclide Half Life</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getSubstitution <em>Substitution</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getHalfLife <em>Half Life</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationIsotope#getMolecularWeight <em>Molecular Weight</em>}</li>
  * </ul>
  *
@@ -30,134 +29,108 @@ package org.hl7.fhir;
  */
 public interface SubstanceSpecificationIsotope extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Nuclide Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Substance identifier for each non-natural or radioisotope.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Nuclide Id</em>' containment reference.
-	 * @see #setNuclideId(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_NuclideId()
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='nuclideId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getNuclideId();
+	Identifier getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideId <em>Nuclide Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getIdentifier <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nuclide Id</em>' containment reference.
-	 * @see #getNuclideId()
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
 	 * @generated
 	 */
-	void setNuclideId(Identifier value);
+	void setIdentifier(Identifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Nuclide Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Substance name for each non-natural or radioisotope.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Nuclide Name</em>' containment reference.
-	 * @see #setNuclideName(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_NuclideName()
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_Name()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='nuclideName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getNuclideName();
+	CodeableConcept getName();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideName <em>Nuclide Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getName <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nuclide Name</em>' containment reference.
-	 * @see #getNuclideName()
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setNuclideName(CodeableConcept value);
+	void setName(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Substitution Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Substitution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The type of isotopic substitution present in a single substance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substitution Type</em>' containment reference.
-	 * @see #setSubstitutionType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_SubstitutionType()
+	 * @return the value of the '<em>Substitution</em>' containment reference.
+	 * @see #setSubstitution(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_Substitution()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='substitutionType' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='substitution' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getSubstitutionType();
+	CodeableConcept getSubstitution();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getSubstitutionType <em>Substitution Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getSubstitution <em>Substitution</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Substitution Type</em>' containment reference.
-	 * @see #getSubstitutionType()
+	 * @param value the new value of the '<em>Substitution</em>' containment reference.
+	 * @see #getSubstitution()
 	 * @generated
 	 */
-	void setSubstitutionType(CodeableConcept value);
+	void setSubstitution(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Nuclide Half Life</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Half Life</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Half life - for a non-natural nuclide.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Nuclide Half Life</em>' containment reference.
-	 * @see #setNuclideHalfLife(Quantity)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_NuclideHalfLife()
+	 * @return the value of the '<em>Half Life</em>' containment reference.
+	 * @see #setHalfLife(Quantity)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_HalfLife()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='nuclideHalfLife' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='halfLife' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Quantity getNuclideHalfLife();
+	Quantity getHalfLife();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getNuclideHalfLife <em>Nuclide Half Life</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getHalfLife <em>Half Life</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nuclide Half Life</em>' containment reference.
-	 * @see #getNuclideHalfLife()
+	 * @param value the new value of the '<em>Half Life</em>' containment reference.
+	 * @see #getHalfLife()
 	 * @generated
 	 */
-	void setNuclideHalfLife(Quantity value);
-
-	/**
-	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Quantitative values for this isotope.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationIsotope_Amount()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getAmount();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationIsotope#getAmount <em>Amount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Amount</em>' containment reference.
-	 * @see #getAmount()
-	 * @generated
-	 */
-	void setAmount(org.hl7.fhir.String value);
+	void setHalfLife(Quantity value);
 
 	/**
 	 * Returns the value of the '<em><b>Molecular Weight</b></em>' containment reference.

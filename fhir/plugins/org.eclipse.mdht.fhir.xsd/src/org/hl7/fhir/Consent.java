@@ -24,10 +24,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Consent#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getDateTime <em>Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getConsentingParty <em>Consenting Party</em>}</li>
+ *   <li>{@link org.hl7.fhir.Consent#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getSourceAttachment <em>Source Attachment</em>}</li>
- *   <li>{@link org.hl7.fhir.Consent#getSourceIdentifier <em>Source Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getSourceReference <em>Source Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.hl7.fhir.Consent#getPolicyRule <em>Policy Rule</em>}</li>
@@ -41,30 +40,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Consent extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Unique identifier for this copy of the Consent Statement.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Consent#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -97,16 +86,16 @@ public interface Consent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A selector of the type of consent being presented among the four possible: ADR, Privacy, Treatment, Research.
+	 * A selector of the type of consent being presented: ADR, Privacy, Treatment, Research.  This list is now extensible.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Scope</em>' containment reference.
-	 * @see #setScope(ConsentScopeCodes)
+	 * @see #setScope(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Scope()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='scope' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConsentScopeCodes getScope();
+	CodeableConcept getScope();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Consent#getScope <em>Scope</em>}' containment reference.
@@ -116,7 +105,7 @@ public interface Consent extends DomainResource {
 	 * @see #getScope()
 	 * @generated
 	 */
-	void setScope(ConsentScopeCodes value);
+	void setScope(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
@@ -144,7 +133,7 @@ public interface Consent extends DomainResource {
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Patient()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -187,20 +176,20 @@ public interface Consent extends DomainResource {
 	void setDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Consenting Party</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Consenting Party</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getConsent_ConsentingParty()
+	 * @return the value of the '<em>Performer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getConsent_Performer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='consentingParty' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getConsentingParty();
+	EList<Reference> getPerformer();
 
 	/**
 	 * Returns the value of the '<em><b>Organization</b></em>' containment reference list.
@@ -244,33 +233,6 @@ public interface Consent extends DomainResource {
 	 * @generated
 	 */
 	void setSourceAttachment(Attachment value);
-
-	/**
-	 * Returns the value of the '<em><b>Source Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Identifier</em>' containment reference.
-	 * @see #setSourceIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getConsent_SourceIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sourceIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getSourceIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Consent#getSourceIdentifier <em>Source Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Identifier</em>' containment reference.
-	 * @see #getSourceIdentifier()
-	 * @generated
-	 */
-	void setSourceIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Reference</b></em>' containment reference.
@@ -320,7 +282,7 @@ public interface Consent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to the specific base computable policy.
+	 * A reference to the specific base computable regulation or policy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Policy Rule</em>' containment reference.
 	 * @see #setPolicyRule(CodeableConcept)
@@ -347,7 +309,7 @@ public interface Consent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether a treatment instruction (e.g. artifical respiration yes or no) was verified with the patient, his/her family or another authorized person.
+	 * Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Verification</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Verification()
@@ -367,7 +329,7 @@ public interface Consent extends DomainResource {
 	 * @return the value of the '<em>Provision</em>' containment reference.
 	 * @see #setProvision(ConsentProvision)
 	 * @see org.hl7.fhir.FhirPackage#getConsent_Provision()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='provision' namespace='##targetNamespace'"
 	 * @generated
 	 */

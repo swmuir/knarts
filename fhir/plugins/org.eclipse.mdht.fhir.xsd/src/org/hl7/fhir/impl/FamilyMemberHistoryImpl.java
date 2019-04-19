@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.Age;
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
@@ -42,14 +42,15 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getRelationship <em>Relationship</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getGender <em>Gender</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getSex <em>Sex</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getBornPeriod <em>Born Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getBornDate <em>Born Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryImpl#getBornString <em>Born String</em>}</li>
@@ -82,14 +83,24 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -152,14 +163,14 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	protected CodeableConcept relationship;
 
 	/**
-	 * The cached value of the '{@link #getGender() <em>Gender</em>}' containment reference.
+	 * The cached value of the '{@link #getSex() <em>Sex</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGender()
+	 * @see #getSex()
 	 * @generated
 	 * @ordered
 	 */
-	protected AdministrativeGender gender;
+	protected CodeableConcept sex;
 
 	/**
 	 * The cached value of the '{@link #getBornPeriod() <em>Born Period</em>}' containment reference.
@@ -357,11 +368,23 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
-		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES);
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL);
 		}
-		return instantiates;
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
 	}
 
 	/**
@@ -627,8 +650,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AdministrativeGender getGender() {
-		return gender;
+	public CodeableConcept getSex() {
+		return sex;
 	}
 
 	/**
@@ -636,11 +659,11 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGender(AdministrativeGender newGender, NotificationChain msgs) {
-		AdministrativeGender oldGender = gender;
-		gender = newGender;
+	public NotificationChain basicSetSex(CodeableConcept newSex, NotificationChain msgs) {
+		CodeableConcept oldSex = sex;
+		sex = newSex;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__GENDER, oldGender, newGender);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__SEX, oldSex, newSex);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -651,18 +674,18 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGender(AdministrativeGender newGender) {
-		if (newGender != gender) {
+	public void setSex(CodeableConcept newSex) {
+		if (newSex != sex) {
 			NotificationChain msgs = null;
-			if (gender != null)
-				msgs = ((InternalEObject)gender).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__GENDER, null, msgs);
-			if (newGender != null)
-				msgs = ((InternalEObject)newGender).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__GENDER, null, msgs);
-			msgs = basicSetGender(newGender, msgs);
+			if (sex != null)
+				msgs = ((InternalEObject)sex).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__SEX, null, msgs);
+			if (newSex != null)
+				msgs = ((InternalEObject)newSex).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY__SEX, null, msgs);
+			msgs = basicSetSex(newSex, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__GENDER, newGender, newGender));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY__SEX, newSex, newSex));
 	}
 
 	/**
@@ -1239,8 +1262,10 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
-				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
@@ -1253,8 +1278,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return basicSetName(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
 				return basicSetRelationship(null, msgs);
-			case FhirPackage.FAMILY_MEMBER_HISTORY__GENDER:
-				return basicSetGender(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__SEX:
+				return basicSetSex(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_PERIOD:
 				return basicSetBornPeriod(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_DATE:
@@ -1301,8 +1326,10 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return getStatus();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
@@ -1315,8 +1342,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return getName();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
 				return getRelationship();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__GENDER:
-				return getGender();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__SEX:
+				return getSex();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_PERIOD:
 				return getBornPeriod();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_DATE:
@@ -1366,9 +1393,13 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
-				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				setStatus((FamilyHistoryStatus)newValue);
@@ -1388,8 +1419,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
 				setRelationship((CodeableConcept)newValue);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__GENDER:
-				setGender((AdministrativeGender)newValue);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__SEX:
+				setSex((CodeableConcept)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_PERIOD:
 				setBornPeriod((Period)newValue);
@@ -1458,8 +1489,11 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
-				getInstantiates().clear();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				setStatus((FamilyHistoryStatus)null);
@@ -1479,8 +1513,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
 				setRelationship((CodeableConcept)null);
 				return;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__GENDER:
-				setGender((AdministrativeGender)null);
+			case FhirPackage.FAMILY_MEMBER_HISTORY__SEX:
+				setSex((CodeableConcept)null);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_PERIOD:
 				setBornPeriod((Period)null);
@@ -1544,8 +1578,10 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 		switch (featureID) {
 			case FhirPackage.FAMILY_MEMBER_HISTORY__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES:
-				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.FAMILY_MEMBER_HISTORY__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.FAMILY_MEMBER_HISTORY__STATUS:
 				return status != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__DATA_ABSENT_REASON:
@@ -1558,8 +1594,8 @@ public class FamilyMemberHistoryImpl extends DomainResourceImpl implements Famil
 				return name != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__RELATIONSHIP:
 				return relationship != null;
-			case FhirPackage.FAMILY_MEMBER_HISTORY__GENDER:
-				return gender != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY__SEX:
+				return sex != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_PERIOD:
 				return bornPeriod != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY__BORN_DATE:

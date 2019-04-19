@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The kind of medication order
+ * The kind of medication order.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -21,7 +21,7 @@ package org.hl7.fhir;
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationRequestIntent()
- * @model extendedMetaData="name='MedicationRequestIntent' kind='elementOnly'"
+ * @model extendedMetaData="name='medicationRequestIntent' kind='elementOnly'"
  * @generated
  */
 public interface MedicationRequestIntent extends Element {

@@ -2,13 +2,20 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CareTeamParticipant;
 import org.hl7.fhir.CodeableConcept;
@@ -34,14 +41,14 @@ import org.hl7.fhir.Reference;
  */
 public class CareTeamParticipantImpl extends BackboneElementImpl implements CareTeamParticipant {
 	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept role;
+	protected EList<CodeableConcept> role;
 
 	/**
 	 * The cached value of the '{@link #getMember() <em>Member</em>}' containment reference.
@@ -97,42 +104,11 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getRole() {
+	public EList<CodeableConcept> getRole() {
+		if (role == null) {
+			role = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CARE_TEAM_PARTICIPANT__ROLE);
+		}
 		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRole(CodeableConcept newRole, NotificationChain msgs) {
-		CodeableConcept oldRole = role;
-		role = newRole;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM_PARTICIPANT__ROLE, oldRole, newRole);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRole(CodeableConcept newRole) {
-		if (newRole != role) {
-			NotificationChain msgs = null;
-			if (role != null)
-				msgs = ((InternalEObject)role).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM_PARTICIPANT__ROLE, null, msgs);
-			if (newRole != null)
-				msgs = ((InternalEObject)newRole).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM_PARTICIPANT__ROLE, null, msgs);
-			msgs = basicSetRole(newRole, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM_PARTICIPANT__ROLE, newRole, newRole));
 	}
 
 	/**
@@ -273,7 +249,7 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ROLE:
-				return basicSetRole(null, msgs);
+				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				return basicSetMember(null, msgs);
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:
@@ -309,11 +285,13 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ROLE:
-				setRole((CodeableConcept)newValue);
+				getRole().clear();
+				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				setMember((Reference)newValue);
@@ -337,7 +315,7 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ROLE:
-				setRole((CodeableConcept)null);
+				getRole().clear();
 				return;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				setMember((Reference)null);
@@ -361,7 +339,7 @@ public class CareTeamParticipantImpl extends BackboneElementImpl implements Care
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ROLE:
-				return role != null;
+				return role != null && !role.isEmpty();
 			case FhirPackage.CARE_TEAM_PARTICIPANT__MEMBER:
 				return member != null;
 			case FhirPackage.CARE_TEAM_PARTICIPANT__ON_BEHALF_OF:

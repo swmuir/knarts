@@ -19,8 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.AuditEventAgent#getReference <em>Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.AuditEventAgent#getUserId <em>User Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEventAgent#getWho <em>Who</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getAltId <em>Alt Id</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventAgent#getRequestor <em>Requestor</em>}</li>
@@ -79,56 +78,30 @@ public interface AuditEventAgent extends BackboneElement {
 	EList<CodeableConcept> getRole();
 
 	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Who</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Direct reference to a resource that identifies the agent.
+	 * Reference to who this agent is that was involved in the event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference</em>' containment reference.
-	 * @see #setReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_Reference()
+	 * @return the value of the '<em>Who</em>' containment reference.
+	 * @see #setWho(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_Who()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='who' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReference();
+	Reference getWho();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventAgent#getReference <em>Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventAgent#getWho <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' containment reference.
-	 * @see #getReference()
+	 * @param value the new value of the '<em>Who</em>' containment reference.
+	 * @see #getWho()
 	 * @generated
 	 */
-	void setReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>User Id</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Unique identifier for the user actively participating in the event.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>User Id</em>' containment reference.
-	 * @see #setUserId(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventAgent_UserId()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='userId' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getUserId();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventAgent#getUserId <em>User Id</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>User Id</em>' containment reference.
-	 * @see #getUserId()
-	 * @generated
-	 */
-	void setUserId(Identifier value);
+	void setWho(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Alt Id</b></em>' containment reference.

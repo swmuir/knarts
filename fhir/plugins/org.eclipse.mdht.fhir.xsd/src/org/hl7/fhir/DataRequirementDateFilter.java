@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getSearchParam <em>Search Param</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementDateFilter#getValueDuration <em>Value Duration</em>}</li>
@@ -33,12 +34,12 @@ public interface DataRequirementDateFilter extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.
+	 * The date-valued attribute of the filter. The specified path SHALL be a FHIRPath resolveable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type date, dateTime, Period, Schedule, or Timing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getDataRequirementDateFilter_Path()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -53,6 +54,32 @@ public interface DataRequirementDateFilter extends Element {
 	 * @generated
 	 */
 	void setPath(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Search Param</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A date parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type date, dateTime, Period, Schedule, or Timing.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Search Param</em>' containment reference.
+	 * @see #setSearchParam(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDataRequirementDateFilter_SearchParam()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='searchParam' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getSearchParam();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementDateFilter#getSearchParam <em>Search Param</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Search Param</em>' containment reference.
+	 * @see #getSearchParam()
+	 * @generated
+	 */
+	void setSearchParam(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Date Time</b></em>' containment reference.

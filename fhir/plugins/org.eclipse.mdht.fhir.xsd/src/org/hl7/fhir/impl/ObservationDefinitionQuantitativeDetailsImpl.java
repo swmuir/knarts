@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ObservationDefinitionQuantitativeDetails;
@@ -40,7 +40,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding customaryUnit;
+	protected CodeableConcept customaryUnit;
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
@@ -50,7 +50,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding unit;
+	protected CodeableConcept unit;
 
 	/**
 	 * The cached value of the '{@link #getConversionFactor() <em>Conversion Factor</em>}' containment reference.
@@ -96,7 +96,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCustomaryUnit() {
+	public CodeableConcept getCustomaryUnit() {
 		return customaryUnit;
 	}
 
@@ -105,8 +105,8 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCustomaryUnit(Coding newCustomaryUnit, NotificationChain msgs) {
-		Coding oldCustomaryUnit = customaryUnit;
+	public NotificationChain basicSetCustomaryUnit(CodeableConcept newCustomaryUnit, NotificationChain msgs) {
+		CodeableConcept oldCustomaryUnit = customaryUnit;
 		customaryUnit = newCustomaryUnit;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__CUSTOMARY_UNIT, oldCustomaryUnit, newCustomaryUnit);
@@ -120,7 +120,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomaryUnit(Coding newCustomaryUnit) {
+	public void setCustomaryUnit(CodeableConcept newCustomaryUnit) {
 		if (newCustomaryUnit != customaryUnit) {
 			NotificationChain msgs = null;
 			if (customaryUnit != null)
@@ -139,7 +139,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getUnit() {
+	public CodeableConcept getUnit() {
 		return unit;
 	}
 
@@ -148,8 +148,8 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUnit(Coding newUnit, NotificationChain msgs) {
-		Coding oldUnit = unit;
+	public NotificationChain basicSetUnit(CodeableConcept newUnit, NotificationChain msgs) {
+		CodeableConcept oldUnit = unit;
 		unit = newUnit;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__UNIT, oldUnit, newUnit);
@@ -163,7 +163,7 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(Coding newUnit) {
+	public void setUnit(CodeableConcept newUnit) {
 		if (newUnit != unit) {
 			NotificationChain msgs = null;
 			if (unit != null)
@@ -312,10 +312,10 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__CUSTOMARY_UNIT:
-				setCustomaryUnit((Coding)newValue);
+				setCustomaryUnit((CodeableConcept)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__UNIT:
-				setUnit((Coding)newValue);
+				setUnit((CodeableConcept)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__CONVERSION_FACTOR:
 				setConversionFactor((Decimal)newValue);
@@ -336,10 +336,10 @@ public class ObservationDefinitionQuantitativeDetailsImpl extends BackboneElemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__CUSTOMARY_UNIT:
-				setCustomaryUnit((Coding)null);
+				setCustomaryUnit((CodeableConcept)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__UNIT:
-				setUnit((Coding)null);
+				setUnit((CodeableConcept)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS__CONVERSION_FACTOR:
 				setConversionFactor((Decimal)null);

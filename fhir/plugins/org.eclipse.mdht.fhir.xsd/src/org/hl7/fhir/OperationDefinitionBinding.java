@@ -17,8 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.OperationDefinitionBinding#getStrength <em>Strength</em>}</li>
- *   <li>{@link org.hl7.fhir.OperationDefinitionBinding#getValueSetUri <em>Value Set Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.OperationDefinitionBinding#getValueSetReference <em>Value Set Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinitionBinding#getValueSet <em>Value Set</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getOperationDefinitionBinding()
@@ -53,57 +52,29 @@ public interface OperationDefinitionBinding extends BackboneElement {
 	void setStrength(BindingStrength value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Set Uri</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Set Uri</em>' containment reference.
-	 * @see #setValueSetUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionBinding_ValueSetUri()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueSetUri' namespace='##targetNamespace'"
+	 * <!-- begin-model-doc -->
+	 * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value Set</em>' containment reference.
+	 * @see #setValueSet(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionBinding_ValueSet()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getValueSetUri();
+	Canonical getValueSet();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionBinding#getValueSetUri <em>Value Set Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionBinding#getValueSet <em>Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Set Uri</em>' containment reference.
-	 * @see #getValueSetUri()
+	 * @param value the new value of the '<em>Value Set</em>' containment reference.
+	 * @see #getValueSet()
 	 * @generated
 	 */
-	void setValueSetUri(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Value Set Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Set Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Set Reference</em>' containment reference.
-	 * @see #setValueSetReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionBinding_ValueSetReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueSetReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getValueSetReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionBinding#getValueSetReference <em>Value Set Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Set Reference</em>' containment reference.
-	 * @see #getValueSetReference()
-	 * @generated
-	 */
-	void setValueSetReference(Reference value);
+	void setValueSet(Canonical value);
 
 } // OperationDefinitionBinding

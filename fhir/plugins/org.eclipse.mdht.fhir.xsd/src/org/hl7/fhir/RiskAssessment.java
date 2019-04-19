@@ -25,17 +25,17 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.RiskAssessment#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessment#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessment#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessment#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessment#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getBasis <em>Basis</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getPrediction <em>Prediction</em>}</li>
  *   <li>{@link org.hl7.fhir.RiskAssessment#getMitigation <em>Mitigation</em>}</li>
- *   <li>{@link org.hl7.fhir.RiskAssessment#getComment <em>Comment</em>}</li>
+ *   <li>{@link org.hl7.fhir.RiskAssessment#getNote <em>Note</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getRiskAssessment()
@@ -44,30 +44,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface RiskAssessment extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Business identifier assigned to the risk assessment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference.
@@ -209,7 +199,7 @@ public interface RiskAssessment extends DomainResource {
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Subject()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -226,30 +216,30 @@ public interface RiskAssessment extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The encounter where the assessment was performed.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
@@ -358,58 +348,36 @@ public interface RiskAssessment extends DomainResource {
 	void setPerformer(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #setReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_ReasonCodeableConcept()
+	 * <!-- begin-model-doc -->
+	 * The reason the risk assessment was performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getReasonCodeableConcept();
+	EList<CodeableConcept> getReasonCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getReasonCodeableConcept <em>Reason Codeable Concept</em>}' containment reference.
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #getReasonCodeableConcept()
-	 * @generated
-	 */
-	void setReasonCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #setReasonReference(Reference)
+	 * <!-- begin-model-doc -->
+	 * Resources supporting the reason the risk assessment was performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_ReasonReference()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReasonReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getReasonReference <em>Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #getReasonReference()
-	 * @generated
-	 */
-	void setReasonReference(Reference value);
+	EList<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Basis</b></em>' containment reference list.
@@ -417,7 +385,7 @@ public interface RiskAssessment extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).
+	 * Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Basis</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Basis()
@@ -470,29 +438,19 @@ public interface RiskAssessment extends DomainResource {
 	void setMitigation(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Additional comments about the risk assessment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment</em>' containment reference.
-	 * @see #setComment(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Comment()
+	 * @return the value of the '<em>Note</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRiskAssessment_Note()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='note' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getComment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RiskAssessment#getComment <em>Comment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comment</em>' containment reference.
-	 * @see #getComment()
-	 * @generated
-	 */
-	void setComment(org.hl7.fhir.String value);
+	EList<Annotation> getNote();
 
 } // RiskAssessment

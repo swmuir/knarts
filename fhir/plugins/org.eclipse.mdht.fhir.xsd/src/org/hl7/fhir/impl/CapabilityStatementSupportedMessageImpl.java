@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.EventCapabilityMode;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference definition;
+	protected Canonical definition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +117,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getDefinition() {
+	public Canonical getDefinition() {
 		return definition;
 	}
 
@@ -126,8 +126,8 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
+	public NotificationChain basicSetDefinition(Canonical newDefinition, NotificationChain msgs) {
+		Canonical oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_SUPPORTED_MESSAGE__DEFINITION, oldDefinition, newDefinition);
@@ -141,7 +141,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Reference newDefinition) {
+	public void setDefinition(Canonical newDefinition) {
 		if (newDefinition != definition) {
 			NotificationChain msgs = null;
 			if (definition != null)
@@ -199,7 +199,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 				setMode((EventCapabilityMode)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SUPPORTED_MESSAGE__DEFINITION:
-				setDefinition((Reference)newValue);
+				setDefinition((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +217,7 @@ public class CapabilityStatementSupportedMessageImpl extends BackboneElementImpl
 				setMode((EventCapabilityMode)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SUPPORTED_MESSAGE__DEFINITION:
-				setDefinition((Reference)null);
+				setDefinition((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

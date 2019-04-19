@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CapabilityStatementInteraction;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.TypeRestfulInteraction;
 
 /**
@@ -47,7 +48,7 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String documentation;
+	protected Markdown documentation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,7 +117,7 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDocumentation() {
+	public Markdown getDocumentation() {
 		return documentation;
 	}
 
@@ -125,8 +126,8 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocumentation(org.hl7.fhir.String newDocumentation, NotificationChain msgs) {
-		org.hl7.fhir.String oldDocumentation = documentation;
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_INTERACTION__DOCUMENTATION, oldDocumentation, newDocumentation);
@@ -140,7 +141,7 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocumentation(org.hl7.fhir.String newDocumentation) {
+	public void setDocumentation(Markdown newDocumentation) {
 		if (newDocumentation != documentation) {
 			NotificationChain msgs = null;
 			if (documentation != null)
@@ -198,7 +199,7 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 				setCode((TypeRestfulInteraction)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_INTERACTION__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)newValue);
+				setDocumentation((Markdown)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,7 +217,7 @@ public class CapabilityStatementInteractionImpl extends BackboneElementImpl impl
 				setCode((TypeRestfulInteraction)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_INTERACTION__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)null);
+				setDocumentation((Markdown)null);
 				return;
 		}
 		super.eUnset(featureID);

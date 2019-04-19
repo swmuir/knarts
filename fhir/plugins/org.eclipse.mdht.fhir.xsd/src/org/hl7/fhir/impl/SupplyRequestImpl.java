@@ -62,14 +62,14 @@ import org.hl7.fhir.Timing;
  */
 public class SupplyRequestImpl extends DomainResourceImpl implements SupplyRequest {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -265,42 +265,11 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SUPPLY_REQUEST__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_REQUEST__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_REQUEST__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -919,7 +888,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_REQUEST__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_REQUEST__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.SUPPLY_REQUEST__CATEGORY:
@@ -1016,7 +985,8 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_REQUEST__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.SUPPLY_REQUEST__STATUS:
 				setStatus((SupplyRequestStatus)newValue);
@@ -1086,7 +1056,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_REQUEST__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.SUPPLY_REQUEST__STATUS:
 				setStatus((SupplyRequestStatus)null);
@@ -1152,7 +1122,7 @@ public class SupplyRequestImpl extends DomainResourceImpl implements SupplyReque
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_REQUEST__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.SUPPLY_REQUEST__STATUS:
 				return status != null;
 			case FhirPackage.SUPPLY_REQUEST__CATEGORY:

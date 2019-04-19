@@ -38,11 +38,11 @@ import org.hl7.fhir.SubstanceReferenceInformationTarget;
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getOrganism <em>Organism</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getOrganismType <em>Organism Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getAmountQuantity <em>Amount Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getAmountRange <em>Amount Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getAmountString <em>Amount String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getAmountType <em>Amount Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationTargetImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,16 +99,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 	protected CodeableConcept organismType;
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> source;
-
-	/**
 	 * The cached value of the '{@link #getAmountQuantity() <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,6 +137,16 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 	 * @ordered
 	 */
 	protected CodeableConcept amountType;
+
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> source;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,18 +387,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getSource() {
-		if (source == null) {
-			source = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE);
-		}
-		return source;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Quantity getAmountQuantity() {
 		return amountQuantity;
 	}
@@ -571,6 +559,18 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getSource() {
+		if (source == null) {
+			source = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE);
+		}
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -584,8 +584,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return basicSetOrganism(null, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__ORGANISM_TYPE:
 				return basicSetOrganismType(null, msgs);
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
-				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_QUANTITY:
 				return basicSetAmountQuantity(null, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_RANGE:
@@ -594,6 +592,8 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return basicSetAmountString(null, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_TYPE:
 				return basicSetAmountType(null, msgs);
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
+				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -616,8 +616,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return getOrganism();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__ORGANISM_TYPE:
 				return getOrganismType();
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
-				return getSource();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_QUANTITY:
 				return getAmountQuantity();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_RANGE:
@@ -626,6 +624,8 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return getAmountString();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_TYPE:
 				return getAmountType();
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
+				return getSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -654,10 +654,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__ORGANISM_TYPE:
 				setOrganismType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
-				getSource().clear();
-				getSource().addAll((Collection<? extends Reference>)newValue);
-				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_QUANTITY:
 				setAmountQuantity((Quantity)newValue);
 				return;
@@ -669,6 +665,10 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_TYPE:
 				setAmountType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
+				getSource().clear();
+				getSource().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -697,9 +697,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__ORGANISM_TYPE:
 				setOrganismType((CodeableConcept)null);
 				return;
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
-				getSource().clear();
-				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_QUANTITY:
 				setAmountQuantity((Quantity)null);
 				return;
@@ -711,6 +708,9 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_TYPE:
 				setAmountType((CodeableConcept)null);
+				return;
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
+				getSource().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -734,8 +734,6 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return organism != null;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__ORGANISM_TYPE:
 				return organismType != null;
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
-				return source != null && !source.isEmpty();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_QUANTITY:
 				return amountQuantity != null;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_RANGE:
@@ -744,6 +742,8 @@ public class SubstanceReferenceInformationTargetImpl extends BackboneElementImpl
 				return amountString != null;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__AMOUNT_TYPE:
 				return amountType != null;
+			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET__SOURCE:
+				return source != null && !source.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

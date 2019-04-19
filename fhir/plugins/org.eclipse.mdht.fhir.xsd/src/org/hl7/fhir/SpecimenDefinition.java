@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SpecimenDefinition#getPatientPreparation <em>Patient Preparation</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenDefinition#getTimeAspect <em>Time Aspect</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenDefinition#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.hl7.fhir.SpecimenDefinition#getSpecimenToLab <em>Specimen To Lab</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenDefinition#getTypeTested <em>Type Tested</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSpecimenDefinition()
@@ -84,30 +84,20 @@ public interface SpecimenDefinition extends DomainResource {
 	void setTypeCollected(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Patient Preparation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Patient Preparation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Preparation of the patient for specimen collection.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Patient Preparation</em>' containment reference.
-	 * @see #setPatientPreparation(org.hl7.fhir.String)
+	 * @return the value of the '<em>Patient Preparation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSpecimenDefinition_PatientPreparation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='patientPreparation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getPatientPreparation();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SpecimenDefinition#getPatientPreparation <em>Patient Preparation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patient Preparation</em>' containment reference.
-	 * @see #getPatientPreparation()
-	 * @generated
-	 */
-	void setPatientPreparation(org.hl7.fhir.String value);
+	EList<CodeableConcept> getPatientPreparation();
 
 	/**
 	 * Returns the value of the '<em><b>Time Aspect</b></em>' containment reference.
@@ -152,19 +142,19 @@ public interface SpecimenDefinition extends DomainResource {
 	EList<CodeableConcept> getCollection();
 
 	/**
-	 * Returns the value of the '<em><b>Specimen To Lab</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SpecimenDefinitionSpecimenToLab}.
+	 * Returns the value of the '<em><b>Type Tested</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SpecimenDefinitionTypeTested}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Specimen conditioned in a container as expected by the testing laboratory.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Specimen To Lab</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSpecimenDefinition_SpecimenToLab()
+	 * @return the value of the '<em>Type Tested</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenDefinition_TypeTested()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='specimenToLab' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='typeTested' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SpecimenDefinitionSpecimenToLab> getSpecimenToLab();
+	EList<SpecimenDefinitionTypeTested> getTypeTested();
 
 } // SpecimenDefinition

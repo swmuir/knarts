@@ -161,6 +161,16 @@ public enum IssueTypeList implements Enumerator {
 	DUPLICATE(13, "duplicate", "duplicate"),
 
 	/**
+	 * The '<em><b>Multiple Matches</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MULTIPLE_MATCHES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MULTIPLE_MATCHES(14, "multipleMatches", "multiple-matches"),
+
+	/**
 	 * The '<em><b>Not Found</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,7 +178,17 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOT_FOUND(14, "notFound", "not-found"),
+	NOT_FOUND(15, "notFound", "not-found"),
+
+	/**
+	 * The '<em><b>Deleted</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DELETED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DELETED(16, "deleted", "deleted"),
 
 	/**
 	 * The '<em><b>Too Long</b></em>' literal object.
@@ -178,7 +198,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOO_LONG(15, "tooLong", "too-long"),
+	TOO_LONG(17, "tooLong", "too-long"),
 
 	/**
 	 * The '<em><b>Code Invalid</b></em>' literal object.
@@ -188,7 +208,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CODE_INVALID(16, "codeInvalid", "code-invalid"),
+	CODE_INVALID(18, "codeInvalid", "code-invalid"),
 
 	/**
 	 * The '<em><b>Extension</b></em>' literal object.
@@ -198,7 +218,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXTENSION(17, "extension", "extension"),
+	EXTENSION(19, "extension", "extension"),
 
 	/**
 	 * The '<em><b>Too Costly</b></em>' literal object.
@@ -208,7 +228,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOO_COSTLY(18, "tooCostly", "too-costly"),
+	TOO_COSTLY(20, "tooCostly", "too-costly"),
 
 	/**
 	 * The '<em><b>Business Rule</b></em>' literal object.
@@ -218,7 +238,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUSINESS_RULE(19, "businessRule", "business-rule"),
+	BUSINESS_RULE(21, "businessRule", "business-rule"),
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal object.
@@ -228,17 +248,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONFLICT(20, "conflict", "conflict"),
-
-	/**
-	 * The '<em><b>Incomplete</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INCOMPLETE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INCOMPLETE(21, "incomplete", "incomplete"),
+	CONFLICT(22, "conflict", "conflict"),
 
 	/**
 	 * The '<em><b>Transient</b></em>' literal object.
@@ -248,7 +258,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRANSIENT(22, "transient", "transient"),
+	TRANSIENT(23, "transient", "transient"),
 
 	/**
 	 * The '<em><b>Lock Error</b></em>' literal object.
@@ -258,7 +268,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOCK_ERROR(23, "lockError", "lock-error"),
+	LOCK_ERROR(24, "lockError", "lock-error"),
 
 	/**
 	 * The '<em><b>No Store</b></em>' literal object.
@@ -268,7 +278,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NO_STORE(24, "noStore", "no-store"),
+	NO_STORE(25, "noStore", "no-store"),
 
 	/**
 	 * The '<em><b>Exception</b></em>' literal object.
@@ -278,7 +288,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXCEPTION(25, "exception", "exception"),
+	EXCEPTION(26, "exception", "exception"),
 
 	/**
 	 * The '<em><b>Timeout</b></em>' literal object.
@@ -288,7 +298,17 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TIMEOUT(26, "timeout", "timeout"),
+	TIMEOUT(27, "timeout", "timeout"),
+
+	/**
+	 * The '<em><b>Incomplete</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INCOMPLETE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INCOMPLETE(28, "incomplete", "incomplete"),
 
 	/**
 	 * The '<em><b>Throttled</b></em>' literal object.
@@ -298,7 +318,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THROTTLED(27, "throttled", "throttled"),
+	THROTTLED(29, "throttled", "throttled"),
 
 	/**
 	 * The '<em><b>Informational</b></em>' literal object.
@@ -308,7 +328,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INFORMATIONAL(28, "informational", "informational");
+	INFORMATIONAL(30, "informational", "informational");
 
 	/**
 	 * The '<em><b>Invalid</b></em>' literal value.
@@ -507,6 +527,20 @@ public enum IssueTypeList implements Enumerator {
 	public static final int DUPLICATE_VALUE = 13;
 
 	/**
+	 * The '<em><b>Multiple Matches</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Multiple Matches
+	 * <!-- end-model-doc -->
+	 * @see #MULTIPLE_MATCHES
+	 * @model name="multipleMatches" literal="multiple-matches"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MULTIPLE_MATCHES_VALUE = 14;
+
+	/**
 	 * The '<em><b>Not Found</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -518,7 +552,21 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NOT_FOUND_VALUE = 14;
+	public static final int NOT_FOUND_VALUE = 15;
+
+	/**
+	 * The '<em><b>Deleted</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Deleted
+	 * <!-- end-model-doc -->
+	 * @see #DELETED
+	 * @model name="deleted"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DELETED_VALUE = 16;
 
 	/**
 	 * The '<em><b>Too Long</b></em>' literal value.
@@ -532,7 +580,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TOO_LONG_VALUE = 15;
+	public static final int TOO_LONG_VALUE = 17;
 
 	/**
 	 * The '<em><b>Code Invalid</b></em>' literal value.
@@ -546,7 +594,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CODE_INVALID_VALUE = 16;
+	public static final int CODE_INVALID_VALUE = 18;
 
 	/**
 	 * The '<em><b>Extension</b></em>' literal value.
@@ -560,7 +608,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXTENSION_VALUE = 17;
+	public static final int EXTENSION_VALUE = 19;
 
 	/**
 	 * The '<em><b>Too Costly</b></em>' literal value.
@@ -574,7 +622,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TOO_COSTLY_VALUE = 18;
+	public static final int TOO_COSTLY_VALUE = 20;
 
 	/**
 	 * The '<em><b>Business Rule</b></em>' literal value.
@@ -588,7 +636,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BUSINESS_RULE_VALUE = 19;
+	public static final int BUSINESS_RULE_VALUE = 21;
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal value.
@@ -602,21 +650,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONFLICT_VALUE = 20;
-
-	/**
-	 * The '<em><b>Incomplete</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Incomplete Results
-	 * <!-- end-model-doc -->
-	 * @see #INCOMPLETE
-	 * @model name="incomplete"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int INCOMPLETE_VALUE = 21;
+	public static final int CONFLICT_VALUE = 22;
 
 	/**
 	 * The '<em><b>Transient</b></em>' literal value.
@@ -630,7 +664,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TRANSIENT_VALUE = 22;
+	public static final int TRANSIENT_VALUE = 23;
 
 	/**
 	 * The '<em><b>Lock Error</b></em>' literal value.
@@ -644,7 +678,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LOCK_ERROR_VALUE = 23;
+	public static final int LOCK_ERROR_VALUE = 24;
 
 	/**
 	 * The '<em><b>No Store</b></em>' literal value.
@@ -658,7 +692,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NO_STORE_VALUE = 24;
+	public static final int NO_STORE_VALUE = 25;
 
 	/**
 	 * The '<em><b>Exception</b></em>' literal value.
@@ -672,7 +706,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXCEPTION_VALUE = 25;
+	public static final int EXCEPTION_VALUE = 26;
 
 	/**
 	 * The '<em><b>Timeout</b></em>' literal value.
@@ -686,7 +720,21 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TIMEOUT_VALUE = 26;
+	public static final int TIMEOUT_VALUE = 27;
+
+	/**
+	 * The '<em><b>Incomplete</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Incomplete Results
+	 * <!-- end-model-doc -->
+	 * @see #INCOMPLETE
+	 * @model name="incomplete"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INCOMPLETE_VALUE = 28;
 
 	/**
 	 * The '<em><b>Throttled</b></em>' literal value.
@@ -700,7 +748,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int THROTTLED_VALUE = 27;
+	public static final int THROTTLED_VALUE = 29;
 
 	/**
 	 * The '<em><b>Informational</b></em>' literal value.
@@ -714,7 +762,7 @@ public enum IssueTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INFORMATIONAL_VALUE = 28;
+	public static final int INFORMATIONAL_VALUE = 30;
 
 	/**
 	 * An array of all the '<em><b>Issue Type List</b></em>' enumerators.
@@ -738,19 +786,21 @@ public enum IssueTypeList implements Enumerator {
 			PROCESSING,
 			NOT_SUPPORTED,
 			DUPLICATE,
+			MULTIPLE_MATCHES,
 			NOT_FOUND,
+			DELETED,
 			TOO_LONG,
 			CODE_INVALID,
 			EXTENSION,
 			TOO_COSTLY,
 			BUSINESS_RULE,
 			CONFLICT,
-			INCOMPLETE,
 			TRANSIENT,
 			LOCK_ERROR,
 			NO_STORE,
 			EXCEPTION,
 			TIMEOUT,
+			INCOMPLETE,
 			THROTTLED,
 			INFORMATIONAL,
 		};
@@ -823,19 +873,21 @@ public enum IssueTypeList implements Enumerator {
 			case PROCESSING_VALUE: return PROCESSING;
 			case NOT_SUPPORTED_VALUE: return NOT_SUPPORTED;
 			case DUPLICATE_VALUE: return DUPLICATE;
+			case MULTIPLE_MATCHES_VALUE: return MULTIPLE_MATCHES;
 			case NOT_FOUND_VALUE: return NOT_FOUND;
+			case DELETED_VALUE: return DELETED;
 			case TOO_LONG_VALUE: return TOO_LONG;
 			case CODE_INVALID_VALUE: return CODE_INVALID;
 			case EXTENSION_VALUE: return EXTENSION;
 			case TOO_COSTLY_VALUE: return TOO_COSTLY;
 			case BUSINESS_RULE_VALUE: return BUSINESS_RULE;
 			case CONFLICT_VALUE: return CONFLICT;
-			case INCOMPLETE_VALUE: return INCOMPLETE;
 			case TRANSIENT_VALUE: return TRANSIENT;
 			case LOCK_ERROR_VALUE: return LOCK_ERROR;
 			case NO_STORE_VALUE: return NO_STORE;
 			case EXCEPTION_VALUE: return EXCEPTION;
 			case TIMEOUT_VALUE: return TIMEOUT;
+			case INCOMPLETE_VALUE: return INCOMPLETE;
 			case THROTTLED_VALUE: return THROTTLED;
 			case INFORMATIONAL_VALUE: return INFORMATIONAL;
 		}

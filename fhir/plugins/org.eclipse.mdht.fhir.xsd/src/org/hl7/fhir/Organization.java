@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
+ * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -125,7 +125,7 @@ public interface Organization extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of alternate names that the organization is known as, or was known as in the past.
+	 * A list of alternate names that the organization is known as, or was known as in the past.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alias</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOrganization_Alias()

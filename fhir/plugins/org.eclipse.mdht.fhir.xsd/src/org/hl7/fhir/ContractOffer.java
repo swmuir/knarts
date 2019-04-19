@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -9,18 +10,23 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.ContractOffer#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractOffer#getParty <em>Party</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractOffer#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractOffer#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractOffer#getDecision <em>Decision</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractOffer#getDecisionMode <em>Decision Mode</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractOffer#getAnswer <em>Answer</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractOffer#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractOffer#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractOffer#getSecurityLabelNumber <em>Security Label Number</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getContractOffer()
@@ -28,6 +34,38 @@ package org.hl7.fhir;
  * @generated
  */
 public interface ContractOffer extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unique identifier for this particular Contract Provision.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractOffer_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Party</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractParty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Offer Recipient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Party</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractOffer_Party()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='party' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractParty> getParty();
+
 	/**
 	 * Returns the value of the '<em><b>Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -85,7 +123,7 @@ public interface ContractOffer extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of decision made by a grantor with respect to an offer made by a grantee.
+	 * Type of choice made by accepting party with respect to an offer made by an offeror/ grantee.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Decision</em>' containment reference.
 	 * @see #setDecision(CodeableConcept)
@@ -105,6 +143,38 @@ public interface ContractOffer extends BackboneElement {
 	 * @generated
 	 */
 	void setDecision(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Decision Mode</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * How the decision about a Contract was conveyed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Decision Mode</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractOffer_DecisionMode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='decisionMode' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getDecisionMode();
+
+	/**
+	 * Returns the value of the '<em><b>Answer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractAnswer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Response to offer text.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Answer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractOffer_Answer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='answer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractAnswer> getAnswer();
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
@@ -133,29 +203,35 @@ public interface ContractOffer extends BackboneElement {
 	void setText(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Link Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The id of the clause or question text of the offer in the referenced questionnaire/response.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Link Id</em>' containment reference.
-	 * @see #setLinkId(org.hl7.fhir.String)
+	 * @return the value of the '<em>Link Id</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractOffer_LinkId()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='linkId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getLinkId();
+	EList<org.hl7.fhir.String> getLinkId();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ContractOffer#getLinkId <em>Link Id</em>}' containment reference.
+	 * Returns the value of the '<em><b>Security Label Number</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UnsignedInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Link Id</em>' containment reference.
-	 * @see #getLinkId()
+	 * <!-- begin-model-doc -->
+	 * Security labels that protects the offer.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Label Number</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractOffer_SecurityLabelNumber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityLabelNumber' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setLinkId(org.hl7.fhir.String value);
+	EList<UnsignedInt> getSecurityLabelNumber();
 
 } // ContractOffer

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -50,10 +51,12 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getFocus <em>Focus</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectiveTiming <em>Effective Timing</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getEffectiveInstant <em>Effective Instant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getValueQuantity <em>Value Quantity</em>}</li>
@@ -69,7 +72,7 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getDataAbsentReason <em>Data Absent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getInterpretation <em>Interpretation</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getComment <em>Comment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationImpl#getSpecimen <em>Specimen</em>}</li>
@@ -154,14 +157,24 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getFocus() <em>Focus</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getFocus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected EList<Reference> focus;
+
+	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
@@ -192,6 +205,16 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * @ordered
 	 */
 	protected Timing effectiveTiming;
+
+	/**
+	 * The cached value of the '{@link #getEffectiveInstant() <em>Effective Instant</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectiveInstant()
+	 * @generated
+	 * @ordered
+	 */
+	protected Instant effectiveInstant;
 
 	/**
 	 * The cached value of the '{@link #getIssued() <em>Issued</em>}' containment reference.
@@ -334,24 +357,24 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	protected CodeableConcept dataAbsentReason;
 
 	/**
-	 * The cached value of the '{@link #getInterpretation() <em>Interpretation</em>}' containment reference.
+	 * The cached value of the '{@link #getInterpretation() <em>Interpretation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterpretation()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept interpretation;
+	protected EList<CodeableConcept> interpretation;
 
 	/**
-	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference.
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComment()
+	 * @see #getNote()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String comment;
+	protected EList<Annotation> note;
 
 	/**
 	 * The cached value of the '{@link #getBodySite() <em>Body Site</em>}' containment reference.
@@ -634,8 +657,11 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public EList<Reference> getFocus() {
+		if (focus == null) {
+			focus = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.OBSERVATION__FOCUS);
+		}
+		return focus;
 	}
 
 	/**
@@ -643,11 +669,20 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public Reference getEncounter() {
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -658,18 +693,18 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -799,6 +834,49 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_TIMING, newEffectiveTiming, newEffectiveTiming));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Instant getEffectiveInstant() {
+		return effectiveInstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEffectiveInstant(Instant newEffectiveInstant, NotificationChain msgs) {
+		Instant oldEffectiveInstant = effectiveInstant;
+		effectiveInstant = newEffectiveInstant;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_INSTANT, oldEffectiveInstant, newEffectiveInstant);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEffectiveInstant(Instant newEffectiveInstant) {
+		if (newEffectiveInstant != effectiveInstant) {
+			NotificationChain msgs = null;
+			if (effectiveInstant != null)
+				msgs = ((InternalEObject)effectiveInstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__EFFECTIVE_INSTANT, null, msgs);
+			if (newEffectiveInstant != null)
+				msgs = ((InternalEObject)newEffectiveInstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__EFFECTIVE_INSTANT, null, msgs);
+			msgs = basicSetEffectiveInstant(newEffectiveInstant, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__EFFECTIVE_INSTANT, newEffectiveInstant, newEffectiveInstant));
 	}
 
 	/**
@@ -1377,7 +1455,10 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getInterpretation() {
+	public EList<CodeableConcept> getInterpretation() {
+		if (interpretation == null) {
+			interpretation = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION__INTERPRETATION);
+		}
 		return interpretation;
 	}
 
@@ -1386,76 +1467,11 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInterpretation(CodeableConcept newInterpretation, NotificationChain msgs) {
-		CodeableConcept oldInterpretation = interpretation;
-		interpretation = newInterpretation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__INTERPRETATION, oldInterpretation, newInterpretation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.OBSERVATION__NOTE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterpretation(CodeableConcept newInterpretation) {
-		if (newInterpretation != interpretation) {
-			NotificationChain msgs = null;
-			if (interpretation != null)
-				msgs = ((InternalEObject)interpretation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__INTERPRETATION, null, msgs);
-			if (newInterpretation != null)
-				msgs = ((InternalEObject)newInterpretation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__INTERPRETATION, null, msgs);
-			msgs = basicSetInterpretation(newInterpretation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__INTERPRETATION, newInterpretation, newInterpretation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getComment() {
-		return comment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComment(org.hl7.fhir.String newComment, NotificationChain msgs) {
-		org.hl7.fhir.String oldComment = comment;
-		comment = newComment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__COMMENT, oldComment, newComment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComment(org.hl7.fhir.String newComment) {
-		if (newComment != comment) {
-			NotificationChain msgs = null;
-			if (comment != null)
-				msgs = ((InternalEObject)comment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__COMMENT, null, msgs);
-			if (newComment != null)
-				msgs = ((InternalEObject)newComment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION__COMMENT, null, msgs);
-			msgs = basicSetComment(newComment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION__COMMENT, newComment, newComment));
+		return note;
 	}
 
 	/**
@@ -1700,14 +1716,18 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return basicSetCode(null, msgs);
 			case FhirPackage.OBSERVATION__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.OBSERVATION__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.OBSERVATION__FOCUS:
+				return ((InternalEList<?>)getFocus()).basicRemove(otherEnd, msgs);
+			case FhirPackage.OBSERVATION__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.OBSERVATION__EFFECTIVE_DATE_TIME:
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return basicSetEffectivePeriod(null, msgs);
 			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
 				return basicSetEffectiveTiming(null, msgs);
+			case FhirPackage.OBSERVATION__EFFECTIVE_INSTANT:
+				return basicSetEffectiveInstant(null, msgs);
 			case FhirPackage.OBSERVATION__ISSUED:
 				return basicSetIssued(null, msgs);
 			case FhirPackage.OBSERVATION__PERFORMER:
@@ -1737,9 +1757,9 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__DATA_ABSENT_REASON:
 				return basicSetDataAbsentReason(null, msgs);
 			case FhirPackage.OBSERVATION__INTERPRETATION:
-				return basicSetInterpretation(null, msgs);
-			case FhirPackage.OBSERVATION__COMMENT:
-				return basicSetComment(null, msgs);
+				return ((InternalEList<?>)getInterpretation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.OBSERVATION__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION__BODY_SITE:
 				return basicSetBodySite(null, msgs);
 			case FhirPackage.OBSERVATION__METHOD:
@@ -1782,14 +1802,18 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return getCode();
 			case FhirPackage.OBSERVATION__SUBJECT:
 				return getSubject();
-			case FhirPackage.OBSERVATION__CONTEXT:
-				return getContext();
+			case FhirPackage.OBSERVATION__FOCUS:
+				return getFocus();
+			case FhirPackage.OBSERVATION__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.OBSERVATION__EFFECTIVE_DATE_TIME:
 				return getEffectiveDateTime();
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return getEffectivePeriod();
 			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
 				return getEffectiveTiming();
+			case FhirPackage.OBSERVATION__EFFECTIVE_INSTANT:
+				return getEffectiveInstant();
 			case FhirPackage.OBSERVATION__ISSUED:
 				return getIssued();
 			case FhirPackage.OBSERVATION__PERFORMER:
@@ -1820,8 +1844,8 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return getDataAbsentReason();
 			case FhirPackage.OBSERVATION__INTERPRETATION:
 				return getInterpretation();
-			case FhirPackage.OBSERVATION__COMMENT:
-				return getComment();
+			case FhirPackage.OBSERVATION__NOTE:
+				return getNote();
 			case FhirPackage.OBSERVATION__BODY_SITE:
 				return getBodySite();
 			case FhirPackage.OBSERVATION__METHOD:
@@ -1876,8 +1900,12 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.OBSERVATION__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.OBSERVATION__FOCUS:
+				getFocus().clear();
+				getFocus().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.OBSERVATION__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.OBSERVATION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)newValue);
@@ -1887,6 +1915,9 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return;
 			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
 				setEffectiveTiming((Timing)newValue);
+				return;
+			case FhirPackage.OBSERVATION__EFFECTIVE_INSTANT:
+				setEffectiveInstant((Instant)newValue);
 				return;
 			case FhirPackage.OBSERVATION__ISSUED:
 				setIssued((Instant)newValue);
@@ -1932,10 +1963,12 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				setDataAbsentReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.OBSERVATION__INTERPRETATION:
-				setInterpretation((CodeableConcept)newValue);
+				getInterpretation().clear();
+				getInterpretation().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.OBSERVATION__COMMENT:
-				setComment((org.hl7.fhir.String)newValue);
+			case FhirPackage.OBSERVATION__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.OBSERVATION__BODY_SITE:
 				setBodySite((CodeableConcept)newValue);
@@ -1998,8 +2031,11 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.OBSERVATION__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.OBSERVATION__FOCUS:
+				getFocus().clear();
+				return;
+			case FhirPackage.OBSERVATION__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.OBSERVATION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)null);
@@ -2009,6 +2045,9 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return;
 			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
 				setEffectiveTiming((Timing)null);
+				return;
+			case FhirPackage.OBSERVATION__EFFECTIVE_INSTANT:
+				setEffectiveInstant((Instant)null);
 				return;
 			case FhirPackage.OBSERVATION__ISSUED:
 				setIssued((Instant)null);
@@ -2053,10 +2092,10 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				setDataAbsentReason((CodeableConcept)null);
 				return;
 			case FhirPackage.OBSERVATION__INTERPRETATION:
-				setInterpretation((CodeableConcept)null);
+				getInterpretation().clear();
 				return;
-			case FhirPackage.OBSERVATION__COMMENT:
-				setComment((org.hl7.fhir.String)null);
+			case FhirPackage.OBSERVATION__NOTE:
+				getNote().clear();
 				return;
 			case FhirPackage.OBSERVATION__BODY_SITE:
 				setBodySite((CodeableConcept)null);
@@ -2108,14 +2147,18 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 				return code != null;
 			case FhirPackage.OBSERVATION__SUBJECT:
 				return subject != null;
-			case FhirPackage.OBSERVATION__CONTEXT:
-				return context != null;
+			case FhirPackage.OBSERVATION__FOCUS:
+				return focus != null && !focus.isEmpty();
+			case FhirPackage.OBSERVATION__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.OBSERVATION__EFFECTIVE_DATE_TIME:
 				return effectiveDateTime != null;
 			case FhirPackage.OBSERVATION__EFFECTIVE_PERIOD:
 				return effectivePeriod != null;
 			case FhirPackage.OBSERVATION__EFFECTIVE_TIMING:
 				return effectiveTiming != null;
+			case FhirPackage.OBSERVATION__EFFECTIVE_INSTANT:
+				return effectiveInstant != null;
 			case FhirPackage.OBSERVATION__ISSUED:
 				return issued != null;
 			case FhirPackage.OBSERVATION__PERFORMER:
@@ -2145,9 +2188,9 @@ public class ObservationImpl extends DomainResourceImpl implements Observation {
 			case FhirPackage.OBSERVATION__DATA_ABSENT_REASON:
 				return dataAbsentReason != null;
 			case FhirPackage.OBSERVATION__INTERPRETATION:
-				return interpretation != null;
-			case FhirPackage.OBSERVATION__COMMENT:
-				return comment != null;
+				return interpretation != null && !interpretation.isEmpty();
+			case FhirPackage.OBSERVATION__NOTE:
+				return note != null && !note.isEmpty();
 			case FhirPackage.OBSERVATION__BODY_SITE:
 				return bodySite != null;
 			case FhirPackage.OBSERVATION__METHOD:

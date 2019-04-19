@@ -37,7 +37,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A persistent identifier for the batch that won't change as a batch is copied from server to server.
+	 * A persistent identifier for the bundle that won't change as a bundle is copied from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -63,7 +63,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the purpose of this bundle - how it was intended to be used.
+	 * Indicates the purpose of this bundle - how it is intended to be used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(BundleType)
@@ -115,7 +115,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
+	 * If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Total</em>' containment reference.
 	 * @see #setTotal(UnsignedInt)
@@ -158,7 +158,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).
+	 * An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Entry</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getBundle_Entry()
@@ -173,7 +173,7 @@ public interface Bundle extends Resource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Digital Signature - base64 encoded. XML-DSIg or a JWT.
+	 * Digital Signature - base64 encoded. XML-DSig or a JWT.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature</em>' containment reference.
 	 * @see #setSignature(Signature)

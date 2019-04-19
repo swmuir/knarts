@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,30 +29,20 @@ package org.hl7.fhir;
  */
 public interface CareTeamParticipant extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Role</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates specific responsibility of an individual within the care team, such as "Primary care physician", "Trained social worker counselor", "Caregiver", etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference.
-	 * @see #setRole(CodeableConcept)
+	 * @return the value of the '<em>Role</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCareTeamParticipant_Role()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getRole();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CareTeamParticipant#getRole <em>Role</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' containment reference.
-	 * @see #getRole()
-	 * @generated
-	 */
-	void setRole(CodeableConcept value);
+	EList<CodeableConcept> getRole();
 
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' containment reference.

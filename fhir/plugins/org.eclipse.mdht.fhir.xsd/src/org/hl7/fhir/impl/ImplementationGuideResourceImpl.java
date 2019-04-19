@@ -2,18 +2,27 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.hl7.fhir.Canonical;
+import org.hl7.fhir.FHIRVersion;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuideResource;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,27 +32,37 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getExample <em>Example</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getFhirVersion <em>Fhir Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getSourceUri <em>Source Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getSourceReference <em>Source Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getExampleFor <em>Example For</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getExampleBoolean <em>Example Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getExampleCanonical <em>Example Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideResourceImpl#getGroupingId <em>Grouping Id</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ImplementationGuideResourceImpl extends BackboneElementImpl implements ImplementationGuideResource {
 	/**
-	 * The cached value of the '{@link #getExample() <em>Example</em>}' containment reference.
+	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExample()
+	 * @see #getReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean example;
+	protected Reference reference;
+
+	/**
+	 * The cached value of the '{@link #getFhirVersion() <em>Fhir Version</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFhirVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FHIRVersion> fhirVersion;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
@@ -66,44 +85,34 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	protected org.hl7.fhir.String description;
 
 	/**
-	 * The cached value of the '{@link #getAcronym() <em>Acronym</em>}' containment reference.
+	 * The cached value of the '{@link #getExampleBoolean() <em>Example Boolean</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAcronym()
+	 * @see #getExampleBoolean()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String acronym;
+	protected org.hl7.fhir.Boolean exampleBoolean;
 
 	/**
-	 * The cached value of the '{@link #getSourceUri() <em>Source Uri</em>}' containment reference.
+	 * The cached value of the '{@link #getExampleCanonical() <em>Example Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourceUri()
+	 * @see #getExampleCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri sourceUri;
+	protected Canonical exampleCanonical;
 
 	/**
-	 * The cached value of the '{@link #getSourceReference() <em>Source Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getGroupingId() <em>Grouping Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourceReference()
+	 * @see #getGroupingId()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference sourceReference;
-
-	/**
-	 * The cached value of the '{@link #getExampleFor() <em>Example For</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExampleFor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference exampleFor;
+	protected Id groupingId;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,8 +138,8 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getExample() {
-		return example;
+	public Reference getReference() {
+		return reference;
 	}
 
 	/**
@@ -138,11 +147,11 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExample(org.hl7.fhir.Boolean newExample, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldExample = example;
-		example = newExample;
+	public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs) {
+		Reference oldReference = reference;
+		reference = newReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE, oldExample, newExample);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE, oldReference, newReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -153,18 +162,30 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExample(org.hl7.fhir.Boolean newExample) {
-		if (newExample != example) {
+	public void setReference(Reference newReference) {
+		if (newReference != reference) {
 			NotificationChain msgs = null;
-			if (example != null)
-				msgs = ((InternalEObject)example).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE, null, msgs);
-			if (newExample != null)
-				msgs = ((InternalEObject)newExample).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE, null, msgs);
-			msgs = basicSetExample(newExample, msgs);
+			if (reference != null)
+				msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE, null, msgs);
+			if (newReference != null)
+				msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE, null, msgs);
+			msgs = basicSetReference(newReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE, newExample, newExample));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE, newReference, newReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FHIRVersion> getFhirVersion() {
+		if (fhirVersion == null) {
+			fhirVersion = new EObjectContainmentEList<FHIRVersion>(FHIRVersion.class, this, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION);
+		}
+		return fhirVersion;
 	}
 
 	/**
@@ -258,8 +279,8 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getAcronym() {
-		return acronym;
+	public org.hl7.fhir.Boolean getExampleBoolean() {
+		return exampleBoolean;
 	}
 
 	/**
@@ -267,11 +288,11 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAcronym(org.hl7.fhir.String newAcronym, NotificationChain msgs) {
-		org.hl7.fhir.String oldAcronym = acronym;
-		acronym = newAcronym;
+	public NotificationChain basicSetExampleBoolean(org.hl7.fhir.Boolean newExampleBoolean, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldExampleBoolean = exampleBoolean;
+		exampleBoolean = newExampleBoolean;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM, oldAcronym, newAcronym);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN, oldExampleBoolean, newExampleBoolean);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -282,18 +303,18 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAcronym(org.hl7.fhir.String newAcronym) {
-		if (newAcronym != acronym) {
+	public void setExampleBoolean(org.hl7.fhir.Boolean newExampleBoolean) {
+		if (newExampleBoolean != exampleBoolean) {
 			NotificationChain msgs = null;
-			if (acronym != null)
-				msgs = ((InternalEObject)acronym).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM, null, msgs);
-			if (newAcronym != null)
-				msgs = ((InternalEObject)newAcronym).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM, null, msgs);
-			msgs = basicSetAcronym(newAcronym, msgs);
+			if (exampleBoolean != null)
+				msgs = ((InternalEObject)exampleBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN, null, msgs);
+			if (newExampleBoolean != null)
+				msgs = ((InternalEObject)newExampleBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN, null, msgs);
+			msgs = basicSetExampleBoolean(newExampleBoolean, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM, newAcronym, newAcronym));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN, newExampleBoolean, newExampleBoolean));
 	}
 
 	/**
@@ -301,8 +322,8 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getSourceUri() {
-		return sourceUri;
+	public Canonical getExampleCanonical() {
+		return exampleCanonical;
 	}
 
 	/**
@@ -310,11 +331,11 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSourceUri(Uri newSourceUri, NotificationChain msgs) {
-		Uri oldSourceUri = sourceUri;
-		sourceUri = newSourceUri;
+	public NotificationChain basicSetExampleCanonical(Canonical newExampleCanonical, NotificationChain msgs) {
+		Canonical oldExampleCanonical = exampleCanonical;
+		exampleCanonical = newExampleCanonical;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI, oldSourceUri, newSourceUri);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL, oldExampleCanonical, newExampleCanonical);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -325,18 +346,18 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceUri(Uri newSourceUri) {
-		if (newSourceUri != sourceUri) {
+	public void setExampleCanonical(Canonical newExampleCanonical) {
+		if (newExampleCanonical != exampleCanonical) {
 			NotificationChain msgs = null;
-			if (sourceUri != null)
-				msgs = ((InternalEObject)sourceUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI, null, msgs);
-			if (newSourceUri != null)
-				msgs = ((InternalEObject)newSourceUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI, null, msgs);
-			msgs = basicSetSourceUri(newSourceUri, msgs);
+			if (exampleCanonical != null)
+				msgs = ((InternalEObject)exampleCanonical).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL, null, msgs);
+			if (newExampleCanonical != null)
+				msgs = ((InternalEObject)newExampleCanonical).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL, null, msgs);
+			msgs = basicSetExampleCanonical(newExampleCanonical, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI, newSourceUri, newSourceUri));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL, newExampleCanonical, newExampleCanonical));
 	}
 
 	/**
@@ -344,8 +365,8 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSourceReference() {
-		return sourceReference;
+	public Id getGroupingId() {
+		return groupingId;
 	}
 
 	/**
@@ -353,11 +374,11 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSourceReference(Reference newSourceReference, NotificationChain msgs) {
-		Reference oldSourceReference = sourceReference;
-		sourceReference = newSourceReference;
+	public NotificationChain basicSetGroupingId(Id newGroupingId, NotificationChain msgs) {
+		Id oldGroupingId = groupingId;
+		groupingId = newGroupingId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE, oldSourceReference, newSourceReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID, oldGroupingId, newGroupingId);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -368,61 +389,18 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceReference(Reference newSourceReference) {
-		if (newSourceReference != sourceReference) {
+	public void setGroupingId(Id newGroupingId) {
+		if (newGroupingId != groupingId) {
 			NotificationChain msgs = null;
-			if (sourceReference != null)
-				msgs = ((InternalEObject)sourceReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE, null, msgs);
-			if (newSourceReference != null)
-				msgs = ((InternalEObject)newSourceReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE, null, msgs);
-			msgs = basicSetSourceReference(newSourceReference, msgs);
+			if (groupingId != null)
+				msgs = ((InternalEObject)groupingId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID, null, msgs);
+			if (newGroupingId != null)
+				msgs = ((InternalEObject)newGroupingId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID, null, msgs);
+			msgs = basicSetGroupingId(newGroupingId, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE, newSourceReference, newSourceReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getExampleFor() {
-		return exampleFor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExampleFor(Reference newExampleFor, NotificationChain msgs) {
-		Reference oldExampleFor = exampleFor;
-		exampleFor = newExampleFor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR, oldExampleFor, newExampleFor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExampleFor(Reference newExampleFor) {
-		if (newExampleFor != exampleFor) {
-			NotificationChain msgs = null;
-			if (exampleFor != null)
-				msgs = ((InternalEObject)exampleFor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR, null, msgs);
-			if (newExampleFor != null)
-				msgs = ((InternalEObject)newExampleFor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR, null, msgs);
-			msgs = basicSetExampleFor(newExampleFor, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR, newExampleFor, newExampleFor));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID, newGroupingId, newGroupingId));
 	}
 
 	/**
@@ -433,20 +411,20 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE:
-				return basicSetExample(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE:
+				return basicSetReference(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION:
+				return ((InternalEList<?>)getFhirVersion()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM:
-				return basicSetAcronym(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI:
-				return basicSetSourceUri(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE:
-				return basicSetSourceReference(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR:
-				return basicSetExampleFor(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN:
+				return basicSetExampleBoolean(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL:
+				return basicSetExampleCanonical(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID:
+				return basicSetGroupingId(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -459,20 +437,20 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE:
-				return getExample();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE:
+				return getReference();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION:
+				return getFhirVersion();
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__NAME:
 				return getName();
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM:
-				return getAcronym();
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI:
-				return getSourceUri();
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE:
-				return getSourceReference();
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR:
-				return getExampleFor();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN:
+				return getExampleBoolean();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL:
+				return getExampleCanonical();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID:
+				return getGroupingId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -482,11 +460,16 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE:
-				setExample((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE:
+				setReference((Reference)newValue);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION:
+				getFhirVersion().clear();
+				getFhirVersion().addAll((Collection<? extends FHIRVersion>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__NAME:
 				setName((org.hl7.fhir.String)newValue);
@@ -494,17 +477,14 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM:
-				setAcronym((org.hl7.fhir.String)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN:
+				setExampleBoolean((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI:
-				setSourceUri((Uri)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL:
+				setExampleCanonical((Canonical)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE:
-				setSourceReference((Reference)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR:
-				setExampleFor((Reference)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID:
+				setGroupingId((Id)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -518,8 +498,11 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE:
-				setExample((org.hl7.fhir.Boolean)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE:
+				setReference((Reference)null);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION:
+				getFhirVersion().clear();
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__NAME:
 				setName((org.hl7.fhir.String)null);
@@ -527,17 +510,14 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM:
-				setAcronym((org.hl7.fhir.String)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN:
+				setExampleBoolean((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI:
-				setSourceUri((Uri)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL:
+				setExampleCanonical((Canonical)null);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE:
-				setSourceReference((Reference)null);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR:
-				setExampleFor((Reference)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID:
+				setGroupingId((Id)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -551,20 +531,20 @@ public class ImplementationGuideResourceImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE:
-				return example != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__REFERENCE:
+				return reference != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__FHIR_VERSION:
+				return fhirVersion != null && !fhirVersion.isEmpty();
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__NAME:
 				return name != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__DESCRIPTION:
 				return description != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__ACRONYM:
-				return acronym != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_URI:
-				return sourceUri != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__SOURCE_REFERENCE:
-				return sourceReference != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_FOR:
-				return exampleFor != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_BOOLEAN:
+				return exampleBoolean != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__EXAMPLE_CANONICAL:
+				return exampleCanonical != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE__GROUPING_ID:
+				return groupingId != null;
 		}
 		return super.eIsSet(featureID);
 	}

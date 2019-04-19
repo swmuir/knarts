@@ -40,12 +40,13 @@ import org.hl7.fhir.UnsignedInt;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getCancelationReason <em>Cancelation Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getServiceCategory <em>Service Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getServiceType <em>Service Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getSpecialty <em>Specialty</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getAppointmentType <em>Appointment Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getReason <em>Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getIndication <em>Indication</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getSupportingInformation <em>Supporting Information</em>}</li>
@@ -56,7 +57,7 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getPatientInstruction <em>Patient Instruction</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getIncomingReferral <em>Incoming Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentImpl#getRequestedPeriod <em>Requested Period</em>}</li>
  * </ul>
@@ -85,14 +86,24 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	protected AppointmentStatus status;
 
 	/**
-	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCancelationReason() <em>Cancelation Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCancelationReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept cancelationReason;
+
+	/**
+	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getServiceCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept serviceCategory;
+	protected EList<CodeableConcept> serviceCategory;
 
 	/**
 	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference list.
@@ -125,24 +136,24 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	protected CodeableConcept appointmentType;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reason;
+	protected EList<CodeableConcept> reasonCode;
 
 	/**
-	 * The cached value of the '{@link #getIndication() <em>Indication</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIndication()
+	 * @see #getReasonReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> indication;
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -245,14 +256,14 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	protected org.hl7.fhir.String patientInstruction;
 
 	/**
-	 * The cached value of the '{@link #getIncomingReferral() <em>Incoming Referral</em>}' containment reference list.
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIncomingReferral()
+	 * @see #getBasedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> incomingReferral;
+	protected EList<Reference> basedOn;
 
 	/**
 	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
@@ -353,8 +364,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getServiceCategory() {
-		return serviceCategory;
+	public CodeableConcept getCancelationReason() {
+		return cancelationReason;
 	}
 
 	/**
@@ -362,11 +373,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetServiceCategory(CodeableConcept newServiceCategory, NotificationChain msgs) {
-		CodeableConcept oldServiceCategory = serviceCategory;
-		serviceCategory = newServiceCategory;
+	public NotificationChain basicSetCancelationReason(CodeableConcept newCancelationReason, NotificationChain msgs) {
+		CodeableConcept oldCancelationReason = cancelationReason;
+		cancelationReason = newCancelationReason;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT__SERVICE_CATEGORY, oldServiceCategory, newServiceCategory);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT__CANCELATION_REASON, oldCancelationReason, newCancelationReason);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -377,18 +388,30 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceCategory(CodeableConcept newServiceCategory) {
-		if (newServiceCategory != serviceCategory) {
+	public void setCancelationReason(CodeableConcept newCancelationReason) {
+		if (newCancelationReason != cancelationReason) {
 			NotificationChain msgs = null;
-			if (serviceCategory != null)
-				msgs = ((InternalEObject)serviceCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT__SERVICE_CATEGORY, null, msgs);
-			if (newServiceCategory != null)
-				msgs = ((InternalEObject)newServiceCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT__SERVICE_CATEGORY, null, msgs);
-			msgs = basicSetServiceCategory(newServiceCategory, msgs);
+			if (cancelationReason != null)
+				msgs = ((InternalEObject)cancelationReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT__CANCELATION_REASON, null, msgs);
+			if (newCancelationReason != null)
+				msgs = ((InternalEObject)newCancelationReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT__CANCELATION_REASON, null, msgs);
+			msgs = basicSetCancelationReason(newCancelationReason, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT__SERVICE_CATEGORY, newServiceCategory, newServiceCategory));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT__CANCELATION_REASON, newCancelationReason, newCancelationReason));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getServiceCategory() {
+		if (serviceCategory == null) {
+			serviceCategory = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__SERVICE_CATEGORY);
+		}
+		return serviceCategory;
 	}
 
 	/**
@@ -463,11 +486,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__REASON);
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.APPOINTMENT__REASON_CODE);
 		}
-		return reason;
+		return reasonCode;
 	}
 
 	/**
@@ -475,11 +498,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getIndication() {
-		if (indication == null) {
-			indication = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__INDICATION);
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__REASON_REFERENCE);
 		}
-		return indication;
+		return reasonReference;
 	}
 
 	/**
@@ -855,11 +878,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getIncomingReferral() {
-		if (incomingReferral == null) {
-			incomingReferral = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__INCOMING_REFERRAL);
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.APPOINTMENT__BASED_ON);
 		}
-		return incomingReferral;
+		return basedOn;
 	}
 
 	/**
@@ -898,18 +921,20 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.APPOINTMENT__CANCELATION_REASON:
+				return basicSetCancelationReason(null, msgs);
 			case FhirPackage.APPOINTMENT__SERVICE_CATEGORY:
-				return basicSetServiceCategory(null, msgs);
+				return ((InternalEList<?>)getServiceCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__SERVICE_TYPE:
 				return ((InternalEList<?>)getServiceType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__SPECIALTY:
 				return ((InternalEList<?>)getSpecialty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__APPOINTMENT_TYPE:
 				return basicSetAppointmentType(null, msgs);
-			case FhirPackage.APPOINTMENT__REASON:
-				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
-			case FhirPackage.APPOINTMENT__INDICATION:
-				return ((InternalEList<?>)getIndication()).basicRemove(otherEnd, msgs);
+			case FhirPackage.APPOINTMENT__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.APPOINTMENT__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.APPOINTMENT__DESCRIPTION:
@@ -930,8 +955,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return basicSetComment(null, msgs);
 			case FhirPackage.APPOINTMENT__PATIENT_INSTRUCTION:
 				return basicSetPatientInstruction(null, msgs);
-			case FhirPackage.APPOINTMENT__INCOMING_REFERRAL:
-				return ((InternalEList<?>)getIncomingReferral()).basicRemove(otherEnd, msgs);
+			case FhirPackage.APPOINTMENT__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
@@ -952,6 +977,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return getIdentifier();
 			case FhirPackage.APPOINTMENT__STATUS:
 				return getStatus();
+			case FhirPackage.APPOINTMENT__CANCELATION_REASON:
+				return getCancelationReason();
 			case FhirPackage.APPOINTMENT__SERVICE_CATEGORY:
 				return getServiceCategory();
 			case FhirPackage.APPOINTMENT__SERVICE_TYPE:
@@ -960,10 +987,10 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return getSpecialty();
 			case FhirPackage.APPOINTMENT__APPOINTMENT_TYPE:
 				return getAppointmentType();
-			case FhirPackage.APPOINTMENT__REASON:
-				return getReason();
-			case FhirPackage.APPOINTMENT__INDICATION:
-				return getIndication();
+			case FhirPackage.APPOINTMENT__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.APPOINTMENT__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.APPOINTMENT__PRIORITY:
 				return getPriority();
 			case FhirPackage.APPOINTMENT__DESCRIPTION:
@@ -984,8 +1011,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return getComment();
 			case FhirPackage.APPOINTMENT__PATIENT_INSTRUCTION:
 				return getPatientInstruction();
-			case FhirPackage.APPOINTMENT__INCOMING_REFERRAL:
-				return getIncomingReferral();
+			case FhirPackage.APPOINTMENT__BASED_ON:
+				return getBasedOn();
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return getParticipant();
 			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:
@@ -1010,8 +1037,12 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__STATUS:
 				setStatus((AppointmentStatus)newValue);
 				return;
+			case FhirPackage.APPOINTMENT__CANCELATION_REASON:
+				setCancelationReason((CodeableConcept)newValue);
+				return;
 			case FhirPackage.APPOINTMENT__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)newValue);
+				getServiceCategory().clear();
+				getServiceCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.APPOINTMENT__SERVICE_TYPE:
 				getServiceType().clear();
@@ -1024,13 +1055,13 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__APPOINTMENT_TYPE:
 				setAppointmentType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.APPOINTMENT__REASON:
-				getReason().clear();
-				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.APPOINTMENT__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.APPOINTMENT__INDICATION:
-				getIndication().clear();
-				getIndication().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.APPOINTMENT__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.APPOINTMENT__PRIORITY:
 				setPriority((UnsignedInt)newValue);
@@ -1064,9 +1095,9 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__PATIENT_INSTRUCTION:
 				setPatientInstruction((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.APPOINTMENT__INCOMING_REFERRAL:
-				getIncomingReferral().clear();
-				getIncomingReferral().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.APPOINTMENT__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				getParticipant().clear();
@@ -1094,8 +1125,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__STATUS:
 				setStatus((AppointmentStatus)null);
 				return;
+			case FhirPackage.APPOINTMENT__CANCELATION_REASON:
+				setCancelationReason((CodeableConcept)null);
+				return;
 			case FhirPackage.APPOINTMENT__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)null);
+				getServiceCategory().clear();
 				return;
 			case FhirPackage.APPOINTMENT__SERVICE_TYPE:
 				getServiceType().clear();
@@ -1106,11 +1140,11 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__APPOINTMENT_TYPE:
 				setAppointmentType((CodeableConcept)null);
 				return;
-			case FhirPackage.APPOINTMENT__REASON:
-				getReason().clear();
+			case FhirPackage.APPOINTMENT__REASON_CODE:
+				getReasonCode().clear();
 				return;
-			case FhirPackage.APPOINTMENT__INDICATION:
-				getIndication().clear();
+			case FhirPackage.APPOINTMENT__REASON_REFERENCE:
+				getReasonReference().clear();
 				return;
 			case FhirPackage.APPOINTMENT__PRIORITY:
 				setPriority((UnsignedInt)null);
@@ -1142,8 +1176,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 			case FhirPackage.APPOINTMENT__PATIENT_INSTRUCTION:
 				setPatientInstruction((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.APPOINTMENT__INCOMING_REFERRAL:
-				getIncomingReferral().clear();
+			case FhirPackage.APPOINTMENT__BASED_ON:
+				getBasedOn().clear();
 				return;
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				getParticipant().clear();
@@ -1167,18 +1201,20 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.APPOINTMENT__STATUS:
 				return status != null;
+			case FhirPackage.APPOINTMENT__CANCELATION_REASON:
+				return cancelationReason != null;
 			case FhirPackage.APPOINTMENT__SERVICE_CATEGORY:
-				return serviceCategory != null;
+				return serviceCategory != null && !serviceCategory.isEmpty();
 			case FhirPackage.APPOINTMENT__SERVICE_TYPE:
 				return serviceType != null && !serviceType.isEmpty();
 			case FhirPackage.APPOINTMENT__SPECIALTY:
 				return specialty != null && !specialty.isEmpty();
 			case FhirPackage.APPOINTMENT__APPOINTMENT_TYPE:
 				return appointmentType != null;
-			case FhirPackage.APPOINTMENT__REASON:
-				return reason != null && !reason.isEmpty();
-			case FhirPackage.APPOINTMENT__INDICATION:
-				return indication != null && !indication.isEmpty();
+			case FhirPackage.APPOINTMENT__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.APPOINTMENT__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.APPOINTMENT__PRIORITY:
 				return priority != null;
 			case FhirPackage.APPOINTMENT__DESCRIPTION:
@@ -1199,8 +1235,8 @@ public class AppointmentImpl extends DomainResourceImpl implements Appointment {
 				return comment != null;
 			case FhirPackage.APPOINTMENT__PATIENT_INSTRUCTION:
 				return patientInstruction != null;
-			case FhirPackage.APPOINTMENT__INCOMING_REFERRAL:
-				return incomingReferral != null && !incomingReferral.isEmpty();
+			case FhirPackage.APPOINTMENT__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.APPOINTMENT__PARTICIPANT:
 				return participant != null && !participant.isEmpty();
 			case FhirPackage.APPOINTMENT__REQUESTED_PERIOD:

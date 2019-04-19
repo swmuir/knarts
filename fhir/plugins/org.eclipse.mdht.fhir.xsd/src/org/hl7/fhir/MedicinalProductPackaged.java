@@ -19,8 +19,12 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getMarketingStatus <em>Marketing Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getMarketingAuthorization <em>Marketing Authorization</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getBatchIdentifier <em>Batch Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackaged#getPackageItem <em>Package Item</em>}</li>
  * </ul>
@@ -31,30 +35,36 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MedicinalProductPackaged extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Unique identifier.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackaged_Identifier()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	EList<Identifier> getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductPackaged#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * <!-- begin-model-doc -->
+	 * The product with this is a pack for.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackaged_Subject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	EList<Reference> getSubject();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
@@ -83,6 +93,32 @@ public interface MedicinalProductPackaged extends DomainResource {
 	void setDescription(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Legal Status Of Supply</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The legal status of supply of the medicinal product as classified by the regulator.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Legal Status Of Supply</em>' containment reference.
+	 * @see #setLegalStatusOfSupply(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackaged_LegalStatusOfSupply()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='legalStatusOfSupply' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getLegalStatusOfSupply();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductPackaged#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Legal Status Of Supply</em>' containment reference.
+	 * @see #getLegalStatusOfSupply()
+	 * @generated
+	 */
+	void setLegalStatusOfSupply(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Marketing Status</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.MarketingStatus}.
 	 * <!-- begin-user-doc -->
@@ -97,6 +133,48 @@ public interface MedicinalProductPackaged extends DomainResource {
 	 * @generated
 	 */
 	EList<MarketingStatus> getMarketingStatus();
+
+	/**
+	 * Returns the value of the '<em><b>Marketing Authorization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Manufacturer of this Package Item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Marketing Authorization</em>' containment reference.
+	 * @see #setMarketingAuthorization(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackaged_MarketingAuthorization()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='marketingAuthorization' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getMarketingAuthorization();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductPackaged#getMarketingAuthorization <em>Marketing Authorization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Marketing Authorization</em>' containment reference.
+	 * @see #getMarketingAuthorization()
+	 * @generated
+	 */
+	void setMarketingAuthorization(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Manufacturer of this Package Item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Manufacturer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackaged_Manufacturer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='manufacturer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getManufacturer();
 
 	/**
 	 * Returns the value of the '<em><b>Batch Identifier</b></em>' containment reference list.

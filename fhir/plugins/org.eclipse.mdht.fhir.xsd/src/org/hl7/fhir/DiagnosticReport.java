@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReport#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getIssued <em>Issued</em>}</li>
@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getConclusion <em>Conclusion</em>}</li>
- *   <li>{@link org.hl7.fhir.DiagnosticReport#getCodedDiagnosis <em>Coded Diagnosis</em>}</li>
+ *   <li>{@link org.hl7.fhir.DiagnosticReport#getConclusionCode <em>Conclusion Code</em>}</li>
  *   <li>{@link org.hl7.fhir.DiagnosticReport#getPresentedForm <em>Presented Form</em>}</li>
  * </ul>
  *
@@ -81,7 +81,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the diagnostic report as a whole.
+	 * The status of the diagnostic report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(DiagnosticReportStatus)
@@ -103,30 +103,20 @@ public interface DiagnosticReport extends DomainResource {
 	void setStatus(DiagnosticReportStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReport#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -159,7 +149,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
+	 * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
@@ -181,30 +171,30 @@ public interface DiagnosticReport extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport per is about.
+	 * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReport#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DiagnosticReport#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -340,7 +330,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").
+	 * [Observations](observation.html)  that are part of this diagnostic report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Result</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_Result()
@@ -387,7 +377,7 @@ public interface DiagnosticReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Concise and clinically contextualized impression / summary of the diagnostic report.
+	 * Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Conclusion</em>' containment reference.
 	 * @see #setConclusion(org.hl7.fhir.String)
@@ -409,20 +399,20 @@ public interface DiagnosticReport extends DomainResource {
 	void setConclusion(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Coded Diagnosis</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Conclusion Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Codes for the conclusion.
+	 * One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Coded Diagnosis</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_CodedDiagnosis()
+	 * @return the value of the '<em>Conclusion Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDiagnosticReport_ConclusionCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='codedDiagnosis' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='conclusionCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getCodedDiagnosis();
+	EList<CodeableConcept> getConclusionCode();
 
 	/**
 	 * Returns the value of the '<em><b>Presented Form</b></em>' containment reference list.

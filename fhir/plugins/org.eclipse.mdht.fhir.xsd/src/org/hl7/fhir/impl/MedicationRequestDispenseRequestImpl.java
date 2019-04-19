@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
+import org.hl7.fhir.MedicationRequestInitialFill;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
@@ -26,6 +27,8 @@ import org.hl7.fhir.UnsignedInt;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestDispenseRequestImpl#getInitialFill <em>Initial Fill</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestDispenseRequestImpl#getDispenseInterval <em>Dispense Interval</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestDispenseRequestImpl#getValidityPeriod <em>Validity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestDispenseRequestImpl#getNumberOfRepeatsAllowed <em>Number Of Repeats Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestDispenseRequestImpl#getQuantity <em>Quantity</em>}</li>
@@ -36,6 +39,26 @@ import org.hl7.fhir.UnsignedInt;
  * @generated
  */
 public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl implements MedicationRequestDispenseRequest {
+	/**
+	 * The cached value of the '{@link #getInitialFill() <em>Initial Fill</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialFill()
+	 * @generated
+	 * @ordered
+	 */
+	protected MedicationRequestInitialFill initialFill;
+
+	/**
+	 * The cached value of the '{@link #getDispenseInterval() <em>Dispense Interval</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDispenseInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration dispenseInterval;
+
 	/**
 	 * The cached value of the '{@link #getValidityPeriod() <em>Validity Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -103,6 +126,92 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedicationRequestDispenseRequest();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationRequestInitialFill getInitialFill() {
+		return initialFill;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitialFill(MedicationRequestInitialFill newInitialFill, NotificationChain msgs) {
+		MedicationRequestInitialFill oldInitialFill = initialFill;
+		initialFill = newInitialFill;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL, oldInitialFill, newInitialFill);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialFill(MedicationRequestInitialFill newInitialFill) {
+		if (newInitialFill != initialFill) {
+			NotificationChain msgs = null;
+			if (initialFill != null)
+				msgs = ((InternalEObject)initialFill).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL, null, msgs);
+			if (newInitialFill != null)
+				msgs = ((InternalEObject)newInitialFill).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL, null, msgs);
+			msgs = basicSetInitialFill(newInitialFill, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL, newInitialFill, newInitialFill));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Duration getDispenseInterval() {
+		return dispenseInterval;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDispenseInterval(Duration newDispenseInterval, NotificationChain msgs) {
+		Duration oldDispenseInterval = dispenseInterval;
+		dispenseInterval = newDispenseInterval;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL, oldDispenseInterval, newDispenseInterval);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDispenseInterval(Duration newDispenseInterval) {
+		if (newDispenseInterval != dispenseInterval) {
+			NotificationChain msgs = null;
+			if (dispenseInterval != null)
+				msgs = ((InternalEObject)dispenseInterval).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL, null, msgs);
+			if (newDispenseInterval != null)
+				msgs = ((InternalEObject)newDispenseInterval).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL, null, msgs);
+			msgs = basicSetDispenseInterval(newDispenseInterval, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL, newDispenseInterval, newDispenseInterval));
 	}
 
 	/**
@@ -328,6 +437,10 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL:
+				return basicSetInitialFill(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL:
+				return basicSetDispenseInterval(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return basicSetValidityPeriod(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:
@@ -350,6 +463,10 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL:
+				return getInitialFill();
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL:
+				return getDispenseInterval();
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return getValidityPeriod();
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:
@@ -372,6 +489,12 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL:
+				setInitialFill((MedicationRequestInitialFill)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL:
+				setDispenseInterval((Duration)newValue);
+				return;
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				setValidityPeriod((Period)newValue);
 				return;
@@ -399,6 +522,12 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL:
+				setInitialFill((MedicationRequestInitialFill)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL:
+				setDispenseInterval((Duration)null);
+				return;
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				setValidityPeriod((Period)null);
 				return;
@@ -426,6 +555,10 @@ public class MedicationRequestDispenseRequestImpl extends BackboneElementImpl im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__INITIAL_FILL:
+				return initialFill != null;
+			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__DISPENSE_INTERVAL:
+				return dispenseInterval != null;
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__VALIDITY_PERIOD:
 				return validityPeriod != null;
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST__NUMBER_OF_REPEATS_ALLOWED:

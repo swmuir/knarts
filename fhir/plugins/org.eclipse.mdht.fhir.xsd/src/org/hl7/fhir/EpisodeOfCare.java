@@ -226,7 +226,7 @@ public interface EpisodeOfCare extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The practitioner that is the care manager/care co-ordinator for this patient.
+	 * The practitioner that is the care manager/care coordinator for this patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Care Manager</em>' containment reference.
 	 * @see #setCareManager(Reference)

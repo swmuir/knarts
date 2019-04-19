@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A value set specifies a set of codes drawn from one or more code systems.
+ * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,7 +31,7 @@ public interface ValueSetFilter extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that identifies a property defined in the code system.
+	 * A code that identifies a property or a filter defined in the code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference.
 	 * @see #setProperty(Code)
@@ -83,16 +83,16 @@ public interface ValueSetFilter extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
+	 * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
-	 * @see #setValue(Code)
+	 * @see #setValue(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getValueSetFilter_Value()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Code getValue();
+	org.hl7.fhir.String getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ValueSetFilter#getValue <em>Value</em>}' containment reference.
@@ -102,6 +102,6 @@ public interface ValueSetFilter extends BackboneElement {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Code value);
+	void setValue(org.hl7.fhir.String value);
 
 } // ValueSetFilter

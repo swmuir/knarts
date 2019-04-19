@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 
 /**
@@ -34,7 +33,6 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getLinkId <em>Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getAnswer <em>Answer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseItemImpl#getItem <em>Item</em>}</li>
  * </ul>
@@ -71,16 +69,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String text;
-
-	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubject()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getAnswer() <em>Answer</em>}' containment reference list.
@@ -255,49 +243,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
-		return subject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT, oldSubject, newSubject);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
-			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT, newSubject, newSubject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<QuestionnaireResponseAnswer> getAnswer() {
 		if (answer == null) {
 			answer = new EObjectContainmentEList<QuestionnaireResponseAnswer>(QuestionnaireResponseAnswer.class, this, FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER);
@@ -331,8 +276,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 				return basicSetDefinition(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return basicSetText(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
-				return basicSetSubject(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER:
 				return ((InternalEList<?>)getAnswer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ITEM:
@@ -355,8 +298,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 				return getDefinition();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return getText();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
-				return getSubject();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER:
 				return getAnswer();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ITEM:
@@ -382,9 +323,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				setText((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
-				setSubject((Reference)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER:
 				getAnswer().clear();
@@ -415,9 +353,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				setText((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
-				setSubject((Reference)null);
-				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER:
 				getAnswer().clear();
 				return;
@@ -442,8 +377,6 @@ public class QuestionnaireResponseItemImpl extends BackboneElementImpl implement
 				return definition != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__TEXT:
 				return text != null;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__SUBJECT:
-				return subject != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ANSWER:
 				return answer != null && !answer.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM__ITEM:

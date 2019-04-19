@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.ConceptMapGroupUnmappedMode;
 import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,7 +71,7 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri url;
+	protected Canonical url;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,7 +226,7 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUrl() {
+	public Canonical getUrl() {
 		return url;
 	}
 
@@ -235,8 +235,8 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
-		Uri oldUrl = url;
+	public NotificationChain basicSetUrl(Canonical newUrl, NotificationChain msgs) {
+		Canonical oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP_UNMAPPED__URL, oldUrl, newUrl);
@@ -250,7 +250,7 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUrl(Uri newUrl) {
+	public void setUrl(Canonical newUrl) {
 		if (newUrl != url) {
 			NotificationChain msgs = null;
 			if (url != null)
@@ -322,7 +322,7 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 				setDisplay((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP_UNMAPPED__URL:
-				setUrl((Uri)newValue);
+				setUrl((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,7 +346,7 @@ public class ConceptMapUnmappedImpl extends BackboneElementImpl implements Conce
 				setDisplay((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CONCEPT_MAP_UNMAPPED__URL:
-				setUrl((Uri)null);
+				setUrl((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

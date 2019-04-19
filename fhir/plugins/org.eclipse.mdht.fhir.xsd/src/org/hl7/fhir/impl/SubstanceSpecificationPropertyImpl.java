@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Quantity;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.SubstanceSpecificationProperty;
 
 /**
@@ -23,36 +24,37 @@ import org.hl7.fhir.SubstanceSpecificationProperty;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getSubstanceId <em>Substance Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getSubstanceName <em>Substance Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getDefiningSubstanceReference <em>Defining Substance Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getDefiningSubstanceCodeableConcept <em>Defining Substance Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getAmountQuantity <em>Amount Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationPropertyImpl#getAmountString <em>Amount String</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl implements SubstanceSpecificationProperty {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected CodeableConcept category;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept name;
+	protected CodeableConcept code;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
@@ -65,34 +67,44 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	protected org.hl7.fhir.String parameters;
 
 	/**
-	 * The cached value of the '{@link #getSubstanceId() <em>Substance Id</em>}' containment reference.
+	 * The cached value of the '{@link #getDefiningSubstanceReference() <em>Defining Substance Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubstanceId()
+	 * @see #getDefiningSubstanceReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier substanceId;
+	protected Reference definingSubstanceReference;
 
 	/**
-	 * The cached value of the '{@link #getSubstanceName() <em>Substance Name</em>}' containment reference.
+	 * The cached value of the '{@link #getDefiningSubstanceCodeableConcept() <em>Defining Substance Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubstanceName()
+	 * @see #getDefiningSubstanceCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String substanceName;
+	protected CodeableConcept definingSubstanceCodeableConcept;
 
 	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+	 * The cached value of the '{@link #getAmountQuantity() <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAmount()
+	 * @see #getAmountQuantity()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String amount;
+	protected Quantity amountQuantity;
+
+	/**
+	 * The cached value of the '{@link #getAmountString() <em>Amount String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAmountString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String amountString;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,8 +130,8 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public CodeableConcept getCategory() {
+		return category;
 	}
 
 	/**
@@ -127,11 +139,11 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
+		CodeableConcept oldCategory = category;
+		category = newCategory;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY, oldCategory, newCategory);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -142,18 +154,18 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setCategory(CodeableConcept newCategory) {
+		if (newCategory != category) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (category != null)
+				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY, null, msgs);
+			if (newCategory != null)
+				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY, null, msgs);
+			msgs = basicSetCategory(newCategory, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -161,8 +173,8 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getName() {
-		return name;
+	public CodeableConcept getCode() {
+		return code;
 	}
 
 	/**
@@ -170,11 +182,11 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetName(CodeableConcept newName, NotificationChain msgs) {
-		CodeableConcept oldName = name;
-		name = newName;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
+		code = newCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME, oldName, newName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE, oldCode, newCode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -185,18 +197,18 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(CodeableConcept newName) {
-		if (newName != name) {
+	public void setCode(CodeableConcept newCode) {
+		if (newCode != code) {
 			NotificationChain msgs = null;
-			if (name != null)
-				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME, null, msgs);
-			if (newName != null)
-				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME, null, msgs);
-			msgs = basicSetName(newName, msgs);
+			if (code != null)
+				msgs = ((InternalEObject)code).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE, null, msgs);
+			if (newCode != null)
+				msgs = ((InternalEObject)newCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE, null, msgs);
+			msgs = basicSetCode(newCode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME, newName, newName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE, newCode, newCode));
 	}
 
 	/**
@@ -247,8 +259,8 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getSubstanceId() {
-		return substanceId;
+	public Reference getDefiningSubstanceReference() {
+		return definingSubstanceReference;
 	}
 
 	/**
@@ -256,11 +268,11 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubstanceId(Identifier newSubstanceId, NotificationChain msgs) {
-		Identifier oldSubstanceId = substanceId;
-		substanceId = newSubstanceId;
+	public NotificationChain basicSetDefiningSubstanceReference(Reference newDefiningSubstanceReference, NotificationChain msgs) {
+		Reference oldDefiningSubstanceReference = definingSubstanceReference;
+		definingSubstanceReference = newDefiningSubstanceReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID, oldSubstanceId, newSubstanceId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE, oldDefiningSubstanceReference, newDefiningSubstanceReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -271,18 +283,18 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubstanceId(Identifier newSubstanceId) {
-		if (newSubstanceId != substanceId) {
+	public void setDefiningSubstanceReference(Reference newDefiningSubstanceReference) {
+		if (newDefiningSubstanceReference != definingSubstanceReference) {
 			NotificationChain msgs = null;
-			if (substanceId != null)
-				msgs = ((InternalEObject)substanceId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID, null, msgs);
-			if (newSubstanceId != null)
-				msgs = ((InternalEObject)newSubstanceId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID, null, msgs);
-			msgs = basicSetSubstanceId(newSubstanceId, msgs);
+			if (definingSubstanceReference != null)
+				msgs = ((InternalEObject)definingSubstanceReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE, null, msgs);
+			if (newDefiningSubstanceReference != null)
+				msgs = ((InternalEObject)newDefiningSubstanceReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE, null, msgs);
+			msgs = basicSetDefiningSubstanceReference(newDefiningSubstanceReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID, newSubstanceId, newSubstanceId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE, newDefiningSubstanceReference, newDefiningSubstanceReference));
 	}
 
 	/**
@@ -290,8 +302,8 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getSubstanceName() {
-		return substanceName;
+	public CodeableConcept getDefiningSubstanceCodeableConcept() {
+		return definingSubstanceCodeableConcept;
 	}
 
 	/**
@@ -299,11 +311,11 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubstanceName(org.hl7.fhir.String newSubstanceName, NotificationChain msgs) {
-		org.hl7.fhir.String oldSubstanceName = substanceName;
-		substanceName = newSubstanceName;
+	public NotificationChain basicSetDefiningSubstanceCodeableConcept(CodeableConcept newDefiningSubstanceCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldDefiningSubstanceCodeableConcept = definingSubstanceCodeableConcept;
+		definingSubstanceCodeableConcept = newDefiningSubstanceCodeableConcept;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME, oldSubstanceName, newSubstanceName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT, oldDefiningSubstanceCodeableConcept, newDefiningSubstanceCodeableConcept);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,18 +326,18 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubstanceName(org.hl7.fhir.String newSubstanceName) {
-		if (newSubstanceName != substanceName) {
+	public void setDefiningSubstanceCodeableConcept(CodeableConcept newDefiningSubstanceCodeableConcept) {
+		if (newDefiningSubstanceCodeableConcept != definingSubstanceCodeableConcept) {
 			NotificationChain msgs = null;
-			if (substanceName != null)
-				msgs = ((InternalEObject)substanceName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME, null, msgs);
-			if (newSubstanceName != null)
-				msgs = ((InternalEObject)newSubstanceName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME, null, msgs);
-			msgs = basicSetSubstanceName(newSubstanceName, msgs);
+			if (definingSubstanceCodeableConcept != null)
+				msgs = ((InternalEObject)definingSubstanceCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT, null, msgs);
+			if (newDefiningSubstanceCodeableConcept != null)
+				msgs = ((InternalEObject)newDefiningSubstanceCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetDefiningSubstanceCodeableConcept(newDefiningSubstanceCodeableConcept, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME, newSubstanceName, newSubstanceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT, newDefiningSubstanceCodeableConcept, newDefiningSubstanceCodeableConcept));
 	}
 
 	/**
@@ -333,8 +345,8 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getAmount() {
-		return amount;
+	public Quantity getAmountQuantity() {
+		return amountQuantity;
 	}
 
 	/**
@@ -342,11 +354,11 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(org.hl7.fhir.String newAmount, NotificationChain msgs) {
-		org.hl7.fhir.String oldAmount = amount;
-		amount = newAmount;
+	public NotificationChain basicSetAmountQuantity(Quantity newAmountQuantity, NotificationChain msgs) {
+		Quantity oldAmountQuantity = amountQuantity;
+		amountQuantity = newAmountQuantity;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT, oldAmount, newAmount);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY, oldAmountQuantity, newAmountQuantity);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -357,18 +369,61 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(org.hl7.fhir.String newAmount) {
-		if (newAmount != amount) {
+	public void setAmountQuantity(Quantity newAmountQuantity) {
+		if (newAmountQuantity != amountQuantity) {
 			NotificationChain msgs = null;
-			if (amount != null)
-				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT, null, msgs);
-			if (newAmount != null)
-				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT, null, msgs);
-			msgs = basicSetAmount(newAmount, msgs);
+			if (amountQuantity != null)
+				msgs = ((InternalEObject)amountQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY, null, msgs);
+			if (newAmountQuantity != null)
+				msgs = ((InternalEObject)newAmountQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY, null, msgs);
+			msgs = basicSetAmountQuantity(newAmountQuantity, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT, newAmount, newAmount));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY, newAmountQuantity, newAmountQuantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getAmountString() {
+		return amountString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAmountString(org.hl7.fhir.String newAmountString, NotificationChain msgs) {
+		org.hl7.fhir.String oldAmountString = amountString;
+		amountString = newAmountString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING, oldAmountString, newAmountString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAmountString(org.hl7.fhir.String newAmountString) {
+		if (newAmountString != amountString) {
+			NotificationChain msgs = null;
+			if (amountString != null)
+				msgs = ((InternalEObject)amountString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING, null, msgs);
+			if (newAmountString != null)
+				msgs = ((InternalEObject)newAmountString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING, null, msgs);
+			msgs = basicSetAmountString(newAmountString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING, newAmountString, newAmountString));
 	}
 
 	/**
@@ -379,18 +434,20 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME:
-				return basicSetName(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY:
+				return basicSetCategory(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE:
+				return basicSetCode(null, msgs);
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__PARAMETERS:
 				return basicSetParameters(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID:
-				return basicSetSubstanceId(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME:
-				return basicSetSubstanceName(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT:
-				return basicSetAmount(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE:
+				return basicSetDefiningSubstanceReference(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT:
+				return basicSetDefiningSubstanceCodeableConcept(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY:
+				return basicSetAmountQuantity(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING:
+				return basicSetAmountString(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -403,18 +460,20 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE:
-				return getType();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME:
-				return getName();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY:
+				return getCategory();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE:
+				return getCode();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__PARAMETERS:
 				return getParameters();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID:
-				return getSubstanceId();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME:
-				return getSubstanceName();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT:
-				return getAmount();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE:
+				return getDefiningSubstanceReference();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT:
+				return getDefiningSubstanceCodeableConcept();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY:
+				return getAmountQuantity();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING:
+				return getAmountString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -427,23 +486,26 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY:
+				setCategory((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME:
-				setName((CodeableConcept)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE:
+				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__PARAMETERS:
 				setParameters((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID:
-				setSubstanceId((Identifier)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE:
+				setDefiningSubstanceReference((Reference)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME:
-				setSubstanceName((org.hl7.fhir.String)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT:
+				setDefiningSubstanceCodeableConcept((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT:
-				setAmount((org.hl7.fhir.String)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY:
+				setAmountQuantity((Quantity)newValue);
+				return;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING:
+				setAmountString((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -457,23 +519,26 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY:
+				setCategory((CodeableConcept)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME:
-				setName((CodeableConcept)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE:
+				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__PARAMETERS:
 				setParameters((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID:
-				setSubstanceId((Identifier)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE:
+				setDefiningSubstanceReference((Reference)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME:
-				setSubstanceName((org.hl7.fhir.String)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT:
+				setDefiningSubstanceCodeableConcept((CodeableConcept)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT:
-				setAmount((org.hl7.fhir.String)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY:
+				setAmountQuantity((Quantity)null);
+				return;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING:
+				setAmountString((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -487,18 +552,20 @@ public class SubstanceSpecificationPropertyImpl extends BackboneElementImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__TYPE:
-				return type != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__NAME:
-				return name != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CATEGORY:
+				return category != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__CODE:
+				return code != null;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__PARAMETERS:
 				return parameters != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_ID:
-				return substanceId != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__SUBSTANCE_NAME:
-				return substanceName != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT:
-				return amount != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_REFERENCE:
+				return definingSubstanceReference != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__DEFINING_SUBSTANCE_CODEABLE_CONCEPT:
+				return definingSubstanceCodeableConcept != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_QUANTITY:
+				return amountQuantity != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY__AMOUNT_STRING:
+				return amountString != null;
 		}
 		return super.eIsSet(featureID);
 	}

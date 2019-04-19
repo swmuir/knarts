@@ -97,29 +97,19 @@ public interface ExampleScenarioStep extends BackboneElement {
 	void setOperation(ExampleScenarioOperation value);
 
 	/**
-	 * Returns the value of the '<em><b>Alternative</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Alternative</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExampleScenarioAlternative}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Each interaction in the workflow.
+	 * Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Alternative</em>' containment reference.
-	 * @see #setAlternative(ExampleScenarioAlternative)
+	 * @return the value of the '<em>Alternative</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExampleScenarioStep_Alternative()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='alternative' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExampleScenarioAlternative getAlternative();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExampleScenarioStep#getAlternative <em>Alternative</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alternative</em>' containment reference.
-	 * @see #getAlternative()
-	 * @generated
-	 */
-	void setAlternative(ExampleScenarioAlternative value);
+	EList<ExampleScenarioAlternative> getAlternative();
 
 } // ExampleScenarioStep

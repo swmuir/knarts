@@ -20,10 +20,13 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.Immunization#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getOccurrenceString <em>Occurrence String</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getPrimarySource <em>Primary Source</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getReportOrigin <em>Report Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getLocation <em>Location</em>}</li>
@@ -33,12 +36,17 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Immunization#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getDoseQuantity <em>Dose Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getPractitioner <em>Practitioner</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getNote <em>Note</em>}</li>
- *   <li>{@link org.hl7.fhir.Immunization#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getIsSubpotent <em>Is Subpotent</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getSubpotentReason <em>Subpotent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getEducation <em>Education</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getProgramEligibility <em>Program Eligibility</em>}</li>
  *   <li>{@link org.hl7.fhir.Immunization#getFundingSource <em>Funding Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getReaction <em>Reaction</em>}</li>
+ *   <li>{@link org.hl7.fhir.Immunization#getProtocolApplied <em>Protocol Applied</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getImmunization()
@@ -87,6 +95,32 @@ public interface Immunization extends DomainResource {
 	 * @generated
 	 */
 	void setStatus(ImmunizationStatusCodes value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the reason the immunization event was not performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Reason</em>' containment reference.
+	 * @see #setStatusReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_StatusReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getStatusReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getStatusReason <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason</em>' containment reference.
+	 * @see #getStatusReason()
+	 * @generated
+	 */
+	void setStatusReason(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Vaccine Code</b></em>' containment reference.
@@ -167,30 +201,84 @@ public interface Immunization extends DomainResource {
 	void setEncounter(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Occurrence Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #setOccurrenceDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_OccurrenceDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getOccurrenceDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getOccurrenceDateTime <em>Occurrence Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence Date Time</em>' containment reference.
+	 * @see #getOccurrenceDateTime()
+	 * @generated
+	 */
+	void setOccurrenceDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Occurrence String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Occurrence String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Occurrence String</em>' containment reference.
+	 * @see #setOccurrenceString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_OccurrenceString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='occurrenceString' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getOccurrenceString();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getOccurrenceString <em>Occurrence String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Occurrence String</em>' containment reference.
+	 * @see #getOccurrenceString()
+	 * @generated
+	 */
+	void setOccurrenceString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Recorded</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date vaccine administered or was to be administered.
+	 * The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Date()
+	 * @return the value of the '<em>Recorded</em>' containment reference.
+	 * @see #setRecorded(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Recorded()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='recorded' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getDate();
+	DateTime getRecorded();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getDate <em>Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getRecorded <em>Recorded</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
+	 * @param value the new value of the '<em>Recorded</em>' containment reference.
+	 * @see #getRecorded()
 	 * @generated
 	 */
-	void setDate(DateTime value);
+	void setRecorded(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Primary Source</b></em>' containment reference.
@@ -202,7 +290,7 @@ public interface Immunization extends DomainResource {
 	 * @return the value of the '<em>Primary Source</em>' containment reference.
 	 * @see #setPrimarySource(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getImmunization_PrimarySource()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='primarySource' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -427,20 +515,20 @@ public interface Immunization extends DomainResource {
 	void setDoseQuantity(Quantity value);
 
 	/**
-	 * Returns the value of the '<em><b>Practitioner</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ImmunizationPractitioner}.
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImmunizationPerformer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates who performed the immunization event.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Practitioner</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Practitioner()
+	 * @return the value of the '<em>Performer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Performer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='practitioner' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ImmunizationPractitioner> getPractitioner();
+	EList<ImmunizationPerformer> getPerformer();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
@@ -459,20 +547,78 @@ public interface Immunization extends DomainResource {
 	EList<Annotation> getNote();
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reasons why a vaccine was or was not administered.
+	 * Reasons why the vaccine was administered.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImmunization_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getReason();
+	EList<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Condition, Observation or DiagnosticReport that supports why the immunization was administered.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getReasonReference();
+
+	/**
+	 * Returns the value of the '<em><b>Is Subpotent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Is Subpotent</em>' containment reference.
+	 * @see #setIsSubpotent(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_IsSubpotent()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='isSubpotent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getIsSubpotent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Immunization#getIsSubpotent <em>Is Subpotent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Subpotent</em>' containment reference.
+	 * @see #getIsSubpotent()
+	 * @generated
+	 */
+	void setIsSubpotent(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Subpotent Reason</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reason why a dose is considered to be subpotent.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subpotent Reason</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_SubpotentReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subpotentReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getSubpotentReason();
 
 	/**
 	 * Returns the value of the '<em><b>Education</b></em>' containment reference list.
@@ -511,7 +657,7 @@ public interface Immunization extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the source of the vaccine actually administered. This may be different than the patient eligbility (e.g. the patient may be eligibile for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
+	 * Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Funding Source</em>' containment reference.
 	 * @see #setFundingSource(CodeableConcept)
@@ -531,5 +677,37 @@ public interface Immunization extends DomainResource {
 	 * @generated
 	 */
 	void setFundingSource(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Reaction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImmunizationReaction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Categorical data indicating that an adverse event is associated in time to an immunization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reaction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_Reaction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reaction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ImmunizationReaction> getReaction();
+
+	/**
+	 * Returns the value of the '<em><b>Protocol Applied</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ImmunizationProtocolApplied}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The protocol (set of recommendations) being followed by the provider who administered the dose.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Protocol Applied</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImmunization_ProtocolApplied()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='protocolApplied' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ImmunizationProtocolApplied> getProtocolApplied();
 
 } // Immunization

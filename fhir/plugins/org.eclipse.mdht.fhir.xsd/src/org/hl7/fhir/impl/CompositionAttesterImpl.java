@@ -2,20 +2,13 @@
  */
 package org.hl7.fhir.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CompositionAttestationMode;
 import org.hl7.fhir.CompositionAttester;
@@ -40,14 +33,14 @@ import org.hl7.fhir.Reference;
  */
 public class CompositionAttesterImpl extends BackboneElementImpl implements CompositionAttester {
 	/**
-	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference list.
+	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompositionAttestationMode> mode;
+	protected CompositionAttestationMode mode;
 
 	/**
 	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
@@ -93,11 +86,42 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompositionAttestationMode> getMode() {
-		if (mode == null) {
-			mode = new EObjectContainmentEList<CompositionAttestationMode>(CompositionAttestationMode.class, this, FhirPackage.COMPOSITION_ATTESTER__MODE);
-		}
+	public CompositionAttestationMode getMode() {
 		return mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMode(CompositionAttestationMode newMode, NotificationChain msgs) {
+		CompositionAttestationMode oldMode = mode;
+		mode = newMode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_ATTESTER__MODE, oldMode, newMode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMode(CompositionAttestationMode newMode) {
+		if (newMode != mode) {
+			NotificationChain msgs = null;
+			if (mode != null)
+				msgs = ((InternalEObject)mode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION_ATTESTER__MODE, null, msgs);
+			if (newMode != null)
+				msgs = ((InternalEObject)newMode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION_ATTESTER__MODE, null, msgs);
+			msgs = basicSetMode(newMode, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_ATTESTER__MODE, newMode, newMode));
 	}
 
 	/**
@@ -195,7 +219,7 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.COMPOSITION_ATTESTER__MODE:
-				return ((InternalEList<?>)getMode()).basicRemove(otherEnd, msgs);
+				return basicSetMode(null, msgs);
 			case FhirPackage.COMPOSITION_ATTESTER__TIME:
 				return basicSetTime(null, msgs);
 			case FhirPackage.COMPOSITION_ATTESTER__PARTY:
@@ -227,13 +251,11 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.COMPOSITION_ATTESTER__MODE:
-				getMode().clear();
-				getMode().addAll((Collection<? extends CompositionAttestationMode>)newValue);
+				setMode((CompositionAttestationMode)newValue);
 				return;
 			case FhirPackage.COMPOSITION_ATTESTER__TIME:
 				setTime((DateTime)newValue);
@@ -254,7 +276,7 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.COMPOSITION_ATTESTER__MODE:
-				getMode().clear();
+				setMode((CompositionAttestationMode)null);
 				return;
 			case FhirPackage.COMPOSITION_ATTESTER__TIME:
 				setTime((DateTime)null);
@@ -275,7 +297,7 @@ public class CompositionAttesterImpl extends BackboneElementImpl implements Comp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.COMPOSITION_ATTESTER__MODE:
-				return mode != null && !mode.isEmpty();
+				return mode != null;
 			case FhirPackage.COMPOSITION_ATTESTER__TIME:
 				return time != null;
 			case FhirPackage.COMPOSITION_ATTESTER__PARTY:

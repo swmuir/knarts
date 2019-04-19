@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  * <!-- end-model-doc -->
  *
  * <p>

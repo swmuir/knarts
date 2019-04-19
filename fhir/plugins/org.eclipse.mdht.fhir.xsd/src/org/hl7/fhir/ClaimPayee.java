@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -17,7 +17,6 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimPayee#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimPayee#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimPayee#getParty <em>Party</em>}</li>
  * </ul>
  *
@@ -31,7 +30,7 @@ public interface ClaimPayee extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type of Party to be reimbursed: Subscriber, provider, other.
+	 * Type of Party to be reimbursed: subscriber, provider, other.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -53,37 +52,11 @@ public interface ClaimPayee extends BackboneElement {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * organization | patient | practitioner | relatedperson.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getClaimPayee_Resource()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getResource();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimPayee#getResource <em>Resource</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource</em>' containment reference.
-	 * @see #getResource()
-	 * @generated
-	 */
-	void setResource(Coding value);
-
-	/**
 	 * Returns the value of the '<em><b>Party</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Party to be reimbursed: Subscriber, provider, other.
+	 * Reference to the individual or organization to whom any payment will be made.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Party</em>' containment reference.
 	 * @see #setParty(Reference)

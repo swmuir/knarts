@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A reference to a document.
+ * A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -32,30 +32,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DocumentReferenceContext extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Describes the clinical encounter or type of care that the document content is associated with.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Encounter</em>' containment reference.
-	 * @see #setEncounter(Reference)
+	 * @return the value of the '<em>Encounter</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDocumentReferenceContext_Encounter()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEncounter();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReferenceContext#getEncounter <em>Encounter</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encounter</em>' containment reference.
-	 * @see #getEncounter()
-	 * @generated
-	 */
-	void setEncounter(Reference value);
+	EList<Reference> getEncounter();
 
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
@@ -63,7 +53,7 @@ public interface DocumentReferenceContext extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
+	 * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the type Code, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDocumentReferenceContext_Event()
@@ -179,7 +169,7 @@ public interface DocumentReferenceContext extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Related</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DocumentReferenceRelated}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -191,6 +181,6 @@ public interface DocumentReferenceContext extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='related' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DocumentReferenceRelated> getRelated();
+	EList<Reference> getRelated();
 
 } // DocumentReferenceContext

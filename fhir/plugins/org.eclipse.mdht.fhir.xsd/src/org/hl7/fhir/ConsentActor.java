@@ -56,7 +56,7 @@ public interface ConsentActor extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+	 * The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference</em>' containment reference.
 	 * @see #setReference(Reference)

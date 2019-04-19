@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.Medication#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Medication#getManufacturer <em>Manufacturer</em>}</li>
@@ -32,6 +33,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Medication extends DomainResource {
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Business identifier for this medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedication_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -66,13 +83,13 @@ public interface Medication extends DomainResource {
 	 * A code to indicate if the medication is in active use.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(MedicationStatus)
+	 * @see #setStatus(MedicationStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getMedication_Status()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationStatus getStatus();
+	MedicationStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Medication#getStatus <em>Status</em>}' containment reference.
@@ -82,7 +99,7 @@ public interface Medication extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(MedicationStatus value);
+	void setStatus(MedicationStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference.
@@ -141,16 +158,16 @@ public interface Medication extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).
+	 * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(Quantity)
+	 * @see #setAmount(Ratio)
 	 * @see org.hl7.fhir.FhirPackage#getMedication_Amount()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Quantity getAmount();
+	Ratio getAmount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Medication#getAmount <em>Amount</em>}' containment reference.
@@ -160,7 +177,7 @@ public interface Medication extends DomainResource {
 	 * @see #getAmount()
 	 * @generated
 	 */
-	void setAmount(Quantity value);
+	void setAmount(Ratio value);
 
 	/**
 	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.

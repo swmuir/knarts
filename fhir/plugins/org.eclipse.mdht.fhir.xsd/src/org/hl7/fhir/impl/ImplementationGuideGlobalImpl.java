@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ImplementationGuideGlobal;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.ResourceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceType type;
+	protected Code type;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -48,7 +48,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference profile;
+	protected Canonical profile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceType getType() {
+	public Code getType() {
 		return type;
 	}
 
@@ -83,8 +83,8 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(ResourceType newType, NotificationChain msgs) {
-		ResourceType oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE, oldType, newType);
@@ -98,7 +98,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ResourceType newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -117,7 +117,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProfile() {
+	public Canonical getProfile() {
 		return profile;
 	}
 
@@ -126,8 +126,8 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(Reference newProfile, NotificationChain msgs) {
-		Reference oldProfile = profile;
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__PROFILE, oldProfile, newProfile);
@@ -141,7 +141,7 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(Reference newProfile) {
+	public void setProfile(Canonical newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -196,10 +196,10 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE:
-				setType((ResourceType)newValue);
+				setType((Code)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__PROFILE:
-				setProfile((Reference)newValue);
+				setProfile((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,10 +214,10 @@ public class ImplementationGuideGlobalImpl extends BackboneElementImpl implement
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__TYPE:
-				setType((ResourceType)null);
+				setType((Code)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL__PROFILE:
-				setProfile((Reference)null);
+				setProfile((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

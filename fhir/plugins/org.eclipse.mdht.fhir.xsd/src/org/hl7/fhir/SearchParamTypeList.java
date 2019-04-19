@@ -98,7 +98,17 @@ public enum SearchParamTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	URI(7, "uri", "uri");
+	URI(7, "uri", "uri"),
+
+	/**
+	 * The '<em><b>Special</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SPECIAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SPECIAL(8, "special", "special");
 
 	/**
 	 * The '<em><b>Number</b></em>' literal value.
@@ -213,6 +223,20 @@ public enum SearchParamTypeList implements Enumerator {
 	public static final int URI_VALUE = 7;
 
 	/**
+	 * The '<em><b>Special</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Special
+	 * <!-- end-model-doc -->
+	 * @see #SPECIAL
+	 * @model name="special"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SPECIAL_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Search Param Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +252,7 @@ public enum SearchParamTypeList implements Enumerator {
 			COMPOSITE,
 			QUANTITY,
 			URI,
+			SPECIAL,
 		};
 
 	/**
@@ -292,6 +317,7 @@ public enum SearchParamTypeList implements Enumerator {
 			case COMPOSITE_VALUE: return COMPOSITE;
 			case QUANTITY_VALUE: return QUANTITY;
 			case URI_VALUE: return URI;
+			case SPECIAL_VALUE: return SPECIAL;
 		}
 		return null;
 	}

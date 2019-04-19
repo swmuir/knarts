@@ -11,10 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.BindingStrength;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,13 +25,12 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionBindingImpl#getStrength <em>Strength</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ElementDefinitionBindingImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ElementDefinitionBindingImpl#getValueSetUri <em>Value Set Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ElementDefinitionBindingImpl#getValueSetReference <em>Value Set Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ElementDefinitionBindingImpl#getValueSet <em>Value Set</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ElementDefinitionBindingImpl extends ElementImpl implements ElementDefinitionBinding {
+public class ElementDefinitionBindingImpl extends BackboneElementImpl implements ElementDefinitionBinding {
 	/**
 	 * The cached value of the '{@link #getStrength() <em>Strength</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,24 +52,14 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	protected org.hl7.fhir.String description;
 
 	/**
-	 * The cached value of the '{@link #getValueSetUri() <em>Value Set Uri</em>}' containment reference.
+	 * The cached value of the '{@link #getValueSet() <em>Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueSetUri()
+	 * @see #getValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri valueSetUri;
-
-	/**
-	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueSetReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference valueSetReference;
+	protected Canonical valueSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,8 +171,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getValueSetUri() {
-		return valueSetUri;
+	public Canonical getValueSet() {
+		return valueSet;
 	}
 
 	/**
@@ -192,11 +180,11 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSetUri(Uri newValueSetUri, NotificationChain msgs) {
-		Uri oldValueSetUri = valueSetUri;
-		valueSetUri = newValueSetUri;
+	public NotificationChain basicSetValueSet(Canonical newValueSet, NotificationChain msgs) {
+		Canonical oldValueSet = valueSet;
+		valueSet = newValueSet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI, oldValueSetUri, newValueSetUri);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET, oldValueSet, newValueSet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -207,61 +195,18 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetUri(Uri newValueSetUri) {
-		if (newValueSetUri != valueSetUri) {
+	public void setValueSet(Canonical newValueSet) {
+		if (newValueSet != valueSet) {
 			NotificationChain msgs = null;
-			if (valueSetUri != null)
-				msgs = ((InternalEObject)valueSetUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI, null, msgs);
-			if (newValueSetUri != null)
-				msgs = ((InternalEObject)newValueSetUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI, null, msgs);
-			msgs = basicSetValueSetUri(newValueSetUri, msgs);
+			if (valueSet != null)
+				msgs = ((InternalEObject)valueSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET, null, msgs);
+			if (newValueSet != null)
+				msgs = ((InternalEObject)newValueSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET, null, msgs);
+			msgs = basicSetValueSet(newValueSet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI, newValueSetUri, newValueSetUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getValueSetReference() {
-		return valueSetReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetValueSetReference(Reference newValueSetReference, NotificationChain msgs) {
-		Reference oldValueSetReference = valueSetReference;
-		valueSetReference = newValueSetReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE, oldValueSetReference, newValueSetReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValueSetReference(Reference newValueSetReference) {
-		if (newValueSetReference != valueSetReference) {
-			NotificationChain msgs = null;
-			if (valueSetReference != null)
-				msgs = ((InternalEObject)valueSetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE, null, msgs);
-			if (newValueSetReference != null)
-				msgs = ((InternalEObject)newValueSetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE, null, msgs);
-			msgs = basicSetValueSetReference(newValueSetReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE, newValueSetReference, newValueSetReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET, newValueSet, newValueSet));
 	}
 
 	/**
@@ -276,10 +221,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 				return basicSetStrength(null, msgs);
 			case FhirPackage.ELEMENT_DEFINITION_BINDING__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI:
-				return basicSetValueSetUri(null, msgs);
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return basicSetValueSetReference(null, msgs);
+			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET:
+				return basicSetValueSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -296,10 +239,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 				return getStrength();
 			case FhirPackage.ELEMENT_DEFINITION_BINDING__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI:
-				return getValueSetUri();
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return getValueSetReference();
+			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET:
+				return getValueSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -318,11 +259,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 			case FhirPackage.ELEMENT_DEFINITION_BINDING__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI:
-				setValueSetUri((Uri)newValue);
-				return;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)newValue);
+			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET:
+				setValueSet((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -342,11 +280,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 			case FhirPackage.ELEMENT_DEFINITION_BINDING__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI:
-				setValueSetUri((Uri)null);
-				return;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)null);
+			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET:
+				setValueSet((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -364,10 +299,8 @@ public class ElementDefinitionBindingImpl extends ElementImpl implements Element
 				return strength != null;
 			case FhirPackage.ELEMENT_DEFINITION_BINDING__DESCRIPTION:
 				return description != null;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_URI:
-				return valueSetUri != null;
-			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return valueSetReference != null;
+			case FhirPackage.ELEMENT_DEFINITION_BINDING__VALUE_SET:
+				return valueSet != null;
 		}
 		return super.eIsSet(featureID);
 	}

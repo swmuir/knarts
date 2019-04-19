@@ -21,6 +21,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getMedicationReference <em>Medication Reference</em>}</li>
@@ -41,8 +43,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getSubstitution <em>Substitution</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getDetectedIssue <em>Detected Issue</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationDispense#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
@@ -57,7 +57,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
+	 * Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Identifier()
@@ -73,7 +73,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The procedure that the dispense is done because of.
+	 * The procedure that trigger the dispense.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Part Of</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_PartOf()
@@ -91,13 +91,13 @@ public interface MedicationDispense extends DomainResource {
 	 * A code specifying the state of the set of dispense events.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(MedicationDispenseStatus)
+	 * @see #setStatus(Code)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationDispenseStatus getStatus();
+	Code getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatus <em>Status</em>}' containment reference.
@@ -107,14 +107,68 @@ public interface MedicationDispense extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(MedicationDispenseStatus value);
+	void setStatus(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Reason Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Reason Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status Reason Codeable Concept</em>' containment reference.
+	 * @see #setStatusReasonCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReasonCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getStatusReasonCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason Codeable Concept</em>' containment reference.
+	 * @see #getStatusReasonCodeableConcept()
+	 * @generated
+	 */
+	void setStatusReasonCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Reason Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status Reason Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status Reason Reference</em>' containment reference.
+	 * @see #setStatusReasonReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getStatusReasonReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason Reference</em>' containment reference.
+	 * @see #getStatusReasonReference()
+	 * @generated
+	 */
+	void setStatusReasonReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates type of medication dispense and where the medication is expected to be consumed or administered.
+	 * Indicates the type of medication dispense (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -278,7 +332,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The principal physical locaiton where the dispense was performed.
+	 * The principal physical location where the dispense was performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference.
 	 * @see #setLocation(Reference)
@@ -524,7 +578,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
+	 * Indicates whether or not substitution was made as part of the dispense.  In some cases, substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Substitution</em>' containment reference.
 	 * @see #setSubstitution(MedicationDispenseSubstitution)
@@ -551,7 +605,7 @@ public interface MedicationDispense extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+	 * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. drug-drug interaction, duplicate therapy, dosage alert etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detected Issue</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_DetectedIssue()
@@ -560,60 +614,6 @@ public interface MedicationDispense extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getDetectedIssue();
-
-	/**
-	 * Returns the value of the '<em><b>Status Reason Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Status Reason Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Status Reason Codeable Concept</em>' containment reference.
-	 * @see #setStatusReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='statusReasonCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getStatusReasonCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status Reason Codeable Concept</em>' containment reference.
-	 * @see #getStatusReasonCodeableConcept()
-	 * @generated
-	 */
-	void setStatusReasonCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Status Reason Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Status Reason Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Status Reason Reference</em>' containment reference.
-	 * @see #setStatusReasonReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationDispense_StatusReasonReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='statusReasonReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getStatusReasonReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationDispense#getStatusReasonReference <em>Status Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status Reason Reference</em>' containment reference.
-	 * @see #getStatusReasonReference()
-	 * @generated
-	 */
-	void setStatusReasonReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Event History</b></em>' containment reference list.

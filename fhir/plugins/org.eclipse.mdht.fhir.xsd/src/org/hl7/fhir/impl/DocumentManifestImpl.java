@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DocumentManifest;
-import org.hl7.fhir.DocumentManifestAgent;
 import org.hl7.fhir.DocumentManifestRelated;
 import org.hl7.fhir.DocumentReferenceStatus;
 import org.hl7.fhir.FhirPackage;
@@ -42,7 +41,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getAgent <em>Agent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentManifestImpl#getDescription <em>Description</em>}</li>
@@ -114,14 +113,14 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAgent()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocumentManifestAgent> agent;
+	protected EList<Reference> author;
 
 	/**
 	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
@@ -424,11 +423,11 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocumentManifestAgent> getAgent() {
-		if (agent == null) {
-			agent = new EObjectContainmentEList<DocumentManifestAgent>(DocumentManifestAgent.class, this, FhirPackage.DOCUMENT_MANIFEST__AGENT);
+	public EList<Reference> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_MANIFEST__AUTHOR);
 		}
-		return agent;
+		return author;
 	}
 
 	/**
@@ -573,8 +572,8 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return basicSetSubject(null, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.DOCUMENT_MANIFEST__AGENT:
-				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
 				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
@@ -609,8 +608,8 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return getSubject();
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				return getCreated();
-			case FhirPackage.DOCUMENT_MANIFEST__AGENT:
-				return getAgent();
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return getAuthor();
 			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
 				return getRecipient();
 			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:
@@ -653,9 +652,9 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__AGENT:
-				getAgent().clear();
-				getAgent().addAll((Collection<? extends DocumentManifestAgent>)newValue);
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				getAuthor().clear();
+				getAuthor().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
 				getRecipient().clear();
@@ -705,8 +704,8 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.DOCUMENT_MANIFEST__AGENT:
-				getAgent().clear();
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				getAuthor().clear();
 				return;
 			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
 				getRecipient().clear();
@@ -747,8 +746,8 @@ public class DocumentManifestImpl extends DomainResourceImpl implements Document
 				return subject != null;
 			case FhirPackage.DOCUMENT_MANIFEST__CREATED:
 				return created != null;
-			case FhirPackage.DOCUMENT_MANIFEST__AGENT:
-				return agent != null && !agent.isEmpty();
+			case FhirPackage.DOCUMENT_MANIFEST__AUTHOR:
+				return author != null && !author.isEmpty();
 			case FhirPackage.DOCUMENT_MANIFEST__RECIPIENT:
 				return recipient != null && !recipient.isEmpty();
 			case FhirPackage.DOCUMENT_MANIFEST__SOURCE:

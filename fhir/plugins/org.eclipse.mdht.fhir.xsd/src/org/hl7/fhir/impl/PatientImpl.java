@@ -28,7 +28,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Patient;
-import org.hl7.fhir.PatientAnimal;
 import org.hl7.fhir.PatientCommunication;
 import org.hl7.fhir.PatientContact;
 import org.hl7.fhir.PatientLink;
@@ -56,7 +55,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getMultipleBirthInteger <em>Multiple Birth Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getPhoto <em>Photo</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PatientImpl#getAnimal <em>Animal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getCommunication <em>Communication</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getGeneralPractitioner <em>General Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PatientImpl#getManagingOrganization <em>Managing Organization</em>}</li>
@@ -205,16 +203,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * @ordered
 	 */
 	protected EList<PatientContact> contact;
-
-	/**
-	 * The cached value of the '{@link #getAnimal() <em>Animal</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnimal()
-	 * @generated
-	 * @ordered
-	 */
-	protected PatientAnimal animal;
 
 	/**
 	 * The cached value of the '{@link #getCommunication() <em>Communication</em>}' containment reference list.
@@ -696,49 +684,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PatientAnimal getAnimal() {
-		return animal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnimal(PatientAnimal newAnimal, NotificationChain msgs) {
-		PatientAnimal oldAnimal = animal;
-		animal = newAnimal;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PATIENT__ANIMAL, oldAnimal, newAnimal);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAnimal(PatientAnimal newAnimal) {
-		if (newAnimal != animal) {
-			NotificationChain msgs = null;
-			if (animal != null)
-				msgs = ((InternalEObject)animal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PATIENT__ANIMAL, null, msgs);
-			if (newAnimal != null)
-				msgs = ((InternalEObject)newAnimal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PATIENT__ANIMAL, null, msgs);
-			msgs = basicSetAnimal(newAnimal, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PATIENT__ANIMAL, newAnimal, newAnimal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<PatientCommunication> getCommunication() {
 		if (communication == null) {
 			communication = new EObjectContainmentEList<PatientCommunication>(PatientCommunication.class, this, FhirPackage.PATIENT__COMMUNICATION);
@@ -849,8 +794,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return ((InternalEList<?>)getPhoto()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PATIENT__CONTACT:
 				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PATIENT__ANIMAL:
-				return basicSetAnimal(null, msgs);
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return ((InternalEList<?>)getCommunication()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
@@ -899,8 +842,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return getPhoto();
 			case FhirPackage.PATIENT__CONTACT:
 				return getContact();
-			case FhirPackage.PATIENT__ANIMAL:
-				return getAnimal();
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return getCommunication();
 			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:
@@ -969,9 +910,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 			case FhirPackage.PATIENT__CONTACT:
 				getContact().clear();
 				getContact().addAll((Collection<? extends PatientContact>)newValue);
-				return;
-			case FhirPackage.PATIENT__ANIMAL:
-				setAnimal((PatientAnimal)newValue);
 				return;
 			case FhirPackage.PATIENT__COMMUNICATION:
 				getCommunication().clear();
@@ -1042,9 +980,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 			case FhirPackage.PATIENT__CONTACT:
 				getContact().clear();
 				return;
-			case FhirPackage.PATIENT__ANIMAL:
-				setAnimal((PatientAnimal)null);
-				return;
 			case FhirPackage.PATIENT__COMMUNICATION:
 				getCommunication().clear();
 				return;
@@ -1097,8 +1032,6 @@ public class PatientImpl extends DomainResourceImpl implements Patient {
 				return photo != null && !photo.isEmpty();
 			case FhirPackage.PATIENT__CONTACT:
 				return contact != null && !contact.isEmpty();
-			case FhirPackage.PATIENT__ANIMAL:
-				return animal != null;
 			case FhirPackage.PATIENT__COMMUNICATION:
 				return communication != null && !communication.isEmpty();
 			case FhirPackage.PATIENT__GENERAL_PRACTITIONER:

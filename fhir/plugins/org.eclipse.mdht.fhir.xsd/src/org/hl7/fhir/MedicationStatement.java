@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. 
+ * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. 
  * 
  * The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
  * If the element is present, it must have either a @value, an @id, or extensions
@@ -52,7 +52,7 @@ public interface MedicationStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+	 * Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Identifier()
@@ -99,16 +99,16 @@ public interface MedicationStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
+	 * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally, this will be active or completed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(MedicationStatementStatus)
+	 * @see #setStatus(MedicationStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationStatementStatus getStatus();
+	MedicationStatusCodes getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationStatement#getStatus <em>Status</em>}' containment reference.
@@ -118,7 +118,7 @@ public interface MedicationStatement extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(MedicationStatementStatus value);
+	void setStatus(MedicationStatusCodes value);
 
 	/**
 	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference list.
@@ -126,7 +126,7 @@ public interface MedicationStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code indicating why the medication was not taken.
+	 * Captures the reason for the current state of the MedicationStatement.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status Reason</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationStatement_StatusReason()
@@ -141,7 +141,7 @@ public interface MedicationStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates where type of medication statement and where the medication is expected to be consumed or administered.
+	 * Indicates where the medication is expected to be consumed or administered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -353,7 +353,7 @@ public interface MedicationStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
+	 * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Information Source</em>' containment reference.
 	 * @see #setInformationSource(Reference)

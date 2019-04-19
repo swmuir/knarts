@@ -41,7 +41,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Timing.Repeat' kind='elementOnly'"
  * @generated
  */
-public interface TimingRepeat extends Element {
+public interface TimingRepeat extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Bounds Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -128,16 +128,16 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A total count of the desired number of repetitions across the duration of the entire timing specification.
+	 * A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Count</em>' containment reference.
-	 * @see #setCount(org.hl7.fhir.Integer)
+	 * @see #setCount(PositiveInt)
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_Count()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='count' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getCount();
+	PositiveInt getCount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getCount <em>Count</em>}' containment reference.
@@ -147,23 +147,23 @@ public interface TimingRepeat extends Element {
 	 * @see #getCount()
 	 * @generated
 	 */
-	void setCount(org.hl7.fhir.Integer value);
+	void setCount(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Count Max</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A maximum value for the count of the desired repetitions (e.g. do something 6-8 times).
+	 * If present, indicates that the count is a range - so to perform the action between [count] and [countMax] times.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Count Max</em>' containment reference.
-	 * @see #setCountMax(org.hl7.fhir.Integer)
+	 * @see #setCountMax(PositiveInt)
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_CountMax()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='countMax' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getCountMax();
+	PositiveInt getCountMax();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getCountMax <em>Count Max</em>}' containment reference.
@@ -173,14 +173,14 @@ public interface TimingRepeat extends Element {
 	 * @see #getCountMax()
 	 * @generated
 	 */
-	void setCountMax(org.hl7.fhir.Integer value);
+	void setCountMax(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How long this thing happens for when it happens.
+	 * How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration</em>' containment reference.
 	 * @see #setDuration(Decimal)
@@ -206,7 +206,7 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The upper limit of how long this thing happens for when it happens.
+	 * If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration Max</em>' containment reference.
 	 * @see #setDurationMax(Decimal)
@@ -258,16 +258,16 @@ public interface TimingRepeat extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).
+	 * The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Frequency</em>' containment reference.
-	 * @see #setFrequency(org.hl7.fhir.Integer)
+	 * @see #setFrequency(PositiveInt)
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_Frequency()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='frequency' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getFrequency();
+	PositiveInt getFrequency();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getFrequency <em>Frequency</em>}' containment reference.
@@ -277,7 +277,7 @@ public interface TimingRepeat extends Element {
 	 * @see #getFrequency()
 	 * @generated
 	 */
-	void setFrequency(org.hl7.fhir.Integer value);
+	void setFrequency(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Frequency Max</b></em>' containment reference.
@@ -287,13 +287,13 @@ public interface TimingRepeat extends Element {
 	 * If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Frequency Max</em>' containment reference.
-	 * @see #setFrequencyMax(org.hl7.fhir.Integer)
+	 * @see #setFrequencyMax(PositiveInt)
 	 * @see org.hl7.fhir.FhirPackage#getTimingRepeat_FrequencyMax()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='frequencyMax' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Integer getFrequencyMax();
+	PositiveInt getFrequencyMax();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TimingRepeat#getFrequencyMax <em>Frequency Max</em>}' containment reference.
@@ -303,14 +303,14 @@ public interface TimingRepeat extends Element {
 	 * @see #getFrequencyMax()
 	 * @generated
 	 */
-	void setFrequencyMax(org.hl7.fhir.Integer value);
+	void setFrequencyMax(PositiveInt value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
+	 * Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Period</em>' containment reference.
 	 * @see #setPeriod(Decimal)

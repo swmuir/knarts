@@ -107,7 +107,7 @@ public enum StructureDefinitionKindList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Logical Model
+	 * Logical
 	 * <!-- end-model-doc -->
 	 * @see #LOGICAL
 	 * @model name="logical"

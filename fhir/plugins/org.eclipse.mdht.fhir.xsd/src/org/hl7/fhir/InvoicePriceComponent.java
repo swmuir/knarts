@@ -84,16 +84,16 @@ public interface InvoicePriceComponent extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The amount calculated for this component.
+	 * The factor that has been applied on the base price for calculating this component.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Factor</em>' containment reference.
-	 * @see #setFactor(Money)
+	 * @see #setFactor(Decimal)
 	 * @see org.hl7.fhir.FhirPackage#getInvoicePriceComponent_Factor()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='factor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Money getFactor();
+	Decimal getFactor();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.InvoicePriceComponent#getFactor <em>Factor</em>}' containment reference.
@@ -103,23 +103,23 @@ public interface InvoicePriceComponent extends BackboneElement {
 	 * @see #getFactor()
 	 * @generated
 	 */
-	void setFactor(Money value);
+	void setFactor(Decimal value);
 
 	/**
 	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The factor that has been applied on the base price for calculating this component.
+	 * The amount calculated for this component.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(Decimal)
+	 * @see #setAmount(Money)
 	 * @see org.hl7.fhir.FhirPackage#getInvoicePriceComponent_Amount()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Decimal getAmount();
+	Money getAmount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.InvoicePriceComponent#getAmount <em>Amount</em>}' containment reference.
@@ -129,6 +129,6 @@ public interface InvoicePriceComponent extends BackboneElement {
 	 * @see #getAmount()
 	 * @generated
 	 */
-	void setAmount(Decimal value);
+	void setAmount(Money value);
 
 } // InvoicePriceComponent

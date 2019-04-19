@@ -45,8 +45,10 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getDoseStatusReason <em>Dose Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getSeries <em>Series</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getDoseNumber <em>Dose Number</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getSeriesDoses <em>Series Doses</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getDoseNumberPositiveInt <em>Dose Number Positive Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getDoseNumberString <em>Dose Number String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getSeriesDosesPositiveInt <em>Series Doses Positive Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationEvaluationImpl#getSeriesDosesString <em>Series Doses String</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,14 +105,14 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	protected Reference authority;
 
 	/**
-	 * The cached value of the '{@link #getTargetDisease() <em>Target Disease</em>}' containment reference list.
+	 * The cached value of the '{@link #getTargetDisease() <em>Target Disease</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetDisease()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> targetDisease;
+	protected CodeableConcept targetDisease;
 
 	/**
 	 * The cached value of the '{@link #getImmunizationEvent() <em>Immunization Event</em>}' containment reference.
@@ -163,24 +165,44 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	protected org.hl7.fhir.String series;
 
 	/**
-	 * The cached value of the '{@link #getDoseNumber() <em>Dose Number</em>}' containment reference.
+	 * The cached value of the '{@link #getDoseNumberPositiveInt() <em>Dose Number Positive Int</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoseNumber()
+	 * @see #getDoseNumberPositiveInt()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt doseNumber;
+	protected PositiveInt doseNumberPositiveInt;
 
 	/**
-	 * The cached value of the '{@link #getSeriesDoses() <em>Series Doses</em>}' containment reference.
+	 * The cached value of the '{@link #getDoseNumberString() <em>Dose Number String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeriesDoses()
+	 * @see #getDoseNumberString()
 	 * @generated
 	 * @ordered
 	 */
-	protected PositiveInt seriesDoses;
+	protected org.hl7.fhir.String doseNumberString;
+
+	/**
+	 * The cached value of the '{@link #getSeriesDosesPositiveInt() <em>Series Doses Positive Int</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeriesDosesPositiveInt()
+	 * @generated
+	 * @ordered
+	 */
+	protected PositiveInt seriesDosesPositiveInt;
+
+	/**
+	 * The cached value of the '{@link #getSeriesDosesString() <em>Series Doses String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeriesDosesString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String seriesDosesString;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -390,11 +412,42 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getTargetDisease() {
-		if (targetDisease == null) {
-			targetDisease = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE);
-		}
+	public CodeableConcept getTargetDisease() {
 		return targetDisease;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetDisease(CodeableConcept newTargetDisease, NotificationChain msgs) {
+		CodeableConcept oldTargetDisease = targetDisease;
+		targetDisease = newTargetDisease;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE, oldTargetDisease, newTargetDisease);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetDisease(CodeableConcept newTargetDisease) {
+		if (newTargetDisease != targetDisease) {
+			NotificationChain msgs = null;
+			if (targetDisease != null)
+				msgs = ((InternalEObject)targetDisease).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE, null, msgs);
+			if (newTargetDisease != null)
+				msgs = ((InternalEObject)newTargetDisease).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE, null, msgs);
+			msgs = basicSetTargetDisease(newTargetDisease, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE, newTargetDisease, newTargetDisease));
 	}
 
 	/**
@@ -586,8 +639,8 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PositiveInt getDoseNumber() {
-		return doseNumber;
+	public PositiveInt getDoseNumberPositiveInt() {
+		return doseNumberPositiveInt;
 	}
 
 	/**
@@ -595,11 +648,11 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDoseNumber(PositiveInt newDoseNumber, NotificationChain msgs) {
-		PositiveInt oldDoseNumber = doseNumber;
-		doseNumber = newDoseNumber;
+	public NotificationChain basicSetDoseNumberPositiveInt(PositiveInt newDoseNumberPositiveInt, NotificationChain msgs) {
+		PositiveInt oldDoseNumberPositiveInt = doseNumberPositiveInt;
+		doseNumberPositiveInt = newDoseNumberPositiveInt;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER, oldDoseNumber, newDoseNumber);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT, oldDoseNumberPositiveInt, newDoseNumberPositiveInt);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -610,18 +663,18 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDoseNumber(PositiveInt newDoseNumber) {
-		if (newDoseNumber != doseNumber) {
+	public void setDoseNumberPositiveInt(PositiveInt newDoseNumberPositiveInt) {
+		if (newDoseNumberPositiveInt != doseNumberPositiveInt) {
 			NotificationChain msgs = null;
-			if (doseNumber != null)
-				msgs = ((InternalEObject)doseNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER, null, msgs);
-			if (newDoseNumber != null)
-				msgs = ((InternalEObject)newDoseNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER, null, msgs);
-			msgs = basicSetDoseNumber(newDoseNumber, msgs);
+			if (doseNumberPositiveInt != null)
+				msgs = ((InternalEObject)doseNumberPositiveInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT, null, msgs);
+			if (newDoseNumberPositiveInt != null)
+				msgs = ((InternalEObject)newDoseNumberPositiveInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT, null, msgs);
+			msgs = basicSetDoseNumberPositiveInt(newDoseNumberPositiveInt, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER, newDoseNumber, newDoseNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT, newDoseNumberPositiveInt, newDoseNumberPositiveInt));
 	}
 
 	/**
@@ -629,8 +682,8 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PositiveInt getSeriesDoses() {
-		return seriesDoses;
+	public org.hl7.fhir.String getDoseNumberString() {
+		return doseNumberString;
 	}
 
 	/**
@@ -638,11 +691,11 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSeriesDoses(PositiveInt newSeriesDoses, NotificationChain msgs) {
-		PositiveInt oldSeriesDoses = seriesDoses;
-		seriesDoses = newSeriesDoses;
+	public NotificationChain basicSetDoseNumberString(org.hl7.fhir.String newDoseNumberString, NotificationChain msgs) {
+		org.hl7.fhir.String oldDoseNumberString = doseNumberString;
+		doseNumberString = newDoseNumberString;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES, oldSeriesDoses, newSeriesDoses);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING, oldDoseNumberString, newDoseNumberString);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -653,18 +706,104 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeriesDoses(PositiveInt newSeriesDoses) {
-		if (newSeriesDoses != seriesDoses) {
+	public void setDoseNumberString(org.hl7.fhir.String newDoseNumberString) {
+		if (newDoseNumberString != doseNumberString) {
 			NotificationChain msgs = null;
-			if (seriesDoses != null)
-				msgs = ((InternalEObject)seriesDoses).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES, null, msgs);
-			if (newSeriesDoses != null)
-				msgs = ((InternalEObject)newSeriesDoses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES, null, msgs);
-			msgs = basicSetSeriesDoses(newSeriesDoses, msgs);
+			if (doseNumberString != null)
+				msgs = ((InternalEObject)doseNumberString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING, null, msgs);
+			if (newDoseNumberString != null)
+				msgs = ((InternalEObject)newDoseNumberString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING, null, msgs);
+			msgs = basicSetDoseNumberString(newDoseNumberString, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES, newSeriesDoses, newSeriesDoses));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING, newDoseNumberString, newDoseNumberString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PositiveInt getSeriesDosesPositiveInt() {
+		return seriesDosesPositiveInt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSeriesDosesPositiveInt(PositiveInt newSeriesDosesPositiveInt, NotificationChain msgs) {
+		PositiveInt oldSeriesDosesPositiveInt = seriesDosesPositiveInt;
+		seriesDosesPositiveInt = newSeriesDosesPositiveInt;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT, oldSeriesDosesPositiveInt, newSeriesDosesPositiveInt);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeriesDosesPositiveInt(PositiveInt newSeriesDosesPositiveInt) {
+		if (newSeriesDosesPositiveInt != seriesDosesPositiveInt) {
+			NotificationChain msgs = null;
+			if (seriesDosesPositiveInt != null)
+				msgs = ((InternalEObject)seriesDosesPositiveInt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT, null, msgs);
+			if (newSeriesDosesPositiveInt != null)
+				msgs = ((InternalEObject)newSeriesDosesPositiveInt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT, null, msgs);
+			msgs = basicSetSeriesDosesPositiveInt(newSeriesDosesPositiveInt, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT, newSeriesDosesPositiveInt, newSeriesDosesPositiveInt));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getSeriesDosesString() {
+		return seriesDosesString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSeriesDosesString(org.hl7.fhir.String newSeriesDosesString, NotificationChain msgs) {
+		org.hl7.fhir.String oldSeriesDosesString = seriesDosesString;
+		seriesDosesString = newSeriesDosesString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING, oldSeriesDosesString, newSeriesDosesString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSeriesDosesString(org.hl7.fhir.String newSeriesDosesString) {
+		if (newSeriesDosesString != seriesDosesString) {
+			NotificationChain msgs = null;
+			if (seriesDosesString != null)
+				msgs = ((InternalEObject)seriesDosesString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING, null, msgs);
+			if (newSeriesDosesString != null)
+				msgs = ((InternalEObject)newSeriesDosesString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING, null, msgs);
+			msgs = basicSetSeriesDosesString(newSeriesDosesString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING, newSeriesDosesString, newSeriesDosesString));
 	}
 
 	/**
@@ -686,7 +825,7 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMMUNIZATION_EVALUATION__AUTHORITY:
 				return basicSetAuthority(null, msgs);
 			case FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE:
-				return ((InternalEList<?>)getTargetDisease()).basicRemove(otherEnd, msgs);
+				return basicSetTargetDisease(null, msgs);
 			case FhirPackage.IMMUNIZATION_EVALUATION__IMMUNIZATION_EVENT:
 				return basicSetImmunizationEvent(null, msgs);
 			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_STATUS:
@@ -697,10 +836,14 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES:
 				return basicSetSeries(null, msgs);
-			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER:
-				return basicSetDoseNumber(null, msgs);
-			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES:
-				return basicSetSeriesDoses(null, msgs);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT:
+				return basicSetDoseNumberPositiveInt(null, msgs);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING:
+				return basicSetDoseNumberString(null, msgs);
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT:
+				return basicSetSeriesDosesPositiveInt(null, msgs);
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING:
+				return basicSetSeriesDosesString(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -735,10 +878,14 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 				return getDescription();
 			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES:
 				return getSeries();
-			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER:
-				return getDoseNumber();
-			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES:
-				return getSeriesDoses();
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT:
+				return getDoseNumberPositiveInt();
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING:
+				return getDoseNumberString();
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT:
+				return getSeriesDosesPositiveInt();
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING:
+				return getSeriesDosesString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -769,8 +916,7 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 				setAuthority((Reference)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE:
-				getTargetDisease().clear();
-				getTargetDisease().addAll((Collection<? extends CodeableConcept>)newValue);
+				setTargetDisease((CodeableConcept)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION_EVALUATION__IMMUNIZATION_EVENT:
 				setImmunizationEvent((Reference)newValue);
@@ -788,11 +934,17 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES:
 				setSeries((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER:
-				setDoseNumber((PositiveInt)newValue);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT:
+				setDoseNumberPositiveInt((PositiveInt)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES:
-				setSeriesDoses((PositiveInt)newValue);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING:
+				setDoseNumberString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT:
+				setSeriesDosesPositiveInt((PositiveInt)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING:
+				setSeriesDosesString((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -822,7 +974,7 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 				setAuthority((Reference)null);
 				return;
 			case FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE:
-				getTargetDisease().clear();
+				setTargetDisease((CodeableConcept)null);
 				return;
 			case FhirPackage.IMMUNIZATION_EVALUATION__IMMUNIZATION_EVENT:
 				setImmunizationEvent((Reference)null);
@@ -839,11 +991,17 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES:
 				setSeries((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER:
-				setDoseNumber((PositiveInt)null);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT:
+				setDoseNumberPositiveInt((PositiveInt)null);
 				return;
-			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES:
-				setSeriesDoses((PositiveInt)null);
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING:
+				setDoseNumberString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT:
+				setSeriesDosesPositiveInt((PositiveInt)null);
+				return;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING:
+				setSeriesDosesString((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -868,7 +1026,7 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 			case FhirPackage.IMMUNIZATION_EVALUATION__AUTHORITY:
 				return authority != null;
 			case FhirPackage.IMMUNIZATION_EVALUATION__TARGET_DISEASE:
-				return targetDisease != null && !targetDisease.isEmpty();
+				return targetDisease != null;
 			case FhirPackage.IMMUNIZATION_EVALUATION__IMMUNIZATION_EVENT:
 				return immunizationEvent != null;
 			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_STATUS:
@@ -879,10 +1037,14 @@ public class ImmunizationEvaluationImpl extends DomainResourceImpl implements Im
 				return description != null;
 			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES:
 				return series != null;
-			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER:
-				return doseNumber != null;
-			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES:
-				return seriesDoses != null;
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_POSITIVE_INT:
+				return doseNumberPositiveInt != null;
+			case FhirPackage.IMMUNIZATION_EVALUATION__DOSE_NUMBER_STRING:
+				return doseNumberString != null;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_POSITIVE_INT:
+				return seriesDosesPositiveInt != null;
+			case FhirPackage.IMMUNIZATION_EVALUATION__SERIES_DOSES_STRING:
+				return seriesDosesString != null;
 		}
 		return super.eIsSet(featureID);
 	}

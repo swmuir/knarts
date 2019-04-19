@@ -24,7 +24,6 @@ import org.hl7.fhir.ActionRequiredBehavior;
 import org.hl7.fhir.ActionSelectionBehavior;
 import org.hl7.fhir.Age;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
@@ -35,6 +34,7 @@ import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RequestGroupAction;
 import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
+import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.Timing;
 
 /**
@@ -49,6 +49,7 @@ import org.hl7.fhir.Timing;
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getTextEquivalent <em>Text Equivalent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RequestGroupActionImpl#getCondition <em>Condition</em>}</li>
@@ -112,6 +113,16 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String textEquivalent;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
@@ -231,7 +242,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getGroupingBehavior() <em>Grouping Behavior</em>}' containment reference.
@@ -492,6 +503,49 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT, newTextEquivalent, newTextEquivalent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequestPriority getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(RequestPriority newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REQUEST_GROUP_ACTION__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__PRIORITY, newPriority, newPriority));
 	}
 
 	/**
@@ -817,7 +871,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -826,8 +880,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REQUEST_GROUP_ACTION__TYPE, oldType, newType);
@@ -841,7 +895,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -1141,6 +1195,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return basicSetDescription(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT:
 				return basicSetTextEquivalent(null, msgs);
+			case FhirPackage.REQUEST_GROUP_ACTION__PRIORITY:
+				return basicSetPriority(null, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__CODE:
 				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.REQUEST_GROUP_ACTION__DOCUMENTATION:
@@ -1199,6 +1255,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return getDescription();
 			case FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT:
 				return getTextEquivalent();
+			case FhirPackage.REQUEST_GROUP_ACTION__PRIORITY:
+				return getPriority();
 			case FhirPackage.REQUEST_GROUP_ACTION__CODE:
 				return getCode();
 			case FhirPackage.REQUEST_GROUP_ACTION__DOCUMENTATION:
@@ -1262,6 +1320,9 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 			case FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT:
 				setTextEquivalent((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.REQUEST_GROUP_ACTION__PRIORITY:
+				setPriority((RequestPriority)newValue);
+				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__CODE:
 				getCode().clear();
 				getCode().addAll((Collection<? extends CodeableConcept>)newValue);
@@ -1301,7 +1362,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				getParticipant().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__GROUPING_BEHAVIOR:
 				setGroupingBehavior((ActionGroupingBehavior)newValue);
@@ -1349,6 +1410,9 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 			case FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT:
 				setTextEquivalent((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.REQUEST_GROUP_ACTION__PRIORITY:
+				setPriority((RequestPriority)null);
+				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__CODE:
 				getCode().clear();
 				return;
@@ -1383,7 +1447,7 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				getParticipant().clear();
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.REQUEST_GROUP_ACTION__GROUPING_BEHAVIOR:
 				setGroupingBehavior((ActionGroupingBehavior)null);
@@ -1426,6 +1490,8 @@ public class RequestGroupActionImpl extends BackboneElementImpl implements Reque
 				return description != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__TEXT_EQUIVALENT:
 				return textEquivalent != null;
+			case FhirPackage.REQUEST_GROUP_ACTION__PRIORITY:
+				return priority != null;
 			case FhirPackage.REQUEST_GROUP_ACTION__CODE:
 				return code != null && !code.isEmpty();
 			case FhirPackage.REQUEST_GROUP_ACTION__DOCUMENTATION:

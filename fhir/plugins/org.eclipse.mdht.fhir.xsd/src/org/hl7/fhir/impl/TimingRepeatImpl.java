@@ -23,6 +23,7 @@ import org.hl7.fhir.Duration;
 import org.hl7.fhir.EventTiming;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Time;
 import org.hl7.fhir.TimingRepeat;
@@ -58,7 +59,7 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
-public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
+public class TimingRepeatImpl extends BackboneElementImpl implements TimingRepeat {
 	/**
 	 * The cached value of the '{@link #getBoundsDuration() <em>Bounds Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -97,7 +98,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer count;
+	protected PositiveInt count;
 
 	/**
 	 * The cached value of the '{@link #getCountMax() <em>Count Max</em>}' containment reference.
@@ -107,7 +108,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer countMax;
+	protected PositiveInt countMax;
 
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
@@ -147,7 +148,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer frequency;
+	protected PositiveInt frequency;
 
 	/**
 	 * The cached value of the '{@link #getFrequencyMax() <em>Frequency Max</em>}' containment reference.
@@ -157,7 +158,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Integer frequencyMax;
+	protected PositiveInt frequencyMax;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -382,7 +383,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Integer getCount() {
+	public PositiveInt getCount() {
 		return count;
 	}
 
@@ -391,8 +392,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCount(org.hl7.fhir.Integer newCount, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldCount = count;
+	public NotificationChain basicSetCount(PositiveInt newCount, NotificationChain msgs) {
+		PositiveInt oldCount = count;
 		count = newCount;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__COUNT, oldCount, newCount);
@@ -406,7 +407,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCount(org.hl7.fhir.Integer newCount) {
+	public void setCount(PositiveInt newCount) {
 		if (newCount != count) {
 			NotificationChain msgs = null;
 			if (count != null)
@@ -425,7 +426,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Integer getCountMax() {
+	public PositiveInt getCountMax() {
 		return countMax;
 	}
 
@@ -434,8 +435,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCountMax(org.hl7.fhir.Integer newCountMax, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldCountMax = countMax;
+	public NotificationChain basicSetCountMax(PositiveInt newCountMax, NotificationChain msgs) {
+		PositiveInt oldCountMax = countMax;
 		countMax = newCountMax;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__COUNT_MAX, oldCountMax, newCountMax);
@@ -449,7 +450,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCountMax(org.hl7.fhir.Integer newCountMax) {
+	public void setCountMax(PositiveInt newCountMax) {
 		if (newCountMax != countMax) {
 			NotificationChain msgs = null;
 			if (countMax != null)
@@ -597,7 +598,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Integer getFrequency() {
+	public PositiveInt getFrequency() {
 		return frequency;
 	}
 
@@ -606,8 +607,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrequency(org.hl7.fhir.Integer newFrequency, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldFrequency = frequency;
+	public NotificationChain basicSetFrequency(PositiveInt newFrequency, NotificationChain msgs) {
+		PositiveInt oldFrequency = frequency;
 		frequency = newFrequency;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__FREQUENCY, oldFrequency, newFrequency);
@@ -621,7 +622,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrequency(org.hl7.fhir.Integer newFrequency) {
+	public void setFrequency(PositiveInt newFrequency) {
 		if (newFrequency != frequency) {
 			NotificationChain msgs = null;
 			if (frequency != null)
@@ -640,7 +641,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Integer getFrequencyMax() {
+	public PositiveInt getFrequencyMax() {
 		return frequencyMax;
 	}
 
@@ -649,8 +650,8 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrequencyMax(org.hl7.fhir.Integer newFrequencyMax, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldFrequencyMax = frequencyMax;
+	public NotificationChain basicSetFrequencyMax(PositiveInt newFrequencyMax, NotificationChain msgs) {
+		PositiveInt oldFrequencyMax = frequencyMax;
 		frequencyMax = newFrequencyMax;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TIMING_REPEAT__FREQUENCY_MAX, oldFrequencyMax, newFrequencyMax);
@@ -664,7 +665,7 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrequencyMax(org.hl7.fhir.Integer newFrequencyMax) {
+	public void setFrequencyMax(PositiveInt newFrequencyMax) {
 		if (newFrequencyMax != frequencyMax) {
 			NotificationChain msgs = null;
 			if (frequencyMax != null)
@@ -997,10 +998,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				setBoundsPeriod((Period)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__COUNT:
-				setCount((org.hl7.fhir.Integer)newValue);
+				setCount((PositiveInt)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
-				setCountMax((org.hl7.fhir.Integer)newValue);
+				setCountMax((PositiveInt)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				setDuration((Decimal)newValue);
@@ -1012,10 +1013,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				setDurationUnit((UnitsOfTime)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
-				setFrequency((org.hl7.fhir.Integer)newValue);
+				setFrequency((PositiveInt)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY_MAX:
-				setFrequencyMax((org.hl7.fhir.Integer)newValue);
+				setFrequencyMax((PositiveInt)newValue);
 				return;
 			case FhirPackage.TIMING_REPEAT__PERIOD:
 				setPeriod((Decimal)newValue);
@@ -1063,10 +1064,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				setBoundsPeriod((Period)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__COUNT:
-				setCount((org.hl7.fhir.Integer)null);
+				setCount((PositiveInt)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__COUNT_MAX:
-				setCountMax((org.hl7.fhir.Integer)null);
+				setCountMax((PositiveInt)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__DURATION:
 				setDuration((Decimal)null);
@@ -1078,10 +1079,10 @@ public class TimingRepeatImpl extends ElementImpl implements TimingRepeat {
 				setDurationUnit((UnitsOfTime)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY:
-				setFrequency((org.hl7.fhir.Integer)null);
+				setFrequency((PositiveInt)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__FREQUENCY_MAX:
-				setFrequencyMax((org.hl7.fhir.Integer)null);
+				setFrequencyMax((PositiveInt)null);
 				return;
 			case FhirPackage.TIMING_REPEAT__PERIOD:
 				setPeriod((Decimal)null);

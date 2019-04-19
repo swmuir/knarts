@@ -30,7 +30,7 @@ public interface ConsentPolicy extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.
+	 * Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Authority</em>' containment reference.
 	 * @see #setAuthority(Uri)

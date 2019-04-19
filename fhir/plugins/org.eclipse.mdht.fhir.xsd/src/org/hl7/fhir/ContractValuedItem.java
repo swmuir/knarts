@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -9,7 +10,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -25,6 +26,12 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ContractValuedItem#getFactor <em>Factor</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractValuedItem#getPoints <em>Points</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractValuedItem#getNet <em>Net</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getPayment <em>Payment</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getPaymentDate <em>Payment Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getResponsible <em>Responsible</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractValuedItem#getSecurityLabelNumber <em>Security Label Number</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getContractValuedItem()
@@ -267,5 +274,141 @@ public interface ContractValuedItem extends BackboneElement {
 	 * @generated
 	 */
 	void setNet(Money value);
+
+	/**
+	 * Returns the value of the '<em><b>Payment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Terms of valuation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payment</em>' containment reference.
+	 * @see #setPayment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_Payment()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='payment' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getPayment();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractValuedItem#getPayment <em>Payment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment</em>' containment reference.
+	 * @see #getPayment()
+	 * @generated
+	 */
+	void setPayment(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Payment Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When payment is due.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payment Date</em>' containment reference.
+	 * @see #setPaymentDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_PaymentDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='paymentDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getPaymentDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractValuedItem#getPaymentDate <em>Payment Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment Date</em>' containment reference.
+	 * @see #getPaymentDate()
+	 * @generated
+	 */
+	void setPaymentDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Responsible</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Who will make payment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Responsible</em>' containment reference.
+	 * @see #setResponsible(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_Responsible()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='responsible' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getResponsible();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractValuedItem#getResponsible <em>Responsible</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Responsible</em>' containment reference.
+	 * @see #getResponsible()
+	 * @generated
+	 */
+	void setResponsible(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Who will receive payment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recipient</em>' containment reference.
+	 * @see #setRecipient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_Recipient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRecipient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractValuedItem#getRecipient <em>Recipient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recipient</em>' containment reference.
+	 * @see #getRecipient()
+	 * @generated
+	 */
+	void setRecipient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Id  of the clause or question text related to the context of this valuedItem in the referenced form or QuestionnaireResponse.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Link Id</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_LinkId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='linkId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<org.hl7.fhir.String> getLinkId();
+
+	/**
+	 * Returns the value of the '<em><b>Security Label Number</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UnsignedInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A set of security labels that define which terms are controlled by this condition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Label Number</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractValuedItem_SecurityLabelNumber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityLabelNumber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<UnsignedInt> getSecurityLabelNumber();
 
 } // ContractValuedItem

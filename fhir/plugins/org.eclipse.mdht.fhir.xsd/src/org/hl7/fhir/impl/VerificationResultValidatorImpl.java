@@ -10,10 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Signature;
 import org.hl7.fhir.VerificationResultValidator;
 
 /**
@@ -24,25 +23,14 @@ import org.hl7.fhir.VerificationResultValidator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultValidatorImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultValidatorImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultValidatorImpl#getIdentityCertificate <em>Identity Certificate</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultValidatorImpl#getDateValidated <em>Date Validated</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultValidatorImpl#getAttestationSignature <em>Attestation Signature</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class VerificationResultValidatorImpl extends BackboneElementImpl implements VerificationResultValidator {
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier identifier;
-
 	/**
 	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -64,14 +52,14 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	protected org.hl7.fhir.String identityCertificate;
 
 	/**
-	 * The cached value of the '{@link #getDateValidated() <em>Date Validated</em>}' containment reference.
+	 * The cached value of the '{@link #getAttestationSignature() <em>Attestation Signature</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDateValidated()
+	 * @see #getAttestationSignature()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date dateValidated;
+	protected Signature attestationSignature;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,49 +78,6 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getVerificationResultValidator();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getIdentifier() {
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -226,8 +171,8 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getDateValidated() {
-		return dateValidated;
+	public Signature getAttestationSignature() {
+		return attestationSignature;
 	}
 
 	/**
@@ -235,11 +180,11 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDateValidated(Date newDateValidated, NotificationChain msgs) {
-		Date oldDateValidated = dateValidated;
-		dateValidated = newDateValidated;
+	public NotificationChain basicSetAttestationSignature(Signature newAttestationSignature, NotificationChain msgs) {
+		Signature oldAttestationSignature = attestationSignature;
+		attestationSignature = newAttestationSignature;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED, oldDateValidated, newDateValidated);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE, oldAttestationSignature, newAttestationSignature);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -250,18 +195,18 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDateValidated(Date newDateValidated) {
-		if (newDateValidated != dateValidated) {
+	public void setAttestationSignature(Signature newAttestationSignature) {
+		if (newAttestationSignature != attestationSignature) {
 			NotificationChain msgs = null;
-			if (dateValidated != null)
-				msgs = ((InternalEObject)dateValidated).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED, null, msgs);
-			if (newDateValidated != null)
-				msgs = ((InternalEObject)newDateValidated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED, null, msgs);
-			msgs = basicSetDateValidated(newDateValidated, msgs);
+			if (attestationSignature != null)
+				msgs = ((InternalEObject)attestationSignature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE, null, msgs);
+			if (newAttestationSignature != null)
+				msgs = ((InternalEObject)newAttestationSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE, null, msgs);
+			msgs = basicSetAttestationSignature(newAttestationSignature, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED, newDateValidated, newDateValidated));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE, newAttestationSignature, newAttestationSignature));
 	}
 
 	/**
@@ -272,14 +217,12 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ORGANIZATION:
 				return basicSetOrganization(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTITY_CERTIFICATE:
 				return basicSetIdentityCertificate(null, msgs);
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED:
-				return basicSetDateValidated(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE:
+				return basicSetAttestationSignature(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -292,14 +235,12 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER:
-				return getIdentifier();
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ORGANIZATION:
 				return getOrganization();
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTITY_CERTIFICATE:
 				return getIdentityCertificate();
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED:
-				return getDateValidated();
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE:
+				return getAttestationSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -312,17 +253,14 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ORGANIZATION:
 				setOrganization((Reference)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTITY_CERTIFICATE:
 				setIdentityCertificate((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED:
-				setDateValidated((Date)newValue);
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE:
+				setAttestationSignature((Signature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -336,17 +274,14 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ORGANIZATION:
 				setOrganization((Reference)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTITY_CERTIFICATE:
 				setIdentityCertificate((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED:
-				setDateValidated((Date)null);
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE:
+				setAttestationSignature((Signature)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -360,14 +295,12 @@ public class VerificationResultValidatorImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTIFIER:
-				return identifier != null;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ORGANIZATION:
 				return organization != null;
 			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__IDENTITY_CERTIFICATE:
 				return identityCertificate != null;
-			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__DATE_VALIDATED:
-				return dateValidated != null;
+			case FhirPackage.VERIFICATION_RESULT_VALIDATOR__ATTESTATION_SIGNATURE:
+				return attestationSignature != null;
 		}
 		return super.eIsSet(featureID);
 	}

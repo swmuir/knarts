@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ProdCharacteristic' kind='elementOnly'"
  * @generated
  */
-public interface ProdCharacteristic extends Element {
+public interface ProdCharacteristic extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

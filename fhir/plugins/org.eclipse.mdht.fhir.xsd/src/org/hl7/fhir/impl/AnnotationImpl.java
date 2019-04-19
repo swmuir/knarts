@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.Reference;
 
 /**
@@ -70,7 +71,7 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String text;
+	protected Markdown text;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,7 +226,7 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getText() {
+	public Markdown getText() {
 		return text;
 	}
 
@@ -234,8 +235,8 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetText(org.hl7.fhir.String newText, NotificationChain msgs) {
-		org.hl7.fhir.String oldText = text;
+	public NotificationChain basicSetText(Markdown newText, NotificationChain msgs) {
+		Markdown oldText = text;
 		text = newText;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ANNOTATION__TEXT, oldText, newText);
@@ -249,7 +250,7 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(org.hl7.fhir.String newText) {
+	public void setText(Markdown newText) {
 		if (newText != text) {
 			NotificationChain msgs = null;
 			if (text != null)
@@ -321,7 +322,7 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 				setTime((DateTime)newValue);
 				return;
 			case FhirPackage.ANNOTATION__TEXT:
-				setText((org.hl7.fhir.String)newValue);
+				setText((Markdown)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,7 +346,7 @@ public class AnnotationImpl extends ElementImpl implements Annotation {
 				setTime((DateTime)null);
 				return;
 			case FhirPackage.ANNOTATION__TEXT:
-				setText((org.hl7.fhir.String)null);
+				setText((Markdown)null);
 				return;
 		}
 		super.eUnset(featureID);

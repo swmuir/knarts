@@ -16,7 +16,6 @@ import org.hl7.fhir.AccountStatus;
 import org.hl7.fhir.ActionCardinalityBehavior;
 import org.hl7.fhir.ActionConditionKind;
 import org.hl7.fhir.ActionGroupingBehavior;
-import org.hl7.fhir.ActionList;
 import org.hl7.fhir.ActionParticipantType;
 import org.hl7.fhir.ActionPrecheckBehavior;
 import org.hl7.fhir.ActionRelationshipType;
@@ -37,12 +36,10 @@ import org.hl7.fhir.Age;
 import org.hl7.fhir.AggregationMode;
 import org.hl7.fhir.AllergyIntolerance;
 import org.hl7.fhir.AllergyIntoleranceCategory;
-import org.hl7.fhir.AllergyIntoleranceClinicalStatus;
 import org.hl7.fhir.AllergyIntoleranceCriticality;
 import org.hl7.fhir.AllergyIntoleranceReaction;
 import org.hl7.fhir.AllergyIntoleranceSeverity;
 import org.hl7.fhir.AllergyIntoleranceType;
-import org.hl7.fhir.AllergyIntoleranceVerificationStatus;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.Appointment;
 import org.hl7.fhir.AppointmentParticipant;
@@ -82,9 +79,8 @@ import org.hl7.fhir.BundleRequest;
 import org.hl7.fhir.BundleResponse;
 import org.hl7.fhir.BundleSearch;
 import org.hl7.fhir.BundleType;
-import org.hl7.fhir.CanPushUpdates;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatement;
-import org.hl7.fhir.CapabilityStatementCertificate;
 import org.hl7.fhir.CapabilityStatementDocument;
 import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.CapabilityStatementImplementation;
@@ -105,19 +101,24 @@ import org.hl7.fhir.CarePlanActivityKind;
 import org.hl7.fhir.CarePlanActivityStatus;
 import org.hl7.fhir.CarePlanDetail;
 import org.hl7.fhir.CarePlanIntent;
-import org.hl7.fhir.CarePlanStatus;
 import org.hl7.fhir.CareTeam;
 import org.hl7.fhir.CareTeamParticipant;
 import org.hl7.fhir.CareTeamStatus;
+import org.hl7.fhir.CatalogEntry;
+import org.hl7.fhir.CatalogEntryRelatedEntry;
+import org.hl7.fhir.CatalogEntryRelationType;
 import org.hl7.fhir.ChargeItem;
-import org.hl7.fhir.ChargeItemParticipant;
+import org.hl7.fhir.ChargeItemDefinition;
+import org.hl7.fhir.ChargeItemDefinitionApplicability;
+import org.hl7.fhir.ChargeItemDefinitionPriceComponent;
+import org.hl7.fhir.ChargeItemDefinitionPropertyGroup;
+import org.hl7.fhir.ChargeItemPerformer;
 import org.hl7.fhir.ChargeItemStatus;
 import org.hl7.fhir.Claim;
 import org.hl7.fhir.ClaimAccident;
 import org.hl7.fhir.ClaimCareTeam;
 import org.hl7.fhir.ClaimDetail;
 import org.hl7.fhir.ClaimDiagnosis;
-import org.hl7.fhir.ClaimInformation;
 import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
@@ -128,13 +129,17 @@ import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
 import org.hl7.fhir.ClaimResponseAdjudication;
 import org.hl7.fhir.ClaimResponseDetail;
+import org.hl7.fhir.ClaimResponseDetail1;
 import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
 import org.hl7.fhir.ClaimResponsePayment;
 import org.hl7.fhir.ClaimResponseProcessNote;
 import org.hl7.fhir.ClaimResponseSubDetail;
+import org.hl7.fhir.ClaimResponseSubDetail1;
+import org.hl7.fhir.ClaimResponseTotal;
 import org.hl7.fhir.ClaimSubDetail;
+import org.hl7.fhir.ClaimSupportingInfo;
 import org.hl7.fhir.ClinicalImpression;
 import org.hl7.fhir.ClinicalImpressionFinding;
 import org.hl7.fhir.ClinicalImpressionInvestigation;
@@ -174,13 +179,10 @@ import org.hl7.fhir.ConceptMapGroupUnmappedMode;
 import org.hl7.fhir.ConceptMapTarget;
 import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.Condition;
-import org.hl7.fhir.ConditionClinicalStatusCodes;
 import org.hl7.fhir.ConditionEvidence;
 import org.hl7.fhir.ConditionStage;
-import org.hl7.fhir.ConditionVerificationStatus;
 import org.hl7.fhir.ConditionalDeleteStatus;
 import org.hl7.fhir.ConditionalReadStatus;
-import org.hl7.fhir.ConfidentialityClassification;
 import org.hl7.fhir.Consent;
 import org.hl7.fhir.ConsentActor;
 import org.hl7.fhir.ConsentData;
@@ -188,7 +190,6 @@ import org.hl7.fhir.ConsentDataMeaning;
 import org.hl7.fhir.ConsentPolicy;
 import org.hl7.fhir.ConsentProvision;
 import org.hl7.fhir.ConsentProvisionType;
-import org.hl7.fhir.ConsentScopeCodes;
 import org.hl7.fhir.ConsentState;
 import org.hl7.fhir.ConsentVerification;
 import org.hl7.fhir.ConstraintSeverity;
@@ -197,16 +198,21 @@ import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.ContactPointSystem;
 import org.hl7.fhir.ContactPointUse;
 import org.hl7.fhir.Contract;
-import org.hl7.fhir.ContractAgent;
+import org.hl7.fhir.ContractAction;
+import org.hl7.fhir.ContractAnswer;
 import org.hl7.fhir.ContractAsset;
-import org.hl7.fhir.ContractData;
-import org.hl7.fhir.ContractDataMeaning;
+import org.hl7.fhir.ContractContentDefinition;
+import org.hl7.fhir.ContractContext;
 import org.hl7.fhir.ContractFriendly;
 import org.hl7.fhir.ContractLegal;
 import org.hl7.fhir.ContractOffer;
+import org.hl7.fhir.ContractParty;
+import org.hl7.fhir.ContractResourcePublicationStatusCodes;
 import org.hl7.fhir.ContractResourceStatusCodes;
 import org.hl7.fhir.ContractRule;
+import org.hl7.fhir.ContractSecurityLabel;
 import org.hl7.fhir.ContractSigner;
+import org.hl7.fhir.ContractSubject;
 import org.hl7.fhir.ContractTerm;
 import org.hl7.fhir.ContractValuedItem;
 import org.hl7.fhir.Contributor;
@@ -214,22 +220,39 @@ import org.hl7.fhir.ContributorType;
 import org.hl7.fhir.Count;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.CoverageClass;
-import org.hl7.fhir.CoverageCopay;
-import org.hl7.fhir.CoverageGrouping;
+import org.hl7.fhir.CoverageCostToBeneficiary;
+import org.hl7.fhir.CoverageEligibilityRequest;
+import org.hl7.fhir.CoverageEligibilityRequestDiagnosis;
+import org.hl7.fhir.CoverageEligibilityRequestInsurance;
+import org.hl7.fhir.CoverageEligibilityRequestItem;
+import org.hl7.fhir.CoverageEligibilityRequestSupportingInfo;
+import org.hl7.fhir.CoverageEligibilityResponse;
+import org.hl7.fhir.CoverageEligibilityResponseBenefit;
+import org.hl7.fhir.CoverageEligibilityResponseError;
+import org.hl7.fhir.CoverageEligibilityResponseInsurance;
+import org.hl7.fhir.CoverageEligibilityResponseItem;
+import org.hl7.fhir.CoverageException;
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
+import org.hl7.fhir.DataRequirementSort;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DaysOfWeek;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.DetectedIssue;
+import org.hl7.fhir.DetectedIssueEvidence;
 import org.hl7.fhir.DetectedIssueMitigation;
 import org.hl7.fhir.DetectedIssueSeverity;
 import org.hl7.fhir.Device;
-import org.hl7.fhir.DeviceComponent;
-import org.hl7.fhir.DeviceComponentProductionSpecification;
-import org.hl7.fhir.DeviceComponentProperty;
+import org.hl7.fhir.DeviceDefinition;
+import org.hl7.fhir.DeviceDefinitionCapability;
+import org.hl7.fhir.DeviceDefinitionDeviceName;
+import org.hl7.fhir.DeviceDefinitionMaterial;
+import org.hl7.fhir.DeviceDefinitionProperty;
+import org.hl7.fhir.DeviceDefinitionSpecialization;
+import org.hl7.fhir.DeviceDefinitionUdiDeviceIdentifier;
+import org.hl7.fhir.DeviceDeviceName;
 import org.hl7.fhir.DeviceMetric;
 import org.hl7.fhir.DeviceMetricCalibration;
 import org.hl7.fhir.DeviceMetricCalibrationState;
@@ -237,32 +260,41 @@ import org.hl7.fhir.DeviceMetricCalibrationType;
 import org.hl7.fhir.DeviceMetricCategory;
 import org.hl7.fhir.DeviceMetricColor;
 import org.hl7.fhir.DeviceMetricOperationalStatus;
+import org.hl7.fhir.DeviceNameType;
+import org.hl7.fhir.DeviceProperty;
 import org.hl7.fhir.DeviceRequest;
 import org.hl7.fhir.DeviceRequestParameter;
-import org.hl7.fhir.DeviceUdi;
+import org.hl7.fhir.DeviceSpecialization;
+import org.hl7.fhir.DeviceUdiCarrier;
 import org.hl7.fhir.DeviceUseStatement;
 import org.hl7.fhir.DeviceUseStatementStatus;
+import org.hl7.fhir.DeviceVersion;
 import org.hl7.fhir.DiagnosticReport;
 import org.hl7.fhir.DiagnosticReportMedia;
 import org.hl7.fhir.DiagnosticReportStatus;
 import org.hl7.fhir.DiscriminatorType;
 import org.hl7.fhir.Distance;
 import org.hl7.fhir.DocumentManifest;
-import org.hl7.fhir.DocumentManifestAgent;
 import org.hl7.fhir.DocumentManifestRelated;
 import org.hl7.fhir.DocumentMode;
 import org.hl7.fhir.DocumentReference;
-import org.hl7.fhir.DocumentReferenceAgent;
 import org.hl7.fhir.DocumentReferenceContent;
 import org.hl7.fhir.DocumentReferenceContext;
-import org.hl7.fhir.DocumentReferenceRelated;
 import org.hl7.fhir.DocumentReferenceRelatesTo;
 import org.hl7.fhir.DocumentReferenceStatus;
 import org.hl7.fhir.DocumentRelationshipType;
 import org.hl7.fhir.DocumentRoot;
 import org.hl7.fhir.DomainResource;
 import org.hl7.fhir.Dosage;
+import org.hl7.fhir.DosageDoseAndRate;
 import org.hl7.fhir.Duration;
+import org.hl7.fhir.EffectEvidenceSynthesis;
+import org.hl7.fhir.EffectEvidenceSynthesisCertainty;
+import org.hl7.fhir.EffectEvidenceSynthesisCertaintySubcomponent;
+import org.hl7.fhir.EffectEvidenceSynthesisEffectEstimate;
+import org.hl7.fhir.EffectEvidenceSynthesisPrecisionEstimate;
+import org.hl7.fhir.EffectEvidenceSynthesisResultsByExposure;
+import org.hl7.fhir.EffectEvidenceSynthesisSampleSize;
 import org.hl7.fhir.Element;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBase;
@@ -273,14 +305,9 @@ import org.hl7.fhir.ElementDefinitionExample;
 import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
-import org.hl7.fhir.EligibilityRequest;
-import org.hl7.fhir.EligibilityRequestAuthorization;
-import org.hl7.fhir.EligibilityResponse;
-import org.hl7.fhir.EligibilityResponseAuthorization;
-import org.hl7.fhir.EligibilityResponseBenefitBalance;
-import org.hl7.fhir.EligibilityResponseError;
-import org.hl7.fhir.EligibilityResponseFinancial;
-import org.hl7.fhir.EligibilityResponseInsurance;
+import org.hl7.fhir.EligibilityRequestPurpose;
+import org.hl7.fhir.EligibilityResponsePurpose;
+import org.hl7.fhir.EnableWhenBehavior;
 import org.hl7.fhir.Encounter;
 import org.hl7.fhir.EncounterClassHistory;
 import org.hl7.fhir.EncounterDiagnosis;
@@ -294,8 +321,6 @@ import org.hl7.fhir.Endpoint;
 import org.hl7.fhir.EndpointStatus;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.EnrollmentResponse;
-import org.hl7.fhir.EntryDefinition;
-import org.hl7.fhir.EntryDefinitionRelatedEntry;
 import org.hl7.fhir.EpisodeOfCare;
 import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.EpisodeOfCareStatus;
@@ -304,6 +329,10 @@ import org.hl7.fhir.EventCapabilityMode;
 import org.hl7.fhir.EventDefinition;
 import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.EventTiming;
+import org.hl7.fhir.Evidence;
+import org.hl7.fhir.EvidenceVariable;
+import org.hl7.fhir.EvidenceVariableCharacteristic;
+import org.hl7.fhir.EvidenceVariableType;
 import org.hl7.fhir.ExampleScenario;
 import org.hl7.fhir.ExampleScenarioActor;
 import org.hl7.fhir.ExampleScenarioActorType;
@@ -311,18 +340,9 @@ import org.hl7.fhir.ExampleScenarioAlternative;
 import org.hl7.fhir.ExampleScenarioContainedInstance;
 import org.hl7.fhir.ExampleScenarioInstance;
 import org.hl7.fhir.ExampleScenarioOperation;
-import org.hl7.fhir.ExampleScenarioOption;
 import org.hl7.fhir.ExampleScenarioProcess;
 import org.hl7.fhir.ExampleScenarioStep;
 import org.hl7.fhir.ExampleScenarioVersion;
-import org.hl7.fhir.ExpansionProfile;
-import org.hl7.fhir.ExpansionProfileDesignation;
-import org.hl7.fhir.ExpansionProfileDesignation1;
-import org.hl7.fhir.ExpansionProfileDesignation2;
-import org.hl7.fhir.ExpansionProfileExclude;
-import org.hl7.fhir.ExpansionProfileExcludedSystem;
-import org.hl7.fhir.ExpansionProfileFixedVersion;
-import org.hl7.fhir.ExpansionProfileInclude;
 import org.hl7.fhir.ExplanationOfBenefit;
 import org.hl7.fhir.ExplanationOfBenefitAccident;
 import org.hl7.fhir.ExplanationOfBenefitAddItem;
@@ -330,9 +350,9 @@ import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.ExplanationOfBenefitBenefitBalance;
 import org.hl7.fhir.ExplanationOfBenefitCareTeam;
 import org.hl7.fhir.ExplanationOfBenefitDetail;
+import org.hl7.fhir.ExplanationOfBenefitDetail1;
 import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.ExplanationOfBenefitFinancial;
-import org.hl7.fhir.ExplanationOfBenefitInformation;
 import org.hl7.fhir.ExplanationOfBenefitInsurance;
 import org.hl7.fhir.ExplanationOfBenefitItem;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
@@ -342,14 +362,17 @@ import org.hl7.fhir.ExplanationOfBenefitProcessNote;
 import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.ExplanationOfBenefitStatus;
 import org.hl7.fhir.ExplanationOfBenefitSubDetail;
+import org.hl7.fhir.ExplanationOfBenefitSubDetail1;
+import org.hl7.fhir.ExplanationOfBenefitSupportingInfo;
+import org.hl7.fhir.ExplanationOfBenefitTotal;
+import org.hl7.fhir.ExposureState;
+import org.hl7.fhir.Expression;
 import org.hl7.fhir.ExpressionLanguage;
 import org.hl7.fhir.Extension;
-import org.hl7.fhir.ExtensionContext;
-import org.hl7.fhir.FHIRAllTypes;
-import org.hl7.fhir.FHIRDefinedType;
+import org.hl7.fhir.ExtensionContextType;
 import org.hl7.fhir.FHIRDeviceStatus;
 import org.hl7.fhir.FHIRSubstanceStatus;
-import org.hl7.fhir.FailureAction;
+import org.hl7.fhir.FHIRVersion;
 import org.hl7.fhir.FamilyHistoryStatus;
 import org.hl7.fhir.FamilyMemberHistory;
 import org.hl7.fhir.FamilyMemberHistoryCondition;
@@ -359,7 +382,7 @@ import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Flag;
 import org.hl7.fhir.FlagStatus;
 import org.hl7.fhir.Goal;
-import org.hl7.fhir.GoalStatus;
+import org.hl7.fhir.GoalLifecycleStatus;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.GraphCompartmentRule;
 import org.hl7.fhir.GraphCompartmentUse;
@@ -369,18 +392,18 @@ import org.hl7.fhir.GraphDefinitionLink;
 import org.hl7.fhir.GraphDefinitionTarget;
 import org.hl7.fhir.Group;
 import org.hl7.fhir.GroupCharacteristic;
+import org.hl7.fhir.GroupMeasure;
 import org.hl7.fhir.GroupMember;
 import org.hl7.fhir.GroupType;
 import org.hl7.fhir.GuidanceResponse;
 import org.hl7.fhir.GuidanceResponseStatus;
-import org.hl7.fhir.GuideDependencyType;
-import org.hl7.fhir.GuidePageKind;
+import org.hl7.fhir.GuidePageGeneration;
+import org.hl7.fhir.GuideParameterCode;
 import org.hl7.fhir.HTTPVerb;
-import org.hl7.fhir.HazardousDutyWork;
 import org.hl7.fhir.HealthcareService;
 import org.hl7.fhir.HealthcareServiceAvailableTime;
+import org.hl7.fhir.HealthcareServiceEligibility;
 import org.hl7.fhir.HealthcareServiceNotAvailable;
-import org.hl7.fhir.HistoryOfEmploymentStatus;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Identifier;
@@ -388,35 +411,43 @@ import org.hl7.fhir.IdentifierUse;
 import org.hl7.fhir.IdentityAssuranceLevel;
 import org.hl7.fhir.ImagingStudy;
 import org.hl7.fhir.ImagingStudyInstance;
+import org.hl7.fhir.ImagingStudyPerformer;
 import org.hl7.fhir.ImagingStudySeries;
+import org.hl7.fhir.ImagingStudyStatus;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationEducation;
 import org.hl7.fhir.ImmunizationEvaluation;
 import org.hl7.fhir.ImmunizationEvaluationStatusCodes;
-import org.hl7.fhir.ImmunizationPractitioner;
+import org.hl7.fhir.ImmunizationPerformer;
+import org.hl7.fhir.ImmunizationProtocolApplied;
+import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationRecommendation;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
 import org.hl7.fhir.ImmunizationStatusCodes;
 import org.hl7.fhir.ImplementationGuide;
-import org.hl7.fhir.ImplementationGuideDependency;
+import org.hl7.fhir.ImplementationGuideDefinition;
+import org.hl7.fhir.ImplementationGuideDependsOn;
 import org.hl7.fhir.ImplementationGuideGlobal;
-import org.hl7.fhir.ImplementationGuideInput;
-import org.hl7.fhir.ImplementationGuideInputDependency;
-import org.hl7.fhir.ImplementationGuideInputGlobal;
-import org.hl7.fhir.ImplementationGuideInputPackage;
-import org.hl7.fhir.ImplementationGuideInputPage;
-import org.hl7.fhir.ImplementationGuideInputResource;
-import org.hl7.fhir.ImplementationGuideOutput;
-import org.hl7.fhir.ImplementationGuideOutputDependency;
-import org.hl7.fhir.ImplementationGuideOutputGlobal;
-import org.hl7.fhir.ImplementationGuideOutputPage;
-import org.hl7.fhir.ImplementationGuideOutputResource;
-import org.hl7.fhir.ImplementationGuidePackage;
+import org.hl7.fhir.ImplementationGuideGrouping;
+import org.hl7.fhir.ImplementationGuideManifest;
 import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.ImplementationGuidePage1;
+import org.hl7.fhir.ImplementationGuideParameter;
 import org.hl7.fhir.ImplementationGuideResource;
-import org.hl7.fhir.InstanceAvailability;
+import org.hl7.fhir.ImplementationGuideResource1;
+import org.hl7.fhir.ImplementationGuideTemplate;
 import org.hl7.fhir.Instant;
+import org.hl7.fhir.InsurancePlan;
+import org.hl7.fhir.InsurancePlanBenefit;
+import org.hl7.fhir.InsurancePlanBenefit1;
+import org.hl7.fhir.InsurancePlanContact;
+import org.hl7.fhir.InsurancePlanCost;
+import org.hl7.fhir.InsurancePlanCoverage;
+import org.hl7.fhir.InsurancePlanGeneralCost;
+import org.hl7.fhir.InsurancePlanLimit;
+import org.hl7.fhir.InsurancePlanPlan;
+import org.hl7.fhir.InsurancePlanSpecificCost;
 import org.hl7.fhir.Invoice;
 import org.hl7.fhir.InvoiceLineItem;
 import org.hl7.fhir.InvoiceParticipant;
@@ -425,7 +456,6 @@ import org.hl7.fhir.InvoicePriceComponentType;
 import org.hl7.fhir.InvoiceStatus;
 import org.hl7.fhir.IssueSeverity;
 import org.hl7.fhir.IssueType;
-import org.hl7.fhir.ItemInstance;
 import org.hl7.fhir.Library;
 import org.hl7.fhir.LinkType;
 import org.hl7.fhir.Linkage;
@@ -442,11 +472,12 @@ import org.hl7.fhir.LocationPosition;
 import org.hl7.fhir.LocationStatus;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MarketingStatus;
-import org.hl7.fhir.MeasmntPrinciple;
 import org.hl7.fhir.Measure;
+import org.hl7.fhir.MeasureComponent;
 import org.hl7.fhir.MeasureGroup;
 import org.hl7.fhir.MeasurePopulation;
 import org.hl7.fhir.MeasureReport;
+import org.hl7.fhir.MeasureReportComponent;
 import org.hl7.fhir.MeasureReportGroup;
 import org.hl7.fhir.MeasureReportPopulation;
 import org.hl7.fhir.MeasureReportPopulation1;
@@ -457,55 +488,70 @@ import org.hl7.fhir.MeasureReportType;
 import org.hl7.fhir.MeasureStratifier;
 import org.hl7.fhir.MeasureSupplementalData;
 import org.hl7.fhir.Media;
-import org.hl7.fhir.MediaStatus;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationAdministration;
 import org.hl7.fhir.MedicationAdministrationDosage;
 import org.hl7.fhir.MedicationAdministrationPerformer;
-import org.hl7.fhir.MedicationAdministrationStatus;
 import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationDispensePerformer;
-import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.MedicationIngredient;
+import org.hl7.fhir.MedicationKnowledge;
+import org.hl7.fhir.MedicationKnowledgeAdministrationGuidelines;
+import org.hl7.fhir.MedicationKnowledgeCost;
+import org.hl7.fhir.MedicationKnowledgeDosage;
+import org.hl7.fhir.MedicationKnowledgeDrugCharacteristic;
+import org.hl7.fhir.MedicationKnowledgeIngredient;
+import org.hl7.fhir.MedicationKnowledgeKinetics;
+import org.hl7.fhir.MedicationKnowledgeMaxDispense;
+import org.hl7.fhir.MedicationKnowledgeMedicineClassification;
+import org.hl7.fhir.MedicationKnowledgeMonitoringProgram;
+import org.hl7.fhir.MedicationKnowledgeMonograph;
+import org.hl7.fhir.MedicationKnowledgePackaging;
+import org.hl7.fhir.MedicationKnowledgePatientCharacteristics;
+import org.hl7.fhir.MedicationKnowledgeRegulatory;
+import org.hl7.fhir.MedicationKnowledgeRelatedMedicationKnowledge;
+import org.hl7.fhir.MedicationKnowledgeSchedule;
+import org.hl7.fhir.MedicationKnowledgeSubstitution;
 import org.hl7.fhir.MedicationRequest;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
+import org.hl7.fhir.MedicationRequestInitialFill;
 import org.hl7.fhir.MedicationRequestIntent;
-import org.hl7.fhir.MedicationRequestStatus;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.MedicationStatement;
-import org.hl7.fhir.MedicationStatementStatus;
-import org.hl7.fhir.MedicationStatus;
+import org.hl7.fhir.MedicationStatusCodes;
+import org.hl7.fhir.MedicationrequestStatus;
 import org.hl7.fhir.MedicinalProduct;
 import org.hl7.fhir.MedicinalProductAuthorization;
-import org.hl7.fhir.MedicinalProductAuthorizationApplication;
 import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
 import org.hl7.fhir.MedicinalProductAuthorizationProcedure;
-import org.hl7.fhir.MedicinalProductClinicals;
-import org.hl7.fhir.MedicinalProductClinicalsContraindication;
-import org.hl7.fhir.MedicinalProductClinicalsInteractions;
-import org.hl7.fhir.MedicinalProductClinicalsOtherTherapy;
-import org.hl7.fhir.MedicinalProductClinicalsPopulation;
-import org.hl7.fhir.MedicinalProductClinicalsTherapeuticIndication;
-import org.hl7.fhir.MedicinalProductClinicalsUndesirableEffects;
+import org.hl7.fhir.MedicinalProductContraindication;
+import org.hl7.fhir.MedicinalProductContraindicationOtherTherapy;
 import org.hl7.fhir.MedicinalProductCountryLanguage;
-import org.hl7.fhir.MedicinalProductDeviceSpec;
-import org.hl7.fhir.MedicinalProductDeviceSpecMaterial;
+import org.hl7.fhir.MedicinalProductIndication;
+import org.hl7.fhir.MedicinalProductIndicationOtherTherapy;
 import org.hl7.fhir.MedicinalProductIngredient;
 import org.hl7.fhir.MedicinalProductIngredientReferenceStrength;
 import org.hl7.fhir.MedicinalProductIngredientSpecifiedSubstance;
 import org.hl7.fhir.MedicinalProductIngredientStrength;
 import org.hl7.fhir.MedicinalProductIngredientSubstance;
+import org.hl7.fhir.MedicinalProductInteraction;
+import org.hl7.fhir.MedicinalProductInteractionInteractant;
+import org.hl7.fhir.MedicinalProductManufactured;
 import org.hl7.fhir.MedicinalProductManufacturingBusinessOperation;
 import org.hl7.fhir.MedicinalProductName;
 import org.hl7.fhir.MedicinalProductNamePart;
 import org.hl7.fhir.MedicinalProductPackaged;
 import org.hl7.fhir.MedicinalProductPackagedBatchIdentifier;
-import org.hl7.fhir.MedicinalProductPackagedManufacturedItem;
 import org.hl7.fhir.MedicinalProductPackagedPackageItem;
 import org.hl7.fhir.MedicinalProductPharmaceutical;
 import org.hl7.fhir.MedicinalProductPharmaceuticalCharacteristics;
+import org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration;
+import org.hl7.fhir.MedicinalProductPharmaceuticalTargetSpecies;
+import org.hl7.fhir.MedicinalProductPharmaceuticalWithdrawalPeriod;
+import org.hl7.fhir.MedicinalProductSpecialDesignation;
+import org.hl7.fhir.MedicinalProductUndesirableEffect;
 import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
@@ -514,7 +560,17 @@ import org.hl7.fhir.MessageHeaderDestination;
 import org.hl7.fhir.MessageHeaderResponse;
 import org.hl7.fhir.MessageHeaderSource;
 import org.hl7.fhir.MessageSignificanceCategory;
+import org.hl7.fhir.MessageheaderResponseRequest;
 import org.hl7.fhir.Meta;
+import org.hl7.fhir.MolecularSequence;
+import org.hl7.fhir.MolecularSequenceInner;
+import org.hl7.fhir.MolecularSequenceOuter;
+import org.hl7.fhir.MolecularSequenceQuality;
+import org.hl7.fhir.MolecularSequenceReferenceSeq;
+import org.hl7.fhir.MolecularSequenceRepository;
+import org.hl7.fhir.MolecularSequenceRoc;
+import org.hl7.fhir.MolecularSequenceStructureVariant;
+import org.hl7.fhir.MolecularSequenceVariant;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.NameUse;
 import org.hl7.fhir.NamingSystem;
@@ -523,52 +579,43 @@ import org.hl7.fhir.NamingSystemType;
 import org.hl7.fhir.NamingSystemUniqueId;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.NarrativeStatus;
-import org.hl7.fhir.Need;
 import org.hl7.fhir.NoteType;
 import org.hl7.fhir.NutritionOrder;
 import org.hl7.fhir.NutritionOrderAdministration;
 import org.hl7.fhir.NutritionOrderEnteralFormula;
 import org.hl7.fhir.NutritionOrderNutrient;
 import org.hl7.fhir.NutritionOrderOralDiet;
-import org.hl7.fhir.NutritionOrderStatus;
 import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.NutritionOrderTexture;
 import org.hl7.fhir.Observation;
 import org.hl7.fhir.ObservationComponent;
+import org.hl7.fhir.ObservationDataType;
 import org.hl7.fhir.ObservationDefinition;
 import org.hl7.fhir.ObservationDefinitionQualifiedInterval;
 import org.hl7.fhir.ObservationDefinitionQuantitativeDetails;
+import org.hl7.fhir.ObservationRangeCategory;
 import org.hl7.fhir.ObservationReferenceRange;
 import org.hl7.fhir.ObservationStatus;
-import org.hl7.fhir.OccupationalData;
-import org.hl7.fhir.OccupationalDataCombatZoneHazardousDuty;
-import org.hl7.fhir.OccupationalDataDuration;
-import org.hl7.fhir.OccupationalDataEmploymentStatus;
-import org.hl7.fhir.OccupationalDataIndustry;
-import org.hl7.fhir.OccupationalDataPastOrPresentOccupation;
-import org.hl7.fhir.OccupationalDataRetirementStatus;
-import org.hl7.fhir.OccupationalDataUsualOccupation;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.OperationDefinition;
 import org.hl7.fhir.OperationDefinitionBinding;
 import org.hl7.fhir.OperationDefinitionOverload;
 import org.hl7.fhir.OperationDefinitionParameter;
+import org.hl7.fhir.OperationDefinitionReferencedFrom;
 import org.hl7.fhir.OperationKind;
 import org.hl7.fhir.OperationOutcome;
 import org.hl7.fhir.OperationOutcomeIssue;
 import org.hl7.fhir.OperationParameterUse;
 import org.hl7.fhir.Organization;
+import org.hl7.fhir.OrganizationAffiliation;
 import org.hl7.fhir.OrganizationContact;
-import org.hl7.fhir.OrganizationRole;
-import org.hl7.fhir.OrganizationRoleAvailableTime;
-import org.hl7.fhir.OrganizationRoleNotAvailable;
+import org.hl7.fhir.OrientationType;
 import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.Parameters;
 import org.hl7.fhir.ParametersParameter;
 import org.hl7.fhir.ParticipantRequired;
 import org.hl7.fhir.ParticipationStatus;
 import org.hl7.fhir.Patient;
-import org.hl7.fhir.PatientAnimal;
 import org.hl7.fhir.PatientCommunication;
 import org.hl7.fhir.PatientContact;
 import org.hl7.fhir.PatientLink;
@@ -587,6 +634,7 @@ import org.hl7.fhir.PlanDefinitionGoal;
 import org.hl7.fhir.PlanDefinitionParticipant;
 import org.hl7.fhir.PlanDefinitionRelatedAction;
 import org.hl7.fhir.PlanDefinitionTarget;
+import org.hl7.fhir.Population;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Practitioner;
 import org.hl7.fhir.PractitionerQualification;
@@ -596,21 +644,7 @@ import org.hl7.fhir.PractitionerRoleNotAvailable;
 import org.hl7.fhir.Procedure;
 import org.hl7.fhir.ProcedureFocalDevice;
 import org.hl7.fhir.ProcedurePerformer;
-import org.hl7.fhir.ProcessOutcomeCodes;
-import org.hl7.fhir.ProcessRequest;
-import org.hl7.fhir.ProcessRequestItem;
-import org.hl7.fhir.ProcessResponse;
-import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.ProdCharacteristic;
-import org.hl7.fhir.ProductPlan;
-import org.hl7.fhir.ProductPlanBenefit;
-import org.hl7.fhir.ProductPlanBenefit1;
-import org.hl7.fhir.ProductPlanCategory;
-import org.hl7.fhir.ProductPlanContact;
-import org.hl7.fhir.ProductPlanCost;
-import org.hl7.fhir.ProductPlanCoverage;
-import org.hl7.fhir.ProductPlanItem;
-import org.hl7.fhir.ProductPlanPlan;
 import org.hl7.fhir.ProductShelfLife;
 import org.hl7.fhir.PropertyRepresentation;
 import org.hl7.fhir.PropertyType;
@@ -619,15 +653,16 @@ import org.hl7.fhir.ProvenanceAgent;
 import org.hl7.fhir.ProvenanceEntity;
 import org.hl7.fhir.ProvenanceEntityRole;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.PushTypeAvailable;
 import org.hl7.fhir.QualityType;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuantityComparator;
 import org.hl7.fhir.Questionnaire;
+import org.hl7.fhir.QuestionnaireAnswerOption;
 import org.hl7.fhir.QuestionnaireEnableWhen;
+import org.hl7.fhir.QuestionnaireInitial;
 import org.hl7.fhir.QuestionnaireItem;
+import org.hl7.fhir.QuestionnaireItemOperator;
 import org.hl7.fhir.QuestionnaireItemType;
-import org.hl7.fhir.QuestionnaireOption;
 import org.hl7.fhir.QuestionnaireResponse;
 import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
@@ -640,6 +675,7 @@ import org.hl7.fhir.ReferenceVersionRules;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
 import org.hl7.fhir.RelatedPerson;
+import org.hl7.fhir.RelatedPersonCommunication;
 import org.hl7.fhir.RemittanceOutcome;
 import org.hl7.fhir.RepositoryType;
 import org.hl7.fhir.RequestGroup;
@@ -648,7 +684,12 @@ import org.hl7.fhir.RequestGroupCondition;
 import org.hl7.fhir.RequestGroupRelatedAction;
 import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestResourceType;
 import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.ResearchDefinition;
+import org.hl7.fhir.ResearchElementDefinition;
+import org.hl7.fhir.ResearchElementDefinitionCharacteristic;
+import org.hl7.fhir.ResearchElementType;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
 import org.hl7.fhir.ResearchStudyObjective;
@@ -661,9 +702,15 @@ import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
 import org.hl7.fhir.ResponseType;
 import org.hl7.fhir.RestfulCapabilityMode;
-import org.hl7.fhir.RetirementStatus;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.RiskAssessmentPrediction;
+import org.hl7.fhir.RiskEvidenceSynthesis;
+import org.hl7.fhir.RiskEvidenceSynthesisCertainty;
+import org.hl7.fhir.RiskEvidenceSynthesisCertaintySubcomponent;
+import org.hl7.fhir.RiskEvidenceSynthesisPrecisionEstimate;
+import org.hl7.fhir.RiskEvidenceSynthesisRiskEstimate;
+import org.hl7.fhir.RiskEvidenceSynthesisSampleSize;
+import org.hl7.fhir.SPDXLicense;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.SampledDataDataType;
 import org.hl7.fhir.Schedule;
@@ -673,33 +720,28 @@ import org.hl7.fhir.SearchModifierCode;
 import org.hl7.fhir.SearchParamType;
 import org.hl7.fhir.SearchParameter;
 import org.hl7.fhir.SearchParameterComponent;
-import org.hl7.fhir.Sequence;
-import org.hl7.fhir.SequenceInner;
-import org.hl7.fhir.SequenceOuter;
-import org.hl7.fhir.SequenceQuality;
-import org.hl7.fhir.SequenceReferenceSeq;
-import org.hl7.fhir.SequenceRepository;
-import org.hl7.fhir.SequenceRoc;
-import org.hl7.fhir.SequenceStructureVariant;
-import org.hl7.fhir.SequenceVariant;
-import org.hl7.fhir.ServiceDefinition;
+import org.hl7.fhir.SequenceType;
 import org.hl7.fhir.ServiceRequest;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.SlicingRules;
 import org.hl7.fhir.Slot;
 import org.hl7.fhir.SlotStatus;
+import org.hl7.fhir.SortDirection;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.SpecimenCollection;
 import org.hl7.fhir.SpecimenContainedPreference;
 import org.hl7.fhir.SpecimenContainer;
 import org.hl7.fhir.SpecimenDefinition;
-import org.hl7.fhir.SpecimenDefinitionContainerAdditive;
+import org.hl7.fhir.SpecimenDefinitionAdditive;
+import org.hl7.fhir.SpecimenDefinitionContainer;
 import org.hl7.fhir.SpecimenDefinitionHandling;
-import org.hl7.fhir.SpecimenDefinitionSpecimenToLab;
+import org.hl7.fhir.SpecimenDefinitionTypeTested;
 import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
 import org.hl7.fhir.Status;
+import org.hl7.fhir.StrandType;
 import org.hl7.fhir.StructureDefinition;
+import org.hl7.fhir.StructureDefinitionContext;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
 import org.hl7.fhir.StructureDefinitionMapping;
@@ -729,7 +771,10 @@ import org.hl7.fhir.SubstanceAmount;
 import org.hl7.fhir.SubstanceAmountReferenceRange;
 import org.hl7.fhir.SubstanceIngredient;
 import org.hl7.fhir.SubstanceInstance;
-import org.hl7.fhir.SubstanceMoiety;
+import org.hl7.fhir.SubstanceNucleicAcid;
+import org.hl7.fhir.SubstanceNucleicAcidLinkage;
+import org.hl7.fhir.SubstanceNucleicAcidSubunit;
+import org.hl7.fhir.SubstanceNucleicAcidSugar;
 import org.hl7.fhir.SubstancePolymer;
 import org.hl7.fhir.SubstancePolymerDegreeOfPolymerisation;
 import org.hl7.fhir.SubstancePolymerMonomerSet;
@@ -737,22 +782,31 @@ import org.hl7.fhir.SubstancePolymerRepeat;
 import org.hl7.fhir.SubstancePolymerRepeatUnit;
 import org.hl7.fhir.SubstancePolymerStartingMaterial;
 import org.hl7.fhir.SubstancePolymerStructuralRepresentation;
+import org.hl7.fhir.SubstanceProtein;
+import org.hl7.fhir.SubstanceProteinSubunit;
 import org.hl7.fhir.SubstanceReferenceInformation;
 import org.hl7.fhir.SubstanceReferenceInformationClassification;
 import org.hl7.fhir.SubstanceReferenceInformationGene;
 import org.hl7.fhir.SubstanceReferenceInformationGeneElement;
-import org.hl7.fhir.SubstanceReferenceInformationRelationship;
 import org.hl7.fhir.SubstanceReferenceInformationTarget;
+import org.hl7.fhir.SubstanceSourceMaterial;
+import org.hl7.fhir.SubstanceSourceMaterialAuthor;
+import org.hl7.fhir.SubstanceSourceMaterialFractionDescription;
+import org.hl7.fhir.SubstanceSourceMaterialHybrid;
+import org.hl7.fhir.SubstanceSourceMaterialOrganism;
+import org.hl7.fhir.SubstanceSourceMaterialOrganismGeneral;
+import org.hl7.fhir.SubstanceSourceMaterialPartDescription;
 import org.hl7.fhir.SubstanceSpecification;
+import org.hl7.fhir.SubstanceSpecificationCode;
 import org.hl7.fhir.SubstanceSpecificationIsotope;
 import org.hl7.fhir.SubstanceSpecificationMoiety;
 import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
-import org.hl7.fhir.SubstanceSpecificationOfficialName;
+import org.hl7.fhir.SubstanceSpecificationName;
+import org.hl7.fhir.SubstanceSpecificationOfficial;
 import org.hl7.fhir.SubstanceSpecificationProperty;
-import org.hl7.fhir.SubstanceSpecificationStructuralRepresentation;
+import org.hl7.fhir.SubstanceSpecificationRelationship;
+import org.hl7.fhir.SubstanceSpecificationRepresentation;
 import org.hl7.fhir.SubstanceSpecificationStructure;
-import org.hl7.fhir.SubstanceSpecificationSubstanceCode;
-import org.hl7.fhir.SubstanceSpecificationSubstanceName;
 import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
 import org.hl7.fhir.SupplyDeliverySuppliedItem;
@@ -760,9 +814,9 @@ import org.hl7.fhir.SupplyRequest;
 import org.hl7.fhir.SupplyRequestParameter;
 import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.SystemRestfulInteraction;
-import org.hl7.fhir.SystemVersionProcessingMode;
 import org.hl7.fhir.Task;
 import org.hl7.fhir.TaskInput;
+import org.hl7.fhir.TaskIntent;
 import org.hl7.fhir.TaskOutput;
 import org.hl7.fhir.TaskRestriction;
 import org.hl7.fhir.TaskStatus;
@@ -771,6 +825,9 @@ import org.hl7.fhir.TerminologyCapabilitiesClosure;
 import org.hl7.fhir.TerminologyCapabilitiesCodeSystem;
 import org.hl7.fhir.TerminologyCapabilitiesExpansion;
 import org.hl7.fhir.TerminologyCapabilitiesFilter;
+import org.hl7.fhir.TerminologyCapabilitiesImplementation;
+import org.hl7.fhir.TerminologyCapabilitiesParameter;
+import org.hl7.fhir.TerminologyCapabilitiesSoftware;
 import org.hl7.fhir.TerminologyCapabilitiesTranslation;
 import org.hl7.fhir.TerminologyCapabilitiesValidateCode;
 import org.hl7.fhir.TerminologyCapabilitiesVersion;
@@ -800,18 +857,8 @@ import org.hl7.fhir.TestScriptLink;
 import org.hl7.fhir.TestScriptMetadata;
 import org.hl7.fhir.TestScriptOperation;
 import org.hl7.fhir.TestScriptOrigin;
-import org.hl7.fhir.TestScriptParam;
-import org.hl7.fhir.TestScriptParam1;
-import org.hl7.fhir.TestScriptParam2;
-import org.hl7.fhir.TestScriptParam3;
 import org.hl7.fhir.TestScriptRequestHeader;
 import org.hl7.fhir.TestScriptRequestMethodCode;
-import org.hl7.fhir.TestScriptRule;
-import org.hl7.fhir.TestScriptRule1;
-import org.hl7.fhir.TestScriptRule2;
-import org.hl7.fhir.TestScriptRule3;
-import org.hl7.fhir.TestScriptRuleset;
-import org.hl7.fhir.TestScriptRuleset1;
 import org.hl7.fhir.TestScriptSetup;
 import org.hl7.fhir.TestScriptTeardown;
 import org.hl7.fhir.TestScriptTest;
@@ -820,26 +867,18 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.TriggerDefinition;
-import org.hl7.fhir.TriggerDefinitionCondition;
 import org.hl7.fhir.TriggerType;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeRestfulInteraction;
 import org.hl7.fhir.UDIEntryType;
 import org.hl7.fhir.UnitsOfTime;
-import org.hl7.fhir.UnknownContentCode;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.Use;
-import org.hl7.fhir.UserSession;
-import org.hl7.fhir.UserSessionContext;
-import org.hl7.fhir.UserSessionStatus;
-import org.hl7.fhir.UserSessionStatus1;
-import org.hl7.fhir.UserSessionStatusSource;
-import org.hl7.fhir.UsualOccupation;
 import org.hl7.fhir.Uuid;
-import org.hl7.fhir.ValidationStatus;
-import org.hl7.fhir.ValidationType;
+import org.hl7.fhir.VConfidentialityClassification;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetConcept;
@@ -849,6 +888,7 @@ import org.hl7.fhir.ValueSetExpansion;
 import org.hl7.fhir.ValueSetFilter;
 import org.hl7.fhir.ValueSetInclude;
 import org.hl7.fhir.ValueSetParameter;
+import org.hl7.fhir.VariableType;
 import org.hl7.fhir.VerificationResult;
 import org.hl7.fhir.VerificationResultAttestation;
 import org.hl7.fhir.VerificationResultPrimarySource;
@@ -856,7 +896,8 @@ import org.hl7.fhir.VerificationResultValidator;
 import org.hl7.fhir.VisionBase;
 import org.hl7.fhir.VisionEyes;
 import org.hl7.fhir.VisionPrescription;
-import org.hl7.fhir.VisionPrescriptionDispense;
+import org.hl7.fhir.VisionPrescriptionLensSpecification;
+import org.hl7.fhir.VisionPrescriptionPrism;
 import org.hl7.fhir.XPathUsageType;
 
 /**
@@ -944,10 +985,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createActionGroupingBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseActionList(ActionList object) {
-				return createActionListAdapter();
-			}
-			@Override
 			public Adapter caseActionParticipantType(ActionParticipantType object) {
 				return createActionParticipantTypeAdapter();
 			}
@@ -1028,10 +1065,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createAllergyIntoleranceCategoryAdapter();
 			}
 			@Override
-			public Adapter caseAllergyIntoleranceClinicalStatus(AllergyIntoleranceClinicalStatus object) {
-				return createAllergyIntoleranceClinicalStatusAdapter();
-			}
-			@Override
 			public Adapter caseAllergyIntoleranceCriticality(AllergyIntoleranceCriticality object) {
 				return createAllergyIntoleranceCriticalityAdapter();
 			}
@@ -1046,10 +1079,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAllergyIntoleranceType(AllergyIntoleranceType object) {
 				return createAllergyIntoleranceTypeAdapter();
-			}
-			@Override
-			public Adapter caseAllergyIntoleranceVerificationStatus(AllergyIntoleranceVerificationStatus object) {
-				return createAllergyIntoleranceVerificationStatusAdapter();
 			}
 			@Override
 			public Adapter caseAnnotation(Annotation object) {
@@ -1212,16 +1241,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createBundleTypeAdapter();
 			}
 			@Override
-			public Adapter caseCanPushUpdates(CanPushUpdates object) {
-				return createCanPushUpdatesAdapter();
+			public Adapter caseCanonical(Canonical object) {
+				return createCanonicalAdapter();
 			}
 			@Override
 			public Adapter caseCapabilityStatement(CapabilityStatement object) {
 				return createCapabilityStatementAdapter();
-			}
-			@Override
-			public Adapter caseCapabilityStatementCertificate(CapabilityStatementCertificate object) {
-				return createCapabilityStatementCertificateAdapter();
 			}
 			@Override
 			public Adapter caseCapabilityStatementDocument(CapabilityStatementDocument object) {
@@ -1304,10 +1329,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createCarePlanIntentAdapter();
 			}
 			@Override
-			public Adapter caseCarePlanStatus(CarePlanStatus object) {
-				return createCarePlanStatusAdapter();
-			}
-			@Override
 			public Adapter caseCareTeam(CareTeam object) {
 				return createCareTeamAdapter();
 			}
@@ -1320,12 +1341,40 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createCareTeamStatusAdapter();
 			}
 			@Override
+			public Adapter caseCatalogEntry(CatalogEntry object) {
+				return createCatalogEntryAdapter();
+			}
+			@Override
+			public Adapter caseCatalogEntryRelatedEntry(CatalogEntryRelatedEntry object) {
+				return createCatalogEntryRelatedEntryAdapter();
+			}
+			@Override
+			public Adapter caseCatalogEntryRelationType(CatalogEntryRelationType object) {
+				return createCatalogEntryRelationTypeAdapter();
+			}
+			@Override
 			public Adapter caseChargeItem(ChargeItem object) {
 				return createChargeItemAdapter();
 			}
 			@Override
-			public Adapter caseChargeItemParticipant(ChargeItemParticipant object) {
-				return createChargeItemParticipantAdapter();
+			public Adapter caseChargeItemDefinition(ChargeItemDefinition object) {
+				return createChargeItemDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseChargeItemDefinitionApplicability(ChargeItemDefinitionApplicability object) {
+				return createChargeItemDefinitionApplicabilityAdapter();
+			}
+			@Override
+			public Adapter caseChargeItemDefinitionPriceComponent(ChargeItemDefinitionPriceComponent object) {
+				return createChargeItemDefinitionPriceComponentAdapter();
+			}
+			@Override
+			public Adapter caseChargeItemDefinitionPropertyGroup(ChargeItemDefinitionPropertyGroup object) {
+				return createChargeItemDefinitionPropertyGroupAdapter();
+			}
+			@Override
+			public Adapter caseChargeItemPerformer(ChargeItemPerformer object) {
+				return createChargeItemPerformerAdapter();
 			}
 			@Override
 			public Adapter caseChargeItemStatus(ChargeItemStatus object) {
@@ -1350,10 +1399,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseClaimDiagnosis(ClaimDiagnosis object) {
 				return createClaimDiagnosisAdapter();
-			}
-			@Override
-			public Adapter caseClaimInformation(ClaimInformation object) {
-				return createClaimInformationAdapter();
 			}
 			@Override
 			public Adapter caseClaimInsurance(ClaimInsurance object) {
@@ -1396,6 +1441,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createClaimResponseDetailAdapter();
 			}
 			@Override
+			public Adapter caseClaimResponseDetail1(ClaimResponseDetail1 object) {
+				return createClaimResponseDetail1Adapter();
+			}
+			@Override
 			public Adapter caseClaimResponseError(ClaimResponseError object) {
 				return createClaimResponseErrorAdapter();
 			}
@@ -1420,8 +1469,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createClaimResponseSubDetailAdapter();
 			}
 			@Override
+			public Adapter caseClaimResponseSubDetail1(ClaimResponseSubDetail1 object) {
+				return createClaimResponseSubDetail1Adapter();
+			}
+			@Override
+			public Adapter caseClaimResponseTotal(ClaimResponseTotal object) {
+				return createClaimResponseTotalAdapter();
+			}
+			@Override
 			public Adapter caseClaimSubDetail(ClaimSubDetail object) {
 				return createClaimSubDetailAdapter();
+			}
+			@Override
+			public Adapter caseClaimSupportingInfo(ClaimSupportingInfo object) {
+				return createClaimSupportingInfoAdapter();
 			}
 			@Override
 			public Adapter caseClinicalImpression(ClinicalImpression object) {
@@ -1588,24 +1649,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createConditionalReadStatusAdapter();
 			}
 			@Override
-			public Adapter caseConditionClinicalStatusCodes(ConditionClinicalStatusCodes object) {
-				return createConditionClinicalStatusCodesAdapter();
-			}
-			@Override
 			public Adapter caseConditionEvidence(ConditionEvidence object) {
 				return createConditionEvidenceAdapter();
 			}
 			@Override
 			public Adapter caseConditionStage(ConditionStage object) {
 				return createConditionStageAdapter();
-			}
-			@Override
-			public Adapter caseConditionVerificationStatus(ConditionVerificationStatus object) {
-				return createConditionVerificationStatusAdapter();
-			}
-			@Override
-			public Adapter caseConfidentialityClassification(ConfidentialityClassification object) {
-				return createConfidentialityClassificationAdapter();
 			}
 			@Override
 			public Adapter caseConsent(Consent object) {
@@ -1634,10 +1683,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseConsentProvisionType(ConsentProvisionType object) {
 				return createConsentProvisionTypeAdapter();
-			}
-			@Override
-			public Adapter caseConsentScopeCodes(ConsentScopeCodes object) {
-				return createConsentScopeCodesAdapter();
 			}
 			@Override
 			public Adapter caseConsentState(ConsentState object) {
@@ -1672,20 +1717,24 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createContractAdapter();
 			}
 			@Override
-			public Adapter caseContractAgent(ContractAgent object) {
-				return createContractAgentAdapter();
+			public Adapter caseContractAction(ContractAction object) {
+				return createContractActionAdapter();
+			}
+			@Override
+			public Adapter caseContractAnswer(ContractAnswer object) {
+				return createContractAnswerAdapter();
 			}
 			@Override
 			public Adapter caseContractAsset(ContractAsset object) {
 				return createContractAssetAdapter();
 			}
 			@Override
-			public Adapter caseContractData(ContractData object) {
-				return createContractDataAdapter();
+			public Adapter caseContractContentDefinition(ContractContentDefinition object) {
+				return createContractContentDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseContractDataMeaning(ContractDataMeaning object) {
-				return createContractDataMeaningAdapter();
+			public Adapter caseContractContext(ContractContext object) {
+				return createContractContextAdapter();
 			}
 			@Override
 			public Adapter caseContractFriendly(ContractFriendly object) {
@@ -1700,6 +1749,14 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createContractOfferAdapter();
 			}
 			@Override
+			public Adapter caseContractParty(ContractParty object) {
+				return createContractPartyAdapter();
+			}
+			@Override
+			public Adapter caseContractResourcePublicationStatusCodes(ContractResourcePublicationStatusCodes object) {
+				return createContractResourcePublicationStatusCodesAdapter();
+			}
+			@Override
 			public Adapter caseContractResourceStatusCodes(ContractResourceStatusCodes object) {
 				return createContractResourceStatusCodesAdapter();
 			}
@@ -1708,8 +1765,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createContractRuleAdapter();
 			}
 			@Override
+			public Adapter caseContractSecurityLabel(ContractSecurityLabel object) {
+				return createContractSecurityLabelAdapter();
+			}
+			@Override
 			public Adapter caseContractSigner(ContractSigner object) {
 				return createContractSignerAdapter();
+			}
+			@Override
+			public Adapter caseContractSubject(ContractSubject object) {
+				return createContractSubjectAdapter();
 			}
 			@Override
 			public Adapter caseContractTerm(ContractTerm object) {
@@ -1740,12 +1805,52 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createCoverageClassAdapter();
 			}
 			@Override
-			public Adapter caseCoverageCopay(CoverageCopay object) {
-				return createCoverageCopayAdapter();
+			public Adapter caseCoverageCostToBeneficiary(CoverageCostToBeneficiary object) {
+				return createCoverageCostToBeneficiaryAdapter();
 			}
 			@Override
-			public Adapter caseCoverageGrouping(CoverageGrouping object) {
-				return createCoverageGroupingAdapter();
+			public Adapter caseCoverageEligibilityRequest(CoverageEligibilityRequest object) {
+				return createCoverageEligibilityRequestAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityRequestDiagnosis(CoverageEligibilityRequestDiagnosis object) {
+				return createCoverageEligibilityRequestDiagnosisAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityRequestInsurance(CoverageEligibilityRequestInsurance object) {
+				return createCoverageEligibilityRequestInsuranceAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityRequestItem(CoverageEligibilityRequestItem object) {
+				return createCoverageEligibilityRequestItemAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityRequestSupportingInfo(CoverageEligibilityRequestSupportingInfo object) {
+				return createCoverageEligibilityRequestSupportingInfoAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityResponse(CoverageEligibilityResponse object) {
+				return createCoverageEligibilityResponseAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityResponseBenefit(CoverageEligibilityResponseBenefit object) {
+				return createCoverageEligibilityResponseBenefitAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityResponseError(CoverageEligibilityResponseError object) {
+				return createCoverageEligibilityResponseErrorAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityResponseInsurance(CoverageEligibilityResponseInsurance object) {
+				return createCoverageEligibilityResponseInsuranceAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEligibilityResponseItem(CoverageEligibilityResponseItem object) {
+				return createCoverageEligibilityResponseItemAdapter();
+			}
+			@Override
+			public Adapter caseCoverageException(CoverageException object) {
+				return createCoverageExceptionAdapter();
 			}
 			@Override
 			public Adapter caseDataRequirement(DataRequirement object) {
@@ -1758,6 +1863,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataRequirementDateFilter(DataRequirementDateFilter object) {
 				return createDataRequirementDateFilterAdapter();
+			}
+			@Override
+			public Adapter caseDataRequirementSort(DataRequirementSort object) {
+				return createDataRequirementSortAdapter();
 			}
 			@Override
 			public Adapter caseDate(Date object) {
@@ -1780,6 +1889,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDetectedIssueAdapter();
 			}
 			@Override
+			public Adapter caseDetectedIssueEvidence(DetectedIssueEvidence object) {
+				return createDetectedIssueEvidenceAdapter();
+			}
+			@Override
 			public Adapter caseDetectedIssueMitigation(DetectedIssueMitigation object) {
 				return createDetectedIssueMitigationAdapter();
 			}
@@ -1792,16 +1905,36 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDeviceAdapter();
 			}
 			@Override
-			public Adapter caseDeviceComponent(DeviceComponent object) {
-				return createDeviceComponentAdapter();
+			public Adapter caseDeviceDefinition(DeviceDefinition object) {
+				return createDeviceDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseDeviceComponentProductionSpecification(DeviceComponentProductionSpecification object) {
-				return createDeviceComponentProductionSpecificationAdapter();
+			public Adapter caseDeviceDefinitionCapability(DeviceDefinitionCapability object) {
+				return createDeviceDefinitionCapabilityAdapter();
 			}
 			@Override
-			public Adapter caseDeviceComponentProperty(DeviceComponentProperty object) {
-				return createDeviceComponentPropertyAdapter();
+			public Adapter caseDeviceDefinitionDeviceName(DeviceDefinitionDeviceName object) {
+				return createDeviceDefinitionDeviceNameAdapter();
+			}
+			@Override
+			public Adapter caseDeviceDefinitionMaterial(DeviceDefinitionMaterial object) {
+				return createDeviceDefinitionMaterialAdapter();
+			}
+			@Override
+			public Adapter caseDeviceDefinitionProperty(DeviceDefinitionProperty object) {
+				return createDeviceDefinitionPropertyAdapter();
+			}
+			@Override
+			public Adapter caseDeviceDefinitionSpecialization(DeviceDefinitionSpecialization object) {
+				return createDeviceDefinitionSpecializationAdapter();
+			}
+			@Override
+			public Adapter caseDeviceDefinitionUdiDeviceIdentifier(DeviceDefinitionUdiDeviceIdentifier object) {
+				return createDeviceDefinitionUdiDeviceIdentifierAdapter();
+			}
+			@Override
+			public Adapter caseDeviceDeviceName(DeviceDeviceName object) {
+				return createDeviceDeviceNameAdapter();
 			}
 			@Override
 			public Adapter caseDeviceMetric(DeviceMetric object) {
@@ -1832,6 +1965,14 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDeviceMetricOperationalStatusAdapter();
 			}
 			@Override
+			public Adapter caseDeviceNameType(DeviceNameType object) {
+				return createDeviceNameTypeAdapter();
+			}
+			@Override
+			public Adapter caseDeviceProperty(DeviceProperty object) {
+				return createDevicePropertyAdapter();
+			}
+			@Override
 			public Adapter caseDeviceRequest(DeviceRequest object) {
 				return createDeviceRequestAdapter();
 			}
@@ -1840,8 +1981,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDeviceRequestParameterAdapter();
 			}
 			@Override
-			public Adapter caseDeviceUdi(DeviceUdi object) {
-				return createDeviceUdiAdapter();
+			public Adapter caseDeviceSpecialization(DeviceSpecialization object) {
+				return createDeviceSpecializationAdapter();
+			}
+			@Override
+			public Adapter caseDeviceUdiCarrier(DeviceUdiCarrier object) {
+				return createDeviceUdiCarrierAdapter();
 			}
 			@Override
 			public Adapter caseDeviceUseStatement(DeviceUseStatement object) {
@@ -1850,6 +1995,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDeviceUseStatementStatus(DeviceUseStatementStatus object) {
 				return createDeviceUseStatementStatusAdapter();
+			}
+			@Override
+			public Adapter caseDeviceVersion(DeviceVersion object) {
+				return createDeviceVersionAdapter();
 			}
 			@Override
 			public Adapter caseDiagnosticReport(DiagnosticReport object) {
@@ -1876,10 +2025,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentManifestAdapter();
 			}
 			@Override
-			public Adapter caseDocumentManifestAgent(DocumentManifestAgent object) {
-				return createDocumentManifestAgentAdapter();
-			}
-			@Override
 			public Adapter caseDocumentManifestRelated(DocumentManifestRelated object) {
 				return createDocumentManifestRelatedAdapter();
 			}
@@ -1892,20 +2037,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentReferenceAdapter();
 			}
 			@Override
-			public Adapter caseDocumentReferenceAgent(DocumentReferenceAgent object) {
-				return createDocumentReferenceAgentAdapter();
-			}
-			@Override
 			public Adapter caseDocumentReferenceContent(DocumentReferenceContent object) {
 				return createDocumentReferenceContentAdapter();
 			}
 			@Override
 			public Adapter caseDocumentReferenceContext(DocumentReferenceContext object) {
 				return createDocumentReferenceContextAdapter();
-			}
-			@Override
-			public Adapter caseDocumentReferenceRelated(DocumentReferenceRelated object) {
-				return createDocumentReferenceRelatedAdapter();
 			}
 			@Override
 			public Adapter caseDocumentReferenceRelatesTo(DocumentReferenceRelatesTo object) {
@@ -1932,8 +2069,40 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createDosageAdapter();
 			}
 			@Override
+			public Adapter caseDosageDoseAndRate(DosageDoseAndRate object) {
+				return createDosageDoseAndRateAdapter();
+			}
+			@Override
 			public Adapter caseDuration(Duration object) {
 				return createDurationAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesis(EffectEvidenceSynthesis object) {
+				return createEffectEvidenceSynthesisAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisCertainty(EffectEvidenceSynthesisCertainty object) {
+				return createEffectEvidenceSynthesisCertaintyAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisCertaintySubcomponent(EffectEvidenceSynthesisCertaintySubcomponent object) {
+				return createEffectEvidenceSynthesisCertaintySubcomponentAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisEffectEstimate(EffectEvidenceSynthesisEffectEstimate object) {
+				return createEffectEvidenceSynthesisEffectEstimateAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisPrecisionEstimate(EffectEvidenceSynthesisPrecisionEstimate object) {
+				return createEffectEvidenceSynthesisPrecisionEstimateAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisResultsByExposure(EffectEvidenceSynthesisResultsByExposure object) {
+				return createEffectEvidenceSynthesisResultsByExposureAdapter();
+			}
+			@Override
+			public Adapter caseEffectEvidenceSynthesisSampleSize(EffectEvidenceSynthesisSampleSize object) {
+				return createEffectEvidenceSynthesisSampleSizeAdapter();
 			}
 			@Override
 			public Adapter caseElement(Element object) {
@@ -1976,36 +2145,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createElementDefinitionTypeAdapter();
 			}
 			@Override
-			public Adapter caseEligibilityRequest(EligibilityRequest object) {
-				return createEligibilityRequestAdapter();
+			public Adapter caseEligibilityRequestPurpose(EligibilityRequestPurpose object) {
+				return createEligibilityRequestPurposeAdapter();
 			}
 			@Override
-			public Adapter caseEligibilityRequestAuthorization(EligibilityRequestAuthorization object) {
-				return createEligibilityRequestAuthorizationAdapter();
+			public Adapter caseEligibilityResponsePurpose(EligibilityResponsePurpose object) {
+				return createEligibilityResponsePurposeAdapter();
 			}
 			@Override
-			public Adapter caseEligibilityResponse(EligibilityResponse object) {
-				return createEligibilityResponseAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponseAuthorization(EligibilityResponseAuthorization object) {
-				return createEligibilityResponseAuthorizationAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponseBenefitBalance(EligibilityResponseBenefitBalance object) {
-				return createEligibilityResponseBenefitBalanceAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponseError(EligibilityResponseError object) {
-				return createEligibilityResponseErrorAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponseFinancial(EligibilityResponseFinancial object) {
-				return createEligibilityResponseFinancialAdapter();
-			}
-			@Override
-			public Adapter caseEligibilityResponseInsurance(EligibilityResponseInsurance object) {
-				return createEligibilityResponseInsuranceAdapter();
+			public Adapter caseEnableWhenBehavior(EnableWhenBehavior object) {
+				return createEnableWhenBehaviorAdapter();
 			}
 			@Override
 			public Adapter caseEncounter(Encounter object) {
@@ -2060,14 +2209,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createEnrollmentResponseAdapter();
 			}
 			@Override
-			public Adapter caseEntryDefinition(EntryDefinition object) {
-				return createEntryDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseEntryDefinitionRelatedEntry(EntryDefinitionRelatedEntry object) {
-				return createEntryDefinitionRelatedEntryAdapter();
-			}
-			@Override
 			public Adapter caseEpisodeOfCare(EpisodeOfCare object) {
 				return createEpisodeOfCareAdapter();
 			}
@@ -2100,6 +2241,22 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createEventTimingAdapter();
 			}
 			@Override
+			public Adapter caseEvidence(Evidence object) {
+				return createEvidenceAdapter();
+			}
+			@Override
+			public Adapter caseEvidenceVariable(EvidenceVariable object) {
+				return createEvidenceVariableAdapter();
+			}
+			@Override
+			public Adapter caseEvidenceVariableCharacteristic(EvidenceVariableCharacteristic object) {
+				return createEvidenceVariableCharacteristicAdapter();
+			}
+			@Override
+			public Adapter caseEvidenceVariableType(EvidenceVariableType object) {
+				return createEvidenceVariableTypeAdapter();
+			}
+			@Override
 			public Adapter caseExampleScenario(ExampleScenario object) {
 				return createExampleScenarioAdapter();
 			}
@@ -2128,10 +2285,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createExampleScenarioOperationAdapter();
 			}
 			@Override
-			public Adapter caseExampleScenarioOption(ExampleScenarioOption object) {
-				return createExampleScenarioOptionAdapter();
-			}
-			@Override
 			public Adapter caseExampleScenarioProcess(ExampleScenarioProcess object) {
 				return createExampleScenarioProcessAdapter();
 			}
@@ -2142,38 +2295,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExampleScenarioVersion(ExampleScenarioVersion object) {
 				return createExampleScenarioVersionAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfile(ExpansionProfile object) {
-				return createExpansionProfileAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileDesignation(ExpansionProfileDesignation object) {
-				return createExpansionProfileDesignationAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileDesignation1(ExpansionProfileDesignation1 object) {
-				return createExpansionProfileDesignation1Adapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileDesignation2(ExpansionProfileDesignation2 object) {
-				return createExpansionProfileDesignation2Adapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileExclude(ExpansionProfileExclude object) {
-				return createExpansionProfileExcludeAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileExcludedSystem(ExpansionProfileExcludedSystem object) {
-				return createExpansionProfileExcludedSystemAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileFixedVersion(ExpansionProfileFixedVersion object) {
-				return createExpansionProfileFixedVersionAdapter();
-			}
-			@Override
-			public Adapter caseExpansionProfileInclude(ExpansionProfileInclude object) {
-				return createExpansionProfileIncludeAdapter();
 			}
 			@Override
 			public Adapter caseExplanationOfBenefit(ExplanationOfBenefit object) {
@@ -2204,16 +2325,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createExplanationOfBenefitDetailAdapter();
 			}
 			@Override
+			public Adapter caseExplanationOfBenefitDetail1(ExplanationOfBenefitDetail1 object) {
+				return createExplanationOfBenefitDetail1Adapter();
+			}
+			@Override
 			public Adapter caseExplanationOfBenefitDiagnosis(ExplanationOfBenefitDiagnosis object) {
 				return createExplanationOfBenefitDiagnosisAdapter();
 			}
 			@Override
 			public Adapter caseExplanationOfBenefitFinancial(ExplanationOfBenefitFinancial object) {
 				return createExplanationOfBenefitFinancialAdapter();
-			}
-			@Override
-			public Adapter caseExplanationOfBenefitInformation(ExplanationOfBenefitInformation object) {
-				return createExplanationOfBenefitInformationAdapter();
 			}
 			@Override
 			public Adapter caseExplanationOfBenefitInsurance(ExplanationOfBenefitInsurance object) {
@@ -2252,6 +2373,26 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createExplanationOfBenefitSubDetailAdapter();
 			}
 			@Override
+			public Adapter caseExplanationOfBenefitSubDetail1(ExplanationOfBenefitSubDetail1 object) {
+				return createExplanationOfBenefitSubDetail1Adapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitSupportingInfo(ExplanationOfBenefitSupportingInfo object) {
+				return createExplanationOfBenefitSupportingInfoAdapter();
+			}
+			@Override
+			public Adapter caseExplanationOfBenefitTotal(ExplanationOfBenefitTotal object) {
+				return createExplanationOfBenefitTotalAdapter();
+			}
+			@Override
+			public Adapter caseExposureState(ExposureState object) {
+				return createExposureStateAdapter();
+			}
+			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
 			public Adapter caseExpressionLanguage(ExpressionLanguage object) {
 				return createExpressionLanguageAdapter();
 			}
@@ -2260,12 +2401,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createExtensionAdapter();
 			}
 			@Override
-			public Adapter caseExtensionContext(ExtensionContext object) {
-				return createExtensionContextAdapter();
-			}
-			@Override
-			public Adapter caseFailureAction(FailureAction object) {
-				return createFailureActionAdapter();
+			public Adapter caseExtensionContextType(ExtensionContextType object) {
+				return createExtensionContextTypeAdapter();
 			}
 			@Override
 			public Adapter caseFamilyHistoryStatus(FamilyHistoryStatus object) {
@@ -2280,20 +2417,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createFamilyMemberHistoryConditionAdapter();
 			}
 			@Override
-			public Adapter caseFHIRAllTypes(FHIRAllTypes object) {
-				return createFHIRAllTypesAdapter();
-			}
-			@Override
-			public Adapter caseFHIRDefinedType(FHIRDefinedType object) {
-				return createFHIRDefinedTypeAdapter();
-			}
-			@Override
 			public Adapter caseFHIRDeviceStatus(FHIRDeviceStatus object) {
 				return createFHIRDeviceStatusAdapter();
 			}
 			@Override
 			public Adapter caseFHIRSubstanceStatus(FHIRSubstanceStatus object) {
 				return createFHIRSubstanceStatusAdapter();
+			}
+			@Override
+			public Adapter caseFHIRVersion(FHIRVersion object) {
+				return createFHIRVersionAdapter();
 			}
 			@Override
 			public Adapter caseFilterOperator(FilterOperator object) {
@@ -2316,8 +2449,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createGoalAdapter();
 			}
 			@Override
-			public Adapter caseGoalStatus(GoalStatus object) {
-				return createGoalStatusAdapter();
+			public Adapter caseGoalLifecycleStatus(GoalLifecycleStatus object) {
+				return createGoalLifecycleStatusAdapter();
 			}
 			@Override
 			public Adapter caseGoalTarget(GoalTarget object) {
@@ -2356,6 +2489,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createGroupCharacteristicAdapter();
 			}
 			@Override
+			public Adapter caseGroupMeasure(GroupMeasure object) {
+				return createGroupMeasureAdapter();
+			}
+			@Override
 			public Adapter caseGroupMember(GroupMember object) {
 				return createGroupMemberAdapter();
 			}
@@ -2372,16 +2509,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createGuidanceResponseStatusAdapter();
 			}
 			@Override
-			public Adapter caseGuideDependencyType(GuideDependencyType object) {
-				return createGuideDependencyTypeAdapter();
+			public Adapter caseGuidePageGeneration(GuidePageGeneration object) {
+				return createGuidePageGenerationAdapter();
 			}
 			@Override
-			public Adapter caseGuidePageKind(GuidePageKind object) {
-				return createGuidePageKindAdapter();
-			}
-			@Override
-			public Adapter caseHazardousDutyWork(HazardousDutyWork object) {
-				return createHazardousDutyWorkAdapter();
+			public Adapter caseGuideParameterCode(GuideParameterCode object) {
+				return createGuideParameterCodeAdapter();
 			}
 			@Override
 			public Adapter caseHealthcareService(HealthcareService object) {
@@ -2392,12 +2525,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createHealthcareServiceAvailableTimeAdapter();
 			}
 			@Override
-			public Adapter caseHealthcareServiceNotAvailable(HealthcareServiceNotAvailable object) {
-				return createHealthcareServiceNotAvailableAdapter();
+			public Adapter caseHealthcareServiceEligibility(HealthcareServiceEligibility object) {
+				return createHealthcareServiceEligibilityAdapter();
 			}
 			@Override
-			public Adapter caseHistoryOfEmploymentStatus(HistoryOfEmploymentStatus object) {
-				return createHistoryOfEmploymentStatusAdapter();
+			public Adapter caseHealthcareServiceNotAvailable(HealthcareServiceNotAvailable object) {
+				return createHealthcareServiceNotAvailableAdapter();
 			}
 			@Override
 			public Adapter caseHTTPVerb(HTTPVerb object) {
@@ -2432,8 +2565,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createImagingStudyInstanceAdapter();
 			}
 			@Override
+			public Adapter caseImagingStudyPerformer(ImagingStudyPerformer object) {
+				return createImagingStudyPerformerAdapter();
+			}
+			@Override
 			public Adapter caseImagingStudySeries(ImagingStudySeries object) {
 				return createImagingStudySeriesAdapter();
+			}
+			@Override
+			public Adapter caseImagingStudyStatus(ImagingStudyStatus object) {
+				return createImagingStudyStatusAdapter();
 			}
 			@Override
 			public Adapter caseImmunization(Immunization object) {
@@ -2452,8 +2593,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createImmunizationEvaluationStatusCodesAdapter();
 			}
 			@Override
-			public Adapter caseImmunizationPractitioner(ImmunizationPractitioner object) {
-				return createImmunizationPractitionerAdapter();
+			public Adapter caseImmunizationPerformer(ImmunizationPerformer object) {
+				return createImmunizationPerformerAdapter();
+			}
+			@Override
+			public Adapter caseImmunizationProtocolApplied(ImmunizationProtocolApplied object) {
+				return createImmunizationProtocolAppliedAdapter();
+			}
+			@Override
+			public Adapter caseImmunizationReaction(ImmunizationReaction object) {
+				return createImmunizationReactionAdapter();
 			}
 			@Override
 			public Adapter caseImmunizationRecommendation(ImmunizationRecommendation object) {
@@ -2476,76 +2625,92 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createImplementationGuideAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideDependency(ImplementationGuideDependency object) {
-				return createImplementationGuideDependencyAdapter();
+			public Adapter caseImplementationGuideDefinition(ImplementationGuideDefinition object) {
+				return createImplementationGuideDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideDependsOn(ImplementationGuideDependsOn object) {
+				return createImplementationGuideDependsOnAdapter();
 			}
 			@Override
 			public Adapter caseImplementationGuideGlobal(ImplementationGuideGlobal object) {
 				return createImplementationGuideGlobalAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideInput(ImplementationGuideInput object) {
-				return createImplementationGuideInputAdapter();
+			public Adapter caseImplementationGuideGrouping(ImplementationGuideGrouping object) {
+				return createImplementationGuideGroupingAdapter();
 			}
 			@Override
-			public Adapter caseImplementationGuideInputDependency(ImplementationGuideInputDependency object) {
-				return createImplementationGuideInputDependencyAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideInputGlobal(ImplementationGuideInputGlobal object) {
-				return createImplementationGuideInputGlobalAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideInputPackage(ImplementationGuideInputPackage object) {
-				return createImplementationGuideInputPackageAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideInputPage(ImplementationGuideInputPage object) {
-				return createImplementationGuideInputPageAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideInputResource(ImplementationGuideInputResource object) {
-				return createImplementationGuideInputResourceAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideOutput(ImplementationGuideOutput object) {
-				return createImplementationGuideOutputAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideOutputDependency(ImplementationGuideOutputDependency object) {
-				return createImplementationGuideOutputDependencyAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideOutputGlobal(ImplementationGuideOutputGlobal object) {
-				return createImplementationGuideOutputGlobalAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideOutputPage(ImplementationGuideOutputPage object) {
-				return createImplementationGuideOutputPageAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuideOutputResource(ImplementationGuideOutputResource object) {
-				return createImplementationGuideOutputResourceAdapter();
-			}
-			@Override
-			public Adapter caseImplementationGuidePackage(ImplementationGuidePackage object) {
-				return createImplementationGuidePackageAdapter();
+			public Adapter caseImplementationGuideManifest(ImplementationGuideManifest object) {
+				return createImplementationGuideManifestAdapter();
 			}
 			@Override
 			public Adapter caseImplementationGuidePage(ImplementationGuidePage object) {
 				return createImplementationGuidePageAdapter();
 			}
 			@Override
+			public Adapter caseImplementationGuidePage1(ImplementationGuidePage1 object) {
+				return createImplementationGuidePage1Adapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideParameter(ImplementationGuideParameter object) {
+				return createImplementationGuideParameterAdapter();
+			}
+			@Override
 			public Adapter caseImplementationGuideResource(ImplementationGuideResource object) {
 				return createImplementationGuideResourceAdapter();
 			}
 			@Override
-			public Adapter caseInstanceAvailability(InstanceAvailability object) {
-				return createInstanceAvailabilityAdapter();
+			public Adapter caseImplementationGuideResource1(ImplementationGuideResource1 object) {
+				return createImplementationGuideResource1Adapter();
+			}
+			@Override
+			public Adapter caseImplementationGuideTemplate(ImplementationGuideTemplate object) {
+				return createImplementationGuideTemplateAdapter();
 			}
 			@Override
 			public Adapter caseInstant(Instant object) {
 				return createInstantAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlan(InsurancePlan object) {
+				return createInsurancePlanAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanBenefit(InsurancePlanBenefit object) {
+				return createInsurancePlanBenefitAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanBenefit1(InsurancePlanBenefit1 object) {
+				return createInsurancePlanBenefit1Adapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanContact(InsurancePlanContact object) {
+				return createInsurancePlanContactAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanCost(InsurancePlanCost object) {
+				return createInsurancePlanCostAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanCoverage(InsurancePlanCoverage object) {
+				return createInsurancePlanCoverageAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanGeneralCost(InsurancePlanGeneralCost object) {
+				return createInsurancePlanGeneralCostAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanLimit(InsurancePlanLimit object) {
+				return createInsurancePlanLimitAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanPlan(InsurancePlanPlan object) {
+				return createInsurancePlanPlanAdapter();
+			}
+			@Override
+			public Adapter caseInsurancePlanSpecificCost(InsurancePlanSpecificCost object) {
+				return createInsurancePlanSpecificCostAdapter();
 			}
 			@Override
 			public Adapter caseInteger(org.hl7.fhir.Integer object) {
@@ -2582,10 +2747,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIssueType(IssueType object) {
 				return createIssueTypeAdapter();
-			}
-			@Override
-			public Adapter caseItemInstance(ItemInstance object) {
-				return createItemInstanceAdapter();
 			}
 			@Override
 			public Adapter caseLibrary(Library object) {
@@ -2652,12 +2813,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMarketingStatusAdapter();
 			}
 			@Override
-			public Adapter caseMeasmntPrinciple(MeasmntPrinciple object) {
-				return createMeasmntPrincipleAdapter();
-			}
-			@Override
 			public Adapter caseMeasure(Measure object) {
 				return createMeasureAdapter();
+			}
+			@Override
+			public Adapter caseMeasureComponent(MeasureComponent object) {
+				return createMeasureComponentAdapter();
 			}
 			@Override
 			public Adapter caseMeasureGroup(MeasureGroup object) {
@@ -2670,6 +2831,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMeasureReport(MeasureReport object) {
 				return createMeasureReportAdapter();
+			}
+			@Override
+			public Adapter caseMeasureReportComponent(MeasureReportComponent object) {
+				return createMeasureReportComponentAdapter();
 			}
 			@Override
 			public Adapter caseMeasureReportGroup(MeasureReportGroup object) {
@@ -2712,10 +2877,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMediaAdapter();
 			}
 			@Override
-			public Adapter caseMediaStatus(MediaStatus object) {
-				return createMediaStatusAdapter();
-			}
-			@Override
 			public Adapter caseMedication(Medication object) {
 				return createMedicationAdapter();
 			}
@@ -2732,10 +2893,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicationAdministrationPerformerAdapter();
 			}
 			@Override
-			public Adapter caseMedicationAdministrationStatus(MedicationAdministrationStatus object) {
-				return createMedicationAdministrationStatusAdapter();
-			}
-			@Override
 			public Adapter caseMedicationBatch(MedicationBatch object) {
 				return createMedicationBatchAdapter();
 			}
@@ -2748,16 +2905,80 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicationDispensePerformerAdapter();
 			}
 			@Override
-			public Adapter caseMedicationDispenseStatus(MedicationDispenseStatus object) {
-				return createMedicationDispenseStatusAdapter();
-			}
-			@Override
 			public Adapter caseMedicationDispenseSubstitution(MedicationDispenseSubstitution object) {
 				return createMedicationDispenseSubstitutionAdapter();
 			}
 			@Override
 			public Adapter caseMedicationIngredient(MedicationIngredient object) {
 				return createMedicationIngredientAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledge(MedicationKnowledge object) {
+				return createMedicationKnowledgeAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeAdministrationGuidelines(MedicationKnowledgeAdministrationGuidelines object) {
+				return createMedicationKnowledgeAdministrationGuidelinesAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeCost(MedicationKnowledgeCost object) {
+				return createMedicationKnowledgeCostAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeDosage(MedicationKnowledgeDosage object) {
+				return createMedicationKnowledgeDosageAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeDrugCharacteristic(MedicationKnowledgeDrugCharacteristic object) {
+				return createMedicationKnowledgeDrugCharacteristicAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeIngredient(MedicationKnowledgeIngredient object) {
+				return createMedicationKnowledgeIngredientAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeKinetics(MedicationKnowledgeKinetics object) {
+				return createMedicationKnowledgeKineticsAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeMaxDispense(MedicationKnowledgeMaxDispense object) {
+				return createMedicationKnowledgeMaxDispenseAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeMedicineClassification(MedicationKnowledgeMedicineClassification object) {
+				return createMedicationKnowledgeMedicineClassificationAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeMonitoringProgram(MedicationKnowledgeMonitoringProgram object) {
+				return createMedicationKnowledgeMonitoringProgramAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeMonograph(MedicationKnowledgeMonograph object) {
+				return createMedicationKnowledgeMonographAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgePackaging(MedicationKnowledgePackaging object) {
+				return createMedicationKnowledgePackagingAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgePatientCharacteristics(MedicationKnowledgePatientCharacteristics object) {
+				return createMedicationKnowledgePatientCharacteristicsAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeRegulatory(MedicationKnowledgeRegulatory object) {
+				return createMedicationKnowledgeRegulatoryAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeRelatedMedicationKnowledge(MedicationKnowledgeRelatedMedicationKnowledge object) {
+				return createMedicationKnowledgeRelatedMedicationKnowledgeAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeSchedule(MedicationKnowledgeSchedule object) {
+				return createMedicationKnowledgeScheduleAdapter();
+			}
+			@Override
+			public Adapter caseMedicationKnowledgeSubstitution(MedicationKnowledgeSubstitution object) {
+				return createMedicationKnowledgeSubstitutionAdapter();
 			}
 			@Override
 			public Adapter caseMedicationRequest(MedicationRequest object) {
@@ -2768,12 +2989,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicationRequestDispenseRequestAdapter();
 			}
 			@Override
+			public Adapter caseMedicationRequestInitialFill(MedicationRequestInitialFill object) {
+				return createMedicationRequestInitialFillAdapter();
+			}
+			@Override
 			public Adapter caseMedicationRequestIntent(MedicationRequestIntent object) {
 				return createMedicationRequestIntentAdapter();
 			}
 			@Override
-			public Adapter caseMedicationRequestStatus(MedicationRequestStatus object) {
-				return createMedicationRequestStatusAdapter();
+			public Adapter caseMedicationrequestStatus(MedicationrequestStatus object) {
+				return createMedicationrequestStatusAdapter();
 			}
 			@Override
 			public Adapter caseMedicationRequestSubstitution(MedicationRequestSubstitution object) {
@@ -2784,12 +3009,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicationStatementAdapter();
 			}
 			@Override
-			public Adapter caseMedicationStatementStatus(MedicationStatementStatus object) {
-				return createMedicationStatementStatusAdapter();
-			}
-			@Override
-			public Adapter caseMedicationStatus(MedicationStatus object) {
-				return createMedicationStatusAdapter();
+			public Adapter caseMedicationStatusCodes(MedicationStatusCodes object) {
+				return createMedicationStatusCodesAdapter();
 			}
 			@Override
 			public Adapter caseMedicinalProduct(MedicinalProduct object) {
@@ -2800,10 +3021,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicinalProductAuthorizationAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductAuthorizationApplication(MedicinalProductAuthorizationApplication object) {
-				return createMedicinalProductAuthorizationApplicationAdapter();
-			}
-			@Override
 			public Adapter caseMedicinalProductAuthorizationJurisdictionalAuthorization(MedicinalProductAuthorizationJurisdictionalAuthorization object) {
 				return createMedicinalProductAuthorizationJurisdictionalAuthorizationAdapter();
 			}
@@ -2812,44 +3029,24 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicinalProductAuthorizationProcedureAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductClinicals(MedicinalProductClinicals object) {
-				return createMedicinalProductClinicalsAdapter();
+			public Adapter caseMedicinalProductContraindication(MedicinalProductContraindication object) {
+				return createMedicinalProductContraindicationAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductClinicalsContraindication(MedicinalProductClinicalsContraindication object) {
-				return createMedicinalProductClinicalsContraindicationAdapter();
-			}
-			@Override
-			public Adapter caseMedicinalProductClinicalsInteractions(MedicinalProductClinicalsInteractions object) {
-				return createMedicinalProductClinicalsInteractionsAdapter();
-			}
-			@Override
-			public Adapter caseMedicinalProductClinicalsOtherTherapy(MedicinalProductClinicalsOtherTherapy object) {
-				return createMedicinalProductClinicalsOtherTherapyAdapter();
-			}
-			@Override
-			public Adapter caseMedicinalProductClinicalsPopulation(MedicinalProductClinicalsPopulation object) {
-				return createMedicinalProductClinicalsPopulationAdapter();
-			}
-			@Override
-			public Adapter caseMedicinalProductClinicalsTherapeuticIndication(MedicinalProductClinicalsTherapeuticIndication object) {
-				return createMedicinalProductClinicalsTherapeuticIndicationAdapter();
-			}
-			@Override
-			public Adapter caseMedicinalProductClinicalsUndesirableEffects(MedicinalProductClinicalsUndesirableEffects object) {
-				return createMedicinalProductClinicalsUndesirableEffectsAdapter();
+			public Adapter caseMedicinalProductContraindicationOtherTherapy(MedicinalProductContraindicationOtherTherapy object) {
+				return createMedicinalProductContraindicationOtherTherapyAdapter();
 			}
 			@Override
 			public Adapter caseMedicinalProductCountryLanguage(MedicinalProductCountryLanguage object) {
 				return createMedicinalProductCountryLanguageAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductDeviceSpec(MedicinalProductDeviceSpec object) {
-				return createMedicinalProductDeviceSpecAdapter();
+			public Adapter caseMedicinalProductIndication(MedicinalProductIndication object) {
+				return createMedicinalProductIndicationAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductDeviceSpecMaterial(MedicinalProductDeviceSpecMaterial object) {
-				return createMedicinalProductDeviceSpecMaterialAdapter();
+			public Adapter caseMedicinalProductIndicationOtherTherapy(MedicinalProductIndicationOtherTherapy object) {
+				return createMedicinalProductIndicationOtherTherapyAdapter();
 			}
 			@Override
 			public Adapter caseMedicinalProductIngredient(MedicinalProductIngredient object) {
@@ -2872,6 +3069,18 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicinalProductIngredientSubstanceAdapter();
 			}
 			@Override
+			public Adapter caseMedicinalProductInteraction(MedicinalProductInteraction object) {
+				return createMedicinalProductInteractionAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductInteractionInteractant(MedicinalProductInteractionInteractant object) {
+				return createMedicinalProductInteractionInteractantAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductManufactured(MedicinalProductManufactured object) {
+				return createMedicinalProductManufacturedAdapter();
+			}
+			@Override
 			public Adapter caseMedicinalProductManufacturingBusinessOperation(MedicinalProductManufacturingBusinessOperation object) {
 				return createMedicinalProductManufacturingBusinessOperationAdapter();
 			}
@@ -2892,10 +3101,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMedicinalProductPackagedBatchIdentifierAdapter();
 			}
 			@Override
-			public Adapter caseMedicinalProductPackagedManufacturedItem(MedicinalProductPackagedManufacturedItem object) {
-				return createMedicinalProductPackagedManufacturedItemAdapter();
-			}
-			@Override
 			public Adapter caseMedicinalProductPackagedPackageItem(MedicinalProductPackagedPackageItem object) {
 				return createMedicinalProductPackagedPackageItemAdapter();
 			}
@@ -2906,6 +3111,26 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMedicinalProductPharmaceuticalCharacteristics(MedicinalProductPharmaceuticalCharacteristics object) {
 				return createMedicinalProductPharmaceuticalCharacteristicsAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductPharmaceuticalRouteOfAdministration(MedicinalProductPharmaceuticalRouteOfAdministration object) {
+				return createMedicinalProductPharmaceuticalRouteOfAdministrationAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductPharmaceuticalTargetSpecies(MedicinalProductPharmaceuticalTargetSpecies object) {
+				return createMedicinalProductPharmaceuticalTargetSpeciesAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductPharmaceuticalWithdrawalPeriod(MedicinalProductPharmaceuticalWithdrawalPeriod object) {
+				return createMedicinalProductPharmaceuticalWithdrawalPeriodAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductSpecialDesignation(MedicinalProductSpecialDesignation object) {
+				return createMedicinalProductSpecialDesignationAdapter();
+			}
+			@Override
+			public Adapter caseMedicinalProductUndesirableEffect(MedicinalProductUndesirableEffect object) {
+				return createMedicinalProductUndesirableEffectAdapter();
 			}
 			@Override
 			public Adapter caseMessageDefinition(MessageDefinition object) {
@@ -2932,6 +3157,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createMessageHeaderResponseAdapter();
 			}
 			@Override
+			public Adapter caseMessageheaderResponseRequest(MessageheaderResponseRequest object) {
+				return createMessageheaderResponseRequestAdapter();
+			}
+			@Override
 			public Adapter caseMessageHeaderSource(MessageHeaderSource object) {
 				return createMessageHeaderSourceAdapter();
 			}
@@ -2942,6 +3171,42 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMeta(Meta object) {
 				return createMetaAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequence(MolecularSequence object) {
+				return createMolecularSequenceAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceInner(MolecularSequenceInner object) {
+				return createMolecularSequenceInnerAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceOuter(MolecularSequenceOuter object) {
+				return createMolecularSequenceOuterAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceQuality(MolecularSequenceQuality object) {
+				return createMolecularSequenceQualityAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceReferenceSeq(MolecularSequenceReferenceSeq object) {
+				return createMolecularSequenceReferenceSeqAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceRepository(MolecularSequenceRepository object) {
+				return createMolecularSequenceRepositoryAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceRoc(MolecularSequenceRoc object) {
+				return createMolecularSequenceRocAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceStructureVariant(MolecularSequenceStructureVariant object) {
+				return createMolecularSequenceStructureVariantAdapter();
+			}
+			@Override
+			public Adapter caseMolecularSequenceVariant(MolecularSequenceVariant object) {
+				return createMolecularSequenceVariantAdapter();
 			}
 			@Override
 			public Adapter caseMoney(Money object) {
@@ -2976,10 +3241,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createNarrativeStatusAdapter();
 			}
 			@Override
-			public Adapter caseNeed(Need object) {
-				return createNeedAdapter();
-			}
-			@Override
 			public Adapter caseNoteType(NoteType object) {
 				return createNoteTypeAdapter();
 			}
@@ -3004,10 +3265,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createNutritionOrderOralDietAdapter();
 			}
 			@Override
-			public Adapter caseNutritionOrderStatus(NutritionOrderStatus object) {
-				return createNutritionOrderStatusAdapter();
-			}
-			@Override
 			public Adapter caseNutritionOrderSupplement(NutritionOrderSupplement object) {
 				return createNutritionOrderSupplementAdapter();
 			}
@@ -3024,6 +3281,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createObservationComponentAdapter();
 			}
 			@Override
+			public Adapter caseObservationDataType(ObservationDataType object) {
+				return createObservationDataTypeAdapter();
+			}
+			@Override
 			public Adapter caseObservationDefinition(ObservationDefinition object) {
 				return createObservationDefinitionAdapter();
 			}
@@ -3036,44 +3297,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createObservationDefinitionQuantitativeDetailsAdapter();
 			}
 			@Override
+			public Adapter caseObservationRangeCategory(ObservationRangeCategory object) {
+				return createObservationRangeCategoryAdapter();
+			}
+			@Override
 			public Adapter caseObservationReferenceRange(ObservationReferenceRange object) {
 				return createObservationReferenceRangeAdapter();
 			}
 			@Override
 			public Adapter caseObservationStatus(ObservationStatus object) {
 				return createObservationStatusAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalData(OccupationalData object) {
-				return createOccupationalDataAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataCombatZoneHazardousDuty(OccupationalDataCombatZoneHazardousDuty object) {
-				return createOccupationalDataCombatZoneHazardousDutyAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataDuration(OccupationalDataDuration object) {
-				return createOccupationalDataDurationAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataEmploymentStatus(OccupationalDataEmploymentStatus object) {
-				return createOccupationalDataEmploymentStatusAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataIndustry(OccupationalDataIndustry object) {
-				return createOccupationalDataIndustryAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataPastOrPresentOccupation(OccupationalDataPastOrPresentOccupation object) {
-				return createOccupationalDataPastOrPresentOccupationAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataRetirementStatus(OccupationalDataRetirementStatus object) {
-				return createOccupationalDataRetirementStatusAdapter();
-			}
-			@Override
-			public Adapter caseOccupationalDataUsualOccupation(OccupationalDataUsualOccupation object) {
-				return createOccupationalDataUsualOccupationAdapter();
 			}
 			@Override
 			public Adapter caseOid(Oid object) {
@@ -3096,6 +3329,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createOperationDefinitionParameterAdapter();
 			}
 			@Override
+			public Adapter caseOperationDefinitionReferencedFrom(OperationDefinitionReferencedFrom object) {
+				return createOperationDefinitionReferencedFromAdapter();
+			}
+			@Override
 			public Adapter caseOperationKind(OperationKind object) {
 				return createOperationKindAdapter();
 			}
@@ -3116,20 +3353,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createOrganizationAdapter();
 			}
 			@Override
+			public Adapter caseOrganizationAffiliation(OrganizationAffiliation object) {
+				return createOrganizationAffiliationAdapter();
+			}
+			@Override
 			public Adapter caseOrganizationContact(OrganizationContact object) {
 				return createOrganizationContactAdapter();
 			}
 			@Override
-			public Adapter caseOrganizationRole(OrganizationRole object) {
-				return createOrganizationRoleAdapter();
-			}
-			@Override
-			public Adapter caseOrganizationRoleAvailableTime(OrganizationRoleAvailableTime object) {
-				return createOrganizationRoleAvailableTimeAdapter();
-			}
-			@Override
-			public Adapter caseOrganizationRoleNotAvailable(OrganizationRoleNotAvailable object) {
-				return createOrganizationRoleNotAvailableAdapter();
+			public Adapter caseOrientationType(OrientationType object) {
+				return createOrientationTypeAdapter();
 			}
 			@Override
 			public Adapter caseParameterDefinition(ParameterDefinition object) {
@@ -3154,10 +3387,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePatient(Patient object) {
 				return createPatientAdapter();
-			}
-			@Override
-			public Adapter casePatientAnimal(PatientAnimal object) {
-				return createPatientAnimalAdapter();
 			}
 			@Override
 			public Adapter casePatientCommunication(PatientCommunication object) {
@@ -3232,6 +3461,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createPlanDefinitionTargetAdapter();
 			}
 			@Override
+			public Adapter casePopulation(Population object) {
+				return createPopulationAdapter();
+			}
+			@Override
 			public Adapter casePositiveInt(PositiveInt object) {
 				return createPositiveIntAdapter();
 			}
@@ -3268,64 +3501,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createProcedurePerformerAdapter();
 			}
 			@Override
-			public Adapter caseProcessOutcomeCodes(ProcessOutcomeCodes object) {
-				return createProcessOutcomeCodesAdapter();
-			}
-			@Override
-			public Adapter caseProcessRequest(ProcessRequest object) {
-				return createProcessRequestAdapter();
-			}
-			@Override
-			public Adapter caseProcessRequestItem(ProcessRequestItem object) {
-				return createProcessRequestItemAdapter();
-			}
-			@Override
-			public Adapter caseProcessResponse(ProcessResponse object) {
-				return createProcessResponseAdapter();
-			}
-			@Override
-			public Adapter caseProcessResponseProcessNote(ProcessResponseProcessNote object) {
-				return createProcessResponseProcessNoteAdapter();
-			}
-			@Override
 			public Adapter caseProdCharacteristic(ProdCharacteristic object) {
 				return createProdCharacteristicAdapter();
-			}
-			@Override
-			public Adapter caseProductPlan(ProductPlan object) {
-				return createProductPlanAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanBenefit(ProductPlanBenefit object) {
-				return createProductPlanBenefitAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanBenefit1(ProductPlanBenefit1 object) {
-				return createProductPlanBenefit1Adapter();
-			}
-			@Override
-			public Adapter caseProductPlanCategory(ProductPlanCategory object) {
-				return createProductPlanCategoryAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanContact(ProductPlanContact object) {
-				return createProductPlanContactAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanCost(ProductPlanCost object) {
-				return createProductPlanCostAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanCoverage(ProductPlanCoverage object) {
-				return createProductPlanCoverageAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanItem(ProductPlanItem object) {
-				return createProductPlanItemAdapter();
-			}
-			@Override
-			public Adapter caseProductPlanPlan(ProductPlanPlan object) {
-				return createProductPlanPlanAdapter();
 			}
 			@Override
 			public Adapter caseProductShelfLife(ProductShelfLife object) {
@@ -3360,10 +3537,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createPublicationStatusAdapter();
 			}
 			@Override
-			public Adapter casePushTypeAvailable(PushTypeAvailable object) {
-				return createPushTypeAvailableAdapter();
-			}
-			@Override
 			public Adapter caseQualityType(QualityType object) {
 				return createQualityTypeAdapter();
 			}
@@ -3380,20 +3553,28 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createQuestionnaireAdapter();
 			}
 			@Override
+			public Adapter caseQuestionnaireAnswerOption(QuestionnaireAnswerOption object) {
+				return createQuestionnaireAnswerOptionAdapter();
+			}
+			@Override
 			public Adapter caseQuestionnaireEnableWhen(QuestionnaireEnableWhen object) {
 				return createQuestionnaireEnableWhenAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnaireInitial(QuestionnaireInitial object) {
+				return createQuestionnaireInitialAdapter();
 			}
 			@Override
 			public Adapter caseQuestionnaireItem(QuestionnaireItem object) {
 				return createQuestionnaireItemAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaireItemType(QuestionnaireItemType object) {
-				return createQuestionnaireItemTypeAdapter();
+			public Adapter caseQuestionnaireItemOperator(QuestionnaireItemOperator object) {
+				return createQuestionnaireItemOperatorAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaireOption(QuestionnaireOption object) {
-				return createQuestionnaireOptionAdapter();
+			public Adapter caseQuestionnaireItemType(QuestionnaireItemType object) {
+				return createQuestionnaireItemTypeAdapter();
 			}
 			@Override
 			public Adapter caseQuestionnaireResponse(QuestionnaireResponse object) {
@@ -3444,6 +3625,10 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createRelatedPersonAdapter();
 			}
 			@Override
+			public Adapter caseRelatedPersonCommunication(RelatedPersonCommunication object) {
+				return createRelatedPersonCommunicationAdapter();
+			}
+			@Override
 			public Adapter caseRemittanceOutcome(RemittanceOutcome object) {
 				return createRemittanceOutcomeAdapter();
 			}
@@ -3476,8 +3661,28 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createRequestPriorityAdapter();
 			}
 			@Override
+			public Adapter caseRequestResourceType(RequestResourceType object) {
+				return createRequestResourceTypeAdapter();
+			}
+			@Override
 			public Adapter caseRequestStatus(RequestStatus object) {
 				return createRequestStatusAdapter();
+			}
+			@Override
+			public Adapter caseResearchDefinition(ResearchDefinition object) {
+				return createResearchDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseResearchElementDefinition(ResearchElementDefinition object) {
+				return createResearchElementDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseResearchElementDefinitionCharacteristic(ResearchElementDefinitionCharacteristic object) {
+				return createResearchElementDefinitionCharacteristicAdapter();
+			}
+			@Override
+			public Adapter caseResearchElementType(ResearchElementType object) {
+				return createResearchElementTypeAdapter();
 			}
 			@Override
 			public Adapter caseResearchStudy(ResearchStudy object) {
@@ -3528,16 +3733,36 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createRestfulCapabilityModeAdapter();
 			}
 			@Override
-			public Adapter caseRetirementStatus(RetirementStatus object) {
-				return createRetirementStatusAdapter();
-			}
-			@Override
 			public Adapter caseRiskAssessment(RiskAssessment object) {
 				return createRiskAssessmentAdapter();
 			}
 			@Override
 			public Adapter caseRiskAssessmentPrediction(RiskAssessmentPrediction object) {
 				return createRiskAssessmentPredictionAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesis(RiskEvidenceSynthesis object) {
+				return createRiskEvidenceSynthesisAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesisCertainty(RiskEvidenceSynthesisCertainty object) {
+				return createRiskEvidenceSynthesisCertaintyAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesisCertaintySubcomponent(RiskEvidenceSynthesisCertaintySubcomponent object) {
+				return createRiskEvidenceSynthesisCertaintySubcomponentAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesisPrecisionEstimate(RiskEvidenceSynthesisPrecisionEstimate object) {
+				return createRiskEvidenceSynthesisPrecisionEstimateAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesisRiskEstimate(RiskEvidenceSynthesisRiskEstimate object) {
+				return createRiskEvidenceSynthesisRiskEstimateAdapter();
+			}
+			@Override
+			public Adapter caseRiskEvidenceSynthesisSampleSize(RiskEvidenceSynthesisSampleSize object) {
+				return createRiskEvidenceSynthesisSampleSizeAdapter();
 			}
 			@Override
 			public Adapter caseSampledData(SampledData object) {
@@ -3576,44 +3801,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSearchParamTypeAdapter();
 			}
 			@Override
-			public Adapter caseSequence(Sequence object) {
-				return createSequenceAdapter();
-			}
-			@Override
-			public Adapter caseSequenceInner(SequenceInner object) {
-				return createSequenceInnerAdapter();
-			}
-			@Override
-			public Adapter caseSequenceOuter(SequenceOuter object) {
-				return createSequenceOuterAdapter();
-			}
-			@Override
-			public Adapter caseSequenceQuality(SequenceQuality object) {
-				return createSequenceQualityAdapter();
-			}
-			@Override
-			public Adapter caseSequenceReferenceSeq(SequenceReferenceSeq object) {
-				return createSequenceReferenceSeqAdapter();
-			}
-			@Override
-			public Adapter caseSequenceRepository(SequenceRepository object) {
-				return createSequenceRepositoryAdapter();
-			}
-			@Override
-			public Adapter caseSequenceRoc(SequenceRoc object) {
-				return createSequenceRocAdapter();
-			}
-			@Override
-			public Adapter caseSequenceStructureVariant(SequenceStructureVariant object) {
-				return createSequenceStructureVariantAdapter();
-			}
-			@Override
-			public Adapter caseSequenceVariant(SequenceVariant object) {
-				return createSequenceVariantAdapter();
-			}
-			@Override
-			public Adapter caseServiceDefinition(ServiceDefinition object) {
-				return createServiceDefinitionAdapter();
+			public Adapter caseSequenceType(SequenceType object) {
+				return createSequenceTypeAdapter();
 			}
 			@Override
 			public Adapter caseServiceRequest(ServiceRequest object) {
@@ -3636,6 +3825,14 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSlotStatusAdapter();
 			}
 			@Override
+			public Adapter caseSortDirection(SortDirection object) {
+				return createSortDirectionAdapter();
+			}
+			@Override
+			public Adapter caseSPDXLicense(SPDXLicense object) {
+				return createSPDXLicenseAdapter();
+			}
+			@Override
 			public Adapter caseSpecimen(Specimen object) {
 				return createSpecimenAdapter();
 			}
@@ -3656,16 +3853,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSpecimenDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseSpecimenDefinitionContainerAdditive(SpecimenDefinitionContainerAdditive object) {
-				return createSpecimenDefinitionContainerAdditiveAdapter();
+			public Adapter caseSpecimenDefinitionAdditive(SpecimenDefinitionAdditive object) {
+				return createSpecimenDefinitionAdditiveAdapter();
+			}
+			@Override
+			public Adapter caseSpecimenDefinitionContainer(SpecimenDefinitionContainer object) {
+				return createSpecimenDefinitionContainerAdapter();
 			}
 			@Override
 			public Adapter caseSpecimenDefinitionHandling(SpecimenDefinitionHandling object) {
 				return createSpecimenDefinitionHandlingAdapter();
 			}
 			@Override
-			public Adapter caseSpecimenDefinitionSpecimenToLab(SpecimenDefinitionSpecimenToLab object) {
-				return createSpecimenDefinitionSpecimenToLabAdapter();
+			public Adapter caseSpecimenDefinitionTypeTested(SpecimenDefinitionTypeTested object) {
+				return createSpecimenDefinitionTypeTestedAdapter();
 			}
 			@Override
 			public Adapter caseSpecimenProcessing(SpecimenProcessing object) {
@@ -3680,12 +3881,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createStatusAdapter();
 			}
 			@Override
+			public Adapter caseStrandType(StrandType object) {
+				return createStrandTypeAdapter();
+			}
+			@Override
 			public Adapter caseString(org.hl7.fhir.String object) {
 				return createStringAdapter();
 			}
 			@Override
 			public Adapter caseStructureDefinition(StructureDefinition object) {
 				return createStructureDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseStructureDefinitionContext(StructureDefinitionContext object) {
+				return createStructureDefinitionContextAdapter();
 			}
 			@Override
 			public Adapter caseStructureDefinitionDifferential(StructureDefinitionDifferential object) {
@@ -3804,8 +4013,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSubstanceInstanceAdapter();
 			}
 			@Override
-			public Adapter caseSubstanceMoiety(SubstanceMoiety object) {
-				return createSubstanceMoietyAdapter();
+			public Adapter caseSubstanceNucleicAcid(SubstanceNucleicAcid object) {
+				return createSubstanceNucleicAcidAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceNucleicAcidLinkage(SubstanceNucleicAcidLinkage object) {
+				return createSubstanceNucleicAcidLinkageAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceNucleicAcidSubunit(SubstanceNucleicAcidSubunit object) {
+				return createSubstanceNucleicAcidSubunitAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceNucleicAcidSugar(SubstanceNucleicAcidSugar object) {
+				return createSubstanceNucleicAcidSugarAdapter();
 			}
 			@Override
 			public Adapter caseSubstancePolymer(SubstancePolymer object) {
@@ -3836,6 +4057,14 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSubstancePolymerStructuralRepresentationAdapter();
 			}
 			@Override
+			public Adapter caseSubstanceProtein(SubstanceProtein object) {
+				return createSubstanceProteinAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceProteinSubunit(SubstanceProteinSubunit object) {
+				return createSubstanceProteinSubunitAdapter();
+			}
+			@Override
 			public Adapter caseSubstanceReferenceInformation(SubstanceReferenceInformation object) {
 				return createSubstanceReferenceInformationAdapter();
 			}
@@ -3852,16 +4081,44 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSubstanceReferenceInformationGeneElementAdapter();
 			}
 			@Override
-			public Adapter caseSubstanceReferenceInformationRelationship(SubstanceReferenceInformationRelationship object) {
-				return createSubstanceReferenceInformationRelationshipAdapter();
-			}
-			@Override
 			public Adapter caseSubstanceReferenceInformationTarget(SubstanceReferenceInformationTarget object) {
 				return createSubstanceReferenceInformationTargetAdapter();
 			}
 			@Override
+			public Adapter caseSubstanceSourceMaterial(SubstanceSourceMaterial object) {
+				return createSubstanceSourceMaterialAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialAuthor(SubstanceSourceMaterialAuthor object) {
+				return createSubstanceSourceMaterialAuthorAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialFractionDescription(SubstanceSourceMaterialFractionDescription object) {
+				return createSubstanceSourceMaterialFractionDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialHybrid(SubstanceSourceMaterialHybrid object) {
+				return createSubstanceSourceMaterialHybridAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialOrganism(SubstanceSourceMaterialOrganism object) {
+				return createSubstanceSourceMaterialOrganismAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialOrganismGeneral(SubstanceSourceMaterialOrganismGeneral object) {
+				return createSubstanceSourceMaterialOrganismGeneralAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSourceMaterialPartDescription(SubstanceSourceMaterialPartDescription object) {
+				return createSubstanceSourceMaterialPartDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseSubstanceSpecification(SubstanceSpecification object) {
 				return createSubstanceSpecificationAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSpecificationCode(SubstanceSpecificationCode object) {
+				return createSubstanceSpecificationCodeAdapter();
 			}
 			@Override
 			public Adapter caseSubstanceSpecificationIsotope(SubstanceSpecificationIsotope object) {
@@ -3876,28 +4133,28 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSubstanceSpecificationMolecularWeightAdapter();
 			}
 			@Override
-			public Adapter caseSubstanceSpecificationOfficialName(SubstanceSpecificationOfficialName object) {
-				return createSubstanceSpecificationOfficialNameAdapter();
+			public Adapter caseSubstanceSpecificationName(SubstanceSpecificationName object) {
+				return createSubstanceSpecificationNameAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSpecificationOfficial(SubstanceSpecificationOfficial object) {
+				return createSubstanceSpecificationOfficialAdapter();
 			}
 			@Override
 			public Adapter caseSubstanceSpecificationProperty(SubstanceSpecificationProperty object) {
 				return createSubstanceSpecificationPropertyAdapter();
 			}
 			@Override
-			public Adapter caseSubstanceSpecificationStructuralRepresentation(SubstanceSpecificationStructuralRepresentation object) {
-				return createSubstanceSpecificationStructuralRepresentationAdapter();
+			public Adapter caseSubstanceSpecificationRelationship(SubstanceSpecificationRelationship object) {
+				return createSubstanceSpecificationRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseSubstanceSpecificationRepresentation(SubstanceSpecificationRepresentation object) {
+				return createSubstanceSpecificationRepresentationAdapter();
 			}
 			@Override
 			public Adapter caseSubstanceSpecificationStructure(SubstanceSpecificationStructure object) {
 				return createSubstanceSpecificationStructureAdapter();
-			}
-			@Override
-			public Adapter caseSubstanceSpecificationSubstanceCode(SubstanceSpecificationSubstanceCode object) {
-				return createSubstanceSpecificationSubstanceCodeAdapter();
-			}
-			@Override
-			public Adapter caseSubstanceSpecificationSubstanceName(SubstanceSpecificationSubstanceName object) {
-				return createSubstanceSpecificationSubstanceNameAdapter();
 			}
 			@Override
 			public Adapter caseSupplyDelivery(SupplyDelivery object) {
@@ -3928,16 +4185,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createSystemRestfulInteractionAdapter();
 			}
 			@Override
-			public Adapter caseSystemVersionProcessingMode(SystemVersionProcessingMode object) {
-				return createSystemVersionProcessingModeAdapter();
-			}
-			@Override
 			public Adapter caseTask(Task object) {
 				return createTaskAdapter();
 			}
 			@Override
 			public Adapter caseTaskInput(TaskInput object) {
 				return createTaskInputAdapter();
+			}
+			@Override
+			public Adapter caseTaskIntent(TaskIntent object) {
+				return createTaskIntentAdapter();
 			}
 			@Override
 			public Adapter caseTaskOutput(TaskOutput object) {
@@ -3970,6 +4227,18 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTerminologyCapabilitiesFilter(TerminologyCapabilitiesFilter object) {
 				return createTerminologyCapabilitiesFilterAdapter();
+			}
+			@Override
+			public Adapter caseTerminologyCapabilitiesImplementation(TerminologyCapabilitiesImplementation object) {
+				return createTerminologyCapabilitiesImplementationAdapter();
+			}
+			@Override
+			public Adapter caseTerminologyCapabilitiesParameter(TerminologyCapabilitiesParameter object) {
+				return createTerminologyCapabilitiesParameterAdapter();
+			}
+			@Override
+			public Adapter caseTerminologyCapabilitiesSoftware(TerminologyCapabilitiesSoftware object) {
+				return createTerminologyCapabilitiesSoftwareAdapter();
 			}
 			@Override
 			public Adapter caseTerminologyCapabilitiesTranslation(TerminologyCapabilitiesTranslation object) {
@@ -4088,52 +4357,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createTestScriptOriginAdapter();
 			}
 			@Override
-			public Adapter caseTestScriptParam(TestScriptParam object) {
-				return createTestScriptParamAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptParam1(TestScriptParam1 object) {
-				return createTestScriptParam1Adapter();
-			}
-			@Override
-			public Adapter caseTestScriptParam2(TestScriptParam2 object) {
-				return createTestScriptParam2Adapter();
-			}
-			@Override
-			public Adapter caseTestScriptParam3(TestScriptParam3 object) {
-				return createTestScriptParam3Adapter();
-			}
-			@Override
 			public Adapter caseTestScriptRequestHeader(TestScriptRequestHeader object) {
 				return createTestScriptRequestHeaderAdapter();
 			}
 			@Override
 			public Adapter caseTestScriptRequestMethodCode(TestScriptRequestMethodCode object) {
 				return createTestScriptRequestMethodCodeAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptRule(TestScriptRule object) {
-				return createTestScriptRuleAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptRule1(TestScriptRule1 object) {
-				return createTestScriptRule1Adapter();
-			}
-			@Override
-			public Adapter caseTestScriptRule2(TestScriptRule2 object) {
-				return createTestScriptRule2Adapter();
-			}
-			@Override
-			public Adapter caseTestScriptRule3(TestScriptRule3 object) {
-				return createTestScriptRule3Adapter();
-			}
-			@Override
-			public Adapter caseTestScriptRuleset(TestScriptRuleset object) {
-				return createTestScriptRulesetAdapter();
-			}
-			@Override
-			public Adapter caseTestScriptRuleset1(TestScriptRuleset1 object) {
-				return createTestScriptRuleset1Adapter();
 			}
 			@Override
 			public Adapter caseTestScriptSetup(TestScriptSetup object) {
@@ -4168,10 +4397,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createTriggerDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseTriggerDefinitionCondition(TriggerDefinitionCondition object) {
-				return createTriggerDefinitionConditionAdapter();
-			}
-			@Override
 			public Adapter caseTriggerType(TriggerType object) {
 				return createTriggerTypeAdapter();
 			}
@@ -4192,16 +4417,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createUnitsOfTimeAdapter();
 			}
 			@Override
-			public Adapter caseUnknownContentCode(UnknownContentCode object) {
-				return createUnknownContentCodeAdapter();
-			}
-			@Override
 			public Adapter caseUnsignedInt(UnsignedInt object) {
 				return createUnsignedIntAdapter();
 			}
 			@Override
 			public Adapter caseUri(Uri object) {
 				return createUriAdapter();
+			}
+			@Override
+			public Adapter caseUrl(Url object) {
+				return createUrlAdapter();
 			}
 			@Override
 			public Adapter caseUsageContext(UsageContext object) {
@@ -4212,40 +4437,8 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createUseAdapter();
 			}
 			@Override
-			public Adapter caseUserSession(UserSession object) {
-				return createUserSessionAdapter();
-			}
-			@Override
-			public Adapter caseUserSessionContext(UserSessionContext object) {
-				return createUserSessionContextAdapter();
-			}
-			@Override
-			public Adapter caseUserSessionStatus(UserSessionStatus object) {
-				return createUserSessionStatusAdapter();
-			}
-			@Override
-			public Adapter caseUserSessionStatus1(UserSessionStatus1 object) {
-				return createUserSessionStatus1Adapter();
-			}
-			@Override
-			public Adapter caseUserSessionStatusSource(UserSessionStatusSource object) {
-				return createUserSessionStatusSourceAdapter();
-			}
-			@Override
-			public Adapter caseUsualOccupation(UsualOccupation object) {
-				return createUsualOccupationAdapter();
-			}
-			@Override
 			public Adapter caseUuid(Uuid object) {
 				return createUuidAdapter();
-			}
-			@Override
-			public Adapter caseValidationStatus(ValidationStatus object) {
-				return createValidationStatusAdapter();
-			}
-			@Override
-			public Adapter caseValidationType(ValidationType object) {
-				return createValidationTypeAdapter();
 			}
 			@Override
 			public Adapter caseValueSet(ValueSet object) {
@@ -4284,6 +4477,14 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createValueSetParameterAdapter();
 			}
 			@Override
+			public Adapter caseVariableType(VariableType object) {
+				return createVariableTypeAdapter();
+			}
+			@Override
+			public Adapter caseVConfidentialityClassification(VConfidentialityClassification object) {
+				return createVConfidentialityClassificationAdapter();
+			}
+			@Override
 			public Adapter caseVerificationResult(VerificationResult object) {
 				return createVerificationResultAdapter();
 			}
@@ -4312,8 +4513,12 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 				return createVisionPrescriptionAdapter();
 			}
 			@Override
-			public Adapter caseVisionPrescriptionDispense(VisionPrescriptionDispense object) {
-				return createVisionPrescriptionDispenseAdapter();
+			public Adapter caseVisionPrescriptionLensSpecification(VisionPrescriptionLensSpecification object) {
+				return createVisionPrescriptionLensSpecificationAdapter();
+			}
+			@Override
+			public Adapter caseVisionPrescriptionPrism(VisionPrescriptionPrism object) {
+				return createVisionPrescriptionPrismAdapter();
 			}
 			@Override
 			public Adapter caseXPathUsageType(XPathUsageType object) {
@@ -4434,20 +4639,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionGroupingBehaviorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ActionList <em>Action List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ActionList
-	 * @generated
-	 */
-	public Adapter createActionListAdapter() {
 		return null;
 	}
 
@@ -4732,20 +4923,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.AllergyIntoleranceClinicalStatus <em>Allergy Intolerance Clinical Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.AllergyIntoleranceClinicalStatus
-	 * @generated
-	 */
-	public Adapter createAllergyIntoleranceClinicalStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.AllergyIntoleranceCriticality <em>Allergy Intolerance Criticality</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -4798,20 +4975,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAllergyIntoleranceTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.AllergyIntoleranceVerificationStatus <em>Allergy Intolerance Verification Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.AllergyIntoleranceVerificationStatus
-	 * @generated
-	 */
-	public Adapter createAllergyIntoleranceVerificationStatusAdapter() {
 		return null;
 	}
 
@@ -5376,16 +5539,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CanPushUpdates <em>Can Push Updates</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Canonical <em>Canonical</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.CanPushUpdates
+	 * @see org.hl7.fhir.Canonical
 	 * @generated
 	 */
-	public Adapter createCanPushUpdatesAdapter() {
+	public Adapter createCanonicalAdapter() {
 		return null;
 	}
 
@@ -5400,20 +5563,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCapabilityStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CapabilityStatementCertificate <em>Capability Statement Certificate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.CapabilityStatementCertificate
-	 * @generated
-	 */
-	public Adapter createCapabilityStatementCertificateAdapter() {
 		return null;
 	}
 
@@ -5698,20 +5847,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CarePlanStatus <em>Care Plan Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.CarePlanStatus
-	 * @generated
-	 */
-	public Adapter createCarePlanStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CareTeam <em>Care Team</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -5754,6 +5889,48 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CatalogEntry <em>Catalog Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CatalogEntry
+	 * @generated
+	 */
+	public Adapter createCatalogEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CatalogEntryRelatedEntry <em>Catalog Entry Related Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CatalogEntryRelatedEntry
+	 * @generated
+	 */
+	public Adapter createCatalogEntryRelatedEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CatalogEntryRelationType <em>Catalog Entry Relation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CatalogEntryRelationType
+	 * @generated
+	 */
+	public Adapter createCatalogEntryRelationTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItem <em>Charge Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -5768,16 +5945,72 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemParticipant <em>Charge Item Participant</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemDefinition <em>Charge Item Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ChargeItemParticipant
+	 * @see org.hl7.fhir.ChargeItemDefinition
 	 * @generated
 	 */
-	public Adapter createChargeItemParticipantAdapter() {
+	public Adapter createChargeItemDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemDefinitionApplicability <em>Charge Item Definition Applicability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ChargeItemDefinitionApplicability
+	 * @generated
+	 */
+	public Adapter createChargeItemDefinitionApplicabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemDefinitionPriceComponent <em>Charge Item Definition Price Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ChargeItemDefinitionPriceComponent
+	 * @generated
+	 */
+	public Adapter createChargeItemDefinitionPriceComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemDefinitionPropertyGroup <em>Charge Item Definition Property Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ChargeItemDefinitionPropertyGroup
+	 * @generated
+	 */
+	public Adapter createChargeItemDefinitionPropertyGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ChargeItemPerformer <em>Charge Item Performer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ChargeItemPerformer
+	 * @generated
+	 */
+	public Adapter createChargeItemPerformerAdapter() {
 		return null;
 	}
 
@@ -5862,20 +6095,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClaimDiagnosisAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimInformation <em>Claim Information</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ClaimInformation
-	 * @generated
-	 */
-	public Adapter createClaimInformationAdapter() {
 		return null;
 	}
 
@@ -6020,6 +6239,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimResponseDetail1 <em>Claim Response Detail1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ClaimResponseDetail1
+	 * @generated
+	 */
+	public Adapter createClaimResponseDetail1Adapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimResponseError <em>Claim Response Error</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -6104,6 +6337,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimResponseSubDetail1 <em>Claim Response Sub Detail1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ClaimResponseSubDetail1
+	 * @generated
+	 */
+	public Adapter createClaimResponseSubDetail1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimResponseTotal <em>Claim Response Total</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ClaimResponseTotal
+	 * @generated
+	 */
+	public Adapter createClaimResponseTotalAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimSubDetail <em>Claim Sub Detail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -6114,6 +6375,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClaimSubDetailAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ClaimSupportingInfo <em>Claim Supporting Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ClaimSupportingInfo
+	 * @generated
+	 */
+	public Adapter createClaimSupportingInfoAdapter() {
 		return null;
 	}
 
@@ -6692,20 +6967,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ConditionClinicalStatusCodes <em>Condition Clinical Status Codes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ConditionClinicalStatusCodes
-	 * @generated
-	 */
-	public Adapter createConditionClinicalStatusCodesAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ConditionEvidence <em>Condition Evidence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -6730,34 +6991,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionStageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ConditionVerificationStatus <em>Condition Verification Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ConditionVerificationStatus
-	 * @generated
-	 */
-	public Adapter createConditionVerificationStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ConfidentialityClassification <em>Confidentiality Classification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ConfidentialityClassification
-	 * @generated
-	 */
-	public Adapter createConfidentialityClassificationAdapter() {
 		return null;
 	}
 
@@ -6856,20 +7089,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConsentProvisionTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ConsentScopeCodes <em>Consent Scope Codes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ConsentScopeCodes
-	 * @generated
-	 */
-	public Adapter createConsentScopeCodesAdapter() {
 		return null;
 	}
 
@@ -6986,16 +7205,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractAgent <em>Contract Agent</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractAction <em>Contract Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ContractAgent
+	 * @see org.hl7.fhir.ContractAction
 	 * @generated
 	 */
-	public Adapter createContractAgentAdapter() {
+	public Adapter createContractActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractAnswer <em>Contract Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ContractAnswer
+	 * @generated
+	 */
+	public Adapter createContractAnswerAdapter() {
 		return null;
 	}
 
@@ -7014,30 +7247,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractData <em>Contract Data</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractContentDefinition <em>Contract Content Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ContractData
+	 * @see org.hl7.fhir.ContractContentDefinition
 	 * @generated
 	 */
-	public Adapter createContractDataAdapter() {
+	public Adapter createContractContentDefinitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractDataMeaning <em>Contract Data Meaning</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractContext <em>Contract Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ContractDataMeaning
+	 * @see org.hl7.fhir.ContractContext
 	 * @generated
 	 */
-	public Adapter createContractDataMeaningAdapter() {
+	public Adapter createContractContextAdapter() {
 		return null;
 	}
 
@@ -7084,6 +7317,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractParty <em>Contract Party</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ContractParty
+	 * @generated
+	 */
+	public Adapter createContractPartyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractResourcePublicationStatusCodes <em>Contract Resource Publication Status Codes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ContractResourcePublicationStatusCodes
+	 * @generated
+	 */
+	public Adapter createContractResourcePublicationStatusCodesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractResourceStatusCodes <em>Contract Resource Status Codes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7112,6 +7373,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractSecurityLabel <em>Contract Security Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ContractSecurityLabel
+	 * @generated
+	 */
+	public Adapter createContractSecurityLabelAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractSigner <em>Contract Signer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7122,6 +7397,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContractSignerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ContractSubject <em>Contract Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ContractSubject
+	 * @generated
+	 */
+	public Adapter createContractSubjectAdapter() {
 		return null;
 	}
 
@@ -7224,30 +7513,170 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageCopay <em>Coverage Copay</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageCostToBeneficiary <em>Coverage Cost To Beneficiary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.CoverageCopay
+	 * @see org.hl7.fhir.CoverageCostToBeneficiary
 	 * @generated
 	 */
-	public Adapter createCoverageCopayAdapter() {
+	public Adapter createCoverageCostToBeneficiaryAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageGrouping <em>Coverage Grouping</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityRequest <em>Coverage Eligibility Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.CoverageGrouping
+	 * @see org.hl7.fhir.CoverageEligibilityRequest
 	 * @generated
 	 */
-	public Adapter createCoverageGroupingAdapter() {
+	public Adapter createCoverageEligibilityRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityRequestDiagnosis <em>Coverage Eligibility Request Diagnosis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityRequestDiagnosis
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityRequestDiagnosisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityRequestInsurance <em>Coverage Eligibility Request Insurance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityRequestInsurance
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityRequestInsuranceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityRequestItem <em>Coverage Eligibility Request Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityRequestItem
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityRequestItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityRequestSupportingInfo <em>Coverage Eligibility Request Supporting Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityRequestSupportingInfo
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityRequestSupportingInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityResponse <em>Coverage Eligibility Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityResponse
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityResponseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityResponseBenefit <em>Coverage Eligibility Response Benefit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityResponseBenefit
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityResponseBenefitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityResponseError <em>Coverage Eligibility Response Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityResponseError
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityResponseErrorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityResponseInsurance <em>Coverage Eligibility Response Insurance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityResponseInsurance
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityResponseInsuranceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageEligibilityResponseItem <em>Coverage Eligibility Response Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageEligibilityResponseItem
+	 * @generated
+	 */
+	public Adapter createCoverageEligibilityResponseItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.CoverageException <em>Coverage Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.CoverageException
+	 * @generated
+	 */
+	public Adapter createCoverageExceptionAdapter() {
 		return null;
 	}
 
@@ -7290,6 +7719,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataRequirementDateFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DataRequirementSort <em>Data Requirement Sort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DataRequirementSort
+	 * @generated
+	 */
+	public Adapter createDataRequirementSortAdapter() {
 		return null;
 	}
 
@@ -7364,6 +7807,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DetectedIssueEvidence <em>Detected Issue Evidence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DetectedIssueEvidence
+	 * @generated
+	 */
+	public Adapter createDetectedIssueEvidenceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DetectedIssueMitigation <em>Detected Issue Mitigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7406,44 +7863,114 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceComponent <em>Device Component</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinition <em>Device Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.DeviceComponent
+	 * @see org.hl7.fhir.DeviceDefinition
 	 * @generated
 	 */
-	public Adapter createDeviceComponentAdapter() {
+	public Adapter createDeviceDefinitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceComponentProductionSpecification <em>Device Component Production Specification</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionCapability <em>Device Definition Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.DeviceComponentProductionSpecification
+	 * @see org.hl7.fhir.DeviceDefinitionCapability
 	 * @generated
 	 */
-	public Adapter createDeviceComponentProductionSpecificationAdapter() {
+	public Adapter createDeviceDefinitionCapabilityAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceComponentProperty <em>Device Component Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionDeviceName <em>Device Definition Device Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.DeviceComponentProperty
+	 * @see org.hl7.fhir.DeviceDefinitionDeviceName
 	 * @generated
 	 */
-	public Adapter createDeviceComponentPropertyAdapter() {
+	public Adapter createDeviceDefinitionDeviceNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionMaterial <em>Device Definition Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceDefinitionMaterial
+	 * @generated
+	 */
+	public Adapter createDeviceDefinitionMaterialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionProperty <em>Device Definition Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceDefinitionProperty
+	 * @generated
+	 */
+	public Adapter createDeviceDefinitionPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionSpecialization <em>Device Definition Specialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceDefinitionSpecialization
+	 * @generated
+	 */
+	public Adapter createDeviceDefinitionSpecializationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDefinitionUdiDeviceIdentifier <em>Device Definition Udi Device Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceDefinitionUdiDeviceIdentifier
+	 * @generated
+	 */
+	public Adapter createDeviceDefinitionUdiDeviceIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceDeviceName <em>Device Device Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceDeviceName
+	 * @generated
+	 */
+	public Adapter createDeviceDeviceNameAdapter() {
 		return null;
 	}
 
@@ -7546,6 +8073,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceNameType <em>Device Name Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceNameType
+	 * @generated
+	 */
+	public Adapter createDeviceNameTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceProperty <em>Device Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceProperty
+	 * @generated
+	 */
+	public Adapter createDevicePropertyAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceRequest <em>Device Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7574,16 +8129,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceUdi <em>Device Udi</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceSpecialization <em>Device Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.DeviceUdi
+	 * @see org.hl7.fhir.DeviceSpecialization
 	 * @generated
 	 */
-	public Adapter createDeviceUdiAdapter() {
+	public Adapter createDeviceSpecializationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceUdiCarrier <em>Device Udi Carrier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceUdiCarrier
+	 * @generated
+	 */
+	public Adapter createDeviceUdiCarrierAdapter() {
 		return null;
 	}
 
@@ -7612,6 +8181,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeviceUseStatementStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DeviceVersion <em>Device Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DeviceVersion
+	 * @generated
+	 */
+	public Adapter createDeviceVersionAdapter() {
 		return null;
 	}
 
@@ -7700,20 +8283,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DocumentManifestAgent <em>Document Manifest Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.DocumentManifestAgent
-	 * @generated
-	 */
-	public Adapter createDocumentManifestAgentAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DocumentManifestRelated <em>Document Manifest Related</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7756,20 +8325,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DocumentReferenceAgent <em>Document Reference Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.DocumentReferenceAgent
-	 * @generated
-	 */
-	public Adapter createDocumentReferenceAgentAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DocumentReferenceContent <em>Document Reference Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7794,20 +8349,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocumentReferenceContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DocumentReferenceRelated <em>Document Reference Related</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.DocumentReferenceRelated
-	 * @generated
-	 */
-	public Adapter createDocumentReferenceRelatedAdapter() {
 		return null;
 	}
 
@@ -7896,6 +8437,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.DosageDoseAndRate <em>Dosage Dose And Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.DosageDoseAndRate
+	 * @generated
+	 */
+	public Adapter createDosageDoseAndRateAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Duration <em>Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -7906,6 +8461,104 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesis <em>Effect Evidence Synthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesis
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisCertainty <em>Effect Evidence Synthesis Certainty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisCertainty
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisCertaintyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisCertaintySubcomponent <em>Effect Evidence Synthesis Certainty Subcomponent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisCertaintySubcomponent
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisCertaintySubcomponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisEffectEstimate <em>Effect Evidence Synthesis Effect Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisEffectEstimate
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisEffectEstimateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisPrecisionEstimate <em>Effect Evidence Synthesis Precision Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisPrecisionEstimate
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisPrecisionEstimateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisResultsByExposure <em>Effect Evidence Synthesis Results By Exposure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisResultsByExposure
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisResultsByExposureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EffectEvidenceSynthesisSampleSize <em>Effect Evidence Synthesis Sample Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EffectEvidenceSynthesisSampleSize
+	 * @generated
+	 */
+	public Adapter createEffectEvidenceSynthesisSampleSizeAdapter() {
 		return null;
 	}
 
@@ -8050,114 +8703,44 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityRequest <em>Eligibility Request</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityRequestPurpose <em>Eligibility Request Purpose</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityRequest
+	 * @see org.hl7.fhir.EligibilityRequestPurpose
 	 * @generated
 	 */
-	public Adapter createEligibilityRequestAdapter() {
+	public Adapter createEligibilityRequestPurposeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityRequestAuthorization <em>Eligibility Request Authorization</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponsePurpose <em>Eligibility Response Purpose</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityRequestAuthorization
+	 * @see org.hl7.fhir.EligibilityResponsePurpose
 	 * @generated
 	 */
-	public Adapter createEligibilityRequestAuthorizationAdapter() {
+	public Adapter createEligibilityResponsePurposeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponse <em>Eligibility Response</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EnableWhenBehavior <em>Enable When Behavior</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponse
+	 * @see org.hl7.fhir.EnableWhenBehavior
 	 * @generated
 	 */
-	public Adapter createEligibilityResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponseAuthorization <em>Eligibility Response Authorization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponseAuthorization
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseAuthorizationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponseBenefitBalance <em>Eligibility Response Benefit Balance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponseBenefitBalance
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseBenefitBalanceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponseError <em>Eligibility Response Error</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponseError
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseErrorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponseFinancial <em>Eligibility Response Financial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponseFinancial
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseFinancialAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EligibilityResponseInsurance <em>Eligibility Response Insurance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EligibilityResponseInsurance
-	 * @generated
-	 */
-	public Adapter createEligibilityResponseInsuranceAdapter() {
+	public Adapter createEnableWhenBehaviorAdapter() {
 		return null;
 	}
 
@@ -8344,34 +8927,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EntryDefinition <em>Entry Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EntryDefinition
-	 * @generated
-	 */
-	public Adapter createEntryDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EntryDefinitionRelatedEntry <em>Entry Definition Related Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.EntryDefinitionRelatedEntry
-	 * @generated
-	 */
-	public Adapter createEntryDefinitionRelatedEntryAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EpisodeOfCare <em>Episode Of Care</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -8484,6 +9039,62 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Evidence <em>Evidence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.Evidence
+	 * @generated
+	 */
+	public Adapter createEvidenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EvidenceVariable <em>Evidence Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EvidenceVariable
+	 * @generated
+	 */
+	public Adapter createEvidenceVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EvidenceVariableCharacteristic <em>Evidence Variable Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EvidenceVariableCharacteristic
+	 * @generated
+	 */
+	public Adapter createEvidenceVariableCharacteristicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.EvidenceVariableType <em>Evidence Variable Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.EvidenceVariableType
+	 * @generated
+	 */
+	public Adapter createEvidenceVariableTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExampleScenario <em>Example Scenario</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -8582,20 +9193,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExampleScenarioOption <em>Example Scenario Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExampleScenarioOption
-	 * @generated
-	 */
-	public Adapter createExampleScenarioOptionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExampleScenarioProcess <em>Example Scenario Process</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -8634,118 +9231,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExampleScenarioVersionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfile <em>Expansion Profile</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfile
-	 * @generated
-	 */
-	public Adapter createExpansionProfileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileDesignation <em>Expansion Profile Designation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileDesignation
-	 * @generated
-	 */
-	public Adapter createExpansionProfileDesignationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileDesignation1 <em>Expansion Profile Designation1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileDesignation1
-	 * @generated
-	 */
-	public Adapter createExpansionProfileDesignation1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileDesignation2 <em>Expansion Profile Designation2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileDesignation2
-	 * @generated
-	 */
-	public Adapter createExpansionProfileDesignation2Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileExclude <em>Expansion Profile Exclude</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileExclude
-	 * @generated
-	 */
-	public Adapter createExpansionProfileExcludeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileExcludedSystem <em>Expansion Profile Excluded System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileExcludedSystem
-	 * @generated
-	 */
-	public Adapter createExpansionProfileExcludedSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileFixedVersion <em>Expansion Profile Fixed Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileFixedVersion
-	 * @generated
-	 */
-	public Adapter createExpansionProfileFixedVersionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpansionProfileInclude <em>Expansion Profile Include</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExpansionProfileInclude
-	 * @generated
-	 */
-	public Adapter createExpansionProfileIncludeAdapter() {
 		return null;
 	}
 
@@ -8848,6 +9333,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitDetail1 <em>Explanation Of Benefit Detail1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ExplanationOfBenefitDetail1
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitDetail1Adapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitDiagnosis <em>Explanation Of Benefit Diagnosis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -8872,20 +9371,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExplanationOfBenefitFinancialAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitInformation <em>Explanation Of Benefit Information</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExplanationOfBenefitInformation
-	 * @generated
-	 */
-	public Adapter createExplanationOfBenefitInformationAdapter() {
 		return null;
 	}
 
@@ -9016,6 +9501,76 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitSubDetail1 <em>Explanation Of Benefit Sub Detail1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ExplanationOfBenefitSubDetail1
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitSubDetail1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitSupportingInfo <em>Explanation Of Benefit Supporting Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ExplanationOfBenefitSupportingInfo
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitSupportingInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExplanationOfBenefitTotal <em>Explanation Of Benefit Total</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ExplanationOfBenefitTotal
+	 * @generated
+	 */
+	public Adapter createExplanationOfBenefitTotalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExposureState <em>Exposure State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ExposureState
+	 * @generated
+	 */
+	public Adapter createExposureStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExpressionLanguage <em>Expression Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -9044,30 +9599,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExtensionContext <em>Extension Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ExtensionContextType <em>Extension Context Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ExtensionContext
+	 * @see org.hl7.fhir.ExtensionContextType
 	 * @generated
 	 */
-	public Adapter createExtensionContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.FailureAction <em>Failure Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.FailureAction
-	 * @generated
-	 */
-	public Adapter createFailureActionAdapter() {
+	public Adapter createExtensionContextTypeAdapter() {
 		return null;
 	}
 
@@ -9114,34 +9655,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.FHIRAllTypes <em>FHIR All Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.FHIRAllTypes
-	 * @generated
-	 */
-	public Adapter createFHIRAllTypesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.FHIRDefinedType <em>FHIR Defined Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.FHIRDefinedType
-	 * @generated
-	 */
-	public Adapter createFHIRDefinedTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.FHIRDeviceStatus <em>FHIR Device Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -9166,6 +9679,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFHIRSubstanceStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.FHIRVersion <em>FHIR Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.FHIRVersion
+	 * @generated
+	 */
+	public Adapter createFHIRVersionAdapter() {
 		return null;
 	}
 
@@ -9240,16 +9767,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GoalStatus <em>Goal Status</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GoalLifecycleStatus <em>Goal Lifecycle Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.GoalStatus
+	 * @see org.hl7.fhir.GoalLifecycleStatus
 	 * @generated
 	 */
-	public Adapter createGoalStatusAdapter() {
+	public Adapter createGoalLifecycleStatusAdapter() {
 		return null;
 	}
 
@@ -9380,6 +9907,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GroupMeasure <em>Group Measure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.GroupMeasure
+	 * @generated
+	 */
+	public Adapter createGroupMeasureAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GroupMember <em>Group Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -9436,44 +9977,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GuideDependencyType <em>Guide Dependency Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GuidePageGeneration <em>Guide Page Generation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.GuideDependencyType
+	 * @see org.hl7.fhir.GuidePageGeneration
 	 * @generated
 	 */
-	public Adapter createGuideDependencyTypeAdapter() {
+	public Adapter createGuidePageGenerationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GuidePageKind <em>Guide Page Kind</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.GuideParameterCode <em>Guide Parameter Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.GuidePageKind
+	 * @see org.hl7.fhir.GuideParameterCode
 	 * @generated
 	 */
-	public Adapter createGuidePageKindAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.HazardousDutyWork <em>Hazardous Duty Work</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.HazardousDutyWork
-	 * @generated
-	 */
-	public Adapter createHazardousDutyWorkAdapter() {
+	public Adapter createGuideParameterCodeAdapter() {
 		return null;
 	}
 
@@ -9506,6 +10033,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.HealthcareServiceEligibility <em>Healthcare Service Eligibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.HealthcareServiceEligibility
+	 * @generated
+	 */
+	public Adapter createHealthcareServiceEligibilityAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.HealthcareServiceNotAvailable <em>Healthcare Service Not Available</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -9516,20 +10057,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHealthcareServiceNotAvailableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.HistoryOfEmploymentStatus <em>History Of Employment Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.HistoryOfEmploymentStatus
-	 * @generated
-	 */
-	public Adapter createHistoryOfEmploymentStatusAdapter() {
 		return null;
 	}
 
@@ -9646,6 +10173,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImagingStudyPerformer <em>Imaging Study Performer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImagingStudyPerformer
+	 * @generated
+	 */
+	public Adapter createImagingStudyPerformerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImagingStudySeries <em>Imaging Study Series</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -9656,6 +10197,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createImagingStudySeriesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImagingStudyStatus <em>Imaging Study Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImagingStudyStatus
+	 * @generated
+	 */
+	public Adapter createImagingStudyStatusAdapter() {
 		return null;
 	}
 
@@ -9716,16 +10271,44 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImmunizationPractitioner <em>Immunization Practitioner</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImmunizationPerformer <em>Immunization Performer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImmunizationPractitioner
+	 * @see org.hl7.fhir.ImmunizationPerformer
 	 * @generated
 	 */
-	public Adapter createImmunizationPractitionerAdapter() {
+	public Adapter createImmunizationPerformerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImmunizationProtocolApplied <em>Immunization Protocol Applied</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImmunizationProtocolApplied
+	 * @generated
+	 */
+	public Adapter createImmunizationProtocolAppliedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImmunizationReaction <em>Immunization Reaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImmunizationReaction
+	 * @generated
+	 */
+	public Adapter createImmunizationReactionAdapter() {
 		return null;
 	}
 
@@ -9800,16 +10383,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideDependency <em>Implementation Guide Dependency</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideDefinition <em>Implementation Guide Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideDependency
+	 * @see org.hl7.fhir.ImplementationGuideDefinition
 	 * @generated
 	 */
-	public Adapter createImplementationGuideDependencyAdapter() {
+	public Adapter createImplementationGuideDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideDependsOn <em>Implementation Guide Depends On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImplementationGuideDependsOn
+	 * @generated
+	 */
+	public Adapter createImplementationGuideDependsOnAdapter() {
 		return null;
 	}
 
@@ -9828,170 +10425,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInput <em>Implementation Guide Input</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideGrouping <em>Implementation Guide Grouping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInput
+	 * @see org.hl7.fhir.ImplementationGuideGrouping
 	 * @generated
 	 */
-	public Adapter createImplementationGuideInputAdapter() {
+	public Adapter createImplementationGuideGroupingAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInputDependency <em>Implementation Guide Input Dependency</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideManifest <em>Implementation Guide Manifest</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInputDependency
+	 * @see org.hl7.fhir.ImplementationGuideManifest
 	 * @generated
 	 */
-	public Adapter createImplementationGuideInputDependencyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInputGlobal <em>Implementation Guide Input Global</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInputGlobal
-	 * @generated
-	 */
-	public Adapter createImplementationGuideInputGlobalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInputPackage <em>Implementation Guide Input Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInputPackage
-	 * @generated
-	 */
-	public Adapter createImplementationGuideInputPackageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInputPage <em>Implementation Guide Input Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInputPage
-	 * @generated
-	 */
-	public Adapter createImplementationGuideInputPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideInputResource <em>Implementation Guide Input Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideInputResource
-	 * @generated
-	 */
-	public Adapter createImplementationGuideInputResourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideOutput <em>Implementation Guide Output</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideOutput
-	 * @generated
-	 */
-	public Adapter createImplementationGuideOutputAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideOutputDependency <em>Implementation Guide Output Dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideOutputDependency
-	 * @generated
-	 */
-	public Adapter createImplementationGuideOutputDependencyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideOutputGlobal <em>Implementation Guide Output Global</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideOutputGlobal
-	 * @generated
-	 */
-	public Adapter createImplementationGuideOutputGlobalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideOutputPage <em>Implementation Guide Output Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideOutputPage
-	 * @generated
-	 */
-	public Adapter createImplementationGuideOutputPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideOutputResource <em>Implementation Guide Output Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuideOutputResource
-	 * @generated
-	 */
-	public Adapter createImplementationGuideOutputResourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuidePackage <em>Implementation Guide Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ImplementationGuidePackage
-	 * @generated
-	 */
-	public Adapter createImplementationGuidePackageAdapter() {
+	public Adapter createImplementationGuideManifestAdapter() {
 		return null;
 	}
 
@@ -10010,6 +10467,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuidePage1 <em>Implementation Guide Page1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImplementationGuidePage1
+	 * @generated
+	 */
+	public Adapter createImplementationGuidePage1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideParameter <em>Implementation Guide Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImplementationGuideParameter
+	 * @generated
+	 */
+	public Adapter createImplementationGuideParameterAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideResource <em>Implementation Guide Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10024,16 +10509,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InstanceAvailability <em>Instance Availability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideResource1 <em>Implementation Guide Resource1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.InstanceAvailability
+	 * @see org.hl7.fhir.ImplementationGuideResource1
 	 * @generated
 	 */
-	public Adapter createInstanceAvailabilityAdapter() {
+	public Adapter createImplementationGuideResource1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ImplementationGuideTemplate <em>Implementation Guide Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ImplementationGuideTemplate
+	 * @generated
+	 */
+	public Adapter createImplementationGuideTemplateAdapter() {
 		return null;
 	}
 
@@ -10048,6 +10547,146 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlan <em>Insurance Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlan
+	 * @generated
+	 */
+	public Adapter createInsurancePlanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanBenefit <em>Insurance Plan Benefit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanBenefit
+	 * @generated
+	 */
+	public Adapter createInsurancePlanBenefitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanBenefit1 <em>Insurance Plan Benefit1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanBenefit1
+	 * @generated
+	 */
+	public Adapter createInsurancePlanBenefit1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanContact <em>Insurance Plan Contact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanContact
+	 * @generated
+	 */
+	public Adapter createInsurancePlanContactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanCost <em>Insurance Plan Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanCost
+	 * @generated
+	 */
+	public Adapter createInsurancePlanCostAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanCoverage <em>Insurance Plan Coverage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanCoverage
+	 * @generated
+	 */
+	public Adapter createInsurancePlanCoverageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanGeneralCost <em>Insurance Plan General Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanGeneralCost
+	 * @generated
+	 */
+	public Adapter createInsurancePlanGeneralCostAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanLimit <em>Insurance Plan Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanLimit
+	 * @generated
+	 */
+	public Adapter createInsurancePlanLimitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanPlan <em>Insurance Plan Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanPlan
+	 * @generated
+	 */
+	public Adapter createInsurancePlanPlanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.InsurancePlanSpecificCost <em>Insurance Plan Specific Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.InsurancePlanSpecificCost
+	 * @generated
+	 */
+	public Adapter createInsurancePlanSpecificCostAdapter() {
 		return null;
 	}
 
@@ -10174,20 +10813,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIssueTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ItemInstance <em>Item Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ItemInstance
-	 * @generated
-	 */
-	public Adapter createItemInstanceAdapter() {
 		return null;
 	}
 
@@ -10416,20 +11041,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MeasmntPrinciple <em>Measmnt Principle</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MeasmntPrinciple
-	 * @generated
-	 */
-	public Adapter createMeasmntPrincipleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Measure <em>Measure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10440,6 +11051,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMeasureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MeasureComponent <em>Measure Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MeasureComponent
+	 * @generated
+	 */
+	public Adapter createMeasureComponentAdapter() {
 		return null;
 	}
 
@@ -10482,6 +11107,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMeasureReportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MeasureReportComponent <em>Measure Report Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MeasureReportComponent
+	 * @generated
+	 */
+	public Adapter createMeasureReportComponentAdapter() {
 		return null;
 	}
 
@@ -10626,20 +11265,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MediaStatus <em>Media Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MediaStatus
-	 * @generated
-	 */
-	public Adapter createMediaStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Medication <em>Medication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10696,20 +11321,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationAdministrationStatus <em>Medication Administration Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicationAdministrationStatus
-	 * @generated
-	 */
-	public Adapter createMedicationAdministrationStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationBatch <em>Medication Batch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10752,20 +11363,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationDispenseStatus <em>Medication Dispense Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicationDispenseStatus
-	 * @generated
-	 */
-	public Adapter createMedicationDispenseStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationDispenseSubstitution <em>Medication Dispense Substitution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10790,6 +11387,244 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMedicationIngredientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledge <em>Medication Knowledge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledge
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeAdministrationGuidelines <em>Medication Knowledge Administration Guidelines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeAdministrationGuidelines
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeAdministrationGuidelinesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeCost <em>Medication Knowledge Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeCost
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeCostAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeDosage <em>Medication Knowledge Dosage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeDosage
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeDosageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeDrugCharacteristic <em>Medication Knowledge Drug Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeDrugCharacteristic
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeDrugCharacteristicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeIngredient <em>Medication Knowledge Ingredient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeIngredient
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeIngredientAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeKinetics <em>Medication Knowledge Kinetics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeKinetics
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeKineticsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeMaxDispense <em>Medication Knowledge Max Dispense</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeMaxDispense
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeMaxDispenseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeMedicineClassification <em>Medication Knowledge Medicine Classification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeMedicineClassification
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeMedicineClassificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeMonitoringProgram <em>Medication Knowledge Monitoring Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeMonitoringProgram
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeMonitoringProgramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeMonograph <em>Medication Knowledge Monograph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeMonograph
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeMonographAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgePackaging <em>Medication Knowledge Packaging</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgePackaging
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgePackagingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgePatientCharacteristics <em>Medication Knowledge Patient Characteristics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgePatientCharacteristics
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgePatientCharacteristicsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeRegulatory <em>Medication Knowledge Regulatory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeRegulatory
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeRegulatoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeRelatedMedicationKnowledge <em>Medication Knowledge Related Medication Knowledge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeRelatedMedicationKnowledge
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeRelatedMedicationKnowledgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeSchedule <em>Medication Knowledge Schedule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeSchedule
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeScheduleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationKnowledgeSubstitution <em>Medication Knowledge Substitution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationKnowledgeSubstitution
+	 * @generated
+	 */
+	public Adapter createMedicationKnowledgeSubstitutionAdapter() {
 		return null;
 	}
 
@@ -10822,6 +11657,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationRequestInitialFill <em>Medication Request Initial Fill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicationRequestInitialFill
+	 * @generated
+	 */
+	public Adapter createMedicationRequestInitialFillAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationRequestIntent <em>Medication Request Intent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10836,16 +11685,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationRequestStatus <em>Medication Request Status</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationrequestStatus <em>Medicationrequest Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicationRequestStatus
+	 * @see org.hl7.fhir.MedicationrequestStatus
 	 * @generated
 	 */
-	public Adapter createMedicationRequestStatusAdapter() {
+	public Adapter createMedicationrequestStatusAdapter() {
 		return null;
 	}
 
@@ -10878,30 +11727,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationStatementStatus <em>Medication Statement Status</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationStatusCodes <em>Medication Status Codes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicationStatementStatus
+	 * @see org.hl7.fhir.MedicationStatusCodes
 	 * @generated
 	 */
-	public Adapter createMedicationStatementStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicationStatus <em>Medication Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicationStatus
-	 * @generated
-	 */
-	public Adapter createMedicationStatusAdapter() {
+	public Adapter createMedicationStatusCodesAdapter() {
 		return null;
 	}
 
@@ -10934,20 +11769,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductAuthorizationApplication <em>Medicinal Product Authorization Application</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductAuthorizationApplication
-	 * @generated
-	 */
-	public Adapter createMedicinalProductAuthorizationApplicationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization <em>Medicinal Product Authorization Jurisdictional Authorization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -10976,100 +11797,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicals <em>Medicinal Product Clinicals</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductContraindication <em>Medicinal Product Contraindication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicals
+	 * @see org.hl7.fhir.MedicinalProductContraindication
 	 * @generated
 	 */
-	public Adapter createMedicinalProductClinicalsAdapter() {
+	public Adapter createMedicinalProductContraindicationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsContraindication <em>Medicinal Product Clinicals Contraindication</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductContraindicationOtherTherapy <em>Medicinal Product Contraindication Other Therapy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsContraindication
+	 * @see org.hl7.fhir.MedicinalProductContraindicationOtherTherapy
 	 * @generated
 	 */
-	public Adapter createMedicinalProductClinicalsContraindicationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsInteractions <em>Medicinal Product Clinicals Interactions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsInteractions
-	 * @generated
-	 */
-	public Adapter createMedicinalProductClinicalsInteractionsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsOtherTherapy <em>Medicinal Product Clinicals Other Therapy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsOtherTherapy
-	 * @generated
-	 */
-	public Adapter createMedicinalProductClinicalsOtherTherapyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsPopulation <em>Medicinal Product Clinicals Population</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsPopulation
-	 * @generated
-	 */
-	public Adapter createMedicinalProductClinicalsPopulationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsTherapeuticIndication <em>Medicinal Product Clinicals Therapeutic Indication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsTherapeuticIndication
-	 * @generated
-	 */
-	public Adapter createMedicinalProductClinicalsTherapeuticIndicationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductClinicalsUndesirableEffects <em>Medicinal Product Clinicals Undesirable Effects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductClinicalsUndesirableEffects
-	 * @generated
-	 */
-	public Adapter createMedicinalProductClinicalsUndesirableEffectsAdapter() {
+	public Adapter createMedicinalProductContraindicationOtherTherapyAdapter() {
 		return null;
 	}
 
@@ -11088,30 +11839,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductDeviceSpec <em>Medicinal Product Device Spec</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductIndication <em>Medicinal Product Indication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductDeviceSpec
+	 * @see org.hl7.fhir.MedicinalProductIndication
 	 * @generated
 	 */
-	public Adapter createMedicinalProductDeviceSpecAdapter() {
+	public Adapter createMedicinalProductIndicationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductDeviceSpecMaterial <em>Medicinal Product Device Spec Material</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductIndicationOtherTherapy <em>Medicinal Product Indication Other Therapy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductDeviceSpecMaterial
+	 * @see org.hl7.fhir.MedicinalProductIndicationOtherTherapy
 	 * @generated
 	 */
-	public Adapter createMedicinalProductDeviceSpecMaterialAdapter() {
+	public Adapter createMedicinalProductIndicationOtherTherapyAdapter() {
 		return null;
 	}
 
@@ -11186,6 +11937,48 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductInteraction <em>Medicinal Product Interaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductInteraction
+	 * @generated
+	 */
+	public Adapter createMedicinalProductInteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductInteractionInteractant <em>Medicinal Product Interaction Interactant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductInteractionInteractant
+	 * @generated
+	 */
+	public Adapter createMedicinalProductInteractionInteractantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductManufactured <em>Medicinal Product Manufactured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductManufactured
+	 * @generated
+	 */
+	public Adapter createMedicinalProductManufacturedAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductManufacturingBusinessOperation <em>Medicinal Product Manufacturing Business Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11256,20 +12049,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductPackagedManufacturedItem <em>Medicinal Product Packaged Manufactured Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.MedicinalProductPackagedManufacturedItem
-	 * @generated
-	 */
-	public Adapter createMedicinalProductPackagedManufacturedItemAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductPackagedPackageItem <em>Medicinal Product Packaged Package Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11308,6 +12087,76 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMedicinalProductPharmaceuticalCharacteristicsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration <em>Medicinal Product Pharmaceutical Route Of Administration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration
+	 * @generated
+	 */
+	public Adapter createMedicinalProductPharmaceuticalRouteOfAdministrationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductPharmaceuticalTargetSpecies <em>Medicinal Product Pharmaceutical Target Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductPharmaceuticalTargetSpecies
+	 * @generated
+	 */
+	public Adapter createMedicinalProductPharmaceuticalTargetSpeciesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductPharmaceuticalWithdrawalPeriod <em>Medicinal Product Pharmaceutical Withdrawal Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductPharmaceuticalWithdrawalPeriod
+	 * @generated
+	 */
+	public Adapter createMedicinalProductPharmaceuticalWithdrawalPeriodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductSpecialDesignation <em>Medicinal Product Special Designation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductSpecialDesignation
+	 * @generated
+	 */
+	public Adapter createMedicinalProductSpecialDesignationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MedicinalProductUndesirableEffect <em>Medicinal Product Undesirable Effect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MedicinalProductUndesirableEffect
+	 * @generated
+	 */
+	public Adapter createMedicinalProductUndesirableEffectAdapter() {
 		return null;
 	}
 
@@ -11396,6 +12245,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MessageheaderResponseRequest <em>Messageheader Response Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MessageheaderResponseRequest
+	 * @generated
+	 */
+	public Adapter createMessageheaderResponseRequestAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MessageHeaderSource <em>Message Header Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11434,6 +12297,132 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMetaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequence <em>Molecular Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequence
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceInner <em>Molecular Sequence Inner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceInner
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceInnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceOuter <em>Molecular Sequence Outer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceOuter
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceOuterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceQuality <em>Molecular Sequence Quality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceQuality
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceQualityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceReferenceSeq <em>Molecular Sequence Reference Seq</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceReferenceSeq
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceReferenceSeqAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceRepository <em>Molecular Sequence Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceRepository
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceRoc <em>Molecular Sequence Roc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceRoc
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceRocAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceStructureVariant <em>Molecular Sequence Structure Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceStructureVariant
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceStructureVariantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.MolecularSequenceVariant <em>Molecular Sequence Variant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.MolecularSequenceVariant
+	 * @generated
+	 */
+	public Adapter createMolecularSequenceVariantAdapter() {
 		return null;
 	}
 
@@ -11550,20 +12539,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Need <em>Need</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.Need
-	 * @generated
-	 */
-	public Adapter createNeedAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.NoteType <em>Note Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11648,20 +12623,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.NutritionOrderStatus <em>Nutrition Order Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.NutritionOrderStatus
-	 * @generated
-	 */
-	public Adapter createNutritionOrderStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.NutritionOrderSupplement <em>Nutrition Order Supplement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11718,6 +12679,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ObservationDataType <em>Observation Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ObservationDataType
+	 * @generated
+	 */
+	public Adapter createObservationDataTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ObservationDefinition <em>Observation Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11760,6 +12735,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ObservationRangeCategory <em>Observation Range Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ObservationRangeCategory
+	 * @generated
+	 */
+	public Adapter createObservationRangeCategoryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ObservationReferenceRange <em>Observation Reference Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -11784,118 +12773,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObservationStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalData <em>Occupational Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalData
-	 * @generated
-	 */
-	public Adapter createOccupationalDataAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataCombatZoneHazardousDuty <em>Occupational Data Combat Zone Hazardous Duty</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataCombatZoneHazardousDuty
-	 * @generated
-	 */
-	public Adapter createOccupationalDataCombatZoneHazardousDutyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataDuration <em>Occupational Data Duration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataDuration
-	 * @generated
-	 */
-	public Adapter createOccupationalDataDurationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataEmploymentStatus <em>Occupational Data Employment Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataEmploymentStatus
-	 * @generated
-	 */
-	public Adapter createOccupationalDataEmploymentStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataIndustry <em>Occupational Data Industry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataIndustry
-	 * @generated
-	 */
-	public Adapter createOccupationalDataIndustryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataPastOrPresentOccupation <em>Occupational Data Past Or Present Occupation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataPastOrPresentOccupation
-	 * @generated
-	 */
-	public Adapter createOccupationalDataPastOrPresentOccupationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataRetirementStatus <em>Occupational Data Retirement Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataRetirementStatus
-	 * @generated
-	 */
-	public Adapter createOccupationalDataRetirementStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OccupationalDataUsualOccupation <em>Occupational Data Usual Occupation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OccupationalDataUsualOccupation
-	 * @generated
-	 */
-	public Adapter createOccupationalDataUsualOccupationAdapter() {
 		return null;
 	}
 
@@ -11970,6 +12847,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OperationDefinitionReferencedFrom <em>Operation Definition Referenced From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.OperationDefinitionReferencedFrom
+	 * @generated
+	 */
+	public Adapter createOperationDefinitionReferencedFromAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OperationKind <em>Operation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12040,6 +12931,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrganizationAffiliation <em>Organization Affiliation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.OrganizationAffiliation
+	 * @generated
+	 */
+	public Adapter createOrganizationAffiliationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrganizationContact <em>Organization Contact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12054,44 +12959,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrganizationRole <em>Organization Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrientationType <em>Orientation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.OrganizationRole
+	 * @see org.hl7.fhir.OrientationType
 	 * @generated
 	 */
-	public Adapter createOrganizationRoleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrganizationRoleAvailableTime <em>Organization Role Available Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OrganizationRoleAvailableTime
-	 * @generated
-	 */
-	public Adapter createOrganizationRoleAvailableTimeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.OrganizationRoleNotAvailable <em>Organization Role Not Available</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.OrganizationRoleNotAvailable
-	 * @generated
-	 */
-	public Adapter createOrganizationRoleNotAvailableAdapter() {
+	public Adapter createOrientationTypeAdapter() {
 		return null;
 	}
 
@@ -12176,20 +13053,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPatientAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.PatientAnimal <em>Patient Animal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.PatientAnimal
-	 * @generated
-	 */
-	public Adapter createPatientAnimalAdapter() {
 		return null;
 	}
 
@@ -12446,6 +13309,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Population <em>Population</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.Population
+	 * @generated
+	 */
+	public Adapter createPopulationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.PositiveInt <em>Positive Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12572,76 +13449,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProcessOutcomeCodes <em>Process Outcome Codes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProcessOutcomeCodes
-	 * @generated
-	 */
-	public Adapter createProcessOutcomeCodesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProcessRequest <em>Process Request</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProcessRequest
-	 * @generated
-	 */
-	public Adapter createProcessRequestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProcessRequestItem <em>Process Request Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProcessRequestItem
-	 * @generated
-	 */
-	public Adapter createProcessRequestItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProcessResponse <em>Process Response</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProcessResponse
-	 * @generated
-	 */
-	public Adapter createProcessResponseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProcessResponseProcessNote <em>Process Response Process Note</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProcessResponseProcessNote
-	 * @generated
-	 */
-	public Adapter createProcessResponseProcessNoteAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProdCharacteristic <em>Prod Characteristic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12652,132 +13459,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProdCharacteristicAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlan <em>Product Plan</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlan
-	 * @generated
-	 */
-	public Adapter createProductPlanAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanBenefit <em>Product Plan Benefit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanBenefit
-	 * @generated
-	 */
-	public Adapter createProductPlanBenefitAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanBenefit1 <em>Product Plan Benefit1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanBenefit1
-	 * @generated
-	 */
-	public Adapter createProductPlanBenefit1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanCategory <em>Product Plan Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanCategory
-	 * @generated
-	 */
-	public Adapter createProductPlanCategoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanContact <em>Product Plan Contact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanContact
-	 * @generated
-	 */
-	public Adapter createProductPlanContactAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanCost <em>Product Plan Cost</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanCost
-	 * @generated
-	 */
-	public Adapter createProductPlanCostAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanCoverage <em>Product Plan Coverage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanCoverage
-	 * @generated
-	 */
-	public Adapter createProductPlanCoverageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanItem <em>Product Plan Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanItem
-	 * @generated
-	 */
-	public Adapter createProductPlanItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ProductPlanPlan <em>Product Plan Plan</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ProductPlanPlan
-	 * @generated
-	 */
-	public Adapter createProductPlanPlanAdapter() {
 		return null;
 	}
 
@@ -12894,20 +13575,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.PushTypeAvailable <em>Push Type Available</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.PushTypeAvailable
-	 * @generated
-	 */
-	public Adapter createPushTypeAvailableAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QualityType <em>Quality Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12964,6 +13631,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireAnswerOption <em>Questionnaire Answer Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.QuestionnaireAnswerOption
+	 * @generated
+	 */
+	public Adapter createQuestionnaireAnswerOptionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireEnableWhen <em>Questionnaire Enable When</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -12974,6 +13655,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQuestionnaireEnableWhenAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireInitial <em>Questionnaire Initial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.QuestionnaireInitial
+	 * @generated
+	 */
+	public Adapter createQuestionnaireInitialAdapter() {
 		return null;
 	}
 
@@ -12992,6 +13687,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireItemOperator <em>Questionnaire Item Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.QuestionnaireItemOperator
+	 * @generated
+	 */
+	public Adapter createQuestionnaireItemOperatorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireItemType <em>Questionnaire Item Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -13002,20 +13711,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQuestionnaireItemTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.QuestionnaireOption <em>Questionnaire Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.QuestionnaireOption
-	 * @generated
-	 */
-	public Adapter createQuestionnaireOptionAdapter() {
 		return null;
 	}
 
@@ -13188,6 +13883,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RelatedPersonCommunication <em>Related Person Communication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RelatedPersonCommunication
+	 * @generated
+	 */
+	public Adapter createRelatedPersonCommunicationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RemittanceOutcome <em>Remittance Outcome</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -13300,6 +14009,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RequestResourceType <em>Request Resource Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RequestResourceType
+	 * @generated
+	 */
+	public Adapter createRequestResourceTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RequestStatus <em>Request Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -13310,6 +14033,62 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequestStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ResearchDefinition <em>Research Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ResearchDefinition
+	 * @generated
+	 */
+	public Adapter createResearchDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ResearchElementDefinition <em>Research Element Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ResearchElementDefinition
+	 * @generated
+	 */
+	public Adapter createResearchElementDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ResearchElementDefinitionCharacteristic <em>Research Element Definition Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ResearchElementDefinitionCharacteristic
+	 * @generated
+	 */
+	public Adapter createResearchElementDefinitionCharacteristicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ResearchElementType <em>Research Element Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.ResearchElementType
+	 * @generated
+	 */
+	public Adapter createResearchElementTypeAdapter() {
 		return null;
 	}
 
@@ -13482,20 +14261,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RetirementStatus <em>Retirement Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.RetirementStatus
-	 * @generated
-	 */
-	public Adapter createRetirementStatusAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskAssessment <em>Risk Assessment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -13520,6 +14285,90 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRiskAssessmentPredictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesis <em>Risk Evidence Synthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesis
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesisCertainty <em>Risk Evidence Synthesis Certainty</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesisCertainty
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisCertaintyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesisCertaintySubcomponent <em>Risk Evidence Synthesis Certainty Subcomponent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesisCertaintySubcomponent
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisCertaintySubcomponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesisPrecisionEstimate <em>Risk Evidence Synthesis Precision Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesisPrecisionEstimate
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisPrecisionEstimateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesisRiskEstimate <em>Risk Evidence Synthesis Risk Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesisRiskEstimate
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisRiskEstimateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.RiskEvidenceSynthesisSampleSize <em>Risk Evidence Synthesis Sample Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.RiskEvidenceSynthesisSampleSize
+	 * @generated
+	 */
+	public Adapter createRiskEvidenceSynthesisSampleSizeAdapter() {
 		return null;
 	}
 
@@ -13650,142 +14499,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Sequence <em>Sequence</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceType <em>Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.Sequence
+	 * @see org.hl7.fhir.SequenceType
 	 * @generated
 	 */
-	public Adapter createSequenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceInner <em>Sequence Inner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceInner
-	 * @generated
-	 */
-	public Adapter createSequenceInnerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceOuter <em>Sequence Outer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceOuter
-	 * @generated
-	 */
-	public Adapter createSequenceOuterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceQuality <em>Sequence Quality</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceQuality
-	 * @generated
-	 */
-	public Adapter createSequenceQualityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceReferenceSeq <em>Sequence Reference Seq</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceReferenceSeq
-	 * @generated
-	 */
-	public Adapter createSequenceReferenceSeqAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceRepository <em>Sequence Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceRepository
-	 * @generated
-	 */
-	public Adapter createSequenceRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceRoc <em>Sequence Roc</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceRoc
-	 * @generated
-	 */
-	public Adapter createSequenceRocAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceStructureVariant <em>Sequence Structure Variant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceStructureVariant
-	 * @generated
-	 */
-	public Adapter createSequenceStructureVariantAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SequenceVariant <em>Sequence Variant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SequenceVariant
-	 * @generated
-	 */
-	public Adapter createSequenceVariantAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ServiceDefinition <em>Service Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ServiceDefinition
-	 * @generated
-	 */
-	public Adapter createServiceDefinitionAdapter() {
+	public Adapter createSequenceTypeAdapter() {
 		return null;
 	}
 
@@ -13860,6 +14583,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SortDirection <em>Sort Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SortDirection
+	 * @generated
+	 */
+	public Adapter createSortDirectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SPDXLicense <em>SPDX License</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SPDXLicense
+	 * @generated
+	 */
+	public Adapter createSPDXLicenseAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Specimen <em>Specimen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -13930,16 +14681,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SpecimenDefinitionContainerAdditive <em>Specimen Definition Container Additive</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SpecimenDefinitionAdditive <em>Specimen Definition Additive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.SpecimenDefinitionContainerAdditive
+	 * @see org.hl7.fhir.SpecimenDefinitionAdditive
 	 * @generated
 	 */
-	public Adapter createSpecimenDefinitionContainerAdditiveAdapter() {
+	public Adapter createSpecimenDefinitionAdditiveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SpecimenDefinitionContainer <em>Specimen Definition Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SpecimenDefinitionContainer
+	 * @generated
+	 */
+	public Adapter createSpecimenDefinitionContainerAdapter() {
 		return null;
 	}
 
@@ -13958,16 +14723,16 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SpecimenDefinitionSpecimenToLab <em>Specimen Definition Specimen To Lab</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SpecimenDefinitionTypeTested <em>Specimen Definition Type Tested</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.SpecimenDefinitionSpecimenToLab
+	 * @see org.hl7.fhir.SpecimenDefinitionTypeTested
 	 * @generated
 	 */
-	public Adapter createSpecimenDefinitionSpecimenToLabAdapter() {
+	public Adapter createSpecimenDefinitionTypeTestedAdapter() {
 		return null;
 	}
 
@@ -14014,6 +14779,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.StrandType <em>Strand Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.StrandType
+	 * @generated
+	 */
+	public Adapter createStrandTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.String <em>String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -14038,6 +14817,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStructureDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.StructureDefinitionContext <em>Structure Definition Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.StructureDefinitionContext
+	 * @generated
+	 */
+	public Adapter createStructureDefinitionContextAdapter() {
 		return null;
 	}
 
@@ -14448,16 +15241,58 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceMoiety <em>Substance Moiety</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceNucleicAcid <em>Substance Nucleic Acid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceMoiety
+	 * @see org.hl7.fhir.SubstanceNucleicAcid
 	 * @generated
 	 */
-	public Adapter createSubstanceMoietyAdapter() {
+	public Adapter createSubstanceNucleicAcidAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceNucleicAcidLinkage <em>Substance Nucleic Acid Linkage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceNucleicAcidLinkage
+	 * @generated
+	 */
+	public Adapter createSubstanceNucleicAcidLinkageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceNucleicAcidSubunit <em>Substance Nucleic Acid Subunit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceNucleicAcidSubunit
+	 * @generated
+	 */
+	public Adapter createSubstanceNucleicAcidSubunitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceNucleicAcidSugar <em>Substance Nucleic Acid Sugar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceNucleicAcidSugar
+	 * @generated
+	 */
+	public Adapter createSubstanceNucleicAcidSugarAdapter() {
 		return null;
 	}
 
@@ -14560,6 +15395,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceProtein <em>Substance Protein</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceProtein
+	 * @generated
+	 */
+	public Adapter createSubstanceProteinAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceProteinSubunit <em>Substance Protein Subunit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceProteinSubunit
+	 * @generated
+	 */
+	public Adapter createSubstanceProteinSubunitAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceReferenceInformation <em>Substance Reference Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -14616,20 +15479,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceReferenceInformationRelationship <em>Substance Reference Information Relationship</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceReferenceInformationRelationship
-	 * @generated
-	 */
-	public Adapter createSubstanceReferenceInformationRelationshipAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceReferenceInformationTarget <em>Substance Reference Information Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -14644,6 +15493,104 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterial <em>Substance Source Material</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterial
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialAuthor <em>Substance Source Material Author</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialAuthor
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialAuthorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialFractionDescription <em>Substance Source Material Fraction Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialFractionDescription
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialFractionDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialHybrid <em>Substance Source Material Hybrid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialHybrid
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialHybridAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialOrganism <em>Substance Source Material Organism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialOrganism
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialOrganismAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialOrganismGeneral <em>Substance Source Material Organism General</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialOrganismGeneral
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialOrganismGeneralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSourceMaterialPartDescription <em>Substance Source Material Part Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSourceMaterialPartDescription
+	 * @generated
+	 */
+	public Adapter createSubstanceSourceMaterialPartDescriptionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecification <em>Substance Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -14654,6 +15601,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubstanceSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationCode <em>Substance Specification Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSpecificationCode
+	 * @generated
+	 */
+	public Adapter createSubstanceSpecificationCodeAdapter() {
 		return null;
 	}
 
@@ -14700,16 +15661,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationOfficialName <em>Substance Specification Official Name</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationName <em>Substance Specification Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceSpecificationOfficialName
+	 * @see org.hl7.fhir.SubstanceSpecificationName
 	 * @generated
 	 */
-	public Adapter createSubstanceSpecificationOfficialNameAdapter() {
+	public Adapter createSubstanceSpecificationNameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationOfficial <em>Substance Specification Official</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSpecificationOfficial
+	 * @generated
+	 */
+	public Adapter createSubstanceSpecificationOfficialAdapter() {
 		return null;
 	}
 
@@ -14728,16 +15703,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationStructuralRepresentation <em>Substance Specification Structural Representation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationRelationship <em>Substance Specification Relationship</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceSpecificationStructuralRepresentation
+	 * @see org.hl7.fhir.SubstanceSpecificationRelationship
 	 * @generated
 	 */
-	public Adapter createSubstanceSpecificationStructuralRepresentationAdapter() {
+	public Adapter createSubstanceSpecificationRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationRepresentation <em>Substance Specification Representation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.SubstanceSpecificationRepresentation
+	 * @generated
+	 */
+	public Adapter createSubstanceSpecificationRepresentationAdapter() {
 		return null;
 	}
 
@@ -14752,34 +15741,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubstanceSpecificationStructureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationSubstanceCode <em>Substance Specification Substance Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceSpecificationSubstanceCode
-	 * @generated
-	 */
-	public Adapter createSubstanceSpecificationSubstanceCodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SubstanceSpecificationSubstanceName <em>Substance Specification Substance Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SubstanceSpecificationSubstanceName
-	 * @generated
-	 */
-	public Adapter createSubstanceSpecificationSubstanceNameAdapter() {
 		return null;
 	}
 
@@ -14882,20 +15843,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.SystemVersionProcessingMode <em>System Version Processing Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.SystemVersionProcessingMode
-	 * @generated
-	 */
-	public Adapter createSystemVersionProcessingModeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -14920,6 +15867,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TaskIntent <em>Task Intent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.TaskIntent
+	 * @generated
+	 */
+	public Adapter createTaskIntentAdapter() {
 		return null;
 	}
 
@@ -15032,6 +15993,48 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTerminologyCapabilitiesFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TerminologyCapabilitiesImplementation <em>Terminology Capabilities Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.TerminologyCapabilitiesImplementation
+	 * @generated
+	 */
+	public Adapter createTerminologyCapabilitiesImplementationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TerminologyCapabilitiesParameter <em>Terminology Capabilities Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.TerminologyCapabilitiesParameter
+	 * @generated
+	 */
+	public Adapter createTerminologyCapabilitiesParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TerminologyCapabilitiesSoftware <em>Terminology Capabilities Software</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.TerminologyCapabilitiesSoftware
+	 * @generated
+	 */
+	public Adapter createTerminologyCapabilitiesSoftwareAdapter() {
 		return null;
 	}
 
@@ -15442,62 +16445,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptParam <em>Test Script Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptParam
-	 * @generated
-	 */
-	public Adapter createTestScriptParamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptParam1 <em>Test Script Param1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptParam1
-	 * @generated
-	 */
-	public Adapter createTestScriptParam1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptParam2 <em>Test Script Param2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptParam2
-	 * @generated
-	 */
-	public Adapter createTestScriptParam2Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptParam3 <em>Test Script Param3</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptParam3
-	 * @generated
-	 */
-	public Adapter createTestScriptParam3Adapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRequestHeader <em>Test Script Request Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -15522,90 +16469,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTestScriptRequestMethodCodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRule <em>Test Script Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRule
-	 * @generated
-	 */
-	public Adapter createTestScriptRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRule1 <em>Test Script Rule1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRule1
-	 * @generated
-	 */
-	public Adapter createTestScriptRule1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRule2 <em>Test Script Rule2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRule2
-	 * @generated
-	 */
-	public Adapter createTestScriptRule2Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRule3 <em>Test Script Rule3</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRule3
-	 * @generated
-	 */
-	public Adapter createTestScriptRule3Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRuleset <em>Test Script Ruleset</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRuleset
-	 * @generated
-	 */
-	public Adapter createTestScriptRulesetAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TestScriptRuleset1 <em>Test Script Ruleset1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TestScriptRuleset1
-	 * @generated
-	 */
-	public Adapter createTestScriptRuleset1Adapter() {
 		return null;
 	}
 
@@ -15722,20 +16585,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TriggerDefinitionCondition <em>Trigger Definition Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.TriggerDefinitionCondition
-	 * @generated
-	 */
-	public Adapter createTriggerDefinitionConditionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.TriggerType <em>Trigger Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -15806,20 +16655,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UnknownContentCode <em>Unknown Content Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UnknownContentCode
-	 * @generated
-	 */
-	public Adapter createUnknownContentCodeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UnsignedInt <em>Unsigned Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -15844,6 +16679,20 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUriAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Url <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.Url
+	 * @generated
+	 */
+	public Adapter createUrlAdapter() {
 		return null;
 	}
 
@@ -15876,90 +16725,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UserSession <em>User Session</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UserSession
-	 * @generated
-	 */
-	public Adapter createUserSessionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UserSessionContext <em>User Session Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UserSessionContext
-	 * @generated
-	 */
-	public Adapter createUserSessionContextAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UserSessionStatus <em>User Session Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UserSessionStatus
-	 * @generated
-	 */
-	public Adapter createUserSessionStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UserSessionStatus1 <em>User Session Status1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UserSessionStatus1
-	 * @generated
-	 */
-	public Adapter createUserSessionStatus1Adapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UserSessionStatusSource <em>User Session Status Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UserSessionStatusSource
-	 * @generated
-	 */
-	public Adapter createUserSessionStatusSourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.UsualOccupation <em>Usual Occupation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.UsualOccupation
-	 * @generated
-	 */
-	public Adapter createUsualOccupationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.Uuid <em>Uuid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -15970,34 +16735,6 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUuidAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ValidationStatus <em>Validation Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ValidationStatus
-	 * @generated
-	 */
-	public Adapter createValidationStatusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.ValidationType <em>Validation Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.hl7.fhir.ValidationType
-	 * @generated
-	 */
-	public Adapter createValidationTypeAdapter() {
 		return null;
 	}
 
@@ -16128,6 +16865,34 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VariableType <em>Variable Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.VariableType
+	 * @generated
+	 */
+	public Adapter createVariableTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VConfidentialityClassification <em>VConfidentiality Classification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.VConfidentialityClassification
+	 * @generated
+	 */
+	public Adapter createVConfidentialityClassificationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VerificationResult <em>Verification Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -16226,16 +16991,30 @@ public class FhirAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VisionPrescriptionDispense <em>Vision Prescription Dispense</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VisionPrescriptionLensSpecification <em>Vision Prescription Lens Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.hl7.fhir.VisionPrescriptionDispense
+	 * @see org.hl7.fhir.VisionPrescriptionLensSpecification
 	 * @generated
 	 */
-	public Adapter createVisionPrescriptionDispenseAdapter() {
+	public Adapter createVisionPrescriptionLensSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.hl7.fhir.VisionPrescriptionPrism <em>Vision Prescription Prism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.hl7.fhir.VisionPrescriptionPrism
+	 * @generated
+	 */
+	public Adapter createVisionPrescriptionPrismAdapter() {
 		return null;
 	}
 

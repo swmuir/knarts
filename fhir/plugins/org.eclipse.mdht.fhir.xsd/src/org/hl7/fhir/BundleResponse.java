@@ -59,7 +59,7 @@ public interface BundleResponse extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The location header created by processing this operation.
+	 * The location header created by processing this operation, populated if the operation returns a location.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference.
 	 * @see #setLocation(Uri)
@@ -85,7 +85,7 @@ public interface BundleResponse extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).
+	 * The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Etag</em>' containment reference.
 	 * @see #setEtag(org.hl7.fhir.String)

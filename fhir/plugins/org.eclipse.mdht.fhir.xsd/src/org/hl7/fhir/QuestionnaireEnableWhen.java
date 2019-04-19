@@ -17,7 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getQuestion <em>Question</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getHasAnswer <em>Has Answer</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerBoolean <em>Answer Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerDecimal <em>Answer Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerInteger <em>Answer Integer</em>}</li>
@@ -25,8 +25,6 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerDateTime <em>Answer Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerTime <em>Answer Time</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerString <em>Answer String</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerUri <em>Answer Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerAttachment <em>Answer Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerCoding <em>Answer Coding</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerQuantity <em>Answer Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerReference <em>Answer Reference</em>}</li>
@@ -64,30 +62,30 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	void setQuestion(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Has Answer</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Operator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An indication that this item should be enabled only if the specified question is answered (hasAnswer=true) or not answered (hasAnswer=false).
+	 * Specifies the criteria by which the question is enabled.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Has Answer</em>' containment reference.
-	 * @see #setHasAnswer(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireEnableWhen_HasAnswer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='hasAnswer' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Operator</em>' containment reference.
+	 * @see #setOperator(QuestionnaireItemOperator)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireEnableWhen_Operator()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='operator' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getHasAnswer();
+	QuestionnaireItemOperator getOperator();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireEnableWhen#getHasAnswer <em>Has Answer</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireEnableWhen#getOperator <em>Operator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Has Answer</em>' containment reference.
-	 * @see #getHasAnswer()
+	 * @param value the new value of the '<em>Operator</em>' containment reference.
+	 * @see #getOperator()
 	 * @generated
 	 */
-	void setHasAnswer(org.hl7.fhir.Boolean value);
+	void setOperator(QuestionnaireItemOperator value);
 
 	/**
 	 * Returns the value of the '<em><b>Answer Boolean</b></em>' containment reference.
@@ -277,60 +275,6 @@ public interface QuestionnaireEnableWhen extends BackboneElement {
 	 * @generated
 	 */
 	void setAnswerString(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Answer Uri</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Answer Uri</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Answer Uri</em>' containment reference.
-	 * @see #setAnswerUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireEnableWhen_AnswerUri()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='answerUri' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Uri getAnswerUri();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerUri <em>Answer Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Answer Uri</em>' containment reference.
-	 * @see #getAnswerUri()
-	 * @generated
-	 */
-	void setAnswerUri(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Answer Attachment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Answer Attachment</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Answer Attachment</em>' containment reference.
-	 * @see #setAnswerAttachment(Attachment)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireEnableWhen_AnswerAttachment()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='answerAttachment' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Attachment getAnswerAttachment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireEnableWhen#getAnswerAttachment <em>Answer Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Answer Attachment</em>' containment reference.
-	 * @see #getAnswerAttachment()
-	 * @generated
-	 */
-	void setAnswerAttachment(Attachment value);
 
 	/**
 	 * Returns the value of the '<em><b>Answer Coding</b></em>' containment reference.

@@ -85,7 +85,7 @@ public enum UDIEntryTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * BarCode
+	 * Barcode
 	 * <!-- end-model-doc -->
 	 * @see #BARCODE
 	 * @model name="barcode"

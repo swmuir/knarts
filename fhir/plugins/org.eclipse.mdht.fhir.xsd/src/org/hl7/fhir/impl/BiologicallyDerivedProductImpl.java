@@ -114,14 +114,14 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 	protected org.hl7.fhir.Integer quantity;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference parent;
+	protected EList<Reference> parent;
 
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' containment reference.
@@ -383,42 +383,11 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getParent() {
+	public EList<Reference> getParent() {
+		if (parent == null) {
+			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT);
+		}
 		return parent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Reference newParent, NotificationChain msgs) {
-		Reference oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT, oldParent, newParent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Reference newParent) {
-		if (newParent != parent) {
-			NotificationChain msgs = null;
-			if (parent != null)
-				msgs = ((InternalEObject)parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT, null, msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT, null, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -552,7 +521,7 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT:
-				return basicSetParent(null, msgs);
+				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__COLLECTION:
 				return basicSetCollection(null, msgs);
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PROCESSING:
@@ -629,7 +598,8 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 				setQuantity((org.hl7.fhir.Integer)newValue);
 				return;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT:
-				setParent((Reference)newValue);
+				getParent().clear();
+				getParent().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__COLLECTION:
 				setCollection((BiologicallyDerivedProductCollection)newValue);
@@ -676,7 +646,7 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 				setQuantity((org.hl7.fhir.Integer)null);
 				return;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT:
-				setParent((Reference)null);
+				getParent().clear();
 				return;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__COLLECTION:
 				setCollection((BiologicallyDerivedProductCollection)null);
@@ -715,7 +685,7 @@ public class BiologicallyDerivedProductImpl extends DomainResourceImpl implement
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__QUANTITY:
 				return quantity != null;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PARENT:
-				return parent != null;
+				return parent != null && !parent.isEmpty();
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__COLLECTION:
 				return collection != null;
 			case FhirPackage.BIOLOGICALLY_DERIVED_PRODUCT__PROCESSING:

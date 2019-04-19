@@ -32,7 +32,7 @@ public interface ImmunizationEducation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifier of the material presented ot the patient.
+	 * Identifier of the material presented to the patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Document Type</em>' containment reference.
 	 * @see #setDocumentType(org.hl7.fhir.String)

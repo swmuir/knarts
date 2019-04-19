@@ -98,7 +98,17 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(7, "unknown", "unknown");
+	UNKNOWN(7, "unknown", "unknown"),
+
+	/**
+	 * The '<em><b>Entered In Error</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENTERED_IN_ERROR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENTERED_IN_ERROR(8, "enteredInError", "entered-in-error");
 
 	/**
 	 * The '<em><b>Not Started</b></em>' literal value.
@@ -213,6 +223,20 @@ public enum CarePlanActivityStatusList implements Enumerator {
 	public static final int UNKNOWN_VALUE = 7;
 
 	/**
+	 * The '<em><b>Entered In Error</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entered in Error
+	 * <!-- end-model-doc -->
+	 * @see #ENTERED_IN_ERROR
+	 * @model name="enteredInError" literal="entered-in-error"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTERED_IN_ERROR_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Care Plan Activity Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +252,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 			CANCELLED,
 			STOPPED,
 			UNKNOWN,
+			ENTERED_IN_ERROR,
 		};
 
 	/**
@@ -292,6 +317,7 @@ public enum CarePlanActivityStatusList implements Enumerator {
 			case CANCELLED_VALUE: return CANCELLED;
 			case STOPPED_VALUE: return STOPPED;
 			case UNKNOWN_VALUE: return UNKNOWN;
+			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}
 		return null;
 	}

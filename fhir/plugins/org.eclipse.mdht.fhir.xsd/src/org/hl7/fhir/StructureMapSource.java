@@ -22,6 +22,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.StructureMapSource#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueBase64Binary <em>Default Value Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueBoolean <em>Default Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueCanonical <em>Default Value Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueCode <em>Default Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDate <em>Default Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDateTime <em>Default Value Date Time</em>}</li>
@@ -36,6 +37,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueTime <em>Default Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUnsignedInt <em>Default Value Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUri <em>Default Value Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUrl <em>Default Value Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUuid <em>Default Value Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueAddress <em>Default Value Address</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueAge <em>Default Value Age</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueAnnotation <em>Default Value Annotation</em>}</li>
@@ -57,20 +60,21 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueSampledData <em>Default Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueSignature <em>Default Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueTiming <em>Default Value Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueContributor <em>Default Value Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueExpression <em>Default Value Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueUsageContext <em>Default Value Usage Context</em>}</li>
- *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueMeta <em>Default Value Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getElement <em>Element</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getListMode <em>List Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.StructureMapSource#getCheck <em>Check</em>}</li>
+ *   <li>{@link org.hl7.fhir.StructureMapSource#getLogMessage <em>Log Message</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getStructureMapSource()
@@ -235,6 +239,33 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setDefaultValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Canonical</em>' containment reference.
+	 * @see #setDefaultValueCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getDefaultValueCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueCanonical <em>Default Value Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Canonical</em>' containment reference.
+	 * @see #getDefaultValueCanonical()
+	 * @generated
+	 */
+	void setDefaultValueCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Code</b></em>' containment reference.
@@ -613,6 +644,60 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setDefaultValueUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Url</em>' containment reference.
+	 * @see #setDefaultValueUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getDefaultValueUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueUrl <em>Default Value Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Url</em>' containment reference.
+	 * @see #getDefaultValueUrl()
+	 * @generated
+	 */
+	void setDefaultValueUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Uuid</em>' containment reference.
+	 * @see #setDefaultValueUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getDefaultValueUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueUuid <em>Default Value Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Uuid</em>' containment reference.
+	 * @see #getDefaultValueUuid()
+	 * @generated
+	 */
+	void setDefaultValueUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Address</b></em>' containment reference.
@@ -1182,33 +1267,6 @@ public interface StructureMapSource extends BackboneElement {
 	void setDefaultValueTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Default Value Dosage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Default Value Dosage</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Value Dosage</em>' containment reference.
-	 * @see #setDefaultValueDosage(Dosage)
-	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueDosage()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='defaultValueDosage' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Dosage getDefaultValueDosage();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Value Dosage</em>' containment reference.
-	 * @see #getDefaultValueDosage()
-	 * @generated
-	 */
-	void setDefaultValueDosage(Dosage value);
-
-	/**
 	 * Returns the value of the '<em><b>Default Value Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1288,6 +1346,33 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setDefaultValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Expression</em>' containment reference.
+	 * @see #setDefaultValueExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getDefaultValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueExpression <em>Default Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Expression</em>' containment reference.
+	 * @see #getDefaultValueExpression()
+	 * @generated
+	 */
+	void setDefaultValueExpression(Expression value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Parameter Definition</b></em>' containment reference.
@@ -1398,31 +1483,31 @@ public interface StructureMapSource extends BackboneElement {
 	void setDefaultValueUsageContext(UsageContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Default Value Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Default Value Dosage</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Value Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Default Value Dosage</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Value Meta</em>' containment reference.
-	 * @see #setDefaultValueMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueMeta()
+	 * @return the value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #setDefaultValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_DefaultValueDosage()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='defaultValueMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='defaultValueDosage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getDefaultValueMeta();
+	Dosage getDefaultValueDosage();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueMeta <em>Default Value Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getDefaultValueDosage <em>Default Value Dosage</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Value Meta</em>' containment reference.
-	 * @see #getDefaultValueMeta()
+	 * @param value the new value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #getDefaultValueDosage()
 	 * @generated
 	 */
-	void setDefaultValueMeta(Meta value);
+	void setDefaultValueDosage(Dosage value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
@@ -1553,5 +1638,31 @@ public interface StructureMapSource extends BackboneElement {
 	 * @generated
 	 */
 	void setCheck(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Log Message</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Log Message</em>' containment reference.
+	 * @see #setLogMessage(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getStructureMapSource_LogMessage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='logMessage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getLogMessage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.StructureMapSource#getLogMessage <em>Log Message</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Log Message</em>' containment reference.
+	 * @see #getLogMessage()
+	 * @generated
+	 */
+	void setLogMessage(org.hl7.fhir.String value);
 
 } // StructureMapSource

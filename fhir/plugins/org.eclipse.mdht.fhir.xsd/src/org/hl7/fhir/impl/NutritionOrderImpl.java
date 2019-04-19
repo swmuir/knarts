@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -25,9 +26,11 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.NutritionOrder;
 import org.hl7.fhir.NutritionOrderEnteralFormula;
 import org.hl7.fhir.NutritionOrderOralDiet;
-import org.hl7.fhir.NutritionOrderStatus;
 import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestStatus;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +41,11 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.NutritionOrderImpl#getDateTime <em>Date Time</em>}</li>
@@ -66,6 +73,36 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesCanonical()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
+
+	/**
+	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiates;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,7 +110,17 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * @generated
 	 * @ordered
 	 */
-	protected NutritionOrderStatus status;
+	protected RequestStatus status;
+
+	/**
+	 * The cached value of the '{@link #getIntent() <em>Intent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIntent()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -221,7 +268,43 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NutritionOrderStatus getStatus() {
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL);
+		}
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiates() {
+		if (instantiates == null) {
+			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.NUTRITION_ORDER__INSTANTIATES);
+		}
+		return instantiates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequestStatus getStatus() {
 		return status;
 	}
 
@@ -230,8 +313,8 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(NutritionOrderStatus newStatus, NotificationChain msgs) {
-		NutritionOrderStatus oldStatus = status;
+	public NotificationChain basicSetStatus(RequestStatus newStatus, NotificationChain msgs) {
+		RequestStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, oldStatus, newStatus);
@@ -245,7 +328,7 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(NutritionOrderStatus newStatus) {
+	public void setStatus(RequestStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -257,6 +340,49 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequestIntent getIntent() {
+		return intent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
+		intent = newIntent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__INTENT, oldIntent, newIntent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIntent(RequestIntent newIntent) {
+		if (newIntent != intent) {
+			NotificationChain msgs = null;
+			if (intent != null)
+				msgs = ((InternalEObject)intent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__INTENT, null, msgs);
+			if (newIntent != null)
+				msgs = ((InternalEObject)newIntent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.NUTRITION_ORDER__INTENT, null, msgs);
+			msgs = basicSetIntent(newIntent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.NUTRITION_ORDER__INTENT, newIntent, newIntent));
 	}
 
 	/**
@@ -587,8 +713,16 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 		switch (featureID) {
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES:
+				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
 			case FhirPackage.NUTRITION_ORDER__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.NUTRITION_ORDER__INTENT:
+				return basicSetIntent(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
@@ -625,8 +759,16 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 		switch (featureID) {
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI:
+				return getInstantiatesUri();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES:
+				return getInstantiates();
 			case FhirPackage.NUTRITION_ORDER__STATUS:
 				return getStatus();
+			case FhirPackage.NUTRITION_ORDER__INTENT:
+				return getIntent();
 			case FhirPackage.NUTRITION_ORDER__PATIENT:
 				return getPatient();
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:
@@ -666,8 +808,23 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
+				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES:
+				getInstantiates().clear();
+				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+				return;
 			case FhirPackage.NUTRITION_ORDER__STATUS:
-				setStatus((NutritionOrderStatus)newValue);
+				setStatus((RequestStatus)newValue);
+				return;
+			case FhirPackage.NUTRITION_ORDER__INTENT:
+				setIntent((RequestIntent)newValue);
 				return;
 			case FhirPackage.NUTRITION_ORDER__PATIENT:
 				setPatient((Reference)newValue);
@@ -722,8 +879,20 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				return;
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES:
+				getInstantiates().clear();
+				return;
 			case FhirPackage.NUTRITION_ORDER__STATUS:
-				setStatus((NutritionOrderStatus)null);
+				setStatus((RequestStatus)null);
+				return;
+			case FhirPackage.NUTRITION_ORDER__INTENT:
+				setIntent((RequestIntent)null);
 				return;
 			case FhirPackage.NUTRITION_ORDER__PATIENT:
 				setPatient((Reference)null);
@@ -772,8 +941,16 @@ public class NutritionOrderImpl extends DomainResourceImpl implements NutritionO
 		switch (featureID) {
 			case FhirPackage.NUTRITION_ORDER__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
+			case FhirPackage.NUTRITION_ORDER__INSTANTIATES:
+				return instantiates != null && !instantiates.isEmpty();
 			case FhirPackage.NUTRITION_ORDER__STATUS:
 				return status != null;
+			case FhirPackage.NUTRITION_ORDER__INTENT:
+				return intent != null;
 			case FhirPackage.NUTRITION_ORDER__PATIENT:
 				return patient != null;
 			case FhirPackage.NUTRITION_ORDER__ENCOUNTER:

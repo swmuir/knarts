@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+ * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -33,13 +33,13 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * The type of resource that all instances must conform to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(ResourceType)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideGlobal_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideGlobal#getType <em>Type</em>}' containment reference.
@@ -49,7 +49,7 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(ResourceType value);
+	void setType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
@@ -59,13 +59,13 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * A reference to the profile that all instances must conform to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideGlobal_Profile()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideGlobal#getProfile <em>Profile</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface ImplementationGuideGlobal extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Reference value);
+	void setProfile(Canonical value);
 
 } // ImplementationGuideGlobal

@@ -25,7 +25,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EncounterDiagnosisImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EncounterDiagnosisImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterDiagnosisImpl#getUse <em>Use</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterDiagnosisImpl#getRank <em>Rank</em>}</li>
  * </ul>
  *
@@ -43,14 +43,14 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 	protected Reference condition;
 
 	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
+	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRole()
+	 * @see #getUse()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept role;
+	protected CodeableConcept use;
 
 	/**
 	 * The cached value of the '{@link #getRank() <em>Rank</em>}' containment reference.
@@ -129,8 +129,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getRole() {
-		return role;
+	public CodeableConcept getUse() {
+		return use;
 	}
 
 	/**
@@ -138,11 +138,11 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRole(CodeableConcept newRole, NotificationChain msgs) {
-		CodeableConcept oldRole = role;
-		role = newRole;
+	public NotificationChain basicSetUse(CodeableConcept newUse, NotificationChain msgs) {
+		CodeableConcept oldUse = use;
+		use = newUse;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE, oldRole, newRole);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_DIAGNOSIS__USE, oldUse, newUse);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -153,18 +153,18 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRole(CodeableConcept newRole) {
-		if (newRole != role) {
+	public void setUse(CodeableConcept newUse) {
+		if (newUse != use) {
 			NotificationChain msgs = null;
-			if (role != null)
-				msgs = ((InternalEObject)role).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE, null, msgs);
-			if (newRole != null)
-				msgs = ((InternalEObject)newRole).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE, null, msgs);
-			msgs = basicSetRole(newRole, msgs);
+			if (use != null)
+				msgs = ((InternalEObject)use).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_DIAGNOSIS__USE, null, msgs);
+			if (newUse != null)
+				msgs = ((InternalEObject)newUse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_DIAGNOSIS__USE, null, msgs);
+			msgs = basicSetUse(newUse, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE, newRole, newRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_DIAGNOSIS__USE, newUse, newUse));
 	}
 
 	/**
@@ -220,8 +220,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 		switch (featureID) {
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__CONDITION:
 				return basicSetCondition(null, msgs);
-			case FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE:
-				return basicSetRole(null, msgs);
+			case FhirPackage.ENCOUNTER_DIAGNOSIS__USE:
+				return basicSetUse(null, msgs);
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__RANK:
 				return basicSetRank(null, msgs);
 		}
@@ -238,8 +238,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 		switch (featureID) {
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__CONDITION:
 				return getCondition();
-			case FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE:
-				return getRole();
+			case FhirPackage.ENCOUNTER_DIAGNOSIS__USE:
+				return getUse();
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__RANK:
 				return getRank();
 		}
@@ -257,8 +257,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__CONDITION:
 				setCondition((Reference)newValue);
 				return;
-			case FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE:
-				setRole((CodeableConcept)newValue);
+			case FhirPackage.ENCOUNTER_DIAGNOSIS__USE:
+				setUse((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__RANK:
 				setRank((PositiveInt)newValue);
@@ -278,8 +278,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__CONDITION:
 				setCondition((Reference)null);
 				return;
-			case FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE:
-				setRole((CodeableConcept)null);
+			case FhirPackage.ENCOUNTER_DIAGNOSIS__USE:
+				setUse((CodeableConcept)null);
 				return;
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__RANK:
 				setRank((PositiveInt)null);
@@ -298,8 +298,8 @@ public class EncounterDiagnosisImpl extends BackboneElementImpl implements Encou
 		switch (featureID) {
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__CONDITION:
 				return condition != null;
-			case FhirPackage.ENCOUNTER_DIAGNOSIS__ROLE:
-				return role != null;
+			case FhirPackage.ENCOUNTER_DIAGNOSIS__USE:
+				return use != null;
 			case FhirPackage.ENCOUNTER_DIAGNOSIS__RANK:
 				return rank != null;
 		}

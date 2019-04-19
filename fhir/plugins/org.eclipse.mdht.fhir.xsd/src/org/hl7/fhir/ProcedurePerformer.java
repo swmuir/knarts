@@ -9,14 +9,14 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+ * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ProcedurePerformer#getRole <em>Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProcedurePerformer#getFunction <em>Function</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedurePerformer#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.ProcedurePerformer#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
@@ -27,30 +27,30 @@ package org.hl7.fhir;
  */
 public interface ProcedurePerformer extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Function</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For example: surgeon, anaethetist, endoscopist.
+	 * Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaesthetist, endoscopist.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference.
-	 * @see #setRole(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getProcedurePerformer_Role()
+	 * @return the value of the '<em>Function</em>' containment reference.
+	 * @see #setFunction(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getProcedurePerformer_Function()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='function' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getRole();
+	CodeableConcept getFunction();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProcedurePerformer#getRole <em>Role</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProcedurePerformer#getFunction <em>Function</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' containment reference.
-	 * @see #getRole()
+	 * @param value the new value of the '<em>Function</em>' containment reference.
+	 * @see #getFunction()
 	 * @generated
 	 */
-	void setRole(CodeableConcept value);
+	void setFunction(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' containment reference.

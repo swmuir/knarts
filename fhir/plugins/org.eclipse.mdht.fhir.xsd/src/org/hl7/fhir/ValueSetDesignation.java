@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A value set specifies a set of codes drawn from one or more code systems.
+ * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -57,7 +57,7 @@ public interface ValueSetDesignation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that details how this designation would be used.
+	 * A code that represents types of uses of designations.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use</em>' containment reference.
 	 * @see #setUse(Coding)

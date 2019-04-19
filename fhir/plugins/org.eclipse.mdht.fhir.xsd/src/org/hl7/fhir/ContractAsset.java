@@ -10,20 +10,28 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ContractAsset#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractAsset#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getScope <em>Scope</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getTypeReference <em>Type Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getSubtype <em>Subtype</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getRelationship <em>Relationship</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getPeriodType <em>Period Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractAsset#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractAsset#getDataPeriod <em>Data Period</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractAsset#getData <em>Data</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getUsePeriod <em>Use Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getAnswer <em>Answer</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractAsset#getSecurityLabelNumber <em>Security Label Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractAsset#getValuedItem <em>Valued Item</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractAsset#getSecurityLabel <em>Security Label</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getContractAsset()
@@ -32,124 +40,268 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ContractAsset extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Scope</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Resource Type, Profile, or CDA etc.
+	 * Differentiates the kind of the asset .
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Class</em>' containment reference.
-	 * @see #setClass(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Class()
+	 * @return the value of the '<em>Scope</em>' containment reference.
+	 * @see #setScope(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Scope()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='class' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='scope' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getClass_();
+	CodeableConcept getScope();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getClass_ <em>Class</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getScope <em>Scope</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' containment reference.
-	 * @see #getClass_()
+	 * @param value the new value of the '<em>Scope</em>' containment reference.
+	 * @see #getScope()
 	 * @generated
 	 */
-	void setClass(Coding value);
+	void setScope(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Code in the content.
+	 * Target entity type about which the term may be concerned.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Code()
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Type()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCode();
+	EList<CodeableConcept> getType();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getCode <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(Coding value);
-
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Type Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Time period of the asset.
+	 * Associated entities.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
+	 * @return the value of the '<em>Type Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_TypeReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='typeReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getTypeReference();
+
+	/**
+	 * Returns the value of the '<em><b>Subtype</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * May be a subtype or part of an offered asset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subtype</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Subtype()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subtype' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getSubtype();
+
+	/**
+	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relationship</em>' containment reference.
+	 * @see #setRelationship(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Relationship()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Coding getRelationship();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getRelationship <em>Relationship</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relationship</em>' containment reference.
+	 * @see #getRelationship()
+	 * @generated
+	 */
+	void setRelationship(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Circumstance of the asset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Context()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractContext> getContext();
+
+	/**
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Description of the quality and completeness of the asset that imay be a factor in its valuation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Condition</em>' containment reference.
+	 * @see #setCondition(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Condition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getCondition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getCondition <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' containment reference.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Period Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Type of Asset availability for use or ownership.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_PeriodType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='periodType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getPeriodType();
+
+	/**
+	 * Returns the value of the '<em><b>Period</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Period}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Asset relevant contractual time period.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Period()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getPeriod();
+	EList<Period> getPeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getPeriod <em>Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
-	 * @generated
-	 */
-	void setPeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Data Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Use Period</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Period}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Time period of the data for the asset.
+	 * Time period of asset use.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data Period</em>' containment reference.
-	 * @see #setDataPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getContractAsset_DataPeriod()
+	 * @return the value of the '<em>Use Period</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_UsePeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dataPeriod' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='usePeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getDataPeriod();
+	EList<Period> getUsePeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getDataPeriod <em>Data Period</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Period</em>' containment reference.
-	 * @see #getDataPeriod()
-	 * @generated
-	 */
-	void setDataPeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractData}.
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Data defined by this Asset.
+	 * Clause or question text (Prose Object) concerning the asset in a linked form, such as a QuestionnaireResponse used in the formation of the contract.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Data()
+	 * @return the value of the '<em>Text</em>' containment reference.
+	 * @see #setText(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Text()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='text' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ContractData> getData();
+	org.hl7.fhir.String getText();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractAsset#getText <em>Text</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Text</em>' containment reference.
+	 * @see #getText()
+	 * @generated
+	 */
+	void setText(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Link Id</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Id [identifier??] of the clause or question text about the asset in the referenced form or QuestionnaireResponse.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Link Id</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_LinkId()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='linkId' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<org.hl7.fhir.String> getLinkId();
+
+	/**
+	 * Returns the value of the '<em><b>Answer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractAnswer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Response to assets.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Answer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_Answer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='answer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractAnswer> getAnswer();
+
+	/**
+	 * Returns the value of the '<em><b>Security Label Number</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UnsignedInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Security labels that protects the asset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Label Number</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractAsset_SecurityLabelNumber()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityLabelNumber' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<UnsignedInt> getSecurityLabelNumber();
 
 	/**
 	 * Returns the value of the '<em><b>Valued Item</b></em>' containment reference list.
@@ -166,21 +318,5 @@ public interface ContractAsset extends BackboneElement {
 	 * @generated
 	 */
 	EList<ContractValuedItem> getValuedItem();
-
-	/**
-	 * Returns the value of the '<em><b>Security Label</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A set of security labels that define which terms are controlled by this condition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Security Label</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContractAsset_SecurityLabel()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='securityLabel' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getSecurityLabel();
 
 } // ContractAsset

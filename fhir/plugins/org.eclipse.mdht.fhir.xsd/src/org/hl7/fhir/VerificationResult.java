@@ -79,13 +79,13 @@ public interface VerificationResult extends DomainResource {
 	 * The frequency with which the target must be validated (none; initial; periodic).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Need</em>' containment reference.
-	 * @see #setNeed(Need)
+	 * @see #setNeed(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResult_Need()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='need' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Need getNeed();
+	CodeableConcept getNeed();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VerificationResult#getNeed <em>Need</em>}' containment reference.
@@ -95,7 +95,7 @@ public interface VerificationResult extends DomainResource {
 	 * @see #getNeed()
 	 * @generated
 	 */
-	void setNeed(Need value);
+	void setNeed(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -133,7 +133,7 @@ public interface VerificationResult extends DomainResource {
 	 * @return the value of the '<em>Status Date</em>' containment reference.
 	 * @see #setStatusDate(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResult_StatusDate()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='statusDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -157,13 +157,13 @@ public interface VerificationResult extends DomainResource {
 	 * What the target is validated against (nothing; primary source; multiple sources).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Validation Type</em>' containment reference.
-	 * @see #setValidationType(ValidationType)
+	 * @see #setValidationType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResult_ValidationType()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='validationType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ValidationType getValidationType();
+	CodeableConcept getValidationType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VerificationResult#getValidationType <em>Validation Type</em>}' containment reference.
@@ -173,7 +173,7 @@ public interface VerificationResult extends DomainResource {
 	 * @see #getValidationType()
 	 * @generated
 	 */
-	void setValidationType(ValidationType value);
+	void setValidationType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Validation Process</b></em>' containment reference list.
@@ -185,7 +185,7 @@ public interface VerificationResult extends DomainResource {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Validation Process</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResult_ValidationProcess()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='validationProcess' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -222,7 +222,7 @@ public interface VerificationResult extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date/time validation was last completed (incl. failed validations).
+	 * The date/time validation was last completed (including failed validations).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Performed</em>' containment reference.
 	 * @see #setLastPerformed(DateTime)
@@ -277,13 +277,13 @@ public interface VerificationResult extends DomainResource {
 	 * The result if validation fails (fatal; warning; record only; none).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Failure Action</em>' containment reference.
-	 * @see #setFailureAction(FailureAction)
+	 * @see #setFailureAction(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResult_FailureAction()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='failureAction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FailureAction getFailureAction();
+	CodeableConcept getFailureAction();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.VerificationResult#getFailureAction <em>Failure Action</em>}' containment reference.
@@ -293,7 +293,7 @@ public interface VerificationResult extends DomainResource {
 	 * @see #getFailureAction()
 	 * @generated
 	 */
-	void setFailureAction(FailureAction value);
+	void setFailureAction(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Primary Source</b></em>' containment reference list.

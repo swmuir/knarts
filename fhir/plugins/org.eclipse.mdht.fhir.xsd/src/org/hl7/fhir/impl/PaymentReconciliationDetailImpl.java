@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.PaymentReconciliationDetail;
 import org.hl7.fhir.Reference;
@@ -25,18 +26,41 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getPredecessor <em>Predecessor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getRequest <em>Request</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getSubmitter <em>Submitter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getPayee <em>Payee</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getResponsible <em>Responsible</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getPayee <em>Payee</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationDetailImpl#getAmount <em>Amount</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PaymentReconciliationDetailImpl extends BackboneElementImpl implements PaymentReconciliationDetail {
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier identifier;
+
+	/**
+	 * The cached value of the '{@link #getPredecessor() <em>Predecessor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPredecessor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier predecessor;
+
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -58,16 +82,6 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	protected Reference request;
 
 	/**
-	 * The cached value of the '{@link #getResponse() <em>Response</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResponse()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference response;
-
-	/**
 	 * The cached value of the '{@link #getSubmitter() <em>Submitter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,14 +92,14 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	protected Reference submitter;
 
 	/**
-	 * The cached value of the '{@link #getPayee() <em>Payee</em>}' containment reference.
+	 * The cached value of the '{@link #getResponse() <em>Response</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPayee()
+	 * @see #getResponse()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference payee;
+	protected Reference response;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -96,6 +110,26 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	 * @ordered
 	 */
 	protected Date date;
+
+	/**
+	 * The cached value of the '{@link #getResponsible() <em>Responsible</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResponsible()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference responsible;
+
+	/**
+	 * The cached value of the '{@link #getPayee() <em>Payee</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayee()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference payee;
 
 	/**
 	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
@@ -124,6 +158,92 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getPaymentReconciliationDetail();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER, oldIdentifier, newIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
+			NotificationChain msgs = null;
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER, newIdentifier, newIdentifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getPredecessor() {
+		return predecessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPredecessor(Identifier newPredecessor, NotificationChain msgs) {
+		Identifier oldPredecessor = predecessor;
+		predecessor = newPredecessor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR, oldPredecessor, newPredecessor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPredecessor(Identifier newPredecessor) {
+		if (newPredecessor != predecessor) {
+			NotificationChain msgs = null;
+			if (predecessor != null)
+				msgs = ((InternalEObject)predecessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR, null, msgs);
+			if (newPredecessor != null)
+				msgs = ((InternalEObject)newPredecessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR, null, msgs);
+			msgs = basicSetPredecessor(newPredecessor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR, newPredecessor, newPredecessor));
 	}
 
 	/**
@@ -217,49 +337,6 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getResponse() {
-		return response;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResponse(Reference newResponse, NotificationChain msgs) {
-		Reference oldResponse = response;
-		response = newResponse;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, oldResponse, newResponse);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResponse(Reference newResponse) {
-		if (newResponse != response) {
-			NotificationChain msgs = null;
-			if (response != null)
-				msgs = ((InternalEObject)response).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, null, msgs);
-			if (newResponse != null)
-				msgs = ((InternalEObject)newResponse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, null, msgs);
-			msgs = basicSetResponse(newResponse, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, newResponse, newResponse));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Reference getSubmitter() {
 		return submitter;
 	}
@@ -303,8 +380,8 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPayee() {
-		return payee;
+	public Reference getResponse() {
+		return response;
 	}
 
 	/**
@@ -312,11 +389,11 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPayee(Reference newPayee, NotificationChain msgs) {
-		Reference oldPayee = payee;
-		payee = newPayee;
+	public NotificationChain basicSetResponse(Reference newResponse, NotificationChain msgs) {
+		Reference oldResponse = response;
+		response = newResponse;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, oldPayee, newPayee);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, oldResponse, newResponse);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -327,18 +404,18 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPayee(Reference newPayee) {
-		if (newPayee != payee) {
+	public void setResponse(Reference newResponse) {
+		if (newResponse != response) {
 			NotificationChain msgs = null;
-			if (payee != null)
-				msgs = ((InternalEObject)payee).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, null, msgs);
-			if (newPayee != null)
-				msgs = ((InternalEObject)newPayee).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, null, msgs);
-			msgs = basicSetPayee(newPayee, msgs);
+			if (response != null)
+				msgs = ((InternalEObject)response).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, null, msgs);
+			if (newResponse != null)
+				msgs = ((InternalEObject)newResponse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, null, msgs);
+			msgs = basicSetResponse(newResponse, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, newPayee, newPayee));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE, newResponse, newResponse));
 	}
 
 	/**
@@ -382,6 +459,92 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getResponsible() {
+		return responsible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResponsible(Reference newResponsible, NotificationChain msgs) {
+		Reference oldResponsible = responsible;
+		responsible = newResponsible;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE, oldResponsible, newResponsible);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResponsible(Reference newResponsible) {
+		if (newResponsible != responsible) {
+			NotificationChain msgs = null;
+			if (responsible != null)
+				msgs = ((InternalEObject)responsible).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE, null, msgs);
+			if (newResponsible != null)
+				msgs = ((InternalEObject)newResponsible).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE, null, msgs);
+			msgs = basicSetResponsible(newResponsible, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE, newResponsible, newResponsible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPayee() {
+		return payee;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPayee(Reference newPayee, NotificationChain msgs) {
+		Reference oldPayee = payee;
+		payee = newPayee;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, oldPayee, newPayee);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPayee(Reference newPayee) {
+		if (newPayee != payee) {
+			NotificationChain msgs = null;
+			if (payee != null)
+				msgs = ((InternalEObject)payee).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, null, msgs);
+			if (newPayee != null)
+				msgs = ((InternalEObject)newPayee).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, null, msgs);
+			msgs = basicSetPayee(newPayee, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE, newPayee, newPayee));
 	}
 
 	/**
@@ -435,18 +598,24 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR:
+				return basicSetPredecessor(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__REQUEST:
 				return basicSetRequest(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
-				return basicSetResponse(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__SUBMITTER:
 				return basicSetSubmitter(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
-				return basicSetPayee(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
+				return basicSetResponse(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE:
+				return basicSetResponsible(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
+				return basicSetPayee(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__AMOUNT:
 				return basicSetAmount(null, msgs);
 		}
@@ -461,18 +630,24 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER:
+				return getIdentifier();
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR:
+				return getPredecessor();
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__TYPE:
 				return getType();
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__REQUEST:
 				return getRequest();
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
-				return getResponse();
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__SUBMITTER:
 				return getSubmitter();
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
-				return getPayee();
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
+				return getResponse();
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE:
 				return getDate();
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE:
+				return getResponsible();
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
+				return getPayee();
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__AMOUNT:
 				return getAmount();
 		}
@@ -487,23 +662,32 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR:
+				setPredecessor((Identifier)newValue);
+				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__REQUEST:
 				setRequest((Reference)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
-				setResponse((Reference)newValue);
-				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__SUBMITTER:
 				setSubmitter((Reference)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
-				setPayee((Reference)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
+				setResponse((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE:
 				setDate((Date)newValue);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE:
+				setResponsible((Reference)newValue);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
+				setPayee((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__AMOUNT:
 				setAmount((Money)newValue);
@@ -520,23 +704,32 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER:
+				setIdentifier((Identifier)null);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR:
+				setPredecessor((Identifier)null);
+				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__TYPE:
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__REQUEST:
 				setRequest((Reference)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
-				setResponse((Reference)null);
-				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__SUBMITTER:
 				setSubmitter((Reference)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
-				setPayee((Reference)null);
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
+				setResponse((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE:
 				setDate((Date)null);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE:
+				setResponsible((Reference)null);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
+				setPayee((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__AMOUNT:
 				setAmount((Money)null);
@@ -553,18 +746,24 @@ public class PaymentReconciliationDetailImpl extends BackboneElementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__IDENTIFIER:
+				return identifier != null;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PREDECESSOR:
+				return predecessor != null;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__TYPE:
 				return type != null;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__REQUEST:
 				return request != null;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
-				return response != null;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__SUBMITTER:
 				return submitter != null;
-			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
-				return payee != null;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSE:
+				return response != null;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__DATE:
 				return date != null;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__RESPONSIBLE:
+				return responsible != null;
+			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__PAYEE:
+				return payee != null;
 			case FhirPackage.PAYMENT_RECONCILIATION_DETAIL__AMOUNT:
 				return amount != null;
 		}

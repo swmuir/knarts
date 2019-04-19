@@ -27,7 +27,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getItemCodeableConcept <em>Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getItemReference <em>Item Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getIsActive <em>Is Active</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationIngredientImpl#getStrength <em>Strength</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,14 +64,14 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	protected org.hl7.fhir.Boolean isActive;
 
 	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+	 * The cached value of the '{@link #getStrength() <em>Strength</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAmount()
+	 * @see #getStrength()
 	 * @generated
 	 * @ordered
 	 */
-	protected Ratio amount;
+	protected Ratio strength;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,8 +226,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Ratio getAmount() {
-		return amount;
+	public Ratio getStrength() {
+		return strength;
 	}
 
 	/**
@@ -235,11 +235,11 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(Ratio newAmount, NotificationChain msgs) {
-		Ratio oldAmount = amount;
-		amount = newAmount;
+	public NotificationChain basicSetStrength(Ratio newStrength, NotificationChain msgs) {
+		Ratio oldStrength = strength;
+		strength = newStrength;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__AMOUNT, oldAmount, newAmount);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__STRENGTH, oldStrength, newStrength);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -250,18 +250,18 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(Ratio newAmount) {
-		if (newAmount != amount) {
+	public void setStrength(Ratio newStrength) {
+		if (newStrength != strength) {
 			NotificationChain msgs = null;
-			if (amount != null)
-				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__AMOUNT, null, msgs);
-			if (newAmount != null)
-				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__AMOUNT, null, msgs);
-			msgs = basicSetAmount(newAmount, msgs);
+			if (strength != null)
+				msgs = ((InternalEObject)strength).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__STRENGTH, null, msgs);
+			if (newStrength != null)
+				msgs = ((InternalEObject)newStrength).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_INGREDIENT__STRENGTH, null, msgs);
+			msgs = basicSetStrength(newStrength, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__AMOUNT, newAmount, newAmount));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_INGREDIENT__STRENGTH, newStrength, newStrength));
 	}
 
 	/**
@@ -278,8 +278,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return basicSetItemReference(null, msgs);
 			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
 				return basicSetIsActive(null, msgs);
-			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
-				return basicSetAmount(null, msgs);
+			case FhirPackage.MEDICATION_INGREDIENT__STRENGTH:
+				return basicSetStrength(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -298,8 +298,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return getItemReference();
 			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
 				return getIsActive();
-			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
-				return getAmount();
+			case FhirPackage.MEDICATION_INGREDIENT__STRENGTH:
+				return getStrength();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,8 +321,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
 				setIsActive((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
-				setAmount((Ratio)newValue);
+			case FhirPackage.MEDICATION_INGREDIENT__STRENGTH:
+				setStrength((Ratio)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,8 +345,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
 				setIsActive((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
-				setAmount((Ratio)null);
+			case FhirPackage.MEDICATION_INGREDIENT__STRENGTH:
+				setStrength((Ratio)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,8 +366,8 @@ public class MedicationIngredientImpl extends BackboneElementImpl implements Med
 				return itemReference != null;
 			case FhirPackage.MEDICATION_INGREDIENT__IS_ACTIVE:
 				return isActive != null;
-			case FhirPackage.MEDICATION_INGREDIENT__AMOUNT:
-				return amount != null;
+			case FhirPackage.MEDICATION_INGREDIENT__STRENGTH:
+				return strength != null;
 		}
 		return super.eIsSet(featureID);
 	}

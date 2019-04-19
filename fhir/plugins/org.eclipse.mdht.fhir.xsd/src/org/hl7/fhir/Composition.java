@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
+ * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Composition#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.Composition#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.Composition#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Composition#getDate <em>Date</em>}</li>
@@ -45,7 +45,7 @@ public interface Composition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.
+	 * A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -119,30 +119,20 @@ public interface Composition extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Class</em>' containment reference.
-	 * @see #setClass(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getComposition_Class()
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getComposition_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='class' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getClass_();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Composition#getClass_ <em>Class</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' containment reference.
-	 * @see #getClass_()
-	 * @generated
-	 */
-	void setClass(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -272,13 +262,13 @@ public interface Composition extends DomainResource {
 	 * The code specifying the level of confidentiality of the Composition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Confidentiality</em>' containment reference.
-	 * @see #setConfidentiality(ConfidentialityClassification)
+	 * @see #setConfidentiality(VConfidentialityClassification)
 	 * @see org.hl7.fhir.FhirPackage#getComposition_Confidentiality()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='confidentiality' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ConfidentialityClassification getConfidentiality();
+	VConfidentialityClassification getConfidentiality();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Composition#getConfidentiality <em>Confidentiality</em>}' containment reference.
@@ -288,7 +278,7 @@ public interface Composition extends DomainResource {
 	 * @see #getConfidentiality()
 	 * @generated
 	 */
-	void setConfidentiality(ConfidentialityClassification value);
+	void setConfidentiality(VConfidentialityClassification value);
 
 	/**
 	 * Returns the value of the '<em><b>Attester</b></em>' containment reference list.

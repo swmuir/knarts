@@ -23,6 +23,7 @@ import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Money;
 import org.hl7.fhir.PaymentNotice;
 import org.hl7.fhir.Reference;
 
@@ -38,11 +39,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getResponse <em>Response</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getPayment <em>Payment</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getPaymentDate <em>Payment Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getPayee <em>Payee</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentNoticeImpl#getPaymentStatus <em>Payment Status</em>}</li>
  * </ul>
  *
@@ -90,16 +93,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	protected Reference response;
 
 	/**
-	 * The cached value of the '{@link #getStatusDate() <em>Status Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatusDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date statusDate;
-
-	/**
 	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,16 +101,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * @ordered
 	 */
 	protected DateTime created;
-
-	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTarget()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference target;
 
 	/**
 	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' containment reference.
@@ -130,14 +113,54 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	protected Reference provider;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getPayment() <em>Payment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
+	 * @see #getPayment()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected Reference payment;
+
+	/**
+	 * The cached value of the '{@link #getPaymentDate() <em>Payment Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPaymentDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date paymentDate;
+
+	/**
+	 * The cached value of the '{@link #getPayee() <em>Payee</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayee()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference payee;
+
+	/**
+	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipient()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference recipient;
+
+	/**
+	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAmount()
+	 * @generated
+	 * @ordered
+	 */
+	protected Money amount;
 
 	/**
 	 * The cached value of the '{@link #getPaymentStatus() <em>Payment Status</em>}' containment reference.
@@ -314,49 +337,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getStatusDate() {
-		return statusDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatusDate(Date newStatusDate, NotificationChain msgs) {
-		Date oldStatusDate = statusDate;
-		statusDate = newStatusDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__STATUS_DATE, oldStatusDate, newStatusDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatusDate(Date newStatusDate) {
-		if (newStatusDate != statusDate) {
-			NotificationChain msgs = null;
-			if (statusDate != null)
-				msgs = ((InternalEObject)statusDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__STATUS_DATE, null, msgs);
-			if (newStatusDate != null)
-				msgs = ((InternalEObject)newStatusDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__STATUS_DATE, null, msgs);
-			msgs = basicSetStatusDate(newStatusDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__STATUS_DATE, newStatusDate, newStatusDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DateTime getCreated() {
 		return created;
 	}
@@ -393,49 +373,6 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__CREATED, newCreated, newCreated));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getTarget() {
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTarget(Reference newTarget, NotificationChain msgs) {
-		Reference oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__TARGET, oldTarget, newTarget);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTarget(Reference newTarget) {
-		if (newTarget != target) {
-			NotificationChain msgs = null;
-			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__TARGET, null, msgs);
-			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__TARGET, null, msgs);
-			msgs = basicSetTarget(newTarget, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -486,8 +423,8 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
+	public Reference getPayment() {
+		return payment;
 	}
 
 	/**
@@ -495,11 +432,11 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
+	public NotificationChain basicSetPayment(Reference newPayment, NotificationChain msgs) {
+		Reference oldPayment = payment;
+		payment = newPayment;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYMENT, oldPayment, newPayment);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -510,18 +447,190 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
+	public void setPayment(Reference newPayment) {
+		if (newPayment != payment) {
 			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
+			if (payment != null)
+				msgs = ((InternalEObject)payment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYMENT, null, msgs);
+			if (newPayment != null)
+				msgs = ((InternalEObject)newPayment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYMENT, null, msgs);
+			msgs = basicSetPayment(newPayment, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYMENT, newPayment, newPayment));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPaymentDate(Date newPaymentDate, NotificationChain msgs) {
+		Date oldPaymentDate = paymentDate;
+		paymentDate = newPaymentDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE, oldPaymentDate, newPaymentDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPaymentDate(Date newPaymentDate) {
+		if (newPaymentDate != paymentDate) {
+			NotificationChain msgs = null;
+			if (paymentDate != null)
+				msgs = ((InternalEObject)paymentDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE, null, msgs);
+			if (newPaymentDate != null)
+				msgs = ((InternalEObject)newPaymentDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE, null, msgs);
+			msgs = basicSetPaymentDate(newPaymentDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE, newPaymentDate, newPaymentDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getPayee() {
+		return payee;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPayee(Reference newPayee, NotificationChain msgs) {
+		Reference oldPayee = payee;
+		payee = newPayee;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYEE, oldPayee, newPayee);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPayee(Reference newPayee) {
+		if (newPayee != payee) {
+			NotificationChain msgs = null;
+			if (payee != null)
+				msgs = ((InternalEObject)payee).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYEE, null, msgs);
+			if (newPayee != null)
+				msgs = ((InternalEObject)newPayee).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__PAYEE, null, msgs);
+			msgs = basicSetPayee(newPayee, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__PAYEE, newPayee, newPayee));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRecipient() {
+		return recipient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecipient(Reference newRecipient, NotificationChain msgs) {
+		Reference oldRecipient = recipient;
+		recipient = newRecipient;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__RECIPIENT, oldRecipient, newRecipient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecipient(Reference newRecipient) {
+		if (newRecipient != recipient) {
+			NotificationChain msgs = null;
+			if (recipient != null)
+				msgs = ((InternalEObject)recipient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__RECIPIENT, null, msgs);
+			if (newRecipient != null)
+				msgs = ((InternalEObject)newRecipient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__RECIPIENT, null, msgs);
+			msgs = basicSetRecipient(newRecipient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__RECIPIENT, newRecipient, newRecipient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Money getAmount() {
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAmount(Money newAmount, NotificationChain msgs) {
+		Money oldAmount = amount;
+		amount = newAmount;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__AMOUNT, oldAmount, newAmount);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAmount(Money newAmount) {
+		if (newAmount != amount) {
+			NotificationChain msgs = null;
+			if (amount != null)
+				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__AMOUNT, null, msgs);
+			if (newAmount != null)
+				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_NOTICE__AMOUNT, null, msgs);
+			msgs = basicSetAmount(newAmount, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_NOTICE__AMOUNT, newAmount, newAmount));
 	}
 
 	/**
@@ -583,16 +692,20 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 				return basicSetRequest(null, msgs);
 			case FhirPackage.PAYMENT_NOTICE__RESPONSE:
 				return basicSetResponse(null, msgs);
-			case FhirPackage.PAYMENT_NOTICE__STATUS_DATE:
-				return basicSetStatusDate(null, msgs);
 			case FhirPackage.PAYMENT_NOTICE__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.PAYMENT_NOTICE__TARGET:
-				return basicSetTarget(null, msgs);
 			case FhirPackage.PAYMENT_NOTICE__PROVIDER:
 				return basicSetProvider(null, msgs);
-			case FhirPackage.PAYMENT_NOTICE__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT:
+				return basicSetPayment(null, msgs);
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE:
+				return basicSetPaymentDate(null, msgs);
+			case FhirPackage.PAYMENT_NOTICE__PAYEE:
+				return basicSetPayee(null, msgs);
+			case FhirPackage.PAYMENT_NOTICE__RECIPIENT:
+				return basicSetRecipient(null, msgs);
+			case FhirPackage.PAYMENT_NOTICE__AMOUNT:
+				return basicSetAmount(null, msgs);
 			case FhirPackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				return basicSetPaymentStatus(null, msgs);
 		}
@@ -615,16 +728,20 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 				return getRequest();
 			case FhirPackage.PAYMENT_NOTICE__RESPONSE:
 				return getResponse();
-			case FhirPackage.PAYMENT_NOTICE__STATUS_DATE:
-				return getStatusDate();
 			case FhirPackage.PAYMENT_NOTICE__CREATED:
 				return getCreated();
-			case FhirPackage.PAYMENT_NOTICE__TARGET:
-				return getTarget();
 			case FhirPackage.PAYMENT_NOTICE__PROVIDER:
 				return getProvider();
-			case FhirPackage.PAYMENT_NOTICE__ORGANIZATION:
-				return getOrganization();
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT:
+				return getPayment();
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE:
+				return getPaymentDate();
+			case FhirPackage.PAYMENT_NOTICE__PAYEE:
+				return getPayee();
+			case FhirPackage.PAYMENT_NOTICE__RECIPIENT:
+				return getRecipient();
+			case FhirPackage.PAYMENT_NOTICE__AMOUNT:
+				return getAmount();
 			case FhirPackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				return getPaymentStatus();
 		}
@@ -653,20 +770,26 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 			case FhirPackage.PAYMENT_NOTICE__RESPONSE:
 				setResponse((Reference)newValue);
 				return;
-			case FhirPackage.PAYMENT_NOTICE__STATUS_DATE:
-				setStatusDate((Date)newValue);
-				return;
 			case FhirPackage.PAYMENT_NOTICE__CREATED:
 				setCreated((DateTime)newValue);
-				return;
-			case FhirPackage.PAYMENT_NOTICE__TARGET:
-				setTarget((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_NOTICE__PROVIDER:
 				setProvider((Reference)newValue);
 				return;
-			case FhirPackage.PAYMENT_NOTICE__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT:
+				setPayment((Reference)newValue);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE:
+				setPaymentDate((Date)newValue);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__PAYEE:
+				setPayee((Reference)newValue);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__RECIPIENT:
+				setRecipient((Reference)newValue);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__AMOUNT:
+				setAmount((Money)newValue);
 				return;
 			case FhirPackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				setPaymentStatus((CodeableConcept)newValue);
@@ -695,20 +818,26 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 			case FhirPackage.PAYMENT_NOTICE__RESPONSE:
 				setResponse((Reference)null);
 				return;
-			case FhirPackage.PAYMENT_NOTICE__STATUS_DATE:
-				setStatusDate((Date)null);
-				return;
 			case FhirPackage.PAYMENT_NOTICE__CREATED:
 				setCreated((DateTime)null);
-				return;
-			case FhirPackage.PAYMENT_NOTICE__TARGET:
-				setTarget((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_NOTICE__PROVIDER:
 				setProvider((Reference)null);
 				return;
-			case FhirPackage.PAYMENT_NOTICE__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT:
+				setPayment((Reference)null);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE:
+				setPaymentDate((Date)null);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__PAYEE:
+				setPayee((Reference)null);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__RECIPIENT:
+				setRecipient((Reference)null);
+				return;
+			case FhirPackage.PAYMENT_NOTICE__AMOUNT:
+				setAmount((Money)null);
 				return;
 			case FhirPackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				setPaymentStatus((CodeableConcept)null);
@@ -733,16 +862,20 @@ public class PaymentNoticeImpl extends DomainResourceImpl implements PaymentNoti
 				return request != null;
 			case FhirPackage.PAYMENT_NOTICE__RESPONSE:
 				return response != null;
-			case FhirPackage.PAYMENT_NOTICE__STATUS_DATE:
-				return statusDate != null;
 			case FhirPackage.PAYMENT_NOTICE__CREATED:
 				return created != null;
-			case FhirPackage.PAYMENT_NOTICE__TARGET:
-				return target != null;
 			case FhirPackage.PAYMENT_NOTICE__PROVIDER:
 				return provider != null;
-			case FhirPackage.PAYMENT_NOTICE__ORGANIZATION:
-				return organization != null;
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT:
+				return payment != null;
+			case FhirPackage.PAYMENT_NOTICE__PAYMENT_DATE:
+				return paymentDate != null;
+			case FhirPackage.PAYMENT_NOTICE__PAYEE:
+				return payee != null;
+			case FhirPackage.PAYMENT_NOTICE__RECIPIENT:
+				return recipient != null;
+			case FhirPackage.PAYMENT_NOTICE__AMOUNT:
+				return amount != null;
 			case FhirPackage.PAYMENT_NOTICE__PAYMENT_STATUS:
 				return paymentStatus != null;
 		}

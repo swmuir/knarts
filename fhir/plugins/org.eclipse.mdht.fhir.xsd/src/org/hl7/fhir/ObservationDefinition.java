@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ObservationDefinition#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinition#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationDefinition#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinition#getPermittedDataType <em>Permitted Data Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinition#getMultipleResultsAllowed <em>Multiple Results Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinition#getMethod <em>Method</em>}</li>
@@ -38,30 +39,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ObservationDefinition extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A code that classifies the general type of observation.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(Coding)
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(Coding value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
@@ -71,13 +62,13 @@ public interface ObservationDefinition extends DomainResource {
 	 * Describes what will be observed. Sometimes this is called the observation "name".
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(Coding)
+	 * @see #setCode(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getCode();
+	CodeableConcept getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getCode <em>Code</em>}' containment reference.
@@ -87,15 +78,31 @@ public interface ObservationDefinition extends DomainResource {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(Coding value);
+	void setCode(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Permitted Data Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Data type allowed for the result of the observation.
+	 * A unique identifier assigned to this ObservationDefinition artifact.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Identifier> getIdentifier();
+
+	/**
+	 * Returns the value of the '<em><b>Permitted Data Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ObservationDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The data types allowed for the value element of the instance observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Permitted Data Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_PermittedDataType()
@@ -103,14 +110,14 @@ public interface ObservationDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='permittedDataType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Coding> getPermittedDataType();
+	EList<ObservationDataType> getPermittedDataType();
 
 	/**
 	 * Returns the value of the '<em><b>Multiple Results Allowed</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Multiple results allowed for this kind of observation.
+	 * Multiple results allowed for observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Multiple Results Allowed</em>' containment reference.
 	 * @see #setMultipleResultsAllowed(org.hl7.fhir.Boolean)
@@ -162,7 +169,7 @@ public interface ObservationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The preferred name to be used when reporting the results of this observation.
+	 * The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Preferred Report Name</em>' containment reference.
 	 * @see #setPreferredReportName(org.hl7.fhir.String)
@@ -215,7 +222,7 @@ public interface ObservationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference range for ordinal and continuous observations.
+	 * Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Qualified Interval</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_QualifiedInterval()
@@ -230,16 +237,16 @@ public interface ObservationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The set of valid coded results for the observation.
+	 * The set of valid coded results for the observations  conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Valid Coded Value Set</em>' containment reference.
-	 * @see #setValidCodedValueSet(Uri)
+	 * @see #setValidCodedValueSet(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_ValidCodedValueSet()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='validCodedValueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getValidCodedValueSet();
+	Reference getValidCodedValueSet();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getValidCodedValueSet <em>Valid Coded Value Set</em>}' containment reference.
@@ -249,23 +256,23 @@ public interface ObservationDefinition extends DomainResource {
 	 * @see #getValidCodedValueSet()
 	 * @generated
 	 */
-	void setValidCodedValueSet(Uri value);
+	void setValidCodedValueSet(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Normal Coded Value Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The set of normal coded results for the observation.
+	 * The set of normal coded results for the observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Normal Coded Value Set</em>' containment reference.
-	 * @see #setNormalCodedValueSet(Uri)
+	 * @see #setNormalCodedValueSet(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_NormalCodedValueSet()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='normalCodedValueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getNormalCodedValueSet();
+	Reference getNormalCodedValueSet();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getNormalCodedValueSet <em>Normal Coded Value Set</em>}' containment reference.
@@ -275,23 +282,23 @@ public interface ObservationDefinition extends DomainResource {
 	 * @see #getNormalCodedValueSet()
 	 * @generated
 	 */
-	void setNormalCodedValueSet(Uri value);
+	void setNormalCodedValueSet(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Abnormal Coded Value Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The set of abnormal coded results for the observation.
+	 * The set of abnormal coded results for the observation conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Abnormal Coded Value Set</em>' containment reference.
-	 * @see #setAbnormalCodedValueSet(Uri)
+	 * @see #setAbnormalCodedValueSet(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_AbnormalCodedValueSet()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='abnormalCodedValueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getAbnormalCodedValueSet();
+	Reference getAbnormalCodedValueSet();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getAbnormalCodedValueSet <em>Abnormal Coded Value Set</em>}' containment reference.
@@ -301,23 +308,23 @@ public interface ObservationDefinition extends DomainResource {
 	 * @see #getAbnormalCodedValueSet()
 	 * @generated
 	 */
-	void setAbnormalCodedValueSet(Uri value);
+	void setAbnormalCodedValueSet(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Critical Coded Value Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The set of critical coded results for the observation.
+	 * The set of critical coded results for the observation conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Critical Coded Value Set</em>' containment reference.
-	 * @see #setCriticalCodedValueSet(Uri)
+	 * @see #setCriticalCodedValueSet(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinition_CriticalCodedValueSet()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='criticalCodedValueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getCriticalCodedValueSet();
+	Reference getCriticalCodedValueSet();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinition#getCriticalCodedValueSet <em>Critical Coded Value Set</em>}' containment reference.
@@ -327,6 +334,6 @@ public interface ObservationDefinition extends DomainResource {
 	 * @see #getCriticalCodedValueSet()
 	 * @generated
 	 */
-	void setCriticalCodedValueSet(Uri value);
+	void setCriticalCodedValueSet(Reference value);
 
 } // ObservationDefinition

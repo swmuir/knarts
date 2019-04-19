@@ -2,7 +2,6 @@
  */
 package org.hl7.fhir;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClaimResponseInsurance#getFocal <em>Focal</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseInsurance#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseInsurance#getBusinessArrangement <em>Business Arrangement</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimResponseInsurance#getPreAuthRef <em>Pre Auth Ref</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimResponseInsurance#getClaimResponse <em>Claim Response</em>}</li>
  * </ul>
  *
@@ -35,7 +33,7 @@ public interface ClaimResponseInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line item.
+	 * A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -61,7 +59,7 @@ public interface ClaimResponseInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+	 * A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Focal</em>' containment reference.
 	 * @see #setFocal(org.hl7.fhir.Boolean)
@@ -87,7 +85,7 @@ public interface ClaimResponseInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to the program or plan identification, underwriter or payor.
+	 * Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Coverage</em>' containment reference.
 	 * @see #setCoverage(Reference)
@@ -113,7 +111,7 @@ public interface ClaimResponseInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The contract number of a business agreement which describes the terms and conditions.
+	 * A business agreement number established between the provider and the insurer for special business processing purposes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Business Arrangement</em>' containment reference.
 	 * @see #setBusinessArrangement(org.hl7.fhir.String)
@@ -135,27 +133,11 @@ public interface ClaimResponseInsurance extends BackboneElement {
 	void setBusinessArrangement(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Pre Auth Ref</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A list of references from the Insurer to which these services pertain.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pre Auth Ref</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaimResponseInsurance_PreAuthRef()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='preAuthRef' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<org.hl7.fhir.String> getPreAuthRef();
-
-	/**
 	 * Returns the value of the '<em><b>Claim Response</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Coverages adjudication details.
+	 * The result of the adjudication of the line items for the Coverage specified in this insurance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Claim Response</em>' containment reference.
 	 * @see #setClaimResponse(Reference)

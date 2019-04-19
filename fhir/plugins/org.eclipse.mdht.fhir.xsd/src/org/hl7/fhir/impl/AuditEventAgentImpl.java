@@ -22,7 +22,6 @@ import org.hl7.fhir.AuditEventNetwork;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 
@@ -36,8 +35,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getReference <em>Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getUserId <em>User Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getWho <em>Who</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getAltId <em>Alt Id</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventAgentImpl#getRequestor <em>Requestor</em>}</li>
@@ -72,24 +70,14 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	protected EList<CodeableConcept> role;
 
 	/**
-	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getWho() <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReference()
+	 * @see #getWho()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reference;
-
-	/**
-	 * The cached value of the '{@link #getUserId() <em>User Id</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUserId()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier userId;
+	protected Reference who;
 
 	/**
 	 * The cached value of the '{@link #getAltId() <em>Alt Id</em>}' containment reference.
@@ -250,8 +238,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getReference() {
-		return reference;
+	public Reference getWho() {
+		return who;
 	}
 
 	/**
@@ -259,11 +247,11 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs) {
-		Reference oldReference = reference;
-		reference = newReference;
+	public NotificationChain basicSetWho(Reference newWho, NotificationChain msgs) {
+		Reference oldWho = who;
+		who = newWho;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__REFERENCE, oldReference, newReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__WHO, oldWho, newWho);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -274,61 +262,18 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReference(Reference newReference) {
-		if (newReference != reference) {
+	public void setWho(Reference newWho) {
+		if (newWho != who) {
 			NotificationChain msgs = null;
-			if (reference != null)
-				msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__REFERENCE, null, msgs);
-			if (newReference != null)
-				msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__REFERENCE, null, msgs);
-			msgs = basicSetReference(newReference, msgs);
+			if (who != null)
+				msgs = ((InternalEObject)who).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__WHO, null, msgs);
+			if (newWho != null)
+				msgs = ((InternalEObject)newWho).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__WHO, null, msgs);
+			msgs = basicSetWho(newWho, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__REFERENCE, newReference, newReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getUserId() {
-		return userId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUserId(Identifier newUserId, NotificationChain msgs) {
-		Identifier oldUserId = userId;
-		userId = newUserId;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__USER_ID, oldUserId, newUserId);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUserId(Identifier newUserId) {
-		if (newUserId != userId) {
-			NotificationChain msgs = null;
-			if (userId != null)
-				msgs = ((InternalEObject)userId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__USER_ID, null, msgs);
-			if (newUserId != null)
-				msgs = ((InternalEObject)newUserId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_AGENT__USER_ID, null, msgs);
-			msgs = basicSetUserId(newUserId, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__USER_ID, newUserId, newUserId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_AGENT__WHO, newWho, newWho));
 	}
 
 	/**
@@ -625,10 +570,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 				return basicSetType(null, msgs);
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
-			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
-				return basicSetReference(null, msgs);
-			case FhirPackage.AUDIT_EVENT_AGENT__USER_ID:
-				return basicSetUserId(null, msgs);
+			case FhirPackage.AUDIT_EVENT_AGENT__WHO:
+				return basicSetWho(null, msgs);
 			case FhirPackage.AUDIT_EVENT_AGENT__ALT_ID:
 				return basicSetAltId(null, msgs);
 			case FhirPackage.AUDIT_EVENT_AGENT__NAME:
@@ -661,10 +604,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 				return getType();
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return getRole();
-			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
-				return getReference();
-			case FhirPackage.AUDIT_EVENT_AGENT__USER_ID:
-				return getUserId();
+			case FhirPackage.AUDIT_EVENT_AGENT__WHO:
+				return getWho();
 			case FhirPackage.AUDIT_EVENT_AGENT__ALT_ID:
 				return getAltId();
 			case FhirPackage.AUDIT_EVENT_AGENT__NAME:
@@ -701,11 +642,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 				getRole().clear();
 				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
-				setReference((Reference)newValue);
-				return;
-			case FhirPackage.AUDIT_EVENT_AGENT__USER_ID:
-				setUserId((Identifier)newValue);
+			case FhirPackage.AUDIT_EVENT_AGENT__WHO:
+				setWho((Reference)newValue);
 				return;
 			case FhirPackage.AUDIT_EVENT_AGENT__ALT_ID:
 				setAltId((org.hl7.fhir.String)newValue);
@@ -751,11 +689,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				getRole().clear();
 				return;
-			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
-				setReference((Reference)null);
-				return;
-			case FhirPackage.AUDIT_EVENT_AGENT__USER_ID:
-				setUserId((Identifier)null);
+			case FhirPackage.AUDIT_EVENT_AGENT__WHO:
+				setWho((Reference)null);
 				return;
 			case FhirPackage.AUDIT_EVENT_AGENT__ALT_ID:
 				setAltId((org.hl7.fhir.String)null);
@@ -797,10 +732,8 @@ public class AuditEventAgentImpl extends BackboneElementImpl implements AuditEve
 				return type != null;
 			case FhirPackage.AUDIT_EVENT_AGENT__ROLE:
 				return role != null && !role.isEmpty();
-			case FhirPackage.AUDIT_EVENT_AGENT__REFERENCE:
-				return reference != null;
-			case FhirPackage.AUDIT_EVENT_AGENT__USER_ID:
-				return userId != null;
+			case FhirPackage.AUDIT_EVENT_AGENT__WHO:
+				return who != null;
 			case FhirPackage.AUDIT_EVENT_AGENT__ALT_ID:
 				return altId != null;
 			case FhirPackage.AUDIT_EVENT_AGENT__NAME:

@@ -28,7 +28,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONSEQUENCE(0, "Consequence", "Consequence"),
+	CONSEQUENCE(0, "consequence", "consequence"),
 
 	/**
 	 * The '<em><b>Currency</b></em>' literal object.
@@ -38,7 +38,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CURRENCY(1, "Currency", "Currency"),
+	CURRENCY(1, "currency", "currency"),
 
 	/**
 	 * The '<em><b>Notification</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTIFICATION(2, "Notification", "Notification");
+	NOTIFICATION(2, "notification", "notification");
 
 	/**
 	 * The '<em><b>Consequence</b></em>' literal value.
@@ -58,7 +58,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * Consequence
 	 * <!-- end-model-doc -->
 	 * @see #CONSEQUENCE
-	 * @model name="Consequence"
+	 * @model name="consequence"
 	 * @generated
 	 * @ordered
 	 */
@@ -72,7 +72,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * Currency
 	 * <!-- end-model-doc -->
 	 * @see #CURRENCY
-	 * @model name="Currency"
+	 * @model name="currency"
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +86,7 @@ public enum MessageSignificanceCategoryList implements Enumerator {
 	 * Notification
 	 * <!-- end-model-doc -->
 	 * @see #NOTIFICATION
-	 * @model name="Notification"
+	 * @model name="notification"
 	 * @generated
 	 * @ordered
 	 */

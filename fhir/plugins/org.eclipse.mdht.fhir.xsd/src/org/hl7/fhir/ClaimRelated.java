@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,7 +31,7 @@ public interface ClaimRelated extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Other claims which are related to this claim such as prior claim versions or for related services.
+	 * Reference to a related claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Claim</em>' containment reference.
 	 * @see #setClaim(Reference)
@@ -57,7 +57,7 @@ public interface ClaimRelated extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For example prior or umbrella.
+	 * A code to convey how the claims are related.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Relationship</em>' containment reference.
 	 * @see #setRelationship(CodeableConcept)
@@ -83,7 +83,7 @@ public interface ClaimRelated extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An alternate organizational reference to the case or file to which this particular claim pertains - eg Property/Casualy insurer claim # or Workers Compensation case # .
+	 * An alternate organizational reference to the case or file to which this particular claim pertains.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reference</em>' containment reference.
 	 * @see #setReference(Identifier)

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -49,13 +49,13 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * A type of resource exposed via the restful interface.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(ResourceType)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementResource#getType <em>Type</em>}' containment reference.
@@ -65,7 +65,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(ResourceType value);
+	void setType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
@@ -75,13 +75,13 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementResource#getProfile <em>Profile</em>}' containment reference.
@@ -91,11 +91,11 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Reference value);
+	void setProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Supported Profile</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -107,7 +107,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='supportedProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getSupportedProfile();
+	EList<Canonical> getSupportedProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference.
@@ -208,7 +208,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
+	 * A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Update Create</em>' containment reference.
 	 * @see #setUpdateCreate(org.hl7.fhir.Boolean)
@@ -403,7 +403,7 @@ public interface CapabilityStatementResource extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.
+	 * Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementResource_Operation()

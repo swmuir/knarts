@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ChargeItem#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ChargeItem#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getDefinitionUri <em>Definition Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getDefinitionCanonical <em>Definition Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getCode <em>Code</em>}</li>
@@ -28,9 +29,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ChargeItem#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ChargeItem#getParticipant <em>Participant</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getPerformingOrganization <em>Performing Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getRequestingOrganization <em>Requesting Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getCostCenter <em>Cost Center</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getBodysite <em>Bodysite</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getFactorOverride <em>Factor Override</em>}</li>
@@ -40,6 +42,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ChargeItem#getEnteredDate <em>Entered Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getProductReference <em>Product Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ChargeItem#getProductCodeableConcept <em>Product Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.ChargeItem#getSupportingInformation <em>Supporting Information</em>}</li>
@@ -51,46 +55,52 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ChargeItem extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifiers assigned to this event performer or other systems.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	EList<Identifier> getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ChargeItem#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Returns the value of the '<em><b>Definition Uri</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * <!-- begin-model-doc -->
+	 * References the (external) source of pricing information, rules of application for the code this ChargeItem uses.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Definition Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_DefinitionUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definitionUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	EList<Uri> getDefinitionUri();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * Returns the value of the '<em><b>Definition Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * References the source of pricing information, rules of application for the code this ChargeItem uses.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Definition()
+	 * @return the value of the '<em>Definition Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_DefinitionCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='definitionCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getDefinition();
+	EList<Canonical> getDefinitionCanonical();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -294,20 +304,20 @@ public interface ChargeItem extends DomainResource {
 	void setOccurrenceTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ChargeItemParticipant}.
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ChargeItemPerformer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Indicates who or what performed or participated in the charged service.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Participant</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Participant()
+	 * @return the value of the '<em>Performer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_Performer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='participant' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ChargeItemParticipant> getParticipant();
+	EList<ChargeItemPerformer> getPerformer();
 
 	/**
 	 * Returns the value of the '<em><b>Performing Organization</b></em>' containment reference.
@@ -360,6 +370,32 @@ public interface ChargeItem extends DomainResource {
 	 * @generated
 	 */
 	void setRequestingOrganization(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Cost Center</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The financial cost center permits the tracking of charge attribution.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Cost Center</em>' containment reference.
+	 * @see #setCostCenter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_CostCenter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='costCenter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getCostCenter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ChargeItem#getCostCenter <em>Cost Center</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cost Center</em>' containment reference.
+	 * @see #getCostCenter()
+	 * @generated
+	 */
+	void setCostCenter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
@@ -460,7 +496,7 @@ public interface ChargeItem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
+	 * If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Override Reason</em>' containment reference.
 	 * @see #setOverrideReason(org.hl7.fhir.String)
@@ -566,6 +602,60 @@ public interface ChargeItem extends DomainResource {
 	EList<Reference> getService();
 
 	/**
+	 * Returns the value of the '<em><b>Product Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Product Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Product Reference</em>' containment reference.
+	 * @see #setProductReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_ProductReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='productReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getProductReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ChargeItem#getProductReference <em>Product Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Product Reference</em>' containment reference.
+	 * @see #getProductReference()
+	 * @generated
+	 */
+	void setProductReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Product Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Product Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Product Codeable Concept</em>' containment reference.
+	 * @see #setProductCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getChargeItem_ProductCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='productCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getProductCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ChargeItem#getProductCodeableConcept <em>Product Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Product Codeable Concept</em>' containment reference.
+	 * @see #getProductCodeableConcept()
+	 * @generated
+	 */
+	void setProductCodeableConcept(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Account</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -603,7 +693,7 @@ public interface ChargeItem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Further information supporting the this charge.
+	 * Further information supporting this charge.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Supporting Information</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getChargeItem_SupportingInformation()

@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPath <em>Path</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getRepresentation <em>Representation</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getSliceName <em>Slice Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getSliceIsConstraining <em>Slice Is Constraining</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getSlicing <em>Slicing</em>}</li>
@@ -36,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueBase64Binary <em>Default Value Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueBoolean <em>Default Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueCanonical <em>Default Value Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueCode <em>Default Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueDate <em>Default Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueDateTime <em>Default Value Date Time</em>}</li>
@@ -50,6 +52,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueTime <em>Default Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueUnsignedInt <em>Default Value Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueUri <em>Default Value Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueUrl <em>Default Value Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueUuid <em>Default Value Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueAddress <em>Default Value Address</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueAge <em>Default Value Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueAnnotation <em>Default Value Annotation</em>}</li>
@@ -71,11 +75,20 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueSampledData <em>Default Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueSignature <em>Default Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueTiming <em>Default Value Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueMeta <em>Default Value Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueContributor <em>Default Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueExpression <em>Default Value Expression</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueUsageContext <em>Default Value Usage Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getDefaultValueDosage <em>Default Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMeaningWhenMissing <em>Meaning When Missing</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getOrderMeaning <em>Order Meaning</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedBase64Binary <em>Fixed Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedBoolean <em>Fixed Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedCanonical <em>Fixed Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedCode <em>Fixed Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedDate <em>Fixed Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedDateTime <em>Fixed Date Time</em>}</li>
@@ -90,6 +103,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedTime <em>Fixed Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedUnsignedInt <em>Fixed Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedUri <em>Fixed Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedUrl <em>Fixed Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedUuid <em>Fixed Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedAddress <em>Fixed Address</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedAge <em>Fixed Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedAnnotation <em>Fixed Annotation</em>}</li>
@@ -111,9 +126,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedSampledData <em>Fixed Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedSignature <em>Fixed Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedTiming <em>Fixed Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedMeta <em>Fixed Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedContactDetail <em>Fixed Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedContributor <em>Fixed Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedDataRequirement <em>Fixed Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedExpression <em>Fixed Expression</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedParameterDefinition <em>Fixed Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedRelatedArtifact <em>Fixed Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedTriggerDefinition <em>Fixed Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedUsageContext <em>Fixed Usage Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getFixedDosage <em>Fixed Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternBase64Binary <em>Pattern Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternBoolean <em>Pattern Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternCanonical <em>Pattern Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternCode <em>Pattern Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternDate <em>Pattern Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternDateTime <em>Pattern Date Time</em>}</li>
@@ -128,6 +152,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternTime <em>Pattern Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternUnsignedInt <em>Pattern Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternUri <em>Pattern Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternUrl <em>Pattern Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternUuid <em>Pattern Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternAddress <em>Pattern Address</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternAge <em>Pattern Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternAnnotation <em>Pattern Annotation</em>}</li>
@@ -149,7 +175,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternSampledData <em>Pattern Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternSignature <em>Pattern Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternTiming <em>Pattern Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternMeta <em>Pattern Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternContactDetail <em>Pattern Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternContributor <em>Pattern Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternDataRequirement <em>Pattern Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternExpression <em>Pattern Expression</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternParameterDefinition <em>Pattern Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternRelatedArtifact <em>Pattern Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternTriggerDefinition <em>Pattern Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternUsageContext <em>Pattern Usage Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getPatternDosage <em>Pattern Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getExample <em>Example</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMinValueDate <em>Min Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMinValueDateTime <em>Min Value Date Time</em>}</li>
@@ -174,6 +208,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ElementDefinition#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMustSupport <em>Must Support</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getIsModifier <em>Is Modifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinition#getIsModifierReason <em>Is Modifier Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getIsSummary <em>Is Summary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinition#getMapping <em>Mapping</em>}</li>
@@ -183,7 +218,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ElementDefinition' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinition extends Element {
+public interface ElementDefinition extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -251,6 +286,32 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setSliceName(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Slice Is Constraining</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, indicates that this slice definition is constraining a slice definition with the same name in an inherited profile. If false, the slice is not overriding any slice in an inherited profile. If missing, the slice might or might not be overriding a slice in an inherited profile, depending on the sliceName.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Slice Is Constraining</em>' containment reference.
+	 * @see #setSliceIsConstraining(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_SliceIsConstraining()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='sliceIsConstraining' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getSliceIsConstraining();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getSliceIsConstraining <em>Slice Is Constraining</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Slice Is Constraining</em>' containment reference.
+	 * @see #getSliceIsConstraining()
+	 * @generated
+	 */
+	void setSliceIsConstraining(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
@@ -351,7 +412,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
+	 * Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource. (Note: The text you are reading is specified in ElementDefinition.definition).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
 	 * @see #setDefinition(Markdown)
@@ -377,7 +438,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
+	 * Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc. (Note: The text you are reading is specified in ElementDefinition.comment).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Comment</em>' containment reference.
 	 * @see #setComment(Markdown)
@@ -497,7 +558,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.
+	 * Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. When the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot - then the information in provided in the element definition may be different to the base definition. On the original definition of the element, it will be same.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
 	 * @see #setBase(ElementDefinitionBase)
@@ -523,7 +584,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.
+	 * Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content Reference</em>' containment reference.
 	 * @see #setContentReference(Uri)
@@ -613,6 +674,33 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setDefaultValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Canonical</em>' containment reference.
+	 * @see #setDefaultValueCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getDefaultValueCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueCanonical <em>Default Value Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Canonical</em>' containment reference.
+	 * @see #getDefaultValueCanonical()
+	 * @generated
+	 */
+	void setDefaultValueCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Code</b></em>' containment reference.
@@ -991,6 +1079,60 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setDefaultValueUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Url</em>' containment reference.
+	 * @see #setDefaultValueUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getDefaultValueUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueUrl <em>Default Value Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Url</em>' containment reference.
+	 * @see #getDefaultValueUrl()
+	 * @generated
+	 */
+	void setDefaultValueUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Uuid</em>' containment reference.
+	 * @see #setDefaultValueUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getDefaultValueUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueUuid <em>Default Value Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Uuid</em>' containment reference.
+	 * @see #getDefaultValueUuid()
+	 * @generated
+	 */
+	void setDefaultValueUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Value Address</b></em>' containment reference.
@@ -1560,38 +1702,254 @@ public interface ElementDefinition extends Element {
 	void setDefaultValueTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Default Value Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Default Value Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Value Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Default Value Contact Detail</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Value Meta</em>' containment reference.
-	 * @see #setDefaultValueMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueMeta()
+	 * @return the value of the '<em>Default Value Contact Detail</em>' containment reference.
+	 * @see #setDefaultValueContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueContactDetail()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='defaultValueMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='defaultValueContactDetail' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getDefaultValueMeta();
+	ContactDetail getDefaultValueContactDetail();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueMeta <em>Default Value Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueContactDetail <em>Default Value Contact Detail</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Value Meta</em>' containment reference.
-	 * @see #getDefaultValueMeta()
+	 * @param value the new value of the '<em>Default Value Contact Detail</em>' containment reference.
+	 * @see #getDefaultValueContactDetail()
 	 * @generated
 	 */
-	void setDefaultValueMeta(Meta value);
+	void setDefaultValueContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Contributor</em>' containment reference.
+	 * @see #setDefaultValueContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getDefaultValueContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueContributor <em>Default Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Contributor</em>' containment reference.
+	 * @see #getDefaultValueContributor()
+	 * @generated
+	 */
+	void setDefaultValueContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Data Requirement</em>' containment reference.
+	 * @see #setDefaultValueDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getDefaultValueDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueDataRequirement <em>Default Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Data Requirement</em>' containment reference.
+	 * @see #getDefaultValueDataRequirement()
+	 * @generated
+	 */
+	void setDefaultValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Expression</em>' containment reference.
+	 * @see #setDefaultValueExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getDefaultValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueExpression <em>Default Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Expression</em>' containment reference.
+	 * @see #getDefaultValueExpression()
+	 * @generated
+	 */
+	void setDefaultValueExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Parameter Definition</em>' containment reference.
+	 * @see #setDefaultValueParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getDefaultValueParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueParameterDefinition <em>Default Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Parameter Definition</em>' containment reference.
+	 * @see #getDefaultValueParameterDefinition()
+	 * @generated
+	 */
+	void setDefaultValueParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Related Artifact</em>' containment reference.
+	 * @see #setDefaultValueRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getDefaultValueRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueRelatedArtifact <em>Default Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Related Artifact</em>' containment reference.
+	 * @see #getDefaultValueRelatedArtifact()
+	 * @generated
+	 */
+	void setDefaultValueRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Trigger Definition</em>' containment reference.
+	 * @see #setDefaultValueTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getDefaultValueTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueTriggerDefinition <em>Default Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Trigger Definition</em>' containment reference.
+	 * @see #getDefaultValueTriggerDefinition()
+	 * @generated
+	 */
+	void setDefaultValueTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Usage Context</em>' containment reference.
+	 * @see #setDefaultValueUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getDefaultValueUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueUsageContext <em>Default Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Usage Context</em>' containment reference.
+	 * @see #getDefaultValueUsageContext()
+	 * @generated
+	 */
+	void setDefaultValueUsageContext(UsageContext value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #setDefaultValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_DefaultValueDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='defaultValueDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getDefaultValueDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getDefaultValueDosage <em>Default Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value Dosage</em>' containment reference.
+	 * @see #getDefaultValueDosage()
+	 * @generated
+	 */
+	void setDefaultValueDosage(Dosage value);
 
 	/**
 	 * Returns the value of the '<em><b>Meaning When Missing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'.
+	 * The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing').
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Meaning When Missing</em>' containment reference.
 	 * @see #setMeaningWhenMissing(Markdown)
@@ -1691,6 +2049,33 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setFixedBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Canonical</em>' containment reference.
+	 * @see #setFixedCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getFixedCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedCanonical <em>Fixed Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Canonical</em>' containment reference.
+	 * @see #getFixedCanonical()
+	 * @generated
+	 */
+	void setFixedCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixed Code</b></em>' containment reference.
@@ -2069,6 +2454,60 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setFixedUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Url</em>' containment reference.
+	 * @see #setFixedUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getFixedUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedUrl <em>Fixed Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Url</em>' containment reference.
+	 * @see #getFixedUrl()
+	 * @generated
+	 */
+	void setFixedUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Uuid</em>' containment reference.
+	 * @see #setFixedUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getFixedUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedUuid <em>Fixed Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Uuid</em>' containment reference.
+	 * @see #getFixedUuid()
+	 * @generated
+	 */
+	void setFixedUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixed Address</b></em>' containment reference.
@@ -2638,31 +3077,247 @@ public interface ElementDefinition extends Element {
 	void setFixedTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Fixed Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Fixed Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fixed Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Fixed Contact Detail</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fixed Meta</em>' containment reference.
-	 * @see #setFixedMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedMeta()
+	 * @return the value of the '<em>Fixed Contact Detail</em>' containment reference.
+	 * @see #setFixedContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedContactDetail()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='fixedMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='fixedContactDetail' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getFixedMeta();
+	ContactDetail getFixedContactDetail();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedMeta <em>Fixed Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedContactDetail <em>Fixed Contact Detail</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fixed Meta</em>' containment reference.
-	 * @see #getFixedMeta()
+	 * @param value the new value of the '<em>Fixed Contact Detail</em>' containment reference.
+	 * @see #getFixedContactDetail()
 	 * @generated
 	 */
-	void setFixedMeta(Meta value);
+	void setFixedContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Contributor</em>' containment reference.
+	 * @see #setFixedContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getFixedContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedContributor <em>Fixed Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Contributor</em>' containment reference.
+	 * @see #getFixedContributor()
+	 * @generated
+	 */
+	void setFixedContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Data Requirement</em>' containment reference.
+	 * @see #setFixedDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getFixedDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedDataRequirement <em>Fixed Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Data Requirement</em>' containment reference.
+	 * @see #getFixedDataRequirement()
+	 * @generated
+	 */
+	void setFixedDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Expression</em>' containment reference.
+	 * @see #setFixedExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getFixedExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedExpression <em>Fixed Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Expression</em>' containment reference.
+	 * @see #getFixedExpression()
+	 * @generated
+	 */
+	void setFixedExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Parameter Definition</em>' containment reference.
+	 * @see #setFixedParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getFixedParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedParameterDefinition <em>Fixed Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Parameter Definition</em>' containment reference.
+	 * @see #getFixedParameterDefinition()
+	 * @generated
+	 */
+	void setFixedParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Related Artifact</em>' containment reference.
+	 * @see #setFixedRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getFixedRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedRelatedArtifact <em>Fixed Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Related Artifact</em>' containment reference.
+	 * @see #getFixedRelatedArtifact()
+	 * @generated
+	 */
+	void setFixedRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Trigger Definition</em>' containment reference.
+	 * @see #setFixedTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getFixedTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedTriggerDefinition <em>Fixed Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Trigger Definition</em>' containment reference.
+	 * @see #getFixedTriggerDefinition()
+	 * @generated
+	 */
+	void setFixedTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Usage Context</em>' containment reference.
+	 * @see #setFixedUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getFixedUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedUsageContext <em>Fixed Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Usage Context</em>' containment reference.
+	 * @see #getFixedUsageContext()
+	 * @generated
+	 */
+	void setFixedUsageContext(UsageContext value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed Dosage</em>' containment reference.
+	 * @see #setFixedDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_FixedDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fixedDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getFixedDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getFixedDosage <em>Fixed Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed Dosage</em>' containment reference.
+	 * @see #getFixedDosage()
+	 * @generated
+	 */
+	void setFixedDosage(Dosage value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern Base64 Binary</b></em>' containment reference.
@@ -2717,6 +3372,33 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setPatternBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Canonical</em>' containment reference.
+	 * @see #setPatternCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getPatternCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternCanonical <em>Pattern Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Canonical</em>' containment reference.
+	 * @see #getPatternCanonical()
+	 * @generated
+	 */
+	void setPatternCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern Code</b></em>' containment reference.
@@ -3095,6 +3777,60 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setPatternUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Url</em>' containment reference.
+	 * @see #setPatternUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getPatternUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternUrl <em>Pattern Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Url</em>' containment reference.
+	 * @see #getPatternUrl()
+	 * @generated
+	 */
+	void setPatternUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Uuid</em>' containment reference.
+	 * @see #setPatternUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getPatternUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternUuid <em>Pattern Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Uuid</em>' containment reference.
+	 * @see #getPatternUuid()
+	 * @generated
+	 */
+	void setPatternUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern Address</b></em>' containment reference.
@@ -3664,31 +4400,247 @@ public interface ElementDefinition extends Element {
 	void setPatternTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Pattern Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Pattern Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pattern Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Pattern Contact Detail</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pattern Meta</em>' containment reference.
-	 * @see #setPatternMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternMeta()
+	 * @return the value of the '<em>Pattern Contact Detail</em>' containment reference.
+	 * @see #setPatternContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternContactDetail()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='patternMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='patternContactDetail' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getPatternMeta();
+	ContactDetail getPatternContactDetail();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternMeta <em>Pattern Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternContactDetail <em>Pattern Contact Detail</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pattern Meta</em>' containment reference.
-	 * @see #getPatternMeta()
+	 * @param value the new value of the '<em>Pattern Contact Detail</em>' containment reference.
+	 * @see #getPatternContactDetail()
 	 * @generated
 	 */
-	void setPatternMeta(Meta value);
+	void setPatternContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Contributor</em>' containment reference.
+	 * @see #setPatternContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getPatternContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternContributor <em>Pattern Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Contributor</em>' containment reference.
+	 * @see #getPatternContributor()
+	 * @generated
+	 */
+	void setPatternContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Data Requirement</em>' containment reference.
+	 * @see #setPatternDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getPatternDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternDataRequirement <em>Pattern Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Data Requirement</em>' containment reference.
+	 * @see #getPatternDataRequirement()
+	 * @generated
+	 */
+	void setPatternDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Expression</em>' containment reference.
+	 * @see #setPatternExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getPatternExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternExpression <em>Pattern Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Expression</em>' containment reference.
+	 * @see #getPatternExpression()
+	 * @generated
+	 */
+	void setPatternExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Parameter Definition</em>' containment reference.
+	 * @see #setPatternParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getPatternParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternParameterDefinition <em>Pattern Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Parameter Definition</em>' containment reference.
+	 * @see #getPatternParameterDefinition()
+	 * @generated
+	 */
+	void setPatternParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Related Artifact</em>' containment reference.
+	 * @see #setPatternRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getPatternRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternRelatedArtifact <em>Pattern Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Related Artifact</em>' containment reference.
+	 * @see #getPatternRelatedArtifact()
+	 * @generated
+	 */
+	void setPatternRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Trigger Definition</em>' containment reference.
+	 * @see #setPatternTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getPatternTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternTriggerDefinition <em>Pattern Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Trigger Definition</em>' containment reference.
+	 * @see #getPatternTriggerDefinition()
+	 * @generated
+	 */
+	void setPatternTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Usage Context</em>' containment reference.
+	 * @see #setPatternUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getPatternUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternUsageContext <em>Pattern Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Usage Context</em>' containment reference.
+	 * @see #getPatternUsageContext()
+	 * @generated
+	 */
+	void setPatternUsageContext(UsageContext value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pattern Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Dosage</em>' containment reference.
+	 * @see #setPatternDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_PatternDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='patternDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getPatternDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getPatternDosage <em>Pattern Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Dosage</em>' containment reference.
+	 * @see #getPatternDosage()
+	 * @generated
+	 */
+	void setPatternDosage(Dosage value);
 
 	/**
 	 * Returns the value of the '<em><b>Example</b></em>' containment reference list.
@@ -4255,7 +5207,7 @@ public interface ElementDefinition extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way.  If false, the element may be ignored and not supported.
+	 * If true, implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Must Support</em>' containment reference.
 	 * @see #setMustSupport(org.hl7.fhir.Boolean)
@@ -4301,6 +5253,32 @@ public interface ElementDefinition extends Element {
 	 * @generated
 	 */
 	void setIsModifier(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Modifier Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Explains how that element affects the interpretation of the resource or element that contains it.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Is Modifier Reason</em>' containment reference.
+	 * @see #setIsModifierReason(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinition_IsModifierReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='isModifierReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getIsModifierReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinition#getIsModifierReason <em>Is Modifier Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Modifier Reason</em>' containment reference.
+	 * @see #getIsModifierReason()
+	 * @generated
+	 */
+	void setIsModifierReason(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Summary</b></em>' containment reference.

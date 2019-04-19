@@ -51,24 +51,24 @@ public enum EventStatusList implements Enumerator {
 	NOT_DONE(2, "notDone", "not-done"),
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal object.
+	 * The '<em><b>On Hold</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUSPENDED_VALUE
+	 * @see #ON_HOLD_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(3, "suspended", "suspended"),
+	ON_HOLD(3, "onHold", "on-hold"),
 
 	/**
-	 * The '<em><b>Aborted</b></em>' literal object.
+	 * The '<em><b>Stopped</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ABORTED_VALUE
+	 * @see #STOPPED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ABORTED(4, "aborted", "aborted"),
+	STOPPED(4, "stopped", "stopped"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -143,32 +143,32 @@ public enum EventStatusList implements Enumerator {
 	public static final int NOT_DONE_VALUE = 2;
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal value.
+	 * The '<em><b>On Hold</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suspended
+	 * On Hold
 	 * <!-- end-model-doc -->
-	 * @see #SUSPENDED
-	 * @model name="suspended"
+	 * @see #ON_HOLD
+	 * @model name="onHold" literal="on-hold"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 3;
+	public static final int ON_HOLD_VALUE = 3;
 
 	/**
-	 * The '<em><b>Aborted</b></em>' literal value.
+	 * The '<em><b>Stopped</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Aborted
+	 * Stopped
 	 * <!-- end-model-doc -->
-	 * @see #ABORTED
-	 * @model name="aborted"
+	 * @see #STOPPED
+	 * @model name="stopped"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ABORTED_VALUE = 4;
+	public static final int STOPPED_VALUE = 4;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -223,8 +223,8 @@ public enum EventStatusList implements Enumerator {
 			PREPARATION,
 			IN_PROGRESS,
 			NOT_DONE,
-			SUSPENDED,
-			ABORTED,
+			ON_HOLD,
+			STOPPED,
 			COMPLETED,
 			ENTERED_IN_ERROR,
 			UNKNOWN,
@@ -287,8 +287,8 @@ public enum EventStatusList implements Enumerator {
 			case PREPARATION_VALUE: return PREPARATION;
 			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case NOT_DONE_VALUE: return NOT_DONE;
-			case SUSPENDED_VALUE: return SUSPENDED;
-			case ABORTED_VALUE: return ABORTED;
+			case ON_HOLD_VALUE: return ON_HOLD;
+			case STOPPED_VALUE: return STOPPED;
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case UNKNOWN_VALUE: return UNKNOWN;

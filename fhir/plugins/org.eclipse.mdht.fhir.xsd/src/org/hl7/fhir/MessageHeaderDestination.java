@@ -87,13 +87,13 @@ public interface MessageHeaderDestination extends BackboneElement {
 	 * Indicates where the message should be routed to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
-	 * @see #setEndpoint(Uri)
+	 * @see #setEndpoint(Url)
 	 * @see org.hl7.fhir.FhirPackage#getMessageHeaderDestination_Endpoint()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getEndpoint();
+	Url getEndpoint();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageHeaderDestination#getEndpoint <em>Endpoint</em>}' containment reference.
@@ -103,7 +103,7 @@ public interface MessageHeaderDestination extends BackboneElement {
 	 * @see #getEndpoint()
 	 * @generated
 	 */
-	void setEndpoint(Uri value);
+	void setEndpoint(Url value);
 
 	/**
 	 * Returns the value of the '<em><b>Receiver</b></em>' containment reference.

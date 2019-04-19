@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
+ * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -35,7 +35,7 @@ public interface ConceptMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
+	 * An absolute URI that identifies the source system where the concepts to be mapped are defined.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Uri)
@@ -87,7 +87,7 @@ public interface ConceptMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
+	 * An absolute URI that identifies the target system that the concepts will be mapped to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target</em>' containment reference.
 	 * @see #setTarget(Uri)
@@ -155,7 +155,7 @@ public interface ConceptMapGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * What to do when there is no match in the mappings in the group.
+	 * What to do when there is no mapping for the source concept. "Unmapped" does not include codes that are unmatched, and the unmapped element is ignored in a code is specified to have equivalence = unmatched.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unmapped</em>' containment reference.
 	 * @see #setUnmapped(ConceptMapUnmapped)

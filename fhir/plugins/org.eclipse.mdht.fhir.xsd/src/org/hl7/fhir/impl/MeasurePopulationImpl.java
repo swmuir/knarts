@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Expression;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MeasurePopulation;
 
@@ -58,7 +59,7 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String criteria;
+	protected Expression criteria;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,7 +171,7 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCriteria() {
+	public Expression getCriteria() {
 		return criteria;
 	}
 
@@ -179,8 +180,8 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCriteria(org.hl7.fhir.String newCriteria, NotificationChain msgs) {
-		org.hl7.fhir.String oldCriteria = criteria;
+	public NotificationChain basicSetCriteria(Expression newCriteria, NotificationChain msgs) {
+		Expression oldCriteria = criteria;
 		criteria = newCriteria;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_POPULATION__CRITERIA, oldCriteria, newCriteria);
@@ -194,7 +195,7 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriteria(org.hl7.fhir.String newCriteria) {
+	public void setCriteria(Expression newCriteria) {
 		if (newCriteria != criteria) {
 			NotificationChain msgs = null;
 			if (criteria != null)
@@ -259,7 +260,7 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 				setDescription((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE_POPULATION__CRITERIA:
-				setCriteria((org.hl7.fhir.String)newValue);
+				setCriteria((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,7 +281,7 @@ public class MeasurePopulationImpl extends BackboneElementImpl implements Measur
 				setDescription((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE_POPULATION__CRITERIA:
-				setCriteria((org.hl7.fhir.String)null);
+				setCriteria((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);

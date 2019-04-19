@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationAdministration#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getMedicationReference <em>Medication Reference</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getPerformer <em>Performer</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationAdministration#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationAdministration#getRequest <em>Request</em>}</li>
@@ -52,7 +52,7 @@ public interface MedicationAdministration extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+	 * Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Identifier()
@@ -68,7 +68,7 @@ public interface MedicationAdministration extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
+	 * A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instantiates</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Instantiates()
@@ -99,16 +99,16 @@ public interface MedicationAdministration extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
+	 * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(MedicationAdministrationStatus)
+	 * @see #setStatus(Code)
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MedicationAdministrationStatus getStatus();
+	Code getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MedicationAdministration#getStatus <em>Status</em>}' containment reference.
@@ -118,14 +118,30 @@ public interface MedicationAdministration extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(MedicationAdministrationStatus value);
+	void setStatus(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code indicating why the administration was not performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Reason</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_StatusReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getStatusReason();
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the type of medication administration and where the medication is expected to be consumed or administered.
+	 * Indicates where the medication is expected to be consumed or administered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -231,7 +247,7 @@ public interface MedicationAdministration extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
+	 * The visit, admission, or other contact between patient and health care provider during which the medication administration was performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Context</em>' containment reference.
 	 * @see #setContext(Reference)
@@ -328,7 +344,7 @@ public interface MedicationAdministration extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The individual who was responsible for giving the medication to the patient.
+	 * Indicates who or what performed the medication administration and how they were involved.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_Performer()
@@ -337,22 +353,6 @@ public interface MedicationAdministration extends DomainResource {
 	 * @generated
 	 */
 	EList<MedicationAdministrationPerformer> getPerformer();
-
-	/**
-	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A code indicating why the administration was not performed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicationAdministration_StatusReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getStatusReason();
 
 	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.

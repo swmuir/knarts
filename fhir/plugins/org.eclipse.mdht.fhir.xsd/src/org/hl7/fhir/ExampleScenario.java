@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExampleScenario#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.ExampleScenario#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getDate <em>Date</em>}</li>
@@ -31,7 +30,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExampleScenario#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.hl7.fhir.ExampleScenario#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.ExampleScenario#getInstance <em>Instance</em>}</li>
@@ -49,7 +47,7 @@ public interface ExampleScenario extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this example scenario is (or will be) published.
+	 * An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -139,32 +137,6 @@ public interface ExampleScenario extends DomainResource {
 	void setName(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The name of the example as showin in the title page.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Title</em>' containment reference.
-	 * @see #setTitle(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getExampleScenario_Title()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getTitle();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExampleScenario#getTitle <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' containment reference.
-	 * @see #getTitle()
-	 * @generated
-	 */
-	void setTitle(org.hl7.fhir.String value);
-
-	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,7 +167,7 @@ public interface ExampleScenario extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -221,7 +193,7 @@ public interface ExampleScenario extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').
+	 * The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -247,7 +219,7 @@ public interface ExampleScenario extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the example scenario.
+	 * The name of the organization or individual that published the example scenario.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -290,7 +262,7 @@ public interface ExampleScenario extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExampleScenario_UseContext()
@@ -343,37 +315,11 @@ public interface ExampleScenario extends DomainResource {
 	void setCopyright(Markdown value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Description of behaviour of the workflow example.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(Markdown)
-	 * @see org.hl7.fhir.FhirPackage#getExampleScenario_Description()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Markdown getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExampleScenario#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(Markdown value);
-
-	/**
 	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * What is the example scenario resource created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.
+	 * What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -427,34 +373,24 @@ public interface ExampleScenario extends DomainResource {
 	EList<ExampleScenarioInstance> getInstance();
 
 	/**
-	 * Returns the value of the '<em><b>Process</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Process</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ExampleScenarioProcess}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Each major process - a group of operations.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Process</em>' containment reference.
-	 * @see #setProcess(ExampleScenarioProcess)
+	 * @return the value of the '<em>Process</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExampleScenario_Process()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='process' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ExampleScenarioProcess getProcess();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExampleScenario#getProcess <em>Process</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Process</em>' containment reference.
-	 * @see #getProcess()
-	 * @generated
-	 */
-	void setProcess(ExampleScenarioProcess value);
+	EList<ExampleScenarioProcess> getProcess();
 
 	/**
 	 * Returns the value of the '<em><b>Workflow</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -466,6 +402,6 @@ public interface ExampleScenario extends DomainResource {
 	 *        extendedMetaData="kind='element' name='workflow' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getWorkflow();
+	EList<Canonical> getWorkflow();
 
 } // ExampleScenario

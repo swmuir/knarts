@@ -34,12 +34,12 @@ public interface ClaimResponsePayment extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this represents partial or complete payment of the claim.
+	 * Whether this represents partial or complete payment of the benefits payable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponsePayment_Type()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface ClaimResponsePayment extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
+	 * Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjustment</em>' containment reference.
 	 * @see #setAdjustment(Money)
@@ -112,7 +112,7 @@ public interface ClaimResponsePayment extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Estimated payment data.
+	 * Estimated date the payment will be issued or the actual issue date of payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
@@ -138,12 +138,12 @@ public interface ClaimResponsePayment extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Payable less any payment adjustment.
+	 * Benefits payable less any payment adjustment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
 	 * @see #setAmount(Money)
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponsePayment_Amount()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -164,7 +164,7 @@ public interface ClaimResponsePayment extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Payment identifier.
+	 * Issuer's unique identifier for the payment instrument.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)

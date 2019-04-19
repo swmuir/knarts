@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Attachment;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
@@ -18,9 +17,9 @@ import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuestionnaireEnableWhen;
+import org.hl7.fhir.QuestionnaireItemOperator;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Time;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getQuestion <em>Question</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getHasAnswer <em>Has Answer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerBoolean <em>Answer Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerDecimal <em>Answer Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerInteger <em>Answer Integer</em>}</li>
@@ -39,8 +38,6 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerDateTime <em>Answer Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerTime <em>Answer Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerString <em>Answer String</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerUri <em>Answer Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerAttachment <em>Answer Attachment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerCoding <em>Answer Coding</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerQuantity <em>Answer Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireEnableWhenImpl#getAnswerReference <em>Answer Reference</em>}</li>
@@ -60,14 +57,14 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	protected org.hl7.fhir.String question;
 
 	/**
-	 * The cached value of the '{@link #getHasAnswer() <em>Has Answer</em>}' containment reference.
+	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasAnswer()
+	 * @see #getOperator()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean hasAnswer;
+	protected QuestionnaireItemOperator operator;
 
 	/**
 	 * The cached value of the '{@link #getAnswerBoolean() <em>Answer Boolean</em>}' containment reference.
@@ -138,26 +135,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String answerString;
-
-	/**
-	 * The cached value of the '{@link #getAnswerUri() <em>Answer Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnswerUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected Uri answerUri;
-
-	/**
-	 * The cached value of the '{@link #getAnswerAttachment() <em>Answer Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnswerAttachment()
-	 * @generated
-	 * @ordered
-	 */
-	protected Attachment answerAttachment;
 
 	/**
 	 * The cached value of the '{@link #getAnswerCoding() <em>Answer Coding</em>}' containment reference.
@@ -256,8 +233,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getHasAnswer() {
-		return hasAnswer;
+	public QuestionnaireItemOperator getOperator() {
+		return operator;
 	}
 
 	/**
@@ -265,11 +242,11 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHasAnswer(org.hl7.fhir.Boolean newHasAnswer, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldHasAnswer = hasAnswer;
-		hasAnswer = newHasAnswer;
+	public NotificationChain basicSetOperator(QuestionnaireItemOperator newOperator, NotificationChain msgs) {
+		QuestionnaireItemOperator oldOperator = operator;
+		operator = newOperator;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER, oldHasAnswer, newHasAnswer);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR, oldOperator, newOperator);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -280,18 +257,18 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHasAnswer(org.hl7.fhir.Boolean newHasAnswer) {
-		if (newHasAnswer != hasAnswer) {
+	public void setOperator(QuestionnaireItemOperator newOperator) {
+		if (newOperator != operator) {
 			NotificationChain msgs = null;
-			if (hasAnswer != null)
-				msgs = ((InternalEObject)hasAnswer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER, null, msgs);
-			if (newHasAnswer != null)
-				msgs = ((InternalEObject)newHasAnswer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER, null, msgs);
-			msgs = basicSetHasAnswer(newHasAnswer, msgs);
+			if (operator != null)
+				msgs = ((InternalEObject)operator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR, null, msgs);
+			if (newOperator != null)
+				msgs = ((InternalEObject)newOperator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR, null, msgs);
+			msgs = basicSetOperator(newOperator, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER, newHasAnswer, newHasAnswer));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR, newOperator, newOperator));
 	}
 
 	/**
@@ -600,92 +577,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getAnswerUri() {
-		return answerUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnswerUri(Uri newAnswerUri, NotificationChain msgs) {
-		Uri oldAnswerUri = answerUri;
-		answerUri = newAnswerUri;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI, oldAnswerUri, newAnswerUri);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAnswerUri(Uri newAnswerUri) {
-		if (newAnswerUri != answerUri) {
-			NotificationChain msgs = null;
-			if (answerUri != null)
-				msgs = ((InternalEObject)answerUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI, null, msgs);
-			if (newAnswerUri != null)
-				msgs = ((InternalEObject)newAnswerUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI, null, msgs);
-			msgs = basicSetAnswerUri(newAnswerUri, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI, newAnswerUri, newAnswerUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Attachment getAnswerAttachment() {
-		return answerAttachment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnswerAttachment(Attachment newAnswerAttachment, NotificationChain msgs) {
-		Attachment oldAnswerAttachment = answerAttachment;
-		answerAttachment = newAnswerAttachment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT, oldAnswerAttachment, newAnswerAttachment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAnswerAttachment(Attachment newAnswerAttachment) {
-		if (newAnswerAttachment != answerAttachment) {
-			NotificationChain msgs = null;
-			if (answerAttachment != null)
-				msgs = ((InternalEObject)answerAttachment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT, null, msgs);
-			if (newAnswerAttachment != null)
-				msgs = ((InternalEObject)newAnswerAttachment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT, null, msgs);
-			msgs = basicSetAnswerAttachment(newAnswerAttachment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT, newAnswerAttachment, newAnswerAttachment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Coding getAnswerCoding() {
 		return answerCoding;
 	}
@@ -820,8 +711,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__QUESTION:
 				return basicSetQuestion(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER:
-				return basicSetHasAnswer(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR:
+				return basicSetOperator(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_BOOLEAN:
 				return basicSetAnswerBoolean(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DECIMAL:
@@ -836,10 +727,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return basicSetAnswerTime(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
 				return basicSetAnswerString(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI:
-				return basicSetAnswerUri(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT:
-				return basicSetAnswerAttachment(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_CODING:
 				return basicSetAnswerCoding(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_QUANTITY:
@@ -860,8 +747,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__QUESTION:
 				return getQuestion();
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER:
-				return getHasAnswer();
+			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR:
+				return getOperator();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_BOOLEAN:
 				return getAnswerBoolean();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DECIMAL:
@@ -876,10 +763,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return getAnswerTime();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
 				return getAnswerString();
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI:
-				return getAnswerUri();
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT:
-				return getAnswerAttachment();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_CODING:
 				return getAnswerCoding();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_QUANTITY:
@@ -901,8 +784,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__QUESTION:
 				setQuestion((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER:
-				setHasAnswer((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR:
+				setOperator((QuestionnaireItemOperator)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_BOOLEAN:
 				setAnswerBoolean((org.hl7.fhir.Boolean)newValue);
@@ -924,12 +807,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
 				setAnswerString((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI:
-				setAnswerUri((Uri)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT:
-				setAnswerAttachment((Attachment)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_CODING:
 				setAnswerCoding((Coding)newValue);
@@ -955,8 +832,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__QUESTION:
 				setQuestion((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER:
-				setHasAnswer((org.hl7.fhir.Boolean)null);
+			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR:
+				setOperator((QuestionnaireItemOperator)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_BOOLEAN:
 				setAnswerBoolean((org.hl7.fhir.Boolean)null);
@@ -978,12 +855,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
 				setAnswerString((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI:
-				setAnswerUri((Uri)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT:
-				setAnswerAttachment((Attachment)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_CODING:
 				setAnswerCoding((Coding)null);
@@ -1008,8 +879,8 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 		switch (featureID) {
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__QUESTION:
 				return question != null;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__HAS_ANSWER:
-				return hasAnswer != null;
+			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__OPERATOR:
+				return operator != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_BOOLEAN:
 				return answerBoolean != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_DECIMAL:
@@ -1024,10 +895,6 @@ public class QuestionnaireEnableWhenImpl extends BackboneElementImpl implements 
 				return answerTime != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_STRING:
 				return answerString != null;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_URI:
-				return answerUri != null;
-			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_ATTACHMENT:
-				return answerAttachment != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_CODING:
 				return answerCoding != null;
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN__ANSWER_QUANTITY:

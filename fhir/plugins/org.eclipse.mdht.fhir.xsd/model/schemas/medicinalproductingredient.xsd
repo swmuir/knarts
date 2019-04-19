@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
+  Generated on Thu, Dec 27, 2018 22:37+1100 for FHIR v4.0.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -51,7 +51,7 @@
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier(s) of this Ingredient t that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.</xs:documentation>
+              <xs:documentation xml:lang="en">The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="role" minOccurs="1" maxOccurs="1" type="CodeableConcept">
@@ -126,9 +126,19 @@
               <xs:documentation xml:lang="en">The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="presentationLowLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="concentration" minOccurs="0" maxOccurs="1" type="Ratio">
             <xs:annotation>
               <xs:documentation xml:lang="en">The strength per unitary volume (or mass).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="concentrationLowLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="measurementPoint" minOccurs="0" maxOccurs="1" type="string">
@@ -159,7 +169,27 @@
         <xs:sequence>
           <xs:element name="substance" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Relevent refrerence substance.</xs:documentation>
+              <xs:documentation xml:lang="en">Relevant reference substance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="strength" minOccurs="1" maxOccurs="1" type="Ratio">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Strength expressed in terms of a reference substance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="strengthLowLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Strength expressed in terms of a reference substance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="measurementPoint" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">For when strength is measured at a particular point or distance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="country" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The country or countries for which the strength range applies.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -178,7 +208,7 @@
               <xs:documentation xml:lang="en">The ingredient substance.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="strength" type="MedicinalProductIngredient.Strength" minOccurs="1" maxOccurs="unbounded">
+          <xs:element name="strength" type="MedicinalProductIngredient.Strength" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product.</xs:documentation>
            </xs:annotation>

@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A value set specifies a set of codes drawn from one or more code systems.
+ * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -23,6 +23,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ValueSetParameter#getValueDecimal <em>Value Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetParameter#getValueUri <em>Value Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.ValueSetParameter#getValueCode <em>Value Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ValueSetParameter#getValueDateTime <em>Value Date Time</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getValueSetParameter()
@@ -35,7 +36,7 @@ public interface ValueSetParameter extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the parameter.
+	 * Name of the input parameter to the $expand operation; may be a server-assigned name for additional default or other server-supplied parameters used to control the expansion process.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -217,5 +218,32 @@ public interface ValueSetParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueCode(Code value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #setValueDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getValueSetParameter_ValueDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getValueDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ValueSetParameter#getValueDateTime <em>Value Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Date Time</em>' containment reference.
+	 * @see #getValueDateTime()
+	 * @generated
+	 */
+	void setValueDateTime(DateTime value);
 
 } // ValueSetParameter

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageHeaderDestination;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri endpoint;
+	protected Url endpoint;
 
 	/**
 	 * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' containment reference.
@@ -182,7 +182,7 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getEndpoint() {
+	public Url getEndpoint() {
 		return endpoint;
 	}
 
@@ -191,8 +191,8 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEndpoint(Uri newEndpoint, NotificationChain msgs) {
-		Uri oldEndpoint = endpoint;
+	public NotificationChain basicSetEndpoint(Url newEndpoint, NotificationChain msgs) {
+		Url oldEndpoint = endpoint;
 		endpoint = newEndpoint;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT, oldEndpoint, newEndpoint);
@@ -206,7 +206,7 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndpoint(Uri newEndpoint) {
+	public void setEndpoint(Url newEndpoint) {
 		if (newEndpoint != endpoint) {
 			NotificationChain msgs = null;
 			if (endpoint != null)
@@ -318,7 +318,7 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				setTarget((Reference)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
-				setEndpoint((Uri)newValue);
+				setEndpoint((Url)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
 				setReceiver((Reference)newValue);
@@ -342,7 +342,7 @@ public class MessageHeaderDestinationImpl extends BackboneElementImpl implements
 				setTarget((Reference)null);
 				return;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__ENDPOINT:
-				setEndpoint((Uri)null);
+				setEndpoint((Url)null);
 				return;
 			case FhirPackage.MESSAGE_HEADER_DESTINATION__RECEIVER:
 				setReceiver((Reference)null);

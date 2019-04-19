@@ -111,7 +111,7 @@ public interface Meta extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -123,7 +123,7 @@ public interface Meta extends Element {
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getProfile();
+	EList<Canonical> getProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Security</b></em>' containment reference list.

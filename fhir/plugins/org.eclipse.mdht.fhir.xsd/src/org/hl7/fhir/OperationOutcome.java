@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A collection of error, warning or information messages that result from a system action.
+ * A collection of error, warning, or information messages that result from a system action.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -32,7 +32,7 @@ public interface OperationOutcome extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An error, warning or information message that results from a system action.
+	 * An error, warning, or information message that results from a system action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Issue</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationOutcome_Issue()

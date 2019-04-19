@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
+ * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Communication#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getInResponseTo <em>In Response To</em>}</li>
@@ -29,12 +30,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Communication#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getAbout <em>About</em>}</li>
- *   <li>{@link org.hl7.fhir.Communication#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSent <em>Sent</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getReceived <em>Received</em>}</li>
+ *   <li>{@link org.hl7.fhir.Communication#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Communication#getReasonReference <em>Reason Reference</em>}</li>
@@ -53,7 +54,7 @@ public interface Communication extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+	 * Business identifiers assigned to this communication by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCommunication_Identifier()
@@ -64,20 +65,36 @@ public interface Communication extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Communication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_InstantiatesCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getInstantiatesCanonical();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A protocol, guideline, or other definition that was adhered to in whole or in part by this communication event.
+	 * The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Communication.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Instantiates</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_Instantiates()
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_InstantiatesUri()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getInstantiates();
+	EList<Uri> getInstantiatesUri();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -264,22 +281,6 @@ public interface Communication extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Recipient</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_Recipient()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getRecipient();
-
-	/**
 	 * Returns the value of the '<em><b>Topic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,30 +323,30 @@ public interface Communication extends DomainResource {
 	EList<Reference> getAbout();
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter within which the communication was sent.
+	 * The Encounter during which this Communication was created or to which the creation of this record is tightly associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCommunication_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Communication#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Communication#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Sent</b></em>' containment reference.
@@ -398,6 +399,22 @@ public interface Communication extends DomainResource {
 	 * @generated
 	 */
 	void setReceived(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recipient</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCommunication_Recipient()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getRecipient();
 
 	/**
 	 * Returns the value of the '<em><b>Sender</b></em>' containment reference.

@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
+ * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -32,7 +32,7 @@ public interface ConceptMapUnmapped extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Defines which action to take if there is no match in the group. One of 3 actions is possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).
+	 * Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
 	 * @see #setMode(ConceptMapGroupUnmappedMode)
@@ -110,16 +110,16 @@ public interface ConceptMapUnmapped extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The canonical URL of the map to use if this map contains no mapping.
+	 * The canonical reference to an additional ConceptMap resource instance to use for mapping if this ConceptMap resource contains no matching mapping for the source concept.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
+	 * @see #setUrl(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getConceptMapUnmapped_Url()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
+	Canonical getUrl();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapUnmapped#getUrl <em>Url</em>}' containment reference.
@@ -129,6 +129,6 @@ public interface ConceptMapUnmapped extends BackboneElement {
 	 * @see #getUrl()
 	 * @generated
 	 */
-	void setUrl(Uri value);
+	void setUrl(Canonical value);
 
 } // ConceptMapUnmapped

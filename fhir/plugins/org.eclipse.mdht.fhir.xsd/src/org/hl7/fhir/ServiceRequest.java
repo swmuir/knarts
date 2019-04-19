@@ -19,19 +19,23 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ServiceRequest#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getRequisition <em>Requisition</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getIntent <em>Intent</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getDoNotPerform <em>Do Not Perform</em>}</li>
- *   <li>{@link org.hl7.fhir.ServiceRequest#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getOrderDetail <em>Order Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getQuantityQuantity <em>Quantity Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getQuantityRatio <em>Quantity Ratio</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getQuantityRange <em>Quantity Range</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.ServiceRequest#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
@@ -41,6 +45,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ServiceRequest#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getLocationCode <em>Location Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ServiceRequest#getLocationReference <em>Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ServiceRequest#getInsurance <em>Insurance</em>}</li>
@@ -74,20 +80,36 @@ public interface ServiceRequest extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_InstantiatesCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getInstantiatesCanonical();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Protocol or definition followed by this request.
+	 * The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Instantiates</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Instantiates()
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_InstantiatesUri()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getInstantiates();
+	EList<Uri> getInstantiatesUri();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -200,6 +222,22 @@ public interface ServiceRequest extends DomainResource {
 	void setIntent(RequestIntent value);
 
 	/**
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A code that classifies the service for searching, sorting and display purposes (e.g. "Surgical Procedure").
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Category()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCategory();
+
+	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,22 +290,6 @@ public interface ServiceRequest extends DomainResource {
 	void setDoNotPerform(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A code that classifies the service for searching, sorting and display purposes (e.g. "Surgical Procedure").
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Category()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getCategory();
-
-	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,7 +321,7 @@ public interface ServiceRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.
+	 * Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Order Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_OrderDetail()
@@ -308,6 +330,87 @@ public interface ServiceRequest extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getOrderDetail();
+
+	/**
+	 * Returns the value of the '<em><b>Quantity Quantity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantity Quantity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantity Quantity</em>' containment reference.
+	 * @see #setQuantityQuantity(Quantity)
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_QuantityQuantity()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='quantityQuantity' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Quantity getQuantityQuantity();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getQuantityQuantity <em>Quantity Quantity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantity Quantity</em>' containment reference.
+	 * @see #getQuantityQuantity()
+	 * @generated
+	 */
+	void setQuantityQuantity(Quantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantity Ratio</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantity Ratio</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantity Ratio</em>' containment reference.
+	 * @see #setQuantityRatio(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_QuantityRatio()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='quantityRatio' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Ratio getQuantityRatio();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getQuantityRatio <em>Quantity Ratio</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantity Ratio</em>' containment reference.
+	 * @see #getQuantityRatio()
+	 * @generated
+	 */
+	void setQuantityRatio(Ratio value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantity Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantity Range</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantity Range</em>' containment reference.
+	 * @see #setQuantityRange(Range)
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_QuantityRange()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='quantityRange' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Range getQuantityRange();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getQuantityRange <em>Quantity Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantity Range</em>' containment reference.
+	 * @see #getQuantityRange()
+	 * @generated
+	 */
+	void setQuantityRange(Range value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -336,30 +439,30 @@ public interface ServiceRequest extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An encounter or episode of care that provides additional information about the healthcare context in which this request is made.
+	 * An encounter that provides additional information about the healthcare context in which this request is made.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
@@ -575,30 +678,52 @@ public interface ServiceRequest extends DomainResource {
 	void setPerformerType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Performer</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+	 * The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Performer</em>' containment reference.
-	 * @see #setPerformer(Reference)
+	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_Performer()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPerformer();
+	EList<Reference> getPerformer();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ServiceRequest#getPerformer <em>Performer</em>}' containment reference.
+	 * Returns the value of the '<em><b>Location Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Performer</em>' containment reference.
-	 * @see #getPerformer()
+	 * <!-- begin-model-doc -->
+	 * The preferred location(s) where the procedure should actually happen in coded or free text form. E.g. at home or nursing day care center.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Location Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_LocationCode()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='locationCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setPerformer(Reference value);
+	EList<CodeableConcept> getLocationCode();
+
+	/**
+	 * Returns the value of the '<em><b>Location Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to the the preferred location(s) where the procedure should actually happen. E.g. at home or nursing day care center.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Location Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_LocationReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='locationReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getLocationReference();
 
 	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
@@ -606,7 +731,7 @@ public interface ServiceRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+	 * An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_ReasonCode()
@@ -622,7 +747,7 @@ public interface ServiceRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.
+	 * Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getServiceRequest_ReasonReference()

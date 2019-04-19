@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformation#getGene <em>Gene</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformation#getGeneElement <em>Gene Element</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformation#getClassification <em>Classification</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceReferenceInformation#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformation#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -104,22 +103,6 @@ public interface SubstanceReferenceInformation extends DomainResource {
 	 * @generated
 	 */
 	EList<SubstanceReferenceInformationClassification> getClassification();
-
-	/**
-	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SubstanceReferenceInformationRelationship}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Todo.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Relationship</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceReferenceInformation_Relationship()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<SubstanceReferenceInformationRelationship> getRelationship();
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' containment reference list.

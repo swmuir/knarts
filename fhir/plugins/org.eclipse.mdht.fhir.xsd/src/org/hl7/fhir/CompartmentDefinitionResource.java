@@ -35,13 +35,13 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * The name of a resource supported by the server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(ResourceType)
+	 * @see #setCode(Code)
 	 * @see org.hl7.fhir.FhirPackage#getCompartmentDefinitionResource_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getCode();
+	Code getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CompartmentDefinitionResource#getCode <em>Code</em>}' containment reference.
@@ -51,7 +51,7 @@ public interface CompartmentDefinitionResource extends BackboneElement {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(ResourceType value);
+	void setCode(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Param</b></em>' containment reference list.

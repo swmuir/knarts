@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.EncounterLocation;
 import org.hl7.fhir.EncounterLocationStatus;
 import org.hl7.fhir.FhirPackage;
@@ -26,6 +27,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.EncounterLocationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterLocationImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterLocationImpl#getPhysicalType <em>Physical Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterLocationImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  *
@@ -51,6 +53,16 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 	 * @ordered
 	 */
 	protected EncounterLocationStatus status;
+
+	/**
+	 * The cached value of the '{@link #getPhysicalType() <em>Physical Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPhysicalType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept physicalType;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -172,6 +184,49 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getPhysicalType() {
+		return physicalType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPhysicalType(CodeableConcept newPhysicalType, NotificationChain msgs) {
+		CodeableConcept oldPhysicalType = physicalType;
+		physicalType = newPhysicalType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE, oldPhysicalType, newPhysicalType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPhysicalType(CodeableConcept newPhysicalType) {
+		if (newPhysicalType != physicalType) {
+			NotificationChain msgs = null;
+			if (physicalType != null)
+				msgs = ((InternalEObject)physicalType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE, null, msgs);
+			if (newPhysicalType != null)
+				msgs = ((InternalEObject)newPhysicalType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE, null, msgs);
+			msgs = basicSetPhysicalType(newPhysicalType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE, newPhysicalType, newPhysicalType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Period getPeriod() {
 		return period;
 	}
@@ -222,6 +277,8 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 				return basicSetLocation(null, msgs);
 			case FhirPackage.ENCOUNTER_LOCATION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE:
+				return basicSetPhysicalType(null, msgs);
 			case FhirPackage.ENCOUNTER_LOCATION__PERIOD:
 				return basicSetPeriod(null, msgs);
 		}
@@ -240,6 +297,8 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 				return getLocation();
 			case FhirPackage.ENCOUNTER_LOCATION__STATUS:
 				return getStatus();
+			case FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE:
+				return getPhysicalType();
 			case FhirPackage.ENCOUNTER_LOCATION__PERIOD:
 				return getPeriod();
 		}
@@ -259,6 +318,9 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 				return;
 			case FhirPackage.ENCOUNTER_LOCATION__STATUS:
 				setStatus((EncounterLocationStatus)newValue);
+				return;
+			case FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE:
+				setPhysicalType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ENCOUNTER_LOCATION__PERIOD:
 				setPeriod((Period)newValue);
@@ -281,6 +343,9 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 			case FhirPackage.ENCOUNTER_LOCATION__STATUS:
 				setStatus((EncounterLocationStatus)null);
 				return;
+			case FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE:
+				setPhysicalType((CodeableConcept)null);
+				return;
 			case FhirPackage.ENCOUNTER_LOCATION__PERIOD:
 				setPeriod((Period)null);
 				return;
@@ -300,6 +365,8 @@ public class EncounterLocationImpl extends BackboneElementImpl implements Encoun
 				return location != null;
 			case FhirPackage.ENCOUNTER_LOCATION__STATUS:
 				return status != null;
+			case FhirPackage.ENCOUNTER_LOCATION__PHYSICAL_TYPE:
+				return physicalType != null;
 			case FhirPackage.ENCOUNTER_LOCATION__PERIOD:
 				return period != null;
 		}

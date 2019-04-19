@@ -31,7 +31,6 @@ import org.hl7.fhir.FhirPackage;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getSubCategory <em>Sub Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getExcluded <em>Excluded</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitBenefitBalanceImpl#getDescription <em>Description</em>}</li>
@@ -53,16 +52,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 	 * @ordered
 	 */
 	protected CodeableConcept category;
-
-	/**
-	 * The cached value of the '{@link #getSubCategory() <em>Sub Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept subCategory;
 
 	/**
 	 * The cached value of the '{@link #getExcluded() <em>Excluded</em>}' containment reference.
@@ -194,49 +183,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY, newCategory, newCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeableConcept getSubCategory() {
-		return subCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSubCategory(CodeableConcept newSubCategory, NotificationChain msgs) {
-		CodeableConcept oldSubCategory = subCategory;
-		subCategory = newSubCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY, oldSubCategory, newSubCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubCategory(CodeableConcept newSubCategory) {
-		if (newSubCategory != subCategory) {
-			NotificationChain msgs = null;
-			if (subCategory != null)
-				msgs = ((InternalEObject)subCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY, null, msgs);
-			if (newSubCategory != null)
-				msgs = ((InternalEObject)newSubCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY, null, msgs);
-			msgs = basicSetSubCategory(newSubCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY, newSubCategory, newSubCategory));
 	}
 
 	/**
@@ -519,8 +465,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
 				return basicSetCategory(null, msgs);
-			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				return basicSetSubCategory(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
 				return basicSetExcluded(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
@@ -549,8 +493,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
 				return getCategory();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				return getSubCategory();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
 				return getExcluded();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:
@@ -580,9 +522,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
 				setCategory((CodeableConcept)newValue);
-				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				setSubCategory((CodeableConcept)newValue);
 				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
 				setExcluded((org.hl7.fhir.Boolean)newValue);
@@ -621,9 +560,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
 				setCategory((CodeableConcept)null);
 				return;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				setSubCategory((CodeableConcept)null);
-				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
 				setExcluded((org.hl7.fhir.Boolean)null);
 				return;
@@ -659,8 +595,6 @@ public class ExplanationOfBenefitBenefitBalanceImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__CATEGORY:
 				return category != null;
-			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__SUB_CATEGORY:
-				return subCategory != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__EXCLUDED:
 				return excluded != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE__NAME:

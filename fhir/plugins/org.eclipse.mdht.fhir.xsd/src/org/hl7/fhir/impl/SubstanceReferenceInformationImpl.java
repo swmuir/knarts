@@ -22,7 +22,6 @@ import org.hl7.fhir.SubstanceReferenceInformation;
 import org.hl7.fhir.SubstanceReferenceInformationClassification;
 import org.hl7.fhir.SubstanceReferenceInformationGene;
 import org.hl7.fhir.SubstanceReferenceInformationGeneElement;
-import org.hl7.fhir.SubstanceReferenceInformationRelationship;
 import org.hl7.fhir.SubstanceReferenceInformationTarget;
 
 /**
@@ -37,7 +36,6 @@ import org.hl7.fhir.SubstanceReferenceInformationTarget;
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationImpl#getGene <em>Gene</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationImpl#getGeneElement <em>Gene Element</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationImpl#getClassification <em>Classification</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationImpl#getRelationship <em>Relationship</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceReferenceInformationImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -83,16 +81,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 	 * @ordered
 	 */
 	protected EList<SubstanceReferenceInformationClassification> classification;
-
-	/**
-	 * The cached value of the '{@link #getRelationship() <em>Relationship</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationship()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SubstanceReferenceInformationRelationship> relationship;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -207,18 +195,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SubstanceReferenceInformationRelationship> getRelationship() {
-		if (relationship == null) {
-			relationship = new EObjectContainmentEList<SubstanceReferenceInformationRelationship>(SubstanceReferenceInformationRelationship.class, this, FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP);
-		}
-		return relationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<SubstanceReferenceInformationTarget> getTarget() {
 		if (target == null) {
 			target = new EObjectContainmentEList<SubstanceReferenceInformationTarget>(SubstanceReferenceInformationTarget.class, this, FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET);
@@ -242,8 +218,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 				return ((InternalEList<?>)getGeneElement()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__CLASSIFICATION:
 				return ((InternalEList<?>)getClassification()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP:
-				return ((InternalEList<?>)getRelationship()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET:
 				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
 		}
@@ -266,8 +240,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 				return getGeneElement();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__CLASSIFICATION:
 				return getClassification();
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP:
-				return getRelationship();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET:
 				return getTarget();
 		}
@@ -298,10 +270,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 				getClassification().clear();
 				getClassification().addAll((Collection<? extends SubstanceReferenceInformationClassification>)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP:
-				getRelationship().clear();
-				getRelationship().addAll((Collection<? extends SubstanceReferenceInformationRelationship>)newValue);
-				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET:
 				getTarget().clear();
 				getTarget().addAll((Collection<? extends SubstanceReferenceInformationTarget>)newValue);
@@ -330,9 +298,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__CLASSIFICATION:
 				getClassification().clear();
 				return;
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP:
-				getRelationship().clear();
-				return;
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET:
 				getTarget().clear();
 				return;
@@ -356,8 +321,6 @@ public class SubstanceReferenceInformationImpl extends DomainResourceImpl implem
 				return geneElement != null && !geneElement.isEmpty();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__CLASSIFICATION:
 				return classification != null && !classification.isEmpty();
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__RELATIONSHIP:
-				return relationship != null && !relationship.isEmpty();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION__TARGET:
 				return target != null && !target.isEmpty();
 		}

@@ -47,7 +47,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifier of this Invoice, often used for reference in corresponcence about this invoice or for tracking of payments.
+	 * Identifier of this Invoice, often used for reference in correspondence about this invoice or for tracking of payments.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getInvoice_Identifier()
@@ -88,7 +88,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc).
+	 * In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cancelled Reason</em>' containment reference.
 	 * @see #setCancelledReason(org.hl7.fhir.String)
@@ -114,7 +114,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type of Invoice depending on domain, realm an usage (eg. internal/external, dental, preliminary).
+	 * Type of Invoice depending on domain, realm an usage (e.g. internal/external, dental, preliminary).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -287,7 +287,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Each line item represents one charge for goods ond services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource.
+	 * Each line item represents one charge for goods and services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Line Item</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getInvoice_LineItem()
@@ -370,7 +370,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Payment details such as banking details, period of payment, deductables, methods of payment.
+	 * Payment details such as banking details, period of payment, deductibles, methods of payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Payment Terms</em>' containment reference.
 	 * @see #setPaymentTerms(Markdown)
@@ -397,7 +397,7 @@ public interface Invoice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Comments made about the invoice by the issuer, subject or other participants.
+	 * Comments made about the invoice by the issuer, subject, or other participants.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getInvoice_Note()

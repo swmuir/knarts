@@ -22,11 +22,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PaymentNotice#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getRequest <em>Request</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getResponse <em>Response</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getTarget <em>Target</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentNotice#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getPayment <em>Payment</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getPaymentDate <em>Payment Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getPayee <em>Payee</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getRecipient <em>Recipient</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentNotice#getAmount <em>Amount</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentNotice#getPaymentStatus <em>Payment Status</em>}</li>
  * </ul>
  *
@@ -41,7 +43,7 @@ public interface PaymentNotice extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The notice business identifier.
+	 * A unique identifier assigned to this payment notice.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Identifier()
@@ -61,7 +63,7 @@ public interface PaymentNotice extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -130,32 +132,6 @@ public interface PaymentNotice extends DomainResource {
 	void setResponse(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Status Date</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date when the above payment action occurrred.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Status Date</em>' containment reference.
-	 * @see #setStatusDate(Date)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_StatusDate()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='statusDate' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Date getStatusDate();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getStatusDate <em>Status Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Status Date</em>' containment reference.
-	 * @see #getStatusDate()
-	 * @generated
-	 */
-	void setStatusDate(Date value);
-
-	/**
 	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,7 +141,7 @@ public interface PaymentNotice extends DomainResource {
 	 * @return the value of the '<em>Created</em>' containment reference.
 	 * @see #setCreated(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Created()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -180,32 +156,6 @@ public interface PaymentNotice extends DomainResource {
 	 * @generated
 	 */
 	void setCreated(DateTime value);
-
-	/**
-	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The Insurer who is target  of the request.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Target()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getTarget();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getTarget <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' containment reference.
-	 * @see #getTarget()
-	 * @generated
-	 */
-	void setTarget(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Provider</b></em>' containment reference.
@@ -234,37 +184,141 @@ public interface PaymentNotice extends DomainResource {
 	void setProvider(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payment</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
+	 * A reference to the payment which is the subject of this notice.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Organization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Payment</em>' containment reference.
+	 * @see #setPayment(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Payment()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='payment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Reference getPayment();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getPayment <em>Payment</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>Payment</em>' containment reference.
+	 * @see #getPayment()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setPayment(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Payment Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date when the above payment action occurred.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payment Date</em>' containment reference.
+	 * @see #setPaymentDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_PaymentDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='paymentDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Date getPaymentDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getPaymentDate <em>Payment Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment Date</em>' containment reference.
+	 * @see #getPaymentDate()
+	 * @generated
+	 */
+	void setPaymentDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party who will receive or has received payment that is the subject of this notification.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payee</em>' containment reference.
+	 * @see #setPayee(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Payee()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='payee' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPayee();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getPayee <em>Payee</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payee</em>' containment reference.
+	 * @see #getPayee()
+	 * @generated
+	 */
+	void setPayee(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party who is notified of the payment status.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recipient</em>' containment reference.
+	 * @see #setRecipient(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Recipient()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='recipient' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRecipient();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getRecipient <em>Recipient</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recipient</em>' containment reference.
+	 * @see #getRecipient()
+	 * @generated
+	 */
+	void setRecipient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The amount sent to the payee.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Amount</em>' containment reference.
+	 * @see #setAmount(Money)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentNotice_Amount()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Money getAmount();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentNotice#getAmount <em>Amount</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Amount</em>' containment reference.
+	 * @see #getAmount()
+	 * @generated
+	 */
+	void setAmount(Money value);
 
 	/**
 	 * Returns the value of the '<em><b>Payment Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The payment status, typically paid: payment sent, cleared: payment received.
+	 * A code indicating whether payment has been sent or cleared.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Payment Status</em>' containment reference.
 	 * @see #setPaymentStatus(CodeableConcept)

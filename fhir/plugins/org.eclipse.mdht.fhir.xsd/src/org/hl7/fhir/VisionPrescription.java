@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An authorization for the supply of glasses and/or contact lenses to a patient.
+ * An authorization for the provision of glasses and/or contact lenses to a patient.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -20,13 +20,12 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.VisionPrescription#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.VisionPrescription#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.VisionPrescription#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.VisionPrescription#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.VisionPrescription#getDispense <em>Dispense</em>}</li>
+ *   <li>{@link org.hl7.fhir.VisionPrescription#getLensSpecification <em>Lens Specification</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getVisionPrescription()
@@ -40,7 +39,7 @@ public interface VisionPrescription extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Business identifier which may be used by other parties to reference or identify the prescription.
+	 * A unique identifier assigned to this vision prescription.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Identifier()
@@ -60,7 +59,7 @@ public interface VisionPrescription extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -77,16 +76,42 @@ public interface VisionPrescription extends DomainResource {
 	void setStatus(FinancialResourceStatusCodes value);
 
 	/**
+	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date this resource was created.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Created</em>' containment reference.
+	 * @see #setCreated(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Created()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getCreated();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescription#getCreated <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created</em>' containment reference.
+	 * @see #getCreated()
+	 * @generated
+	 */
+	void setCreated(DateTime value);
+
+	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A link to a resource representing the person to whom the vision products will be supplied.
+	 * A resource reference to the person to whom the vision prescription applies.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Patient()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -107,7 +132,7 @@ public interface VisionPrescription extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
+	 * A reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Encounter</em>' containment reference.
 	 * @see #setEncounter(Reference)
@@ -138,7 +163,7 @@ public interface VisionPrescription extends DomainResource {
 	 * @return the value of the '<em>Date Written</em>' containment reference.
 	 * @see #setDateWritten(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_DateWritten()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='dateWritten' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -164,7 +189,7 @@ public interface VisionPrescription extends DomainResource {
 	 * @return the value of the '<em>Prescriber</em>' containment reference.
 	 * @see #setPrescriber(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Prescriber()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='prescriber' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -181,73 +206,19 @@ public interface VisionPrescription extends DomainResource {
 	void setPrescriber(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason Codeable Concept</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Codeable Concept</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #setReasonCodeableConcept(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_ReasonCodeableConcept()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonCodeableConcept' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getReasonCodeableConcept();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescription#getReasonCodeableConcept <em>Reason Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Codeable Concept</em>' containment reference.
-	 * @see #getReasonCodeableConcept()
-	 * @generated
-	 */
-	void setReasonCodeableConcept(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reason Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #setReasonReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_ReasonReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getReasonReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VisionPrescription#getReasonReference <em>Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reason Reference</em>' containment reference.
-	 * @see #getReasonReference()
-	 * @generated
-	 */
-	void setReasonReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Dispense</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.VisionPrescriptionDispense}.
+	 * Returns the value of the '<em><b>Lens Specification</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.VisionPrescriptionLensSpecification}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Deals with details of the dispense part of the supply specification.
+	 * Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Dispense</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_Dispense()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='dispense' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Lens Specification</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getVisionPrescription_LensSpecification()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='lensSpecification' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<VisionPrescriptionDispense> getDispense();
+	EList<VisionPrescriptionLensSpecification> getLensSpecification();
 
 } // VisionPrescription

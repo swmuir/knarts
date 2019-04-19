@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Dosage;
@@ -25,7 +26,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationDispensePerformer;
-import org.hl7.fhir.MedicationDispenseStatus;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
@@ -41,6 +41,8 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getStatusReasonReference <em>Status Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getMedicationCodeableConcept <em>Medication Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getMedicationReference <em>Medication Reference</em>}</li>
@@ -61,8 +63,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getDosageInstruction <em>Dosage Instruction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getSubstitution <em>Substitution</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getDetectedIssue <em>Detected Issue</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getStatusReasonCodeableConcept <em>Status Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getStatusReasonReference <em>Status Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationDispenseImpl#getEventHistory <em>Event History</em>}</li>
  * </ul>
  *
@@ -97,7 +97,27 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationDispenseStatus status;
+	protected Code status;
+
+	/**
+	 * The cached value of the '{@link #getStatusReasonCodeableConcept() <em>Status Reason Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusReasonCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept statusReasonCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getStatusReasonReference() <em>Status Reason Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference statusReasonReference;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -300,26 +320,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	protected EList<Reference> detectedIssue;
 
 	/**
-	 * The cached value of the '{@link #getStatusReasonCodeableConcept() <em>Status Reason Codeable Concept</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatusReasonCodeableConcept()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept statusReasonCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getStatusReasonReference() <em>Status Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatusReasonReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference statusReasonReference;
-
-	/**
 	 * The cached value of the '{@link #getEventHistory() <em>Event History</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,7 +377,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationDispenseStatus getStatus() {
+	public Code getStatus() {
 		return status;
 	}
 
@@ -386,8 +386,8 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(MedicationDispenseStatus newStatus, NotificationChain msgs) {
-		MedicationDispenseStatus oldStatus = status;
+	public NotificationChain basicSetStatus(Code newStatus, NotificationChain msgs) {
+		Code oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS, oldStatus, newStatus);
@@ -401,7 +401,7 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(MedicationDispenseStatus newStatus) {
+	public void setStatus(Code newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -413,6 +413,92 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getStatusReasonCodeableConcept() {
+		return statusReasonCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReasonCodeableConcept(CodeableConcept newStatusReasonCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldStatusReasonCodeableConcept = statusReasonCodeableConcept;
+		statusReasonCodeableConcept = newStatusReasonCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, oldStatusReasonCodeableConcept, newStatusReasonCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReasonCodeableConcept(CodeableConcept newStatusReasonCodeableConcept) {
+		if (newStatusReasonCodeableConcept != statusReasonCodeableConcept) {
+			NotificationChain msgs = null;
+			if (statusReasonCodeableConcept != null)
+				msgs = ((InternalEObject)statusReasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, null, msgs);
+			if (newStatusReasonCodeableConcept != null)
+				msgs = ((InternalEObject)newStatusReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetStatusReasonCodeableConcept(newStatusReasonCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, newStatusReasonCodeableConcept, newStatusReasonCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getStatusReasonReference() {
+		return statusReasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReasonReference(Reference newStatusReasonReference, NotificationChain msgs) {
+		Reference oldStatusReasonReference = statusReasonReference;
+		statusReasonReference = newStatusReasonReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, oldStatusReasonReference, newStatusReasonReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReasonReference(Reference newStatusReasonReference) {
+		if (newStatusReasonReference != statusReasonReference) {
+			NotificationChain msgs = null;
+			if (statusReasonReference != null)
+				msgs = ((InternalEObject)statusReasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, null, msgs);
+			if (newStatusReasonReference != null)
+				msgs = ((InternalEObject)newStatusReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, null, msgs);
+			msgs = basicSetStatusReasonReference(newStatusReasonReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, newStatusReasonReference, newStatusReasonReference));
 	}
 
 	/**
@@ -1063,92 +1149,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getStatusReasonCodeableConcept() {
-		return statusReasonCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatusReasonCodeableConcept(CodeableConcept newStatusReasonCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldStatusReasonCodeableConcept = statusReasonCodeableConcept;
-		statusReasonCodeableConcept = newStatusReasonCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, oldStatusReasonCodeableConcept, newStatusReasonCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatusReasonCodeableConcept(CodeableConcept newStatusReasonCodeableConcept) {
-		if (newStatusReasonCodeableConcept != statusReasonCodeableConcept) {
-			NotificationChain msgs = null;
-			if (statusReasonCodeableConcept != null)
-				msgs = ((InternalEObject)statusReasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, null, msgs);
-			if (newStatusReasonCodeableConcept != null)
-				msgs = ((InternalEObject)newStatusReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetStatusReasonCodeableConcept(newStatusReasonCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT, newStatusReasonCodeableConcept, newStatusReasonCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getStatusReasonReference() {
-		return statusReasonReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetStatusReasonReference(Reference newStatusReasonReference, NotificationChain msgs) {
-		Reference oldStatusReasonReference = statusReasonReference;
-		statusReasonReference = newStatusReasonReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, oldStatusReasonReference, newStatusReasonReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStatusReasonReference(Reference newStatusReasonReference) {
-		if (newStatusReasonReference != statusReasonReference) {
-			NotificationChain msgs = null;
-			if (statusReasonReference != null)
-				msgs = ((InternalEObject)statusReasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, null, msgs);
-			if (newStatusReasonReference != null)
-				msgs = ((InternalEObject)newStatusReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, null, msgs);
-			msgs = basicSetStatusReasonReference(newStatusReasonReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE, newStatusReasonReference, newStatusReasonReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getEventHistory() {
 		if (eventHistory == null) {
 			eventHistory = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY);
@@ -1170,6 +1170,10 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
+				return basicSetStatusReasonCodeableConcept(null, msgs);
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
+				return basicSetStatusReasonReference(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT:
@@ -1210,10 +1214,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return basicSetSubstitution(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__DETECTED_ISSUE:
 				return ((InternalEList<?>)getDetectedIssue()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
-				return basicSetStatusReasonCodeableConcept(null, msgs);
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
-				return basicSetStatusReasonReference(null, msgs);
 			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
 				return ((InternalEList<?>)getEventHistory()).basicRemove(otherEnd, msgs);
 		}
@@ -1234,6 +1234,10 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return getPartOf();
 			case FhirPackage.MEDICATION_DISPENSE__STATUS:
 				return getStatus();
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
+				return getStatusReasonCodeableConcept();
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
+				return getStatusReasonReference();
 			case FhirPackage.MEDICATION_DISPENSE__CATEGORY:
 				return getCategory();
 			case FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT:
@@ -1274,10 +1278,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return getSubstitution();
 			case FhirPackage.MEDICATION_DISPENSE__DETECTED_ISSUE:
 				return getDetectedIssue();
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
-				return getStatusReasonCodeableConcept();
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
-				return getStatusReasonReference();
 			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
 				return getEventHistory();
 		}
@@ -1302,7 +1302,13 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__STATUS:
-				setStatus((MedicationDispenseStatus)newValue);
+				setStatus((Code)newValue);
+				return;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
+				setStatusReasonCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
+				setStatusReasonReference((Reference)newValue);
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__CATEGORY:
 				setCategory((CodeableConcept)newValue);
@@ -1371,12 +1377,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				getDetectedIssue().clear();
 				getDetectedIssue().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
-				setStatusReasonCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
-				setStatusReasonReference((Reference)newValue);
-				return;
 			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
 				getEventHistory().clear();
 				getEventHistory().addAll((Collection<? extends Reference>)newValue);
@@ -1400,7 +1400,13 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				getPartOf().clear();
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__STATUS:
-				setStatus((MedicationDispenseStatus)null);
+				setStatus((Code)null);
+				return;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
+				setStatusReasonCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
+				setStatusReasonReference((Reference)null);
 				return;
 			case FhirPackage.MEDICATION_DISPENSE__CATEGORY:
 				setCategory((CodeableConcept)null);
@@ -1462,12 +1468,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 			case FhirPackage.MEDICATION_DISPENSE__DETECTED_ISSUE:
 				getDetectedIssue().clear();
 				return;
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
-				setStatusReasonCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
-				setStatusReasonReference((Reference)null);
-				return;
 			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
 				getEventHistory().clear();
 				return;
@@ -1489,6 +1489,10 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.MEDICATION_DISPENSE__STATUS:
 				return status != null;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
+				return statusReasonCodeableConcept != null;
+			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
+				return statusReasonReference != null;
 			case FhirPackage.MEDICATION_DISPENSE__CATEGORY:
 				return category != null;
 			case FhirPackage.MEDICATION_DISPENSE__MEDICATION_CODEABLE_CONCEPT:
@@ -1529,10 +1533,6 @@ public class MedicationDispenseImpl extends DomainResourceImpl implements Medica
 				return substitution != null;
 			case FhirPackage.MEDICATION_DISPENSE__DETECTED_ISSUE:
 				return detectedIssue != null && !detectedIssue.isEmpty();
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_CODEABLE_CONCEPT:
-				return statusReasonCodeableConcept != null;
-			case FhirPackage.MEDICATION_DISPENSE__STATUS_REASON_REFERENCE:
-				return statusReasonReference != null;
 			case FhirPackage.MEDICATION_DISPENSE__EVENT_HISTORY:
 				return eventHistory != null && !eventHistory.isEmpty();
 		}

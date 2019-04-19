@@ -18,11 +18,14 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.MarketingStatus;
 import org.hl7.fhir.MedicinalProduct;
 import org.hl7.fhir.MedicinalProductManufacturingBusinessOperation;
 import org.hl7.fhir.MedicinalProductName;
+import org.hl7.fhir.MedicinalProductSpecialDesignation;
 import org.hl7.fhir.Reference;
 
 /**
@@ -35,35 +38,38 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getCombinedPharmaceuticalDoseForm <em>Combined Pharmaceutical Dose Form</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getAdditionalMonitoringIndicator <em>Additional Monitoring Indicator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getSpecialMeasures <em>Special Measures</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getPaediatricUseIndicator <em>Paediatric Use Indicator</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getOrphanDesignationStatus <em>Orphan Designation Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getProductClassification <em>Product Classification</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getMarketingAuthorization <em>Marketing Authorization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getPackagedMedicinalProduct <em>Packaged Medicinal Product</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getMarketingStatus <em>Marketing Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getPharmaceuticalProduct <em>Pharmaceutical Product</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getClinicalParticulars <em>Clinical Particulars</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getPackagedMedicinalProduct <em>Packaged Medicinal Product</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getAttachedDocument <em>Attached Document</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getMasterFile <em>Master File</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getClinicalTrial <em>Clinical Trial</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getCrossReference <em>Cross Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getManufacturingBusinessOperation <em>Manufacturing Business Operation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductImpl#getSpecialDesignation <em>Special Designation</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MedicinalProductImpl extends DomainResourceImpl implements MedicinalProduct {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -76,6 +82,16 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	protected CodeableConcept type;
 
 	/**
+	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDomain()
+	 * @generated
+	 * @ordered
+	 */
+	protected Coding domain;
+
+	/**
 	 * The cached value of the '{@link #getCombinedPharmaceuticalDoseForm() <em>Combined Pharmaceutical Dose Form</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,6 +100,16 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * @ordered
 	 */
 	protected CodeableConcept combinedPharmaceuticalDoseForm;
+
+	/**
+	 * The cached value of the '{@link #getLegalStatusOfSupply() <em>Legal Status Of Supply</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLegalStatusOfSupply()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept legalStatusOfSupply;
 
 	/**
 	 * The cached value of the '{@link #getAdditionalMonitoringIndicator() <em>Additional Monitoring Indicator</em>}' containment reference.
@@ -116,16 +142,6 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	protected CodeableConcept paediatricUseIndicator;
 
 	/**
-	 * The cached value of the '{@link #getOrphanDesignationStatus() <em>Orphan Designation Status</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrphanDesignationStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected CodeableConcept orphanDesignationStatus;
-
-	/**
 	 * The cached value of the '{@link #getProductClassification() <em>Product Classification</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,24 +152,14 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	protected EList<CodeableConcept> productClassification;
 
 	/**
-	 * The cached value of the '{@link #getMarketingAuthorization() <em>Marketing Authorization</em>}' containment reference.
+	 * The cached value of the '{@link #getMarketingStatus() <em>Marketing Status</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMarketingAuthorization()
+	 * @see #getMarketingStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference marketingAuthorization;
-
-	/**
-	 * The cached value of the '{@link #getPackagedMedicinalProduct() <em>Packaged Medicinal Product</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPackagedMedicinalProduct()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> packagedMedicinalProduct;
+	protected EList<MarketingStatus> marketingStatus;
 
 	/**
 	 * The cached value of the '{@link #getPharmaceuticalProduct() <em>Pharmaceutical Product</em>}' containment reference list.
@@ -166,14 +172,14 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	protected EList<Reference> pharmaceuticalProduct;
 
 	/**
-	 * The cached value of the '{@link #getClinicalParticulars() <em>Clinical Particulars</em>}' containment reference list.
+	 * The cached value of the '{@link #getPackagedMedicinalProduct() <em>Packaged Medicinal Product</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClinicalParticulars()
+	 * @see #getPackagedMedicinalProduct()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> clinicalParticulars;
+	protected EList<Reference> packagedMedicinalProduct;
 
 	/**
 	 * The cached value of the '{@link #getAttachedDocument() <em>Attached Document</em>}' containment reference list.
@@ -194,6 +200,26 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * @ordered
 	 */
 	protected EList<Reference> masterFile;
+
+	/**
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContact()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> contact;
+
+	/**
+	 * The cached value of the '{@link #getClinicalTrial() <em>Clinical Trial</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClinicalTrial()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> clinicalTrial;
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference list.
@@ -226,6 +252,16 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	protected EList<MedicinalProductManufacturingBusinessOperation> manufacturingBusinessOperation;
 
 	/**
+	 * The cached value of the '{@link #getSpecialDesignation() <em>Special Designation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecialDesignation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicinalProductSpecialDesignation> specialDesignation;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -249,42 +285,11 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -335,6 +340,49 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Coding getDomain() {
+		return domain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDomain(Coding newDomain, NotificationChain msgs) {
+		Coding oldDomain = domain;
+		domain = newDomain;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__DOMAIN, oldDomain, newDomain);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDomain(Coding newDomain) {
+		if (newDomain != domain) {
+			NotificationChain msgs = null;
+			if (domain != null)
+				msgs = ((InternalEObject)domain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__DOMAIN, null, msgs);
+			if (newDomain != null)
+				msgs = ((InternalEObject)newDomain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__DOMAIN, null, msgs);
+			msgs = basicSetDomain(newDomain, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__DOMAIN, newDomain, newDomain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodeableConcept getCombinedPharmaceuticalDoseForm() {
 		return combinedPharmaceuticalDoseForm;
 	}
@@ -371,6 +419,49 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM, newCombinedPharmaceuticalDoseForm, newCombinedPharmaceuticalDoseForm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getLegalStatusOfSupply() {
+		return legalStatusOfSupply;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLegalStatusOfSupply(CodeableConcept newLegalStatusOfSupply, NotificationChain msgs) {
+		CodeableConcept oldLegalStatusOfSupply = legalStatusOfSupply;
+		legalStatusOfSupply = newLegalStatusOfSupply;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY, oldLegalStatusOfSupply, newLegalStatusOfSupply);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLegalStatusOfSupply(CodeableConcept newLegalStatusOfSupply) {
+		if (newLegalStatusOfSupply != legalStatusOfSupply) {
+			NotificationChain msgs = null;
+			if (legalStatusOfSupply != null)
+				msgs = ((InternalEObject)legalStatusOfSupply).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY, null, msgs);
+			if (newLegalStatusOfSupply != null)
+				msgs = ((InternalEObject)newLegalStatusOfSupply).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY, null, msgs);
+			msgs = basicSetLegalStatusOfSupply(newLegalStatusOfSupply, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY, newLegalStatusOfSupply, newLegalStatusOfSupply));
 	}
 
 	/**
@@ -476,49 +567,6 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getOrphanDesignationStatus() {
-		return orphanDesignationStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrphanDesignationStatus(CodeableConcept newOrphanDesignationStatus, NotificationChain msgs) {
-		CodeableConcept oldOrphanDesignationStatus = orphanDesignationStatus;
-		orphanDesignationStatus = newOrphanDesignationStatus;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS, oldOrphanDesignationStatus, newOrphanDesignationStatus);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrphanDesignationStatus(CodeableConcept newOrphanDesignationStatus) {
-		if (newOrphanDesignationStatus != orphanDesignationStatus) {
-			NotificationChain msgs = null;
-			if (orphanDesignationStatus != null)
-				msgs = ((InternalEObject)orphanDesignationStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS, null, msgs);
-			if (newOrphanDesignationStatus != null)
-				msgs = ((InternalEObject)newOrphanDesignationStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS, null, msgs);
-			msgs = basicSetOrphanDesignationStatus(newOrphanDesignationStatus, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS, newOrphanDesignationStatus, newOrphanDesignationStatus));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<CodeableConcept> getProductClassification() {
 		if (productClassification == null) {
 			productClassification = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION);
@@ -531,54 +579,11 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getMarketingAuthorization() {
-		return marketingAuthorization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMarketingAuthorization(Reference newMarketingAuthorization, NotificationChain msgs) {
-		Reference oldMarketingAuthorization = marketingAuthorization;
-		marketingAuthorization = newMarketingAuthorization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION, oldMarketingAuthorization, newMarketingAuthorization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<MarketingStatus> getMarketingStatus() {
+		if (marketingStatus == null) {
+			marketingStatus = new EObjectContainmentEList<MarketingStatus>(MarketingStatus.class, this, FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMarketingAuthorization(Reference newMarketingAuthorization) {
-		if (newMarketingAuthorization != marketingAuthorization) {
-			NotificationChain msgs = null;
-			if (marketingAuthorization != null)
-				msgs = ((InternalEObject)marketingAuthorization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION, null, msgs);
-			if (newMarketingAuthorization != null)
-				msgs = ((InternalEObject)newMarketingAuthorization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION, null, msgs);
-			msgs = basicSetMarketingAuthorization(newMarketingAuthorization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION, newMarketingAuthorization, newMarketingAuthorization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getPackagedMedicinalProduct() {
-		if (packagedMedicinalProduct == null) {
-			packagedMedicinalProduct = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT);
-		}
-		return packagedMedicinalProduct;
+		return marketingStatus;
 	}
 
 	/**
@@ -598,11 +603,11 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getClinicalParticulars() {
-		if (clinicalParticulars == null) {
-			clinicalParticulars = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS);
+	public EList<Reference> getPackagedMedicinalProduct() {
+		if (packagedMedicinalProduct == null) {
+			packagedMedicinalProduct = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT);
 		}
-		return clinicalParticulars;
+		return packagedMedicinalProduct;
 	}
 
 	/**
@@ -627,6 +632,30 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 			masterFile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE);
 		}
 		return masterFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__CONTACT);
+		}
+		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getClinicalTrial() {
+		if (clinicalTrial == null) {
+			clinicalTrial = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL);
+		}
+		return clinicalTrial;
 	}
 
 	/**
@@ -670,43 +699,61 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MedicinalProductSpecialDesignation> getSpecialDesignation() {
+		if (specialDesignation == null) {
+			specialDesignation = new EObjectContainmentEList<MedicinalProductSpecialDesignation>(MedicinalProductSpecialDesignation.class, this, FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION);
+		}
+		return specialDesignation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__DOMAIN:
+				return basicSetDomain(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM:
 				return basicSetCombinedPharmaceuticalDoseForm(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY:
+				return basicSetLegalStatusOfSupply(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__ADDITIONAL_MONITORING_INDICATOR:
 				return basicSetAdditionalMonitoringIndicator(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_MEASURES:
 				return ((InternalEList<?>)getSpecialMeasures()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__PAEDIATRIC_USE_INDICATOR:
 				return basicSetPaediatricUseIndicator(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS:
-				return basicSetOrphanDesignationStatus(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION:
 				return ((InternalEList<?>)getProductClassification()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION:
-				return basicSetMarketingAuthorization(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
-				return ((InternalEList<?>)getPackagedMedicinalProduct()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS:
+				return ((InternalEList<?>)getMarketingStatus()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__PHARMACEUTICAL_PRODUCT:
 				return ((InternalEList<?>)getPharmaceuticalProduct()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS:
-				return ((InternalEList<?>)getClinicalParticulars()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
+				return ((InternalEList<?>)getPackagedMedicinalProduct()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__ATTACHED_DOCUMENT:
 				return ((InternalEList<?>)getAttachedDocument()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE:
 				return ((InternalEList<?>)getMasterFile()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL:
+				return ((InternalEList<?>)getClinicalTrial()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__NAME:
 				return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__CROSS_REFERENCE:
 				return ((InternalEList<?>)getCrossReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT__MANUFACTURING_BUSINESS_OPERATION:
 				return ((InternalEList<?>)getManufacturingBusinessOperation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION:
+				return ((InternalEList<?>)getSpecialDesignation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -723,36 +770,42 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 				return getIdentifier();
 			case FhirPackage.MEDICINAL_PRODUCT__TYPE:
 				return getType();
+			case FhirPackage.MEDICINAL_PRODUCT__DOMAIN:
+				return getDomain();
 			case FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM:
 				return getCombinedPharmaceuticalDoseForm();
+			case FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY:
+				return getLegalStatusOfSupply();
 			case FhirPackage.MEDICINAL_PRODUCT__ADDITIONAL_MONITORING_INDICATOR:
 				return getAdditionalMonitoringIndicator();
 			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_MEASURES:
 				return getSpecialMeasures();
 			case FhirPackage.MEDICINAL_PRODUCT__PAEDIATRIC_USE_INDICATOR:
 				return getPaediatricUseIndicator();
-			case FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS:
-				return getOrphanDesignationStatus();
 			case FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION:
 				return getProductClassification();
-			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION:
-				return getMarketingAuthorization();
-			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
-				return getPackagedMedicinalProduct();
+			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS:
+				return getMarketingStatus();
 			case FhirPackage.MEDICINAL_PRODUCT__PHARMACEUTICAL_PRODUCT:
 				return getPharmaceuticalProduct();
-			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS:
-				return getClinicalParticulars();
+			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
+				return getPackagedMedicinalProduct();
 			case FhirPackage.MEDICINAL_PRODUCT__ATTACHED_DOCUMENT:
 				return getAttachedDocument();
 			case FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE:
 				return getMasterFile();
+			case FhirPackage.MEDICINAL_PRODUCT__CONTACT:
+				return getContact();
+			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL:
+				return getClinicalTrial();
 			case FhirPackage.MEDICINAL_PRODUCT__NAME:
 				return getName();
 			case FhirPackage.MEDICINAL_PRODUCT__CROSS_REFERENCE:
 				return getCrossReference();
 			case FhirPackage.MEDICINAL_PRODUCT__MANUFACTURING_BUSINESS_OPERATION:
 				return getManufacturingBusinessOperation();
+			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION:
+				return getSpecialDesignation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -767,13 +820,20 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT__DOMAIN:
+				setDomain((Coding)newValue);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM:
 				setCombinedPharmaceuticalDoseForm((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY:
+				setLegalStatusOfSupply((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__ADDITIONAL_MONITORING_INDICATOR:
 				setAdditionalMonitoringIndicator((CodeableConcept)newValue);
@@ -785,27 +845,21 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 			case FhirPackage.MEDICINAL_PRODUCT__PAEDIATRIC_USE_INDICATOR:
 				setPaediatricUseIndicator((CodeableConcept)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS:
-				setOrphanDesignationStatus((CodeableConcept)newValue);
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION:
 				getProductClassification().clear();
 				getProductClassification().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION:
-				setMarketingAuthorization((Reference)newValue);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
-				getPackagedMedicinalProduct().clear();
-				getPackagedMedicinalProduct().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS:
+				getMarketingStatus().clear();
+				getMarketingStatus().addAll((Collection<? extends MarketingStatus>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__PHARMACEUTICAL_PRODUCT:
 				getPharmaceuticalProduct().clear();
 				getPharmaceuticalProduct().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS:
-				getClinicalParticulars().clear();
-				getClinicalParticulars().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
+				getPackagedMedicinalProduct().clear();
+				getPackagedMedicinalProduct().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__ATTACHED_DOCUMENT:
 				getAttachedDocument().clear();
@@ -814,6 +868,14 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 			case FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE:
 				getMasterFile().clear();
 				getMasterFile().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__CONTACT:
+				getContact().clear();
+				getContact().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL:
+				getClinicalTrial().clear();
+				getClinicalTrial().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__NAME:
 				getName().clear();
@@ -826,6 +888,10 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 			case FhirPackage.MEDICINAL_PRODUCT__MANUFACTURING_BUSINESS_OPERATION:
 				getManufacturingBusinessOperation().clear();
 				getManufacturingBusinessOperation().addAll((Collection<? extends MedicinalProductManufacturingBusinessOperation>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION:
+				getSpecialDesignation().clear();
+				getSpecialDesignation().addAll((Collection<? extends MedicinalProductSpecialDesignation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -840,13 +906,19 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__TYPE:
 				setType((CodeableConcept)null);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT__DOMAIN:
+				setDomain((Coding)null);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM:
 				setCombinedPharmaceuticalDoseForm((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY:
+				setLegalStatusOfSupply((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__ADDITIONAL_MONITORING_INDICATOR:
 				setAdditionalMonitoringIndicator((CodeableConcept)null);
@@ -857,29 +929,29 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 			case FhirPackage.MEDICINAL_PRODUCT__PAEDIATRIC_USE_INDICATOR:
 				setPaediatricUseIndicator((CodeableConcept)null);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS:
-				setOrphanDesignationStatus((CodeableConcept)null);
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION:
 				getProductClassification().clear();
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION:
-				setMarketingAuthorization((Reference)null);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
-				getPackagedMedicinalProduct().clear();
+			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS:
+				getMarketingStatus().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__PHARMACEUTICAL_PRODUCT:
 				getPharmaceuticalProduct().clear();
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS:
-				getClinicalParticulars().clear();
+			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
+				getPackagedMedicinalProduct().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__ATTACHED_DOCUMENT:
 				getAttachedDocument().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE:
 				getMasterFile().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__CONTACT:
+				getContact().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL:
+				getClinicalTrial().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__NAME:
 				getName().clear();
@@ -889,6 +961,9 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT__MANUFACTURING_BUSINESS_OPERATION:
 				getManufacturingBusinessOperation().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION:
+				getSpecialDesignation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -903,39 +978,45 @@ public class MedicinalProductImpl extends DomainResourceImpl implements Medicina
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__TYPE:
 				return type != null;
+			case FhirPackage.MEDICINAL_PRODUCT__DOMAIN:
+				return domain != null;
 			case FhirPackage.MEDICINAL_PRODUCT__COMBINED_PHARMACEUTICAL_DOSE_FORM:
 				return combinedPharmaceuticalDoseForm != null;
+			case FhirPackage.MEDICINAL_PRODUCT__LEGAL_STATUS_OF_SUPPLY:
+				return legalStatusOfSupply != null;
 			case FhirPackage.MEDICINAL_PRODUCT__ADDITIONAL_MONITORING_INDICATOR:
 				return additionalMonitoringIndicator != null;
 			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_MEASURES:
 				return specialMeasures != null && !specialMeasures.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__PAEDIATRIC_USE_INDICATOR:
 				return paediatricUseIndicator != null;
-			case FhirPackage.MEDICINAL_PRODUCT__ORPHAN_DESIGNATION_STATUS:
-				return orphanDesignationStatus != null;
 			case FhirPackage.MEDICINAL_PRODUCT__PRODUCT_CLASSIFICATION:
 				return productClassification != null && !productClassification.isEmpty();
-			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_AUTHORIZATION:
-				return marketingAuthorization != null;
-			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
-				return packagedMedicinalProduct != null && !packagedMedicinalProduct.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT__MARKETING_STATUS:
+				return marketingStatus != null && !marketingStatus.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__PHARMACEUTICAL_PRODUCT:
 				return pharmaceuticalProduct != null && !pharmaceuticalProduct.isEmpty();
-			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_PARTICULARS:
-				return clinicalParticulars != null && !clinicalParticulars.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT__PACKAGED_MEDICINAL_PRODUCT:
+				return packagedMedicinalProduct != null && !packagedMedicinalProduct.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__ATTACHED_DOCUMENT:
 				return attachedDocument != null && !attachedDocument.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__MASTER_FILE:
 				return masterFile != null && !masterFile.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT__CONTACT:
+				return contact != null && !contact.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT__CLINICAL_TRIAL:
+				return clinicalTrial != null && !clinicalTrial.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__NAME:
 				return name != null && !name.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__CROSS_REFERENCE:
 				return crossReference != null && !crossReference.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT__MANUFACTURING_BUSINESS_OPERATION:
 				return manufacturingBusinessOperation != null && !manufacturingBusinessOperation.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT__SPECIAL_DESIGNATION:
+				return specialDesignation != null && !specialDesignation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

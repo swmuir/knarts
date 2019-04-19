@@ -34,7 +34,7 @@ public class UseImpl extends ElementImpl implements Use {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final UseList VALUE_EDEFAULT = UseList.COMPLETE;
+	protected static final UseList VALUE_EDEFAULT = UseList.CLAIM;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

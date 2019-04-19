@@ -17,10 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.SubscriptionChannel;
 import org.hl7.fhir.SubscriptionChannelType;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +58,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri endpoint;
+	protected Url endpoint;
 
 	/**
 	 * The cached value of the '{@link #getPayload() <em>Payload</em>}' containment reference.
@@ -67,7 +68,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String payload;
+	protected Code payload;
 
 	/**
 	 * The cached value of the '{@link #getHeader() <em>Header</em>}' containment reference list.
@@ -146,7 +147,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getEndpoint() {
+	public Url getEndpoint() {
 		return endpoint;
 	}
 
@@ -155,8 +156,8 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEndpoint(Uri newEndpoint, NotificationChain msgs) {
-		Uri oldEndpoint = endpoint;
+	public NotificationChain basicSetEndpoint(Url newEndpoint, NotificationChain msgs) {
+		Url oldEndpoint = endpoint;
 		endpoint = newEndpoint;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION_CHANNEL__ENDPOINT, oldEndpoint, newEndpoint);
@@ -170,7 +171,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndpoint(Uri newEndpoint) {
+	public void setEndpoint(Url newEndpoint) {
 		if (newEndpoint != endpoint) {
 			NotificationChain msgs = null;
 			if (endpoint != null)
@@ -189,7 +190,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPayload() {
+	public Code getPayload() {
 		return payload;
 	}
 
@@ -198,8 +199,8 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPayload(org.hl7.fhir.String newPayload, NotificationChain msgs) {
-		org.hl7.fhir.String oldPayload = payload;
+	public NotificationChain basicSetPayload(Code newPayload, NotificationChain msgs) {
+		Code oldPayload = payload;
 		payload = newPayload;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSCRIPTION_CHANNEL__PAYLOAD, oldPayload, newPayload);
@@ -213,7 +214,7 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPayload(org.hl7.fhir.String newPayload) {
+	public void setPayload(Code newPayload) {
 		if (newPayload != payload) {
 			NotificationChain msgs = null;
 			if (payload != null)
@@ -292,10 +293,10 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 				setType((SubscriptionChannelType)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__ENDPOINT:
-				setEndpoint((Uri)newValue);
+				setEndpoint((Url)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__PAYLOAD:
-				setPayload((org.hl7.fhir.String)newValue);
+				setPayload((Code)newValue);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
 				getHeader().clear();
@@ -317,10 +318,10 @@ public class SubscriptionChannelImpl extends BackboneElementImpl implements Subs
 				setType((SubscriptionChannelType)null);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__ENDPOINT:
-				setEndpoint((Uri)null);
+				setEndpoint((Url)null);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__PAYLOAD:
-				setPayload((org.hl7.fhir.String)null);
+				setPayload((Code)null);
 				return;
 			case FhirPackage.SUBSCRIPTION_CHANNEL__HEADER:
 				getHeader().clear();

@@ -37,7 +37,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getProductOrService <em>Product Or Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimSubDetailImpl#getQuantity <em>Quantity</em>}</li>
@@ -81,14 +81,14 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 	protected CodeableConcept category;
 
 	/**
-	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
+	 * The cached value of the '{@link #getProductOrService() <em>Product Or Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getService()
+	 * @see #getProductOrService()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept service;
+	protected CodeableConcept productOrService;
 
 	/**
 	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
@@ -313,8 +313,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getService() {
-		return service;
+	public CodeableConcept getProductOrService() {
+		return productOrService;
 	}
 
 	/**
@@ -322,11 +322,11 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(CodeableConcept newService, NotificationChain msgs) {
-		CodeableConcept oldService = service;
-		service = newService;
+	public NotificationChain basicSetProductOrService(CodeableConcept newProductOrService, NotificationChain msgs) {
+		CodeableConcept oldProductOrService = productOrService;
+		productOrService = newProductOrService;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_SUB_DETAIL__SERVICE, oldService, newService);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE, oldProductOrService, newProductOrService);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -337,18 +337,18 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(CodeableConcept newService) {
-		if (newService != service) {
+	public void setProductOrService(CodeableConcept newProductOrService) {
+		if (newProductOrService != productOrService) {
 			NotificationChain msgs = null;
-			if (service != null)
-				msgs = ((InternalEObject)service).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_SUB_DETAIL__SERVICE, null, msgs);
-			if (newService != null)
-				msgs = ((InternalEObject)newService).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_SUB_DETAIL__SERVICE, null, msgs);
-			msgs = basicSetService(newService, msgs);
+			if (productOrService != null)
+				msgs = ((InternalEObject)productOrService).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE, null, msgs);
+			if (newProductOrService != null)
+				msgs = ((InternalEObject)newProductOrService).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE, null, msgs);
+			msgs = basicSetProductOrService(newProductOrService, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_SUB_DETAIL__SERVICE, newService, newService));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE, newProductOrService, newProductOrService));
 	}
 
 	/**
@@ -573,8 +573,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 				return basicSetRevenue(null, msgs);
 			case FhirPackage.CLAIM_SUB_DETAIL__CATEGORY:
 				return basicSetCategory(null, msgs);
-			case FhirPackage.CLAIM_SUB_DETAIL__SERVICE:
-				return basicSetService(null, msgs);
+			case FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE:
+				return basicSetProductOrService(null, msgs);
 			case FhirPackage.CLAIM_SUB_DETAIL__MODIFIER:
 				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_SUB_DETAIL__PROGRAM_CODE:
@@ -607,8 +607,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 				return getRevenue();
 			case FhirPackage.CLAIM_SUB_DETAIL__CATEGORY:
 				return getCategory();
-			case FhirPackage.CLAIM_SUB_DETAIL__SERVICE:
-				return getService();
+			case FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE:
+				return getProductOrService();
 			case FhirPackage.CLAIM_SUB_DETAIL__MODIFIER:
 				return getModifier();
 			case FhirPackage.CLAIM_SUB_DETAIL__PROGRAM_CODE:
@@ -645,8 +645,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 			case FhirPackage.CLAIM_SUB_DETAIL__CATEGORY:
 				setCategory((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM_SUB_DETAIL__SERVICE:
-				setService((CodeableConcept)newValue);
+			case FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE:
+				setProductOrService((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_SUB_DETAIL__MODIFIER:
 				getModifier().clear();
@@ -693,8 +693,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 			case FhirPackage.CLAIM_SUB_DETAIL__CATEGORY:
 				setCategory((CodeableConcept)null);
 				return;
-			case FhirPackage.CLAIM_SUB_DETAIL__SERVICE:
-				setService((CodeableConcept)null);
+			case FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE:
+				setProductOrService((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_SUB_DETAIL__MODIFIER:
 				getModifier().clear();
@@ -735,8 +735,8 @@ public class ClaimSubDetailImpl extends BackboneElementImpl implements ClaimSubD
 				return revenue != null;
 			case FhirPackage.CLAIM_SUB_DETAIL__CATEGORY:
 				return category != null;
-			case FhirPackage.CLAIM_SUB_DETAIL__SERVICE:
-				return service != null;
+			case FhirPackage.CLAIM_SUB_DETAIL__PRODUCT_OR_SERVICE:
+				return productOrService != null;
 			case FhirPackage.CLAIM_SUB_DETAIL__MODIFIER:
 				return modifier != null && !modifier.isEmpty();
 			case FhirPackage.CLAIM_SUB_DETAIL__PROGRAM_CODE:

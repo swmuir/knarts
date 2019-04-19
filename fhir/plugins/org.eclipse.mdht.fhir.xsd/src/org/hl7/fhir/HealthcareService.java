@@ -33,9 +33,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.HealthcareService#getCoverageArea <em>Coverage Area</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getServiceProvisionCode <em>Service Provision Code</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getEligibility <em>Eligibility</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getEligibilityNote <em>Eligibility Note</em>}</li>
- *   <li>{@link org.hl7.fhir.HealthcareService#getProgramName <em>Program Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getProgram <em>Program</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getCharacteristic <em>Characteristic</em>}</li>
+ *   <li>{@link org.hl7.fhir.HealthcareService#getCommunication <em>Communication</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getReferralMethod <em>Referral Method</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getAppointmentRequired <em>Appointment Required</em>}</li>
  *   <li>{@link org.hl7.fhir.HealthcareService#getAvailableTime <em>Available Time</em>}</li>
@@ -70,7 +70,7 @@ public interface HealthcareService extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
+	 * This flag is used to mark the record to not be used. This is not used when a center is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' containment reference.
 	 * @see #setActive(org.hl7.fhir.Boolean)
@@ -118,30 +118,20 @@ public interface HealthcareService extends DomainResource {
 	void setProvidedBy(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies the broad category of service being performed or delivered.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
+	 * @return the value of the '<em>Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getCategory <em>Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	void setCategory(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
@@ -251,13 +241,13 @@ public interface HealthcareService extends DomainResource {
 	 * Extra details about the service that can't be placed in the other fields.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Extra Details</em>' containment reference.
-	 * @see #setExtraDetails(org.hl7.fhir.String)
+	 * @see #setExtraDetails(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_ExtraDetails()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='extraDetails' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getExtraDetails();
+	Markdown getExtraDetails();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getExtraDetails <em>Extra Details</em>}' containment reference.
@@ -267,7 +257,7 @@ public interface HealthcareService extends DomainResource {
 	 * @see #getExtraDetails()
 	 * @generated
 	 */
-	void setExtraDetails(org.hl7.fhir.String value);
+	void setExtraDetails(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Photo</b></em>' containment reference.
@@ -344,72 +334,36 @@ public interface HealthcareService extends DomainResource {
 	EList<CodeableConcept> getServiceProvisionCode();
 
 	/**
-	 * Returns the value of the '<em><b>Eligibility</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Eligibility</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.HealthcareServiceEligibility}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Does this service have specific eligibility requirements that need to be met in order to use the service?
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Eligibility</em>' containment reference.
-	 * @see #setEligibility(CodeableConcept)
+	 * @return the value of the '<em>Eligibility</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Eligibility()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='eligibility' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getEligibility();
+	EList<HealthcareServiceEligibility> getEligibility();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getEligibility <em>Eligibility</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Eligibility</em>' containment reference.
-	 * @see #getEligibility()
-	 * @generated
-	 */
-	void setEligibility(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Eligibility Note</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Program</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the eligibility conditions for the service.
+	 * Programs that this service is applicable to.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Eligibility Note</em>' containment reference.
-	 * @see #setEligibilityNote(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_EligibilityNote()
+	 * @return the value of the '<em>Program</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Program()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eligibilityNote' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='program' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getEligibilityNote();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.HealthcareService#getEligibilityNote <em>Eligibility Note</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Eligibility Note</em>' containment reference.
-	 * @see #getEligibilityNote()
-	 * @generated
-	 */
-	void setEligibilityNote(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Program Name</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Program Names that can be used to categorize the service.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Program Name</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_ProgramName()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='programName' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<org.hl7.fhir.String> getProgramName();
+	EList<CodeableConcept> getProgram();
 
 	/**
 	 * Returns the value of the '<em><b>Characteristic</b></em>' containment reference list.
@@ -426,6 +380,22 @@ public interface HealthcareService extends DomainResource {
 	 * @generated
 	 */
 	EList<CodeableConcept> getCharacteristic();
+
+	/**
+	 * Returns the value of the '<em><b>Communication</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Some services are specifically made available in multiple languages, this property permits a directory to declare the languages this is offered in. Typically this is only provided where a service operates in communities with mixed languages used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Communication</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getHealthcareService_Communication()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='communication' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCommunication();
 
 	/**
 	 * Returns the value of the '<em><b>Referral Method</b></em>' containment reference list.

@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -193,30 +194,20 @@ public interface TriggerDefinition extends Element {
 	void setTimingDateTime(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Data</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Data</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DataRequirement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The triggering data of the event (if this is a data trigger).
+	 * The triggering data of the event (if this is a data trigger). If more than one data is requirement is specified, then all the data requirements must be true.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Data</em>' containment reference.
-	 * @see #setData(DataRequirement)
+	 * @return the value of the '<em>Data</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_Data()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='data' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DataRequirement getData();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getData <em>Data</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data</em>' containment reference.
-	 * @see #getData()
-	 * @generated
-	 */
-	void setData(DataRequirement value);
+	EList<DataRequirement> getData();
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -226,13 +217,13 @@ public interface TriggerDefinition extends Element {
 	 * A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference.
-	 * @see #setCondition(TriggerDefinitionCondition)
+	 * @see #setCondition(Expression)
 	 * @see org.hl7.fhir.FhirPackage#getTriggerDefinition_Condition()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	TriggerDefinitionCondition getCondition();
+	Expression getCondition();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TriggerDefinition#getCondition <em>Condition</em>}' containment reference.
@@ -242,6 +233,6 @@ public interface TriggerDefinition extends Element {
 	 * @see #getCondition()
 	 * @generated
 	 */
-	void setCondition(TriggerDefinitionCondition value);
+	void setCondition(Expression value);
 
 } // TriggerDefinition

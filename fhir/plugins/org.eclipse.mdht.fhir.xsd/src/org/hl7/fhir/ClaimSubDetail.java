@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.ClaimSubDetail#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimSubDetail#getProductOrService <em>Product Or Service</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimSubDetail#getQuantity <em>Quantity</em>}</li>
@@ -40,7 +40,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line number.
+	 * A number to uniquely identify item entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -66,7 +66,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of reveneu or cost center providing the product and/or service.
+	 * The type of revenue or cost center providing the product and/or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Revenue</em>' containment reference.
 	 * @see #setRevenue(CodeableConcept)
@@ -92,7 +92,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * Code to identify the general type of benefits under which products and services are provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -114,30 +114,30 @@ public interface ClaimSubDetail extends BackboneElement {
 	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Product Or Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
+	 * When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getClaimSubDetail_Service()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #setProductOrService(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimSubDetail_ProductOrService()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='productOrService' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getService();
+	CodeableConcept getProductOrService();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClaimSubDetail#getService <em>Service</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimSubDetail#getProductOrService <em>Product Or Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service</em>' containment reference.
-	 * @see #getService()
+	 * @param value the new value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #getProductOrService()
 	 * @generated
 	 */
-	void setService(CodeableConcept value);
+	void setProductOrService(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
@@ -145,7 +145,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+	 * Item typification or modifiers codes to convey additional context for the product or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimSubDetail_Modifier()
@@ -161,7 +161,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+	 * Identifies the program under which this may be recovered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Program Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimSubDetail_ProgramCode()
@@ -202,7 +202,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fee for an addittional service or product or charge.
+	 * If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unit Price</em>' containment reference.
 	 * @see #setUnitPrice(Money)
@@ -254,7 +254,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+	 * The quantity times the unit price for an additional service or product or charge.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Net</em>' containment reference.
 	 * @see #setNet(Money)
@@ -281,7 +281,7 @@ public interface ClaimSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of Unique Device Identifiers associated with this line item.
+	 * Unique Device Identifiers associated with this line item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Udi</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimSubDetail_Udi()

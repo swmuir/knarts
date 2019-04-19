@@ -18,7 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MessageHeader#getEvent <em>Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeader#getEventCoding <em>Event Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageHeader#getEventUri <em>Event Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageHeader#getEnterer <em>Enterer</em>}</li>
@@ -37,30 +38,58 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MessageHeader extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Event</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Event Coding</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Coding</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-events".
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event</em>' containment reference.
-	 * @see #setEvent(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Event()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Event Coding</em>' containment reference.
+	 * @see #setEventCoding(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_EventCoding()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='eventCoding' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getEvent();
+	Coding getEventCoding();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getEvent <em>Event</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getEventCoding <em>Event Coding</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event</em>' containment reference.
-	 * @see #getEvent()
+	 * @param value the new value of the '<em>Event Coding</em>' containment reference.
+	 * @see #getEventCoding()
 	 * @generated
 	 */
-	void setEvent(Coding value);
+	void setEventCoding(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Uri</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Uri</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Uri</em>' containment reference.
+	 * @see #setEventUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_EventUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='eventUri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getEventUri();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getEventUri <em>Event Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event Uri</em>' containment reference.
+	 * @see #getEventUri()
+	 * @generated
+	 */
+	void setEventUri(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Destination</b></em>' containment reference list.
@@ -284,13 +313,13 @@ public interface MessageHeader extends DomainResource {
 	 * Permanent link to the MessageDefinition for this message.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Uri)
+	 * @see #setDefinition(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getMessageHeader_Definition()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getDefinition();
+	Canonical getDefinition();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageHeader#getDefinition <em>Definition</em>}' containment reference.
@@ -300,6 +329,6 @@ public interface MessageHeader extends DomainResource {
 	 * @see #getDefinition()
 	 * @generated
 	 */
-	void setDefinition(Uri value);
+	void setDefinition(Canonical value);
 
 } // MessageHeader

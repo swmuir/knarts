@@ -59,7 +59,7 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * @generated
 	 * @ordered
 	 */
-	protected Code value;
+	protected org.hl7.fhir.String value;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,7 +171,7 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Code getValue() {
+	public org.hl7.fhir.String getValue() {
 		return value;
 	}
 
@@ -180,8 +180,8 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(Code newValue, NotificationChain msgs) {
-		Code oldValue = value;
+	public NotificationChain basicSetValue(org.hl7.fhir.String newValue, NotificationChain msgs) {
+		org.hl7.fhir.String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_FILTER__VALUE, oldValue, newValue);
@@ -195,7 +195,7 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Code newValue) {
+	public void setValue(org.hl7.fhir.String newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;
 			if (value != null)
@@ -260,7 +260,7 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 				setOp((FilterOperator)newValue);
 				return;
 			case FhirPackage.VALUE_SET_FILTER__VALUE:
-				setValue((Code)newValue);
+				setValue((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,7 +281,7 @@ public class ValueSetFilterImpl extends BackboneElementImpl implements ValueSetF
 				setOp((FilterOperator)null);
 				return;
 			case FhirPackage.VALUE_SET_FILTER__VALUE:
-				setValue((Code)null);
+				setValue((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -29,6 +29,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInsuranceImpl#getFocal <em>Focal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInsuranceImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExplanationOfBenefitInsuranceImpl#getPreAuthRef <em>Pre Auth Ref</em>}</li>
  * </ul>
@@ -36,6 +37,16 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl implements ExplanationOfBenefitInsurance {
+	/**
+	 * The cached value of the '{@link #getFocal() <em>Focal</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFocal()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean focal;
+
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -73,6 +84,49 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getExplanationOfBenefitInsurance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getFocal() {
+		return focal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFocal(org.hl7.fhir.Boolean newFocal, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldFocal = focal;
+		focal = newFocal;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL, oldFocal, newFocal);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFocal(org.hl7.fhir.Boolean newFocal) {
+		if (newFocal != focal) {
+			NotificationChain msgs = null;
+			if (focal != null)
+				msgs = ((InternalEObject)focal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL, null, msgs);
+			if (newFocal != null)
+				msgs = ((InternalEObject)newFocal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL, null, msgs);
+			msgs = basicSetFocal(newFocal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL, newFocal, newFocal));
 	}
 
 	/**
@@ -138,6 +192,8 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL:
+				return basicSetFocal(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__COVERAGE:
 				return basicSetCoverage(null, msgs);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__PRE_AUTH_REF:
@@ -154,6 +210,8 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL:
+				return getFocal();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__COVERAGE:
 				return getCoverage();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__PRE_AUTH_REF:
@@ -171,6 +229,9 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL:
+				setFocal((org.hl7.fhir.Boolean)newValue);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__COVERAGE:
 				setCoverage((Reference)newValue);
 				return;
@@ -190,6 +251,9 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL:
+				setFocal((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__COVERAGE:
 				setCoverage((Reference)null);
 				return;
@@ -208,6 +272,8 @@ public class ExplanationOfBenefitInsuranceImpl extends BackboneElementImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__FOCAL:
+				return focal != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__COVERAGE:
 				return coverage != null;
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE__PRE_AUTH_REF:

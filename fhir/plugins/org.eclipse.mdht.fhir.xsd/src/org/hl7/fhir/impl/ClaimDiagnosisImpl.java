@@ -35,6 +35,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimDiagnosisImpl#getDiagnosisCodeableConcept <em>Diagnosis Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimDiagnosisImpl#getDiagnosisReference <em>Diagnosis Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimDiagnosisImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimDiagnosisImpl#getOnAdmission <em>On Admission</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimDiagnosisImpl#getPackageCode <em>Package Code</em>}</li>
  * </ul>
  *
@@ -80,6 +81,16 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> type;
+
+	/**
+	 * The cached value of the '{@link #getOnAdmission() <em>On Admission</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAdmission()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept onAdmission;
 
 	/**
 	 * The cached value of the '{@link #getPackageCode() <em>Package Code</em>}' containment reference.
@@ -256,6 +267,49 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getOnAdmission() {
+		return onAdmission;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnAdmission(CodeableConcept newOnAdmission, NotificationChain msgs) {
+		CodeableConcept oldOnAdmission = onAdmission;
+		onAdmission = newOnAdmission;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION, oldOnAdmission, newOnAdmission);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnAdmission(CodeableConcept newOnAdmission) {
+		if (newOnAdmission != onAdmission) {
+			NotificationChain msgs = null;
+			if (onAdmission != null)
+				msgs = ((InternalEObject)onAdmission).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION, null, msgs);
+			if (newOnAdmission != null)
+				msgs = ((InternalEObject)newOnAdmission).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION, null, msgs);
+			msgs = basicSetOnAdmission(newOnAdmission, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION, newOnAdmission, newOnAdmission));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodeableConcept getPackageCode() {
 		return packageCode;
 	}
@@ -310,6 +364,8 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 				return basicSetDiagnosisReference(null, msgs);
 			case FhirPackage.CLAIM_DIAGNOSIS__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION:
+				return basicSetOnAdmission(null, msgs);
 			case FhirPackage.CLAIM_DIAGNOSIS__PACKAGE_CODE:
 				return basicSetPackageCode(null, msgs);
 		}
@@ -332,6 +388,8 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 				return getDiagnosisReference();
 			case FhirPackage.CLAIM_DIAGNOSIS__TYPE:
 				return getType();
+			case FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION:
+				return getOnAdmission();
 			case FhirPackage.CLAIM_DIAGNOSIS__PACKAGE_CODE:
 				return getPackageCode();
 		}
@@ -360,6 +418,9 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 				getType().clear();
 				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION:
+				setOnAdmission((CodeableConcept)newValue);
+				return;
 			case FhirPackage.CLAIM_DIAGNOSIS__PACKAGE_CODE:
 				setPackageCode((CodeableConcept)newValue);
 				return;
@@ -387,6 +448,9 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 			case FhirPackage.CLAIM_DIAGNOSIS__TYPE:
 				getType().clear();
 				return;
+			case FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION:
+				setOnAdmission((CodeableConcept)null);
+				return;
 			case FhirPackage.CLAIM_DIAGNOSIS__PACKAGE_CODE:
 				setPackageCode((CodeableConcept)null);
 				return;
@@ -410,6 +474,8 @@ public class ClaimDiagnosisImpl extends BackboneElementImpl implements ClaimDiag
 				return diagnosisReference != null;
 			case FhirPackage.CLAIM_DIAGNOSIS__TYPE:
 				return type != null && !type.isEmpty();
+			case FhirPackage.CLAIM_DIAGNOSIS__ON_ADMISSION:
+				return onAdmission != null;
 			case FhirPackage.CLAIM_DIAGNOSIS__PACKAGE_CODE:
 				return packageCode != null;
 		}

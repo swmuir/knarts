@@ -19,7 +19,11 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getInstantiatesUri <em>Instantiates Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getInstantiates <em>Instantiates</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.NutritionOrder#getIntent <em>Intent</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.NutritionOrder#getDateTime <em>Date Time</em>}</li>
@@ -55,6 +59,54 @@ public interface NutritionOrder extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_InstantiatesCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getInstantiatesCanonical();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_InstantiatesUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getInstantiatesUri();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Instantiates()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getInstantiates();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,13 +114,13 @@ public interface NutritionOrder extends DomainResource {
 	 * The workflow status of the nutrition order/request.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(NutritionOrderStatus)
+	 * @see #setStatus(RequestStatus)
 	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	NutritionOrderStatus getStatus();
+	RequestStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getStatus <em>Status</em>}' containment reference.
@@ -78,7 +130,33 @@ public interface NutritionOrder extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(NutritionOrderStatus value);
+	void setStatus(RequestStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Intent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Intent</em>' containment reference.
+	 * @see #setIntent(RequestIntent)
+	 * @see org.hl7.fhir.FhirPackage#getNutritionOrder_Intent()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestIntent getIntent();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.NutritionOrder#getIntent <em>Intent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Intent</em>' containment reference.
+	 * @see #getIntent()
+	 * @generated
+	 */
+	void setIntent(RequestIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Patient</b></em>' containment reference.

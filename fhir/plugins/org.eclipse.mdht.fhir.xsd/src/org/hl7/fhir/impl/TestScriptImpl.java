@@ -30,8 +30,6 @@ import org.hl7.fhir.TestScriptDestination;
 import org.hl7.fhir.TestScriptFixture;
 import org.hl7.fhir.TestScriptMetadata;
 import org.hl7.fhir.TestScriptOrigin;
-import org.hl7.fhir.TestScriptRule;
-import org.hl7.fhir.TestScriptRuleset;
 import org.hl7.fhir.TestScriptSetup;
 import org.hl7.fhir.TestScriptTeardown;
 import org.hl7.fhir.TestScriptTest;
@@ -68,8 +66,6 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRule <em>Rule</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getTest <em>Test</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptImpl#getTeardown <em>Teardown</em>}</li>
@@ -287,26 +283,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * @ordered
 	 */
 	protected EList<TestScriptVariable> variable;
-
-	/**
-	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRule()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TestScriptRule> rule;
-
-	/**
-	 * The cached value of the '{@link #getRuleset() <em>Ruleset</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuleset()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TestScriptRuleset> ruleset;
 
 	/**
 	 * The cached value of the '{@link #getSetup() <em>Setup</em>}' containment reference.
@@ -1017,30 +993,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TestScriptRule> getRule() {
-		if (rule == null) {
-			rule = new EObjectContainmentEList<TestScriptRule>(TestScriptRule.class, this, FhirPackage.TEST_SCRIPT__RULE);
-		}
-		return rule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TestScriptRuleset> getRuleset() {
-		if (ruleset == null) {
-			ruleset = new EObjectContainmentEList<TestScriptRuleset>(TestScriptRuleset.class, this, FhirPackage.TEST_SCRIPT__RULESET);
-		}
-		return ruleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TestScriptSetup getSetup() {
 		return setup;
 	}
@@ -1184,10 +1136,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TEST_SCRIPT__RULE:
-				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
-			case FhirPackage.TEST_SCRIPT__RULESET:
-				return ((InternalEList<?>)getRuleset()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return basicSetSetup(null, msgs);
 			case FhirPackage.TEST_SCRIPT__TEST:
@@ -1248,10 +1196,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return getProfile();
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return getVariable();
-			case FhirPackage.TEST_SCRIPT__RULE:
-				return getRule();
-			case FhirPackage.TEST_SCRIPT__RULESET:
-				return getRuleset();
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return getSetup();
 			case FhirPackage.TEST_SCRIPT__TEST:
@@ -1342,14 +1286,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				getVariable().clear();
 				getVariable().addAll((Collection<? extends TestScriptVariable>)newValue);
 				return;
-			case FhirPackage.TEST_SCRIPT__RULE:
-				getRule().clear();
-				getRule().addAll((Collection<? extends TestScriptRule>)newValue);
-				return;
-			case FhirPackage.TEST_SCRIPT__RULESET:
-				getRuleset().clear();
-				getRuleset().addAll((Collection<? extends TestScriptRuleset>)newValue);
-				return;
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				setSetup((TestScriptSetup)newValue);
 				return;
@@ -1435,12 +1371,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				getVariable().clear();
 				return;
-			case FhirPackage.TEST_SCRIPT__RULE:
-				getRule().clear();
-				return;
-			case FhirPackage.TEST_SCRIPT__RULESET:
-				getRuleset().clear();
-				return;
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				setSetup((TestScriptSetup)null);
 				return;
@@ -1504,10 +1434,6 @@ public class TestScriptImpl extends DomainResourceImpl implements TestScript {
 				return profile != null && !profile.isEmpty();
 			case FhirPackage.TEST_SCRIPT__VARIABLE:
 				return variable != null && !variable.isEmpty();
-			case FhirPackage.TEST_SCRIPT__RULE:
-				return rule != null && !rule.isEmpty();
-			case FhirPackage.TEST_SCRIPT__RULESET:
-				return ruleset != null && !ruleset.isEmpty();
 			case FhirPackage.TEST_SCRIPT__SETUP:
 				return setup != null;
 			case FhirPackage.TEST_SCRIPT__TEST:

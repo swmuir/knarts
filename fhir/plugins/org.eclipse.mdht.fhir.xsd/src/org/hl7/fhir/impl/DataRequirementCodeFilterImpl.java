@@ -17,11 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +31,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getPath <em>Path</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSetUri <em>Value Set Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSetReference <em>Value Set Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getSearchParam <em>Search Param</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getValueSet <em>Value Set</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementCodeFilterImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -51,24 +50,24 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	protected org.hl7.fhir.String path;
 
 	/**
-	 * The cached value of the '{@link #getValueSetUri() <em>Value Set Uri</em>}' containment reference.
+	 * The cached value of the '{@link #getSearchParam() <em>Search Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueSetUri()
+	 * @see #getSearchParam()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri valueSetUri;
+	protected org.hl7.fhir.String searchParam;
 
 	/**
-	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getValueSet() <em>Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueSetReference()
+	 * @see #getValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference valueSetReference;
+	protected Canonical valueSet;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
@@ -147,8 +146,8 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getValueSetUri() {
-		return valueSetUri;
+	public org.hl7.fhir.String getSearchParam() {
+		return searchParam;
 	}
 
 	/**
@@ -156,11 +155,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSetUri(Uri newValueSetUri, NotificationChain msgs) {
-		Uri oldValueSetUri = valueSetUri;
-		valueSetUri = newValueSetUri;
+	public NotificationChain basicSetSearchParam(org.hl7.fhir.String newSearchParam, NotificationChain msgs) {
+		org.hl7.fhir.String oldSearchParam = searchParam;
+		searchParam = newSearchParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, oldValueSetUri, newValueSetUri);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM, oldSearchParam, newSearchParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -171,18 +170,18 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetUri(Uri newValueSetUri) {
-		if (newValueSetUri != valueSetUri) {
+	public void setSearchParam(org.hl7.fhir.String newSearchParam) {
+		if (newSearchParam != searchParam) {
 			NotificationChain msgs = null;
-			if (valueSetUri != null)
-				msgs = ((InternalEObject)valueSetUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, null, msgs);
-			if (newValueSetUri != null)
-				msgs = ((InternalEObject)newValueSetUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, null, msgs);
-			msgs = basicSetValueSetUri(newValueSetUri, msgs);
+			if (searchParam != null)
+				msgs = ((InternalEObject)searchParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM, null, msgs);
+			if (newSearchParam != null)
+				msgs = ((InternalEObject)newSearchParam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM, null, msgs);
+			msgs = basicSetSearchParam(newSearchParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI, newValueSetUri, newValueSetUri));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM, newSearchParam, newSearchParam));
 	}
 
 	/**
@@ -190,8 +189,8 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getValueSetReference() {
-		return valueSetReference;
+	public Canonical getValueSet() {
+		return valueSet;
 	}
 
 	/**
@@ -199,11 +198,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSetReference(Reference newValueSetReference, NotificationChain msgs) {
-		Reference oldValueSetReference = valueSetReference;
-		valueSetReference = newValueSetReference;
+	public NotificationChain basicSetValueSet(Canonical newValueSet, NotificationChain msgs) {
+		Canonical oldValueSet = valueSet;
+		valueSet = newValueSet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE, oldValueSetReference, newValueSetReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET, oldValueSet, newValueSet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -214,18 +213,18 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetReference(Reference newValueSetReference) {
-		if (newValueSetReference != valueSetReference) {
+	public void setValueSet(Canonical newValueSet) {
+		if (newValueSet != valueSet) {
 			NotificationChain msgs = null;
-			if (valueSetReference != null)
-				msgs = ((InternalEObject)valueSetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE, null, msgs);
-			if (newValueSetReference != null)
-				msgs = ((InternalEObject)newValueSetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE, null, msgs);
-			msgs = basicSetValueSetReference(newValueSetReference, msgs);
+			if (valueSet != null)
+				msgs = ((InternalEObject)valueSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET, null, msgs);
+			if (newValueSet != null)
+				msgs = ((InternalEObject)newValueSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET, null, msgs);
+			msgs = basicSetValueSet(newValueSet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE, newValueSetReference, newValueSetReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET, newValueSet, newValueSet));
 	}
 
 	/**
@@ -250,10 +249,10 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return basicSetPath(null, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
-				return basicSetValueSetUri(null, msgs);
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
-				return basicSetValueSetReference(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM:
+				return basicSetSearchParam(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET:
+				return basicSetValueSet(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
 				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 		}
@@ -270,10 +269,10 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return getPath();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
-				return getValueSetUri();
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
-				return getValueSetReference();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM:
+				return getSearchParam();
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET:
+				return getValueSet();
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
 				return getCode();
 		}
@@ -292,11 +291,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
-				setValueSetUri((Uri)newValue);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM:
+				setSearchParam((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)newValue);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET:
+				setValueSet((Canonical)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
 				getCode().clear();
@@ -317,11 +316,11 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
-				setValueSetUri((Uri)null);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM:
+				setSearchParam((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)null);
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET:
+				setValueSet((Canonical)null);
 				return;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
 				getCode().clear();
@@ -340,10 +339,10 @@ public class DataRequirementCodeFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__PATH:
 				return path != null;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_URI:
-				return valueSetUri != null;
-			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET_REFERENCE:
-				return valueSetReference != null;
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__SEARCH_PARAM:
+				return searchParam != null;
+			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__VALUE_SET:
+				return valueSet != null;
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER__CODE:
 				return code != null && !code.isEmpty();
 		}

@@ -138,7 +138,7 @@ public interface Coding extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
+	 * Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>User Selected</em>' containment reference.
 	 * @see #setUserSelected(org.hl7.fhir.Boolean)

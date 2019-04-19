@@ -40,8 +40,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AccountImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AccountImpl#getServicePeriod <em>Service Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AccountImpl#getDescription <em>Description</em>}</li>
@@ -93,34 +92,24 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	protected org.hl7.fhir.String name;
 
 	/**
-	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSubject()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference subject;
+	protected EList<Reference> subject;
 
 	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * The cached value of the '{@link #getServicePeriod() <em>Service Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
+	 * @see #getServicePeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period period;
-
-	/**
-	 * The cached value of the '{@link #getActive() <em>Active</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period active;
+	protected Period servicePeriod;
 
 	/**
 	 * The cached value of the '{@link #getCoverage() <em>Coverage</em>}' containment reference list.
@@ -337,7 +326,10 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSubject() {
+	public EList<Reference> getSubject() {
+		if (subject == null) {
+			subject = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACCOUNT__SUBJECT);
+		}
 		return subject;
 	}
 
@@ -346,11 +338,20 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
-		Reference oldSubject = subject;
-		subject = newSubject;
+	public Period getServicePeriod() {
+		return servicePeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetServicePeriod(Period newServicePeriod, NotificationChain msgs) {
+		Period oldServicePeriod = servicePeriod;
+		servicePeriod = newServicePeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, oldSubject, newSubject);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SERVICE_PERIOD, oldServicePeriod, newServicePeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -361,104 +362,18 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubject(Reference newSubject) {
-		if (newSubject != subject) {
+	public void setServicePeriod(Period newServicePeriod) {
+		if (newServicePeriod != servicePeriod) {
 			NotificationChain msgs = null;
-			if (subject != null)
-				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
-			if (newSubject != null)
-				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SUBJECT, null, msgs);
-			msgs = basicSetSubject(newSubject, msgs);
+			if (servicePeriod != null)
+				msgs = ((InternalEObject)servicePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SERVICE_PERIOD, null, msgs);
+			if (newServicePeriod != null)
+				msgs = ((InternalEObject)newServicePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__SERVICE_PERIOD, null, msgs);
+			msgs = basicSetServicePeriod(newServicePeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SUBJECT, newSubject, newSubject));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getPeriod() {
-		return period;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
-		Period oldPeriod = period;
-		period = newPeriod;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__PERIOD, oldPeriod, newPeriod);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPeriod(Period newPeriod) {
-		if (newPeriod != period) {
-			NotificationChain msgs = null;
-			if (period != null)
-				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__PERIOD, null, msgs);
-			if (newPeriod != null)
-				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__PERIOD, null, msgs);
-			msgs = basicSetPeriod(newPeriod, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__PERIOD, newPeriod, newPeriod));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetActive(Period newActive, NotificationChain msgs) {
-		Period oldActive = active;
-		active = newActive;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__ACTIVE, oldActive, newActive);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(Period newActive) {
-		if (newActive != active) {
-			NotificationChain msgs = null;
-			if (active != null)
-				msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__ACTIVE, null, msgs);
-			if (newActive != null)
-				msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACCOUNT__ACTIVE, null, msgs);
-			msgs = basicSetActive(newActive, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__ACTIVE, newActive, newActive));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACCOUNT__SERVICE_PERIOD, newServicePeriod, newServicePeriod));
 	}
 
 	/**
@@ -631,11 +546,9 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 			case FhirPackage.ACCOUNT__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.ACCOUNT__SUBJECT:
-				return basicSetSubject(null, msgs);
-			case FhirPackage.ACCOUNT__PERIOD:
-				return basicSetPeriod(null, msgs);
-			case FhirPackage.ACCOUNT__ACTIVE:
-				return basicSetActive(null, msgs);
+				return ((InternalEList<?>)getSubject()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACCOUNT__SERVICE_PERIOD:
+				return basicSetServicePeriod(null, msgs);
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return ((InternalEList<?>)getCoverage()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACCOUNT__OWNER:
@@ -668,10 +581,8 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 				return getName();
 			case FhirPackage.ACCOUNT__SUBJECT:
 				return getSubject();
-			case FhirPackage.ACCOUNT__PERIOD:
-				return getPeriod();
-			case FhirPackage.ACCOUNT__ACTIVE:
-				return getActive();
+			case FhirPackage.ACCOUNT__SERVICE_PERIOD:
+				return getServicePeriod();
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return getCoverage();
 			case FhirPackage.ACCOUNT__OWNER:
@@ -709,13 +620,11 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.ACCOUNT__SUBJECT:
-				setSubject((Reference)newValue);
+				getSubject().clear();
+				getSubject().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.ACCOUNT__PERIOD:
-				setPeriod((Period)newValue);
-				return;
-			case FhirPackage.ACCOUNT__ACTIVE:
-				setActive((Period)newValue);
+			case FhirPackage.ACCOUNT__SERVICE_PERIOD:
+				setServicePeriod((Period)newValue);
 				return;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				getCoverage().clear();
@@ -759,13 +668,10 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.ACCOUNT__SUBJECT:
-				setSubject((Reference)null);
+				getSubject().clear();
 				return;
-			case FhirPackage.ACCOUNT__PERIOD:
-				setPeriod((Period)null);
-				return;
-			case FhirPackage.ACCOUNT__ACTIVE:
-				setActive((Period)null);
+			case FhirPackage.ACCOUNT__SERVICE_PERIOD:
+				setServicePeriod((Period)null);
 				return;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				getCoverage().clear();
@@ -803,11 +709,9 @@ public class AccountImpl extends DomainResourceImpl implements Account {
 			case FhirPackage.ACCOUNT__NAME:
 				return name != null;
 			case FhirPackage.ACCOUNT__SUBJECT:
-				return subject != null;
-			case FhirPackage.ACCOUNT__PERIOD:
-				return period != null;
-			case FhirPackage.ACCOUNT__ACTIVE:
-				return active != null;
+				return subject != null && !subject.isEmpty();
+			case FhirPackage.ACCOUNT__SERVICE_PERIOD:
+				return servicePeriod != null;
 			case FhirPackage.ACCOUNT__COVERAGE:
 				return coverage != null && !coverage.isEmpty();
 			case FhirPackage.ACCOUNT__OWNER:

@@ -24,7 +24,7 @@ import org.hl7.fhir.Dosage;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicationStatement;
-import org.hl7.fhir.MedicationStatementStatus;
+import org.hl7.fhir.MedicationStatusCodes;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 
@@ -98,7 +98,7 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationStatementStatus status;
+	protected MedicationStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference list.
@@ -310,7 +310,7 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatementStatus getStatus() {
+	public MedicationStatusCodes getStatus() {
 		return status;
 	}
 
@@ -319,8 +319,8 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(MedicationStatementStatus newStatus, NotificationChain msgs) {
-		MedicationStatementStatus oldStatus = status;
+	public NotificationChain basicSetStatus(MedicationStatusCodes newStatus, NotificationChain msgs) {
+		MedicationStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_STATEMENT__STATUS, oldStatus, newStatus);
@@ -334,7 +334,7 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(MedicationStatementStatus newStatus) {
+	public void setStatus(MedicationStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -929,7 +929,7 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				setStatus((MedicationStatementStatus)newValue);
+				setStatus((MedicationStatusCodes)newValue);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__STATUS_REASON:
 				getStatusReason().clear();
@@ -1004,7 +1004,7 @@ public class MedicationStatementImpl extends DomainResourceImpl implements Medic
 				getPartOf().clear();
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__STATUS:
-				setStatus((MedicationStatementStatus)null);
+				setStatus((MedicationStatusCodes)null);
 				return;
 			case FhirPackage.MEDICATION_STATEMENT__STATUS_REASON:
 				getStatusReason().clear();

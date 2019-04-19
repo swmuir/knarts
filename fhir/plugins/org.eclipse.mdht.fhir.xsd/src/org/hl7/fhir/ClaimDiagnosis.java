@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisCodeableConcept <em>Diagnosis Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getDiagnosisReference <em>Diagnosis Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getOnAdmission <em>On Admission</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimDiagnosis#getPackageCode <em>Package Code</em>}</li>
  * </ul>
  *
@@ -34,7 +35,7 @@ public interface ClaimDiagnosis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of diagnosis which serves to provide a link.
+	 * A number to uniquely identify diagnosis entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -115,7 +116,7 @@ public interface ClaimDiagnosis extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
+	 * When the condition was observed or the relative ranking.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_Type()
@@ -126,11 +127,37 @@ public interface ClaimDiagnosis extends BackboneElement {
 	EList<CodeableConcept> getType();
 
 	/**
+	 * Returns the value of the '<em><b>On Admission</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indication of whether the diagnosis was present on admission to a facility.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>On Admission</em>' containment reference.
+	 * @see #setOnAdmission(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClaimDiagnosis_OnAdmission()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='onAdmission' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getOnAdmission();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClaimDiagnosis#getOnAdmission <em>On Admission</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Admission</em>' containment reference.
+	 * @see #getOnAdmission()
+	 * @generated
+	 */
+	void setOnAdmission(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Package Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The package billing code, for example DRG, based on the assigned grouping code system.
+	 * A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Package Code</em>' containment reference.
 	 * @see #setPackageCode(CodeableConcept)

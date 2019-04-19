@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A value set specifies a set of codes drawn from one or more code systems.
+ * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -60,7 +60,7 @@ public interface ValueSetInclude extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the code system that the codes are selected from.
+	 * The version of the code system that the codes are selected from, or the special version '*' for all versions.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version</em>' containment reference.
 	 * @see #setVersion(org.hl7.fhir.String)
@@ -103,7 +103,7 @@ public interface ValueSetInclude extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
+	 * Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Filter</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getValueSetInclude_Filter()
@@ -115,11 +115,11 @@ public interface ValueSetInclude extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.
+	 * Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Set</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getValueSetInclude_ValueSet()
@@ -127,6 +127,6 @@ public interface ValueSetInclude extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getValueSet();
+	EList<Canonical> getValueSet();
 
 } // ValueSetInclude

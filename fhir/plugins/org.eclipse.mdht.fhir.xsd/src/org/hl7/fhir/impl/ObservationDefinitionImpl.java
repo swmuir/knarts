@@ -18,12 +18,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
+import org.hl7.fhir.ObservationDataType;
 import org.hl7.fhir.ObservationDefinition;
 import org.hl7.fhir.ObservationDefinitionQualifiedInterval;
 import org.hl7.fhir.ObservationDefinitionQuantitativeDetails;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +36,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getPermittedDataType <em>Permitted Data Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getMultipleResultsAllowed <em>Multiple Results Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionImpl#getMethod <em>Method</em>}</li>
@@ -51,14 +53,14 @@ import org.hl7.fhir.Uri;
  */
 public class ObservationDefinitionImpl extends DomainResourceImpl implements ObservationDefinition {
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding category;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -68,7 +70,17 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding code;
+	protected CodeableConcept code;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getPermittedDataType() <em>Permitted Data Type</em>}' containment reference list.
@@ -78,7 +90,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> permittedDataType;
+	protected EList<ObservationDataType> permittedDataType;
 
 	/**
 	 * The cached value of the '{@link #getMultipleResultsAllowed() <em>Multiple Results Allowed</em>}' containment reference.
@@ -138,7 +150,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri validCodedValueSet;
+	protected Reference validCodedValueSet;
 
 	/**
 	 * The cached value of the '{@link #getNormalCodedValueSet() <em>Normal Coded Value Set</em>}' containment reference.
@@ -148,7 +160,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri normalCodedValueSet;
+	protected Reference normalCodedValueSet;
 
 	/**
 	 * The cached value of the '{@link #getAbnormalCodedValueSet() <em>Abnormal Coded Value Set</em>}' containment reference.
@@ -158,7 +170,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri abnormalCodedValueSet;
+	protected Reference abnormalCodedValueSet;
 
 	/**
 	 * The cached value of the '{@link #getCriticalCodedValueSet() <em>Critical Coded Value Set</em>}' containment reference.
@@ -168,7 +180,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri criticalCodedValueSet;
+	protected Reference criticalCodedValueSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,7 +206,10 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getCategory() {
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION_DEFINITION__CATEGORY);
+		}
 		return category;
 	}
 
@@ -203,41 +218,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(Coding newCategory, NotificationChain msgs) {
-		Coding oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(Coding newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__CATEGORY, newCategory, newCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getCode() {
+	public CodeableConcept getCode() {
 		return code;
 	}
 
@@ -246,8 +227,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCode(Coding newCode, NotificationChain msgs) {
-		Coding oldCode = code;
+	public NotificationChain basicSetCode(CodeableConcept newCode, NotificationChain msgs) {
+		CodeableConcept oldCode = code;
 		code = newCode;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__CODE, oldCode, newCode);
@@ -261,7 +242,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(Coding newCode) {
+	public void setCode(CodeableConcept newCode) {
 		if (newCode != code) {
 			NotificationChain msgs = null;
 			if (code != null)
@@ -280,9 +261,21 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getPermittedDataType() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ObservationDataType> getPermittedDataType() {
 		if (permittedDataType == null) {
-			permittedDataType = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE);
+			permittedDataType = new EObjectContainmentEList<ObservationDataType>(ObservationDataType.class, this, FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE);
 		}
 		return permittedDataType;
 	}
@@ -476,7 +469,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getValidCodedValueSet() {
+	public Reference getValidCodedValueSet() {
 		return validCodedValueSet;
 	}
 
@@ -485,8 +478,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValidCodedValueSet(Uri newValidCodedValueSet, NotificationChain msgs) {
-		Uri oldValidCodedValueSet = validCodedValueSet;
+	public NotificationChain basicSetValidCodedValueSet(Reference newValidCodedValueSet, NotificationChain msgs) {
+		Reference oldValidCodedValueSet = validCodedValueSet;
 		validCodedValueSet = newValidCodedValueSet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__VALID_CODED_VALUE_SET, oldValidCodedValueSet, newValidCodedValueSet);
@@ -500,7 +493,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValidCodedValueSet(Uri newValidCodedValueSet) {
+	public void setValidCodedValueSet(Reference newValidCodedValueSet) {
 		if (newValidCodedValueSet != validCodedValueSet) {
 			NotificationChain msgs = null;
 			if (validCodedValueSet != null)
@@ -519,7 +512,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getNormalCodedValueSet() {
+	public Reference getNormalCodedValueSet() {
 		return normalCodedValueSet;
 	}
 
@@ -528,8 +521,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNormalCodedValueSet(Uri newNormalCodedValueSet, NotificationChain msgs) {
-		Uri oldNormalCodedValueSet = normalCodedValueSet;
+	public NotificationChain basicSetNormalCodedValueSet(Reference newNormalCodedValueSet, NotificationChain msgs) {
+		Reference oldNormalCodedValueSet = normalCodedValueSet;
 		normalCodedValueSet = newNormalCodedValueSet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__NORMAL_CODED_VALUE_SET, oldNormalCodedValueSet, newNormalCodedValueSet);
@@ -543,7 +536,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNormalCodedValueSet(Uri newNormalCodedValueSet) {
+	public void setNormalCodedValueSet(Reference newNormalCodedValueSet) {
 		if (newNormalCodedValueSet != normalCodedValueSet) {
 			NotificationChain msgs = null;
 			if (normalCodedValueSet != null)
@@ -562,7 +555,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getAbnormalCodedValueSet() {
+	public Reference getAbnormalCodedValueSet() {
 		return abnormalCodedValueSet;
 	}
 
@@ -571,8 +564,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAbnormalCodedValueSet(Uri newAbnormalCodedValueSet, NotificationChain msgs) {
-		Uri oldAbnormalCodedValueSet = abnormalCodedValueSet;
+	public NotificationChain basicSetAbnormalCodedValueSet(Reference newAbnormalCodedValueSet, NotificationChain msgs) {
+		Reference oldAbnormalCodedValueSet = abnormalCodedValueSet;
 		abnormalCodedValueSet = newAbnormalCodedValueSet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__ABNORMAL_CODED_VALUE_SET, oldAbnormalCodedValueSet, newAbnormalCodedValueSet);
@@ -586,7 +579,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbnormalCodedValueSet(Uri newAbnormalCodedValueSet) {
+	public void setAbnormalCodedValueSet(Reference newAbnormalCodedValueSet) {
 		if (newAbnormalCodedValueSet != abnormalCodedValueSet) {
 			NotificationChain msgs = null;
 			if (abnormalCodedValueSet != null)
@@ -605,7 +598,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getCriticalCodedValueSet() {
+	public Reference getCriticalCodedValueSet() {
 		return criticalCodedValueSet;
 	}
 
@@ -614,8 +607,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCriticalCodedValueSet(Uri newCriticalCodedValueSet, NotificationChain msgs) {
-		Uri oldCriticalCodedValueSet = criticalCodedValueSet;
+	public NotificationChain basicSetCriticalCodedValueSet(Reference newCriticalCodedValueSet, NotificationChain msgs) {
+		Reference oldCriticalCodedValueSet = criticalCodedValueSet;
 		criticalCodedValueSet = newCriticalCodedValueSet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION__CRITICAL_CODED_VALUE_SET, oldCriticalCodedValueSet, newCriticalCodedValueSet);
@@ -629,7 +622,7 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriticalCodedValueSet(Uri newCriticalCodedValueSet) {
+	public void setCriticalCodedValueSet(Reference newCriticalCodedValueSet) {
 		if (newCriticalCodedValueSet != criticalCodedValueSet) {
 			NotificationChain msgs = null;
 			if (criticalCodedValueSet != null)
@@ -652,9 +645,11 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION__CATEGORY:
-				return basicSetCategory(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE:
 				return ((InternalEList<?>)getPermittedDataType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION__MULTIPLE_RESULTS_ALLOWED:
@@ -691,6 +686,8 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 				return getCategory();
 			case FhirPackage.OBSERVATION_DEFINITION__CODE:
 				return getCode();
+			case FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE:
 				return getPermittedDataType();
 			case FhirPackage.OBSERVATION_DEFINITION__MULTIPLE_RESULTS_ALLOWED:
@@ -725,14 +722,19 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION__CATEGORY:
-				setCategory((Coding)newValue);
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__CODE:
-				setCode((Coding)newValue);
+				setCode((CodeableConcept)newValue);
+				return;
+			case FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER:
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE:
 				getPermittedDataType().clear();
-				getPermittedDataType().addAll((Collection<? extends Coding>)newValue);
+				getPermittedDataType().addAll((Collection<? extends ObservationDataType>)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__MULTIPLE_RESULTS_ALLOWED:
 				setMultipleResultsAllowed((org.hl7.fhir.Boolean)newValue);
@@ -751,16 +753,16 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 				getQualifiedInterval().addAll((Collection<? extends ObservationDefinitionQualifiedInterval>)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__VALID_CODED_VALUE_SET:
-				setValidCodedValueSet((Uri)newValue);
+				setValidCodedValueSet((Reference)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__NORMAL_CODED_VALUE_SET:
-				setNormalCodedValueSet((Uri)newValue);
+				setNormalCodedValueSet((Reference)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__ABNORMAL_CODED_VALUE_SET:
-				setAbnormalCodedValueSet((Uri)newValue);
+				setAbnormalCodedValueSet((Reference)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__CRITICAL_CODED_VALUE_SET:
-				setCriticalCodedValueSet((Uri)newValue);
+				setCriticalCodedValueSet((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -775,10 +777,13 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION__CATEGORY:
-				setCategory((Coding)null);
+				getCategory().clear();
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__CODE:
-				setCode((Coding)null);
+				setCode((CodeableConcept)null);
+				return;
+			case FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER:
+				getIdentifier().clear();
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE:
 				getPermittedDataType().clear();
@@ -799,16 +804,16 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 				getQualifiedInterval().clear();
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__VALID_CODED_VALUE_SET:
-				setValidCodedValueSet((Uri)null);
+				setValidCodedValueSet((Reference)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__NORMAL_CODED_VALUE_SET:
-				setNormalCodedValueSet((Uri)null);
+				setNormalCodedValueSet((Reference)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__ABNORMAL_CODED_VALUE_SET:
-				setAbnormalCodedValueSet((Uri)null);
+				setAbnormalCodedValueSet((Reference)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION__CRITICAL_CODED_VALUE_SET:
-				setCriticalCodedValueSet((Uri)null);
+				setCriticalCodedValueSet((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -823,9 +828,11 @@ public class ObservationDefinitionImpl extends DomainResourceImpl implements Obs
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION__CATEGORY:
-				return category != null;
+				return category != null && !category.isEmpty();
 			case FhirPackage.OBSERVATION_DEFINITION__CODE:
 				return code != null;
+			case FhirPackage.OBSERVATION_DEFINITION__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.OBSERVATION_DEFINITION__PERMITTED_DATA_TYPE:
 				return permittedDataType != null && !permittedDataType.isEmpty();
 			case FhirPackage.OBSERVATION_DEFINITION__MULTIPLE_RESULTS_ALLOWED:

@@ -200,7 +200,7 @@ public interface Practitioner extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Qualifications obtained by training and certification.
+	 * The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Qualification</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPractitioner_Qualification()
@@ -216,7 +216,7 @@ public interface Practitioner extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A language the practitioner is able to use in patient communication.
+	 * A language the practitioner can use in patient communication.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Communication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPractitioner_Communication()

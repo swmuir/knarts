@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesCodeSystem#getUri <em>Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesCodeSystem#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesCodeSystem#getSubsumption <em>Subsumption</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesCodeSystem()
@@ -34,13 +35,13 @@ public interface TerminologyCapabilitiesCodeSystem extends BackboneElement {
 	 * URI for the Code System.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Uri</em>' containment reference.
-	 * @see #setUri(Uri)
+	 * @see #setUri(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesCodeSystem_Uri()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='uri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUri();
+	Canonical getUri();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilitiesCodeSystem#getUri <em>Uri</em>}' containment reference.
@@ -50,7 +51,7 @@ public interface TerminologyCapabilitiesCodeSystem extends BackboneElement {
 	 * @see #getUri()
 	 * @generated
 	 */
-	void setUri(Uri value);
+	void setUri(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' containment reference list.
@@ -67,5 +68,31 @@ public interface TerminologyCapabilitiesCodeSystem extends BackboneElement {
 	 * @generated
 	 */
 	EList<TerminologyCapabilitiesVersion> getVersion();
+
+	/**
+	 * Returns the value of the '<em><b>Subsumption</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * True if subsumption is supported for this version of the code system.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subsumption</em>' containment reference.
+	 * @see #setSubsumption(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesCodeSystem_Subsumption()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subsumption' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getSubsumption();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilitiesCodeSystem#getSubsumption <em>Subsumption</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subsumption</em>' containment reference.
+	 * @see #getSubsumption()
+	 * @generated
+	 */
+	void setSubsumption(org.hl7.fhir.Boolean value);
 
 } // TerminologyCapabilitiesCodeSystem

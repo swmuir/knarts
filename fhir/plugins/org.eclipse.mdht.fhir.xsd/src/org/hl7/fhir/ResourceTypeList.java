@@ -171,6 +171,16 @@ public enum ResourceTypeList implements Enumerator {
 	CARE_TEAM(14, "CareTeam", "CareTeam"),
 
 	/**
+	 * The '<em><b>Catalog Entry</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CATALOG_ENTRY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CATALOG_ENTRY(15, "CatalogEntry", "CatalogEntry"),
+
+	/**
 	 * The '<em><b>Charge Item</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +188,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHARGE_ITEM(15, "ChargeItem", "ChargeItem"),
+	CHARGE_ITEM(16, "ChargeItem", "ChargeItem"),
+
+	/**
+	 * The '<em><b>Charge Item Definition</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CHARGE_ITEM_DEFINITION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CHARGE_ITEM_DEFINITION(17, "ChargeItemDefinition", "ChargeItemDefinition"),
 
 	/**
 	 * The '<em><b>Claim</b></em>' literal object.
@@ -188,7 +208,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLAIM(16, "Claim", "Claim"),
+	CLAIM(18, "Claim", "Claim"),
 
 	/**
 	 * The '<em><b>Claim Response</b></em>' literal object.
@@ -198,7 +218,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLAIM_RESPONSE(17, "ClaimResponse", "ClaimResponse"),
+	CLAIM_RESPONSE(19, "ClaimResponse", "ClaimResponse"),
 
 	/**
 	 * The '<em><b>Clinical Impression</b></em>' literal object.
@@ -208,7 +228,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLINICAL_IMPRESSION(18, "ClinicalImpression", "ClinicalImpression"),
+	CLINICAL_IMPRESSION(20, "ClinicalImpression", "ClinicalImpression"),
 
 	/**
 	 * The '<em><b>Code System</b></em>' literal object.
@@ -218,7 +238,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CODE_SYSTEM(19, "CodeSystem", "CodeSystem"),
+	CODE_SYSTEM(21, "CodeSystem", "CodeSystem"),
 
 	/**
 	 * The '<em><b>Communication</b></em>' literal object.
@@ -228,7 +248,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMMUNICATION(20, "Communication", "Communication"),
+	COMMUNICATION(22, "Communication", "Communication"),
 
 	/**
 	 * The '<em><b>Communication Request</b></em>' literal object.
@@ -238,7 +258,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMMUNICATION_REQUEST(21, "CommunicationRequest", "CommunicationRequest"),
+	COMMUNICATION_REQUEST(23, "CommunicationRequest", "CommunicationRequest"),
 
 	/**
 	 * The '<em><b>Compartment Definition</b></em>' literal object.
@@ -248,7 +268,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPARTMENT_DEFINITION(22, "CompartmentDefinition", "CompartmentDefinition"),
+	COMPARTMENT_DEFINITION(24, "CompartmentDefinition", "CompartmentDefinition"),
 
 	/**
 	 * The '<em><b>Composition</b></em>' literal object.
@@ -258,7 +278,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPOSITION(23, "Composition", "Composition"),
+	COMPOSITION(25, "Composition", "Composition"),
 
 	/**
 	 * The '<em><b>Concept Map</b></em>' literal object.
@@ -268,7 +288,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONCEPT_MAP(24, "ConceptMap", "ConceptMap"),
+	CONCEPT_MAP(26, "ConceptMap", "ConceptMap"),
 
 	/**
 	 * The '<em><b>Condition</b></em>' literal object.
@@ -278,7 +298,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONDITION(25, "Condition", "Condition"),
+	CONDITION(27, "Condition", "Condition"),
 
 	/**
 	 * The '<em><b>Consent</b></em>' literal object.
@@ -288,7 +308,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONSENT(26, "Consent", "Consent"),
+	CONSENT(28, "Consent", "Consent"),
 
 	/**
 	 * The '<em><b>Contract</b></em>' literal object.
@@ -298,7 +318,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONTRACT(27, "Contract", "Contract"),
+	CONTRACT(29, "Contract", "Contract"),
 
 	/**
 	 * The '<em><b>Coverage</b></em>' literal object.
@@ -308,7 +328,27 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COVERAGE(28, "Coverage", "Coverage"),
+	COVERAGE(30, "Coverage", "Coverage"),
+
+	/**
+	 * The '<em><b>Coverage Eligibility Request</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COVERAGE_ELIGIBILITY_REQUEST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COVERAGE_ELIGIBILITY_REQUEST(31, "CoverageEligibilityRequest", "CoverageEligibilityRequest"),
+
+	/**
+	 * The '<em><b>Coverage Eligibility Response</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COVERAGE_ELIGIBILITY_RESPONSE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COVERAGE_ELIGIBILITY_RESPONSE(32, "CoverageEligibilityResponse", "CoverageEligibilityResponse"),
 
 	/**
 	 * The '<em><b>Detected Issue</b></em>' literal object.
@@ -318,7 +358,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DETECTED_ISSUE(29, "DetectedIssue", "DetectedIssue"),
+	DETECTED_ISSUE(33, "DetectedIssue", "DetectedIssue"),
 
 	/**
 	 * The '<em><b>Device</b></em>' literal object.
@@ -328,17 +368,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEVICE(30, "Device", "Device"),
+	DEVICE(34, "Device", "Device"),
 
 	/**
-	 * The '<em><b>Device Component</b></em>' literal object.
+	 * The '<em><b>Device Definition</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DEVICE_COMPONENT_VALUE
+	 * @see #DEVICE_DEFINITION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DEVICE_COMPONENT(31, "DeviceComponent", "DeviceComponent"),
+	DEVICE_DEFINITION(35, "DeviceDefinition", "DeviceDefinition"),
 
 	/**
 	 * The '<em><b>Device Metric</b></em>' literal object.
@@ -348,7 +388,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEVICE_METRIC(32, "DeviceMetric", "DeviceMetric"),
+	DEVICE_METRIC(36, "DeviceMetric", "DeviceMetric"),
 
 	/**
 	 * The '<em><b>Device Request</b></em>' literal object.
@@ -358,7 +398,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEVICE_REQUEST(33, "DeviceRequest", "DeviceRequest"),
+	DEVICE_REQUEST(37, "DeviceRequest", "DeviceRequest"),
 
 	/**
 	 * The '<em><b>Device Use Statement</b></em>' literal object.
@@ -368,7 +408,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEVICE_USE_STATEMENT(34, "DeviceUseStatement", "DeviceUseStatement"),
+	DEVICE_USE_STATEMENT(38, "DeviceUseStatement", "DeviceUseStatement"),
 
 	/**
 	 * The '<em><b>Diagnostic Report</b></em>' literal object.
@@ -378,7 +418,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIAGNOSTIC_REPORT(35, "DiagnosticReport", "DiagnosticReport"),
+	DIAGNOSTIC_REPORT(39, "DiagnosticReport", "DiagnosticReport"),
 
 	/**
 	 * The '<em><b>Document Manifest</b></em>' literal object.
@@ -388,7 +428,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOCUMENT_MANIFEST(36, "DocumentManifest", "DocumentManifest"),
+	DOCUMENT_MANIFEST(40, "DocumentManifest", "DocumentManifest"),
 
 	/**
 	 * The '<em><b>Document Reference</b></em>' literal object.
@@ -398,7 +438,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOCUMENT_REFERENCE(37, "DocumentReference", "DocumentReference"),
+	DOCUMENT_REFERENCE(41, "DocumentReference", "DocumentReference"),
 
 	/**
 	 * The '<em><b>Domain Resource</b></em>' literal object.
@@ -408,27 +448,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOMAIN_RESOURCE(38, "DomainResource", "DomainResource"),
+	DOMAIN_RESOURCE(42, "DomainResource", "DomainResource"),
 
 	/**
-	 * The '<em><b>Eligibility Request</b></em>' literal object.
+	 * The '<em><b>Effect Evidence Synthesis</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ELIGIBILITY_REQUEST_VALUE
+	 * @see #EFFECT_EVIDENCE_SYNTHESIS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ELIGIBILITY_REQUEST(39, "EligibilityRequest", "EligibilityRequest"),
-
-	/**
-	 * The '<em><b>Eligibility Response</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ELIGIBILITY_RESPONSE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ELIGIBILITY_RESPONSE(40, "EligibilityResponse", "EligibilityResponse"),
+	EFFECT_EVIDENCE_SYNTHESIS(43, "EffectEvidenceSynthesis", "EffectEvidenceSynthesis"),
 
 	/**
 	 * The '<em><b>Encounter</b></em>' literal object.
@@ -438,7 +468,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENCOUNTER(41, "Encounter", "Encounter"),
+	ENCOUNTER(44, "Encounter", "Encounter"),
 
 	/**
 	 * The '<em><b>Endpoint</b></em>' literal object.
@@ -448,7 +478,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENDPOINT(42, "Endpoint", "Endpoint"),
+	ENDPOINT(45, "Endpoint", "Endpoint"),
 
 	/**
 	 * The '<em><b>Enrollment Request</b></em>' literal object.
@@ -458,7 +488,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENROLLMENT_REQUEST(43, "EnrollmentRequest", "EnrollmentRequest"),
+	ENROLLMENT_REQUEST(46, "EnrollmentRequest", "EnrollmentRequest"),
 
 	/**
 	 * The '<em><b>Enrollment Response</b></em>' literal object.
@@ -468,17 +498,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENROLLMENT_RESPONSE(44, "EnrollmentResponse", "EnrollmentResponse"),
-
-	/**
-	 * The '<em><b>Entry Definition</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENTRY_DEFINITION_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ENTRY_DEFINITION(45, "EntryDefinition", "EntryDefinition"),
+	ENROLLMENT_RESPONSE(47, "EnrollmentResponse", "EnrollmentResponse"),
 
 	/**
 	 * The '<em><b>Episode Of Care</b></em>' literal object.
@@ -488,7 +508,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EPISODE_OF_CARE(46, "EpisodeOfCare", "EpisodeOfCare"),
+	EPISODE_OF_CARE(48, "EpisodeOfCare", "EpisodeOfCare"),
 
 	/**
 	 * The '<em><b>Event Definition</b></em>' literal object.
@@ -498,7 +518,27 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EVENT_DEFINITION(47, "EventDefinition", "EventDefinition"),
+	EVENT_DEFINITION(49, "EventDefinition", "EventDefinition"),
+
+	/**
+	 * The '<em><b>Evidence</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EVIDENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EVIDENCE(50, "Evidence", "Evidence"),
+
+	/**
+	 * The '<em><b>Evidence Variable</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EVIDENCE_VARIABLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EVIDENCE_VARIABLE(51, "EvidenceVariable", "EvidenceVariable"),
 
 	/**
 	 * The '<em><b>Example Scenario</b></em>' literal object.
@@ -508,17 +548,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXAMPLE_SCENARIO(48, "ExampleScenario", "ExampleScenario"),
-
-	/**
-	 * The '<em><b>Expansion Profile</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EXPANSION_PROFILE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EXPANSION_PROFILE(49, "ExpansionProfile", "ExpansionProfile"),
+	EXAMPLE_SCENARIO(52, "ExampleScenario", "ExampleScenario"),
 
 	/**
 	 * The '<em><b>Explanation Of Benefit</b></em>' literal object.
@@ -528,7 +558,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXPLANATION_OF_BENEFIT(50, "ExplanationOfBenefit", "ExplanationOfBenefit"),
+	EXPLANATION_OF_BENEFIT(53, "ExplanationOfBenefit", "ExplanationOfBenefit"),
 
 	/**
 	 * The '<em><b>Family Member History</b></em>' literal object.
@@ -538,7 +568,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAMILY_MEMBER_HISTORY(51, "FamilyMemberHistory", "FamilyMemberHistory"),
+	FAMILY_MEMBER_HISTORY(54, "FamilyMemberHistory", "FamilyMemberHistory"),
 
 	/**
 	 * The '<em><b>Flag</b></em>' literal object.
@@ -548,7 +578,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FLAG(52, "Flag", "Flag"),
+	FLAG(55, "Flag", "Flag"),
 
 	/**
 	 * The '<em><b>Goal</b></em>' literal object.
@@ -558,7 +588,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GOAL(53, "Goal", "Goal"),
+	GOAL(56, "Goal", "Goal"),
 
 	/**
 	 * The '<em><b>Graph Definition</b></em>' literal object.
@@ -568,7 +598,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GRAPH_DEFINITION(54, "GraphDefinition", "GraphDefinition"),
+	GRAPH_DEFINITION(57, "GraphDefinition", "GraphDefinition"),
 
 	/**
 	 * The '<em><b>Group</b></em>' literal object.
@@ -578,7 +608,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GROUP(55, "Group", "Group"),
+	GROUP(58, "Group", "Group"),
 
 	/**
 	 * The '<em><b>Guidance Response</b></em>' literal object.
@@ -588,7 +618,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GUIDANCE_RESPONSE(56, "GuidanceResponse", "GuidanceResponse"),
+	GUIDANCE_RESPONSE(59, "GuidanceResponse", "GuidanceResponse"),
 
 	/**
 	 * The '<em><b>Healthcare Service</b></em>' literal object.
@@ -598,7 +628,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEALTHCARE_SERVICE(57, "HealthcareService", "HealthcareService"),
+	HEALTHCARE_SERVICE(60, "HealthcareService", "HealthcareService"),
 
 	/**
 	 * The '<em><b>Imaging Study</b></em>' literal object.
@@ -608,7 +638,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMAGING_STUDY(58, "ImagingStudy", "ImagingStudy"),
+	IMAGING_STUDY(61, "ImagingStudy", "ImagingStudy"),
 
 	/**
 	 * The '<em><b>Immunization</b></em>' literal object.
@@ -618,7 +648,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMMUNIZATION(59, "Immunization", "Immunization"),
+	IMMUNIZATION(62, "Immunization", "Immunization"),
 
 	/**
 	 * The '<em><b>Immunization Evaluation</b></em>' literal object.
@@ -628,7 +658,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMMUNIZATION_EVALUATION(60, "ImmunizationEvaluation", "ImmunizationEvaluation"),
+	IMMUNIZATION_EVALUATION(63, "ImmunizationEvaluation", "ImmunizationEvaluation"),
 
 	/**
 	 * The '<em><b>Immunization Recommendation</b></em>' literal object.
@@ -638,7 +668,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMMUNIZATION_RECOMMENDATION(61, "ImmunizationRecommendation", "ImmunizationRecommendation"),
+	IMMUNIZATION_RECOMMENDATION(64, "ImmunizationRecommendation", "ImmunizationRecommendation"),
 
 	/**
 	 * The '<em><b>Implementation Guide</b></em>' literal object.
@@ -648,27 +678,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMPLEMENTATION_GUIDE(62, "ImplementationGuide", "ImplementationGuide"),
+	IMPLEMENTATION_GUIDE(65, "ImplementationGuide", "ImplementationGuide"),
 
 	/**
-	 * The '<em><b>Implementation Guide Input</b></em>' literal object.
+	 * The '<em><b>Insurance Plan</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #IMPLEMENTATION_GUIDE_INPUT_VALUE
+	 * @see #INSURANCE_PLAN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	IMPLEMENTATION_GUIDE_INPUT(63, "ImplementationGuideInput", "ImplementationGuideInput"),
-
-	/**
-	 * The '<em><b>Implementation Guide Output</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #IMPLEMENTATION_GUIDE_OUTPUT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	IMPLEMENTATION_GUIDE_OUTPUT(64, "ImplementationGuideOutput", "ImplementationGuideOutput"),
+	INSURANCE_PLAN(66, "InsurancePlan", "InsurancePlan"),
 
 	/**
 	 * The '<em><b>Invoice</b></em>' literal object.
@@ -678,17 +698,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INVOICE(65, "Invoice", "Invoice"),
-
-	/**
-	 * The '<em><b>Item Instance</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ITEM_INSTANCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ITEM_INSTANCE(66, "ItemInstance", "ItemInstance"),
+	INVOICE(67, "Invoice", "Invoice"),
 
 	/**
 	 * The '<em><b>Library</b></em>' literal object.
@@ -698,7 +708,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIBRARY(67, "Library", "Library"),
+	LIBRARY(68, "Library", "Library"),
 
 	/**
 	 * The '<em><b>Linkage</b></em>' literal object.
@@ -708,7 +718,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LINKAGE(68, "Linkage", "Linkage"),
+	LINKAGE(69, "Linkage", "Linkage"),
 
 	/**
 	 * The '<em><b>List</b></em>' literal object.
@@ -718,7 +728,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIST(69, "List", "List"),
+	LIST(70, "List", "List"),
 
 	/**
 	 * The '<em><b>Location</b></em>' literal object.
@@ -728,7 +738,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOCATION(70, "Location", "Location"),
+	LOCATION(71, "Location", "Location"),
 
 	/**
 	 * The '<em><b>Measure</b></em>' literal object.
@@ -738,7 +748,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEASURE(71, "Measure", "Measure"),
+	MEASURE(72, "Measure", "Measure"),
 
 	/**
 	 * The '<em><b>Measure Report</b></em>' literal object.
@@ -748,7 +758,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEASURE_REPORT(72, "MeasureReport", "MeasureReport"),
+	MEASURE_REPORT(73, "MeasureReport", "MeasureReport"),
 
 	/**
 	 * The '<em><b>Media</b></em>' literal object.
@@ -758,7 +768,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDIA(73, "Media", "Media"),
+	MEDIA(74, "Media", "Media"),
 
 	/**
 	 * The '<em><b>Medication</b></em>' literal object.
@@ -768,7 +778,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICATION(74, "Medication", "Medication"),
+	MEDICATION(75, "Medication", "Medication"),
 
 	/**
 	 * The '<em><b>Medication Administration</b></em>' literal object.
@@ -778,7 +788,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICATION_ADMINISTRATION(75, "MedicationAdministration", "MedicationAdministration"),
+	MEDICATION_ADMINISTRATION(76, "MedicationAdministration", "MedicationAdministration"),
 
 	/**
 	 * The '<em><b>Medication Dispense</b></em>' literal object.
@@ -788,7 +798,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICATION_DISPENSE(76, "MedicationDispense", "MedicationDispense"),
+	MEDICATION_DISPENSE(77, "MedicationDispense", "MedicationDispense"),
+
+	/**
+	 * The '<em><b>Medication Knowledge</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MEDICATION_KNOWLEDGE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MEDICATION_KNOWLEDGE(78, "MedicationKnowledge", "MedicationKnowledge"),
 
 	/**
 	 * The '<em><b>Medication Request</b></em>' literal object.
@@ -798,7 +818,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICATION_REQUEST(77, "MedicationRequest", "MedicationRequest"),
+	MEDICATION_REQUEST(79, "MedicationRequest", "MedicationRequest"),
 
 	/**
 	 * The '<em><b>Medication Statement</b></em>' literal object.
@@ -808,7 +828,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICATION_STATEMENT(78, "MedicationStatement", "MedicationStatement"),
+	MEDICATION_STATEMENT(80, "MedicationStatement", "MedicationStatement"),
 
 	/**
 	 * The '<em><b>Medicinal Product</b></em>' literal object.
@@ -818,7 +838,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT(79, "MedicinalProduct", "MedicinalProduct"),
+	MEDICINAL_PRODUCT(81, "MedicinalProduct", "MedicinalProduct"),
 
 	/**
 	 * The '<em><b>Medicinal Product Authorization</b></em>' literal object.
@@ -828,27 +848,27 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_AUTHORIZATION(80, "MedicinalProductAuthorization", "MedicinalProductAuthorization"),
+	MEDICINAL_PRODUCT_AUTHORIZATION(82, "MedicinalProductAuthorization", "MedicinalProductAuthorization"),
 
 	/**
-	 * The '<em><b>Medicinal Product Clinicals</b></em>' literal object.
+	 * The '<em><b>Medicinal Product Contraindication</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEDICINAL_PRODUCT_CLINICALS_VALUE
+	 * @see #MEDICINAL_PRODUCT_CONTRAINDICATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_CLINICALS(81, "MedicinalProductClinicals", "MedicinalProductClinicals"),
+	MEDICINAL_PRODUCT_CONTRAINDICATION(83, "MedicinalProductContraindication", "MedicinalProductContraindication"),
 
 	/**
-	 * The '<em><b>Medicinal Product Device Spec</b></em>' literal object.
+	 * The '<em><b>Medicinal Product Indication</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEDICINAL_PRODUCT_DEVICE_SPEC_VALUE
+	 * @see #MEDICINAL_PRODUCT_INDICATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_DEVICE_SPEC(82, "MedicinalProductDeviceSpec", "MedicinalProductDeviceSpec"),
+	MEDICINAL_PRODUCT_INDICATION(84, "MedicinalProductIndication", "MedicinalProductIndication"),
 
 	/**
 	 * The '<em><b>Medicinal Product Ingredient</b></em>' literal object.
@@ -858,7 +878,27 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_INGREDIENT(83, "MedicinalProductIngredient", "MedicinalProductIngredient"),
+	MEDICINAL_PRODUCT_INGREDIENT(85, "MedicinalProductIngredient", "MedicinalProductIngredient"),
+
+	/**
+	 * The '<em><b>Medicinal Product Interaction</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MEDICINAL_PRODUCT_INTERACTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MEDICINAL_PRODUCT_INTERACTION(86, "MedicinalProductInteraction", "MedicinalProductInteraction"),
+
+	/**
+	 * The '<em><b>Medicinal Product Manufactured</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MEDICINAL_PRODUCT_MANUFACTURED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MEDICINAL_PRODUCT_MANUFACTURED(87, "MedicinalProductManufactured", "MedicinalProductManufactured"),
 
 	/**
 	 * The '<em><b>Medicinal Product Packaged</b></em>' literal object.
@@ -868,7 +908,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_PACKAGED(84, "MedicinalProductPackaged", "MedicinalProductPackaged"),
+	MEDICINAL_PRODUCT_PACKAGED(88, "MedicinalProductPackaged", "MedicinalProductPackaged"),
 
 	/**
 	 * The '<em><b>Medicinal Product Pharmaceutical</b></em>' literal object.
@@ -878,7 +918,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINAL_PRODUCT_PHARMACEUTICAL(85, "MedicinalProductPharmaceutical", "MedicinalProductPharmaceutical"),
+	MEDICINAL_PRODUCT_PHARMACEUTICAL(89, "MedicinalProductPharmaceutical", "MedicinalProductPharmaceutical"),
+
+	/**
+	 * The '<em><b>Medicinal Product Undesirable Effect</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT(90, "MedicinalProductUndesirableEffect", "MedicinalProductUndesirableEffect"),
 
 	/**
 	 * The '<em><b>Message Definition</b></em>' literal object.
@@ -888,7 +938,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MESSAGE_DEFINITION(86, "MessageDefinition", "MessageDefinition"),
+	MESSAGE_DEFINITION(91, "MessageDefinition", "MessageDefinition"),
 
 	/**
 	 * The '<em><b>Message Header</b></em>' literal object.
@@ -898,7 +948,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MESSAGE_HEADER(87, "MessageHeader", "MessageHeader"),
+	MESSAGE_HEADER(92, "MessageHeader", "MessageHeader"),
+
+	/**
+	 * The '<em><b>Molecular Sequence</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MOLECULAR_SEQUENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MOLECULAR_SEQUENCE(93, "MolecularSequence", "MolecularSequence"),
 
 	/**
 	 * The '<em><b>Naming System</b></em>' literal object.
@@ -908,7 +968,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NAMING_SYSTEM(88, "NamingSystem", "NamingSystem"),
+	NAMING_SYSTEM(94, "NamingSystem", "NamingSystem"),
 
 	/**
 	 * The '<em><b>Nutrition Order</b></em>' literal object.
@@ -918,7 +978,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NUTRITION_ORDER(89, "NutritionOrder", "NutritionOrder"),
+	NUTRITION_ORDER(95, "NutritionOrder", "NutritionOrder"),
 
 	/**
 	 * The '<em><b>Observation</b></em>' literal object.
@@ -928,7 +988,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OBSERVATION(90, "Observation", "Observation"),
+	OBSERVATION(96, "Observation", "Observation"),
 
 	/**
 	 * The '<em><b>Observation Definition</b></em>' literal object.
@@ -938,17 +998,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OBSERVATION_DEFINITION(91, "ObservationDefinition", "ObservationDefinition"),
-
-	/**
-	 * The '<em><b>Occupational Data</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #OCCUPATIONAL_DATA_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	OCCUPATIONAL_DATA(92, "OccupationalData", "OccupationalData"),
+	OBSERVATION_DEFINITION(97, "ObservationDefinition", "ObservationDefinition"),
 
 	/**
 	 * The '<em><b>Operation Definition</b></em>' literal object.
@@ -958,7 +1008,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPERATION_DEFINITION(93, "OperationDefinition", "OperationDefinition"),
+	OPERATION_DEFINITION(98, "OperationDefinition", "OperationDefinition"),
 
 	/**
 	 * The '<em><b>Operation Outcome</b></em>' literal object.
@@ -968,7 +1018,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPERATION_OUTCOME(94, "OperationOutcome", "OperationOutcome"),
+	OPERATION_OUTCOME(99, "OperationOutcome", "OperationOutcome"),
 
 	/**
 	 * The '<em><b>Organization</b></em>' literal object.
@@ -978,17 +1028,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORGANIZATION(95, "Organization", "Organization"),
+	ORGANIZATION(100, "Organization", "Organization"),
 
 	/**
-	 * The '<em><b>Organization Role</b></em>' literal object.
+	 * The '<em><b>Organization Affiliation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ORGANIZATION_ROLE_VALUE
+	 * @see #ORGANIZATION_AFFILIATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ORGANIZATION_ROLE(96, "OrganizationRole", "OrganizationRole"),
+	ORGANIZATION_AFFILIATION(101, "OrganizationAffiliation", "OrganizationAffiliation"),
 
 	/**
 	 * The '<em><b>Parameters</b></em>' literal object.
@@ -998,7 +1048,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PARAMETERS(97, "Parameters", "Parameters"),
+	PARAMETERS(102, "Parameters", "Parameters"),
 
 	/**
 	 * The '<em><b>Patient</b></em>' literal object.
@@ -1008,7 +1058,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PATIENT(98, "Patient", "Patient"),
+	PATIENT(103, "Patient", "Patient"),
 
 	/**
 	 * The '<em><b>Payment Notice</b></em>' literal object.
@@ -1018,7 +1068,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PAYMENT_NOTICE(99, "PaymentNotice", "PaymentNotice"),
+	PAYMENT_NOTICE(104, "PaymentNotice", "PaymentNotice"),
 
 	/**
 	 * The '<em><b>Payment Reconciliation</b></em>' literal object.
@@ -1028,7 +1078,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PAYMENT_RECONCILIATION(100, "PaymentReconciliation", "PaymentReconciliation"),
+	PAYMENT_RECONCILIATION(105, "PaymentReconciliation", "PaymentReconciliation"),
 
 	/**
 	 * The '<em><b>Person</b></em>' literal object.
@@ -1038,7 +1088,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PERSON(101, "Person", "Person"),
+	PERSON(106, "Person", "Person"),
 
 	/**
 	 * The '<em><b>Plan Definition</b></em>' literal object.
@@ -1048,7 +1098,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLAN_DEFINITION(102, "PlanDefinition", "PlanDefinition"),
+	PLAN_DEFINITION(107, "PlanDefinition", "PlanDefinition"),
 
 	/**
 	 * The '<em><b>Practitioner</b></em>' literal object.
@@ -1058,7 +1108,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRACTITIONER(103, "Practitioner", "Practitioner"),
+	PRACTITIONER(108, "Practitioner", "Practitioner"),
 
 	/**
 	 * The '<em><b>Practitioner Role</b></em>' literal object.
@@ -1068,7 +1118,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRACTITIONER_ROLE(104, "PractitionerRole", "PractitionerRole"),
+	PRACTITIONER_ROLE(109, "PractitionerRole", "PractitionerRole"),
 
 	/**
 	 * The '<em><b>Procedure</b></em>' literal object.
@@ -1078,37 +1128,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROCEDURE(105, "Procedure", "Procedure"),
-
-	/**
-	 * The '<em><b>Process Request</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PROCESS_REQUEST_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PROCESS_REQUEST(106, "ProcessRequest", "ProcessRequest"),
-
-	/**
-	 * The '<em><b>Process Response</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PROCESS_RESPONSE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PROCESS_RESPONSE(107, "ProcessResponse", "ProcessResponse"),
-
-	/**
-	 * The '<em><b>Product Plan</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PRODUCT_PLAN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PRODUCT_PLAN(108, "ProductPlan", "ProductPlan"),
+	PROCEDURE(110, "Procedure", "Procedure"),
 
 	/**
 	 * The '<em><b>Provenance</b></em>' literal object.
@@ -1118,7 +1138,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROVENANCE(109, "Provenance", "Provenance"),
+	PROVENANCE(111, "Provenance", "Provenance"),
 
 	/**
 	 * The '<em><b>Questionnaire</b></em>' literal object.
@@ -1128,7 +1148,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUESTIONNAIRE(110, "Questionnaire", "Questionnaire"),
+	QUESTIONNAIRE(112, "Questionnaire", "Questionnaire"),
 
 	/**
 	 * The '<em><b>Questionnaire Response</b></em>' literal object.
@@ -1138,7 +1158,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUESTIONNAIRE_RESPONSE(111, "QuestionnaireResponse", "QuestionnaireResponse"),
+	QUESTIONNAIRE_RESPONSE(113, "QuestionnaireResponse", "QuestionnaireResponse"),
 
 	/**
 	 * The '<em><b>Related Person</b></em>' literal object.
@@ -1148,7 +1168,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RELATED_PERSON(112, "RelatedPerson", "RelatedPerson"),
+	RELATED_PERSON(114, "RelatedPerson", "RelatedPerson"),
 
 	/**
 	 * The '<em><b>Request Group</b></em>' literal object.
@@ -1158,7 +1178,27 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REQUEST_GROUP(113, "RequestGroup", "RequestGroup"),
+	REQUEST_GROUP(115, "RequestGroup", "RequestGroup"),
+
+	/**
+	 * The '<em><b>Research Definition</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RESEARCH_DEFINITION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RESEARCH_DEFINITION(116, "ResearchDefinition", "ResearchDefinition"),
+
+	/**
+	 * The '<em><b>Research Element Definition</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RESEARCH_ELEMENT_DEFINITION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RESEARCH_ELEMENT_DEFINITION(117, "ResearchElementDefinition", "ResearchElementDefinition"),
 
 	/**
 	 * The '<em><b>Research Study</b></em>' literal object.
@@ -1168,7 +1208,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESEARCH_STUDY(114, "ResearchStudy", "ResearchStudy"),
+	RESEARCH_STUDY(118, "ResearchStudy", "ResearchStudy"),
 
 	/**
 	 * The '<em><b>Research Subject</b></em>' literal object.
@@ -1178,7 +1218,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESEARCH_SUBJECT(115, "ResearchSubject", "ResearchSubject"),
+	RESEARCH_SUBJECT(119, "ResearchSubject", "ResearchSubject"),
 
 	/**
 	 * The '<em><b>Resource</b></em>' literal object.
@@ -1188,7 +1228,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESOURCE(116, "Resource", "Resource"),
+	RESOURCE(120, "Resource", "Resource"),
 
 	/**
 	 * The '<em><b>Risk Assessment</b></em>' literal object.
@@ -1198,7 +1238,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RISK_ASSESSMENT(117, "RiskAssessment", "RiskAssessment"),
+	RISK_ASSESSMENT(121, "RiskAssessment", "RiskAssessment"),
+
+	/**
+	 * The '<em><b>Risk Evidence Synthesis</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RISK_EVIDENCE_SYNTHESIS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RISK_EVIDENCE_SYNTHESIS(122, "RiskEvidenceSynthesis", "RiskEvidenceSynthesis"),
 
 	/**
 	 * The '<em><b>Schedule</b></em>' literal object.
@@ -1208,7 +1258,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHEDULE(118, "Schedule", "Schedule"),
+	SCHEDULE(123, "Schedule", "Schedule"),
 
 	/**
 	 * The '<em><b>Search Parameter</b></em>' literal object.
@@ -1218,27 +1268,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEARCH_PARAMETER(119, "SearchParameter", "SearchParameter"),
-
-	/**
-	 * The '<em><b>Sequence</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SEQUENCE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SEQUENCE(120, "Sequence", "Sequence"),
-
-	/**
-	 * The '<em><b>Service Definition</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SERVICE_DEFINITION_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SERVICE_DEFINITION(121, "ServiceDefinition", "ServiceDefinition"),
+	SEARCH_PARAMETER(124, "SearchParameter", "SearchParameter"),
 
 	/**
 	 * The '<em><b>Service Request</b></em>' literal object.
@@ -1248,7 +1278,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SERVICE_REQUEST(122, "ServiceRequest", "ServiceRequest"),
+	SERVICE_REQUEST(125, "ServiceRequest", "ServiceRequest"),
 
 	/**
 	 * The '<em><b>Slot</b></em>' literal object.
@@ -1258,7 +1288,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SLOT(123, "Slot", "Slot"),
+	SLOT(126, "Slot", "Slot"),
 
 	/**
 	 * The '<em><b>Specimen</b></em>' literal object.
@@ -1268,7 +1298,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPECIMEN(124, "Specimen", "Specimen"),
+	SPECIMEN(127, "Specimen", "Specimen"),
 
 	/**
 	 * The '<em><b>Specimen Definition</b></em>' literal object.
@@ -1278,7 +1308,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPECIMEN_DEFINITION(125, "SpecimenDefinition", "SpecimenDefinition"),
+	SPECIMEN_DEFINITION(128, "SpecimenDefinition", "SpecimenDefinition"),
 
 	/**
 	 * The '<em><b>Structure Definition</b></em>' literal object.
@@ -1288,7 +1318,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRUCTURE_DEFINITION(126, "StructureDefinition", "StructureDefinition"),
+	STRUCTURE_DEFINITION(129, "StructureDefinition", "StructureDefinition"),
 
 	/**
 	 * The '<em><b>Structure Map</b></em>' literal object.
@@ -1298,7 +1328,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRUCTURE_MAP(127, "StructureMap", "StructureMap"),
+	STRUCTURE_MAP(130, "StructureMap", "StructureMap"),
 
 	/**
 	 * The '<em><b>Subscription</b></em>' literal object.
@@ -1308,7 +1338,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSCRIPTION(128, "Subscription", "Subscription"),
+	SUBSCRIPTION(131, "Subscription", "Subscription"),
 
 	/**
 	 * The '<em><b>Substance</b></em>' literal object.
@@ -1318,7 +1348,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSTANCE(129, "Substance", "Substance"),
+	SUBSTANCE(132, "Substance", "Substance"),
+
+	/**
+	 * The '<em><b>Substance Nucleic Acid</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUBSTANCE_NUCLEIC_ACID_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUBSTANCE_NUCLEIC_ACID(133, "SubstanceNucleicAcid", "SubstanceNucleicAcid"),
 
 	/**
 	 * The '<em><b>Substance Polymer</b></em>' literal object.
@@ -1328,7 +1368,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSTANCE_POLYMER(130, "SubstancePolymer", "SubstancePolymer"),
+	SUBSTANCE_POLYMER(134, "SubstancePolymer", "SubstancePolymer"),
+
+	/**
+	 * The '<em><b>Substance Protein</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUBSTANCE_PROTEIN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUBSTANCE_PROTEIN(135, "SubstanceProtein", "SubstanceProtein"),
 
 	/**
 	 * The '<em><b>Substance Reference Information</b></em>' literal object.
@@ -1338,7 +1388,17 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSTANCE_REFERENCE_INFORMATION(131, "SubstanceReferenceInformation", "SubstanceReferenceInformation"),
+	SUBSTANCE_REFERENCE_INFORMATION(136, "SubstanceReferenceInformation", "SubstanceReferenceInformation"),
+
+	/**
+	 * The '<em><b>Substance Source Material</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SUBSTANCE_SOURCE_MATERIAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SUBSTANCE_SOURCE_MATERIAL(137, "SubstanceSourceMaterial", "SubstanceSourceMaterial"),
 
 	/**
 	 * The '<em><b>Substance Specification</b></em>' literal object.
@@ -1348,7 +1408,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUBSTANCE_SPECIFICATION(132, "SubstanceSpecification", "SubstanceSpecification"),
+	SUBSTANCE_SPECIFICATION(138, "SubstanceSpecification", "SubstanceSpecification"),
 
 	/**
 	 * The '<em><b>Supply Delivery</b></em>' literal object.
@@ -1358,7 +1418,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUPPLY_DELIVERY(133, "SupplyDelivery", "SupplyDelivery"),
+	SUPPLY_DELIVERY(139, "SupplyDelivery", "SupplyDelivery"),
 
 	/**
 	 * The '<em><b>Supply Request</b></em>' literal object.
@@ -1368,7 +1428,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUPPLY_REQUEST(134, "SupplyRequest", "SupplyRequest"),
+	SUPPLY_REQUEST(140, "SupplyRequest", "SupplyRequest"),
 
 	/**
 	 * The '<em><b>Task</b></em>' literal object.
@@ -1378,7 +1438,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TASK(135, "Task", "Task"),
+	TASK(141, "Task", "Task"),
 
 	/**
 	 * The '<em><b>Terminology Capabilities</b></em>' literal object.
@@ -1388,7 +1448,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TERMINOLOGY_CAPABILITIES(136, "TerminologyCapabilities", "TerminologyCapabilities"),
+	TERMINOLOGY_CAPABILITIES(142, "TerminologyCapabilities", "TerminologyCapabilities"),
 
 	/**
 	 * The '<em><b>Test Report</b></em>' literal object.
@@ -1398,7 +1458,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEST_REPORT(137, "TestReport", "TestReport"),
+	TEST_REPORT(143, "TestReport", "TestReport"),
 
 	/**
 	 * The '<em><b>Test Script</b></em>' literal object.
@@ -1408,17 +1468,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEST_SCRIPT(138, "TestScript", "TestScript"),
-
-	/**
-	 * The '<em><b>User Session</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #USER_SESSION_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	USER_SESSION(139, "UserSession", "UserSession"),
+	TEST_SCRIPT(144, "TestScript", "TestScript"),
 
 	/**
 	 * The '<em><b>Value Set</b></em>' literal object.
@@ -1428,7 +1478,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VALUE_SET(140, "ValueSet", "ValueSet"),
+	VALUE_SET(145, "ValueSet", "ValueSet"),
 
 	/**
 	 * The '<em><b>Verification Result</b></em>' literal object.
@@ -1438,7 +1488,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VERIFICATION_RESULT(141, "VerificationResult", "VerificationResult"),
+	VERIFICATION_RESULT(146, "VerificationResult", "VerificationResult"),
 
 	/**
 	 * The '<em><b>Vision Prescription</b></em>' literal object.
@@ -1448,7 +1498,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VISION_PRESCRIPTION(142, "VisionPrescription", "VisionPrescription");
+	VISION_PRESCRIPTION(147, "VisionPrescription", "VisionPrescription");
 
 	/**
 	 * The '<em><b>Account</b></em>' literal value.
@@ -1721,6 +1771,23 @@ public enum ResourceTypeList implements Enumerator {
 	public static final int CARE_TEAM_VALUE = 14;
 
 	/**
+	 * The '<em><b>Catalog Entry</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * CatalogEntry
+	 * CatalogEntry
+	 * EntradaDeCatalogo
+	 * 条目定义
+	 * <!-- end-model-doc -->
+	 * @see #CATALOG_ENTRY
+	 * @model name="CatalogEntry"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CATALOG_ENTRY_VALUE = 15;
+
+	/**
 	 * The '<em><b>Charge Item</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1735,7 +1802,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CHARGE_ITEM_VALUE = 15;
+	public static final int CHARGE_ITEM_VALUE = 16;
+
+	/**
+	 * The '<em><b>Charge Item Definition</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * ChargeItemDefinition
+	 * ChargeItemDefinition
+	 * <!-- end-model-doc -->
+	 * @see #CHARGE_ITEM_DEFINITION
+	 * @model name="ChargeItemDefinition"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CHARGE_ITEM_DEFINITION_VALUE = 17;
 
 	/**
 	 * The '<em><b>Claim</b></em>' literal value.
@@ -1753,7 +1835,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CLAIM_VALUE = 16;
+	public static final int CLAIM_VALUE = 18;
 
 	/**
 	 * The '<em><b>Claim Response</b></em>' literal value.
@@ -1770,7 +1852,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CLAIM_RESPONSE_VALUE = 17;
+	public static final int CLAIM_RESPONSE_VALUE = 19;
 
 	/**
 	 * The '<em><b>Clinical Impression</b></em>' literal value.
@@ -1789,7 +1871,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CLINICAL_IMPRESSION_VALUE = 18;
+	public static final int CLINICAL_IMPRESSION_VALUE = 20;
 
 	/**
 	 * The '<em><b>Code System</b></em>' literal value.
@@ -1807,7 +1889,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CODE_SYSTEM_VALUE = 19;
+	public static final int CODE_SYSTEM_VALUE = 21;
 
 	/**
 	 * The '<em><b>Communication</b></em>' literal value.
@@ -1826,7 +1908,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMMUNICATION_VALUE = 20;
+	public static final int COMMUNICATION_VALUE = 22;
 
 	/**
 	 * The '<em><b>Communication Request</b></em>' literal value.
@@ -1845,7 +1927,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMMUNICATION_REQUEST_VALUE = 21;
+	public static final int COMMUNICATION_REQUEST_VALUE = 23;
 
 	/**
 	 * The '<em><b>Compartment Definition</b></em>' literal value.
@@ -1862,7 +1944,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPARTMENT_DEFINITION_VALUE = 22;
+	public static final int COMPARTMENT_DEFINITION_VALUE = 24;
 
 	/**
 	 * The '<em><b>Composition</b></em>' literal value.
@@ -1881,7 +1963,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPOSITION_VALUE = 23;
+	public static final int COMPOSITION_VALUE = 25;
 
 	/**
 	 * The '<em><b>Concept Map</b></em>' literal value.
@@ -1900,7 +1982,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONCEPT_MAP_VALUE = 24;
+	public static final int CONCEPT_MAP_VALUE = 26;
 
 	/**
 	 * The '<em><b>Condition</b></em>' literal value.
@@ -1919,7 +2001,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONDITION_VALUE = 25;
+	public static final int CONDITION_VALUE = 27;
 
 	/**
 	 * The '<em><b>Consent</b></em>' literal value.
@@ -1937,7 +2019,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONSENT_VALUE = 26;
+	public static final int CONSENT_VALUE = 28;
 
 	/**
 	 * The '<em><b>Contract</b></em>' literal value.
@@ -1956,7 +2038,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTRACT_VALUE = 27;
+	public static final int CONTRACT_VALUE = 29;
 
 	/**
 	 * The '<em><b>Coverage</b></em>' literal value.
@@ -1975,7 +2057,43 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COVERAGE_VALUE = 28;
+	public static final int COVERAGE_VALUE = 30;
+
+	/**
+	 * The '<em><b>Coverage Eligibility Request</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * CoverageEligibilityRequest
+	 * CoverageEligibilityRequest
+	 * RichiestaEleggibilitaCopertura
+	 * CouvertureDemandeEligibilité
+	 * 资格请求
+	 * <!-- end-model-doc -->
+	 * @see #COVERAGE_ELIGIBILITY_REQUEST
+	 * @model name="CoverageEligibilityRequest"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COVERAGE_ELIGIBILITY_REQUEST_VALUE = 31;
+
+	/**
+	 * The '<em><b>Coverage Eligibility Response</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * CoverageEligibilityResponse
+	 * CoverageEligibilityResponse
+	 * RispostaEleggibilitaCopertura
+	 * RéponseEligibilitéCouverture
+	 * 资格响应
+	 * <!-- end-model-doc -->
+	 * @see #COVERAGE_ELIGIBILITY_RESPONSE
+	 * @model name="CoverageEligibilityResponse"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COVERAGE_ELIGIBILITY_RESPONSE_VALUE = 32;
 
 	/**
 	 * The '<em><b>Detected Issue</b></em>' literal value.
@@ -1994,7 +2112,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DETECTED_ISSUE_VALUE = 29;
+	public static final int DETECTED_ISSUE_VALUE = 33;
 
 	/**
 	 * The '<em><b>Device</b></em>' literal value.
@@ -2013,26 +2131,25 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEVICE_VALUE = 30;
+	public static final int DEVICE_VALUE = 34;
 
 	/**
-	 * The '<em><b>Device Component</b></em>' literal value.
+	 * The '<em><b>Device Definition</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * DeviceComponent
-	 * DeviceComponent
-	 * ComponenteDispositivo
-	 * ComposantDeDispositif
-	 * ComponenteDeDispositivo
+	 * DeviceDefinition
+	 * DeviceDefinition
+	 * DéfinitionDeDispositif
+	 * DefiniciónDeDispositivo
 	 * 装置组件
 	 * <!-- end-model-doc -->
-	 * @see #DEVICE_COMPONENT
-	 * @model name="DeviceComponent"
+	 * @see #DEVICE_DEFINITION
+	 * @model name="DeviceDefinition"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEVICE_COMPONENT_VALUE = 31;
+	public static final int DEVICE_DEFINITION_VALUE = 35;
 
 	/**
 	 * The '<em><b>Device Metric</b></em>' literal value.
@@ -2050,7 +2167,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEVICE_METRIC_VALUE = 32;
+	public static final int DEVICE_METRIC_VALUE = 36;
 
 	/**
 	 * The '<em><b>Device Request</b></em>' literal value.
@@ -2069,7 +2186,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEVICE_REQUEST_VALUE = 33;
+	public static final int DEVICE_REQUEST_VALUE = 37;
 
 	/**
 	 * The '<em><b>Device Use Statement</b></em>' literal value.
@@ -2085,7 +2202,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEVICE_USE_STATEMENT_VALUE = 34;
+	public static final int DEVICE_USE_STATEMENT_VALUE = 38;
 
 	/**
 	 * The '<em><b>Diagnostic Report</b></em>' literal value.
@@ -2104,7 +2221,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DIAGNOSTIC_REPORT_VALUE = 35;
+	public static final int DIAGNOSTIC_REPORT_VALUE = 39;
 
 	/**
 	 * The '<em><b>Document Manifest</b></em>' literal value.
@@ -2122,7 +2239,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOCUMENT_MANIFEST_VALUE = 36;
+	public static final int DOCUMENT_MANIFEST_VALUE = 40;
 
 	/**
 	 * The '<em><b>Document Reference</b></em>' literal value.
@@ -2141,7 +2258,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOCUMENT_REFERENCE_VALUE = 37;
+	public static final int DOCUMENT_REFERENCE_VALUE = 41;
 
 	/**
 	 * The '<em><b>Domain Resource</b></em>' literal value.
@@ -2158,43 +2275,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOMAIN_RESOURCE_VALUE = 38;
+	public static final int DOMAIN_RESOURCE_VALUE = 42;
 
 	/**
-	 * The '<em><b>Eligibility Request</b></em>' literal value.
+	 * The '<em><b>Effect Evidence Synthesis</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * EligibilityRequest
-	 * EligibilityRequest
-	 * RichiestaEleggibilita
-	 * DemandeEligibilité
-	 * 资格请求
+	 * EffectEvidenceSynthesis
+	 * EffectEvidenceSynthesis
 	 * <!-- end-model-doc -->
-	 * @see #ELIGIBILITY_REQUEST
-	 * @model name="EligibilityRequest"
+	 * @see #EFFECT_EVIDENCE_SYNTHESIS
+	 * @model name="EffectEvidenceSynthesis"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ELIGIBILITY_REQUEST_VALUE = 39;
-
-	/**
-	 * The '<em><b>Eligibility Response</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * EligibilityResponse
-	 * EligibilityResponse
-	 * RispostaEleggibilita
-	 * RéponseEligibilité
-	 * 资格响应
-	 * <!-- end-model-doc -->
-	 * @see #ELIGIBILITY_RESPONSE
-	 * @model name="EligibilityResponse"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ELIGIBILITY_RESPONSE_VALUE = 40;
+	public static final int EFFECT_EVIDENCE_SYNTHESIS_VALUE = 43;
 
 	/**
 	 * The '<em><b>Encounter</b></em>' literal value.
@@ -2212,7 +2308,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENCOUNTER_VALUE = 41;
+	public static final int ENCOUNTER_VALUE = 44;
 
 	/**
 	 * The '<em><b>Endpoint</b></em>' literal value.
@@ -2229,7 +2325,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENDPOINT_VALUE = 42;
+	public static final int ENDPOINT_VALUE = 45;
 
 	/**
 	 * The '<em><b>Enrollment Request</b></em>' literal value.
@@ -2248,7 +2344,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENROLLMENT_REQUEST_VALUE = 43;
+	public static final int ENROLLMENT_REQUEST_VALUE = 46;
 
 	/**
 	 * The '<em><b>Enrollment Response</b></em>' literal value.
@@ -2267,24 +2363,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENROLLMENT_RESPONSE_VALUE = 44;
-
-	/**
-	 * The '<em><b>Entry Definition</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * EntryDefinition
-	 * EntryDefinition
-	 * DefinicionDeEntrada
-	 * 条目定义
-	 * <!-- end-model-doc -->
-	 * @see #ENTRY_DEFINITION
-	 * @model name="EntryDefinition"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ENTRY_DEFINITION_VALUE = 45;
+	public static final int ENROLLMENT_RESPONSE_VALUE = 47;
 
 	/**
 	 * The '<em><b>Episode Of Care</b></em>' literal value.
@@ -2303,7 +2382,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EPISODE_OF_CARE_VALUE = 46;
+	public static final int EPISODE_OF_CARE_VALUE = 48;
 
 	/**
 	 * The '<em><b>Event Definition</b></em>' literal value.
@@ -2321,7 +2400,37 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EVENT_DEFINITION_VALUE = 47;
+	public static final int EVENT_DEFINITION_VALUE = 49;
+
+	/**
+	 * The '<em><b>Evidence</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Evidence
+	 * Evidence
+	 * <!-- end-model-doc -->
+	 * @see #EVIDENCE
+	 * @model name="Evidence"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EVIDENCE_VALUE = 50;
+
+	/**
+	 * The '<em><b>Evidence Variable</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * EvidenceVariable
+	 * EvidenceVariable
+	 * <!-- end-model-doc -->
+	 * @see #EVIDENCE_VARIABLE
+	 * @model name="EvidenceVariable"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EVIDENCE_VARIABLE_VALUE = 51;
 
 	/**
 	 * The '<em><b>Example Scenario</b></em>' literal value.
@@ -2339,25 +2448,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXAMPLE_SCENARIO_VALUE = 48;
-
-	/**
-	 * The '<em><b>Expansion Profile</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ExpansionProfile
-	 * ExpansionProfile
-	 * ProfiloDiEspansione
-	 * PerfilDeExpansion
-	 * 展开形式补充规范
-	 * <!-- end-model-doc -->
-	 * @see #EXPANSION_PROFILE
-	 * @model name="ExpansionProfile"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int EXPANSION_PROFILE_VALUE = 49;
+	public static final int EXAMPLE_SCENARIO_VALUE = 52;
 
 	/**
 	 * The '<em><b>Explanation Of Benefit</b></em>' literal value.
@@ -2374,7 +2465,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXPLANATION_OF_BENEFIT_VALUE = 50;
+	public static final int EXPLANATION_OF_BENEFIT_VALUE = 53;
 
 	/**
 	 * The '<em><b>Family Member History</b></em>' literal value.
@@ -2392,7 +2483,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAMILY_MEMBER_HISTORY_VALUE = 51;
+	public static final int FAMILY_MEMBER_HISTORY_VALUE = 54;
 
 	/**
 	 * The '<em><b>Flag</b></em>' literal value.
@@ -2410,7 +2501,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FLAG_VALUE = 52;
+	public static final int FLAG_VALUE = 55;
 
 	/**
 	 * The '<em><b>Goal</b></em>' literal value.
@@ -2428,7 +2519,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GOAL_VALUE = 53;
+	public static final int GOAL_VALUE = 56;
 
 	/**
 	 * The '<em><b>Graph Definition</b></em>' literal value.
@@ -2445,7 +2536,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GRAPH_DEFINITION_VALUE = 54;
+	public static final int GRAPH_DEFINITION_VALUE = 57;
 
 	/**
 	 * The '<em><b>Group</b></em>' literal value.
@@ -2464,7 +2555,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GROUP_VALUE = 55;
+	public static final int GROUP_VALUE = 58;
 
 	/**
 	 * The '<em><b>Guidance Response</b></em>' literal value.
@@ -2481,7 +2572,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GUIDANCE_RESPONSE_VALUE = 56;
+	public static final int GUIDANCE_RESPONSE_VALUE = 59;
 
 	/**
 	 * The '<em><b>Healthcare Service</b></em>' literal value.
@@ -2500,7 +2591,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HEALTHCARE_SERVICE_VALUE = 57;
+	public static final int HEALTHCARE_SERVICE_VALUE = 60;
 
 	/**
 	 * The '<em><b>Imaging Study</b></em>' literal value.
@@ -2518,7 +2609,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMAGING_STUDY_VALUE = 58;
+	public static final int IMAGING_STUDY_VALUE = 61;
 
 	/**
 	 * The '<em><b>Immunization</b></em>' literal value.
@@ -2537,7 +2628,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMMUNIZATION_VALUE = 59;
+	public static final int IMMUNIZATION_VALUE = 62;
 
 	/**
 	 * The '<em><b>Immunization Evaluation</b></em>' literal value.
@@ -2552,7 +2643,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMMUNIZATION_EVALUATION_VALUE = 60;
+	public static final int IMMUNIZATION_EVALUATION_VALUE = 63;
 
 	/**
 	 * The '<em><b>Immunization Recommendation</b></em>' literal value.
@@ -2570,7 +2661,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMMUNIZATION_RECOMMENDATION_VALUE = 61;
+	public static final int IMMUNIZATION_RECOMMENDATION_VALUE = 64;
 
 	/**
 	 * The '<em><b>Implementation Guide</b></em>' literal value.
@@ -2587,41 +2678,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMPLEMENTATION_GUIDE_VALUE = 62;
+	public static final int IMPLEMENTATION_GUIDE_VALUE = 65;
 
 	/**
-	 * The '<em><b>Implementation Guide Input</b></em>' literal value.
+	 * The '<em><b>Insurance Plan</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * ImplementationGuideInput
-	 * ImplementationGuideInput
-	 * GuiaDeImplementacionEntrada
-	 * 实施指南输入
+	 * InsurancePlan
+	 * InsurancePlan
 	 * <!-- end-model-doc -->
-	 * @see #IMPLEMENTATION_GUIDE_INPUT
-	 * @model name="ImplementationGuideInput"
+	 * @see #INSURANCE_PLAN
+	 * @model name="InsurancePlan"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int IMPLEMENTATION_GUIDE_INPUT_VALUE = 63;
-
-	/**
-	 * The '<em><b>Implementation Guide Output</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ImplementationGuideOutput
-	 * ImplementationGuideOutput
-	 * GuiaDeImplementacionSalida
-	 * 实施指南输出
-	 * <!-- end-model-doc -->
-	 * @see #IMPLEMENTATION_GUIDE_OUTPUT
-	 * @model name="ImplementationGuideOutput"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int IMPLEMENTATION_GUIDE_OUTPUT_VALUE = 64;
+	public static final int INSURANCE_PLAN_VALUE = 66;
 
 	/**
 	 * The '<em><b>Invoice</b></em>' literal value.
@@ -2636,22 +2708,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INVOICE_VALUE = 65;
-
-	/**
-	 * The '<em><b>Item Instance</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ItemInstance
-	 * ItemInstance
-	 * <!-- end-model-doc -->
-	 * @see #ITEM_INSTANCE
-	 * @model name="ItemInstance"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ITEM_INSTANCE_VALUE = 66;
+	public static final int INVOICE_VALUE = 67;
 
 	/**
 	 * The '<em><b>Library</b></em>' literal value.
@@ -2668,7 +2725,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LIBRARY_VALUE = 67;
+	public static final int LIBRARY_VALUE = 68;
 
 	/**
 	 * The '<em><b>Linkage</b></em>' literal value.
@@ -2685,7 +2742,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LINKAGE_VALUE = 68;
+	public static final int LINKAGE_VALUE = 69;
 
 	/**
 	 * The '<em><b>List</b></em>' literal value.
@@ -2704,7 +2761,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LIST_VALUE = 69;
+	public static final int LIST_VALUE = 70;
 
 	/**
 	 * The '<em><b>Location</b></em>' literal value.
@@ -2722,7 +2779,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LOCATION_VALUE = 70;
+	public static final int LOCATION_VALUE = 71;
 
 	/**
 	 * The '<em><b>Measure</b></em>' literal value.
@@ -2740,7 +2797,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEASURE_VALUE = 71;
+	public static final int MEASURE_VALUE = 72;
 
 	/**
 	 * The '<em><b>Measure Report</b></em>' literal value.
@@ -2757,7 +2814,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEASURE_REPORT_VALUE = 72;
+	public static final int MEASURE_REPORT_VALUE = 73;
 
 	/**
 	 * The '<em><b>Media</b></em>' literal value.
@@ -2776,7 +2833,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDIA_VALUE = 73;
+	public static final int MEDIA_VALUE = 74;
 
 	/**
 	 * The '<em><b>Medication</b></em>' literal value.
@@ -2794,7 +2851,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICATION_VALUE = 74;
+	public static final int MEDICATION_VALUE = 75;
 
 	/**
 	 * The '<em><b>Medication Administration</b></em>' literal value.
@@ -2812,7 +2869,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICATION_ADMINISTRATION_VALUE = 75;
+	public static final int MEDICATION_ADMINISTRATION_VALUE = 76;
 
 	/**
 	 * The '<em><b>Medication Dispense</b></em>' literal value.
@@ -2830,7 +2887,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICATION_DISPENSE_VALUE = 76;
+	public static final int MEDICATION_DISPENSE_VALUE = 77;
+
+	/**
+	 * The '<em><b>Medication Knowledge</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MedicationKnowledge
+	 * MedicationKnowledge
+	 * <!-- end-model-doc -->
+	 * @see #MEDICATION_KNOWLEDGE
+	 * @model name="MedicationKnowledge"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MEDICATION_KNOWLEDGE_VALUE = 78;
 
 	/**
 	 * The '<em><b>Medication Request</b></em>' literal value.
@@ -2848,7 +2920,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICATION_REQUEST_VALUE = 77;
+	public static final int MEDICATION_REQUEST_VALUE = 79;
 
 	/**
 	 * The '<em><b>Medication Statement</b></em>' literal value.
@@ -2866,7 +2938,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICATION_STATEMENT_VALUE = 78;
+	public static final int MEDICATION_STATEMENT_VALUE = 80;
 
 	/**
 	 * The '<em><b>Medicinal Product</b></em>' literal value.
@@ -2882,7 +2954,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_VALUE = 79;
+	public static final int MEDICINAL_PRODUCT_VALUE = 81;
 
 	/**
 	 * The '<em><b>Medicinal Product Authorization</b></em>' literal value.
@@ -2898,37 +2970,37 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_AUTHORIZATION_VALUE = 80;
+	public static final int MEDICINAL_PRODUCT_AUTHORIZATION_VALUE = 82;
 
 	/**
-	 * The '<em><b>Medicinal Product Clinicals</b></em>' literal value.
+	 * The '<em><b>Medicinal Product Contraindication</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * MedicinalProductClinicals
-	 * MedicinalProductClinicals
+	 * MedicinalProductContraindication
+	 * MedicinalProductContraindication
 	 * <!-- end-model-doc -->
-	 * @see #MEDICINAL_PRODUCT_CLINICALS
-	 * @model name="MedicinalProductClinicals"
+	 * @see #MEDICINAL_PRODUCT_CONTRAINDICATION
+	 * @model name="MedicinalProductContraindication"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_CLINICALS_VALUE = 81;
+	public static final int MEDICINAL_PRODUCT_CONTRAINDICATION_VALUE = 83;
 
 	/**
-	 * The '<em><b>Medicinal Product Device Spec</b></em>' literal value.
+	 * The '<em><b>Medicinal Product Indication</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * MedicinalProductDeviceSpec
-	 * MedicinalProductDeviceSpec
+	 * MedicinalProductIndication
+	 * MedicinalProductInteraction
 	 * <!-- end-model-doc -->
-	 * @see #MEDICINAL_PRODUCT_DEVICE_SPEC
-	 * @model name="MedicinalProductDeviceSpec"
+	 * @see #MEDICINAL_PRODUCT_INDICATION
+	 * @model name="MedicinalProductIndication"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_DEVICE_SPEC_VALUE = 82;
+	public static final int MEDICINAL_PRODUCT_INDICATION_VALUE = 84;
 
 	/**
 	 * The '<em><b>Medicinal Product Ingredient</b></em>' literal value.
@@ -2944,7 +3016,37 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_INGREDIENT_VALUE = 83;
+	public static final int MEDICINAL_PRODUCT_INGREDIENT_VALUE = 85;
+
+	/**
+	 * The '<em><b>Medicinal Product Interaction</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MedicinalProductInteraction
+	 * MedicinalProductInteraction
+	 * <!-- end-model-doc -->
+	 * @see #MEDICINAL_PRODUCT_INTERACTION
+	 * @model name="MedicinalProductInteraction"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MEDICINAL_PRODUCT_INTERACTION_VALUE = 86;
+
+	/**
+	 * The '<em><b>Medicinal Product Manufactured</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MedicinalProductManufactured
+	 * MedicinalProductManufactured
+	 * <!-- end-model-doc -->
+	 * @see #MEDICINAL_PRODUCT_MANUFACTURED
+	 * @model name="MedicinalProductManufactured"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MEDICINAL_PRODUCT_MANUFACTURED_VALUE = 87;
 
 	/**
 	 * The '<em><b>Medicinal Product Packaged</b></em>' literal value.
@@ -2959,7 +3061,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_PACKAGED_VALUE = 84;
+	public static final int MEDICINAL_PRODUCT_PACKAGED_VALUE = 88;
 
 	/**
 	 * The '<em><b>Medicinal Product Pharmaceutical</b></em>' literal value.
@@ -2974,7 +3076,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINAL_PRODUCT_PHARMACEUTICAL_VALUE = 85;
+	public static final int MEDICINAL_PRODUCT_PHARMACEUTICAL_VALUE = 89;
+
+	/**
+	 * The '<em><b>Medicinal Product Undesirable Effect</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MedicinalProductUndesirableEffect
+	 * MedicinalProductUndesirableEffect
+	 * <!-- end-model-doc -->
+	 * @see #MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT
+	 * @model name="MedicinalProductUndesirableEffect"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT_VALUE = 90;
 
 	/**
 	 * The '<em><b>Message Definition</b></em>' literal value.
@@ -2992,7 +3109,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MESSAGE_DEFINITION_VALUE = 86;
+	public static final int MESSAGE_DEFINITION_VALUE = 91;
 
 	/**
 	 * The '<em><b>Message Header</b></em>' literal value.
@@ -3010,7 +3127,24 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MESSAGE_HEADER_VALUE = 87;
+	public static final int MESSAGE_HEADER_VALUE = 92;
+
+	/**
+	 * The '<em><b>Molecular Sequence</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * MolecularSequence
+	 * MolecularSequence
+	 * SecuenciaMolecular
+	 * 分子序列
+	 * <!-- end-model-doc -->
+	 * @see #MOLECULAR_SEQUENCE
+	 * @model name="MolecularSequence"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MOLECULAR_SEQUENCE_VALUE = 93;
 
 	/**
 	 * The '<em><b>Naming System</b></em>' literal value.
@@ -3028,7 +3162,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NAMING_SYSTEM_VALUE = 88;
+	public static final int NAMING_SYSTEM_VALUE = 94;
 
 	/**
 	 * The '<em><b>Nutrition Order</b></em>' literal value.
@@ -3046,7 +3180,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NUTRITION_ORDER_VALUE = 89;
+	public static final int NUTRITION_ORDER_VALUE = 95;
 
 	/**
 	 * The '<em><b>Observation</b></em>' literal value.
@@ -3065,7 +3199,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OBSERVATION_VALUE = 90;
+	public static final int OBSERVATION_VALUE = 96;
 
 	/**
 	 * The '<em><b>Observation Definition</b></em>' literal value.
@@ -3083,22 +3217,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OBSERVATION_DEFINITION_VALUE = 91;
-
-	/**
-	 * The '<em><b>Occupational Data</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * OccupationalData
-	 * OccupationalData
-	 * <!-- end-model-doc -->
-	 * @see #OCCUPATIONAL_DATA
-	 * @model name="OccupationalData"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int OCCUPATIONAL_DATA_VALUE = 92;
+	public static final int OBSERVATION_DEFINITION_VALUE = 97;
 
 	/**
 	 * The '<em><b>Operation Definition</b></em>' literal value.
@@ -3117,7 +3236,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPERATION_DEFINITION_VALUE = 93;
+	public static final int OPERATION_DEFINITION_VALUE = 98;
 
 	/**
 	 * The '<em><b>Operation Outcome</b></em>' literal value.
@@ -3136,7 +3255,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPERATION_OUTCOME_VALUE = 94;
+	public static final int OPERATION_OUTCOME_VALUE = 99;
 
 	/**
 	 * The '<em><b>Organization</b></em>' literal value.
@@ -3155,22 +3274,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORGANIZATION_VALUE = 95;
+	public static final int ORGANIZATION_VALUE = 100;
 
 	/**
-	 * The '<em><b>Organization Role</b></em>' literal value.
+	 * The '<em><b>Organization Affiliation</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * OrganizationRole
-	 * OrganizationRole
+	 * OrganizationAffiliation
+	 * OrganizationAffiliation
 	 * <!-- end-model-doc -->
-	 * @see #ORGANIZATION_ROLE
-	 * @model name="OrganizationRole"
+	 * @see #ORGANIZATION_AFFILIATION
+	 * @model name="OrganizationAffiliation"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORGANIZATION_ROLE_VALUE = 96;
+	public static final int ORGANIZATION_AFFILIATION_VALUE = 101;
 
 	/**
 	 * The '<em><b>Parameters</b></em>' literal value.
@@ -3187,7 +3306,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PARAMETERS_VALUE = 97;
+	public static final int PARAMETERS_VALUE = 102;
 
 	/**
 	 * The '<em><b>Patient</b></em>' literal value.
@@ -3206,7 +3325,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PATIENT_VALUE = 98;
+	public static final int PATIENT_VALUE = 103;
 
 	/**
 	 * The '<em><b>Payment Notice</b></em>' literal value.
@@ -3225,7 +3344,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PAYMENT_NOTICE_VALUE = 99;
+	public static final int PAYMENT_NOTICE_VALUE = 104;
 
 	/**
 	 * The '<em><b>Payment Reconciliation</b></em>' literal value.
@@ -3244,7 +3363,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PAYMENT_RECONCILIATION_VALUE = 100;
+	public static final int PAYMENT_RECONCILIATION_VALUE = 105;
 
 	/**
 	 * The '<em><b>Person</b></em>' literal value.
@@ -3263,7 +3382,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PERSON_VALUE = 101;
+	public static final int PERSON_VALUE = 106;
 
 	/**
 	 * The '<em><b>Plan Definition</b></em>' literal value.
@@ -3280,7 +3399,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PLAN_DEFINITION_VALUE = 102;
+	public static final int PLAN_DEFINITION_VALUE = 107;
 
 	/**
 	 * The '<em><b>Practitioner</b></em>' literal value.
@@ -3298,7 +3417,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PRACTITIONER_VALUE = 103;
+	public static final int PRACTITIONER_VALUE = 108;
 
 	/**
 	 * The '<em><b>Practitioner Role</b></em>' literal value.
@@ -3315,7 +3434,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PRACTITIONER_ROLE_VALUE = 104;
+	public static final int PRACTITIONER_ROLE_VALUE = 109;
 
 	/**
 	 * The '<em><b>Procedure</b></em>' literal value.
@@ -3334,60 +3453,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROCEDURE_VALUE = 105;
-
-	/**
-	 * The '<em><b>Process Request</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ProcessRequest
-	 * ProcessRequest
-	 * RichiestaProcesso
-	 * DemandeProcessus
-	 * SolicitudDeProceso
-	 * 处理请求
-	 * <!-- end-model-doc -->
-	 * @see #PROCESS_REQUEST
-	 * @model name="ProcessRequest"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PROCESS_REQUEST_VALUE = 106;
-
-	/**
-	 * The '<em><b>Process Response</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ProcessResponse
-	 * ProcessResponse
-	 * RispostaProcesso
-	 * RéponseProcessus
-	 * RespuestaDeProceso
-	 * 处理响应
-	 * <!-- end-model-doc -->
-	 * @see #PROCESS_RESPONSE
-	 * @model name="ProcessResponse"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PROCESS_RESPONSE_VALUE = 107;
-
-	/**
-	 * The '<em><b>Product Plan</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ProductPlan
-	 * ProductPlan
-	 * <!-- end-model-doc -->
-	 * @see #PRODUCT_PLAN
-	 * @model name="ProductPlan"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PRODUCT_PLAN_VALUE = 108;
+	public static final int PROCEDURE_VALUE = 110;
 
 	/**
 	 * The '<em><b>Provenance</b></em>' literal value.
@@ -3406,7 +3472,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROVENANCE_VALUE = 109;
+	public static final int PROVENANCE_VALUE = 111;
 
 	/**
 	 * The '<em><b>Questionnaire</b></em>' literal value.
@@ -3425,7 +3491,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QUESTIONNAIRE_VALUE = 110;
+	public static final int QUESTIONNAIRE_VALUE = 112;
 
 	/**
 	 * The '<em><b>Questionnaire Response</b></em>' literal value.
@@ -3444,7 +3510,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int QUESTIONNAIRE_RESPONSE_VALUE = 111;
+	public static final int QUESTIONNAIRE_RESPONSE_VALUE = 113;
 
 	/**
 	 * The '<em><b>Related Person</b></em>' literal value.
@@ -3463,7 +3529,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RELATED_PERSON_VALUE = 112;
+	public static final int RELATED_PERSON_VALUE = 114;
 
 	/**
 	 * The '<em><b>Request Group</b></em>' literal value.
@@ -3481,7 +3547,37 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REQUEST_GROUP_VALUE = 113;
+	public static final int REQUEST_GROUP_VALUE = 115;
+
+	/**
+	 * The '<em><b>Research Definition</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * ResearchDefinition
+	 * ResearchDefinition
+	 * <!-- end-model-doc -->
+	 * @see #RESEARCH_DEFINITION
+	 * @model name="ResearchDefinition"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RESEARCH_DEFINITION_VALUE = 116;
+
+	/**
+	 * The '<em><b>Research Element Definition</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * ResearchElementDefinition
+	 * ResearchElementDefinition
+	 * <!-- end-model-doc -->
+	 * @see #RESEARCH_ELEMENT_DEFINITION
+	 * @model name="ResearchElementDefinition"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RESEARCH_ELEMENT_DEFINITION_VALUE = 117;
 
 	/**
 	 * The '<em><b>Research Study</b></em>' literal value.
@@ -3498,7 +3594,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESEARCH_STUDY_VALUE = 114;
+	public static final int RESEARCH_STUDY_VALUE = 118;
 
 	/**
 	 * The '<em><b>Research Subject</b></em>' literal value.
@@ -3515,7 +3611,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESEARCH_SUBJECT_VALUE = 115;
+	public static final int RESEARCH_SUBJECT_VALUE = 119;
 
 	/**
 	 * The '<em><b>Resource</b></em>' literal value.
@@ -3532,7 +3628,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESOURCE_VALUE = 116;
+	public static final int RESOURCE_VALUE = 120;
 
 	/**
 	 * The '<em><b>Risk Assessment</b></em>' literal value.
@@ -3550,7 +3646,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RISK_ASSESSMENT_VALUE = 117;
+	public static final int RISK_ASSESSMENT_VALUE = 121;
+
+	/**
+	 * The '<em><b>Risk Evidence Synthesis</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * RiskEvidenceSynthesis
+	 * RiskEvidenceSynthesis
+	 * <!-- end-model-doc -->
+	 * @see #RISK_EVIDENCE_SYNTHESIS
+	 * @model name="RiskEvidenceSynthesis"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RISK_EVIDENCE_SYNTHESIS_VALUE = 122;
 
 	/**
 	 * The '<em><b>Schedule</b></em>' literal value.
@@ -3567,7 +3678,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SCHEDULE_VALUE = 118;
+	public static final int SCHEDULE_VALUE = 123;
 
 	/**
 	 * The '<em><b>Search Parameter</b></em>' literal value.
@@ -3586,41 +3697,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEARCH_PARAMETER_VALUE = 119;
-
-	/**
-	 * The '<em><b>Sequence</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Sequence
-	 * Sequence
-	 * Secuencia
-	 * 序列
-	 * <!-- end-model-doc -->
-	 * @see #SEQUENCE
-	 * @model name="Sequence"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SEQUENCE_VALUE = 120;
-
-	/**
-	 * The '<em><b>Service Definition</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * ServiceDefinition
-	 * ServiceDefinition
-	 * DefinicionDeServicio
-	 * 服务项目定义
-	 * <!-- end-model-doc -->
-	 * @see #SERVICE_DEFINITION
-	 * @model name="ServiceDefinition"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SERVICE_DEFINITION_VALUE = 121;
+	public static final int SEARCH_PARAMETER_VALUE = 124;
 
 	/**
 	 * The '<em><b>Service Request</b></em>' literal value.
@@ -3639,7 +3716,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SERVICE_REQUEST_VALUE = 122;
+	public static final int SERVICE_REQUEST_VALUE = 125;
 
 	/**
 	 * The '<em><b>Slot</b></em>' literal value.
@@ -3657,7 +3734,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SLOT_VALUE = 123;
+	public static final int SLOT_VALUE = 126;
 
 	/**
 	 * The '<em><b>Specimen</b></em>' literal value.
@@ -3676,7 +3753,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SPECIMEN_VALUE = 124;
+	public static final int SPECIMEN_VALUE = 127;
 
 	/**
 	 * The '<em><b>Specimen Definition</b></em>' literal value.
@@ -3694,7 +3771,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SPECIMEN_DEFINITION_VALUE = 125;
+	public static final int SPECIMEN_DEFINITION_VALUE = 128;
 
 	/**
 	 * The '<em><b>Structure Definition</b></em>' literal value.
@@ -3713,7 +3790,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRUCTURE_DEFINITION_VALUE = 126;
+	public static final int STRUCTURE_DEFINITION_VALUE = 129;
 
 	/**
 	 * The '<em><b>Structure Map</b></em>' literal value.
@@ -3730,7 +3807,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRUCTURE_MAP_VALUE = 127;
+	public static final int STRUCTURE_MAP_VALUE = 130;
 
 	/**
 	 * The '<em><b>Subscription</b></em>' literal value.
@@ -3749,7 +3826,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSCRIPTION_VALUE = 128;
+	public static final int SUBSCRIPTION_VALUE = 131;
 
 	/**
 	 * The '<em><b>Substance</b></em>' literal value.
@@ -3768,7 +3845,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSTANCE_VALUE = 129;
+	public static final int SUBSTANCE_VALUE = 132;
+
+	/**
+	 * The '<em><b>Substance Nucleic Acid</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * SubstanceNucleicAcid
+	 * SubstanceNucleicAcid
+	 * <!-- end-model-doc -->
+	 * @see #SUBSTANCE_NUCLEIC_ACID
+	 * @model name="SubstanceNucleicAcid"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUBSTANCE_NUCLEIC_ACID_VALUE = 133;
 
 	/**
 	 * The '<em><b>Substance Polymer</b></em>' literal value.
@@ -3783,7 +3875,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSTANCE_POLYMER_VALUE = 130;
+	public static final int SUBSTANCE_POLYMER_VALUE = 134;
+
+	/**
+	 * The '<em><b>Substance Protein</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * SubstanceProtein
+	 * SubstanceProtein
+	 * <!-- end-model-doc -->
+	 * @see #SUBSTANCE_PROTEIN
+	 * @model name="SubstanceProtein"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUBSTANCE_PROTEIN_VALUE = 135;
 
 	/**
 	 * The '<em><b>Substance Reference Information</b></em>' literal value.
@@ -3798,7 +3905,22 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSTANCE_REFERENCE_INFORMATION_VALUE = 131;
+	public static final int SUBSTANCE_REFERENCE_INFORMATION_VALUE = 136;
+
+	/**
+	 * The '<em><b>Substance Source Material</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * SubstanceSourceMaterial
+	 * SubstanceSourceMaterial
+	 * <!-- end-model-doc -->
+	 * @see #SUBSTANCE_SOURCE_MATERIAL
+	 * @model name="SubstanceSourceMaterial"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SUBSTANCE_SOURCE_MATERIAL_VALUE = 137;
 
 	/**
 	 * The '<em><b>Substance Specification</b></em>' literal value.
@@ -3813,7 +3935,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUBSTANCE_SPECIFICATION_VALUE = 132;
+	public static final int SUBSTANCE_SPECIFICATION_VALUE = 138;
 
 	/**
 	 * The '<em><b>Supply Delivery</b></em>' literal value.
@@ -3831,7 +3953,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUPPLY_DELIVERY_VALUE = 133;
+	public static final int SUPPLY_DELIVERY_VALUE = 139;
 
 	/**
 	 * The '<em><b>Supply Request</b></em>' literal value.
@@ -3849,7 +3971,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUPPLY_REQUEST_VALUE = 134;
+	public static final int SUPPLY_REQUEST_VALUE = 140;
 
 	/**
 	 * The '<em><b>Task</b></em>' literal value.
@@ -3866,7 +3988,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_VALUE = 135;
+	public static final int TASK_VALUE = 141;
 
 	/**
 	 * The '<em><b>Terminology Capabilities</b></em>' literal value.
@@ -3883,7 +4005,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TERMINOLOGY_CAPABILITIES_VALUE = 136;
+	public static final int TERMINOLOGY_CAPABILITIES_VALUE = 142;
 
 	/**
 	 * The '<em><b>Test Report</b></em>' literal value.
@@ -3901,7 +4023,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TEST_REPORT_VALUE = 137;
+	public static final int TEST_REPORT_VALUE = 143;
 
 	/**
 	 * The '<em><b>Test Script</b></em>' literal value.
@@ -3919,25 +4041,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TEST_SCRIPT_VALUE = 138;
-
-	/**
-	 * The '<em><b>User Session</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * UserSession
-	 * UserSession
-	 * SessioneUtente
-	 * SesionDeUsuario
-	 * 用户会话
-	 * <!-- end-model-doc -->
-	 * @see #USER_SESSION
-	 * @model name="UserSession"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int USER_SESSION_VALUE = 139;
+	public static final int TEST_SCRIPT_VALUE = 144;
 
 	/**
 	 * The '<em><b>Value Set</b></em>' literal value.
@@ -3955,7 +4059,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VALUE_SET_VALUE = 140;
+	public static final int VALUE_SET_VALUE = 145;
 
 	/**
 	 * The '<em><b>Verification Result</b></em>' literal value.
@@ -3970,7 +4074,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VERIFICATION_RESULT_VALUE = 141;
+	public static final int VERIFICATION_RESULT_VALUE = 146;
 
 	/**
 	 * The '<em><b>Vision Prescription</b></em>' literal value.
@@ -3988,7 +4092,7 @@ public enum ResourceTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int VISION_PRESCRIPTION_VALUE = 142;
+	public static final int VISION_PRESCRIPTION_VALUE = 147;
 
 	/**
 	 * An array of all the '<em><b>Resource Type List</b></em>' enumerators.
@@ -4013,7 +4117,9 @@ public enum ResourceTypeList implements Enumerator {
 			CAPABILITY_STATEMENT,
 			CARE_PLAN,
 			CARE_TEAM,
+			CATALOG_ENTRY,
 			CHARGE_ITEM,
+			CHARGE_ITEM_DEFINITION,
 			CLAIM,
 			CLAIM_RESPONSE,
 			CLINICAL_IMPRESSION,
@@ -4027,9 +4133,11 @@ public enum ResourceTypeList implements Enumerator {
 			CONSENT,
 			CONTRACT,
 			COVERAGE,
+			COVERAGE_ELIGIBILITY_REQUEST,
+			COVERAGE_ELIGIBILITY_RESPONSE,
 			DETECTED_ISSUE,
 			DEVICE,
-			DEVICE_COMPONENT,
+			DEVICE_DEFINITION,
 			DEVICE_METRIC,
 			DEVICE_REQUEST,
 			DEVICE_USE_STATEMENT,
@@ -4037,17 +4145,16 @@ public enum ResourceTypeList implements Enumerator {
 			DOCUMENT_MANIFEST,
 			DOCUMENT_REFERENCE,
 			DOMAIN_RESOURCE,
-			ELIGIBILITY_REQUEST,
-			ELIGIBILITY_RESPONSE,
+			EFFECT_EVIDENCE_SYNTHESIS,
 			ENCOUNTER,
 			ENDPOINT,
 			ENROLLMENT_REQUEST,
 			ENROLLMENT_RESPONSE,
-			ENTRY_DEFINITION,
 			EPISODE_OF_CARE,
 			EVENT_DEFINITION,
+			EVIDENCE,
+			EVIDENCE_VARIABLE,
 			EXAMPLE_SCENARIO,
-			EXPANSION_PROFILE,
 			EXPLANATION_OF_BENEFIT,
 			FAMILY_MEMBER_HISTORY,
 			FLAG,
@@ -4061,10 +4168,8 @@ public enum ResourceTypeList implements Enumerator {
 			IMMUNIZATION_EVALUATION,
 			IMMUNIZATION_RECOMMENDATION,
 			IMPLEMENTATION_GUIDE,
-			IMPLEMENTATION_GUIDE_INPUT,
-			IMPLEMENTATION_GUIDE_OUTPUT,
+			INSURANCE_PLAN,
 			INVOICE,
-			ITEM_INSTANCE,
 			LIBRARY,
 			LINKAGE,
 			LIST,
@@ -4075,26 +4180,30 @@ public enum ResourceTypeList implements Enumerator {
 			MEDICATION,
 			MEDICATION_ADMINISTRATION,
 			MEDICATION_DISPENSE,
+			MEDICATION_KNOWLEDGE,
 			MEDICATION_REQUEST,
 			MEDICATION_STATEMENT,
 			MEDICINAL_PRODUCT,
 			MEDICINAL_PRODUCT_AUTHORIZATION,
-			MEDICINAL_PRODUCT_CLINICALS,
-			MEDICINAL_PRODUCT_DEVICE_SPEC,
+			MEDICINAL_PRODUCT_CONTRAINDICATION,
+			MEDICINAL_PRODUCT_INDICATION,
 			MEDICINAL_PRODUCT_INGREDIENT,
+			MEDICINAL_PRODUCT_INTERACTION,
+			MEDICINAL_PRODUCT_MANUFACTURED,
 			MEDICINAL_PRODUCT_PACKAGED,
 			MEDICINAL_PRODUCT_PHARMACEUTICAL,
+			MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT,
 			MESSAGE_DEFINITION,
 			MESSAGE_HEADER,
+			MOLECULAR_SEQUENCE,
 			NAMING_SYSTEM,
 			NUTRITION_ORDER,
 			OBSERVATION,
 			OBSERVATION_DEFINITION,
-			OCCUPATIONAL_DATA,
 			OPERATION_DEFINITION,
 			OPERATION_OUTCOME,
 			ORGANIZATION,
-			ORGANIZATION_ROLE,
+			ORGANIZATION_AFFILIATION,
 			PARAMETERS,
 			PATIENT,
 			PAYMENT_NOTICE,
@@ -4104,22 +4213,20 @@ public enum ResourceTypeList implements Enumerator {
 			PRACTITIONER,
 			PRACTITIONER_ROLE,
 			PROCEDURE,
-			PROCESS_REQUEST,
-			PROCESS_RESPONSE,
-			PRODUCT_PLAN,
 			PROVENANCE,
 			QUESTIONNAIRE,
 			QUESTIONNAIRE_RESPONSE,
 			RELATED_PERSON,
 			REQUEST_GROUP,
+			RESEARCH_DEFINITION,
+			RESEARCH_ELEMENT_DEFINITION,
 			RESEARCH_STUDY,
 			RESEARCH_SUBJECT,
 			RESOURCE,
 			RISK_ASSESSMENT,
+			RISK_EVIDENCE_SYNTHESIS,
 			SCHEDULE,
 			SEARCH_PARAMETER,
-			SEQUENCE,
-			SERVICE_DEFINITION,
 			SERVICE_REQUEST,
 			SLOT,
 			SPECIMEN,
@@ -4128,8 +4235,11 @@ public enum ResourceTypeList implements Enumerator {
 			STRUCTURE_MAP,
 			SUBSCRIPTION,
 			SUBSTANCE,
+			SUBSTANCE_NUCLEIC_ACID,
 			SUBSTANCE_POLYMER,
+			SUBSTANCE_PROTEIN,
 			SUBSTANCE_REFERENCE_INFORMATION,
+			SUBSTANCE_SOURCE_MATERIAL,
 			SUBSTANCE_SPECIFICATION,
 			SUPPLY_DELIVERY,
 			SUPPLY_REQUEST,
@@ -4137,7 +4247,6 @@ public enum ResourceTypeList implements Enumerator {
 			TERMINOLOGY_CAPABILITIES,
 			TEST_REPORT,
 			TEST_SCRIPT,
-			USER_SESSION,
 			VALUE_SET,
 			VERIFICATION_RESULT,
 			VISION_PRESCRIPTION,
@@ -4212,7 +4321,9 @@ public enum ResourceTypeList implements Enumerator {
 			case CAPABILITY_STATEMENT_VALUE: return CAPABILITY_STATEMENT;
 			case CARE_PLAN_VALUE: return CARE_PLAN;
 			case CARE_TEAM_VALUE: return CARE_TEAM;
+			case CATALOG_ENTRY_VALUE: return CATALOG_ENTRY;
 			case CHARGE_ITEM_VALUE: return CHARGE_ITEM;
+			case CHARGE_ITEM_DEFINITION_VALUE: return CHARGE_ITEM_DEFINITION;
 			case CLAIM_VALUE: return CLAIM;
 			case CLAIM_RESPONSE_VALUE: return CLAIM_RESPONSE;
 			case CLINICAL_IMPRESSION_VALUE: return CLINICAL_IMPRESSION;
@@ -4226,9 +4337,11 @@ public enum ResourceTypeList implements Enumerator {
 			case CONSENT_VALUE: return CONSENT;
 			case CONTRACT_VALUE: return CONTRACT;
 			case COVERAGE_VALUE: return COVERAGE;
+			case COVERAGE_ELIGIBILITY_REQUEST_VALUE: return COVERAGE_ELIGIBILITY_REQUEST;
+			case COVERAGE_ELIGIBILITY_RESPONSE_VALUE: return COVERAGE_ELIGIBILITY_RESPONSE;
 			case DETECTED_ISSUE_VALUE: return DETECTED_ISSUE;
 			case DEVICE_VALUE: return DEVICE;
-			case DEVICE_COMPONENT_VALUE: return DEVICE_COMPONENT;
+			case DEVICE_DEFINITION_VALUE: return DEVICE_DEFINITION;
 			case DEVICE_METRIC_VALUE: return DEVICE_METRIC;
 			case DEVICE_REQUEST_VALUE: return DEVICE_REQUEST;
 			case DEVICE_USE_STATEMENT_VALUE: return DEVICE_USE_STATEMENT;
@@ -4236,17 +4349,16 @@ public enum ResourceTypeList implements Enumerator {
 			case DOCUMENT_MANIFEST_VALUE: return DOCUMENT_MANIFEST;
 			case DOCUMENT_REFERENCE_VALUE: return DOCUMENT_REFERENCE;
 			case DOMAIN_RESOURCE_VALUE: return DOMAIN_RESOURCE;
-			case ELIGIBILITY_REQUEST_VALUE: return ELIGIBILITY_REQUEST;
-			case ELIGIBILITY_RESPONSE_VALUE: return ELIGIBILITY_RESPONSE;
+			case EFFECT_EVIDENCE_SYNTHESIS_VALUE: return EFFECT_EVIDENCE_SYNTHESIS;
 			case ENCOUNTER_VALUE: return ENCOUNTER;
 			case ENDPOINT_VALUE: return ENDPOINT;
 			case ENROLLMENT_REQUEST_VALUE: return ENROLLMENT_REQUEST;
 			case ENROLLMENT_RESPONSE_VALUE: return ENROLLMENT_RESPONSE;
-			case ENTRY_DEFINITION_VALUE: return ENTRY_DEFINITION;
 			case EPISODE_OF_CARE_VALUE: return EPISODE_OF_CARE;
 			case EVENT_DEFINITION_VALUE: return EVENT_DEFINITION;
+			case EVIDENCE_VALUE: return EVIDENCE;
+			case EVIDENCE_VARIABLE_VALUE: return EVIDENCE_VARIABLE;
 			case EXAMPLE_SCENARIO_VALUE: return EXAMPLE_SCENARIO;
-			case EXPANSION_PROFILE_VALUE: return EXPANSION_PROFILE;
 			case EXPLANATION_OF_BENEFIT_VALUE: return EXPLANATION_OF_BENEFIT;
 			case FAMILY_MEMBER_HISTORY_VALUE: return FAMILY_MEMBER_HISTORY;
 			case FLAG_VALUE: return FLAG;
@@ -4260,10 +4372,8 @@ public enum ResourceTypeList implements Enumerator {
 			case IMMUNIZATION_EVALUATION_VALUE: return IMMUNIZATION_EVALUATION;
 			case IMMUNIZATION_RECOMMENDATION_VALUE: return IMMUNIZATION_RECOMMENDATION;
 			case IMPLEMENTATION_GUIDE_VALUE: return IMPLEMENTATION_GUIDE;
-			case IMPLEMENTATION_GUIDE_INPUT_VALUE: return IMPLEMENTATION_GUIDE_INPUT;
-			case IMPLEMENTATION_GUIDE_OUTPUT_VALUE: return IMPLEMENTATION_GUIDE_OUTPUT;
+			case INSURANCE_PLAN_VALUE: return INSURANCE_PLAN;
 			case INVOICE_VALUE: return INVOICE;
-			case ITEM_INSTANCE_VALUE: return ITEM_INSTANCE;
 			case LIBRARY_VALUE: return LIBRARY;
 			case LINKAGE_VALUE: return LINKAGE;
 			case LIST_VALUE: return LIST;
@@ -4274,26 +4384,30 @@ public enum ResourceTypeList implements Enumerator {
 			case MEDICATION_VALUE: return MEDICATION;
 			case MEDICATION_ADMINISTRATION_VALUE: return MEDICATION_ADMINISTRATION;
 			case MEDICATION_DISPENSE_VALUE: return MEDICATION_DISPENSE;
+			case MEDICATION_KNOWLEDGE_VALUE: return MEDICATION_KNOWLEDGE;
 			case MEDICATION_REQUEST_VALUE: return MEDICATION_REQUEST;
 			case MEDICATION_STATEMENT_VALUE: return MEDICATION_STATEMENT;
 			case MEDICINAL_PRODUCT_VALUE: return MEDICINAL_PRODUCT;
 			case MEDICINAL_PRODUCT_AUTHORIZATION_VALUE: return MEDICINAL_PRODUCT_AUTHORIZATION;
-			case MEDICINAL_PRODUCT_CLINICALS_VALUE: return MEDICINAL_PRODUCT_CLINICALS;
-			case MEDICINAL_PRODUCT_DEVICE_SPEC_VALUE: return MEDICINAL_PRODUCT_DEVICE_SPEC;
+			case MEDICINAL_PRODUCT_CONTRAINDICATION_VALUE: return MEDICINAL_PRODUCT_CONTRAINDICATION;
+			case MEDICINAL_PRODUCT_INDICATION_VALUE: return MEDICINAL_PRODUCT_INDICATION;
 			case MEDICINAL_PRODUCT_INGREDIENT_VALUE: return MEDICINAL_PRODUCT_INGREDIENT;
+			case MEDICINAL_PRODUCT_INTERACTION_VALUE: return MEDICINAL_PRODUCT_INTERACTION;
+			case MEDICINAL_PRODUCT_MANUFACTURED_VALUE: return MEDICINAL_PRODUCT_MANUFACTURED;
 			case MEDICINAL_PRODUCT_PACKAGED_VALUE: return MEDICINAL_PRODUCT_PACKAGED;
 			case MEDICINAL_PRODUCT_PHARMACEUTICAL_VALUE: return MEDICINAL_PRODUCT_PHARMACEUTICAL;
+			case MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT_VALUE: return MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT;
 			case MESSAGE_DEFINITION_VALUE: return MESSAGE_DEFINITION;
 			case MESSAGE_HEADER_VALUE: return MESSAGE_HEADER;
+			case MOLECULAR_SEQUENCE_VALUE: return MOLECULAR_SEQUENCE;
 			case NAMING_SYSTEM_VALUE: return NAMING_SYSTEM;
 			case NUTRITION_ORDER_VALUE: return NUTRITION_ORDER;
 			case OBSERVATION_VALUE: return OBSERVATION;
 			case OBSERVATION_DEFINITION_VALUE: return OBSERVATION_DEFINITION;
-			case OCCUPATIONAL_DATA_VALUE: return OCCUPATIONAL_DATA;
 			case OPERATION_DEFINITION_VALUE: return OPERATION_DEFINITION;
 			case OPERATION_OUTCOME_VALUE: return OPERATION_OUTCOME;
 			case ORGANIZATION_VALUE: return ORGANIZATION;
-			case ORGANIZATION_ROLE_VALUE: return ORGANIZATION_ROLE;
+			case ORGANIZATION_AFFILIATION_VALUE: return ORGANIZATION_AFFILIATION;
 			case PARAMETERS_VALUE: return PARAMETERS;
 			case PATIENT_VALUE: return PATIENT;
 			case PAYMENT_NOTICE_VALUE: return PAYMENT_NOTICE;
@@ -4303,22 +4417,20 @@ public enum ResourceTypeList implements Enumerator {
 			case PRACTITIONER_VALUE: return PRACTITIONER;
 			case PRACTITIONER_ROLE_VALUE: return PRACTITIONER_ROLE;
 			case PROCEDURE_VALUE: return PROCEDURE;
-			case PROCESS_REQUEST_VALUE: return PROCESS_REQUEST;
-			case PROCESS_RESPONSE_VALUE: return PROCESS_RESPONSE;
-			case PRODUCT_PLAN_VALUE: return PRODUCT_PLAN;
 			case PROVENANCE_VALUE: return PROVENANCE;
 			case QUESTIONNAIRE_VALUE: return QUESTIONNAIRE;
 			case QUESTIONNAIRE_RESPONSE_VALUE: return QUESTIONNAIRE_RESPONSE;
 			case RELATED_PERSON_VALUE: return RELATED_PERSON;
 			case REQUEST_GROUP_VALUE: return REQUEST_GROUP;
+			case RESEARCH_DEFINITION_VALUE: return RESEARCH_DEFINITION;
+			case RESEARCH_ELEMENT_DEFINITION_VALUE: return RESEARCH_ELEMENT_DEFINITION;
 			case RESEARCH_STUDY_VALUE: return RESEARCH_STUDY;
 			case RESEARCH_SUBJECT_VALUE: return RESEARCH_SUBJECT;
 			case RESOURCE_VALUE: return RESOURCE;
 			case RISK_ASSESSMENT_VALUE: return RISK_ASSESSMENT;
+			case RISK_EVIDENCE_SYNTHESIS_VALUE: return RISK_EVIDENCE_SYNTHESIS;
 			case SCHEDULE_VALUE: return SCHEDULE;
 			case SEARCH_PARAMETER_VALUE: return SEARCH_PARAMETER;
-			case SEQUENCE_VALUE: return SEQUENCE;
-			case SERVICE_DEFINITION_VALUE: return SERVICE_DEFINITION;
 			case SERVICE_REQUEST_VALUE: return SERVICE_REQUEST;
 			case SLOT_VALUE: return SLOT;
 			case SPECIMEN_VALUE: return SPECIMEN;
@@ -4327,8 +4439,11 @@ public enum ResourceTypeList implements Enumerator {
 			case STRUCTURE_MAP_VALUE: return STRUCTURE_MAP;
 			case SUBSCRIPTION_VALUE: return SUBSCRIPTION;
 			case SUBSTANCE_VALUE: return SUBSTANCE;
+			case SUBSTANCE_NUCLEIC_ACID_VALUE: return SUBSTANCE_NUCLEIC_ACID;
 			case SUBSTANCE_POLYMER_VALUE: return SUBSTANCE_POLYMER;
+			case SUBSTANCE_PROTEIN_VALUE: return SUBSTANCE_PROTEIN;
 			case SUBSTANCE_REFERENCE_INFORMATION_VALUE: return SUBSTANCE_REFERENCE_INFORMATION;
+			case SUBSTANCE_SOURCE_MATERIAL_VALUE: return SUBSTANCE_SOURCE_MATERIAL;
 			case SUBSTANCE_SPECIFICATION_VALUE: return SUBSTANCE_SPECIFICATION;
 			case SUPPLY_DELIVERY_VALUE: return SUPPLY_DELIVERY;
 			case SUPPLY_REQUEST_VALUE: return SUPPLY_REQUEST;
@@ -4336,7 +4451,6 @@ public enum ResourceTypeList implements Enumerator {
 			case TERMINOLOGY_CAPABILITIES_VALUE: return TERMINOLOGY_CAPABILITIES;
 			case TEST_REPORT_VALUE: return TEST_REPORT;
 			case TEST_SCRIPT_VALUE: return TEST_SCRIPT;
-			case USER_SESSION_VALUE: return USER_SESSION;
 			case VALUE_SET_VALUE: return VALUE_SET;
 			case VERIFICATION_RESULT_VALUE: return VERIFICATION_RESULT;
 			case VISION_PRESCRIPTION_VALUE: return VISION_PRESCRIPTION;

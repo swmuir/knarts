@@ -11,11 +11,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.Attachment;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.RelatedArtifactImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RelatedArtifactImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedArtifactImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedArtifactImpl#getCitation <em>Citation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedArtifactImpl#getUrl <em>Url</em>}</li>
@@ -47,6 +49,16 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	protected RelatedArtifactType type;
 
 	/**
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String label;
+
+	/**
 	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,7 +76,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String citation;
+	protected Markdown citation;
 
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
@@ -74,7 +86,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri url;
+	protected Url url;
 
 	/**
 	 * The cached value of the '{@link #getDocument() <em>Document</em>}' containment reference.
@@ -94,7 +106,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference resource;
+	protected Canonical resource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +175,49 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getLabel() {
+		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLabel(org.hl7.fhir.String newLabel, NotificationChain msgs) {
+		org.hl7.fhir.String oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_ARTIFACT__LABEL, oldLabel, newLabel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabel(org.hl7.fhir.String newLabel) {
+		if (newLabel != label) {
+			NotificationChain msgs = null;
+			if (label != null)
+				msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_ARTIFACT__LABEL, null, msgs);
+			if (newLabel != null)
+				msgs = ((InternalEObject)newLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.RELATED_ARTIFACT__LABEL, null, msgs);
+			msgs = basicSetLabel(newLabel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_ARTIFACT__LABEL, newLabel, newLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getDisplay() {
 		return display;
 	}
@@ -206,7 +261,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCitation() {
+	public Markdown getCitation() {
 		return citation;
 	}
 
@@ -215,8 +270,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCitation(org.hl7.fhir.String newCitation, NotificationChain msgs) {
-		org.hl7.fhir.String oldCitation = citation;
+	public NotificationChain basicSetCitation(Markdown newCitation, NotificationChain msgs) {
+		Markdown oldCitation = citation;
 		citation = newCitation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_ARTIFACT__CITATION, oldCitation, newCitation);
@@ -230,7 +285,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCitation(org.hl7.fhir.String newCitation) {
+	public void setCitation(Markdown newCitation) {
 		if (newCitation != citation) {
 			NotificationChain msgs = null;
 			if (citation != null)
@@ -249,7 +304,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUrl() {
+	public Url getUrl() {
 		return url;
 	}
 
@@ -258,8 +313,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
-		Uri oldUrl = url;
+	public NotificationChain basicSetUrl(Url newUrl, NotificationChain msgs) {
+		Url oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_ARTIFACT__URL, oldUrl, newUrl);
@@ -273,7 +328,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUrl(Uri newUrl) {
+	public void setUrl(Url newUrl) {
 		if (newUrl != url) {
 			NotificationChain msgs = null;
 			if (url != null)
@@ -335,7 +390,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getResource() {
+	public Canonical getResource() {
 		return resource;
 	}
 
@@ -344,8 +399,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResource(Reference newResource, NotificationChain msgs) {
-		Reference oldResource = resource;
+	public NotificationChain basicSetResource(Canonical newResource, NotificationChain msgs) {
+		Canonical oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.RELATED_ARTIFACT__RESOURCE, oldResource, newResource);
@@ -359,7 +414,7 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(Reference newResource) {
+	public void setResource(Canonical newResource) {
 		if (newResource != resource) {
 			NotificationChain msgs = null;
 			if (resource != null)
@@ -383,6 +438,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 		switch (featureID) {
 			case FhirPackage.RELATED_ARTIFACT__TYPE:
 				return basicSetType(null, msgs);
+			case FhirPackage.RELATED_ARTIFACT__LABEL:
+				return basicSetLabel(null, msgs);
 			case FhirPackage.RELATED_ARTIFACT__DISPLAY:
 				return basicSetDisplay(null, msgs);
 			case FhirPackage.RELATED_ARTIFACT__CITATION:
@@ -407,6 +464,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 		switch (featureID) {
 			case FhirPackage.RELATED_ARTIFACT__TYPE:
 				return getType();
+			case FhirPackage.RELATED_ARTIFACT__LABEL:
+				return getLabel();
 			case FhirPackage.RELATED_ARTIFACT__DISPLAY:
 				return getDisplay();
 			case FhirPackage.RELATED_ARTIFACT__CITATION:
@@ -432,20 +491,23 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 			case FhirPackage.RELATED_ARTIFACT__TYPE:
 				setType((RelatedArtifactType)newValue);
 				return;
+			case FhirPackage.RELATED_ARTIFACT__LABEL:
+				setLabel((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.RELATED_ARTIFACT__DISPLAY:
 				setDisplay((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__CITATION:
-				setCitation((org.hl7.fhir.String)newValue);
+				setCitation((Markdown)newValue);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__URL:
-				setUrl((Uri)newValue);
+				setUrl((Url)newValue);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__DOCUMENT:
 				setDocument((Attachment)newValue);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__RESOURCE:
-				setResource((Reference)newValue);
+				setResource((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -462,20 +524,23 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 			case FhirPackage.RELATED_ARTIFACT__TYPE:
 				setType((RelatedArtifactType)null);
 				return;
+			case FhirPackage.RELATED_ARTIFACT__LABEL:
+				setLabel((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.RELATED_ARTIFACT__DISPLAY:
 				setDisplay((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__CITATION:
-				setCitation((org.hl7.fhir.String)null);
+				setCitation((Markdown)null);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__URL:
-				setUrl((Uri)null);
+				setUrl((Url)null);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__DOCUMENT:
 				setDocument((Attachment)null);
 				return;
 			case FhirPackage.RELATED_ARTIFACT__RESOURCE:
-				setResource((Reference)null);
+				setResource((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -491,6 +556,8 @@ public class RelatedArtifactImpl extends ElementImpl implements RelatedArtifact 
 		switch (featureID) {
 			case FhirPackage.RELATED_ARTIFACT__TYPE:
 				return type != null;
+			case FhirPackage.RELATED_ARTIFACT__LABEL:
+				return label != null;
 			case FhirPackage.RELATED_ARTIFACT__DISPLAY:
 				return display != null;
 			case FhirPackage.RELATED_ARTIFACT__CITATION:

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeSystem;
 import org.hl7.fhir.CodeSystemConcept;
 import org.hl7.fhir.CodeSystemContentMode;
@@ -30,7 +31,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
@@ -85,14 +85,14 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	protected Uri url;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
@@ -242,7 +242,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri valueSet;
+	protected Canonical valueSet;
 
 	/**
 	 * The cached value of the '{@link #getHierarchyMeaning() <em>Hierarchy Meaning</em>}' containment reference.
@@ -292,7 +292,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference supplements;
+	protected Canonical supplements;
 
 	/**
 	 * The cached value of the '{@link #getCount() <em>Count</em>}' containment reference.
@@ -401,42 +401,11 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CODE_SYSTEM__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -953,7 +922,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getValueSet() {
+	public Canonical getValueSet() {
 		return valueSet;
 	}
 
@@ -962,8 +931,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSet(Uri newValueSet, NotificationChain msgs) {
-		Uri oldValueSet = valueSet;
+	public NotificationChain basicSetValueSet(Canonical newValueSet, NotificationChain msgs) {
+		Canonical oldValueSet = valueSet;
 		valueSet = newValueSet;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__VALUE_SET, oldValueSet, newValueSet);
@@ -977,7 +946,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSet(Uri newValueSet) {
+	public void setValueSet(Canonical newValueSet) {
 		if (newValueSet != valueSet) {
 			NotificationChain msgs = null;
 			if (valueSet != null)
@@ -1168,7 +1137,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSupplements() {
+	public Canonical getSupplements() {
 		return supplements;
 	}
 
@@ -1177,8 +1146,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSupplements(Reference newSupplements, NotificationChain msgs) {
-		Reference oldSupplements = supplements;
+	public NotificationChain basicSetSupplements(Canonical newSupplements, NotificationChain msgs) {
+		Canonical oldSupplements = supplements;
 		supplements = newSupplements;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM__SUPPLEMENTS, oldSupplements, newSupplements);
@@ -1192,7 +1161,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSupplements(Reference newSupplements) {
+	public void setSupplements(Canonical newSupplements) {
 		if (newSupplements != supplements) {
 			NotificationChain msgs = null;
 			if (supplements != null)
@@ -1296,7 +1265,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__URL:
 				return basicSetUrl(null, msgs);
 			case FhirPackage.CODE_SYSTEM__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CODE_SYSTEM__VERSION:
 				return basicSetVersion(null, msgs);
 			case FhirPackage.CODE_SYSTEM__NAME:
@@ -1426,7 +1395,8 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setUrl((Uri)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__VERSION:
 				setVersion((org.hl7.fhir.String)newValue);
@@ -1474,7 +1444,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setCaseSensitive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
-				setValueSet((Uri)newValue);
+				setValueSet((Canonical)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
 				setHierarchyMeaning((CodeSystemHierarchyMeaning)newValue);
@@ -1489,7 +1459,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setContent((CodeSystemContentMode)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
-				setSupplements((Reference)newValue);
+				setSupplements((Canonical)newValue);
 				return;
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				setCount((UnsignedInt)newValue);
@@ -1522,7 +1492,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setUrl((Uri)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.CODE_SYSTEM__VERSION:
 				setVersion((org.hl7.fhir.String)null);
@@ -1567,7 +1537,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setCaseSensitive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__VALUE_SET:
-				setValueSet((Uri)null);
+				setValueSet((Canonical)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__HIERARCHY_MEANING:
 				setHierarchyMeaning((CodeSystemHierarchyMeaning)null);
@@ -1582,7 +1552,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 				setContent((CodeSystemContentMode)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__SUPPLEMENTS:
-				setSupplements((Reference)null);
+				setSupplements((Canonical)null);
 				return;
 			case FhirPackage.CODE_SYSTEM__COUNT:
 				setCount((UnsignedInt)null);
@@ -1611,7 +1581,7 @@ public class CodeSystemImpl extends DomainResourceImpl implements CodeSystem {
 			case FhirPackage.CODE_SYSTEM__URL:
 				return url != null;
 			case FhirPackage.CODE_SYSTEM__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.CODE_SYSTEM__VERSION:
 				return version != null;
 			case FhirPackage.CODE_SYSTEM__NAME:

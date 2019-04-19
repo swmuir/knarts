@@ -62,7 +62,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * @generated
 	 * @ordered
 	 */
-	protected Money factor;
+	protected Decimal factor;
 
 	/**
 	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
@@ -72,7 +72,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * @generated
 	 * @ordered
 	 */
-	protected Decimal amount;
+	protected Money amount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,7 +184,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Money getFactor() {
+	public Decimal getFactor() {
 		return factor;
 	}
 
@@ -193,8 +193,8 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFactor(Money newFactor, NotificationChain msgs) {
-		Money oldFactor = factor;
+	public NotificationChain basicSetFactor(Decimal newFactor, NotificationChain msgs) {
+		Decimal oldFactor = factor;
 		factor = newFactor;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_PRICE_COMPONENT__FACTOR, oldFactor, newFactor);
@@ -208,7 +208,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFactor(Money newFactor) {
+	public void setFactor(Decimal newFactor) {
 		if (newFactor != factor) {
 			NotificationChain msgs = null;
 			if (factor != null)
@@ -227,7 +227,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Decimal getAmount() {
+	public Money getAmount() {
 		return amount;
 	}
 
@@ -236,8 +236,8 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(Decimal newAmount, NotificationChain msgs) {
-		Decimal oldAmount = amount;
+	public NotificationChain basicSetAmount(Money newAmount, NotificationChain msgs) {
+		Money oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_PRICE_COMPONENT__AMOUNT, oldAmount, newAmount);
@@ -251,7 +251,7 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(Decimal newAmount) {
+	public void setAmount(Money newAmount) {
 		if (newAmount != amount) {
 			NotificationChain msgs = null;
 			if (amount != null)
@@ -320,10 +320,10 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.INVOICE_PRICE_COMPONENT__FACTOR:
-				setFactor((Money)newValue);
+				setFactor((Decimal)newValue);
 				return;
 			case FhirPackage.INVOICE_PRICE_COMPONENT__AMOUNT:
-				setAmount((Decimal)newValue);
+				setAmount((Money)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,10 +344,10 @@ public class InvoicePriceComponentImpl extends BackboneElementImpl implements In
 				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.INVOICE_PRICE_COMPONENT__FACTOR:
-				setFactor((Money)null);
+				setFactor((Decimal)null);
 				return;
 			case FhirPackage.INVOICE_PRICE_COMPONENT__AMOUNT:
-				setAmount((Decimal)null);
+				setAmount((Money)null);
 				return;
 		}
 		super.eUnset(featureID);

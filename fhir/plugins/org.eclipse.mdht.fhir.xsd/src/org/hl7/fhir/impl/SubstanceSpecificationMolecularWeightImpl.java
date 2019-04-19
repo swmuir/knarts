@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
 
 /**
@@ -58,7 +59,7 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String amount;
+	protected Quantity amount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,7 +171,7 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getAmount() {
+	public Quantity getAmount() {
 		return amount;
 	}
 
@@ -179,8 +180,8 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(org.hl7.fhir.String newAmount, NotificationChain msgs) {
-		org.hl7.fhir.String oldAmount = amount;
+	public NotificationChain basicSetAmount(Quantity newAmount, NotificationChain msgs) {
+		Quantity oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOLECULAR_WEIGHT__AMOUNT, oldAmount, newAmount);
@@ -194,7 +195,7 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(org.hl7.fhir.String newAmount) {
+	public void setAmount(Quantity newAmount) {
 		if (newAmount != amount) {
 			NotificationChain msgs = null;
 			if (amount != null)
@@ -259,7 +260,7 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOLECULAR_WEIGHT__AMOUNT:
-				setAmount((org.hl7.fhir.String)newValue);
+				setAmount((Quantity)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,7 +281,7 @@ public class SubstanceSpecificationMolecularWeightImpl extends BackboneElementIm
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOLECULAR_WEIGHT__AMOUNT:
-				setAmount((org.hl7.fhir.String)null);
+				setAmount((Quantity)null);
 				return;
 		}
 		super.eUnset(featureID);

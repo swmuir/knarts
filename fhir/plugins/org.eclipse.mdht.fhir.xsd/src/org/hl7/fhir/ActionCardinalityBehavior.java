@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Defines behavior for an action or a group for how many times that item may be repeated
+ * Defines behavior for an action or a group for how many times that item may be repeated.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

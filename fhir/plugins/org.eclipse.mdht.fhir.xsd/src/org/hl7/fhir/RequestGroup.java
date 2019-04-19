@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.RequestGroup#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.RequestGroup#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getGroupIdentifier <em>Group Identifier</em>}</li>
@@ -28,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.RequestGroup#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.RequestGroup#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroup#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroup#getReasonCode <em>Reason Code</em>}</li>
@@ -59,20 +60,36 @@ public interface RequestGroup extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+	 * A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Definition()
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_InstantiatesCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getDefinition();
+	EList<Canonical> getInstantiatesCanonical();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_InstantiatesUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Uri> getInstantiatesUri();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -263,30 +280,30 @@ public interface RequestGroup extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Describes the context of the request group, if any.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroup_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroup#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Authored On</b></em>' containment reference.

@@ -17,9 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.AdministrativeGender;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ObservationDefinitionQualifiedInterval;
+import org.hl7.fhir.ObservationRangeCategory;
 import org.hl7.fhir.Range;
 
 /**
@@ -32,8 +34,9 @@ import org.hl7.fhir.Range;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getRange <em>Range</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getAppliesTo <em>Applies To</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getAge <em>Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getGestationalAge <em>Gestational Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ObservationDefinitionQualifiedIntervalImpl#getCondition <em>Condition</em>}</li>
@@ -50,7 +53,7 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected ObservationRangeCategory category;
 
 	/**
 	 * The cached value of the '{@link #getRange() <em>Range</em>}' containment reference.
@@ -63,14 +66,14 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	protected Range range;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected CodeableConcept context;
 
 	/**
 	 * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
@@ -81,6 +84,16 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * @ordered
 	 */
 	protected EList<CodeableConcept> appliesTo;
+
+	/**
+	 * The cached value of the '{@link #getGender() <em>Gender</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGender()
+	 * @generated
+	 * @ordered
+	 */
+	protected AdministrativeGender gender;
 
 	/**
 	 * The cached value of the '{@link #getAge() <em>Age</em>}' containment reference.
@@ -136,7 +149,7 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCategory() {
+	public ObservationRangeCategory getCategory() {
 		return category;
 	}
 
@@ -145,8 +158,8 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
+	public NotificationChain basicSetCategory(ObservationRangeCategory newCategory, NotificationChain msgs) {
+		ObservationRangeCategory oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CATEGORY, oldCategory, newCategory);
@@ -160,7 +173,7 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategory(CodeableConcept newCategory) {
+	public void setCategory(ObservationRangeCategory newCategory) {
 		if (newCategory != category) {
 			NotificationChain msgs = null;
 			if (category != null)
@@ -222,8 +235,8 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public CodeableConcept getContext() {
+		return context;
 	}
 
 	/**
@@ -231,11 +244,11 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public NotificationChain basicSetContext(CodeableConcept newContext, NotificationChain msgs) {
+		CodeableConcept oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -246,18 +259,18 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setContext(CodeableConcept newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -270,6 +283,49 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 			appliesTo = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO);
 		}
 		return appliesTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AdministrativeGender getGender() {
+		return gender;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGender(AdministrativeGender newGender, NotificationChain msgs) {
+		AdministrativeGender oldGender = gender;
+		gender = newGender;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER, oldGender, newGender);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGender(AdministrativeGender newGender) {
+		if (newGender != gender) {
+			NotificationChain msgs = null;
+			if (gender != null)
+				msgs = ((InternalEObject)gender).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER, null, msgs);
+			if (newGender != null)
+				msgs = ((InternalEObject)newGender).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER, null, msgs);
+			msgs = basicSetGender(newGender, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER, newGender, newGender));
 	}
 
 	/**
@@ -413,10 +469,12 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 				return basicSetCategory(null, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__RANGE:
 				return basicSetRange(null, msgs);
-			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE:
-				return basicSetType(null, msgs);
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT:
+				return basicSetContext(null, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO:
 				return ((InternalEList<?>)getAppliesTo()).basicRemove(otherEnd, msgs);
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER:
+				return basicSetGender(null, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__AGE:
 				return basicSetAge(null, msgs);
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GESTATIONAL_AGE:
@@ -439,10 +497,12 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 				return getCategory();
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__RANGE:
 				return getRange();
-			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE:
-				return getType();
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT:
+				return getContext();
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO:
 				return getAppliesTo();
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER:
+				return getGender();
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__AGE:
 				return getAge();
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GESTATIONAL_AGE:
@@ -463,17 +523,20 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+				setCategory((ObservationRangeCategory)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__RANGE:
 				setRange((Range)newValue);
 				return;
-			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT:
+				setContext((CodeableConcept)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO:
 				getAppliesTo().clear();
 				getAppliesTo().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER:
+				setGender((AdministrativeGender)newValue);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__AGE:
 				setAge((Range)newValue);
@@ -497,16 +560,19 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CATEGORY:
-				setCategory((CodeableConcept)null);
+				setCategory((ObservationRangeCategory)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__RANGE:
 				setRange((Range)null);
 				return;
-			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT:
+				setContext((CodeableConcept)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO:
 				getAppliesTo().clear();
+				return;
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER:
+				setGender((AdministrativeGender)null);
 				return;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__AGE:
 				setAge((Range)null);
@@ -533,10 +599,12 @@ public class ObservationDefinitionQualifiedIntervalImpl extends BackboneElementI
 				return category != null;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__RANGE:
 				return range != null;
-			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__TYPE:
-				return type != null;
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__CONTEXT:
+				return context != null;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__APPLIES_TO:
 				return appliesTo != null && !appliesTo.isEmpty();
+			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GENDER:
+				return gender != null;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__AGE:
 				return age != null;
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL__GESTATIONAL_AGE:

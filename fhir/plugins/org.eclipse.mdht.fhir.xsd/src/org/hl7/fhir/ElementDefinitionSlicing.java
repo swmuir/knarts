@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ElementDefinition.Slicing' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionSlicing extends Element {
+public interface ElementDefinitionSlicing extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Discriminator</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ElementDefinitionDiscriminator}.

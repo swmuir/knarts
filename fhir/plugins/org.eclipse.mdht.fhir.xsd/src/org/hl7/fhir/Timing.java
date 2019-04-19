@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='Timing' kind='elementOnly'"
  * @generated
  */
-public interface Timing extends Element {
+public interface Timing extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.DateTime}.

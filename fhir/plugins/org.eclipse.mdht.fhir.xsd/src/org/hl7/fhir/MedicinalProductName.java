@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicinalProductName#getFullName <em>Full Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductName#getProductName <em>Product Name</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductName#getNamePart <em>Name Part</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductName#getCountryLanguage <em>Country Language</em>}</li>
  * </ul>
@@ -28,30 +28,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MedicinalProductName extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Full Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Product Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The full product name.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Full Name</em>' containment reference.
-	 * @see #setFullName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductName_FullName()
+	 * @return the value of the '<em>Product Name</em>' containment reference.
+	 * @see #setProductName(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductName_ProductName()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='fullName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='productName' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getFullName();
+	org.hl7.fhir.String getProductName();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductName#getFullName <em>Full Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductName#getProductName <em>Product Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Full Name</em>' containment reference.
-	 * @see #getFullName()
+	 * @param value the new value of the '<em>Product Name</em>' containment reference.
+	 * @see #getProductName()
 	 * @generated
 	 */
-	void setFullName(org.hl7.fhir.String value);
+	void setProductName(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name Part</b></em>' containment reference list.

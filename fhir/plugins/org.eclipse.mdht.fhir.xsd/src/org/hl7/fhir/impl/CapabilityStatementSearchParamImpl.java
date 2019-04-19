@@ -10,10 +10,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementSearchParam;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.SearchParamType;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +51,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri definition;
+	protected Canonical definition;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -70,7 +71,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String documentation;
+	protected Markdown documentation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,7 +140,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getDefinition() {
+	public Canonical getDefinition() {
 		return definition;
 	}
 
@@ -148,8 +149,8 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
-		Uri oldDefinition = definition;
+	public NotificationChain basicSetDefinition(Canonical newDefinition, NotificationChain msgs) {
+		Canonical oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DEFINITION, oldDefinition, newDefinition);
@@ -163,7 +164,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Uri newDefinition) {
+	public void setDefinition(Canonical newDefinition) {
 		if (newDefinition != definition) {
 			NotificationChain msgs = null;
 			if (definition != null)
@@ -225,7 +226,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDocumentation() {
+	public Markdown getDocumentation() {
 		return documentation;
 	}
 
@@ -234,8 +235,8 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocumentation(org.hl7.fhir.String newDocumentation, NotificationChain msgs) {
-		org.hl7.fhir.String oldDocumentation = documentation;
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DOCUMENTATION, oldDocumentation, newDocumentation);
@@ -249,7 +250,7 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocumentation(org.hl7.fhir.String newDocumentation) {
+	public void setDocumentation(Markdown newDocumentation) {
 		if (newDocumentation != documentation) {
 			NotificationChain msgs = null;
 			if (documentation != null)
@@ -315,13 +316,13 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 				setName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DEFINITION:
-				setDefinition((Uri)newValue);
+				setDefinition((Canonical)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__TYPE:
 				setType((SearchParamType)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)newValue);
+				setDocumentation((Markdown)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,13 +340,13 @@ public class CapabilityStatementSearchParamImpl extends BackboneElementImpl impl
 				setName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DEFINITION:
-				setDefinition((Uri)null);
+				setDefinition((Canonical)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__TYPE:
 				setType((SearchParamType)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SEARCH_PARAM__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)null);
+				setDocumentation((Markdown)null);
 				return;
 		}
 		super.eUnset(featureID);

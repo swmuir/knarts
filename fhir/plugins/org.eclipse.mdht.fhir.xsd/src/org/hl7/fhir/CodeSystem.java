@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A code system resource specifies a set of codes drawn from one or more code systems.
+ * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -56,7 +56,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this code system is (or will be) published. This is used in [Coding](datatypes.html#Coding).system.
+	 * An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this code system is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the code system is stored on different servers. This is used in [Coding](datatypes.html#Coding).system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -78,30 +78,20 @@ public interface CodeSystem extends DomainResource {
 	void setUrl(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CodeSystem#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
@@ -186,7 +176,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of this code system. Enables tracking the life-cycle of the content.
+	 * The date (and optionally time) when the code system resource was created or revised.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(PublicationStatus)
@@ -212,7 +202,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -238,7 +228,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the code system was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes.
+	 * The date  (and optionally time) when the code system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -264,7 +254,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the code system.
+	 * The name of the organization or individual that published the code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -333,7 +323,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate code system instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate code system instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_UseContext()
@@ -364,7 +354,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this code system is needed and why it has been designed as it has.
+	 * Explanation of why this code system is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -442,16 +432,16 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Canonical URL of value set that contains the entire code system.
+	 * Canonical reference to the value set that contains the entire code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Set</em>' containment reference.
-	 * @see #setValueSet(Uri)
+	 * @see #setValueSet(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_ValueSet()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getValueSet();
+	Canonical getValueSet();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CodeSystem#getValueSet <em>Value Set</em>}' containment reference.
@@ -461,14 +451,14 @@ public interface CodeSystem extends DomainResource {
 	 * @see #getValueSet()
 	 * @generated
 	 */
-	void setValueSet(Uri value);
+	void setValueSet(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Hierarchy Meaning</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The meaning of the hierarchy of concepts.
+	 * The meaning of the hierarchy of concepts as represented in this resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Hierarchy Meaning</em>' containment reference.
 	 * @see #setHierarchyMeaning(CodeSystemHierarchyMeaning)
@@ -494,7 +484,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * True If code system defines a post-composition grammar.
+	 * The code system defines a compositional (post-coordination) grammar.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compositional</em>' containment reference.
 	 * @see #setCompositional(org.hl7.fhir.Boolean)
@@ -520,7 +510,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system.
+	 * This flag is used to signify that the code system does not commit to concept permanence across versions. If true, a version must be specified when referencing this code system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Version Needed</em>' containment reference.
 	 * @see #setVersionNeeded(org.hl7.fhir.Boolean)
@@ -546,7 +536,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How much of the content of the code system - the concepts and codes it defines - are represented in this resource.
+	 * The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Content</em>' containment reference.
 	 * @see #setContent(CodeSystemContentMode)
@@ -572,16 +562,16 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Defines the code system that this code system supplement is adding designations and properties too.
+	 * The canonical URL of the code system that this code system supplement is adding designations and properties to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Supplements</em>' containment reference.
-	 * @see #setSupplements(Reference)
+	 * @see #setSupplements(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_Supplements()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='supplements' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSupplements();
+	Canonical getSupplements();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CodeSystem#getSupplements <em>Supplements</em>}' containment reference.
@@ -591,14 +581,14 @@ public interface CodeSystem extends DomainResource {
 	 * @see #getSupplements()
 	 * @generated
 	 */
-	void setSupplements(Reference value);
+	void setSupplements(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Count</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts.
+	 * The total number of concepts defined by the code system. Where the code system has a compositional grammar, the basis of this count is defined by the system steward.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Count</em>' containment reference.
 	 * @see #setCount(UnsignedInt)
@@ -657,7 +647,7 @@ public interface CodeSystem extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.
+	 * Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meanings of the hierarchical relationships are.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Concept</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCodeSystem_Concept()

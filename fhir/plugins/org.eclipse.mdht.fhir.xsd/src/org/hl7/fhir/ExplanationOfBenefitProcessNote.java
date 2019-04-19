@@ -32,7 +32,7 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An integer associated with each note which may be referred to from each service line item.
+	 * A number to uniquely identify a note entry.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number</em>' containment reference.
 	 * @see #setNumber(PositiveInt)
@@ -58,7 +58,7 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The note purpose: Print/Display.
+	 * The business purpose of the note text.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(NoteType)
@@ -84,7 +84,7 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The note text.
+	 * The explanation or description associated with the processing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
 	 * @see #setText(org.hl7.fhir.String)
@@ -110,7 +110,7 @@ public interface ExplanationOfBenefitProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
+	 * A code to define the language used in the text of the note.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Language</em>' containment reference.
 	 * @see #setLanguage(CodeableConcept)

@@ -113,16 +113,16 @@ public interface Annotation extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The text of the annotation.
+	 * The text of the annotation in markdown format.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
-	 * @see #setText(org.hl7.fhir.String)
+	 * @see #setText(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getAnnotation_Text()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='text' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getText();
+	Markdown getText();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Annotation#getText <em>Text</em>}' containment reference.
@@ -132,6 +132,6 @@ public interface Annotation extends Element {
 	 * @see #getText()
 	 * @generated
 	 */
-	void setText(org.hl7.fhir.String value);
+	void setText(Markdown value);
 
 } // Annotation

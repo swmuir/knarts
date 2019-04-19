@@ -30,9 +30,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Questionnaire#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPublisher <em>Publisher</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getContact <em>Contact</em>}</li>
+ *   <li>{@link org.hl7.fhir.Questionnaire#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getJurisdiction <em>Jurisdiction</em>}</li>
- *   <li>{@link org.hl7.fhir.Questionnaire#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.Questionnaire#getApprovalDate <em>Approval Date</em>}</li>
@@ -52,7 +52,7 @@ public interface Questionnaire extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
+	 * An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -169,7 +169,7 @@ public interface Questionnaire extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Derived From</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -181,7 +181,7 @@ public interface Questionnaire extends DomainResource {
 	 *        extendedMetaData="kind='element' name='derivedFrom' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getDerivedFrom();
+	EList<Canonical> getDerivedFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -214,7 +214,7 @@ public interface Questionnaire extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -237,7 +237,7 @@ public interface Questionnaire extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Subject Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
+	 * The list contents are of type {@link org.hl7.fhir.Code}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -249,14 +249,14 @@ public interface Questionnaire extends DomainResource {
 	 *        extendedMetaData="kind='element' name='subjectType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ResourceType> getSubjectType();
+	EList<Code> getSubjectType();
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the questionnaire was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.
+	 * The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -282,7 +282,7 @@ public interface Questionnaire extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the questionnaire.
+	 * The name of the organization or individual that published the questionnaire.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -320,38 +320,6 @@ public interface Questionnaire extends DomainResource {
 	EList<ContactDetail> getContact();
 
 	/**
-	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Use Context</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_UseContext()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<UsageContext> getUseContext();
-
-	/**
-	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A legal or geographic region in which the questionnaire is intended to be used.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Jurisdiction()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getJurisdiction();
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,11 +346,43 @@ public interface Questionnaire extends DomainResource {
 	void setDescription(Markdown value);
 
 	/**
+	 * Returns the value of the '<em><b>Use Context</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.UsageContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Use Context</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_UseContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='useContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<UsageContext> getUseContext();
+
+	/**
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A legal or geographic region in which the questionnaire is intended to be used.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaire_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getJurisdiction();
+
+	/**
 	 * Returns the value of the '<em><b>Purpose</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this questionnaire is needed and why it has been designed as it has.
+	 * Explanation of why this questionnaire is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -460,7 +460,7 @@ public interface Questionnaire extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+	 * The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Last Review Date</em>' containment reference.
 	 * @see #setLastReviewDate(Date)

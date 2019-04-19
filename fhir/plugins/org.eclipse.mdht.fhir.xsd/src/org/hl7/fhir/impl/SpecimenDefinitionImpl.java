@@ -21,7 +21,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.SpecimenDefinition;
-import org.hl7.fhir.SpecimenDefinitionSpecimenToLab;
+import org.hl7.fhir.SpecimenDefinitionTypeTested;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ import org.hl7.fhir.SpecimenDefinitionSpecimenToLab;
  *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionImpl#getPatientPreparation <em>Patient Preparation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionImpl#getTimeAspect <em>Time Aspect</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionImpl#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionImpl#getSpecimenToLab <em>Specimen To Lab</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionImpl#getTypeTested <em>Type Tested</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,14 +63,14 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 	protected CodeableConcept typeCollected;
 
 	/**
-	 * The cached value of the '{@link #getPatientPreparation() <em>Patient Preparation</em>}' containment reference.
+	 * The cached value of the '{@link #getPatientPreparation() <em>Patient Preparation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPatientPreparation()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String patientPreparation;
+	protected EList<CodeableConcept> patientPreparation;
 
 	/**
 	 * The cached value of the '{@link #getTimeAspect() <em>Time Aspect</em>}' containment reference.
@@ -93,14 +93,14 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 	protected EList<CodeableConcept> collection;
 
 	/**
-	 * The cached value of the '{@link #getSpecimenToLab() <em>Specimen To Lab</em>}' containment reference list.
+	 * The cached value of the '{@link #getTypeTested() <em>Type Tested</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecimenToLab()
+	 * @see #getTypeTested()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecimenDefinitionSpecimenToLab> specimenToLab;
+	protected EList<SpecimenDefinitionTypeTested> typeTested;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,42 +212,11 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPatientPreparation() {
+	public EList<CodeableConcept> getPatientPreparation() {
+		if (patientPreparation == null) {
+			patientPreparation = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION);
+		}
 		return patientPreparation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatientPreparation(org.hl7.fhir.String newPatientPreparation, NotificationChain msgs) {
-		org.hl7.fhir.String oldPatientPreparation = patientPreparation;
-		patientPreparation = newPatientPreparation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION, oldPatientPreparation, newPatientPreparation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPatientPreparation(org.hl7.fhir.String newPatientPreparation) {
-		if (newPatientPreparation != patientPreparation) {
-			NotificationChain msgs = null;
-			if (patientPreparation != null)
-				msgs = ((InternalEObject)patientPreparation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION, null, msgs);
-			if (newPatientPreparation != null)
-				msgs = ((InternalEObject)newPatientPreparation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION, null, msgs);
-			msgs = basicSetPatientPreparation(newPatientPreparation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION, newPatientPreparation, newPatientPreparation));
 	}
 
 	/**
@@ -310,11 +279,11 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SpecimenDefinitionSpecimenToLab> getSpecimenToLab() {
-		if (specimenToLab == null) {
-			specimenToLab = new EObjectContainmentEList<SpecimenDefinitionSpecimenToLab>(SpecimenDefinitionSpecimenToLab.class, this, FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB);
+	public EList<SpecimenDefinitionTypeTested> getTypeTested() {
+		if (typeTested == null) {
+			typeTested = new EObjectContainmentEList<SpecimenDefinitionTypeTested>(SpecimenDefinitionTypeTested.class, this, FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED);
 		}
-		return specimenToLab;
+		return typeTested;
 	}
 
 	/**
@@ -330,13 +299,13 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 			case FhirPackage.SPECIMEN_DEFINITION__TYPE_COLLECTED:
 				return basicSetTypeCollected(null, msgs);
 			case FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION:
-				return basicSetPatientPreparation(null, msgs);
+				return ((InternalEList<?>)getPatientPreparation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN_DEFINITION__TIME_ASPECT:
 				return basicSetTimeAspect(null, msgs);
 			case FhirPackage.SPECIMEN_DEFINITION__COLLECTION:
 				return ((InternalEList<?>)getCollection()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB:
-				return ((InternalEList<?>)getSpecimenToLab()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED:
+				return ((InternalEList<?>)getTypeTested()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -359,8 +328,8 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 				return getTimeAspect();
 			case FhirPackage.SPECIMEN_DEFINITION__COLLECTION:
 				return getCollection();
-			case FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB:
-				return getSpecimenToLab();
+			case FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED:
+				return getTypeTested();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,7 +350,8 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 				setTypeCollected((CodeableConcept)newValue);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION:
-				setPatientPreparation((org.hl7.fhir.String)newValue);
+				getPatientPreparation().clear();
+				getPatientPreparation().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION__TIME_ASPECT:
 				setTimeAspect((org.hl7.fhir.String)newValue);
@@ -390,9 +360,9 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 				getCollection().clear();
 				getCollection().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB:
-				getSpecimenToLab().clear();
-				getSpecimenToLab().addAll((Collection<? extends SpecimenDefinitionSpecimenToLab>)newValue);
+			case FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED:
+				getTypeTested().clear();
+				getTypeTested().addAll((Collection<? extends SpecimenDefinitionTypeTested>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -413,7 +383,7 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 				setTypeCollected((CodeableConcept)null);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION:
-				setPatientPreparation((org.hl7.fhir.String)null);
+				getPatientPreparation().clear();
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION__TIME_ASPECT:
 				setTimeAspect((org.hl7.fhir.String)null);
@@ -421,8 +391,8 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 			case FhirPackage.SPECIMEN_DEFINITION__COLLECTION:
 				getCollection().clear();
 				return;
-			case FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB:
-				getSpecimenToLab().clear();
+			case FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED:
+				getTypeTested().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -441,13 +411,13 @@ public class SpecimenDefinitionImpl extends DomainResourceImpl implements Specim
 			case FhirPackage.SPECIMEN_DEFINITION__TYPE_COLLECTED:
 				return typeCollected != null;
 			case FhirPackage.SPECIMEN_DEFINITION__PATIENT_PREPARATION:
-				return patientPreparation != null;
+				return patientPreparation != null && !patientPreparation.isEmpty();
 			case FhirPackage.SPECIMEN_DEFINITION__TIME_ASPECT:
 				return timeAspect != null;
 			case FhirPackage.SPECIMEN_DEFINITION__COLLECTION:
 				return collection != null && !collection.isEmpty();
-			case FhirPackage.SPECIMEN_DEFINITION__SPECIMEN_TO_LAB:
-				return specimenToLab != null && !specimenToLab.isEmpty();
+			case FhirPackage.SPECIMEN_DEFINITION__TYPE_TESTED:
+				return typeTested != null && !typeTested.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

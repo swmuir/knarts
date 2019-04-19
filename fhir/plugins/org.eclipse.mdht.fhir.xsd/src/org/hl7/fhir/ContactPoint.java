@@ -112,7 +112,7 @@ public interface ContactPoint extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.
+	 * Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Rank</em>' containment reference.
 	 * @see #setRank(PositiveInt)

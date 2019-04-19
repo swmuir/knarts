@@ -21,6 +21,16 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ClaimProcessingCodesList implements Enumerator {
 	/**
+	 * The '<em><b>Queued</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QUEUED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUEUED(0, "queued", "queued"),
+
+	/**
 	 * The '<em><b>Complete</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28,7 +38,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETE(0, "complete", "complete"),
+	COMPLETE(1, "complete", "complete"),
 
 	/**
 	 * The '<em><b>Error</b></em>' literal object.
@@ -38,7 +48,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ERROR(1, "error", "error"),
+	ERROR(2, "error", "error"),
 
 	/**
 	 * The '<em><b>Partial</b></em>' literal object.
@@ -48,7 +58,21 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PARTIAL(2, "partial", "partial");
+	PARTIAL(3, "partial", "partial");
+
+	/**
+	 * The '<em><b>Queued</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Queued
+	 * <!-- end-model-doc -->
+	 * @see #QUEUED
+	 * @model name="queued"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUEUED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Complete</b></em>' literal value.
@@ -62,7 +86,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETE_VALUE = 0;
+	public static final int COMPLETE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Error</b></em>' literal value.
@@ -76,7 +100,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ERROR_VALUE = 1;
+	public static final int ERROR_VALUE = 2;
 
 	/**
 	 * The '<em><b>Partial</b></em>' literal value.
@@ -90,7 +114,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PARTIAL_VALUE = 2;
+	public static final int PARTIAL_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Claim Processing Codes List</b></em>' enumerators.
@@ -100,6 +124,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 */
 	private static final ClaimProcessingCodesList[] VALUES_ARRAY =
 		new ClaimProcessingCodesList[] {
+			QUEUED,
 			COMPLETE,
 			ERROR,
 			PARTIAL,
@@ -159,6 +184,7 @@ public enum ClaimProcessingCodesList implements Enumerator {
 	 */
 	public static ClaimProcessingCodesList get(int value) {
 		switch (value) {
+			case QUEUED_VALUE: return QUEUED;
 			case COMPLETE_VALUE: return COMPLETE;
 			case ERROR_VALUE: return ERROR;
 			case PARTIAL_VALUE: return PARTIAL;

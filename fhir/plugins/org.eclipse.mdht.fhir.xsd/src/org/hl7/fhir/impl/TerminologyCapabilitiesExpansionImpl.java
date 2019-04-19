@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.TerminologyCapabilitiesExpansion;
+import org.hl7.fhir.TerminologyCapabilitiesParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +33,7 @@ import org.hl7.fhir.TerminologyCapabilitiesExpansion;
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getHierarchical <em>Hierarchical</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getPaging <em>Paging</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getIncomplete <em>Incomplete</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesExpansionImpl#getTextFilter <em>Text Filter</em>}</li>
  * </ul>
  *
@@ -72,24 +71,14 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 	protected org.hl7.fhir.Boolean incomplete;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference definition;
-
-	/**
-	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProfile()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> profile;
+	protected EList<TerminologyCapabilitiesParameter> parameter;
 
 	/**
 	 * The cached value of the '{@link #getTextFilter() <em>Text Filter</em>}' containment reference.
@@ -254,54 +243,11 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getDefinition() {
-		return definition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
-		definition = newDefinition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION, oldDefinition, newDefinition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<TerminologyCapabilitiesParameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectContainmentEList<TerminologyCapabilitiesParameter>(TerminologyCapabilitiesParameter.class, this, FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefinition(Reference newDefinition) {
-		if (newDefinition != definition) {
-			NotificationChain msgs = null;
-			if (definition != null)
-				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION, null, msgs);
-			if (newDefinition != null)
-				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION, null, msgs);
-			msgs = basicSetDefinition(newDefinition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION, newDefinition, newDefinition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getProfile() {
-		if (profile == null) {
-			profile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE);
-		}
-		return profile;
+		return parameter;
 	}
 
 	/**
@@ -361,10 +307,8 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 				return basicSetPaging(null, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__INCOMPLETE:
 				return basicSetIncomplete(null, msgs);
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION:
-				return basicSetDefinition(null, msgs);
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE:
-				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__TEXT_FILTER:
 				return basicSetTextFilter(null, msgs);
 		}
@@ -385,10 +329,8 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 				return getPaging();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__INCOMPLETE:
 				return getIncomplete();
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION:
-				return getDefinition();
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE:
-				return getProfile();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER:
+				return getParameter();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__TEXT_FILTER:
 				return getTextFilter();
 		}
@@ -413,12 +355,9 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__INCOMPLETE:
 				setIncomplete((org.hl7.fhir.Boolean)newValue);
 				return;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION:
-				setDefinition((Reference)newValue);
-				return;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE:
-				getProfile().clear();
-				getProfile().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends TerminologyCapabilitiesParameter>)newValue);
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__TEXT_FILTER:
 				setTextFilter((Markdown)newValue);
@@ -444,11 +383,8 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__INCOMPLETE:
 				setIncomplete((org.hl7.fhir.Boolean)null);
 				return;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION:
-				setDefinition((Reference)null);
-				return;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE:
-				getProfile().clear();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER:
+				getParameter().clear();
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__TEXT_FILTER:
 				setTextFilter((Markdown)null);
@@ -471,10 +407,8 @@ public class TerminologyCapabilitiesExpansionImpl extends BackboneElementImpl im
 				return paging != null;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__INCOMPLETE:
 				return incomplete != null;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__DEFINITION:
-				return definition != null;
-			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PROFILE:
-				return profile != null && !profile.isEmpty();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION__TEXT_FILTER:
 				return textFilter != null;
 		}

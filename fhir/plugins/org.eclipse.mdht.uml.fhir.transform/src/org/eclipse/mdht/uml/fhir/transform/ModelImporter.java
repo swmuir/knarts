@@ -68,6 +68,7 @@ import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.ContactDetail;
 //import org.hl7.fhir.DataElement;
 import org.hl7.fhir.ElementDefinition;
@@ -86,6 +87,7 @@ import org.hl7.fhir.SearchModifierCode;
 import org.hl7.fhir.SearchParameter;
 import org.hl7.fhir.SearchParameterComponent;
 import org.hl7.fhir.StructureDefinition;
+import org.hl7.fhir.StructureDefinitionContext;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetConcept;
 import org.hl7.fhir.ValueSetContains;
@@ -514,7 +516,7 @@ public class ModelImporter implements ModelConstants {
 				searchParameterStereotype.setCode(searchParameter.getCode().getValue());
 			}
 			if (searchParameter.getBase() != null) {
-				for (ResourceType resourceType : searchParameter.getBase()) {
+				for (Code resourceType : searchParameter.getBase()) {
 					searchParameterStereotype.getBases().add(resourceType.getValue().toString());
 					Package resourcesPkg = model.getNestedPackage(packageName, true, UMLPackage.eINSTANCE.getPackage(), true);
 					Collection<NamedElement> collectionNamedElement = UMLUtil.findNamedElements(resourcesPkg.eResource(), "FHIR-Core::".concat(PACKAGE_NAME_RESOURCES).concat("::").concat(resourceType.getValue().toString()));
@@ -545,7 +547,7 @@ public class ModelImporter implements ModelConstants {
 				searchParameterStereotype.setXpathUsage(searchParameter.getXpathUsage().getValue().toString());
 			}
 			if (searchParameter.getTarget() != null) {
-				for (ResourceType resourceType : searchParameter.getTarget()) {
+				for (Code resourceType : searchParameter.getTarget()) {
 					searchParameterStereotype.getTargets().add(resourceType.getValue().toString());
 				}
 			}
@@ -573,7 +575,7 @@ public class ModelImporter implements ModelConstants {
 					}
 					if (searchParameterComponent.getDefinition() != null) {
 						org.eclipse.mdht.uml.fhir.types.Reference ref = FHIRTypesFactory.eINSTANCE.createReference();
-						ref.setReference(searchParameterComponent.getDefinition().getReference().getValue());
+						ref.setReference(searchParameterComponent.getDefinition().getValue());
 						searchParameter_Component.setDefinition(ref);
 					}
 					searchParameterStereotype.getComponents().add(searchParameter_Component);
@@ -819,7 +821,7 @@ public class ModelImporter implements ModelConstants {
 		// Default is 'Profiles' package
 		String packageName = PACKAGE_NAME_PROFILES;
 		
-		if (structureDef.getContextType() != null) {
+		if (structureDef.getContext() != null) {
 			packageName = PACKAGE_NAME_EXTENSIONS;
 		}
 		else if (isDataType) {
@@ -881,12 +883,11 @@ public class ModelImporter implements ModelConstants {
 			if (structureDef.getCopyright() != null) {
 				structureDefStereotype.setCopyright(structureDef.getCopyright().getValue());
 			}
-			if (structureDef.getContextType() != null) {
-				structureDefStereotype.setContextType(structureDef.getContextType().getValue().getName());
-			}
+			
 			if (structureDef.getContext() != null) {
-				for (org.hl7.fhir.String fhirString : structureDef.getContext()) {
-					structureDefStereotype.getContexts().add(fhirString.getValue());
+				for (StructureDefinitionContext fhirString : structureDef.getContext()) {
+					structureDefStereotype.getContexts().add(fhirString.getExpression().getValue());
+					structureDefStereotype.setContextType(fhirString.getType().getValue().getLiteral());
 				}
 			}
 			
@@ -1302,12 +1303,16 @@ public class ModelImporter implements ModelConstants {
 					if (binding.getDescription() != null) {
 						valueSetBinding.setDescription(binding.getDescription().getValue());
 					}
-					if (binding.getValueSetUri() != null) {
-						valueSetBinding.setValueSetUri(binding.getValueSetUri().getValue());
-					}
-					if (binding.getValueSetReference() != null) {
+					
+//					binding.getValueSet().getValue()
+					if (binding.getValueSet() != null && binding.getValueSet().getValue() != null) {
+						valueSetBinding.setValueSetUri(binding.getValueSet().getValue());
+//					}
+//					
+//					binding.getValueSet().getValue()
+//					if (binding.getValueSetReference() != null) {
 						org.eclipse.mdht.uml.fhir.ValueSet umlValueSet = null;
-						String vsLocation = binding.getValueSetReference().getReference().getValue();
+						String vsLocation = binding.getValueSet().getValue() ;
 						if (vsLocation.startsWith("http")) {
 							umlValueSet = ProfileUtil.getValueSet(importValueSet(vsLocation));
 							if (umlValueSet != null) {
@@ -1553,17 +1558,17 @@ public class ModelImporter implements ModelConstants {
 		
 		for (ElementDefinitionType elementDefType : elementDef.getType()) {
 			Classifier typeClass = null;
-			if (elementDefType.getTargetProfile() != null) {
+			if (elementDefType.getTargetProfile() != null && !elementDefType.getTargetProfile().isEmpty()) {
 				// Problem with expanding ConceptMap.source[x] which contains a Reference(ValueSet)
 				// Detecting that the elementDef is a TypeChoice and returning a Reference instead of a ValueSet
 				if (elementDef.getId().endsWith("[x]"))
 					typeClass = importProfileForURI(FHIR_STRUCTURE_URI_BASE + REFERENCE_CLASS_NAME);
 				else
-					typeClass = importProfileForURI(elementDefType.getTargetProfile().getValue());
+					typeClass = importProfileForURI(elementDefType.getTargetProfile().get(0).getValue());
 			}
-			else if (elementDefType.getProfile() != null) {
-				typeClass = importProfileForURI(elementDefType.getProfile().getValue());
-			}
+//			else if (elementDefType.getProfile() != null) {
+//				typeClass = importProfileForURI(elementDefType.getProfile().getValue());
+//			}
 			
 			if (typeClass == null && elementDefType.getCode() != null && elementDefType.getCode().getValue() != null) {
 				String typeName = elementDefType.getCode().getValue();

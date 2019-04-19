@@ -245,7 +245,7 @@ public interface PractitionerRole extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A collection of times that the Service Site is available.
+	 * A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Available Time</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_AvailableTime()
@@ -261,7 +261,7 @@ public interface PractitionerRole extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The HealthcareService is not available during this period of time due to the provided reason.
+	 * The practitioner is not available or performing this role during this period of time due to the provided reason.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Not Available</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPractitionerRole_NotAvailable()

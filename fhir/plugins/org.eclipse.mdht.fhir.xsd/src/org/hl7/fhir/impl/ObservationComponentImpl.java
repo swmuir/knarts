@@ -188,14 +188,14 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	protected CodeableConcept dataAbsentReason;
 
 	/**
-	 * The cached value of the '{@link #getInterpretation() <em>Interpretation</em>}' containment reference.
+	 * The cached value of the '{@link #getInterpretation() <em>Interpretation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterpretation()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept interpretation;
+	protected EList<CodeableConcept> interpretation;
 
 	/**
 	 * The cached value of the '{@link #getReferenceRange() <em>Reference Range</em>}' containment reference list.
@@ -790,42 +790,11 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getInterpretation() {
+	public EList<CodeableConcept> getInterpretation() {
+		if (interpretation == null) {
+			interpretation = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION);
+		}
 		return interpretation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInterpretation(CodeableConcept newInterpretation, NotificationChain msgs) {
-		CodeableConcept oldInterpretation = interpretation;
-		interpretation = newInterpretation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION, oldInterpretation, newInterpretation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterpretation(CodeableConcept newInterpretation) {
-		if (newInterpretation != interpretation) {
-			NotificationChain msgs = null;
-			if (interpretation != null)
-				msgs = ((InternalEObject)interpretation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION, null, msgs);
-			if (newInterpretation != null)
-				msgs = ((InternalEObject)newInterpretation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION, null, msgs);
-			msgs = basicSetInterpretation(newInterpretation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION, newInterpretation, newInterpretation));
 	}
 
 	/**
@@ -875,7 +844,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 			case FhirPackage.OBSERVATION_COMPONENT__DATA_ABSENT_REASON:
 				return basicSetDataAbsentReason(null, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION:
-				return basicSetInterpretation(null, msgs);
+				return ((InternalEList<?>)getInterpretation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE:
 				return ((InternalEList<?>)getReferenceRange()).basicRemove(otherEnd, msgs);
 		}
@@ -973,7 +942,8 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				setDataAbsentReason((CodeableConcept)newValue);
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION:
-				setInterpretation((CodeableConcept)newValue);
+				getInterpretation().clear();
+				getInterpretation().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE:
 				getReferenceRange().clear();
@@ -1031,7 +1001,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 				setDataAbsentReason((CodeableConcept)null);
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION:
-				setInterpretation((CodeableConcept)null);
+				getInterpretation().clear();
 				return;
 			case FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE:
 				getReferenceRange().clear();
@@ -1075,7 +1045,7 @@ public class ObservationComponentImpl extends BackboneElementImpl implements Obs
 			case FhirPackage.OBSERVATION_COMPONENT__DATA_ABSENT_REASON:
 				return dataAbsentReason != null;
 			case FhirPackage.OBSERVATION_COMPONENT__INTERPRETATION:
-				return interpretation != null;
+				return interpretation != null && !interpretation.isEmpty();
 			case FhirPackage.OBSERVATION_COMPONENT__REFERENCE_RANGE:
 				return referenceRange != null && !referenceRange.isEmpty();
 		}

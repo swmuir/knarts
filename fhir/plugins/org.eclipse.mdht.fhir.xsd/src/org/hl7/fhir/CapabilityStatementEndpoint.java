@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -56,16 +56,16 @@ public interface CapabilityStatementEndpoint extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
+	 * The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference.
-	 * @see #setAddress(Uri)
+	 * @see #setAddress(Url)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementEndpoint_Address()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='address' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getAddress();
+	Url getAddress();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementEndpoint#getAddress <em>Address</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface CapabilityStatementEndpoint extends BackboneElement {
 	 * @see #getAddress()
 	 * @generated
 	 */
-	void setAddress(Uri value);
+	void setAddress(Url value);
 
 } // CapabilityStatementEndpoint

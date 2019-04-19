@@ -38,7 +38,7 @@ import org.hl7.fhir.SlicingRules;
  *
  * @generated
  */
-public class ElementDefinitionSlicingImpl extends ElementImpl implements ElementDefinitionSlicing {
+public class ElementDefinitionSlicingImpl extends BackboneElementImpl implements ElementDefinitionSlicing {
 	/**
 	 * The cached value of the '{@link #getDiscriminator() <em>Discriminator</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

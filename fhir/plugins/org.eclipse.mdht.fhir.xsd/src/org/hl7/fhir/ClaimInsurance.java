@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -36,7 +36,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of coverage which serves to provide a link and convey coordination of benefit order.
+	 * A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -62,7 +62,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+	 * A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Focal</em>' containment reference.
 	 * @see #setFocal(org.hl7.fhir.Boolean)
@@ -88,7 +88,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The business identifier for the instance: claim number, pre-determination or pre-authorization number.
+	 * The business identifier to be used when the claim is sent for adjudication against this insurance policy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -114,7 +114,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to the program or plan identification, underwriter or payor.
+	 * Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Coverage</em>' containment reference.
 	 * @see #setCoverage(Reference)
@@ -140,7 +140,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The contract number of a business agreement which describes the terms and conditions.
+	 * A business agreement number established between the provider and the insurer for special business processing purposes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Business Arrangement</em>' containment reference.
 	 * @see #setBusinessArrangement(org.hl7.fhir.String)
@@ -167,7 +167,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of references from the Insurer to which these services pertain.
+	 * Reference numbers previously provided by the insurer to the provider to be quoted on subsequent claims containing services or products related to the prior authorization.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Pre Auth Ref</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimInsurance_PreAuthRef()
@@ -182,7 +182,7 @@ public interface ClaimInsurance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Coverages adjudication details.
+	 * The result of the adjudication of the line items for the Coverage specified in this insurance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Claim Response</em>' containment reference.
 	 * @see #setClaimResponse(Reference)

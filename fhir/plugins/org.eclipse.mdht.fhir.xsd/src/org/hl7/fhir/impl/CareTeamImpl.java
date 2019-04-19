@@ -41,7 +41,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CareTeamImpl#getReasonCode <em>Reason Code</em>}</li>
@@ -105,14 +105,14 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -361,8 +361,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -370,11 +370,11 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -385,18 +385,18 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CARE_TEAM__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CARE_TEAM__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -532,8 +532,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return basicSetName(null, msgs);
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.CARE_TEAM__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.CARE_TEAM__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
@@ -570,8 +570,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return getName();
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return getSubject();
-			case FhirPackage.CARE_TEAM__CONTEXT:
-				return getContext();
+			case FhirPackage.CARE_TEAM__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return getPeriod();
 			case FhirPackage.CARE_TEAM__PARTICIPANT:
@@ -616,8 +616,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.CARE_TEAM__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.CARE_TEAM__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				setPeriod((Period)newValue);
@@ -673,8 +673,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.CARE_TEAM__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.CARE_TEAM__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				setPeriod((Period)null);
@@ -719,8 +719,8 @@ public class CareTeamImpl extends DomainResourceImpl implements CareTeam {
 				return name != null;
 			case FhirPackage.CARE_TEAM__SUBJECT:
 				return subject != null;
-			case FhirPackage.CARE_TEAM__CONTEXT:
-				return context != null;
+			case FhirPackage.CARE_TEAM__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.CARE_TEAM__PERIOD:
 				return period != null;
 			case FhirPackage.CARE_TEAM__PARTICIPANT:

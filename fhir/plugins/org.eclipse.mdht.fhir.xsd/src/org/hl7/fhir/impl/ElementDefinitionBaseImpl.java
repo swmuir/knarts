@@ -29,7 +29,7 @@ import org.hl7.fhir.UnsignedInt;
  *
  * @generated
  */
-public class ElementDefinitionBaseImpl extends ElementImpl implements ElementDefinitionBase {
+public class ElementDefinitionBaseImpl extends BackboneElementImpl implements ElementDefinitionBase {
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
 	 * <!-- begin-user-doc -->

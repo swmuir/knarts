@@ -17,14 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.CanPushUpdates;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
-import org.hl7.fhir.PushTypeAvailable;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.ValidationStatus;
 import org.hl7.fhir.VerificationResultPrimarySource;
 
 /**
@@ -35,10 +31,9 @@ import org.hl7.fhir.VerificationResultPrimarySource;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getWho <em>Who</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getValidationProcess <em>Validation Process</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getCommunicationMethod <em>Communication Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getValidationStatus <em>Validation Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getValidationDate <em>Validation Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultPrimarySourceImpl#getCanPushUpdates <em>Can Push Updates</em>}</li>
@@ -49,24 +44,14 @@ import org.hl7.fhir.VerificationResultPrimarySource;
  */
 public class VerificationResultPrimarySourceImpl extends BackboneElementImpl implements VerificationResultPrimarySource {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getWho() <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getWho()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
-
-	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organization;
+	protected Reference who;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -79,14 +64,14 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	protected EList<CodeableConcept> type;
 
 	/**
-	 * The cached value of the '{@link #getValidationProcess() <em>Validation Process</em>}' containment reference list.
+	 * The cached value of the '{@link #getCommunicationMethod() <em>Communication Method</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValidationProcess()
+	 * @see #getCommunicationMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> validationProcess;
+	protected EList<CodeableConcept> communicationMethod;
 
 	/**
 	 * The cached value of the '{@link #getValidationStatus() <em>Validation Status</em>}' containment reference.
@@ -96,7 +81,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ValidationStatus validationStatus;
+	protected CodeableConcept validationStatus;
 
 	/**
 	 * The cached value of the '{@link #getValidationDate() <em>Validation Date</em>}' containment reference.
@@ -116,7 +101,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected CanPushUpdates canPushUpdates;
+	protected CodeableConcept canPushUpdates;
 
 	/**
 	 * The cached value of the '{@link #getPushTypeAvailable() <em>Push Type Available</em>}' containment reference list.
@@ -126,7 +111,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PushTypeAvailable> pushTypeAvailable;
+	protected EList<CodeableConcept> pushTypeAvailable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,8 +137,8 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
-		return identifier;
+	public Reference getWho() {
+		return who;
 	}
 
 	/**
@@ -161,11 +146,11 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetWho(Reference newWho, NotificationChain msgs) {
+		Reference oldWho = who;
+		who = newWho;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO, oldWho, newWho);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -176,61 +161,18 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setWho(Reference newWho) {
+		if (newWho != who) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (who != null)
+				msgs = ((InternalEObject)who).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO, null, msgs);
+			if (newWho != null)
+				msgs = ((InternalEObject)newWho).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO, null, msgs);
+			msgs = basicSetWho(newWho, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER, newIdentifier, newIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrganization() {
-		return organization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION, oldOrganization, newOrganization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
-			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO, newWho, newWho));
 	}
 
 	/**
@@ -250,11 +192,11 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getValidationProcess() {
-		if (validationProcess == null) {
-			validationProcess = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS);
+	public EList<CodeableConcept> getCommunicationMethod() {
+		if (communicationMethod == null) {
+			communicationMethod = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD);
 		}
-		return validationProcess;
+		return communicationMethod;
 	}
 
 	/**
@@ -262,7 +204,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidationStatus getValidationStatus() {
+	public CodeableConcept getValidationStatus() {
 		return validationStatus;
 	}
 
@@ -271,8 +213,8 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValidationStatus(ValidationStatus newValidationStatus, NotificationChain msgs) {
-		ValidationStatus oldValidationStatus = validationStatus;
+	public NotificationChain basicSetValidationStatus(CodeableConcept newValidationStatus, NotificationChain msgs) {
+		CodeableConcept oldValidationStatus = validationStatus;
 		validationStatus = newValidationStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS, oldValidationStatus, newValidationStatus);
@@ -286,7 +228,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValidationStatus(ValidationStatus newValidationStatus) {
+	public void setValidationStatus(CodeableConcept newValidationStatus) {
 		if (newValidationStatus != validationStatus) {
 			NotificationChain msgs = null;
 			if (validationStatus != null)
@@ -348,7 +290,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanPushUpdates getCanPushUpdates() {
+	public CodeableConcept getCanPushUpdates() {
 		return canPushUpdates;
 	}
 
@@ -357,8 +299,8 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCanPushUpdates(CanPushUpdates newCanPushUpdates, NotificationChain msgs) {
-		CanPushUpdates oldCanPushUpdates = canPushUpdates;
+	public NotificationChain basicSetCanPushUpdates(CodeableConcept newCanPushUpdates, NotificationChain msgs) {
+		CodeableConcept oldCanPushUpdates = canPushUpdates;
 		canPushUpdates = newCanPushUpdates;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__CAN_PUSH_UPDATES, oldCanPushUpdates, newCanPushUpdates);
@@ -372,7 +314,7 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCanPushUpdates(CanPushUpdates newCanPushUpdates) {
+	public void setCanPushUpdates(CodeableConcept newCanPushUpdates) {
 		if (newCanPushUpdates != canPushUpdates) {
 			NotificationChain msgs = null;
 			if (canPushUpdates != null)
@@ -391,9 +333,9 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PushTypeAvailable> getPushTypeAvailable() {
+	public EList<CodeableConcept> getPushTypeAvailable() {
 		if (pushTypeAvailable == null) {
-			pushTypeAvailable = new EObjectContainmentEList<PushTypeAvailable>(PushTypeAvailable.class, this, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__PUSH_TYPE_AVAILABLE);
+			pushTypeAvailable = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__PUSH_TYPE_AVAILABLE);
 		}
 		return pushTypeAvailable;
 	}
@@ -406,14 +348,12 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO:
+				return basicSetWho(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS:
-				return ((InternalEList<?>)getValidationProcess()).basicRemove(otherEnd, msgs);
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD:
+				return ((InternalEList<?>)getCommunicationMethod()).basicRemove(otherEnd, msgs);
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS:
 				return basicSetValidationStatus(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_DATE:
@@ -434,14 +374,12 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER:
-				return getIdentifier();
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION:
-				return getOrganization();
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO:
+				return getWho();
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__TYPE:
 				return getType();
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS:
-				return getValidationProcess();
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD:
+				return getCommunicationMethod();
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS:
 				return getValidationStatus();
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_DATE:
@@ -463,32 +401,29 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO:
+				setWho((Reference)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__TYPE:
 				getType().clear();
 				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS:
-				getValidationProcess().clear();
-				getValidationProcess().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD:
+				getCommunicationMethod().clear();
+				getCommunicationMethod().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS:
-				setValidationStatus((ValidationStatus)newValue);
+				setValidationStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_DATE:
 				setValidationDate((DateTime)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__CAN_PUSH_UPDATES:
-				setCanPushUpdates((CanPushUpdates)newValue);
+				setCanPushUpdates((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__PUSH_TYPE_AVAILABLE:
 				getPushTypeAvailable().clear();
-				getPushTypeAvailable().addAll((Collection<? extends PushTypeAvailable>)newValue);
+				getPushTypeAvailable().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -502,26 +437,23 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO:
+				setWho((Reference)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__TYPE:
 				getType().clear();
 				return;
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS:
-				getValidationProcess().clear();
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD:
+				getCommunicationMethod().clear();
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS:
-				setValidationStatus((ValidationStatus)null);
+				setValidationStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_DATE:
 				setValidationDate((DateTime)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__CAN_PUSH_UPDATES:
-				setCanPushUpdates((CanPushUpdates)null);
+				setCanPushUpdates((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__PUSH_TYPE_AVAILABLE:
 				getPushTypeAvailable().clear();
@@ -538,14 +470,12 @@ public class VerificationResultPrimarySourceImpl extends BackboneElementImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__IDENTIFIER:
-				return identifier != null;
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__ORGANIZATION:
-				return organization != null;
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__WHO:
+				return who != null;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__TYPE:
 				return type != null && !type.isEmpty();
-			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_PROCESS:
-				return validationProcess != null && !validationProcess.isEmpty();
+			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__COMMUNICATION_METHOD:
+				return communicationMethod != null && !communicationMethod.isEmpty();
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_STATUS:
 				return validationStatus != null;
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE__VALIDATION_DATE:

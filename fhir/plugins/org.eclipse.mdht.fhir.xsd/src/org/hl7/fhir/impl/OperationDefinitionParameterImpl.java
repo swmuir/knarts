@@ -17,14 +17,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Code;
-import org.hl7.fhir.FHIRAllTypes;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.OperationDefinitionBinding;
 import org.hl7.fhir.OperationDefinitionParameter;
+import org.hl7.fhir.OperationDefinitionReferencedFrom;
 import org.hl7.fhir.OperationParameterUse;
 import org.hl7.fhir.SearchParamType;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +43,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionParameterImpl#getTargetProfile <em>Target Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionParameterImpl#getSearchType <em>Search Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionParameterImpl#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OperationDefinitionParameterImpl#getReferencedFrom <em>Referenced From</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionParameterImpl#getPart <em>Part</em>}</li>
  * </ul>
  *
@@ -107,7 +108,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected FHIRAllTypes type;
+	protected Code type;
 
 	/**
 	 * The cached value of the '{@link #getTargetProfile() <em>Target Profile</em>}' containment reference list.
@@ -117,7 +118,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> targetProfile;
+	protected EList<Canonical> targetProfile;
 
 	/**
 	 * The cached value of the '{@link #getSearchType() <em>Search Type</em>}' containment reference.
@@ -138,6 +139,16 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected OperationDefinitionBinding binding;
+
+	/**
+	 * The cached value of the '{@link #getReferencedFrom() <em>Referenced From</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferencedFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OperationDefinitionReferencedFrom> referencedFrom;
 
 	/**
 	 * The cached value of the '{@link #getPart() <em>Part</em>}' containment reference list.
@@ -388,7 +399,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FHIRAllTypes getType() {
+	public Code getType() {
 		return type;
 	}
 
@@ -397,8 +408,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(FHIRAllTypes newType, NotificationChain msgs) {
-		FHIRAllTypes oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE, oldType, newType);
@@ -412,7 +423,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(FHIRAllTypes newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -431,9 +442,9 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getTargetProfile() {
+	public EList<Canonical> getTargetProfile() {
 		if (targetProfile == null) {
-			targetProfile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.OPERATION_DEFINITION_PARAMETER__TARGET_PROFILE);
+			targetProfile = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.OPERATION_DEFINITION_PARAMETER__TARGET_PROFILE);
 		}
 		return targetProfile;
 	}
@@ -529,6 +540,18 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<OperationDefinitionReferencedFrom> getReferencedFrom() {
+		if (referencedFrom == null) {
+			referencedFrom = new EObjectContainmentEList<OperationDefinitionReferencedFrom>(OperationDefinitionReferencedFrom.class, this, FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM);
+		}
+		return referencedFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<OperationDefinitionParameter> getPart() {
 		if (part == null) {
 			part = new EObjectContainmentEList<OperationDefinitionParameter>(OperationDefinitionParameter.class, this, FhirPackage.OPERATION_DEFINITION_PARAMETER__PART);
@@ -562,6 +585,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				return basicSetSearchType(null, msgs);
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__BINDING:
 				return basicSetBinding(null, msgs);
+			case FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM:
+				return ((InternalEList<?>)getReferencedFrom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__PART:
 				return ((InternalEList<?>)getPart()).basicRemove(otherEnd, msgs);
 		}
@@ -594,6 +619,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				return getSearchType();
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__BINDING:
 				return getBinding();
+			case FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM:
+				return getReferencedFrom();
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__PART:
 				return getPart();
 		}
@@ -625,17 +652,21 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				setDocumentation((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE:
-				setType((FHIRAllTypes)newValue);
+				setType((Code)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TARGET_PROFILE:
 				getTargetProfile().clear();
-				getTargetProfile().addAll((Collection<? extends Uri>)newValue);
+				getTargetProfile().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__SEARCH_TYPE:
 				setSearchType((SearchParamType)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__BINDING:
 				setBinding((OperationDefinitionBinding)newValue);
+				return;
+			case FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM:
+				getReferencedFrom().clear();
+				getReferencedFrom().addAll((Collection<? extends OperationDefinitionReferencedFrom>)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__PART:
 				getPart().clear();
@@ -669,7 +700,7 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				setDocumentation((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TYPE:
-				setType((FHIRAllTypes)null);
+				setType((Code)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__TARGET_PROFILE:
 				getTargetProfile().clear();
@@ -679,6 +710,9 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__BINDING:
 				setBinding((OperationDefinitionBinding)null);
+				return;
+			case FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM:
+				getReferencedFrom().clear();
 				return;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__PART:
 				getPart().clear();
@@ -713,6 +747,8 @@ public class OperationDefinitionParameterImpl extends BackboneElementImpl implem
 				return searchType != null;
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__BINDING:
 				return binding != null;
+			case FhirPackage.OPERATION_DEFINITION_PARAMETER__REFERENCED_FROM:
+				return referencedFrom != null && !referencedFrom.isEmpty();
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER__PART:
 				return part != null && !part.isEmpty();
 		}

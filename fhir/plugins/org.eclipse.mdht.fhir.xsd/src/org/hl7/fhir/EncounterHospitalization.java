@@ -64,7 +64,7 @@ public interface EncounterHospitalization extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The location from which the patient came before admission.
+	 * The location/organization from which the patient came before admission.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Origin</em>' containment reference.
 	 * @see #setOrigin(Reference)
@@ -190,7 +190,7 @@ public interface EncounterHospitalization extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Location to which the patient is discharged.
+	 * Location/organization to which the patient is discharged.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Destination</em>' containment reference.
 	 * @see #setDestination(Reference)

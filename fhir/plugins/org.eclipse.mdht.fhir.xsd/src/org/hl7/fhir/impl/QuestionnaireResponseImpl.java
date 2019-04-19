@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -39,7 +40,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireResponseImpl#getSource <em>Source</em>}</li>
@@ -87,7 +88,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference questionnaire;
+	protected Canonical questionnaire;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -110,14 +111,14 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getAuthored() <em>Authored</em>}' containment reference.
@@ -250,7 +251,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getQuestionnaire() {
+	public Canonical getQuestionnaire() {
 		return questionnaire;
 	}
 
@@ -259,8 +260,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuestionnaire(Reference newQuestionnaire, NotificationChain msgs) {
-		Reference oldQuestionnaire = questionnaire;
+	public NotificationChain basicSetQuestionnaire(Canonical newQuestionnaire, NotificationChain msgs) {
+		Canonical oldQuestionnaire = questionnaire;
 		questionnaire = newQuestionnaire;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE, oldQuestionnaire, newQuestionnaire);
@@ -274,7 +275,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuestionnaire(Reference newQuestionnaire) {
+	public void setQuestionnaire(Canonical newQuestionnaire) {
 		if (newQuestionnaire != questionnaire) {
 			NotificationChain msgs = null;
 			if (questionnaire != null)
@@ -379,8 +380,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -388,11 +389,11 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -403,18 +404,18 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -578,8 +579,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return basicSetStatus(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return basicSetAuthored(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
@@ -612,8 +613,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return getStatus();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return getSubject();
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
-				return getContext();
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return getAuthored();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:
@@ -647,7 +648,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
-				setQuestionnaire((Reference)newValue);
+				setQuestionnaire((Canonical)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
 				setStatus((QuestionnaireResponseStatus)newValue);
@@ -655,8 +656,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				setAuthored((DateTime)newValue);
@@ -693,7 +694,7 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				getPartOf().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__QUESTIONNAIRE:
-				setQuestionnaire((Reference)null);
+				setQuestionnaire((Canonical)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__STATUS:
 				setStatus((QuestionnaireResponseStatus)null);
@@ -701,8 +702,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				setAuthored((DateTime)null);
@@ -740,8 +741,8 @@ public class QuestionnaireResponseImpl extends DomainResourceImpl implements Que
 				return status != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__SUBJECT:
 				return subject != null;
-			case FhirPackage.QUESTIONNAIRE_RESPONSE__CONTEXT:
-				return context != null;
+			case FhirPackage.QUESTIONNAIRE_RESPONSE__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHORED:
 				return authored != null;
 			case FhirPackage.QUESTIONNAIRE_RESPONSE__AUTHOR:

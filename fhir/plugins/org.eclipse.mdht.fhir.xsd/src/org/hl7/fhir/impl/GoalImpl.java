@@ -22,7 +22,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Goal;
-import org.hl7.fhir.GoalStatus;
+import org.hl7.fhir.GoalLifecycleStatus;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
@@ -36,7 +36,8 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.GoalImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getLifecycleStatus <em>Lifecycle Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalImpl#getAchievementStatus <em>Achievement Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalImpl#getDescription <em>Description</em>}</li>
@@ -67,14 +68,24 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+	 * The cached value of the '{@link #getLifecycleStatus() <em>Lifecycle Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getLifecycleStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected GoalStatus status;
+	protected GoalLifecycleStatus lifecycleStatus;
+
+	/**
+	 * The cached value of the '{@link #getAchievementStatus() <em>Achievement Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAchievementStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept achievementStatus;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -137,14 +148,14 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	protected CodeableConcept startCodeableConcept;
 
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected GoalTarget target;
+	protected EList<GoalTarget> target;
 
 	/**
 	 * The cached value of the '{@link #getStatusDate() <em>Status Date</em>}' containment reference.
@@ -252,8 +263,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalStatus getStatus() {
-		return status;
+	public GoalLifecycleStatus getLifecycleStatus() {
+		return lifecycleStatus;
 	}
 
 	/**
@@ -261,11 +272,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(GoalStatus newStatus, NotificationChain msgs) {
-		GoalStatus oldStatus = status;
-		status = newStatus;
+	public NotificationChain basicSetLifecycleStatus(GoalLifecycleStatus newLifecycleStatus, NotificationChain msgs) {
+		GoalLifecycleStatus oldLifecycleStatus = lifecycleStatus;
+		lifecycleStatus = newLifecycleStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, oldStatus, newStatus);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__LIFECYCLE_STATUS, oldLifecycleStatus, newLifecycleStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -276,18 +287,61 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(GoalStatus newStatus) {
-		if (newStatus != status) {
+	public void setLifecycleStatus(GoalLifecycleStatus newLifecycleStatus) {
+		if (newLifecycleStatus != lifecycleStatus) {
 			NotificationChain msgs = null;
-			if (status != null)
-				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
-			if (newStatus != null)
-				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__STATUS, null, msgs);
-			msgs = basicSetStatus(newStatus, msgs);
+			if (lifecycleStatus != null)
+				msgs = ((InternalEObject)lifecycleStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__LIFECYCLE_STATUS, null, msgs);
+			if (newLifecycleStatus != null)
+				msgs = ((InternalEObject)newLifecycleStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__LIFECYCLE_STATUS, null, msgs);
+			msgs = basicSetLifecycleStatus(newLifecycleStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__STATUS, newStatus, newStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__LIFECYCLE_STATUS, newLifecycleStatus, newLifecycleStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getAchievementStatus() {
+		return achievementStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAchievementStatus(CodeableConcept newAchievementStatus, NotificationChain msgs) {
+		CodeableConcept oldAchievementStatus = achievementStatus;
+		achievementStatus = newAchievementStatus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__ACHIEVEMENT_STATUS, oldAchievementStatus, newAchievementStatus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAchievementStatus(CodeableConcept newAchievementStatus) {
+		if (newAchievementStatus != achievementStatus) {
+			NotificationChain msgs = null;
+			if (achievementStatus != null)
+				msgs = ((InternalEObject)achievementStatus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__ACHIEVEMENT_STATUS, null, msgs);
+			if (newAchievementStatus != null)
+				msgs = ((InternalEObject)newAchievementStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__ACHIEVEMENT_STATUS, null, msgs);
+			msgs = basicSetAchievementStatus(newAchievementStatus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__ACHIEVEMENT_STATUS, newAchievementStatus, newAchievementStatus));
 	}
 
 	/**
@@ -522,42 +576,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalTarget getTarget() {
+	public EList<GoalTarget> getTarget() {
+		if (target == null) {
+			target = new EObjectContainmentEList<GoalTarget>(GoalTarget.class, this, FhirPackage.GOAL__TARGET);
+		}
 		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTarget(GoalTarget newTarget, NotificationChain msgs) {
-		GoalTarget oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET, oldTarget, newTarget);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTarget(GoalTarget newTarget) {
-		if (newTarget != target) {
-			NotificationChain msgs = null;
-			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET, null, msgs);
-			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL__TARGET, null, msgs);
-			msgs = basicSetTarget(newTarget, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -747,8 +770,10 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.GOAL__STATUS:
-				return basicSetStatus(null, msgs);
+			case FhirPackage.GOAL__LIFECYCLE_STATUS:
+				return basicSetLifecycleStatus(null, msgs);
+			case FhirPackage.GOAL__ACHIEVEMENT_STATUS:
+				return basicSetAchievementStatus(null, msgs);
 			case FhirPackage.GOAL__CATEGORY:
 				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GOAL__PRIORITY:
@@ -762,7 +787,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				return basicSetStartCodeableConcept(null, msgs);
 			case FhirPackage.GOAL__TARGET:
-				return basicSetTarget(null, msgs);
+				return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GOAL__STATUS_DATE:
 				return basicSetStatusDate(null, msgs);
 			case FhirPackage.GOAL__STATUS_REASON:
@@ -791,8 +816,10 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.GOAL__STATUS:
-				return getStatus();
+			case FhirPackage.GOAL__LIFECYCLE_STATUS:
+				return getLifecycleStatus();
+			case FhirPackage.GOAL__ACHIEVEMENT_STATUS:
+				return getAchievementStatus();
 			case FhirPackage.GOAL__CATEGORY:
 				return getCategory();
 			case FhirPackage.GOAL__PRIORITY:
@@ -838,8 +865,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.GOAL__STATUS:
-				setStatus((GoalStatus)newValue);
+			case FhirPackage.GOAL__LIFECYCLE_STATUS:
+				setLifecycleStatus((GoalLifecycleStatus)newValue);
+				return;
+			case FhirPackage.GOAL__ACHIEVEMENT_STATUS:
+				setAchievementStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.GOAL__CATEGORY:
 				getCategory().clear();
@@ -861,7 +891,8 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				setStartCodeableConcept((CodeableConcept)newValue);
 				return;
 			case FhirPackage.GOAL__TARGET:
-				setTarget((GoalTarget)newValue);
+				getTarget().clear();
+				getTarget().addAll((Collection<? extends GoalTarget>)newValue);
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)newValue);
@@ -903,8 +934,11 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.GOAL__STATUS:
-				setStatus((GoalStatus)null);
+			case FhirPackage.GOAL__LIFECYCLE_STATUS:
+				setLifecycleStatus((GoalLifecycleStatus)null);
+				return;
+			case FhirPackage.GOAL__ACHIEVEMENT_STATUS:
+				setAchievementStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.GOAL__CATEGORY:
 				getCategory().clear();
@@ -925,7 +959,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 				setStartCodeableConcept((CodeableConcept)null);
 				return;
 			case FhirPackage.GOAL__TARGET:
-				setTarget((GoalTarget)null);
+				getTarget().clear();
 				return;
 			case FhirPackage.GOAL__STATUS_DATE:
 				setStatusDate((Date)null);
@@ -962,8 +996,10 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 		switch (featureID) {
 			case FhirPackage.GOAL__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.GOAL__STATUS:
-				return status != null;
+			case FhirPackage.GOAL__LIFECYCLE_STATUS:
+				return lifecycleStatus != null;
+			case FhirPackage.GOAL__ACHIEVEMENT_STATUS:
+				return achievementStatus != null;
 			case FhirPackage.GOAL__CATEGORY:
 				return category != null && !category.isEmpty();
 			case FhirPackage.GOAL__PRIORITY:
@@ -977,7 +1013,7 @@ public class GoalImpl extends DomainResourceImpl implements Goal {
 			case FhirPackage.GOAL__START_CODEABLE_CONCEPT:
 				return startCodeableConcept != null;
 			case FhirPackage.GOAL__TARGET:
-				return target != null;
+				return target != null && !target.isEmpty();
 			case FhirPackage.GOAL__STATUS_DATE:
 				return statusDate != null;
 			case FhirPackage.GOAL__STATUS_REASON:

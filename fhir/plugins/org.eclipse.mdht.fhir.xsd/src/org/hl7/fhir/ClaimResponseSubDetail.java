@@ -32,7 +32,7 @@ public interface ClaimResponseSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line number.
+	 * A number to uniquely reference the claim sub-detail entry.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Detail Sequence</em>' containment reference.
 	 * @see #setSubDetailSequence(PositiveInt)
@@ -59,7 +59,7 @@ public interface ClaimResponseSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of note references to the notes provided below.
+	 * The numbers associated with notes below which apply to the adjudication of this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note Number</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseSubDetail_NoteNumber()
@@ -75,7 +75,7 @@ public interface ClaimResponseSubDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The adjudications results.
+	 * The adjudication results.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjudication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseSubDetail_Adjudication()

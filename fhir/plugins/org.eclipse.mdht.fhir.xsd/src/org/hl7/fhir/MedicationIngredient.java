@@ -19,7 +19,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getItemCodeableConcept <em>Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getItemReference <em>Item Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationIngredient#getIsActive <em>Is Active</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicationIngredient#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationIngredient#getStrength <em>Strength</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicationIngredient()
@@ -86,7 +86,7 @@ public interface MedicationIngredient extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indication of whether this ingredient affects the therapeutic action of the drug.
+	 * Indication of whether this ingredient affects the therapeutic action of the drug.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Active</em>' containment reference.
 	 * @see #setIsActive(org.hl7.fhir.Boolean)
@@ -108,29 +108,29 @@ public interface MedicationIngredient extends BackboneElement {
 	void setIsActive(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Strength</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(Ratio)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationIngredient_Amount()
+	 * @return the value of the '<em>Strength</em>' containment reference.
+	 * @see #setStrength(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationIngredient_Strength()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='strength' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Ratio getAmount();
+	Ratio getStrength();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationIngredient#getAmount <em>Amount</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationIngredient#getStrength <em>Strength</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Amount</em>' containment reference.
-	 * @see #getAmount()
+	 * @param value the new value of the '<em>Strength</em>' containment reference.
+	 * @see #getStrength()
 	 * @generated
 	 */
-	void setAmount(Ratio value);
+	void setStrength(Ratio value);
 
 } // MedicationIngredient

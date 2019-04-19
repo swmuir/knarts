@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference message;
+	protected Canonical message;
 
 	/**
 	 * The cached value of the '{@link #getSituation() <em>Situation</em>}' containment reference.
@@ -74,7 +74,7 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getMessage() {
+	public Canonical getMessage() {
 		return message;
 	}
 
@@ -83,8 +83,8 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMessage(Reference newMessage, NotificationChain msgs) {
-		Reference oldMessage = message;
+	public NotificationChain basicSetMessage(Canonical newMessage, NotificationChain msgs) {
+		Canonical oldMessage = message;
 		message = newMessage;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE__MESSAGE, oldMessage, newMessage);
@@ -98,7 +98,7 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMessage(Reference newMessage) {
+	public void setMessage(Canonical newMessage) {
 		if (newMessage != message) {
 			NotificationChain msgs = null;
 			if (message != null)
@@ -196,7 +196,7 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE__MESSAGE:
-				setMessage((Reference)newValue);
+				setMessage((Canonical)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE__SITUATION:
 				setSituation((Markdown)newValue);
@@ -214,7 +214,7 @@ public class MessageDefinitionAllowedResponseImpl extends BackboneElementImpl im
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE__MESSAGE:
-				setMessage((Reference)null);
+				setMessage((Canonical)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE__SITUATION:
 				setSituation((Markdown)null);

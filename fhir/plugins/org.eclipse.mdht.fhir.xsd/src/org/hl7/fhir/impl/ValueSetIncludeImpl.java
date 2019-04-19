@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.ValueSetConcept;
@@ -89,7 +90,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> valueSet;
+	protected EList<Canonical> valueSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,9 +226,9 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getValueSet() {
+	public EList<Canonical> getValueSet() {
 		if (valueSet == null) {
-			valueSet = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.VALUE_SET_INCLUDE__VALUE_SET);
+			valueSet = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.VALUE_SET_INCLUDE__VALUE_SET);
 		}
 		return valueSet;
 	}
@@ -301,7 +302,7 @@ public class ValueSetIncludeImpl extends BackboneElementImpl implements ValueSet
 				return;
 			case FhirPackage.VALUE_SET_INCLUDE__VALUE_SET:
 				getValueSet().clear();
-				getValueSet().addAll((Collection<? extends Uri>)newValue);
+				getValueSet().addAll((Collection<? extends Canonical>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

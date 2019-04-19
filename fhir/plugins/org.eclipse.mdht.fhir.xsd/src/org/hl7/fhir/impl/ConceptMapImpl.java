@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ConceptMap;
 import org.hl7.fhir.ConceptMapGroup;
@@ -26,7 +27,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -54,9 +54,9 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getSourceUri <em>Source Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getSourceReference <em>Source Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getSourceCanonical <em>Source Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getTargetUri <em>Target Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getTargetReference <em>Target Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getTargetCanonical <em>Target Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConceptMapImpl#getGroup <em>Group</em>}</li>
  * </ul>
  *
@@ -224,14 +224,14 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	protected Uri sourceUri;
 
 	/**
-	 * The cached value of the '{@link #getSourceReference() <em>Source Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getSourceCanonical() <em>Source Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourceReference()
+	 * @see #getSourceCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference sourceReference;
+	protected Canonical sourceCanonical;
 
 	/**
 	 * The cached value of the '{@link #getTargetUri() <em>Target Uri</em>}' containment reference.
@@ -244,14 +244,14 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	protected Uri targetUri;
 
 	/**
-	 * The cached value of the '{@link #getTargetReference() <em>Target Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getTargetCanonical() <em>Target Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetReference()
+	 * @see #getTargetCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference targetReference;
+	protected Canonical targetCanonical;
 
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
@@ -882,8 +882,8 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSourceReference() {
-		return sourceReference;
+	public Canonical getSourceCanonical() {
+		return sourceCanonical;
 	}
 
 	/**
@@ -891,11 +891,11 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSourceReference(Reference newSourceReference, NotificationChain msgs) {
-		Reference oldSourceReference = sourceReference;
-		sourceReference = newSourceReference;
+	public NotificationChain basicSetSourceCanonical(Canonical newSourceCanonical, NotificationChain msgs) {
+		Canonical oldSourceCanonical = sourceCanonical;
+		sourceCanonical = newSourceCanonical;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE, oldSourceReference, newSourceReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL, oldSourceCanonical, newSourceCanonical);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -906,18 +906,18 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceReference(Reference newSourceReference) {
-		if (newSourceReference != sourceReference) {
+	public void setSourceCanonical(Canonical newSourceCanonical) {
+		if (newSourceCanonical != sourceCanonical) {
 			NotificationChain msgs = null;
-			if (sourceReference != null)
-				msgs = ((InternalEObject)sourceReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE, null, msgs);
-			if (newSourceReference != null)
-				msgs = ((InternalEObject)newSourceReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE, null, msgs);
-			msgs = basicSetSourceReference(newSourceReference, msgs);
+			if (sourceCanonical != null)
+				msgs = ((InternalEObject)sourceCanonical).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL, null, msgs);
+			if (newSourceCanonical != null)
+				msgs = ((InternalEObject)newSourceCanonical).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL, null, msgs);
+			msgs = basicSetSourceCanonical(newSourceCanonical, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE, newSourceReference, newSourceReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL, newSourceCanonical, newSourceCanonical));
 	}
 
 	/**
@@ -968,8 +968,8 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getTargetReference() {
-		return targetReference;
+	public Canonical getTargetCanonical() {
+		return targetCanonical;
 	}
 
 	/**
@@ -977,11 +977,11 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetReference(Reference newTargetReference, NotificationChain msgs) {
-		Reference oldTargetReference = targetReference;
-		targetReference = newTargetReference;
+	public NotificationChain basicSetTargetCanonical(Canonical newTargetCanonical, NotificationChain msgs) {
+		Canonical oldTargetCanonical = targetCanonical;
+		targetCanonical = newTargetCanonical;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__TARGET_REFERENCE, oldTargetReference, newTargetReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__TARGET_CANONICAL, oldTargetCanonical, newTargetCanonical);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -992,18 +992,18 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetReference(Reference newTargetReference) {
-		if (newTargetReference != targetReference) {
+	public void setTargetCanonical(Canonical newTargetCanonical) {
+		if (newTargetCanonical != targetCanonical) {
 			NotificationChain msgs = null;
-			if (targetReference != null)
-				msgs = ((InternalEObject)targetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__TARGET_REFERENCE, null, msgs);
-			if (newTargetReference != null)
-				msgs = ((InternalEObject)newTargetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__TARGET_REFERENCE, null, msgs);
-			msgs = basicSetTargetReference(newTargetReference, msgs);
+			if (targetCanonical != null)
+				msgs = ((InternalEObject)targetCanonical).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__TARGET_CANONICAL, null, msgs);
+			if (newTargetCanonical != null)
+				msgs = ((InternalEObject)newTargetCanonical).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONCEPT_MAP__TARGET_CANONICAL, null, msgs);
+			msgs = basicSetTargetCanonical(newTargetCanonical, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__TARGET_REFERENCE, newTargetReference, newTargetReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONCEPT_MAP__TARGET_CANONICAL, newTargetCanonical, newTargetCanonical));
 	}
 
 	/**
@@ -1058,12 +1058,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return basicSetCopyright(null, msgs);
 			case FhirPackage.CONCEPT_MAP__SOURCE_URI:
 				return basicSetSourceUri(null, msgs);
-			case FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE:
-				return basicSetSourceReference(null, msgs);
+			case FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL:
+				return basicSetSourceCanonical(null, msgs);
 			case FhirPackage.CONCEPT_MAP__TARGET_URI:
 				return basicSetTargetUri(null, msgs);
-			case FhirPackage.CONCEPT_MAP__TARGET_REFERENCE:
-				return basicSetTargetReference(null, msgs);
+			case FhirPackage.CONCEPT_MAP__TARGET_CANONICAL:
+				return basicSetTargetCanonical(null, msgs);
 			case FhirPackage.CONCEPT_MAP__GROUP:
 				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
 		}
@@ -1110,12 +1110,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return getCopyright();
 			case FhirPackage.CONCEPT_MAP__SOURCE_URI:
 				return getSourceUri();
-			case FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE:
-				return getSourceReference();
+			case FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL:
+				return getSourceCanonical();
 			case FhirPackage.CONCEPT_MAP__TARGET_URI:
 				return getTargetUri();
-			case FhirPackage.CONCEPT_MAP__TARGET_REFERENCE:
-				return getTargetReference();
+			case FhirPackage.CONCEPT_MAP__TARGET_CANONICAL:
+				return getTargetCanonical();
 			case FhirPackage.CONCEPT_MAP__GROUP:
 				return getGroup();
 		}
@@ -1182,14 +1182,14 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 			case FhirPackage.CONCEPT_MAP__SOURCE_URI:
 				setSourceUri((Uri)newValue);
 				return;
-			case FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE:
-				setSourceReference((Reference)newValue);
+			case FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL:
+				setSourceCanonical((Canonical)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP__TARGET_URI:
 				setTargetUri((Uri)newValue);
 				return;
-			case FhirPackage.CONCEPT_MAP__TARGET_REFERENCE:
-				setTargetReference((Reference)newValue);
+			case FhirPackage.CONCEPT_MAP__TARGET_CANONICAL:
+				setTargetCanonical((Canonical)newValue);
 				return;
 			case FhirPackage.CONCEPT_MAP__GROUP:
 				getGroup().clear();
@@ -1255,14 +1255,14 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 			case FhirPackage.CONCEPT_MAP__SOURCE_URI:
 				setSourceUri((Uri)null);
 				return;
-			case FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE:
-				setSourceReference((Reference)null);
+			case FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL:
+				setSourceCanonical((Canonical)null);
 				return;
 			case FhirPackage.CONCEPT_MAP__TARGET_URI:
 				setTargetUri((Uri)null);
 				return;
-			case FhirPackage.CONCEPT_MAP__TARGET_REFERENCE:
-				setTargetReference((Reference)null);
+			case FhirPackage.CONCEPT_MAP__TARGET_CANONICAL:
+				setTargetCanonical((Canonical)null);
 				return;
 			case FhirPackage.CONCEPT_MAP__GROUP:
 				getGroup().clear();
@@ -1311,12 +1311,12 @@ public class ConceptMapImpl extends DomainResourceImpl implements ConceptMap {
 				return copyright != null;
 			case FhirPackage.CONCEPT_MAP__SOURCE_URI:
 				return sourceUri != null;
-			case FhirPackage.CONCEPT_MAP__SOURCE_REFERENCE:
-				return sourceReference != null;
+			case FhirPackage.CONCEPT_MAP__SOURCE_CANONICAL:
+				return sourceCanonical != null;
 			case FhirPackage.CONCEPT_MAP__TARGET_URI:
 				return targetUri != null;
-			case FhirPackage.CONCEPT_MAP__TARGET_REFERENCE:
-				return targetReference != null;
+			case FhirPackage.CONCEPT_MAP__TARGET_CANONICAL:
+				return targetCanonical != null;
 			case FhirPackage.CONCEPT_MAP__GROUP:
 				return group != null && !group.isEmpty();
 		}

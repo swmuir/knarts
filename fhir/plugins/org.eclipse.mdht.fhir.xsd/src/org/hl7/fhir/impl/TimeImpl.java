@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +33,7 @@ public class TimeImpl extends ElementImpl implements Time {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final XMLGregorianCalendar VALUE_EDEFAULT = null;
+	protected static final Object VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +43,7 @@ public class TimeImpl extends ElementImpl implements Time {
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLGregorianCalendar value = VALUE_EDEFAULT;
+	protected Object value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +69,7 @@ public class TimeImpl extends ElementImpl implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar getValue() {
+	public Object getValue() {
 		return value;
 	}
 
@@ -80,8 +78,8 @@ public class TimeImpl extends ElementImpl implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(XMLGregorianCalendar newValue) {
-		XMLGregorianCalendar oldValue = value;
+	public void setValue(Object newValue) {
+		Object oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TIME__VALUE, oldValue, value));
@@ -110,7 +108,7 @@ public class TimeImpl extends ElementImpl implements Time {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.TIME__VALUE:
-				setValue((XMLGregorianCalendar)newValue);
+				setValue(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

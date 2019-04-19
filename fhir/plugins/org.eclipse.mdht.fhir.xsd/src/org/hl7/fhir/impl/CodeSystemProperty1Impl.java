@@ -14,6 +14,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeSystemProperty1;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 
 /**
@@ -31,6 +32,7 @@ import org.hl7.fhir.FhirPackage;
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueBoolean <em>Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueDateTime <em>Value Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CodeSystemProperty1Impl#getValueDecimal <em>Value Decimal</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +107,16 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 	 * @ordered
 	 */
 	protected DateTime valueDateTime;
+
+	/**
+	 * The cached value of the '{@link #getValueDecimal() <em>Value Decimal</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDecimal()
+	 * @generated
+	 * @ordered
+	 */
+	protected Decimal valueDecimal;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -431,6 +443,49 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Decimal getValueDecimal() {
+		return valueDecimal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDecimal(Decimal newValueDecimal, NotificationChain msgs) {
+		Decimal oldValueDecimal = valueDecimal;
+		valueDecimal = newValueDecimal;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL, oldValueDecimal, newValueDecimal);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDecimal(Decimal newValueDecimal) {
+		if (newValueDecimal != valueDecimal) {
+			NotificationChain msgs = null;
+			if (valueDecimal != null)
+				msgs = ((InternalEObject)valueDecimal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL, null, msgs);
+			if (newValueDecimal != null)
+				msgs = ((InternalEObject)newValueDecimal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL, null, msgs);
+			msgs = basicSetValueDecimal(newValueDecimal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL, newValueDecimal, newValueDecimal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -448,6 +503,8 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return basicSetValueBoolean(null, msgs);
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
 				return basicSetValueDateTime(null, msgs);
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL:
+				return basicSetValueDecimal(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -474,6 +531,8 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return getValueBoolean();
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
 				return getValueDateTime();
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL:
+				return getValueDecimal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -506,6 +565,9 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return;
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
 				setValueDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL:
+				setValueDecimal((Decimal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -540,6 +602,9 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
 				setValueDateTime((DateTime)null);
 				return;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL:
+				setValueDecimal((Decimal)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -566,6 +631,8 @@ public class CodeSystemProperty1Impl extends BackboneElementImpl implements Code
 				return valueBoolean != null;
 			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DATE_TIME:
 				return valueDateTime != null;
+			case FhirPackage.CODE_SYSTEM_PROPERTY1__VALUE_DECIMAL:
+				return valueDecimal != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -38,7 +38,7 @@ import org.hl7.fhir.TimingRepeat;
  *
  * @generated
  */
-public class TimingImpl extends ElementImpl implements Timing {
+public class TimingImpl extends BackboneElementImpl implements Timing {
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

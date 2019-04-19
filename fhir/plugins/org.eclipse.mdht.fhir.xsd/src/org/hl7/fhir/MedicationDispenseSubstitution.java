@@ -86,7 +86,7 @@ public interface MedicationDispenseSubstitution extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
+	 * Indicates the reason for the substitution (or lack of substitution) from what was prescribed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicationDispenseSubstitution_Reason()

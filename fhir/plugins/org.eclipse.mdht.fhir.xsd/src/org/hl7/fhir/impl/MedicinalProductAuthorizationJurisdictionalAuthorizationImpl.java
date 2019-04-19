@@ -2,18 +2,26 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
+import org.hl7.fhir.Period;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,15 +31,26 @@ import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getCountry <em>Country</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getJurisdiction <em>Jurisdiction</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationJurisdictionalAuthorizationImpl#getValidityPeriod <em>Validity Period</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extends BackboneElementImpl implements MedicinalProductAuthorizationJurisdictionalAuthorization {
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Identifier> identifier;
+
 	/**
 	 * The cached value of the '{@link #getCountry() <em>Country</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -43,24 +62,14 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	protected CodeableConcept country;
 
 	/**
-	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference.
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJurisdiction()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept jurisdiction;
-
-	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier number;
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getLegalStatusOfSupply() <em>Legal Status Of Supply</em>}' containment reference.
@@ -71,6 +80,16 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	 * @ordered
 	 */
 	protected CodeableConcept legalStatusOfSupply;
+
+	/**
+	 * The cached value of the '{@link #getValidityPeriod() <em>Validity Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidityPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period validityPeriod;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,6 +108,18 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedicinalProductAuthorizationJurisdictionalAuthorization();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER);
+		}
+		return identifier;
 	}
 
 	/**
@@ -139,85 +170,11 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getJurisdiction() {
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION);
+		}
 		return jurisdiction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetJurisdiction(CodeableConcept newJurisdiction, NotificationChain msgs) {
-		CodeableConcept oldJurisdiction = jurisdiction;
-		jurisdiction = newJurisdiction;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION, oldJurisdiction, newJurisdiction);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setJurisdiction(CodeableConcept newJurisdiction) {
-		if (newJurisdiction != jurisdiction) {
-			NotificationChain msgs = null;
-			if (jurisdiction != null)
-				msgs = ((InternalEObject)jurisdiction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION, null, msgs);
-			if (newJurisdiction != null)
-				msgs = ((InternalEObject)newJurisdiction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION, null, msgs);
-			msgs = basicSetJurisdiction(newJurisdiction, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION, newJurisdiction, newJurisdiction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getNumber() {
-		return number;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNumber(Identifier newNumber, NotificationChain msgs) {
-		Identifier oldNumber = number;
-		number = newNumber;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER, oldNumber, newNumber);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNumber(Identifier newNumber) {
-		if (newNumber != number) {
-			NotificationChain msgs = null;
-			if (number != null)
-				msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER, null, msgs);
-			if (newNumber != null)
-				msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER, null, msgs);
-			msgs = basicSetNumber(newNumber, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER, newNumber, newNumber));
 	}
 
 	/**
@@ -268,17 +225,62 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Period getValidityPeriod() {
+		return validityPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValidityPeriod(Period newValidityPeriod, NotificationChain msgs) {
+		Period oldValidityPeriod = validityPeriod;
+		validityPeriod = newValidityPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD, oldValidityPeriod, newValidityPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValidityPeriod(Period newValidityPeriod) {
+		if (newValidityPeriod != validityPeriod) {
+			NotificationChain msgs = null;
+			if (validityPeriod != null)
+				msgs = ((InternalEObject)validityPeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD, null, msgs);
+			if (newValidityPeriod != null)
+				msgs = ((InternalEObject)newValidityPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD, null, msgs);
+			msgs = basicSetValidityPeriod(newValidityPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD, newValidityPeriod, newValidityPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__COUNTRY:
 				return basicSetCountry(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION:
-				return basicSetJurisdiction(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER:
-				return basicSetNumber(null, msgs);
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
 				return basicSetLegalStatusOfSupply(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD:
+				return basicSetValidityPeriod(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -291,14 +293,16 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__COUNTRY:
 				return getCountry();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION:
 				return getJurisdiction();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER:
-				return getNumber();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
 				return getLegalStatusOfSupply();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD:
+				return getValidityPeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,20 +312,26 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER:
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__COUNTRY:
 				setCountry((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION:
-				setJurisdiction((CodeableConcept)newValue);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER:
-				setNumber((Identifier)newValue);
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
 				setLegalStatusOfSupply((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD:
+				setValidityPeriod((Period)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -335,17 +345,20 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER:
+				getIdentifier().clear();
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__COUNTRY:
 				setCountry((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION:
-				setJurisdiction((CodeableConcept)null);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER:
-				setNumber((Identifier)null);
+				getJurisdiction().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
 				setLegalStatusOfSupply((CodeableConcept)null);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD:
+				setValidityPeriod((Period)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -359,14 +372,16 @@ public class MedicinalProductAuthorizationJurisdictionalAuthorizationImpl extend
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__COUNTRY:
 				return country != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__JURISDICTION:
-				return jurisdiction != null;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__NUMBER:
-				return number != null;
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
 				return legalStatusOfSupply != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION__VALIDITY_PERIOD:
+				return validityPeriod != null;
 		}
 		return super.eIsSet(featureID);
 	}

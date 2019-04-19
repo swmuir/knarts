@@ -26,7 +26,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Base' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionBase extends Element {
+public interface ElementDefinitionBase extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

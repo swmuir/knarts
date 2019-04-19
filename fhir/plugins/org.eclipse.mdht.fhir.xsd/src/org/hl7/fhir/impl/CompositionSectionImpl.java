@@ -34,6 +34,8 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getMode <em>Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionSectionImpl#getOrderedBy <em>Ordered By</em>}</li>
@@ -64,6 +66,26 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 	 * @ordered
 	 */
 	protected CodeableConcept code;
+
+	/**
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAuthor()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> author;
+
+	/**
+	 * The cached value of the '{@link #getFocus() <em>Focus</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFocus()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference focus;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -228,6 +250,61 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_SECTION__CODE, newCode, newCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMPOSITION_SECTION__AUTHOR);
+		}
+		return author;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getFocus() {
+		return focus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFocus(Reference newFocus, NotificationChain msgs) {
+		Reference oldFocus = focus;
+		focus = newFocus;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_SECTION__FOCUS, oldFocus, newFocus);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFocus(Reference newFocus) {
+		if (newFocus != focus) {
+			NotificationChain msgs = null;
+			if (focus != null)
+				msgs = ((InternalEObject)focus).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION_SECTION__FOCUS, null, msgs);
+			if (newFocus != null)
+				msgs = ((InternalEObject)newFocus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION_SECTION__FOCUS, null, msgs);
+			msgs = basicSetFocus(newFocus, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION_SECTION__FOCUS, newFocus, newFocus));
 	}
 
 	/**
@@ -438,6 +515,10 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				return basicSetTitle(null, msgs);
 			case FhirPackage.COMPOSITION_SECTION__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.COMPOSITION_SECTION__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMPOSITION_SECTION__FOCUS:
+				return basicSetFocus(null, msgs);
 			case FhirPackage.COMPOSITION_SECTION__TEXT:
 				return basicSetText(null, msgs);
 			case FhirPackage.COMPOSITION_SECTION__MODE:
@@ -466,6 +547,10 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				return getTitle();
 			case FhirPackage.COMPOSITION_SECTION__CODE:
 				return getCode();
+			case FhirPackage.COMPOSITION_SECTION__AUTHOR:
+				return getAuthor();
+			case FhirPackage.COMPOSITION_SECTION__FOCUS:
+				return getFocus();
 			case FhirPackage.COMPOSITION_SECTION__TEXT:
 				return getText();
 			case FhirPackage.COMPOSITION_SECTION__MODE:
@@ -496,6 +581,13 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				return;
 			case FhirPackage.COMPOSITION_SECTION__CODE:
 				setCode((CodeableConcept)newValue);
+				return;
+			case FhirPackage.COMPOSITION_SECTION__AUTHOR:
+				getAuthor().clear();
+				getAuthor().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.COMPOSITION_SECTION__FOCUS:
+				setFocus((Reference)newValue);
 				return;
 			case FhirPackage.COMPOSITION_SECTION__TEXT:
 				setText((Narrative)newValue);
@@ -535,6 +627,12 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 			case FhirPackage.COMPOSITION_SECTION__CODE:
 				setCode((CodeableConcept)null);
 				return;
+			case FhirPackage.COMPOSITION_SECTION__AUTHOR:
+				getAuthor().clear();
+				return;
+			case FhirPackage.COMPOSITION_SECTION__FOCUS:
+				setFocus((Reference)null);
+				return;
 			case FhirPackage.COMPOSITION_SECTION__TEXT:
 				setText((Narrative)null);
 				return;
@@ -569,6 +667,10 @@ public class CompositionSectionImpl extends BackboneElementImpl implements Compo
 				return title != null;
 			case FhirPackage.COMPOSITION_SECTION__CODE:
 				return code != null;
+			case FhirPackage.COMPOSITION_SECTION__AUTHOR:
+				return author != null && !author.isEmpty();
+			case FhirPackage.COMPOSITION_SECTION__FOCUS:
+				return focus != null;
 			case FhirPackage.COMPOSITION_SECTION__TEXT:
 				return text != null;
 			case FhirPackage.COMPOSITION_SECTION__MODE:

@@ -157,7 +157,7 @@ public enum SearchComparatorList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Less Then
+	 * Less Than
 	 * <!-- end-model-doc -->
 	 * @see #LT
 	 * @model name="lt"

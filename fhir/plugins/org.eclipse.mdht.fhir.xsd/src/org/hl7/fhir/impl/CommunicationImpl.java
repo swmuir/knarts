@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Communication;
 import org.hl7.fhir.CommunicationPayload;
@@ -38,7 +39,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getInResponseTo <em>In Response To</em>}</li>
@@ -48,12 +50,12 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getMedium <em>Medium</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getAbout <em>About</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getSent <em>Sent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReceived <em>Received</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CommunicationImpl#getReasonReference <em>Reason Reference</em>}</li>
@@ -75,14 +77,24 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -175,16 +187,6 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecipient()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> recipient;
-
-	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,14 +207,14 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	protected EList<Reference> about;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getSent() <em>Sent</em>}' containment reference.
@@ -233,6 +235,16 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * @ordered
 	 */
 	protected DateTime received;
+
+	/**
+	 * The cached value of the '{@link #getRecipient() <em>Recipient</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecipient()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> recipient;
 
 	/**
 	 * The cached value of the '{@link #getSender() <em>Sender</em>}' containment reference.
@@ -320,11 +332,23 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
-		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.COMMUNICATION__INSTANTIATES);
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL);
 		}
-		return instantiates;
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.COMMUNICATION__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
 	}
 
 	/**
@@ -564,18 +588,6 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getRecipient() {
-		if (recipient == null) {
-			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__RECIPIENT);
-		}
-		return recipient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CodeableConcept getTopic() {
 		return topic;
 	}
@@ -631,8 +643,8 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -640,11 +652,11 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -655,18 +667,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMMUNICATION__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -753,6 +765,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMMUNICATION__RECEIVED, newReceived, newReceived));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getRecipient() {
+		if (recipient == null) {
+			recipient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.COMMUNICATION__RECIPIENT);
+		}
+		return recipient;
 	}
 
 	/**
@@ -856,8 +880,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMMUNICATION__INSTANTIATES:
-				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.COMMUNICATION__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__PART_OF:
@@ -876,18 +902,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return ((InternalEList<?>)getMedium()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.COMMUNICATION__RECIPIENT:
-				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__TOPIC:
 				return basicSetTopic(null, msgs);
 			case FhirPackage.COMMUNICATION__ABOUT:
 				return ((InternalEList<?>)getAbout()).basicRemove(otherEnd, msgs);
-			case FhirPackage.COMMUNICATION__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.COMMUNICATION__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.COMMUNICATION__SENT:
 				return basicSetSent(null, msgs);
 			case FhirPackage.COMMUNICATION__RECEIVED:
 				return basicSetReceived(null, msgs);
+			case FhirPackage.COMMUNICATION__RECIPIENT:
+				return ((InternalEList<?>)getRecipient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMMUNICATION__SENDER:
 				return basicSetSender(null, msgs);
 			case FhirPackage.COMMUNICATION__REASON_CODE:
@@ -912,8 +938,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.COMMUNICATION__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.COMMUNICATION__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.COMMUNICATION__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.COMMUNICATION__PART_OF:
@@ -932,18 +960,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return getMedium();
 			case FhirPackage.COMMUNICATION__SUBJECT:
 				return getSubject();
-			case FhirPackage.COMMUNICATION__RECIPIENT:
-				return getRecipient();
 			case FhirPackage.COMMUNICATION__TOPIC:
 				return getTopic();
 			case FhirPackage.COMMUNICATION__ABOUT:
 				return getAbout();
-			case FhirPackage.COMMUNICATION__CONTEXT:
-				return getContext();
+			case FhirPackage.COMMUNICATION__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.COMMUNICATION__SENT:
 				return getSent();
 			case FhirPackage.COMMUNICATION__RECEIVED:
 				return getReceived();
+			case FhirPackage.COMMUNICATION__RECIPIENT:
+				return getRecipient();
 			case FhirPackage.COMMUNICATION__SENDER:
 				return getSender();
 			case FhirPackage.COMMUNICATION__REASON_CODE:
@@ -971,9 +999,13 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.COMMUNICATION__INSTANTIATES:
-				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.COMMUNICATION__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__BASED_ON:
 				getBasedOn().clear();
@@ -1007,10 +1039,6 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 			case FhirPackage.COMMUNICATION__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.COMMUNICATION__RECIPIENT:
-				getRecipient().clear();
-				getRecipient().addAll((Collection<? extends Reference>)newValue);
-				return;
 			case FhirPackage.COMMUNICATION__TOPIC:
 				setTopic((CodeableConcept)newValue);
 				return;
@@ -1018,14 +1046,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				getAbout().clear();
 				getAbout().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.COMMUNICATION__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.COMMUNICATION__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__SENT:
 				setSent((DateTime)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__RECEIVED:
 				setReceived((DateTime)newValue);
+				return;
+			case FhirPackage.COMMUNICATION__RECIPIENT:
+				getRecipient().clear();
+				getRecipient().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.COMMUNICATION__SENDER:
 				setSender((Reference)newValue);
@@ -1061,8 +1093,11 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 			case FhirPackage.COMMUNICATION__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.COMMUNICATION__INSTANTIATES:
-				getInstantiates().clear();
+			case FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.COMMUNICATION__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.COMMUNICATION__BASED_ON:
 				getBasedOn().clear();
@@ -1091,23 +1126,23 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 			case FhirPackage.COMMUNICATION__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.COMMUNICATION__RECIPIENT:
-				getRecipient().clear();
-				return;
 			case FhirPackage.COMMUNICATION__TOPIC:
 				setTopic((CodeableConcept)null);
 				return;
 			case FhirPackage.COMMUNICATION__ABOUT:
 				getAbout().clear();
 				return;
-			case FhirPackage.COMMUNICATION__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.COMMUNICATION__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.COMMUNICATION__SENT:
 				setSent((DateTime)null);
 				return;
 			case FhirPackage.COMMUNICATION__RECEIVED:
 				setReceived((DateTime)null);
+				return;
+			case FhirPackage.COMMUNICATION__RECIPIENT:
+				getRecipient().clear();
 				return;
 			case FhirPackage.COMMUNICATION__SENDER:
 				setSender((Reference)null);
@@ -1138,8 +1173,10 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 		switch (featureID) {
 			case FhirPackage.COMMUNICATION__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.COMMUNICATION__INSTANTIATES:
-				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.COMMUNICATION__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.COMMUNICATION__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.COMMUNICATION__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.COMMUNICATION__PART_OF:
@@ -1158,18 +1195,18 @@ public class CommunicationImpl extends DomainResourceImpl implements Communicati
 				return medium != null && !medium.isEmpty();
 			case FhirPackage.COMMUNICATION__SUBJECT:
 				return subject != null;
-			case FhirPackage.COMMUNICATION__RECIPIENT:
-				return recipient != null && !recipient.isEmpty();
 			case FhirPackage.COMMUNICATION__TOPIC:
 				return topic != null;
 			case FhirPackage.COMMUNICATION__ABOUT:
 				return about != null && !about.isEmpty();
-			case FhirPackage.COMMUNICATION__CONTEXT:
-				return context != null;
+			case FhirPackage.COMMUNICATION__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.COMMUNICATION__SENT:
 				return sent != null;
 			case FhirPackage.COMMUNICATION__RECEIVED:
 				return received != null;
+			case FhirPackage.COMMUNICATION__RECIPIENT:
+				return recipient != null && !recipient.isEmpty();
 			case FhirPackage.COMMUNICATION__SENDER:
 				return sender != null;
 			case FhirPackage.COMMUNICATION__REASON_CODE:

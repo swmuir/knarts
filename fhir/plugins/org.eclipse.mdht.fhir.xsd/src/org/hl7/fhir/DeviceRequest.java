@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceRequest#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getPriorRequest <em>Prior Request</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getGroupIdentifier <em>Group Identifier</em>}</li>
@@ -30,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DeviceRequest#getCodeCodeableConcept <em>Code Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DeviceRequest#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.DeviceRequest#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DeviceRequest#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
@@ -68,20 +69,36 @@ public interface DeviceRequest extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_InstantiatesCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getInstantiatesCanonical();
+
+	/**
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
+	 * The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Instantiates</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Instantiates()
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_InstantiatesUri()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getInstantiates();
+	EList<Uri> getInstantiatesUri();
 
 	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
@@ -175,13 +192,13 @@ public interface DeviceRequest extends DomainResource {
 	 * Whether the request is a proposal, plan, an original order or a reflex order.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(CodeableConcept)
+	 * @see #setIntent(RequestIntent)
 	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Intent()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getIntent();
+	RequestIntent getIntent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getIntent <em>Intent</em>}' containment reference.
@@ -191,7 +208,7 @@ public interface DeviceRequest extends DomainResource {
 	 * @see #getIntent()
 	 * @generated
 	 */
-	void setIntent(CodeableConcept value);
+	void setIntent(RequestIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -316,30 +333,30 @@ public interface DeviceRequest extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An encounter that provides additional context in which this request is made.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DeviceRequest#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Occurrence Date Time</b></em>' containment reference.
@@ -505,7 +522,7 @@ public interface DeviceRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The desired perfomer for doing the diagnostic testing.
+	 * The desired performer for doing the diagnostic testing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference.
 	 * @see #setPerformer(Reference)
@@ -580,7 +597,7 @@ public interface DeviceRequest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject's the device will be used ( i.e. the target site).
+	 * Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e. the target site).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Supporting Info</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDeviceRequest_SupportingInfo()

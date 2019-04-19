@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
@@ -25,7 +27,6 @@ import org.hl7.fhir.GraphDefinition;
 import org.hl7.fhir.GraphDefinitionLink;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -185,7 +186,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceType start;
+	protected Code start;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -195,7 +196,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri profile;
+	protected Canonical profile;
 
 	/**
 	 * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference list.
@@ -654,7 +655,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceType getStart() {
+	public Code getStart() {
 		return start;
 	}
 
@@ -663,8 +664,8 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStart(ResourceType newStart, NotificationChain msgs) {
-		ResourceType oldStart = start;
+	public NotificationChain basicSetStart(Code newStart, NotificationChain msgs) {
+		Code oldStart = start;
 		start = newStart;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION__START, oldStart, newStart);
@@ -678,7 +679,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStart(ResourceType newStart) {
+	public void setStart(Code newStart) {
 		if (newStart != start) {
 			NotificationChain msgs = null;
 			if (start != null)
@@ -697,7 +698,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getProfile() {
+	public Canonical getProfile() {
 		return profile;
 	}
 
@@ -706,8 +707,8 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(Uri newProfile, NotificationChain msgs) {
-		Uri oldProfile = profile;
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GRAPH_DEFINITION__PROFILE, oldProfile, newProfile);
@@ -721,7 +722,7 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(Uri newProfile) {
+	public void setProfile(Canonical newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -880,10 +881,10 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 				setPurpose((Markdown)newValue);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__START:
-				setStart((ResourceType)newValue);
+				setStart((Code)newValue);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__PROFILE:
-				setProfile((Uri)newValue);
+				setProfile((Canonical)newValue);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__LINK:
 				getLink().clear();
@@ -938,10 +939,10 @@ public class GraphDefinitionImpl extends DomainResourceImpl implements GraphDefi
 				setPurpose((Markdown)null);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__START:
-				setStart((ResourceType)null);
+				setStart((Code)null);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__PROFILE:
-				setProfile((Uri)null);
+				setProfile((Canonical)null);
 				return;
 			case FhirPackage.GRAPH_DEFINITION__LINK:
 				getLink().clear();

@@ -2,13 +2,20 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ClaimProcedure;
 import org.hl7.fhir.CodeableConcept;
@@ -26,9 +33,11 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getProcedureReference <em>Procedure Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimProcedureImpl#getUdi <em>Udi</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +52,16 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 	 * @ordered
 	 */
 	protected PositiveInt sequence;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> type;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -73,6 +92,16 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 	 * @ordered
 	 */
 	protected Reference procedureReference;
+
+	/**
+	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUdi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> udi;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +163,18 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_PROCEDURE__SEQUENCE, newSequence, newSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM_PROCEDURE__TYPE);
+		}
+		return type;
 	}
 
 	/**
@@ -270,17 +311,33 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Reference> getUdi() {
+		if (udi == null) {
+			udi = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLAIM_PROCEDURE__UDI);
+		}
+		return udi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PROCEDURE__SEQUENCE:
 				return basicSetSequence(null, msgs);
+			case FhirPackage.CLAIM_PROCEDURE__TYPE:
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_PROCEDURE__DATE:
 				return basicSetDate(null, msgs);
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
 				return basicSetProcedureCodeableConcept(null, msgs);
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_REFERENCE:
 				return basicSetProcedureReference(null, msgs);
+			case FhirPackage.CLAIM_PROCEDURE__UDI:
+				return ((InternalEList<?>)getUdi()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,12 +352,16 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 		switch (featureID) {
 			case FhirPackage.CLAIM_PROCEDURE__SEQUENCE:
 				return getSequence();
+			case FhirPackage.CLAIM_PROCEDURE__TYPE:
+				return getType();
 			case FhirPackage.CLAIM_PROCEDURE__DATE:
 				return getDate();
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
 				return getProcedureCodeableConcept();
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_REFERENCE:
 				return getProcedureReference();
+			case FhirPackage.CLAIM_PROCEDURE__UDI:
+				return getUdi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,11 +371,16 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CLAIM_PROCEDURE__SEQUENCE:
 				setSequence((PositiveInt)newValue);
+				return;
+			case FhirPackage.CLAIM_PROCEDURE__TYPE:
+				getType().clear();
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CLAIM_PROCEDURE__DATE:
 				setDate((DateTime)newValue);
@@ -324,6 +390,10 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 				return;
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_REFERENCE:
 				setProcedureReference((Reference)newValue);
+				return;
+			case FhirPackage.CLAIM_PROCEDURE__UDI:
+				getUdi().clear();
+				getUdi().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,6 +410,9 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 			case FhirPackage.CLAIM_PROCEDURE__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
+			case FhirPackage.CLAIM_PROCEDURE__TYPE:
+				getType().clear();
+				return;
 			case FhirPackage.CLAIM_PROCEDURE__DATE:
 				setDate((DateTime)null);
 				return;
@@ -348,6 +421,9 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 				return;
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_REFERENCE:
 				setProcedureReference((Reference)null);
+				return;
+			case FhirPackage.CLAIM_PROCEDURE__UDI:
+				getUdi().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,12 +439,16 @@ public class ClaimProcedureImpl extends BackboneElementImpl implements ClaimProc
 		switch (featureID) {
 			case FhirPackage.CLAIM_PROCEDURE__SEQUENCE:
 				return sequence != null;
+			case FhirPackage.CLAIM_PROCEDURE__TYPE:
+				return type != null && !type.isEmpty();
 			case FhirPackage.CLAIM_PROCEDURE__DATE:
 				return date != null;
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_CODEABLE_CONCEPT:
 				return procedureCodeableConcept != null;
 			case FhirPackage.CLAIM_PROCEDURE__PROCEDURE_REFERENCE:
 				return procedureReference != null;
+			case FhirPackage.CLAIM_PROCEDURE__UDI:
+				return udi != null && !udi.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

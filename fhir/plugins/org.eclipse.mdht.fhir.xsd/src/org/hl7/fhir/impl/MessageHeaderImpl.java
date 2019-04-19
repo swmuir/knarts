@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
@@ -35,7 +36,8 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEvent <em>Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEventCoding <em>Event Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEventUri <em>Event Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageHeaderImpl#getEnterer <em>Enterer</em>}</li>
@@ -52,14 +54,24 @@ import org.hl7.fhir.Uri;
  */
 public class MessageHeaderImpl extends DomainResourceImpl implements MessageHeader {
 	/**
-	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
+	 * The cached value of the '{@link #getEventCoding() <em>Event Coding</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvent()
+	 * @see #getEventCoding()
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding event;
+	protected Coding eventCoding;
+
+	/**
+	 * The cached value of the '{@link #getEventUri() <em>Event Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri eventUri;
 
 	/**
 	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' containment reference list.
@@ -159,7 +171,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri definition;
+	protected Canonical definition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,8 +197,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getEvent() {
-		return event;
+	public Coding getEventCoding() {
+		return eventCoding;
 	}
 
 	/**
@@ -194,11 +206,11 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEvent(Coding newEvent, NotificationChain msgs) {
-		Coding oldEvent = event;
-		event = newEvent;
+	public NotificationChain basicSetEventCoding(Coding newEventCoding, NotificationChain msgs) {
+		Coding oldEventCoding = eventCoding;
+		eventCoding = newEventCoding;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT, oldEvent, newEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT_CODING, oldEventCoding, newEventCoding);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -209,18 +221,61 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvent(Coding newEvent) {
-		if (newEvent != event) {
+	public void setEventCoding(Coding newEventCoding) {
+		if (newEventCoding != eventCoding) {
 			NotificationChain msgs = null;
-			if (event != null)
-				msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT, null, msgs);
-			if (newEvent != null)
-				msgs = ((InternalEObject)newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT, null, msgs);
-			msgs = basicSetEvent(newEvent, msgs);
+			if (eventCoding != null)
+				msgs = ((InternalEObject)eventCoding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT_CODING, null, msgs);
+			if (newEventCoding != null)
+				msgs = ((InternalEObject)newEventCoding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT_CODING, null, msgs);
+			msgs = basicSetEventCoding(newEventCoding, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT, newEvent, newEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT_CODING, newEventCoding, newEventCoding));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getEventUri() {
+		return eventUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEventUri(Uri newEventUri, NotificationChain msgs) {
+		Uri oldEventUri = eventUri;
+		eventUri = newEventUri;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT_URI, oldEventUri, newEventUri);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventUri(Uri newEventUri) {
+		if (newEventUri != eventUri) {
+			NotificationChain msgs = null;
+			if (eventUri != null)
+				msgs = ((InternalEObject)eventUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT_URI, null, msgs);
+			if (newEventUri != null)
+				msgs = ((InternalEObject)newEventUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_HEADER__EVENT_URI, null, msgs);
+			msgs = basicSetEventUri(newEventUri, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__EVENT_URI, newEventUri, newEventUri));
 	}
 
 	/**
@@ -553,7 +608,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getDefinition() {
+	public Canonical getDefinition() {
 		return definition;
 	}
 
@@ -562,8 +617,8 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Uri newDefinition, NotificationChain msgs) {
-		Uri oldDefinition = definition;
+	public NotificationChain basicSetDefinition(Canonical newDefinition, NotificationChain msgs) {
+		Canonical oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER__DEFINITION, oldDefinition, newDefinition);
@@ -577,7 +632,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Uri newDefinition) {
+	public void setDefinition(Canonical newDefinition) {
 		if (newDefinition != definition) {
 			NotificationChain msgs = null;
 			if (definition != null)
@@ -599,8 +654,10 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MESSAGE_HEADER__EVENT:
-				return basicSetEvent(null, msgs);
+			case FhirPackage.MESSAGE_HEADER__EVENT_CODING:
+				return basicSetEventCoding(null, msgs);
+			case FhirPackage.MESSAGE_HEADER__EVENT_URI:
+				return basicSetEventUri(null, msgs);
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return ((InternalEList<?>)getDestination()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MESSAGE_HEADER__SENDER:
@@ -633,8 +690,10 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MESSAGE_HEADER__EVENT:
-				return getEvent();
+			case FhirPackage.MESSAGE_HEADER__EVENT_CODING:
+				return getEventCoding();
+			case FhirPackage.MESSAGE_HEADER__EVENT_URI:
+				return getEventUri();
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return getDestination();
 			case FhirPackage.MESSAGE_HEADER__SENDER:
@@ -668,8 +727,11 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MESSAGE_HEADER__EVENT:
-				setEvent((Coding)newValue);
+			case FhirPackage.MESSAGE_HEADER__EVENT_CODING:
+				setEventCoding((Coding)newValue);
+				return;
+			case FhirPackage.MESSAGE_HEADER__EVENT_URI:
+				setEventUri((Uri)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				getDestination().clear();
@@ -701,7 +763,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				getFocus().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER__DEFINITION:
-				setDefinition((Uri)newValue);
+				setDefinition((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -715,8 +777,11 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MESSAGE_HEADER__EVENT:
-				setEvent((Coding)null);
+			case FhirPackage.MESSAGE_HEADER__EVENT_CODING:
+				setEventCoding((Coding)null);
+				return;
+			case FhirPackage.MESSAGE_HEADER__EVENT_URI:
+				setEventUri((Uri)null);
 				return;
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				getDestination().clear();
@@ -746,7 +811,7 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 				getFocus().clear();
 				return;
 			case FhirPackage.MESSAGE_HEADER__DEFINITION:
-				setDefinition((Uri)null);
+				setDefinition((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -760,8 +825,10 @@ public class MessageHeaderImpl extends DomainResourceImpl implements MessageHead
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MESSAGE_HEADER__EVENT:
-				return event != null;
+			case FhirPackage.MESSAGE_HEADER__EVENT_CODING:
+				return eventCoding != null;
+			case FhirPackage.MESSAGE_HEADER__EVENT_URI:
+				return eventUri != null;
 			case FhirPackage.MESSAGE_HEADER__DESTINATION:
 				return destination != null && !destination.isEmpty();
 			case FhirPackage.MESSAGE_HEADER__SENDER:

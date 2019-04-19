@@ -20,10 +20,11 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getDate <em>Date</em>}</li>
@@ -36,7 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getFinding <em>Finding</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getPrognosisCodeableConcept <em>Prognosis Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getPrognosisReference <em>Prognosis Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ClinicalImpression#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClinicalImpression#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.ClinicalImpression#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -51,7 +52,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A unique identifier assigned to the clinical impression that remains consistent regardless of what server the impression is stored on.
+	 * Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Identifier()
@@ -88,6 +89,32 @@ public interface ClinicalImpression extends DomainResource {
 	void setStatus(ClinicalImpressionStatus value);
 
 	/**
+	 * Returns the value of the '<em><b>Status Reason</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Captures the reason for the current state of the ClinicalImpression.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status Reason</em>' containment reference.
+	 * @see #setStatusReason(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_StatusReason()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getStatusReason();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getStatusReason <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status Reason</em>' containment reference.
+	 * @see #getStatusReason()
+	 * @generated
+	 */
+	void setStatusReason(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +145,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
+	 * A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -166,30 +193,30 @@ public interface ClinicalImpression extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care this impression was created as part of.
+	 * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ClinicalImpression#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Effective Date Time</b></em>' containment reference.
@@ -302,7 +329,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
+	 * A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Previous</em>' containment reference.
 	 * @see #setPrevious(Reference)
@@ -329,7 +356,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This a list of the relevant problems/conditions for a patient.
+	 * A list of the relevant problems/conditions for a patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Problem</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Problem()
@@ -345,7 +372,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
+	 * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Investigation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Investigation()
@@ -403,7 +430,7 @@ public interface ClinicalImpression extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.
+	 * Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Finding</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Finding()
@@ -446,20 +473,20 @@ public interface ClinicalImpression extends DomainResource {
 	EList<Reference> getPrognosisReference();
 
 	/**
-	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Supporting Info</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Action taken as part of assessment procedure.
+	 * Information supporting the clinical impression.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_Action()
+	 * @return the value of the '<em>Supporting Info</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClinicalImpression_SupportingInfo()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='supportingInfo' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getAction();
+	EList<Reference> getSupportingInfo();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

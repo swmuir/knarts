@@ -25,8 +25,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDateCriterion <em>Date Criterion</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeries <em>Series</em>}</li>
- *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumber <em>Dose Number</em>}</li>
- *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDoses <em>Series Doses</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumberPositiveInt <em>Dose Number Positive Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumberString <em>Dose Number String</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDosesPositiveInt <em>Series Doses Positive Int</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDosesString <em>Series Doses String</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSupportingImmunization <em>Supporting Immunization</em>}</li>
  *   <li>{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSupportingPatientInformation <em>Supporting Patient Information</em>}</li>
  * </ul>
@@ -205,56 +207,112 @@ public interface ImmunizationRecommendationRecommendation extends BackboneElemen
 	void setSeries(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Dose Number</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dose Number Positive Int</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dose Number Positive Int</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Dose Number</em>' containment reference.
-	 * @see #setDoseNumber(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_DoseNumber()
+	 * @return the value of the '<em>Dose Number Positive Int</em>' containment reference.
+	 * @see #setDoseNumberPositiveInt(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_DoseNumberPositiveInt()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='doseNumber' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='doseNumberPositiveInt' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getDoseNumber();
+	PositiveInt getDoseNumberPositiveInt();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumber <em>Dose Number</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumberPositiveInt <em>Dose Number Positive Int</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dose Number</em>' containment reference.
-	 * @see #getDoseNumber()
+	 * @param value the new value of the '<em>Dose Number Positive Int</em>' containment reference.
+	 * @see #getDoseNumberPositiveInt()
 	 * @generated
 	 */
-	void setDoseNumber(PositiveInt value);
+	void setDoseNumberPositiveInt(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Series Doses</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dose Number String</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dose Number String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The recommended number of doses to achieve immunity.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Series Doses</em>' containment reference.
-	 * @see #setSeriesDoses(PositiveInt)
-	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_SeriesDoses()
+	 * @return the value of the '<em>Dose Number String</em>' containment reference.
+	 * @see #setDoseNumberString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_DoseNumberString()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='seriesDoses' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='doseNumberString' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	PositiveInt getSeriesDoses();
+	org.hl7.fhir.String getDoseNumberString();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDoses <em>Series Doses</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getDoseNumberString <em>Dose Number String</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Series Doses</em>' containment reference.
-	 * @see #getSeriesDoses()
+	 * @param value the new value of the '<em>Dose Number String</em>' containment reference.
+	 * @see #getDoseNumberString()
 	 * @generated
 	 */
-	void setSeriesDoses(PositiveInt value);
+	void setDoseNumberString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Series Doses Positive Int</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Series Doses Positive Int</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Series Doses Positive Int</em>' containment reference.
+	 * @see #setSeriesDosesPositiveInt(PositiveInt)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_SeriesDosesPositiveInt()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='seriesDosesPositiveInt' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	PositiveInt getSeriesDosesPositiveInt();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDosesPositiveInt <em>Series Doses Positive Int</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Series Doses Positive Int</em>' containment reference.
+	 * @see #getSeriesDosesPositiveInt()
+	 * @generated
+	 */
+	void setSeriesDosesPositiveInt(PositiveInt value);
+
+	/**
+	 * Returns the value of the '<em><b>Series Doses String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Series Doses String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Series Doses String</em>' containment reference.
+	 * @see #setSeriesDosesString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getImmunizationRecommendationRecommendation_SeriesDosesString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='seriesDosesString' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getSeriesDosesString();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImmunizationRecommendationRecommendation#getSeriesDosesString <em>Series Doses String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Series Doses String</em>' containment reference.
+	 * @see #getSeriesDosesString()
+	 * @generated
+	 */
+	void setSeriesDosesString(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Supporting Immunization</b></em>' containment reference list.

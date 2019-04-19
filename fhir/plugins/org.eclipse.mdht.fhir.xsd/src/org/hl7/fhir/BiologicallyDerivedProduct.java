@@ -174,30 +174,20 @@ public interface BiologicallyDerivedProduct extends DomainResource {
 	void setQuantity(org.hl7.fhir.Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Parent product (if any).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Parent</em>' containment reference.
-	 * @see #setParent(Reference)
+	 * @return the value of the '<em>Parent</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getBiologicallyDerivedProduct_Parent()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getParent();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.BiologicallyDerivedProduct#getParent <em>Parent</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' containment reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Reference value);
+	EList<Reference> getParent();
 
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' containment reference.
@@ -231,7 +221,7 @@ public interface BiologicallyDerivedProduct extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Any processing of the product during collection.
+	 * Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Processing</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getBiologicallyDerivedProduct_Processing()
@@ -246,7 +236,7 @@ public interface BiologicallyDerivedProduct extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Any manipulation of product post-collection.
+	 * Any manipulation of product post-collection that is intended to alter the product.  For example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make it more suitable for infusion.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Manipulation</em>' containment reference.
 	 * @see #setManipulation(BiologicallyDerivedProductManipulation)

@@ -2,18 +2,29 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.ContractAnswer;
 import org.hl7.fhir.ContractOffer;
+import org.hl7.fhir.ContractParty;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.UnsignedInt;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,16 +34,41 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getParty <em>Party</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getDecision <em>Decision</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getDecisionMode <em>Decision Mode</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getAnswer <em>Answer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getLinkId <em>Link Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractOfferImpl#getSecurityLabelNumber <em>Security Label Number</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContractOfferImpl extends BackboneElementImpl implements ContractOffer {
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getParty() <em>Party</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContractParty> party;
+
 	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -64,6 +100,26 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	protected CodeableConcept decision;
 
 	/**
+	 * The cached value of the '{@link #getDecisionMode() <em>Decision Mode</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecisionMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> decisionMode;
+
+	/**
+	 * The cached value of the '{@link #getAnswer() <em>Answer</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnswer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContractAnswer> answer;
+
+	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,14 +130,24 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	protected org.hl7.fhir.String text;
 
 	/**
-	 * The cached value of the '{@link #getLinkId() <em>Link Id</em>}' containment reference.
+	 * The cached value of the '{@link #getLinkId() <em>Link Id</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLinkId()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String linkId;
+	protected EList<org.hl7.fhir.String> linkId;
+
+	/**
+	 * The cached value of the '{@link #getSecurityLabelNumber() <em>Security Label Number</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityLabelNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UnsignedInt> securityLabelNumber;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,6 +166,30 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getContractOffer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.CONTRACT_OFFER__IDENTIFIER);
+		}
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ContractParty> getParty() {
+		if (party == null) {
+			party = new EObjectContainmentEList<ContractParty>(ContractParty.class, this, FhirPackage.CONTRACT_OFFER__PARTY);
+		}
+		return party;
 	}
 
 	/**
@@ -236,6 +326,30 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getDecisionMode() {
+		if (decisionMode == null) {
+			decisionMode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_OFFER__DECISION_MODE);
+		}
+		return decisionMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ContractAnswer> getAnswer() {
+		if (answer == null) {
+			answer = new EObjectContainmentEList<ContractAnswer>(ContractAnswer.class, this, FhirPackage.CONTRACT_OFFER__ANSWER);
+		}
+		return answer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String getText() {
 		return text;
 	}
@@ -279,7 +393,10 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getLinkId() {
+	public EList<org.hl7.fhir.String> getLinkId() {
+		if (linkId == null) {
+			linkId = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CONTRACT_OFFER__LINK_ID);
+		}
 		return linkId;
 	}
 
@@ -288,33 +405,11 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLinkId(org.hl7.fhir.String newLinkId, NotificationChain msgs) {
-		org.hl7.fhir.String oldLinkId = linkId;
-		linkId = newLinkId;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_OFFER__LINK_ID, oldLinkId, newLinkId);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<UnsignedInt> getSecurityLabelNumber() {
+		if (securityLabelNumber == null) {
+			securityLabelNumber = new EObjectContainmentEList<UnsignedInt>(UnsignedInt.class, this, FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLinkId(org.hl7.fhir.String newLinkId) {
-		if (newLinkId != linkId) {
-			NotificationChain msgs = null;
-			if (linkId != null)
-				msgs = ((InternalEObject)linkId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_OFFER__LINK_ID, null, msgs);
-			if (newLinkId != null)
-				msgs = ((InternalEObject)newLinkId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_OFFER__LINK_ID, null, msgs);
-			msgs = basicSetLinkId(newLinkId, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_OFFER__LINK_ID, newLinkId, newLinkId));
+		return securityLabelNumber;
 	}
 
 	/**
@@ -325,16 +420,26 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.CONTRACT_OFFER__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONTRACT_OFFER__PARTY:
+				return ((InternalEList<?>)getParty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_OFFER__TOPIC:
 				return basicSetTopic(null, msgs);
 			case FhirPackage.CONTRACT_OFFER__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.CONTRACT_OFFER__DECISION:
 				return basicSetDecision(null, msgs);
+			case FhirPackage.CONTRACT_OFFER__DECISION_MODE:
+				return ((InternalEList<?>)getDecisionMode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONTRACT_OFFER__ANSWER:
+				return ((InternalEList<?>)getAnswer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_OFFER__TEXT:
 				return basicSetText(null, msgs);
 			case FhirPackage.CONTRACT_OFFER__LINK_ID:
-				return basicSetLinkId(null, msgs);
+				return ((InternalEList<?>)getLinkId()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER:
+				return ((InternalEList<?>)getSecurityLabelNumber()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -347,16 +452,26 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.CONTRACT_OFFER__IDENTIFIER:
+				return getIdentifier();
+			case FhirPackage.CONTRACT_OFFER__PARTY:
+				return getParty();
 			case FhirPackage.CONTRACT_OFFER__TOPIC:
 				return getTopic();
 			case FhirPackage.CONTRACT_OFFER__TYPE:
 				return getType();
 			case FhirPackage.CONTRACT_OFFER__DECISION:
 				return getDecision();
+			case FhirPackage.CONTRACT_OFFER__DECISION_MODE:
+				return getDecisionMode();
+			case FhirPackage.CONTRACT_OFFER__ANSWER:
+				return getAnswer();
 			case FhirPackage.CONTRACT_OFFER__TEXT:
 				return getText();
 			case FhirPackage.CONTRACT_OFFER__LINK_ID:
 				return getLinkId();
+			case FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER:
+				return getSecurityLabelNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -366,9 +481,18 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.CONTRACT_OFFER__IDENTIFIER:
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.CONTRACT_OFFER__PARTY:
+				getParty().clear();
+				getParty().addAll((Collection<? extends ContractParty>)newValue);
+				return;
 			case FhirPackage.CONTRACT_OFFER__TOPIC:
 				setTopic((Reference)newValue);
 				return;
@@ -378,11 +502,24 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 			case FhirPackage.CONTRACT_OFFER__DECISION:
 				setDecision((CodeableConcept)newValue);
 				return;
+			case FhirPackage.CONTRACT_OFFER__DECISION_MODE:
+				getDecisionMode().clear();
+				getDecisionMode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.CONTRACT_OFFER__ANSWER:
+				getAnswer().clear();
+				getAnswer().addAll((Collection<? extends ContractAnswer>)newValue);
+				return;
 			case FhirPackage.CONTRACT_OFFER__TEXT:
 				setText((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.CONTRACT_OFFER__LINK_ID:
-				setLinkId((org.hl7.fhir.String)newValue);
+				getLinkId().clear();
+				getLinkId().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				return;
+			case FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER:
+				getSecurityLabelNumber().clear();
+				getSecurityLabelNumber().addAll((Collection<? extends UnsignedInt>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -396,6 +533,12 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.CONTRACT_OFFER__IDENTIFIER:
+				getIdentifier().clear();
+				return;
+			case FhirPackage.CONTRACT_OFFER__PARTY:
+				getParty().clear();
+				return;
 			case FhirPackage.CONTRACT_OFFER__TOPIC:
 				setTopic((Reference)null);
 				return;
@@ -405,11 +548,20 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 			case FhirPackage.CONTRACT_OFFER__DECISION:
 				setDecision((CodeableConcept)null);
 				return;
+			case FhirPackage.CONTRACT_OFFER__DECISION_MODE:
+				getDecisionMode().clear();
+				return;
+			case FhirPackage.CONTRACT_OFFER__ANSWER:
+				getAnswer().clear();
+				return;
 			case FhirPackage.CONTRACT_OFFER__TEXT:
 				setText((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.CONTRACT_OFFER__LINK_ID:
-				setLinkId((org.hl7.fhir.String)null);
+				getLinkId().clear();
+				return;
+			case FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER:
+				getSecurityLabelNumber().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -423,16 +575,26 @@ public class ContractOfferImpl extends BackboneElementImpl implements ContractOf
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.CONTRACT_OFFER__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.CONTRACT_OFFER__PARTY:
+				return party != null && !party.isEmpty();
 			case FhirPackage.CONTRACT_OFFER__TOPIC:
 				return topic != null;
 			case FhirPackage.CONTRACT_OFFER__TYPE:
 				return type != null;
 			case FhirPackage.CONTRACT_OFFER__DECISION:
 				return decision != null;
+			case FhirPackage.CONTRACT_OFFER__DECISION_MODE:
+				return decisionMode != null && !decisionMode.isEmpty();
+			case FhirPackage.CONTRACT_OFFER__ANSWER:
+				return answer != null && !answer.isEmpty();
 			case FhirPackage.CONTRACT_OFFER__TEXT:
 				return text != null;
 			case FhirPackage.CONTRACT_OFFER__LINK_ID:
-				return linkId != null;
+				return linkId != null && !linkId.isEmpty();
+			case FhirPackage.CONTRACT_OFFER__SECURITY_LABEL_NUMBER:
+				return securityLabelNumber != null && !securityLabelNumber.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

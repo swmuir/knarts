@@ -18,19 +18,25 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.SubstanceSpecification#getComment <em>Comment</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecification#getStoichiometric <em>Stoichiometric</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecification#getReferenceSource <em>Reference Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getDomain <em>Domain</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getComment <em>Comment</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getMoiety <em>Moiety</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getReferenceInformation <em>Reference Information</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getStructure <em>Structure</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecification#getSubstanceCode <em>Substance Code</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecification#getSubstanceName <em>Substance Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getMolecularWeight <em>Molecular Weight</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getRelationship <em>Relationship</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getNucleicAcid <em>Nucleic Acid</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecification#getPolymer <em>Polymer</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getProtein <em>Protein</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecification#getSourceMaterial <em>Source Material</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification()
@@ -38,58 +44,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface SubstanceSpecification extends DomainResource {
-	/**
-	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Textual comment.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Comment</em>' containment reference.
-	 * @see #setComment(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Comment()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getComment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getComment <em>Comment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comment</em>' containment reference.
-	 * @see #getComment()
-	 * @generated
-	 */
-	void setComment(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Stoichiometric</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Chemicals may be stoichiometric or non-stoichiometric.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Stoichiometric</em>' containment reference.
-	 * @see #setStoichiometric(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Stoichiometric()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='stoichiometric' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.Boolean getStoichiometric();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getStoichiometric <em>Stoichiometric</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stoichiometric</em>' containment reference.
-	 * @see #getStoichiometric()
-	 * @generated
-	 */
-	void setStoichiometric(org.hl7.fhir.Boolean value);
-
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -121,7 +75,7 @@ public interface SubstanceSpecification extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * High level categorisation, e.g. polymer or nucleic acid.
+	 * High level categorization, e.g. polymer or nucleic acid.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -143,20 +97,124 @@ public interface SubstanceSpecification extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference Source</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Status of substance within the catalogue e.g. approved.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Status</em>' containment reference.
+	 * @see #setStatus(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Status()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getStatus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getStatus <em>Status</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' containment reference.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Domain</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If the substance applies to only human or veterinary use.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Domain</em>' containment reference.
+	 * @see #setDomain(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Domain()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='domain' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getDomain();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getDomain <em>Domain</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain</em>' containment reference.
+	 * @see #getDomain()
+	 * @generated
+	 */
+	void setDomain(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Textual description of the substance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' containment reference.
+	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Description()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getDescription <em>Description</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' containment reference.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Supporting literature.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference Source</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_ReferenceSource()
+	 * @return the value of the '<em>Source</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Source()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referenceSource' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<org.hl7.fhir.String> getReferenceSource();
+	EList<Reference> getSource();
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Textual comment about this record of a substance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Comment</em>' containment reference.
+	 * @see #setComment(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Comment()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='comment' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getComment();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getComment <em>Comment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comment</em>' containment reference.
+	 * @see #getComment()
+	 * @generated
+	 */
+	void setComment(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Moiety</b></em>' containment reference list.
@@ -243,36 +301,36 @@ public interface SubstanceSpecification extends DomainResource {
 	void setStructure(SubstanceSpecificationStructure value);
 
 	/**
-	 * Returns the value of the '<em><b>Substance Code</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationSubstanceCode}.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationCode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Codes associated with the substance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substance Code</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_SubstanceCode()
+	 * @return the value of the '<em>Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='substanceCode' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SubstanceSpecificationSubstanceCode> getSubstanceCode();
+	EList<SubstanceSpecificationCode> getCode();
 
 	/**
-	 * Returns the value of the '<em><b>Substance Name</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationSubstanceName}.
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationName}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Names applicable to this substence.
+	 * Names applicable to this substance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substance Name</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_SubstanceName()
+	 * @return the value of the '<em>Name</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Name()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='substanceName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SubstanceSpecificationSubstanceName> getSubstanceName();
+	EList<SubstanceSpecificationName> getName();
 
 	/**
 	 * Returns the value of the '<em><b>Molecular Weight</b></em>' containment reference list.
@@ -289,6 +347,48 @@ public interface SubstanceSpecification extends DomainResource {
 	 * @generated
 	 */
 	EList<SubstanceSpecificationMolecularWeight> getMolecularWeight();
+
+	/**
+	 * Returns the value of the '<em><b>Relationship</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A link between this substance and another, with details of the relationship.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Relationship</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Relationship()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='relationship' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<SubstanceSpecificationRelationship> getRelationship();
+
+	/**
+	 * Returns the value of the '<em><b>Nucleic Acid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Data items specific to nucleic acids.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Nucleic Acid</em>' containment reference.
+	 * @see #setNucleicAcid(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_NucleicAcid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='nucleicAcid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getNucleicAcid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getNucleicAcid <em>Nucleic Acid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nucleic Acid</em>' containment reference.
+	 * @see #getNucleicAcid()
+	 * @generated
+	 */
+	void setNucleicAcid(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Polymer</b></em>' containment reference.
@@ -315,5 +415,57 @@ public interface SubstanceSpecification extends DomainResource {
 	 * @generated
 	 */
 	void setPolymer(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Protein</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Data items specific to proteins.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Protein</em>' containment reference.
+	 * @see #setProtein(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_Protein()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='protein' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getProtein();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getProtein <em>Protein</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Protein</em>' containment reference.
+	 * @see #getProtein()
+	 * @generated
+	 */
+	void setProtein(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Material or taxonomic/anatomical source for the substance.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source Material</em>' containment reference.
+	 * @see #setSourceMaterial(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecification_SourceMaterial()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='sourceMaterial' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSourceMaterial();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecification#getSourceMaterial <em>Source Material</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Material</em>' containment reference.
+	 * @see #getSourceMaterial()
+	 * @generated
+	 */
+	void setSourceMaterial(Reference value);
 
 } // SubstanceSpecification

@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -59,13 +59,13 @@ public interface CapabilityStatementInteraction extends BackboneElement {
 	 * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
-	 * @see #setDocumentation(org.hl7.fhir.String)
+	 * @see #setDocumentation(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementInteraction_Documentation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDocumentation();
+	Markdown getDocumentation();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementInteraction#getDocumentation <em>Documentation</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface CapabilityStatementInteraction extends BackboneElement {
 	 * @see #getDocumentation()
 	 * @generated
 	 */
-	void setDocumentation(org.hl7.fhir.String value);
+	void setDocumentation(Markdown value);
 
 } // CapabilityStatementInteraction

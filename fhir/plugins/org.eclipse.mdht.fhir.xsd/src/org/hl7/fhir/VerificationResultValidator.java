@@ -16,10 +16,9 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.VerificationResultValidator#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.VerificationResultValidator#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.VerificationResultValidator#getIdentityCertificate <em>Identity Certificate</em>}</li>
- *   <li>{@link org.hl7.fhir.VerificationResultValidator#getDateValidated <em>Date Validated</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultValidator#getAttestationSignature <em>Attestation Signature</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getVerificationResultValidator()
@@ -27,32 +26,6 @@ package org.hl7.fhir;
  * @generated
  */
 public interface VerificationResultValidator extends BackboneElement {
-	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URI of the validator.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getVerificationResultValidator_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultValidator#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
-
 	/**
 	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -106,29 +79,29 @@ public interface VerificationResultValidator extends BackboneElement {
 	void setIdentityCertificate(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Date Validated</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Attestation Signature</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date on which the validator last validated the information.
+	 * Signed assertion by the validator that they have validated the information.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date Validated</em>' containment reference.
-	 * @see #setDateValidated(Date)
-	 * @see org.hl7.fhir.FhirPackage#getVerificationResultValidator_DateValidated()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='dateValidated' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Attestation Signature</em>' containment reference.
+	 * @see #setAttestationSignature(Signature)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultValidator_AttestationSignature()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='attestationSignature' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Date getDateValidated();
+	Signature getAttestationSignature();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultValidator#getDateValidated <em>Date Validated</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultValidator#getAttestationSignature <em>Attestation Signature</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date Validated</em>' containment reference.
-	 * @see #getDateValidated()
+	 * @param value the new value of the '<em>Attestation Signature</em>' containment reference.
+	 * @see #getAttestationSignature()
 	 * @generated
 	 */
-	void setDateValidated(Date value);
+	void setAttestationSignature(Signature value);
 
 } // VerificationResultValidator

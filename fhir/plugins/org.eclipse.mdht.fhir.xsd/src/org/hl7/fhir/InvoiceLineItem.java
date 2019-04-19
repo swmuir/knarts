@@ -18,7 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.InvoiceLineItem#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.InvoiceLineItem#getChargeItem <em>Charge Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.InvoiceLineItem#getChargeItemReference <em>Charge Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.InvoiceLineItem#getChargeItemCodeableConcept <em>Charge Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.InvoiceLineItem#getPriceComponent <em>Price Component</em>}</li>
  * </ul>
  *
@@ -54,30 +55,58 @@ public interface InvoiceLineItem extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Charge Item</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Charge Item Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Charge Item Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The ChargeItem contains information such as the billing code, date, amount etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Charge Item</em>' containment reference.
-	 * @see #setChargeItem(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getInvoiceLineItem_ChargeItem()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='chargeItem' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Charge Item Reference</em>' containment reference.
+	 * @see #setChargeItemReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getInvoiceLineItem_ChargeItemReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='chargeItemReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getChargeItem();
+	Reference getChargeItemReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.InvoiceLineItem#getChargeItem <em>Charge Item</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.InvoiceLineItem#getChargeItemReference <em>Charge Item Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Charge Item</em>' containment reference.
-	 * @see #getChargeItem()
+	 * @param value the new value of the '<em>Charge Item Reference</em>' containment reference.
+	 * @see #getChargeItemReference()
 	 * @generated
 	 */
-	void setChargeItem(Reference value);
+	void setChargeItemReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Charge Item Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Charge Item Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Charge Item Codeable Concept</em>' containment reference.
+	 * @see #setChargeItemCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getInvoiceLineItem_ChargeItemCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='chargeItemCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getChargeItemCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.InvoiceLineItem#getChargeItemCodeableConcept <em>Charge Item Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Charge Item Codeable Concept</em>' containment reference.
+	 * @see #getChargeItemCodeableConcept()
+	 * @generated
+	 */
+	void setChargeItemCodeableConcept(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Price Component</b></em>' containment reference list.
@@ -85,7 +114,7 @@ public interface InvoiceLineItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under developement. The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the prices have been calculated.
+	 * The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice as to how the prices have been calculated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Price Component</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getInvoiceLineItem_PriceComponent()

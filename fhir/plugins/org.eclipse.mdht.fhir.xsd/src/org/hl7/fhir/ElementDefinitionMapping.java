@@ -27,7 +27,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Mapping' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionMapping extends Element {
+public interface ElementDefinitionMapping extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Identity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

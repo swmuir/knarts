@@ -30,7 +30,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Constraint' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionConstraint extends Element {
+public interface ElementDefinitionConstraint extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -140,12 +140,12 @@ public interface ElementDefinitionConstraint extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
+	 * A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint_Expression()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -195,13 +195,13 @@ public interface ElementDefinitionConstraint extends Element {
 	 * A reference to the original source of the constraint, for traceability purposes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Uri)
+	 * @see #setSource(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionConstraint_Source()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getSource();
+	Canonical getSource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionConstraint#getSource <em>Source</em>}' containment reference.
@@ -211,6 +211,6 @@ public interface ElementDefinitionConstraint extends Element {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Uri value);
+	void setSource(Canonical value);
 
 } // ElementDefinitionConstraint

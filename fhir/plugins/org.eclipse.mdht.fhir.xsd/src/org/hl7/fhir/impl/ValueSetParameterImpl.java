@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.Code;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Uri;
@@ -31,6 +32,7 @@ import org.hl7.fhir.ValueSetParameter;
  *   <li>{@link org.hl7.fhir.impl.ValueSetParameterImpl#getValueDecimal <em>Value Decimal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetParameterImpl#getValueUri <em>Value Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetParameterImpl#getValueCode <em>Value Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ValueSetParameterImpl#getValueDateTime <em>Value Date Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +107,16 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * @ordered
 	 */
 	protected Code valueCode;
+
+	/**
+	 * The cached value of the '{@link #getValueDateTime() <em>Value Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime valueDateTime;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -431,6 +443,49 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateTime getValueDateTime() {
+		return valueDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueDateTime(DateTime newValueDateTime, NotificationChain msgs) {
+		DateTime oldValueDateTime = valueDateTime;
+		valueDateTime = newValueDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME, oldValueDateTime, newValueDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueDateTime(DateTime newValueDateTime) {
+		if (newValueDateTime != valueDateTime) {
+			NotificationChain msgs = null;
+			if (valueDateTime != null)
+				msgs = ((InternalEObject)valueDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME, null, msgs);
+			if (newValueDateTime != null)
+				msgs = ((InternalEObject)newValueDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME, null, msgs);
+			msgs = basicSetValueDateTime(newValueDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME, newValueDateTime, newValueDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -448,6 +503,8 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 				return basicSetValueUri(null, msgs);
 			case FhirPackage.VALUE_SET_PARAMETER__VALUE_CODE:
 				return basicSetValueCode(null, msgs);
+			case FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME:
+				return basicSetValueDateTime(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -474,6 +531,8 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 				return getValueUri();
 			case FhirPackage.VALUE_SET_PARAMETER__VALUE_CODE:
 				return getValueCode();
+			case FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME:
+				return getValueDateTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -506,6 +565,9 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 				return;
 			case FhirPackage.VALUE_SET_PARAMETER__VALUE_CODE:
 				setValueCode((Code)newValue);
+				return;
+			case FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME:
+				setValueDateTime((DateTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -540,6 +602,9 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 			case FhirPackage.VALUE_SET_PARAMETER__VALUE_CODE:
 				setValueCode((Code)null);
 				return;
+			case FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME:
+				setValueDateTime((DateTime)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -566,6 +631,8 @@ public class ValueSetParameterImpl extends BackboneElementImpl implements ValueS
 				return valueUri != null;
 			case FhirPackage.VALUE_SET_PARAMETER__VALUE_CODE:
 				return valueCode != null;
+			case FhirPackage.VALUE_SET_PARAMETER__VALUE_DATE_TIME:
+				return valueDateTime != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource provides enrollment and plan details from the processing of an Enrollment resource.
+ * This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -26,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentResponse#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.EnrollmentResponse#getRequestOrganization <em>Request Organization</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse()
@@ -231,31 +230,5 @@ public interface EnrollmentResponse extends DomainResource {
 	 * @generated
 	 */
 	void setRequestProvider(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Request Organization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request Organization</em>' containment reference.
-	 * @see #setRequestOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEnrollmentResponse_RequestOrganization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestOrganization' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getRequestOrganization();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentResponse#getRequestOrganization <em>Request Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Organization</em>' containment reference.
-	 * @see #getRequestOrganization()
-	 * @generated
-	 */
-	void setRequestOrganization(Reference value);
 
 } // EnrollmentResponse

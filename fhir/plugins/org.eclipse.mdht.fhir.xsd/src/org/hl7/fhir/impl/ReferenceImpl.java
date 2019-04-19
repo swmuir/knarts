@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +24,7 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ReferenceImpl#getDisplay <em>Display</em>}</li>
  * </ul>
@@ -39,6 +41,16 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String reference;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri type;
 
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
@@ -120,6 +132,49 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERENCE__REFERENCE, newReference, newReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(Uri newType, NotificationChain msgs) {
+		Uri oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.REFERENCE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Uri newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERENCE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.REFERENCE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.REFERENCE__TYPE, newType, newType));
 	}
 
 	/**
@@ -218,6 +273,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return basicSetReference(null, msgs);
+			case FhirPackage.REFERENCE__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.REFERENCE__IDENTIFIER:
 				return basicSetIdentifier(null, msgs);
 			case FhirPackage.REFERENCE__DISPLAY:
@@ -236,6 +293,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return getReference();
+			case FhirPackage.REFERENCE__TYPE:
+				return getType();
 			case FhirPackage.REFERENCE__IDENTIFIER:
 				return getIdentifier();
 			case FhirPackage.REFERENCE__DISPLAY:
@@ -254,6 +313,9 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				setReference((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.REFERENCE__TYPE:
+				setType((Uri)newValue);
 				return;
 			case FhirPackage.REFERENCE__IDENTIFIER:
 				setIdentifier((Identifier)newValue);
@@ -276,6 +338,9 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 			case FhirPackage.REFERENCE__REFERENCE:
 				setReference((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.REFERENCE__TYPE:
+				setType((Uri)null);
+				return;
 			case FhirPackage.REFERENCE__IDENTIFIER:
 				setIdentifier((Identifier)null);
 				return;
@@ -296,6 +361,8 @@ public class ReferenceImpl extends ElementImpl implements Reference {
 		switch (featureID) {
 			case FhirPackage.REFERENCE__REFERENCE:
 				return reference != null;
+			case FhirPackage.REFERENCE__TYPE:
+				return type != null;
 			case FhirPackage.REFERENCE__IDENTIFIER:
 				return identifier != null;
 			case FhirPackage.REFERENCE__DISPLAY:

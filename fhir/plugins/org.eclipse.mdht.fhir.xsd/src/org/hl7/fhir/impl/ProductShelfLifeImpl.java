@@ -39,7 +39,7 @@ import org.hl7.fhir.Quantity;
  *
  * @generated
  */
-public class ProductShelfLifeImpl extends ElementImpl implements ProductShelfLife {
+public class ProductShelfLifeImpl extends BackboneElementImpl implements ProductShelfLife {
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->

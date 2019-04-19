@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.MedicinalProductPackagedManufacturedItem;
 import org.hl7.fhir.MedicinalProductPackagedPackageItem;
 import org.hl7.fhir.ProdCharacteristic;
 import org.hl7.fhir.ProductShelfLife;
@@ -40,13 +39,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getMaterial <em>Material</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getAlternateMaterial <em>Alternate Material</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getManufacturedItem <em>Manufactured Item</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getOtherCharacteristics <em>Other Characteristics</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getPackageItem <em>Package Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getPhysicalCharacteristics <em>Physical Characteristics</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getOtherCharacteristics <em>Other Characteristics</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getShelfLifeStorage <em>Shelf Life Storage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductPackagedPackageItemImpl#getManufacturer <em>Manufacturer</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,16 +102,6 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	protected EList<CodeableConcept> alternateMaterial;
 
 	/**
-	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getManufacturer()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> manufacturer;
-
-	/**
 	 * The cached value of the '{@link #getDevice() <em>Device</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,17 +119,7 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MedicinalProductPackagedManufacturedItem> manufacturedItem;
-
-	/**
-	 * The cached value of the '{@link #getOtherCharacteristics() <em>Other Characteristics</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOtherCharacteristics()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> otherCharacteristics;
+	protected EList<Reference> manufacturedItem;
 
 	/**
 	 * The cached value of the '{@link #getPackageItem() <em>Package Item</em>}' containment reference list.
@@ -163,6 +142,16 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	protected ProdCharacteristic physicalCharacteristics;
 
 	/**
+	 * The cached value of the '{@link #getOtherCharacteristics() <em>Other Characteristics</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOtherCharacteristics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> otherCharacteristics;
+
+	/**
 	 * The cached value of the '{@link #getShelfLifeStorage() <em>Shelf Life Storage</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,6 +160,16 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	 * @ordered
 	 */
 	protected EList<ProductShelfLife> shelfLifeStorage;
+
+	/**
+	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManufacturer()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> manufacturer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,18 +317,6 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getManufacturer() {
-		if (manufacturer == null) {
-			manufacturer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER);
-		}
-		return manufacturer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getDevice() {
 		if (device == null) {
 			device = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE);
@@ -342,23 +329,11 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MedicinalProductPackagedManufacturedItem> getManufacturedItem() {
+	public EList<Reference> getManufacturedItem() {
 		if (manufacturedItem == null) {
-			manufacturedItem = new EObjectContainmentEList<MedicinalProductPackagedManufacturedItem>(MedicinalProductPackagedManufacturedItem.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM);
+			manufacturedItem = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM);
 		}
 		return manufacturedItem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getOtherCharacteristics() {
-		if (otherCharacteristics == null) {
-			otherCharacteristics = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS);
-		}
-		return otherCharacteristics;
 	}
 
 	/**
@@ -421,11 +396,35 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getOtherCharacteristics() {
+		if (otherCharacteristics == null) {
+			otherCharacteristics = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS);
+		}
+		return otherCharacteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ProductShelfLife> getShelfLifeStorage() {
 		if (shelfLifeStorage == null) {
 			shelfLifeStorage = new EObjectContainmentEList<ProductShelfLife>(ProductShelfLife.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE);
 		}
 		return shelfLifeStorage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getManufacturer() {
+		if (manufacturer == null) {
+			manufacturer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER);
+		}
+		return manufacturer;
 	}
 
 	/**
@@ -446,20 +445,20 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 				return ((InternalEList<?>)getMaterial()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__ALTERNATE_MATERIAL:
 				return ((InternalEList<?>)getAlternateMaterial()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
-				return ((InternalEList<?>)getManufacturer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE:
 				return ((InternalEList<?>)getDevice()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM:
 				return ((InternalEList<?>)getManufacturedItem()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
-				return ((InternalEList<?>)getOtherCharacteristics()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PACKAGE_ITEM:
 				return ((InternalEList<?>)getPackageItem()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PHYSICAL_CHARACTERISTICS:
 				return basicSetPhysicalCharacteristics(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
+				return ((InternalEList<?>)getOtherCharacteristics()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE:
 				return ((InternalEList<?>)getShelfLifeStorage()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
+				return ((InternalEList<?>)getManufacturer()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -482,20 +481,20 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 				return getMaterial();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__ALTERNATE_MATERIAL:
 				return getAlternateMaterial();
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
-				return getManufacturer();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE:
 				return getDevice();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM:
 				return getManufacturedItem();
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
-				return getOtherCharacteristics();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PACKAGE_ITEM:
 				return getPackageItem();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PHYSICAL_CHARACTERISTICS:
 				return getPhysicalCharacteristics();
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
+				return getOtherCharacteristics();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE:
 				return getShelfLifeStorage();
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
+				return getManufacturer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -527,21 +526,13 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 				getAlternateMaterial().clear();
 				getAlternateMaterial().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
-				getManufacturer().clear();
-				getManufacturer().addAll((Collection<? extends Reference>)newValue);
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE:
 				getDevice().clear();
 				getDevice().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM:
 				getManufacturedItem().clear();
-				getManufacturedItem().addAll((Collection<? extends MedicinalProductPackagedManufacturedItem>)newValue);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
-				getOtherCharacteristics().clear();
-				getOtherCharacteristics().addAll((Collection<? extends CodeableConcept>)newValue);
+				getManufacturedItem().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PACKAGE_ITEM:
 				getPackageItem().clear();
@@ -550,9 +541,17 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PHYSICAL_CHARACTERISTICS:
 				setPhysicalCharacteristics((ProdCharacteristic)newValue);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
+				getOtherCharacteristics().clear();
+				getOtherCharacteristics().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE:
 				getShelfLifeStorage().clear();
 				getShelfLifeStorage().addAll((Collection<? extends ProductShelfLife>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
+				getManufacturer().clear();
+				getManufacturer().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -581,17 +580,11 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__ALTERNATE_MATERIAL:
 				getAlternateMaterial().clear();
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
-				getManufacturer().clear();
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE:
 				getDevice().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM:
 				getManufacturedItem().clear();
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
-				getOtherCharacteristics().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PACKAGE_ITEM:
 				getPackageItem().clear();
@@ -599,8 +592,14 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PHYSICAL_CHARACTERISTICS:
 				setPhysicalCharacteristics((ProdCharacteristic)null);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
+				getOtherCharacteristics().clear();
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE:
 				getShelfLifeStorage().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
+				getManufacturer().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -624,20 +623,20 @@ public class MedicinalProductPackagedPackageItemImpl extends BackboneElementImpl
 				return material != null && !material.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__ALTERNATE_MATERIAL:
 				return alternateMaterial != null && !alternateMaterial.isEmpty();
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
-				return manufacturer != null && !manufacturer.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__DEVICE:
 				return device != null && !device.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURED_ITEM:
 				return manufacturedItem != null && !manufacturedItem.isEmpty();
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
-				return otherCharacteristics != null && !otherCharacteristics.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PACKAGE_ITEM:
 				return packageItem != null && !packageItem.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__PHYSICAL_CHARACTERISTICS:
 				return physicalCharacteristics != null;
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__OTHER_CHARACTERISTICS:
+				return otherCharacteristics != null && !otherCharacteristics.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__SHELF_LIFE_STORAGE:
 				return shelfLifeStorage != null && !shelfLifeStorage.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM__MANUFACTURER:
+				return manufacturer != null && !manufacturer.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

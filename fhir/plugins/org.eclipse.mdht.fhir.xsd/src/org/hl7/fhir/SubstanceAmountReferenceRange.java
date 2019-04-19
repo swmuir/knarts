@@ -25,7 +25,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='SubstanceAmount.ReferenceRange' kind='elementOnly'"
  * @generated
  */
-public interface SubstanceAmountReferenceRange extends Element {
+public interface SubstanceAmountReferenceRange extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Low Limit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

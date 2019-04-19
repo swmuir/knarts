@@ -19,9 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CompositionStatus;
-import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DocumentReference;
-import org.hl7.fhir.DocumentReferenceAgent;
 import org.hl7.fhir.DocumentReferenceContent;
 import org.hl7.fhir.DocumentReferenceContext;
 import org.hl7.fhir.DocumentReferenceRelatesTo;
@@ -44,11 +42,10 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getDocStatus <em>Doc Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAgent <em>Agent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getAuthenticator <em>Authenticator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DocumentReferenceImpl#getRelatesTo <em>Relates To</em>}</li>
@@ -112,14 +109,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClass_()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept class_;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -132,16 +129,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCreated()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime created;
-
-	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,14 +139,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	protected Instant date;
 
 	/**
-	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAgent()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocumentReferenceAgent> agent;
+	protected EList<Reference> author;
 
 	/**
 	 * The cached value of the '{@link #getAuthenticator() <em>Authenticator</em>}' containment reference.
@@ -439,42 +426,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getClass_() {
-		return class_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClass(CodeableConcept newClass, NotificationChain msgs) {
-		CodeableConcept oldClass = class_;
-		class_ = newClass;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CLASS, oldClass, newClass);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DOCUMENT_REFERENCE__CATEGORY);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(CodeableConcept newClass) {
-		if (newClass != class_) {
-			NotificationChain msgs = null;
-			if (class_ != null)
-				msgs = ((InternalEObject)class_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CLASS, null, msgs);
-			if (newClass != null)
-				msgs = ((InternalEObject)newClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CLASS, null, msgs);
-			msgs = basicSetClass(newClass, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CLASS, newClass, newClass));
+		return category;
 	}
 
 	/**
@@ -525,49 +481,6 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getCreated() {
-		return created;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
-		DateTime oldCreated = created;
-		created = newCreated;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CREATED, oldCreated, newCreated);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreated(DateTime newCreated) {
-		if (newCreated != created) {
-			NotificationChain msgs = null;
-			if (created != null)
-				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CREATED, null, msgs);
-			if (newCreated != null)
-				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE__CREATED, null, msgs);
-			msgs = basicSetCreated(newCreated, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE__CREATED, newCreated, newCreated));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Instant getDate() {
 		return date;
 	}
@@ -611,11 +524,11 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocumentReferenceAgent> getAgent() {
-		if (agent == null) {
-			agent = new EObjectContainmentEList<DocumentReferenceAgent>(DocumentReferenceAgent.class, this, FhirPackage.DOCUMENT_REFERENCE__AGENT);
+	public EList<Reference> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE__AUTHOR);
 		}
-		return agent;
+		return author;
 	}
 
 	/**
@@ -844,16 +757,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return basicSetDocStatus(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return basicSetClass(null, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__CATEGORY:
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return basicSetCreated(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__DATE:
 				return basicSetDate(null, msgs);
-			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
-				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return basicSetAuthenticator(null, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
@@ -890,16 +801,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return getDocStatus();
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				return getType();
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return getClass_();
+			case FhirPackage.DOCUMENT_REFERENCE__CATEGORY:
+				return getCategory();
 			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
 				return getSubject();
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return getCreated();
 			case FhirPackage.DOCUMENT_REFERENCE__DATE:
 				return getDate();
-			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
-				return getAgent();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return getAuthor();
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return getAuthenticator();
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:
@@ -943,21 +852,19 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				setClass((CodeableConcept)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				setCreated((DateTime)newValue);
-				return;
 			case FhirPackage.DOCUMENT_REFERENCE__DATE:
 				setDate((Instant)newValue);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
-				getAgent().clear();
-				getAgent().addAll((Collection<? extends DocumentReferenceAgent>)newValue);
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				getAuthor().clear();
+				getAuthor().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				setAuthenticator((Reference)newValue);
@@ -1010,20 +917,17 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				setClass((CodeableConcept)null);
+			case FhirPackage.DOCUMENT_REFERENCE__CATEGORY:
+				getCategory().clear();
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				setCreated((DateTime)null);
-				return;
 			case FhirPackage.DOCUMENT_REFERENCE__DATE:
 				setDate((Instant)null);
 				return;
-			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
-				getAgent().clear();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				getAuthor().clear();
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				setAuthenticator((Reference)null);
@@ -1068,16 +972,14 @@ public class DocumentReferenceImpl extends DomainResourceImpl implements Documen
 				return docStatus != null;
 			case FhirPackage.DOCUMENT_REFERENCE__TYPE:
 				return type != null;
-			case FhirPackage.DOCUMENT_REFERENCE__CLASS:
-				return class_ != null;
+			case FhirPackage.DOCUMENT_REFERENCE__CATEGORY:
+				return category != null && !category.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE__SUBJECT:
 				return subject != null;
-			case FhirPackage.DOCUMENT_REFERENCE__CREATED:
-				return created != null;
 			case FhirPackage.DOCUMENT_REFERENCE__DATE:
 				return date != null;
-			case FhirPackage.DOCUMENT_REFERENCE__AGENT:
-				return agent != null && !agent.isEmpty();
+			case FhirPackage.DOCUMENT_REFERENCE__AUTHOR:
+				return author != null && !author.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE__AUTHENTICATOR:
 				return authenticator != null;
 			case FhirPackage.DOCUMENT_REFERENCE__CUSTODIAN:

@@ -21,12 +21,12 @@ import org.hl7.fhir.Claim;
 import org.hl7.fhir.ClaimAccident;
 import org.hl7.fhir.ClaimCareTeam;
 import org.hl7.fhir.ClaimDiagnosis;
-import org.hl7.fhir.ClaimInformation;
 import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
 import org.hl7.fhir.ClaimProcedure;
 import org.hl7.fhir.ClaimRelated;
+import org.hl7.fhir.ClaimSupportingInfo;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -56,7 +56,6 @@ import org.hl7.fhir.Use;
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFundsReserve <em>Funds Reserve</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getRelated <em>Related</em>}</li>
@@ -66,13 +65,11 @@ import org.hl7.fhir.Use;
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getReferral <em>Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getFacility <em>Facility</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getCareTeam <em>Care Team</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getAccident <em>Accident</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getEmploymentImpacted <em>Employment Impacted</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimImpl#getTotal <em>Total</em>}</li>
  * </ul>
@@ -111,14 +108,14 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubType() <em>Sub Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSubType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> subType;
+	protected CodeableConcept subType;
 
 	/**
 	 * The cached value of the '{@link #getUse() <em>Use</em>}' containment reference.
@@ -189,16 +186,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @ordered
 	 */
 	protected Reference provider;
-
-	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organization;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -291,14 +278,14 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	protected EList<ClaimCareTeam> careTeam;
 
 	/**
-	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment reference list.
+	 * The cached value of the '{@link #getSupportingInfo() <em>Supporting Info</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInformation()
+	 * @see #getSupportingInfo()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ClaimInformation> information;
+	protected EList<ClaimSupportingInfo> supportingInfo;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
@@ -339,26 +326,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * @ordered
 	 */
 	protected ClaimAccident accident;
-
-	/**
-	 * The cached value of the '{@link #getEmploymentImpacted() <em>Employment Impacted</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEmploymentImpacted()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period employmentImpacted;
-
-	/**
-	 * The cached value of the '{@link #getHospitalization() <em>Hospitalization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHospitalization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Period hospitalization;
 
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
@@ -502,11 +469,42 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getSubType() {
-		if (subType == null) {
-			subType = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CLAIM__SUB_TYPE);
-		}
+	public CodeableConcept getSubType() {
 		return subType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubType(CodeableConcept newSubType, NotificationChain msgs) {
+		CodeableConcept oldSubType = subType;
+		subType = newSubType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__SUB_TYPE, oldSubType, newSubType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubType(CodeableConcept newSubType) {
+		if (newSubType != subType) {
+			NotificationChain msgs = null;
+			if (subType != null)
+				msgs = ((InternalEObject)subType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__SUB_TYPE, null, msgs);
+			if (newSubType != null)
+				msgs = ((InternalEObject)newSubType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__SUB_TYPE, null, msgs);
+			msgs = basicSetSubType(newSubType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__SUB_TYPE, newSubType, newSubType));
 	}
 
 	/**
@@ -808,49 +806,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__PROVIDER, newProvider, newProvider));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOrganization() {
-		return organization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION, oldOrganization, newOrganization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
-			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__ORGANIZATION, newOrganization, newOrganization));
 	}
 
 	/**
@@ -1183,11 +1138,11 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ClaimInformation> getInformation() {
-		if (information == null) {
-			information = new EObjectContainmentEList<ClaimInformation>(ClaimInformation.class, this, FhirPackage.CLAIM__INFORMATION);
+	public EList<ClaimSupportingInfo> getSupportingInfo() {
+		if (supportingInfo == null) {
+			supportingInfo = new EObjectContainmentEList<ClaimSupportingInfo>(ClaimSupportingInfo.class, this, FhirPackage.CLAIM__SUPPORTING_INFO);
 		}
-		return information;
+		return supportingInfo;
 	}
 
 	/**
@@ -1274,92 +1229,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getEmploymentImpacted() {
-		return employmentImpacted;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEmploymentImpacted(Period newEmploymentImpacted, NotificationChain msgs) {
-		Period oldEmploymentImpacted = employmentImpacted;
-		employmentImpacted = newEmploymentImpacted;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, oldEmploymentImpacted, newEmploymentImpacted);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEmploymentImpacted(Period newEmploymentImpacted) {
-		if (newEmploymentImpacted != employmentImpacted) {
-			NotificationChain msgs = null;
-			if (employmentImpacted != null)
-				msgs = ((InternalEObject)employmentImpacted).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, null, msgs);
-			if (newEmploymentImpacted != null)
-				msgs = ((InternalEObject)newEmploymentImpacted).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, null, msgs);
-			msgs = basicSetEmploymentImpacted(newEmploymentImpacted, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__EMPLOYMENT_IMPACTED, newEmploymentImpacted, newEmploymentImpacted));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Period getHospitalization() {
-		return hospitalization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHospitalization(Period newHospitalization, NotificationChain msgs) {
-		Period oldHospitalization = hospitalization;
-		hospitalization = newHospitalization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__HOSPITALIZATION, oldHospitalization, newHospitalization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setHospitalization(Period newHospitalization) {
-		if (newHospitalization != hospitalization) {
-			NotificationChain msgs = null;
-			if (hospitalization != null)
-				msgs = ((InternalEObject)hospitalization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__HOSPITALIZATION, null, msgs);
-			if (newHospitalization != null)
-				msgs = ((InternalEObject)newHospitalization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM__HOSPITALIZATION, null, msgs);
-			msgs = basicSetHospitalization(newHospitalization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM__HOSPITALIZATION, newHospitalization, newHospitalization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ClaimItem> getItem() {
 		if (item == null) {
 			item = new EObjectContainmentEList<ClaimItem>(ClaimItem.class, this, FhirPackage.CLAIM__ITEM);
@@ -1425,7 +1294,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.CLAIM__SUB_TYPE:
-				return ((InternalEList<?>)getSubType()).basicRemove(otherEnd, msgs);
+				return basicSetSubType(null, msgs);
 			case FhirPackage.CLAIM__USE:
 				return basicSetUse(null, msgs);
 			case FhirPackage.CLAIM__PATIENT:
@@ -1440,8 +1309,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return basicSetInsurer(null, msgs);
 			case FhirPackage.CLAIM__PROVIDER:
 				return basicSetProvider(null, msgs);
-			case FhirPackage.CLAIM__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
 			case FhirPackage.CLAIM__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
@@ -1460,8 +1327,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return basicSetFacility(null, msgs);
 			case FhirPackage.CLAIM__CARE_TEAM:
 				return ((InternalEList<?>)getCareTeam()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLAIM__INFORMATION:
-				return ((InternalEList<?>)getInformation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLAIM__SUPPORTING_INFO:
+				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__PROCEDURE:
@@ -1470,10 +1337,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__ACCIDENT:
 				return basicSetAccident(null, msgs);
-			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
-				return basicSetEmploymentImpacted(null, msgs);
-			case FhirPackage.CLAIM__HOSPITALIZATION:
-				return basicSetHospitalization(null, msgs);
 			case FhirPackage.CLAIM__ITEM:
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM__TOTAL:
@@ -1512,8 +1375,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getInsurer();
 			case FhirPackage.CLAIM__PROVIDER:
 				return getProvider();
-			case FhirPackage.CLAIM__ORGANIZATION:
-				return getOrganization();
 			case FhirPackage.CLAIM__PRIORITY:
 				return getPriority();
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
@@ -1532,8 +1393,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getFacility();
 			case FhirPackage.CLAIM__CARE_TEAM:
 				return getCareTeam();
-			case FhirPackage.CLAIM__INFORMATION:
-				return getInformation();
+			case FhirPackage.CLAIM__SUPPORTING_INFO:
+				return getSupportingInfo();
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return getDiagnosis();
 			case FhirPackage.CLAIM__PROCEDURE:
@@ -1542,10 +1403,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return getInsurance();
 			case FhirPackage.CLAIM__ACCIDENT:
 				return getAccident();
-			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
-				return getEmploymentImpacted();
-			case FhirPackage.CLAIM__HOSPITALIZATION:
-				return getHospitalization();
 			case FhirPackage.CLAIM__ITEM:
 				return getItem();
 			case FhirPackage.CLAIM__TOTAL:
@@ -1574,8 +1431,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM__SUB_TYPE:
-				getSubType().clear();
-				getSubType().addAll((Collection<? extends CodeableConcept>)newValue);
+				setSubType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM__USE:
 				setUse((Use)newValue);
@@ -1597,9 +1453,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return;
 			case FhirPackage.CLAIM__PROVIDER:
 				setProvider((Reference)newValue);
-				return;
-			case FhirPackage.CLAIM__ORGANIZATION:
-				setOrganization((Reference)newValue);
 				return;
 			case FhirPackage.CLAIM__PRIORITY:
 				setPriority((CodeableConcept)newValue);
@@ -1630,9 +1483,9 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				getCareTeam().clear();
 				getCareTeam().addAll((Collection<? extends ClaimCareTeam>)newValue);
 				return;
-			case FhirPackage.CLAIM__INFORMATION:
-				getInformation().clear();
-				getInformation().addAll((Collection<? extends ClaimInformation>)newValue);
+			case FhirPackage.CLAIM__SUPPORTING_INFO:
+				getSupportingInfo().clear();
+				getSupportingInfo().addAll((Collection<? extends ClaimSupportingInfo>)newValue);
 				return;
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -1648,12 +1501,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return;
 			case FhirPackage.CLAIM__ACCIDENT:
 				setAccident((ClaimAccident)newValue);
-				return;
-			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
-				setEmploymentImpacted((Period)newValue);
-				return;
-			case FhirPackage.CLAIM__HOSPITALIZATION:
-				setHospitalization((Period)newValue);
 				return;
 			case FhirPackage.CLAIM__ITEM:
 				getItem().clear();
@@ -1684,7 +1531,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM__SUB_TYPE:
-				getSubType().clear();
+				setSubType((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM__USE:
 				setUse((Use)null);
@@ -1706,9 +1553,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return;
 			case FhirPackage.CLAIM__PROVIDER:
 				setProvider((Reference)null);
-				return;
-			case FhirPackage.CLAIM__ORGANIZATION:
-				setOrganization((Reference)null);
 				return;
 			case FhirPackage.CLAIM__PRIORITY:
 				setPriority((CodeableConcept)null);
@@ -1737,8 +1581,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__CARE_TEAM:
 				getCareTeam().clear();
 				return;
-			case FhirPackage.CLAIM__INFORMATION:
-				getInformation().clear();
+			case FhirPackage.CLAIM__SUPPORTING_INFO:
+				getSupportingInfo().clear();
 				return;
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -1751,12 +1595,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return;
 			case FhirPackage.CLAIM__ACCIDENT:
 				setAccident((ClaimAccident)null);
-				return;
-			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
-				setEmploymentImpacted((Period)null);
-				return;
-			case FhirPackage.CLAIM__HOSPITALIZATION:
-				setHospitalization((Period)null);
 				return;
 			case FhirPackage.CLAIM__ITEM:
 				getItem().clear();
@@ -1783,7 +1621,7 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 			case FhirPackage.CLAIM__TYPE:
 				return type != null;
 			case FhirPackage.CLAIM__SUB_TYPE:
-				return subType != null && !subType.isEmpty();
+				return subType != null;
 			case FhirPackage.CLAIM__USE:
 				return use != null;
 			case FhirPackage.CLAIM__PATIENT:
@@ -1798,8 +1636,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return insurer != null;
 			case FhirPackage.CLAIM__PROVIDER:
 				return provider != null;
-			case FhirPackage.CLAIM__ORGANIZATION:
-				return organization != null;
 			case FhirPackage.CLAIM__PRIORITY:
 				return priority != null;
 			case FhirPackage.CLAIM__FUNDS_RESERVE:
@@ -1818,8 +1654,8 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return facility != null;
 			case FhirPackage.CLAIM__CARE_TEAM:
 				return careTeam != null && !careTeam.isEmpty();
-			case FhirPackage.CLAIM__INFORMATION:
-				return information != null && !information.isEmpty();
+			case FhirPackage.CLAIM__SUPPORTING_INFO:
+				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.CLAIM__DIAGNOSIS:
 				return diagnosis != null && !diagnosis.isEmpty();
 			case FhirPackage.CLAIM__PROCEDURE:
@@ -1828,10 +1664,6 @@ public class ClaimImpl extends DomainResourceImpl implements Claim {
 				return insurance != null && !insurance.isEmpty();
 			case FhirPackage.CLAIM__ACCIDENT:
 				return accident != null;
-			case FhirPackage.CLAIM__EMPLOYMENT_IMPACTED:
-				return employmentImpacted != null;
-			case FhirPackage.CLAIM__HOSPITALIZATION:
-				return hospitalization != null;
 			case FhirPackage.CLAIM__ITEM:
 				return item != null && !item.isEmpty();
 			case FhirPackage.CLAIM__TOTAL:

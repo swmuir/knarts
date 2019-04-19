@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The type of an address (physical / postal)
+ * The type of an address (physical / postal).
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

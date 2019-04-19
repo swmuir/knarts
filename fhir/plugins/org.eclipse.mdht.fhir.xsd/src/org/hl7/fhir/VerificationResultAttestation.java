@@ -16,12 +16,14 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getWho <em>Who</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getOnBehalfOf <em>On Behalf Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getCommunicationMethod <em>Communication Method</em>}</li>
  *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getSourceIdentityCertificate <em>Source Identity Certificate</em>}</li>
  *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getProxyIdentityCertificate <em>Proxy Identity Certificate</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getProxySignature <em>Proxy Signature</em>}</li>
+ *   <li>{@link org.hl7.fhir.VerificationResultAttestation#getSourceSignature <em>Source Signature</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation()
@@ -30,82 +32,82 @@ package org.hl7.fhir;
  */
 public interface VerificationResultAttestation extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Who</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The individual attesting to information.
+	 * The individual or organization attesting to information.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_Source()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Who</em>' containment reference.
+	 * @see #setWho(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_Who()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='who' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSource();
+	Reference getWho();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getSource <em>Source</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getWho <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' containment reference.
-	 * @see #getSource()
+	 * @param value the new value of the '<em>Who</em>' containment reference.
+	 * @see #getWho()
 	 * @generated
 	 */
-	void setSource(Reference value);
+	void setWho(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>On Behalf Of</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization attesting to information.
+	 * When the who is asserting on behalf of another (organization or individual).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_Organization()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 * @return the value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #setOnBehalfOf(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_OnBehalfOf()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='onBehalfOf' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Reference getOnBehalfOf();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getOnBehalfOf <em>On Behalf Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #getOnBehalfOf()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setOnBehalfOf(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Communication Method</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Who is providing the attested information (owner; authorized representative; authorized intermediary; non-authorized source).
+	 * The method by which attested information was submitted/retrieved (manual; API; Push).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Method</em>' containment reference.
-	 * @see #setMethod(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_Method()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Communication Method</em>' containment reference.
+	 * @see #setCommunicationMethod(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_CommunicationMethod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='communicationMethod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getMethod();
+	CodeableConcept getCommunicationMethod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getMethod <em>Method</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getCommunicationMethod <em>Communication Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Method</em>' containment reference.
-	 * @see #getMethod()
+	 * @param value the new value of the '<em>Communication Method</em>' containment reference.
+	 * @see #getCommunicationMethod()
 	 * @generated
 	 */
-	void setMethod(CodeableConcept value);
+	void setCommunicationMethod(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
@@ -117,7 +119,7 @@ public interface VerificationResultAttestation extends BackboneElement {
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
 	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_Date()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -184,5 +186,57 @@ public interface VerificationResultAttestation extends BackboneElement {
 	 * @generated
 	 */
 	void setProxyIdentityCertificate(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Proxy Signature</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Proxy Signature</em>' containment reference.
+	 * @see #setProxySignature(Signature)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_ProxySignature()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='proxySignature' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Signature getProxySignature();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getProxySignature <em>Proxy Signature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Proxy Signature</em>' containment reference.
+	 * @see #getProxySignature()
+	 * @generated
+	 */
+	void setProxySignature(Signature value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Signature</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Signed assertion by the attestation source that they have attested to the information.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source Signature</em>' containment reference.
+	 * @see #setSourceSignature(Signature)
+	 * @see org.hl7.fhir.FhirPackage#getVerificationResultAttestation_SourceSignature()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='sourceSignature' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Signature getSourceSignature();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.VerificationResultAttestation#getSourceSignature <em>Source Signature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Signature</em>' containment reference.
+	 * @see #getSourceSignature()
+	 * @generated
+	 */
+	void setSourceSignature(Signature value);
 
 } // VerificationResultAttestation

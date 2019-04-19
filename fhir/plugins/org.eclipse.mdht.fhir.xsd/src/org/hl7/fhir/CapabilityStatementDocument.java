@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -60,13 +60,13 @@ public interface CapabilityStatementDocument extends BackboneElement {
 	 * A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
-	 * @see #setDocumentation(org.hl7.fhir.String)
+	 * @see #setDocumentation(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementDocument_Documentation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDocumentation();
+	Markdown getDocumentation();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementDocument#getDocumentation <em>Documentation</em>}' containment reference.
@@ -76,23 +76,23 @@ public interface CapabilityStatementDocument extends BackboneElement {
 	 * @see #getDocumentation()
 	 * @generated
 	 */
-	void setDocumentation(org.hl7.fhir.String value);
+	void setDocumentation(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A constraint on a resource used in the document.
+	 * A profile on the document Bundle that constrains which resources are present, and their contents.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementDocument_Profile()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementDocument#getProfile <em>Profile</em>}' containment reference.
@@ -102,6 +102,6 @@ public interface CapabilityStatementDocument extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Reference value);
+	void setProfile(Canonical value);
 
 } // CapabilityStatementDocument

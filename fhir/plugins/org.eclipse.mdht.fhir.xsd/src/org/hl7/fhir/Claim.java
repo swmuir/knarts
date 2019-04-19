@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -29,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Claim#getEnterer <em>Enterer</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getFundsReserve <em>Funds Reserve</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getRelated <em>Related</em>}</li>
@@ -39,13 +38,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Claim#getReferral <em>Referral</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getFacility <em>Facility</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getCareTeam <em>Care Team</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getInformation <em>Information</em>}</li>
+ *   <li>{@link org.hl7.fhir.Claim#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getProcedure <em>Procedure</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getAccident <em>Accident</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getEmploymentImpacted <em>Employment Impacted</em>}</li>
- *   <li>{@link org.hl7.fhir.Claim#getHospitalization <em>Hospitalization</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getItem <em>Item</em>}</li>
  *   <li>{@link org.hl7.fhir.Claim#getTotal <em>Total</em>}</li>
  * </ul>
@@ -61,7 +58,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The business identifier for the instance: claim number, pre-determination or pre-authorization number.
+	 * A unique identifier assigned to this claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Identifier()
@@ -81,7 +78,7 @@ public interface Claim extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -102,12 +99,12 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
+	 * The category of claim, e.g. oral, pharmacy, vision, institutional, professional.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Type()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -124,32 +121,42 @@ public interface Claim extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * Returns the value of the '<em><b>Sub Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
+	 * A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sub Type</em>' containment reference list.
+	 * @return the value of the '<em>Sub Type</em>' containment reference.
+	 * @see #setSubType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_SubType()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='subType' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getSubType();
+	CodeableConcept getSubType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Claim#getSubType <em>Sub Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sub Type</em>' containment reference.
+	 * @see #getSubType()
+	 * @generated
+	 */
+	void setSubType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Use</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
+	 * A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use</em>' containment reference.
 	 * @see #setUse(Use)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Use()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='use' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -170,12 +177,12 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Patient Resource.
+	 * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Patient</em>' containment reference.
 	 * @see #setPatient(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Patient()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='patient' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -196,7 +203,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The billable period for which charges are being submitted.
+	 * The period for which charges are being submitted.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Billable Period</em>' containment reference.
 	 * @see #setBillablePeriod(Period)
@@ -222,12 +229,12 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date when the enclosed suite of services were performed or completed.
+	 * The date this resource was created.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Created</em>' containment reference.
 	 * @see #setCreated(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Created()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -248,7 +255,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Person who created the invoice/claim/pre-determination or pre-authorization.
+	 * Individual who created the claim, predetermination or preauthorization.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Enterer</em>' containment reference.
 	 * @see #setEnterer(Reference)
@@ -300,12 +307,12 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The provider which is responsible for the bill, claim pre-determination, pre-authorization.
+	 * The provider which is responsible for the claim, predetermination or preauthorization.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Provider</em>' containment reference.
 	 * @see #setProvider(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Provider()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='provider' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -322,42 +329,16 @@ public interface Claim extends DomainResource {
 	void setProvider(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Organization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrganization();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getOrganization <em>Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
-	 * @generated
-	 */
-	void setOrganization(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
+	 * The provider-required urgency of processing the request. Typical values include: stat, routine deferred.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Priority</em>' containment reference.
 	 * @see #setPriority(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Priority()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -378,7 +359,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
+	 * A code to indicate whether and for whom funds are to be reserved for future claims.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Funds Reserve</em>' containment reference.
 	 * @see #setFundsReserve(CodeableConcept)
@@ -405,7 +386,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Other claims which are related to this claim such as prior claim versions or for related services.
+	 * Other claims which are related to this claim such as prior submissions or claims for related services or for the same event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Related</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Related()
@@ -420,7 +401,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Prescription to support the dispensing of Pharmacy or Vision products.
+	 * Prescription to support the dispensing of pharmacy, device or vision products.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Prescription</em>' containment reference.
 	 * @see #setPrescription(Reference)
@@ -446,7 +427,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
+	 * Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Original Prescription</em>' containment reference.
 	 * @see #setOriginalPrescription(Reference)
@@ -472,7 +453,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The party to be reimbursed for the services.
+	 * The party to be reimbursed for cost of the products and services according to the terms of the policy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Payee</em>' containment reference.
 	 * @see #setPayee(ClaimPayee)
@@ -498,7 +479,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The referral resource which lists the date, practitioner, reason and other supporting information.
+	 * A reference to a referral resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Referral</em>' containment reference.
 	 * @see #setReferral(Reference)
@@ -551,7 +532,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
+	 * The members of the team who provided the products and services.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Care Team</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_CareTeam()
@@ -562,20 +543,20 @@ public interface Claim extends DomainResource {
 	EList<ClaimCareTeam> getCareTeam();
 
 	/**
-	 * Returns the value of the '<em><b>Information</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ClaimInformation}.
+	 * Returns the value of the '<em><b>Supporting Info</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ClaimSupportingInfo}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
+	 * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Information</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Information()
+	 * @return the value of the '<em>Supporting Info</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaim_SupportingInfo()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='information' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='supportingInfo' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ClaimInformation> getInformation();
+	EList<ClaimSupportingInfo> getSupportingInfo();
 
 	/**
 	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
@@ -583,7 +564,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of patient diagnosis for which care is sought.
+	 * Information about diagnoses relevant to the claim items.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnosis</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Diagnosis()
@@ -599,7 +580,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Ordered list of patient procedures performed to support the adjudication.
+	 * Procedures performed on the patient relevant to the billing items with the claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Procedure</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Procedure()
@@ -615,11 +596,11 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Financial instrument by which payment information for health care.
+	 * Financial instruments for reimbursement for the health care products and services specified on the claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Insurance</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Insurance()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -630,7 +611,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An accident which resulted in the need for healthcare services.
+	 * Details of an accident which resulted in injuries which required the products and services listed in the claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Accident</em>' containment reference.
 	 * @see #setAccident(ClaimAccident)
@@ -652,64 +633,12 @@ public interface Claim extends DomainResource {
 	void setAccident(ClaimAccident value);
 
 	/**
-	 * Returns the value of the '<em><b>Employment Impacted</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Employment Impacted</em>' containment reference.
-	 * @see #setEmploymentImpacted(Period)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_EmploymentImpacted()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='employmentImpacted' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getEmploymentImpacted();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getEmploymentImpacted <em>Employment Impacted</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Employment Impacted</em>' containment reference.
-	 * @see #getEmploymentImpacted()
-	 * @generated
-	 */
-	void setEmploymentImpacted(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Hospitalization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The start and optional end dates of when the patient was confined to a treatment center.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Hospitalization</em>' containment reference.
-	 * @see #setHospitalization(Period)
-	 * @see org.hl7.fhir.FhirPackage#getClaim_Hospitalization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='hospitalization' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getHospitalization();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Claim#getHospitalization <em>Hospitalization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hospitalization</em>' containment reference.
-	 * @see #getHospitalization()
-	 * @generated
-	 */
-	void setHospitalization(Period value);
-
-	/**
 	 * Returns the value of the '<em><b>Item</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ClaimItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * First tier of goods and services.
+	 * A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaim_Item()
@@ -724,7 +653,7 @@ public interface Claim extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The total value of the claim.
+	 * The total value of the all the items in the claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Total</em>' containment reference.
 	 * @see #setTotal(Money)

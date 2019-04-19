@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MessageDefinition#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageDefinition#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getDate <em>Date</em>}</li>
@@ -35,12 +36,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MessageDefinition#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getBase <em>Base</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getParent <em>Parent</em>}</li>
- *   <li>{@link org.hl7.fhir.MessageDefinition#getReplaces <em>Replaces</em>}</li>
- *   <li>{@link org.hl7.fhir.MessageDefinition#getEvent <em>Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageDefinition#getEventCoding <em>Event Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageDefinition#getEventUri <em>Event Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getResponseRequired <em>Response Required</em>}</li>
  *   <li>{@link org.hl7.fhir.MessageDefinition#getAllowedResponse <em>Allowed Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.MessageDefinition#getGraph <em>Graph</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMessageDefinition()
@@ -53,7 +55,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this message definition is (or will be) published.
+	 * The business identifier that is used to reference the MessageDefinition and *is* expected to be consistent from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -75,30 +77,20 @@ public interface MessageDefinition extends DomainResource {
 	void setUrl(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' containment reference.
@@ -179,6 +171,22 @@ public interface MessageDefinition extends DomainResource {
 	void setTitle(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Replaces</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A MessageDefinition that is superseded by this definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Replaces</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Replaces()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='replaces' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getReplaces();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,7 +217,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this message definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -235,7 +243,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the message definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the message definition changes.
+	 * The date  (and optionally time) when the message definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the message definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -261,7 +269,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the message definition.
+	 * The name of the organization or individual that published the message definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -330,7 +338,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate message definition instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate message definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_UseContext()
@@ -361,7 +369,7 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this message definition is needed and why it has been designed as it has.
+	 * Explanation of why this message definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -416,13 +424,13 @@ public interface MessageDefinition extends DomainResource {
 	 * The MessageDefinition that is the basis for the contents of this resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(Reference)
+	 * @see #setBase(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Base()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getBase();
+	Canonical getBase();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getBase <em>Base</em>}' containment reference.
@@ -432,11 +440,11 @@ public interface MessageDefinition extends DomainResource {
 	 * @see #getBase()
 	 * @generated
 	 */
-	void setBase(Reference value);
+	void setBase(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -448,49 +456,61 @@ public interface MessageDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='parent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getParent();
+	EList<Canonical> getParent();
 
 	/**
-	 * Returns the value of the '<em><b>Replaces</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * Returns the value of the '<em><b>Event Coding</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Coding</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A MessageDefinition that is superseded by this definition.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Replaces</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Replaces()
+	 * @return the value of the '<em>Event Coding</em>' containment reference.
+	 * @see #setEventCoding(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_EventCoding()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='replaces' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='eventCoding' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getReplaces();
+	Coding getEventCoding();
 
 	/**
-	 * Returns the value of the '<em><b>Event</b></em>' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getEventCoding <em>Event Coding</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Link to the defined event type.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event</em>' containment reference.
-	 * @see #setEvent(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Event()
+	 * @param value the new value of the '<em>Event Coding</em>' containment reference.
+	 * @see #getEventCoding()
+	 * @generated
+	 */
+	void setEventCoding(Coding value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Uri</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Uri</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Uri</em>' containment reference.
+	 * @see #setEventUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_EventUri()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='event' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='eventUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getEvent();
+	Uri getEventUri();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getEvent <em>Event</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getEventUri <em>Event Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event</em>' containment reference.
-	 * @see #getEvent()
+	 * @param value the new value of the '<em>Event Uri</em>' containment reference.
+	 * @see #getEventUri()
 	 * @generated
 	 */
-	void setEvent(Uri value);
+	void setEventUri(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
@@ -539,16 +559,16 @@ public interface MessageDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates whether a response is required for this message.
+	 * Declare at a message definition level whether a response is required or only upon error or success, or never.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Response Required</em>' containment reference.
-	 * @see #setResponseRequired(org.hl7.fhir.Boolean)
+	 * @see #setResponseRequired(MessageheaderResponseRequest)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_ResponseRequired()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='responseRequired' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getResponseRequired();
+	MessageheaderResponseRequest getResponseRequired();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinition#getResponseRequired <em>Response Required</em>}' containment reference.
@@ -558,7 +578,7 @@ public interface MessageDefinition extends DomainResource {
 	 * @see #getResponseRequired()
 	 * @generated
 	 */
-	void setResponseRequired(org.hl7.fhir.Boolean value);
+	void setResponseRequired(MessageheaderResponseRequest value);
 
 	/**
 	 * Returns the value of the '<em><b>Allowed Response</b></em>' containment reference list.
@@ -575,5 +595,21 @@ public interface MessageDefinition extends DomainResource {
 	 * @generated
 	 */
 	EList<MessageDefinitionAllowedResponse> getAllowedResponse();
+
+	/**
+	 * Returns the value of the '<em><b>Graph</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [[[GraphDefinition]]] that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Graph</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMessageDefinition_Graph()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='graph' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getGraph();
 
 } // MessageDefinition

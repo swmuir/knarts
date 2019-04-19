@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getEncodeRequestUrl <em>Encode Request Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.TestScriptOperation#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptOperation#getRequestHeader <em>Request Header</em>}</li>
@@ -74,13 +75,13 @@ public interface TestScriptOperation extends BackboneElement {
 	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(FHIRDefinedType)
+	 * @see #setResource(Code)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_Resource()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FHIRDefinedType getResource();
+	Code getResource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getResource <em>Resource</em>}' containment reference.
@@ -90,7 +91,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @see #getResource()
 	 * @generated
 	 */
-	void setResource(FHIRDefinedType value);
+	void setResource(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
@@ -232,7 +233,7 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @return the value of the '<em>Encode Request Url</em>' containment reference.
 	 * @see #setEncodeRequestUrl(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_EncodeRequestUrl()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='encodeRequestUrl' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -247,6 +248,32 @@ public interface TestScriptOperation extends BackboneElement {
 	 * @generated
 	 */
 	void setEncodeRequestUrl(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The HTTP method the test engine MUST use for this operation regardless of any other operation details.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Method</em>' containment reference.
+	 * @see #setMethod(TestScriptRequestMethodCode)
+	 * @see org.hl7.fhir.FhirPackage#getTestScriptOperation_Method()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='method' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TestScriptRequestMethodCode getMethod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TestScriptOperation#getMethod <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Method</em>' containment reference.
+	 * @see #getMethod()
+	 * @generated
+	 */
+	void setMethod(TestScriptRequestMethodCode value);
 
 	/**
 	 * Returns the value of the '<em><b>Origin</b></em>' containment reference.

@@ -22,7 +22,6 @@ import org.hl7.fhir.AuditEventEntity;
 import org.hl7.fhir.Base64Binary;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 
 /**
@@ -33,8 +32,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getWhat <em>What</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventEntityImpl#getLifecycle <em>Lifecycle</em>}</li>
@@ -49,24 +47,14 @@ import org.hl7.fhir.Reference;
  */
 public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEventEntity {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getWhat() <em>What</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getWhat()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
-
-	/**
-	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference reference;
+	protected Reference what;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -172,8 +160,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
-		return identifier;
+	public Reference getWhat() {
+		return what;
 	}
 
 	/**
@@ -181,11 +169,11 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetWhat(Reference newWhat, NotificationChain msgs) {
+		Reference oldWhat = what;
+		what = newWhat;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__WHAT, oldWhat, newWhat);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -196,61 +184,18 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setWhat(Reference newWhat) {
+		if (newWhat != what) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (what != null)
+				msgs = ((InternalEObject)what).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__WHAT, null, msgs);
+			if (newWhat != null)
+				msgs = ((InternalEObject)newWhat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__WHAT, null, msgs);
+			msgs = basicSetWhat(newWhat, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER, newIdentifier, newIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReference() {
-		return reference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs) {
-		Reference oldReference = reference;
-		reference = newReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE, oldReference, newReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReference(Reference newReference) {
-		if (newReference != reference) {
-			NotificationChain msgs = null;
-			if (reference != null)
-				msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE, null, msgs);
-			if (newReference != null)
-				msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE, null, msgs);
-			msgs = basicSetReference(newReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE, newReference, newReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_ENTITY__WHAT, newWhat, newWhat));
 	}
 
 	/**
@@ -543,10 +488,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
-			case FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE:
-				return basicSetReference(null, msgs);
+			case FhirPackage.AUDIT_EVENT_ENTITY__WHAT:
+				return basicSetWhat(null, msgs);
 			case FhirPackage.AUDIT_EVENT_ENTITY__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.AUDIT_EVENT_ENTITY__ROLE:
@@ -575,10 +518,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER:
-				return getIdentifier();
-			case FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE:
-				return getReference();
+			case FhirPackage.AUDIT_EVENT_ENTITY__WHAT:
+				return getWhat();
 			case FhirPackage.AUDIT_EVENT_ENTITY__TYPE:
 				return getType();
 			case FhirPackage.AUDIT_EVENT_ENTITY__ROLE:
@@ -608,11 +549,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE:
-				setReference((Reference)newValue);
+			case FhirPackage.AUDIT_EVENT_ENTITY__WHAT:
+				setWhat((Reference)newValue);
 				return;
 			case FhirPackage.AUDIT_EVENT_ENTITY__TYPE:
 				setType((Coding)newValue);
@@ -652,11 +590,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
-			case FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE:
-				setReference((Reference)null);
+			case FhirPackage.AUDIT_EVENT_ENTITY__WHAT:
+				setWhat((Reference)null);
 				return;
 			case FhirPackage.AUDIT_EVENT_ENTITY__TYPE:
 				setType((Coding)null);
@@ -694,10 +629,8 @@ public class AuditEventEntityImpl extends BackboneElementImpl implements AuditEv
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.AUDIT_EVENT_ENTITY__IDENTIFIER:
-				return identifier != null;
-			case FhirPackage.AUDIT_EVENT_ENTITY__REFERENCE:
-				return reference != null;
+			case FhirPackage.AUDIT_EVENT_ENTITY__WHAT:
+				return what != null;
 			case FhirPackage.AUDIT_EVENT_ENTITY__TYPE:
 				return type != null;
 			case FhirPackage.AUDIT_EVENT_ENTITY__ROLE:

@@ -11,10 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.BindingStrength;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.OperationDefinitionBinding;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +24,7 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionBindingImpl#getStrength <em>Strength</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.OperationDefinitionBindingImpl#getValueSetUri <em>Value Set Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.OperationDefinitionBindingImpl#getValueSetReference <em>Value Set Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OperationDefinitionBindingImpl#getValueSet <em>Value Set</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,24 +41,14 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 	protected BindingStrength strength;
 
 	/**
-	 * The cached value of the '{@link #getValueSetUri() <em>Value Set Uri</em>}' containment reference.
+	 * The cached value of the '{@link #getValueSet() <em>Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValueSetUri()
+	 * @see #getValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri valueSetUri;
-
-	/**
-	 * The cached value of the '{@link #getValueSetReference() <em>Value Set Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueSetReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference valueSetReference;
+	protected Canonical valueSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,8 +117,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getValueSetUri() {
-		return valueSetUri;
+	public Canonical getValueSet() {
+		return valueSet;
 	}
 
 	/**
@@ -138,11 +126,11 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValueSetUri(Uri newValueSetUri, NotificationChain msgs) {
-		Uri oldValueSetUri = valueSetUri;
-		valueSetUri = newValueSetUri;
+	public NotificationChain basicSetValueSet(Canonical newValueSet, NotificationChain msgs) {
+		Canonical oldValueSet = valueSet;
+		valueSet = newValueSet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI, oldValueSetUri, newValueSetUri);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET, oldValueSet, newValueSet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -153,61 +141,18 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValueSetUri(Uri newValueSetUri) {
-		if (newValueSetUri != valueSetUri) {
+	public void setValueSet(Canonical newValueSet) {
+		if (newValueSet != valueSet) {
 			NotificationChain msgs = null;
-			if (valueSetUri != null)
-				msgs = ((InternalEObject)valueSetUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI, null, msgs);
-			if (newValueSetUri != null)
-				msgs = ((InternalEObject)newValueSetUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI, null, msgs);
-			msgs = basicSetValueSetUri(newValueSetUri, msgs);
+			if (valueSet != null)
+				msgs = ((InternalEObject)valueSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET, null, msgs);
+			if (newValueSet != null)
+				msgs = ((InternalEObject)newValueSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET, null, msgs);
+			msgs = basicSetValueSet(newValueSet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI, newValueSetUri, newValueSetUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getValueSetReference() {
-		return valueSetReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetValueSetReference(Reference newValueSetReference, NotificationChain msgs) {
-		Reference oldValueSetReference = valueSetReference;
-		valueSetReference = newValueSetReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE, oldValueSetReference, newValueSetReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValueSetReference(Reference newValueSetReference) {
-		if (newValueSetReference != valueSetReference) {
-			NotificationChain msgs = null;
-			if (valueSetReference != null)
-				msgs = ((InternalEObject)valueSetReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE, null, msgs);
-			if (newValueSetReference != null)
-				msgs = ((InternalEObject)newValueSetReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE, null, msgs);
-			msgs = basicSetValueSetReference(newValueSetReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE, newValueSetReference, newValueSetReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET, newValueSet, newValueSet));
 	}
 
 	/**
@@ -220,10 +165,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.OPERATION_DEFINITION_BINDING__STRENGTH:
 				return basicSetStrength(null, msgs);
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI:
-				return basicSetValueSetUri(null, msgs);
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return basicSetValueSetReference(null, msgs);
+			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET:
+				return basicSetValueSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -238,10 +181,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.OPERATION_DEFINITION_BINDING__STRENGTH:
 				return getStrength();
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI:
-				return getValueSetUri();
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return getValueSetReference();
+			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET:
+				return getValueSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,11 +198,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 			case FhirPackage.OPERATION_DEFINITION_BINDING__STRENGTH:
 				setStrength((BindingStrength)newValue);
 				return;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI:
-				setValueSetUri((Uri)newValue);
-				return;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)newValue);
+			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET:
+				setValueSet((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,11 +216,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 			case FhirPackage.OPERATION_DEFINITION_BINDING__STRENGTH:
 				setStrength((BindingStrength)null);
 				return;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI:
-				setValueSetUri((Uri)null);
-				return;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				setValueSetReference((Reference)null);
+			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET:
+				setValueSet((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -298,10 +233,8 @@ public class OperationDefinitionBindingImpl extends BackboneElementImpl implemen
 		switch (featureID) {
 			case FhirPackage.OPERATION_DEFINITION_BINDING__STRENGTH:
 				return strength != null;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_URI:
-				return valueSetUri != null;
-			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET_REFERENCE:
-				return valueSetReference != null;
+			case FhirPackage.OPERATION_DEFINITION_BINDING__VALUE_SET:
+				return valueSet != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,6 +15,7 @@ import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.UsageContext;
 
 /**
@@ -29,6 +30,7 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.UsageContextImpl#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.UsageContextImpl#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.UsageContextImpl#getValueRange <em>Value Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.UsageContextImpl#getValueReference <em>Value Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +75,16 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 	 * @ordered
 	 */
 	protected Range valueRange;
+
+	/**
+	 * The cached value of the '{@link #getValueReference() <em>Value Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference valueReference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,6 +282,49 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getValueReference() {
+		return valueReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueReference(Reference newValueReference, NotificationChain msgs) {
+		Reference oldValueReference = valueReference;
+		valueReference = newValueReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE, oldValueReference, newValueReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueReference(Reference newValueReference) {
+		if (newValueReference != valueReference) {
+			NotificationChain msgs = null;
+			if (valueReference != null)
+				msgs = ((InternalEObject)valueReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE, null, msgs);
+			if (newValueReference != null)
+				msgs = ((InternalEObject)newValueReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE, null, msgs);
+			msgs = basicSetValueReference(newValueReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE, newValueReference, newValueReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -281,6 +336,8 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 				return basicSetValueQuantity(null, msgs);
 			case FhirPackage.USAGE_CONTEXT__VALUE_RANGE:
 				return basicSetValueRange(null, msgs);
+			case FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE:
+				return basicSetValueReference(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -301,6 +358,8 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 				return getValueQuantity();
 			case FhirPackage.USAGE_CONTEXT__VALUE_RANGE:
 				return getValueRange();
+			case FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE:
+				return getValueReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,6 +383,9 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 				return;
 			case FhirPackage.USAGE_CONTEXT__VALUE_RANGE:
 				setValueRange((Range)newValue);
+				return;
+			case FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE:
+				setValueReference((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -349,6 +411,9 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 			case FhirPackage.USAGE_CONTEXT__VALUE_RANGE:
 				setValueRange((Range)null);
 				return;
+			case FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE:
+				setValueReference((Reference)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -369,6 +434,8 @@ public class UsageContextImpl extends ElementImpl implements UsageContext {
 				return valueQuantity != null;
 			case FhirPackage.USAGE_CONTEXT__VALUE_RANGE:
 				return valueRange != null;
+			case FhirPackage.USAGE_CONTEXT__VALUE_REFERENCE:
+				return valueReference != null;
 		}
 		return super.eIsSet(featureID);
 	}

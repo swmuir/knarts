@@ -51,12 +51,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getEpisodeOfCare <em>Episode Of Care</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getIncomingReferral <em>Incoming Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getAppointment <em>Appointment</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getLength <em>Length</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EncounterImpl#getHospitalization <em>Hospitalization</em>}</li>
@@ -169,14 +170,14 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	protected EList<Reference> episodeOfCare;
 
 	/**
-	 * The cached value of the '{@link #getIncomingReferral() <em>Incoming Referral</em>}' containment reference list.
+	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIncomingReferral()
+	 * @see #getBasedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> incomingReferral;
+	protected EList<Reference> basedOn;
 
 	/**
 	 * The cached value of the '{@link #getParticipant() <em>Participant</em>}' containment reference list.
@@ -189,14 +190,14 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	protected EList<EncounterParticipant> participant;
 
 	/**
-	 * The cached value of the '{@link #getAppointment() <em>Appointment</em>}' containment reference.
+	 * The cached value of the '{@link #getAppointment() <em>Appointment</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAppointment()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference appointment;
+	protected EList<Reference> appointment;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -219,14 +220,24 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	protected Duration length;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reason;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
 
 	/**
 	 * The cached value of the '{@link #getDiagnosis() <em>Diagnosis</em>}' containment reference list.
@@ -587,11 +598,11 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getIncomingReferral() {
-		if (incomingReferral == null) {
-			incomingReferral = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__INCOMING_REFERRAL);
+	public EList<Reference> getBasedOn() {
+		if (basedOn == null) {
+			basedOn = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__BASED_ON);
 		}
-		return incomingReferral;
+		return basedOn;
 	}
 
 	/**
@@ -611,42 +622,11 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getAppointment() {
+	public EList<Reference> getAppointment() {
+		if (appointment == null) {
+			appointment = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__APPOINTMENT);
+		}
 		return appointment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAppointment(Reference newAppointment, NotificationChain msgs) {
-		Reference oldAppointment = appointment;
-		appointment = newAppointment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER__APPOINTMENT, oldAppointment, newAppointment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAppointment(Reference newAppointment) {
-		if (newAppointment != appointment) {
-			NotificationChain msgs = null;
-			if (appointment != null)
-				msgs = ((InternalEObject)appointment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER__APPOINTMENT, null, msgs);
-			if (newAppointment != null)
-				msgs = ((InternalEObject)newAppointment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENCOUNTER__APPOINTMENT, null, msgs);
-			msgs = basicSetAppointment(newAppointment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENCOUNTER__APPOINTMENT, newAppointment, newAppointment));
 	}
 
 	/**
@@ -740,11 +720,23 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__REASON);
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ENCOUNTER__REASON_CODE);
 		}
-		return reason;
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ENCOUNTER__REASON_REFERENCE);
+		}
+		return reasonReference;
 	}
 
 	/**
@@ -940,18 +932,20 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return basicSetSubject(null, msgs);
 			case FhirPackage.ENCOUNTER__EPISODE_OF_CARE:
 				return ((InternalEList<?>)getEpisodeOfCare()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ENCOUNTER__INCOMING_REFERRAL:
-				return ((InternalEList<?>)getIncomingReferral()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENCOUNTER__BASED_ON:
+				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__PARTICIPANT:
 				return ((InternalEList<?>)getParticipant()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__APPOINTMENT:
-				return basicSetAppointment(null, msgs);
+				return ((InternalEList<?>)getAppointment()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__PERIOD:
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.ENCOUNTER__LENGTH:
 				return basicSetLength(null, msgs);
-			case FhirPackage.ENCOUNTER__REASON:
-				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENCOUNTER__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ENCOUNTER__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__DIAGNOSIS:
 				return ((InternalEList<?>)getDiagnosis()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ENCOUNTER__ACCOUNT:
@@ -996,8 +990,8 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return getSubject();
 			case FhirPackage.ENCOUNTER__EPISODE_OF_CARE:
 				return getEpisodeOfCare();
-			case FhirPackage.ENCOUNTER__INCOMING_REFERRAL:
-				return getIncomingReferral();
+			case FhirPackage.ENCOUNTER__BASED_ON:
+				return getBasedOn();
 			case FhirPackage.ENCOUNTER__PARTICIPANT:
 				return getParticipant();
 			case FhirPackage.ENCOUNTER__APPOINTMENT:
@@ -1006,8 +1000,10 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return getPeriod();
 			case FhirPackage.ENCOUNTER__LENGTH:
 				return getLength();
-			case FhirPackage.ENCOUNTER__REASON:
-				return getReason();
+			case FhirPackage.ENCOUNTER__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.ENCOUNTER__REASON_REFERENCE:
+				return getReasonReference();
 			case FhirPackage.ENCOUNTER__DIAGNOSIS:
 				return getDiagnosis();
 			case FhirPackage.ENCOUNTER__ACCOUNT:
@@ -1068,16 +1064,17 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				getEpisodeOfCare().clear();
 				getEpisodeOfCare().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.ENCOUNTER__INCOMING_REFERRAL:
-				getIncomingReferral().clear();
-				getIncomingReferral().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.ENCOUNTER__BASED_ON:
+				getBasedOn().clear();
+				getBasedOn().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__PARTICIPANT:
 				getParticipant().clear();
 				getParticipant().addAll((Collection<? extends EncounterParticipant>)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__APPOINTMENT:
-				setAppointment((Reference)newValue);
+				getAppointment().clear();
+				getAppointment().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__PERIOD:
 				setPeriod((Period)newValue);
@@ -1085,9 +1082,13 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__LENGTH:
 				setLength((Duration)newValue);
 				return;
-			case FhirPackage.ENCOUNTER__REASON:
-				getReason().clear();
-				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.ENCOUNTER__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.ENCOUNTER__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ENCOUNTER__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -1152,14 +1153,14 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__EPISODE_OF_CARE:
 				getEpisodeOfCare().clear();
 				return;
-			case FhirPackage.ENCOUNTER__INCOMING_REFERRAL:
-				getIncomingReferral().clear();
+			case FhirPackage.ENCOUNTER__BASED_ON:
+				getBasedOn().clear();
 				return;
 			case FhirPackage.ENCOUNTER__PARTICIPANT:
 				getParticipant().clear();
 				return;
 			case FhirPackage.ENCOUNTER__APPOINTMENT:
-				setAppointment((Reference)null);
+				getAppointment().clear();
 				return;
 			case FhirPackage.ENCOUNTER__PERIOD:
 				setPeriod((Period)null);
@@ -1167,8 +1168,11 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 			case FhirPackage.ENCOUNTER__LENGTH:
 				setLength((Duration)null);
 				return;
-			case FhirPackage.ENCOUNTER__REASON:
-				getReason().clear();
+			case FhirPackage.ENCOUNTER__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.ENCOUNTER__REASON_REFERENCE:
+				getReasonReference().clear();
 				return;
 			case FhirPackage.ENCOUNTER__DIAGNOSIS:
 				getDiagnosis().clear();
@@ -1220,18 +1224,20 @@ public class EncounterImpl extends DomainResourceImpl implements Encounter {
 				return subject != null;
 			case FhirPackage.ENCOUNTER__EPISODE_OF_CARE:
 				return episodeOfCare != null && !episodeOfCare.isEmpty();
-			case FhirPackage.ENCOUNTER__INCOMING_REFERRAL:
-				return incomingReferral != null && !incomingReferral.isEmpty();
+			case FhirPackage.ENCOUNTER__BASED_ON:
+				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.ENCOUNTER__PARTICIPANT:
 				return participant != null && !participant.isEmpty();
 			case FhirPackage.ENCOUNTER__APPOINTMENT:
-				return appointment != null;
+				return appointment != null && !appointment.isEmpty();
 			case FhirPackage.ENCOUNTER__PERIOD:
 				return period != null;
 			case FhirPackage.ENCOUNTER__LENGTH:
 				return length != null;
-			case FhirPackage.ENCOUNTER__REASON:
-				return reason != null && !reason.isEmpty();
+			case FhirPackage.ENCOUNTER__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.ENCOUNTER__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
 			case FhirPackage.ENCOUNTER__DIAGNOSIS:
 				return diagnosis != null && !diagnosis.isEmpty();
 			case FhirPackage.ENCOUNTER__ACCOUNT:

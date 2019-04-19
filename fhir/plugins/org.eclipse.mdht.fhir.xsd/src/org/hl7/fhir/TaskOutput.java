@@ -19,6 +19,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TaskOutput#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueBase64Binary <em>Value Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskOutput#getValueCanonical <em>Value Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueCode <em>Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueDate <em>Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueDateTime <em>Value Date Time</em>}</li>
@@ -33,6 +34,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueUnsignedInt <em>Value Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueUri <em>Value Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskOutput#getValueUrl <em>Value Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskOutput#getValueUuid <em>Value Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueAddress <em>Value Address</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueAge <em>Value Age</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueAnnotation <em>Value Annotation</em>}</li>
@@ -54,15 +57,15 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueSampledData <em>Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueSignature <em>Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueTiming <em>Value Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.TaskOutput#getValueDosage <em>Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueContactDetail <em>Value Contact Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueContributor <em>Value Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskOutput#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueRelatedArtifact <em>Value Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.TaskOutput#getValueUsageContext <em>Value Usage Context</em>}</li>
- *   <li>{@link org.hl7.fhir.TaskOutput#getValueMeta <em>Value Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.TaskOutput#getValueDosage <em>Value Dosage</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getTaskOutput()
@@ -149,6 +152,33 @@ public interface TaskOutput extends BackboneElement {
 	 * @generated
 	 */
 	void setValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #setValueCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getValueCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueCanonical <em>Value Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #getValueCanonical()
+	 * @generated
+	 */
+	void setValueCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Code</b></em>' containment reference.
@@ -527,6 +557,60 @@ public interface TaskOutput extends BackboneElement {
 	 * @generated
 	 */
 	void setValueUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Url</em>' containment reference.
+	 * @see #setValueUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getValueUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueUrl <em>Value Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Url</em>' containment reference.
+	 * @see #getValueUrl()
+	 * @generated
+	 */
+	void setValueUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #setValueUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getValueUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueUuid <em>Value Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #getValueUuid()
+	 * @generated
+	 */
+	void setValueUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Address</b></em>' containment reference.
@@ -1096,33 +1180,6 @@ public interface TaskOutput extends BackboneElement {
 	void setValueTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Dosage</em>' containment reference.
-	 * @see #setValueDosage(Dosage)
-	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueDosage()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Dosage getValueDosage();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueDosage <em>Value Dosage</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
-	 * @see #getValueDosage()
-	 * @generated
-	 */
-	void setValueDosage(Dosage value);
-
-	/**
 	 * Returns the value of the '<em><b>Value Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1202,6 +1259,33 @@ public interface TaskOutput extends BackboneElement {
 	 * @generated
 	 */
 	void setValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Expression</em>' containment reference.
+	 * @see #setValueExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueExpression <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Expression</em>' containment reference.
+	 * @see #getValueExpression()
+	 * @generated
+	 */
+	void setValueExpression(Expression value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Parameter Definition</b></em>' containment reference.
@@ -1312,30 +1396,30 @@ public interface TaskOutput extends BackboneElement {
 	void setValueUsageContext(UsageContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Meta</em>' containment reference.
-	 * @see #setValueMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueMeta()
+	 * @return the value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #setValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getTaskOutput_ValueDosage()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getValueMeta();
+	Dosage getValueDosage();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueMeta <em>Value Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.TaskOutput#getValueDosage <em>Value Dosage</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Meta</em>' containment reference.
-	 * @see #getValueMeta()
+	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #getValueDosage()
 	 * @generated
 	 */
-	void setValueMeta(Meta value);
+	void setValueDosage(Dosage value);
 
 } // TaskOutput

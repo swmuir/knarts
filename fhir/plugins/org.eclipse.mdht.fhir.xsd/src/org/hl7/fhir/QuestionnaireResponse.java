@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getQuestionnaire <em>Questionnaire</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthored <em>Authored</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponse#getSource <em>Source</em>}</li>
@@ -102,13 +102,13 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * The Questionnaire that defines and organizes the questions for which answers are being provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Questionnaire</em>' containment reference.
-	 * @see #setQuestionnaire(Reference)
+	 * @see #setQuestionnaire(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Questionnaire()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='questionnaire' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getQuestionnaire();
+	Canonical getQuestionnaire();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getQuestionnaire <em>Questionnaire</em>}' containment reference.
@@ -118,7 +118,7 @@ public interface QuestionnaireResponse extends DomainResource {
 	 * @see #getQuestionnaire()
 	 * @generated
 	 */
-	void setQuestionnaire(Reference value);
+	void setQuestionnaire(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -173,30 +173,30 @@ public interface QuestionnaireResponse extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care with primary association to the questionnaire response.
+	 * The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponse_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponse#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Authored</b></em>' containment reference.

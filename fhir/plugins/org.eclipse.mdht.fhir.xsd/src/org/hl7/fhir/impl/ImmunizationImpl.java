@@ -25,7 +25,9 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationEducation;
-import org.hl7.fhir.ImmunizationPractitioner;
+import org.hl7.fhir.ImmunizationPerformer;
+import org.hl7.fhir.ImmunizationProtocolApplied;
+import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationStatusCodes;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Reference;
@@ -40,10 +42,13 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getVaccineCode <em>Vaccine Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getEncounter <em>Encounter</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getOccurrenceString <em>Occurrence String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getRecorded <em>Recorded</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPrimarySource <em>Primary Source</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReportOrigin <em>Report Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getLocation <em>Location</em>}</li>
@@ -53,12 +58,17 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getDoseQuantity <em>Dose Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPractitioner <em>Practitioner</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getNote <em>Note</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getIsSubpotent <em>Is Subpotent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getSubpotentReason <em>Subpotent Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getEducation <em>Education</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getProgramEligibility <em>Program Eligibility</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getFundingSource <em>Funding Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getReaction <em>Reaction</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImmunizationImpl#getProtocolApplied <em>Protocol Applied</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +93,16 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @ordered
 	 */
 	protected ImmunizationStatusCodes status;
+
+	/**
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept statusReason;
 
 	/**
 	 * The cached value of the '{@link #getVaccineCode() <em>Vaccine Code</em>}' containment reference.
@@ -115,14 +135,34 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected Reference encounter;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDate()
+	 * @see #getOccurrenceDateTime()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime date;
+	protected DateTime occurrenceDateTime;
+
+	/**
+	 * The cached value of the '{@link #getOccurrenceString() <em>Occurrence String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOccurrenceString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String occurrenceString;
+
+	/**
+	 * The cached value of the '{@link #getRecorded() <em>Recorded</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecorded()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime recorded;
 
 	/**
 	 * The cached value of the '{@link #getPrimarySource() <em>Primary Source</em>}' containment reference.
@@ -215,14 +255,14 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected Quantity doseQuantity;
 
 	/**
-	 * The cached value of the '{@link #getPractitioner() <em>Practitioner</em>}' containment reference list.
+	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPractitioner()
+	 * @see #getPerformer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImmunizationPractitioner> practitioner;
+	protected EList<ImmunizationPerformer> performer;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -235,14 +275,44 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	protected EList<Annotation> note;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference list.
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getReasonCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> reason;
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getIsSubpotent() <em>Is Subpotent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsSubpotent()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean isSubpotent;
+
+	/**
+	 * The cached value of the '{@link #getSubpotentReason() <em>Subpotent Reason</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubpotentReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> subpotentReason;
 
 	/**
 	 * The cached value of the '{@link #getEducation() <em>Education</em>}' containment reference list.
@@ -273,6 +343,26 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * @ordered
 	 */
 	protected CodeableConcept fundingSource;
+
+	/**
+	 * The cached value of the '{@link #getReaction() <em>Reaction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReaction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ImmunizationReaction> reaction;
+
+	/**
+	 * The cached value of the '{@link #getProtocolApplied() <em>Protocol Applied</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocolApplied()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ImmunizationProtocolApplied> protocolApplied;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -346,6 +436,49 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getStatusReason() {
+		return statusReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
+		CodeableConcept oldStatusReason = statusReason;
+		statusReason = newStatusReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__STATUS_REASON, oldStatusReason, newStatusReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReason(CodeableConcept newStatusReason) {
+		if (newStatusReason != statusReason) {
+			NotificationChain msgs = null;
+			if (statusReason != null)
+				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__STATUS_REASON, null, msgs);
+			if (newStatusReason != null)
+				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__STATUS_REASON, null, msgs);
+			msgs = basicSetStatusReason(newStatusReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__STATUS_REASON, newStatusReason, newStatusReason));
 	}
 
 	/**
@@ -482,8 +615,8 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getDate() {
-		return date;
+	public DateTime getOccurrenceDateTime() {
+		return occurrenceDateTime;
 	}
 
 	/**
@@ -491,11 +624,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDate(DateTime newDate, NotificationChain msgs) {
-		DateTime oldDate = date;
-		date = newDate;
+	public NotificationChain basicSetOccurrenceDateTime(DateTime newOccurrenceDateTime, NotificationChain msgs) {
+		DateTime oldOccurrenceDateTime = occurrenceDateTime;
+		occurrenceDateTime = newOccurrenceDateTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, oldDate, newDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME, oldOccurrenceDateTime, newOccurrenceDateTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -506,18 +639,104 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDate(DateTime newDate) {
-		if (newDate != date) {
+	public void setOccurrenceDateTime(DateTime newOccurrenceDateTime) {
+		if (newOccurrenceDateTime != occurrenceDateTime) {
 			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
+			if (occurrenceDateTime != null)
+				msgs = ((InternalEObject)occurrenceDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME, null, msgs);
+			if (newOccurrenceDateTime != null)
+				msgs = ((InternalEObject)newOccurrenceDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME, null, msgs);
+			msgs = basicSetOccurrenceDateTime(newOccurrenceDateTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__DATE, newDate, newDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME, newOccurrenceDateTime, newOccurrenceDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getOccurrenceString() {
+		return occurrenceString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOccurrenceString(org.hl7.fhir.String newOccurrenceString, NotificationChain msgs) {
+		org.hl7.fhir.String oldOccurrenceString = occurrenceString;
+		occurrenceString = newOccurrenceString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__OCCURRENCE_STRING, oldOccurrenceString, newOccurrenceString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOccurrenceString(org.hl7.fhir.String newOccurrenceString) {
+		if (newOccurrenceString != occurrenceString) {
+			NotificationChain msgs = null;
+			if (occurrenceString != null)
+				msgs = ((InternalEObject)occurrenceString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__OCCURRENCE_STRING, null, msgs);
+			if (newOccurrenceString != null)
+				msgs = ((InternalEObject)newOccurrenceString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__OCCURRENCE_STRING, null, msgs);
+			msgs = basicSetOccurrenceString(newOccurrenceString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__OCCURRENCE_STRING, newOccurrenceString, newOccurrenceString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getRecorded() {
+		return recorded;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecorded(DateTime newRecorded, NotificationChain msgs) {
+		DateTime oldRecorded = recorded;
+		recorded = newRecorded;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__RECORDED, oldRecorded, newRecorded);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecorded(DateTime newRecorded) {
+		if (newRecorded != recorded) {
+			NotificationChain msgs = null;
+			if (recorded != null)
+				msgs = ((InternalEObject)recorded).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__RECORDED, null, msgs);
+			if (newRecorded != null)
+				msgs = ((InternalEObject)newRecorded).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__RECORDED, null, msgs);
+			msgs = basicSetRecorded(newRecorded, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__RECORDED, newRecorded, newRecorded));
 	}
 
 	/**
@@ -912,11 +1131,11 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImmunizationPractitioner> getPractitioner() {
-		if (practitioner == null) {
-			practitioner = new EObjectContainmentEList<ImmunizationPractitioner>(ImmunizationPractitioner.class, this, FhirPackage.IMMUNIZATION__PRACTITIONER);
+	public EList<ImmunizationPerformer> getPerformer() {
+		if (performer == null) {
+			performer = new EObjectContainmentEList<ImmunizationPerformer>(ImmunizationPerformer.class, this, FhirPackage.IMMUNIZATION__PERFORMER);
 		}
-		return practitioner;
+		return performer;
 	}
 
 	/**
@@ -936,11 +1155,78 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getReason() {
-		if (reason == null) {
-			reason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION__REASON);
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION__REASON_CODE);
 		}
-		return reason;
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMMUNIZATION__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getIsSubpotent() {
+		return isSubpotent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIsSubpotent(org.hl7.fhir.Boolean newIsSubpotent, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldIsSubpotent = isSubpotent;
+		isSubpotent = newIsSubpotent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__IS_SUBPOTENT, oldIsSubpotent, newIsSubpotent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsSubpotent(org.hl7.fhir.Boolean newIsSubpotent) {
+		if (newIsSubpotent != isSubpotent) {
+			NotificationChain msgs = null;
+			if (isSubpotent != null)
+				msgs = ((InternalEObject)isSubpotent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__IS_SUBPOTENT, null, msgs);
+			if (newIsSubpotent != null)
+				msgs = ((InternalEObject)newIsSubpotent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMMUNIZATION__IS_SUBPOTENT, null, msgs);
+			msgs = basicSetIsSubpotent(newIsSubpotent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMMUNIZATION__IS_SUBPOTENT, newIsSubpotent, newIsSubpotent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getSubpotentReason() {
+		if (subpotentReason == null) {
+			subpotentReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMMUNIZATION__SUBPOTENT_REASON);
+		}
+		return subpotentReason;
 	}
 
 	/**
@@ -1015,6 +1301,30 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ImmunizationReaction> getReaction() {
+		if (reaction == null) {
+			reaction = new EObjectContainmentEList<ImmunizationReaction>(ImmunizationReaction.class, this, FhirPackage.IMMUNIZATION__REACTION);
+		}
+		return reaction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ImmunizationProtocolApplied> getProtocolApplied() {
+		if (protocolApplied == null) {
+			protocolApplied = new EObjectContainmentEList<ImmunizationProtocolApplied>(ImmunizationProtocolApplied.class, this, FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED);
+		}
+		return protocolApplied;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1022,14 +1332,20 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.IMMUNIZATION__STATUS_REASON:
+				return basicSetStatusReason(null, msgs);
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return basicSetVaccineCode(null, msgs);
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.IMMUNIZATION__ENCOUNTER:
 				return basicSetEncounter(null, msgs);
-			case FhirPackage.IMMUNIZATION__DATE:
-				return basicSetDate(null, msgs);
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME:
+				return basicSetOccurrenceDateTime(null, msgs);
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_STRING:
+				return basicSetOccurrenceString(null, msgs);
+			case FhirPackage.IMMUNIZATION__RECORDED:
+				return basicSetRecorded(null, msgs);
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return basicSetPrimarySource(null, msgs);
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
@@ -1048,18 +1364,28 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return basicSetRoute(null, msgs);
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return basicSetDoseQuantity(null, msgs);
-			case FhirPackage.IMMUNIZATION__PRACTITIONER:
-				return ((InternalEList<?>)getPractitioner()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMMUNIZATION__PERFORMER:
+				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMMUNIZATION__REASON:
-				return ((InternalEList<?>)getReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMMUNIZATION__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMMUNIZATION__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMMUNIZATION__IS_SUBPOTENT:
+				return basicSetIsSubpotent(null, msgs);
+			case FhirPackage.IMMUNIZATION__SUBPOTENT_REASON:
+				return ((InternalEList<?>)getSubpotentReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__EDUCATION:
 				return ((InternalEList<?>)getEducation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__PROGRAM_ELIGIBILITY:
 				return ((InternalEList<?>)getProgramEligibility()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMMUNIZATION__FUNDING_SOURCE:
 				return basicSetFundingSource(null, msgs);
+			case FhirPackage.IMMUNIZATION__REACTION:
+				return ((InternalEList<?>)getReaction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED:
+				return ((InternalEList<?>)getProtocolApplied()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1076,14 +1402,20 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return getIdentifier();
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return getStatus();
+			case FhirPackage.IMMUNIZATION__STATUS_REASON:
+				return getStatusReason();
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return getVaccineCode();
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return getPatient();
 			case FhirPackage.IMMUNIZATION__ENCOUNTER:
 				return getEncounter();
-			case FhirPackage.IMMUNIZATION__DATE:
-				return getDate();
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME:
+				return getOccurrenceDateTime();
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_STRING:
+				return getOccurrenceString();
+			case FhirPackage.IMMUNIZATION__RECORDED:
+				return getRecorded();
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return getPrimarySource();
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
@@ -1102,18 +1434,28 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return getRoute();
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return getDoseQuantity();
-			case FhirPackage.IMMUNIZATION__PRACTITIONER:
-				return getPractitioner();
+			case FhirPackage.IMMUNIZATION__PERFORMER:
+				return getPerformer();
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return getNote();
-			case FhirPackage.IMMUNIZATION__REASON:
-				return getReason();
+			case FhirPackage.IMMUNIZATION__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.IMMUNIZATION__REASON_REFERENCE:
+				return getReasonReference();
+			case FhirPackage.IMMUNIZATION__IS_SUBPOTENT:
+				return getIsSubpotent();
+			case FhirPackage.IMMUNIZATION__SUBPOTENT_REASON:
+				return getSubpotentReason();
 			case FhirPackage.IMMUNIZATION__EDUCATION:
 				return getEducation();
 			case FhirPackage.IMMUNIZATION__PROGRAM_ELIGIBILITY:
 				return getProgramEligibility();
 			case FhirPackage.IMMUNIZATION__FUNDING_SOURCE:
 				return getFundingSource();
+			case FhirPackage.IMMUNIZATION__REACTION:
+				return getReaction();
+			case FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED:
+				return getProtocolApplied();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1134,6 +1476,9 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__STATUS:
 				setStatus((ImmunizationStatusCodes)newValue);
 				return;
+			case FhirPackage.IMMUNIZATION__STATUS_REASON:
+				setStatusReason((CodeableConcept)newValue);
+				return;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				setVaccineCode((CodeableConcept)newValue);
 				return;
@@ -1143,8 +1488,14 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__ENCOUNTER:
 				setEncounter((Reference)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__DATE:
-				setDate((DateTime)newValue);
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_STRING:
+				setOccurrenceString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__RECORDED:
+				setRecorded((DateTime)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				setPrimarySource((org.hl7.fhir.Boolean)newValue);
@@ -1173,17 +1524,28 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				setDoseQuantity((Quantity)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__PRACTITIONER:
-				getPractitioner().clear();
-				getPractitioner().addAll((Collection<? extends ImmunizationPractitioner>)newValue);
+			case FhirPackage.IMMUNIZATION__PERFORMER:
+				getPerformer().clear();
+				getPerformer().addAll((Collection<? extends ImmunizationPerformer>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
-			case FhirPackage.IMMUNIZATION__REASON:
-				getReason().clear();
-				getReason().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.IMMUNIZATION__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__IS_SUBPOTENT:
+				setIsSubpotent((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__SUBPOTENT_REASON:
+				getSubpotentReason().clear();
+				getSubpotentReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.IMMUNIZATION__EDUCATION:
 				getEducation().clear();
@@ -1195,6 +1557,14 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return;
 			case FhirPackage.IMMUNIZATION__FUNDING_SOURCE:
 				setFundingSource((CodeableConcept)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__REACTION:
+				getReaction().clear();
+				getReaction().addAll((Collection<? extends ImmunizationReaction>)newValue);
+				return;
+			case FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED:
+				getProtocolApplied().clear();
+				getProtocolApplied().addAll((Collection<? extends ImmunizationProtocolApplied>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1214,6 +1584,9 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__STATUS:
 				setStatus((ImmunizationStatusCodes)null);
 				return;
+			case FhirPackage.IMMUNIZATION__STATUS_REASON:
+				setStatusReason((CodeableConcept)null);
+				return;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				setVaccineCode((CodeableConcept)null);
 				return;
@@ -1223,8 +1596,14 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__ENCOUNTER:
 				setEncounter((Reference)null);
 				return;
-			case FhirPackage.IMMUNIZATION__DATE:
-				setDate((DateTime)null);
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME:
+				setOccurrenceDateTime((DateTime)null);
+				return;
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_STRING:
+				setOccurrenceString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.IMMUNIZATION__RECORDED:
+				setRecorded((DateTime)null);
 				return;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				setPrimarySource((org.hl7.fhir.Boolean)null);
@@ -1253,14 +1632,23 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				setDoseQuantity((Quantity)null);
 				return;
-			case FhirPackage.IMMUNIZATION__PRACTITIONER:
-				getPractitioner().clear();
+			case FhirPackage.IMMUNIZATION__PERFORMER:
+				getPerformer().clear();
 				return;
 			case FhirPackage.IMMUNIZATION__NOTE:
 				getNote().clear();
 				return;
-			case FhirPackage.IMMUNIZATION__REASON:
-				getReason().clear();
+			case FhirPackage.IMMUNIZATION__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.IMMUNIZATION__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
+			case FhirPackage.IMMUNIZATION__IS_SUBPOTENT:
+				setIsSubpotent((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.IMMUNIZATION__SUBPOTENT_REASON:
+				getSubpotentReason().clear();
 				return;
 			case FhirPackage.IMMUNIZATION__EDUCATION:
 				getEducation().clear();
@@ -1270,6 +1658,12 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return;
 			case FhirPackage.IMMUNIZATION__FUNDING_SOURCE:
 				setFundingSource((CodeableConcept)null);
+				return;
+			case FhirPackage.IMMUNIZATION__REACTION:
+				getReaction().clear();
+				return;
+			case FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED:
+				getProtocolApplied().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1287,14 +1681,20 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.IMMUNIZATION__STATUS:
 				return status != null;
+			case FhirPackage.IMMUNIZATION__STATUS_REASON:
+				return statusReason != null;
 			case FhirPackage.IMMUNIZATION__VACCINE_CODE:
 				return vaccineCode != null;
 			case FhirPackage.IMMUNIZATION__PATIENT:
 				return patient != null;
 			case FhirPackage.IMMUNIZATION__ENCOUNTER:
 				return encounter != null;
-			case FhirPackage.IMMUNIZATION__DATE:
-				return date != null;
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_DATE_TIME:
+				return occurrenceDateTime != null;
+			case FhirPackage.IMMUNIZATION__OCCURRENCE_STRING:
+				return occurrenceString != null;
+			case FhirPackage.IMMUNIZATION__RECORDED:
+				return recorded != null;
 			case FhirPackage.IMMUNIZATION__PRIMARY_SOURCE:
 				return primarySource != null;
 			case FhirPackage.IMMUNIZATION__REPORT_ORIGIN:
@@ -1313,18 +1713,28 @@ public class ImmunizationImpl extends DomainResourceImpl implements Immunization
 				return route != null;
 			case FhirPackage.IMMUNIZATION__DOSE_QUANTITY:
 				return doseQuantity != null;
-			case FhirPackage.IMMUNIZATION__PRACTITIONER:
-				return practitioner != null && !practitioner.isEmpty();
+			case FhirPackage.IMMUNIZATION__PERFORMER:
+				return performer != null && !performer.isEmpty();
 			case FhirPackage.IMMUNIZATION__NOTE:
 				return note != null && !note.isEmpty();
-			case FhirPackage.IMMUNIZATION__REASON:
-				return reason != null && !reason.isEmpty();
+			case FhirPackage.IMMUNIZATION__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.IMMUNIZATION__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
+			case FhirPackage.IMMUNIZATION__IS_SUBPOTENT:
+				return isSubpotent != null;
+			case FhirPackage.IMMUNIZATION__SUBPOTENT_REASON:
+				return subpotentReason != null && !subpotentReason.isEmpty();
 			case FhirPackage.IMMUNIZATION__EDUCATION:
 				return education != null && !education.isEmpty();
 			case FhirPackage.IMMUNIZATION__PROGRAM_ELIGIBILITY:
 				return programEligibility != null && !programEligibility.isEmpty();
 			case FhirPackage.IMMUNIZATION__FUNDING_SOURCE:
 				return fundingSource != null;
+			case FhirPackage.IMMUNIZATION__REACTION:
+				return reaction != null && !reaction.isEmpty();
+			case FhirPackage.IMMUNIZATION__PROTOCOL_APPLIED:
+				return protocolApplied != null && !protocolApplied.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

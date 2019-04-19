@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The MeasureReport resource contains the results of evaluating a measure.
+ * The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -24,10 +24,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MeasureReport#getMeasure <em>Measure</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureReport#getReportingOrganization <em>Reporting Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReport#getReporter <em>Reporter</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReport#getImprovementNotation <em>Improvement Notation</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReport#getGroup <em>Group</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureReport#getEvaluatedResources <em>Evaluated Resources</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReport#getEvaluatedResource <em>Evaluated Resource</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMeasureReport()
@@ -36,37 +37,27 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MeasureReport extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.
+	 * A formal identifier that is used to identify this MeasureReport when it is represented in other formats or referenced in a specification, model, design or an instance.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The report status. No data will be available until the report status is complete.
+	 * The MeasureReport status. No data will be available until the MeasureReport status is complete.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(MeasureReportStatus)
@@ -92,7 +83,7 @@ public interface MeasureReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
+	 * The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(MeasureReportType)
@@ -118,16 +109,16 @@ public interface MeasureReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to the Measure that was evaluated to produce this report.
+	 * A reference to the Measure that was calculated to produce this report.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Measure</em>' containment reference.
-	 * @see #setMeasure(Reference)
+	 * @see #setMeasure(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_Measure()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='measure' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getMeasure();
+	Canonical getMeasure();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getMeasure <em>Measure</em>}' containment reference.
@@ -137,7 +128,7 @@ public interface MeasureReport extends DomainResource {
 	 * @see #getMeasure()
 	 * @generated
 	 */
-	void setMeasure(Reference value);
+	void setMeasure(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -192,30 +183,30 @@ public interface MeasureReport extends DomainResource {
 	void setDate(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Reporting Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reporter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reporting Organization.
+	 * The individual, location, or organization that is reporting the data.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reporting Organization</em>' containment reference.
-	 * @see #setReportingOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_ReportingOrganization()
+	 * @return the value of the '<em>Reporter</em>' containment reference.
+	 * @see #setReporter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_Reporter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reportingOrganization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reporter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReportingOrganization();
+	Reference getReporter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getReportingOrganization <em>Reporting Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getReporter <em>Reporter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reporting Organization</em>' containment reference.
-	 * @see #getReportingOrganization()
+	 * @param value the new value of the '<em>Reporter</em>' containment reference.
+	 * @see #getReporter()
 	 * @generated
 	 */
-	void setReportingOrganization(Reference value);
+	void setReporter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
@@ -244,6 +235,32 @@ public interface MeasureReport extends DomainResource {
 	void setPeriod(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Improvement Notation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Whether improvement in the measure is noted by an increase or decrease in the measure score.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Improvement Notation</em>' containment reference.
+	 * @see #setImprovementNotation(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_ImprovementNotation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='improvementNotation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getImprovementNotation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getImprovementNotation <em>Improvement Notation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Improvement Notation</em>' containment reference.
+	 * @see #getImprovementNotation()
+	 * @generated
+	 */
+	void setImprovementNotation(CodeableConcept value);
+
+	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.MeasureReportGroup}.
 	 * <!-- begin-user-doc -->
@@ -260,29 +277,19 @@ public interface MeasureReport extends DomainResource {
 	EList<MeasureReportGroup> getGroup();
 
 	/**
-	 * Returns the value of the '<em><b>Evaluated Resources</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Evaluated Resource</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a Bundle containing the Resources that were used in the evaluation of this report.
+	 * A reference to a Bundle containing the Resources that were used in the calculation of this measure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Evaluated Resources</em>' containment reference.
-	 * @see #setEvaluatedResources(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_EvaluatedResources()
+	 * @return the value of the '<em>Evaluated Resource</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReport_EvaluatedResource()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='evaluatedResources' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='evaluatedResource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEvaluatedResources();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReport#getEvaluatedResources <em>Evaluated Resources</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Evaluated Resources</em>' containment reference.
-	 * @see #getEvaluatedResources()
-	 * @generated
-	 */
-	void setEvaluatedResources(Reference value);
+	EList<Reference> getEvaluatedResource();
 
 } // MeasureReport

@@ -32,7 +32,7 @@ public interface ClaimResponseError extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
+	 * The sequence number of the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item Sequence</em>' containment reference.
 	 * @see #setItemSequence(PositiveInt)
@@ -58,7 +58,7 @@ public interface ClaimResponseError extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
+	 * The sequence number of the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detail Sequence</em>' containment reference.
 	 * @see #setDetailSequence(PositiveInt)
@@ -84,7 +84,7 @@ public interface ClaimResponseError extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
+	 * The sequence number of the sub-detail within the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Detail Sequence</em>' containment reference.
 	 * @see #setSubDetailSequence(PositiveInt)
@@ -110,7 +110,7 @@ public interface ClaimResponseError extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An error code,from a specified code system, which details why the claim could not be adjudicated.
+	 * An error code, from a specified code system, which details why the claim could not be adjudicated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)

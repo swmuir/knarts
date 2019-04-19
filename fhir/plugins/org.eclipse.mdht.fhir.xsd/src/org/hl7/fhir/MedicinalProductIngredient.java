@@ -36,7 +36,7 @@ public interface MedicinalProductIngredient extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier(s) of this Ingredient t that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+	 * The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)

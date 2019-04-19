@@ -32,7 +32,7 @@ public interface ExplanationOfBenefitAccident extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date of an accident which these services are addressing.
+	 * Date of an accident event  related to the products and services contained in the claim.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
@@ -58,7 +58,7 @@ public interface ExplanationOfBenefitAccident extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type of accident: work, auto, etc.
+	 * The type or context of the accident event for the purposes of selection of potential insurance coverages and determination of coordination between insurers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)

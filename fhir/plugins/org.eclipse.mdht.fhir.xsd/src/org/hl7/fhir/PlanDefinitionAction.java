@@ -21,11 +21,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getTextEquivalent <em>Text Equivalent</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getGoalId <em>Goal Id</em>}</li>
- *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getTriggerDefinition <em>Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getSubjectCodeableConcept <em>Subject Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getSubjectReference <em>Subject Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getInput <em>Input</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getOutput <em>Output</em>}</li>
@@ -43,7 +46,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getRequiredBehavior <em>Required Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getPrecheckBehavior <em>Precheck Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getCardinalityBehavior <em>Cardinality Behavior</em>}</li>
- *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDefinitionCanonical <em>Definition Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDefinitionUri <em>Definition Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getDynamicValue <em>Dynamic Value</em>}</li>
  *   <li>{@link org.hl7.fhir.PlanDefinitionAction#getAction <em>Action</em>}</li>
@@ -111,7 +115,7 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short description of the action used to provide a summary to display to the user.
+	 * A brief description of the action used to provide a summary to display to the user.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -159,12 +163,38 @@ public interface PlanDefinitionAction extends BackboneElement {
 	void setTextEquivalent(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates how quickly the action should be addressed with respect to other actions.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Priority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(RequestPriority value);
+
+	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.
+	 * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for the section of a documentation template.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Code()
@@ -223,20 +253,74 @@ public interface PlanDefinitionAction extends BackboneElement {
 	EList<Id> getGoalId();
 
 	/**
-	 * Returns the value of the '<em><b>Trigger Definition</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Subject Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subject Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subject Codeable Concept</em>' containment reference.
+	 * @see #setSubjectCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_SubjectCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subjectCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getSubjectCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getSubjectCodeableConcept <em>Subject Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject Codeable Concept</em>' containment reference.
+	 * @see #getSubjectCodeableConcept()
+	 * @generated
+	 */
+	void setSubjectCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subject Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subject Reference</em>' containment reference.
+	 * @see #setSubjectReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_SubjectReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subjectReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getSubjectReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getSubjectReference <em>Subject Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject Reference</em>' containment reference.
+	 * @see #getSubjectReference()
+	 * @generated
+	 */
+	void setSubjectReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Trigger</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.TriggerDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A description of when the action should be triggered.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Trigger Definition</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_TriggerDefinition()
+	 * @return the value of the '<em>Trigger</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Trigger()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='triggerDefinition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='trigger' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<TriggerDefinition> getTriggerDefinition();
+	EList<TriggerDefinition> getTrigger();
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
@@ -244,7 +328,7 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An expression that describes applicability criteria, or start/stop conditions for the action.
+	 * An expression that describes applicability criteria or start/stop conditions for the action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Condition()
@@ -488,13 +572,13 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * The type of action to perform (create, update, remove).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getType <em>Type</em>}' containment reference.
@@ -504,7 +588,7 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Grouping Behavior</b></em>' containment reference.
@@ -563,7 +647,7 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Defines the requiredness behavior for the action.
+	 * Defines the required behavior for the action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required Behavior</em>' containment reference.
 	 * @see #setRequiredBehavior(ActionRequiredBehavior)
@@ -637,30 +721,58 @@ public interface PlanDefinitionAction extends BackboneElement {
 	void setCardinalityBehavior(ActionCardinalityBehavior value);
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Definition Canonical</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Definition Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Definition()
+	 * @return the value of the '<em>Definition Canonical</em>' containment reference.
+	 * @see #setDefinitionCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_DefinitionCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='definitionCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinition();
+	Canonical getDefinitionCanonical();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getDefinition <em>Definition</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getDefinitionCanonical <em>Definition Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' containment reference.
-	 * @see #getDefinition()
+	 * @param value the new value of the '<em>Definition Canonical</em>' containment reference.
+	 * @see #getDefinitionCanonical()
 	 * @generated
 	 */
-	void setDefinition(Reference value);
+	void setDefinitionCanonical(Canonical value);
+
+	/**
+	 * Returns the value of the '<em><b>Definition Uri</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Definition Uri</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Definition Uri</em>' containment reference.
+	 * @see #setDefinitionUri(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_DefinitionUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='definitionUri' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getDefinitionUri();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getDefinitionUri <em>Definition Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition Uri</em>' containment reference.
+	 * @see #getDefinitionUri()
+	 * @generated
+	 */
+	void setDefinitionUri(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Transform</b></em>' containment reference.
@@ -670,13 +782,13 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Transform</em>' containment reference.
-	 * @see #setTransform(Reference)
+	 * @see #setTransform(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getPlanDefinitionAction_Transform()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='transform' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getTransform();
+	Canonical getTransform();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.PlanDefinitionAction#getTransform <em>Transform</em>}' containment reference.
@@ -686,7 +798,7 @@ public interface PlanDefinitionAction extends BackboneElement {
 	 * @see #getTransform()
 	 * @generated
 	 */
-	void setTransform(Reference value);
+	void setTransform(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Dynamic Value</b></em>' containment reference list.

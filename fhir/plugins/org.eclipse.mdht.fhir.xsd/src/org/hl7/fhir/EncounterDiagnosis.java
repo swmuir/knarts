@@ -17,7 +17,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.EncounterDiagnosis#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.hl7.fhir.EncounterDiagnosis#getRole <em>Role</em>}</li>
+ *   <li>{@link org.hl7.fhir.EncounterDiagnosis#getUse <em>Use</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterDiagnosis#getRank <em>Rank</em>}</li>
  * </ul>
  *
@@ -53,30 +53,30 @@ public interface EncounterDiagnosis extends BackboneElement {
 	void setCondition(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Use</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Role</em>' containment reference.
-	 * @see #setRole(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getEncounterDiagnosis_Role()
+	 * @return the value of the '<em>Use</em>' containment reference.
+	 * @see #setUse(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getEncounterDiagnosis_Use()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='role' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='use' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getRole();
+	CodeableConcept getUse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EncounterDiagnosis#getRole <em>Role</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.EncounterDiagnosis#getUse <em>Use</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' containment reference.
-	 * @see #getRole()
+	 * @param value the new value of the '<em>Use</em>' containment reference.
+	 * @see #getUse()
 	 * @generated
 	 */
-	void setRole(CodeableConcept value);
+	void setUse(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Rank</b></em>' containment reference.

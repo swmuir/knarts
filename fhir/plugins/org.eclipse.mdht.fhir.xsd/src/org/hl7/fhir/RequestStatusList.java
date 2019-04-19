@@ -41,24 +41,24 @@ public enum RequestStatusList implements Enumerator {
 	ACTIVE(1, "active", "active"),
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal object.
+	 * The '<em><b>On Hold</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUSPENDED_VALUE
+	 * @see #ON_HOLD_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SUSPENDED(2, "suspended", "suspended"),
+	ON_HOLD(2, "onHold", "on-hold"),
 
 	/**
-	 * The '<em><b>Cancelled</b></em>' literal object.
+	 * The '<em><b>Revoked</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CANCELLED_VALUE
+	 * @see #REVOKED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CANCELLED(3, "cancelled", "cancelled"),
+	REVOKED(3, "revoked", "revoked"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -119,32 +119,32 @@ public enum RequestStatusList implements Enumerator {
 	public static final int ACTIVE_VALUE = 1;
 
 	/**
-	 * The '<em><b>Suspended</b></em>' literal value.
+	 * The '<em><b>On Hold</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suspended
+	 * On Hold
 	 * <!-- end-model-doc -->
-	 * @see #SUSPENDED
-	 * @model name="suspended"
+	 * @see #ON_HOLD
+	 * @model name="onHold" literal="on-hold"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUSPENDED_VALUE = 2;
+	public static final int ON_HOLD_VALUE = 2;
 
 	/**
-	 * The '<em><b>Cancelled</b></em>' literal value.
+	 * The '<em><b>Revoked</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Cancelled
+	 * Revoked
 	 * <!-- end-model-doc -->
-	 * @see #CANCELLED
-	 * @model name="cancelled"
+	 * @see #REVOKED
+	 * @model name="revoked"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CANCELLED_VALUE = 3;
+	public static final int REVOKED_VALUE = 3;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -198,8 +198,8 @@ public enum RequestStatusList implements Enumerator {
 		new RequestStatusList[] {
 			DRAFT,
 			ACTIVE,
-			SUSPENDED,
-			CANCELLED,
+			ON_HOLD,
+			REVOKED,
 			COMPLETED,
 			ENTERED_IN_ERROR,
 			UNKNOWN,
@@ -261,8 +261,8 @@ public enum RequestStatusList implements Enumerator {
 		switch (value) {
 			case DRAFT_VALUE: return DRAFT;
 			case ACTIVE_VALUE: return ACTIVE;
-			case SUSPENDED_VALUE: return SUSPENDED;
-			case CANCELLED_VALUE: return CANCELLED;
+			case ON_HOLD_VALUE: return ON_HOLD;
+			case REVOKED_VALUE: return REVOKED;
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 			case UNKNOWN_VALUE: return UNKNOWN;

@@ -33,7 +33,7 @@ import org.hl7.fhir.Period;
  *
  * @generated
  */
-public class MarketingStatusImpl extends ElementImpl implements MarketingStatus {
+public class MarketingStatusImpl extends BackboneElementImpl implements MarketingStatus {
 	/**
 	 * The cached value of the '{@link #getCountry() <em>Country</em>}' containment reference.
 	 * <!-- begin-user-doc -->

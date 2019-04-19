@@ -2,7 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -32,8 +31,6 @@ import org.hl7.fhir.ActionConditionKind;
 import org.hl7.fhir.ActionConditionKindList;
 import org.hl7.fhir.ActionGroupingBehavior;
 import org.hl7.fhir.ActionGroupingBehaviorList;
-import org.hl7.fhir.ActionList;
-import org.hl7.fhir.ActionListList;
 import org.hl7.fhir.ActionParticipantType;
 import org.hl7.fhir.ActionParticipantTypeList;
 import org.hl7.fhir.ActionPrecheckBehavior;
@@ -65,8 +62,6 @@ import org.hl7.fhir.AggregationModeList;
 import org.hl7.fhir.AllergyIntolerance;
 import org.hl7.fhir.AllergyIntoleranceCategory;
 import org.hl7.fhir.AllergyIntoleranceCategoryList;
-import org.hl7.fhir.AllergyIntoleranceClinicalStatus;
-import org.hl7.fhir.AllergyIntoleranceClinicalStatusList;
 import org.hl7.fhir.AllergyIntoleranceCriticality;
 import org.hl7.fhir.AllergyIntoleranceCriticalityList;
 import org.hl7.fhir.AllergyIntoleranceReaction;
@@ -74,8 +69,6 @@ import org.hl7.fhir.AllergyIntoleranceSeverity;
 import org.hl7.fhir.AllergyIntoleranceSeverityList;
 import org.hl7.fhir.AllergyIntoleranceType;
 import org.hl7.fhir.AllergyIntoleranceTypeList;
-import org.hl7.fhir.AllergyIntoleranceVerificationStatus;
-import org.hl7.fhir.AllergyIntoleranceVerificationStatusList;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.Appointment;
 import org.hl7.fhir.AppointmentParticipant;
@@ -127,10 +120,8 @@ import org.hl7.fhir.BundleResponse;
 import org.hl7.fhir.BundleSearch;
 import org.hl7.fhir.BundleType;
 import org.hl7.fhir.BundleTypeList;
-import org.hl7.fhir.CanPushUpdates;
-import org.hl7.fhir.CanPushUpdatesList;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatement;
-import org.hl7.fhir.CapabilityStatementCertificate;
 import org.hl7.fhir.CapabilityStatementDocument;
 import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.CapabilityStatementImplementation;
@@ -155,14 +146,20 @@ import org.hl7.fhir.CarePlanActivityStatusList;
 import org.hl7.fhir.CarePlanDetail;
 import org.hl7.fhir.CarePlanIntent;
 import org.hl7.fhir.CarePlanIntentList;
-import org.hl7.fhir.CarePlanStatus;
-import org.hl7.fhir.CarePlanStatusList;
 import org.hl7.fhir.CareTeam;
 import org.hl7.fhir.CareTeamParticipant;
 import org.hl7.fhir.CareTeamStatus;
 import org.hl7.fhir.CareTeamStatusList;
+import org.hl7.fhir.CatalogEntry;
+import org.hl7.fhir.CatalogEntryRelatedEntry;
+import org.hl7.fhir.CatalogEntryRelationType;
+import org.hl7.fhir.CatalogEntryRelationTypeList;
 import org.hl7.fhir.ChargeItem;
-import org.hl7.fhir.ChargeItemParticipant;
+import org.hl7.fhir.ChargeItemDefinition;
+import org.hl7.fhir.ChargeItemDefinitionApplicability;
+import org.hl7.fhir.ChargeItemDefinitionPriceComponent;
+import org.hl7.fhir.ChargeItemDefinitionPropertyGroup;
+import org.hl7.fhir.ChargeItemPerformer;
 import org.hl7.fhir.ChargeItemStatus;
 import org.hl7.fhir.ChargeItemStatusList;
 import org.hl7.fhir.Claim;
@@ -170,7 +167,6 @@ import org.hl7.fhir.ClaimAccident;
 import org.hl7.fhir.ClaimCareTeam;
 import org.hl7.fhir.ClaimDetail;
 import org.hl7.fhir.ClaimDiagnosis;
-import org.hl7.fhir.ClaimInformation;
 import org.hl7.fhir.ClaimInsurance;
 import org.hl7.fhir.ClaimItem;
 import org.hl7.fhir.ClaimPayee;
@@ -182,13 +178,17 @@ import org.hl7.fhir.ClaimResponse;
 import org.hl7.fhir.ClaimResponseAddItem;
 import org.hl7.fhir.ClaimResponseAdjudication;
 import org.hl7.fhir.ClaimResponseDetail;
+import org.hl7.fhir.ClaimResponseDetail1;
 import org.hl7.fhir.ClaimResponseError;
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.ClaimResponseItem;
 import org.hl7.fhir.ClaimResponsePayment;
 import org.hl7.fhir.ClaimResponseProcessNote;
 import org.hl7.fhir.ClaimResponseSubDetail;
+import org.hl7.fhir.ClaimResponseSubDetail1;
+import org.hl7.fhir.ClaimResponseTotal;
 import org.hl7.fhir.ClaimSubDetail;
+import org.hl7.fhir.ClaimSupportingInfo;
 import org.hl7.fhir.ClinicalImpression;
 import org.hl7.fhir.ClinicalImpressionFinding;
 import org.hl7.fhir.ClinicalImpressionInvestigation;
@@ -237,18 +237,12 @@ import org.hl7.fhir.ConceptMapGroupUnmappedModeList;
 import org.hl7.fhir.ConceptMapTarget;
 import org.hl7.fhir.ConceptMapUnmapped;
 import org.hl7.fhir.Condition;
-import org.hl7.fhir.ConditionClinicalStatusCodes;
-import org.hl7.fhir.ConditionClinicalStatusCodesList;
 import org.hl7.fhir.ConditionEvidence;
 import org.hl7.fhir.ConditionStage;
-import org.hl7.fhir.ConditionVerificationStatus;
-import org.hl7.fhir.ConditionVerificationStatusList;
 import org.hl7.fhir.ConditionalDeleteStatus;
 import org.hl7.fhir.ConditionalDeleteStatusList;
 import org.hl7.fhir.ConditionalReadStatus;
 import org.hl7.fhir.ConditionalReadStatusList;
-import org.hl7.fhir.ConfidentialityClassification;
-import org.hl7.fhir.ConfidentialityClassificationList;
 import org.hl7.fhir.Consent;
 import org.hl7.fhir.ConsentActor;
 import org.hl7.fhir.ConsentData;
@@ -258,8 +252,6 @@ import org.hl7.fhir.ConsentPolicy;
 import org.hl7.fhir.ConsentProvision;
 import org.hl7.fhir.ConsentProvisionType;
 import org.hl7.fhir.ConsentProvisionTypeList;
-import org.hl7.fhir.ConsentScopeCodes;
-import org.hl7.fhir.ConsentScopeCodesList;
 import org.hl7.fhir.ConsentState;
 import org.hl7.fhir.ConsentStateList;
 import org.hl7.fhir.ConsentVerification;
@@ -272,18 +264,23 @@ import org.hl7.fhir.ContactPointSystemList;
 import org.hl7.fhir.ContactPointUse;
 import org.hl7.fhir.ContactPointUseList;
 import org.hl7.fhir.Contract;
-import org.hl7.fhir.ContractAgent;
+import org.hl7.fhir.ContractAction;
+import org.hl7.fhir.ContractAnswer;
 import org.hl7.fhir.ContractAsset;
-import org.hl7.fhir.ContractData;
-import org.hl7.fhir.ContractDataMeaning;
-import org.hl7.fhir.ContractDataMeaningList;
+import org.hl7.fhir.ContractContentDefinition;
+import org.hl7.fhir.ContractContext;
 import org.hl7.fhir.ContractFriendly;
 import org.hl7.fhir.ContractLegal;
 import org.hl7.fhir.ContractOffer;
+import org.hl7.fhir.ContractParty;
+import org.hl7.fhir.ContractResourcePublicationStatusCodes;
+import org.hl7.fhir.ContractResourcePublicationStatusCodesList;
 import org.hl7.fhir.ContractResourceStatusCodes;
 import org.hl7.fhir.ContractResourceStatusCodesList;
 import org.hl7.fhir.ContractRule;
+import org.hl7.fhir.ContractSecurityLabel;
 import org.hl7.fhir.ContractSigner;
+import org.hl7.fhir.ContractSubject;
 import org.hl7.fhir.ContractTerm;
 import org.hl7.fhir.ContractValuedItem;
 import org.hl7.fhir.Contributor;
@@ -292,24 +289,41 @@ import org.hl7.fhir.ContributorTypeList;
 import org.hl7.fhir.Count;
 import org.hl7.fhir.Coverage;
 import org.hl7.fhir.CoverageClass;
-import org.hl7.fhir.CoverageCopay;
-import org.hl7.fhir.CoverageGrouping;
+import org.hl7.fhir.CoverageCostToBeneficiary;
+import org.hl7.fhir.CoverageEligibilityRequest;
+import org.hl7.fhir.CoverageEligibilityRequestDiagnosis;
+import org.hl7.fhir.CoverageEligibilityRequestInsurance;
+import org.hl7.fhir.CoverageEligibilityRequestItem;
+import org.hl7.fhir.CoverageEligibilityRequestSupportingInfo;
+import org.hl7.fhir.CoverageEligibilityResponse;
+import org.hl7.fhir.CoverageEligibilityResponseBenefit;
+import org.hl7.fhir.CoverageEligibilityResponseError;
+import org.hl7.fhir.CoverageEligibilityResponseInsurance;
+import org.hl7.fhir.CoverageEligibilityResponseItem;
+import org.hl7.fhir.CoverageException;
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
+import org.hl7.fhir.DataRequirementSort;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DaysOfWeek;
 import org.hl7.fhir.DaysOfWeekList;
 import org.hl7.fhir.Decimal;
 import org.hl7.fhir.DetectedIssue;
+import org.hl7.fhir.DetectedIssueEvidence;
 import org.hl7.fhir.DetectedIssueMitigation;
 import org.hl7.fhir.DetectedIssueSeverity;
 import org.hl7.fhir.DetectedIssueSeverityList;
 import org.hl7.fhir.Device;
-import org.hl7.fhir.DeviceComponent;
-import org.hl7.fhir.DeviceComponentProductionSpecification;
-import org.hl7.fhir.DeviceComponentProperty;
+import org.hl7.fhir.DeviceDefinition;
+import org.hl7.fhir.DeviceDefinitionCapability;
+import org.hl7.fhir.DeviceDefinitionDeviceName;
+import org.hl7.fhir.DeviceDefinitionMaterial;
+import org.hl7.fhir.DeviceDefinitionProperty;
+import org.hl7.fhir.DeviceDefinitionSpecialization;
+import org.hl7.fhir.DeviceDefinitionUdiDeviceIdentifier;
+import org.hl7.fhir.DeviceDeviceName;
 import org.hl7.fhir.DeviceMetric;
 import org.hl7.fhir.DeviceMetricCalibration;
 import org.hl7.fhir.DeviceMetricCalibrationState;
@@ -322,12 +336,17 @@ import org.hl7.fhir.DeviceMetricColor;
 import org.hl7.fhir.DeviceMetricColorList;
 import org.hl7.fhir.DeviceMetricOperationalStatus;
 import org.hl7.fhir.DeviceMetricOperationalStatusList;
+import org.hl7.fhir.DeviceNameType;
+import org.hl7.fhir.DeviceNameTypeList;
+import org.hl7.fhir.DeviceProperty;
 import org.hl7.fhir.DeviceRequest;
 import org.hl7.fhir.DeviceRequestParameter;
-import org.hl7.fhir.DeviceUdi;
+import org.hl7.fhir.DeviceSpecialization;
+import org.hl7.fhir.DeviceUdiCarrier;
 import org.hl7.fhir.DeviceUseStatement;
 import org.hl7.fhir.DeviceUseStatementStatus;
 import org.hl7.fhir.DeviceUseStatementStatusList;
+import org.hl7.fhir.DeviceVersion;
 import org.hl7.fhir.DiagnosticReport;
 import org.hl7.fhir.DiagnosticReportMedia;
 import org.hl7.fhir.DiagnosticReportStatus;
@@ -336,15 +355,12 @@ import org.hl7.fhir.DiscriminatorType;
 import org.hl7.fhir.DiscriminatorTypeList;
 import org.hl7.fhir.Distance;
 import org.hl7.fhir.DocumentManifest;
-import org.hl7.fhir.DocumentManifestAgent;
 import org.hl7.fhir.DocumentManifestRelated;
 import org.hl7.fhir.DocumentMode;
 import org.hl7.fhir.DocumentModeList;
 import org.hl7.fhir.DocumentReference;
-import org.hl7.fhir.DocumentReferenceAgent;
 import org.hl7.fhir.DocumentReferenceContent;
 import org.hl7.fhir.DocumentReferenceContext;
-import org.hl7.fhir.DocumentReferenceRelated;
 import org.hl7.fhir.DocumentReferenceRelatesTo;
 import org.hl7.fhir.DocumentReferenceStatus;
 import org.hl7.fhir.DocumentReferenceStatusList;
@@ -353,7 +369,15 @@ import org.hl7.fhir.DocumentRelationshipTypeList;
 import org.hl7.fhir.DocumentRoot;
 import org.hl7.fhir.DomainResource;
 import org.hl7.fhir.Dosage;
+import org.hl7.fhir.DosageDoseAndRate;
 import org.hl7.fhir.Duration;
+import org.hl7.fhir.EffectEvidenceSynthesis;
+import org.hl7.fhir.EffectEvidenceSynthesisCertainty;
+import org.hl7.fhir.EffectEvidenceSynthesisCertaintySubcomponent;
+import org.hl7.fhir.EffectEvidenceSynthesisEffectEstimate;
+import org.hl7.fhir.EffectEvidenceSynthesisPrecisionEstimate;
+import org.hl7.fhir.EffectEvidenceSynthesisResultsByExposure;
+import org.hl7.fhir.EffectEvidenceSynthesisSampleSize;
 import org.hl7.fhir.Element;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBase;
@@ -364,14 +388,12 @@ import org.hl7.fhir.ElementDefinitionExample;
 import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
-import org.hl7.fhir.EligibilityRequest;
-import org.hl7.fhir.EligibilityRequestAuthorization;
-import org.hl7.fhir.EligibilityResponse;
-import org.hl7.fhir.EligibilityResponseAuthorization;
-import org.hl7.fhir.EligibilityResponseBenefitBalance;
-import org.hl7.fhir.EligibilityResponseError;
-import org.hl7.fhir.EligibilityResponseFinancial;
-import org.hl7.fhir.EligibilityResponseInsurance;
+import org.hl7.fhir.EligibilityRequestPurpose;
+import org.hl7.fhir.EligibilityRequestPurposeList;
+import org.hl7.fhir.EligibilityResponsePurpose;
+import org.hl7.fhir.EligibilityResponsePurposeList;
+import org.hl7.fhir.EnableWhenBehavior;
+import org.hl7.fhir.EnableWhenBehaviorList;
 import org.hl7.fhir.Encounter;
 import org.hl7.fhir.EncounterClassHistory;
 import org.hl7.fhir.EncounterDiagnosis;
@@ -388,8 +410,6 @@ import org.hl7.fhir.EndpointStatus;
 import org.hl7.fhir.EndpointStatusList;
 import org.hl7.fhir.EnrollmentRequest;
 import org.hl7.fhir.EnrollmentResponse;
-import org.hl7.fhir.EntryDefinition;
-import org.hl7.fhir.EntryDefinitionRelatedEntry;
 import org.hl7.fhir.EpisodeOfCare;
 import org.hl7.fhir.EpisodeOfCareDiagnosis;
 import org.hl7.fhir.EpisodeOfCareStatus;
@@ -402,6 +422,11 @@ import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.EventStatusList;
 import org.hl7.fhir.EventTiming;
 import org.hl7.fhir.EventTimingList;
+import org.hl7.fhir.Evidence;
+import org.hl7.fhir.EvidenceVariable;
+import org.hl7.fhir.EvidenceVariableCharacteristic;
+import org.hl7.fhir.EvidenceVariableType;
+import org.hl7.fhir.EvidenceVariableTypeList;
 import org.hl7.fhir.ExampleScenario;
 import org.hl7.fhir.ExampleScenarioActor;
 import org.hl7.fhir.ExampleScenarioActorType;
@@ -410,18 +435,9 @@ import org.hl7.fhir.ExampleScenarioAlternative;
 import org.hl7.fhir.ExampleScenarioContainedInstance;
 import org.hl7.fhir.ExampleScenarioInstance;
 import org.hl7.fhir.ExampleScenarioOperation;
-import org.hl7.fhir.ExampleScenarioOption;
 import org.hl7.fhir.ExampleScenarioProcess;
 import org.hl7.fhir.ExampleScenarioStep;
 import org.hl7.fhir.ExampleScenarioVersion;
-import org.hl7.fhir.ExpansionProfile;
-import org.hl7.fhir.ExpansionProfileDesignation;
-import org.hl7.fhir.ExpansionProfileDesignation1;
-import org.hl7.fhir.ExpansionProfileDesignation2;
-import org.hl7.fhir.ExpansionProfileExclude;
-import org.hl7.fhir.ExpansionProfileExcludedSystem;
-import org.hl7.fhir.ExpansionProfileFixedVersion;
-import org.hl7.fhir.ExpansionProfileInclude;
 import org.hl7.fhir.ExplanationOfBenefit;
 import org.hl7.fhir.ExplanationOfBenefitAccident;
 import org.hl7.fhir.ExplanationOfBenefitAddItem;
@@ -429,9 +445,9 @@ import org.hl7.fhir.ExplanationOfBenefitAdjudication;
 import org.hl7.fhir.ExplanationOfBenefitBenefitBalance;
 import org.hl7.fhir.ExplanationOfBenefitCareTeam;
 import org.hl7.fhir.ExplanationOfBenefitDetail;
+import org.hl7.fhir.ExplanationOfBenefitDetail1;
 import org.hl7.fhir.ExplanationOfBenefitDiagnosis;
 import org.hl7.fhir.ExplanationOfBenefitFinancial;
-import org.hl7.fhir.ExplanationOfBenefitInformation;
 import org.hl7.fhir.ExplanationOfBenefitInsurance;
 import org.hl7.fhir.ExplanationOfBenefitItem;
 import org.hl7.fhir.ExplanationOfBenefitPayee;
@@ -442,21 +458,23 @@ import org.hl7.fhir.ExplanationOfBenefitRelated;
 import org.hl7.fhir.ExplanationOfBenefitStatus;
 import org.hl7.fhir.ExplanationOfBenefitStatusList;
 import org.hl7.fhir.ExplanationOfBenefitSubDetail;
+import org.hl7.fhir.ExplanationOfBenefitSubDetail1;
+import org.hl7.fhir.ExplanationOfBenefitSupportingInfo;
+import org.hl7.fhir.ExplanationOfBenefitTotal;
+import org.hl7.fhir.ExposureState;
+import org.hl7.fhir.ExposureStateList;
+import org.hl7.fhir.Expression;
 import org.hl7.fhir.ExpressionLanguage;
 import org.hl7.fhir.ExpressionLanguageList;
 import org.hl7.fhir.Extension;
-import org.hl7.fhir.ExtensionContext;
-import org.hl7.fhir.ExtensionContextList;
-import org.hl7.fhir.FHIRAllTypes;
-import org.hl7.fhir.FHIRAllTypesList;
-import org.hl7.fhir.FHIRDefinedType;
-import org.hl7.fhir.FHIRDefinedTypeList;
+import org.hl7.fhir.ExtensionContextType;
+import org.hl7.fhir.ExtensionContextTypeList;
 import org.hl7.fhir.FHIRDeviceStatus;
 import org.hl7.fhir.FHIRDeviceStatusList;
 import org.hl7.fhir.FHIRSubstanceStatus;
 import org.hl7.fhir.FHIRSubstanceStatusList;
-import org.hl7.fhir.FailureAction;
-import org.hl7.fhir.FailureActionList;
+import org.hl7.fhir.FHIRVersion;
+import org.hl7.fhir.FHIRVersionList;
 import org.hl7.fhir.FamilyHistoryStatus;
 import org.hl7.fhir.FamilyHistoryStatusList;
 import org.hl7.fhir.FamilyMemberHistory;
@@ -471,8 +489,8 @@ import org.hl7.fhir.Flag;
 import org.hl7.fhir.FlagStatus;
 import org.hl7.fhir.FlagStatusList;
 import org.hl7.fhir.Goal;
-import org.hl7.fhir.GoalStatus;
-import org.hl7.fhir.GoalStatusList;
+import org.hl7.fhir.GoalLifecycleStatus;
+import org.hl7.fhir.GoalLifecycleStatusList;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.GraphCompartmentRule;
 import org.hl7.fhir.GraphCompartmentRuleList;
@@ -484,25 +502,24 @@ import org.hl7.fhir.GraphDefinitionLink;
 import org.hl7.fhir.GraphDefinitionTarget;
 import org.hl7.fhir.Group;
 import org.hl7.fhir.GroupCharacteristic;
+import org.hl7.fhir.GroupMeasure;
+import org.hl7.fhir.GroupMeasureList;
 import org.hl7.fhir.GroupMember;
 import org.hl7.fhir.GroupType;
 import org.hl7.fhir.GroupTypeList;
 import org.hl7.fhir.GuidanceResponse;
 import org.hl7.fhir.GuidanceResponseStatus;
 import org.hl7.fhir.GuidanceResponseStatusList;
-import org.hl7.fhir.GuideDependencyType;
-import org.hl7.fhir.GuideDependencyTypeList;
-import org.hl7.fhir.GuidePageKind;
-import org.hl7.fhir.GuidePageKindList;
+import org.hl7.fhir.GuidePageGeneration;
+import org.hl7.fhir.GuidePageGenerationList;
+import org.hl7.fhir.GuideParameterCode;
+import org.hl7.fhir.GuideParameterCodeList;
 import org.hl7.fhir.HTTPVerb;
 import org.hl7.fhir.HTTPVerbList;
-import org.hl7.fhir.HazardousDutyWork;
-import org.hl7.fhir.HazardousDutyWorkList;
 import org.hl7.fhir.HealthcareService;
 import org.hl7.fhir.HealthcareServiceAvailableTime;
+import org.hl7.fhir.HealthcareServiceEligibility;
 import org.hl7.fhir.HealthcareServiceNotAvailable;
-import org.hl7.fhir.HistoryOfEmploymentStatus;
-import org.hl7.fhir.HistoryOfEmploymentStatusList;
 import org.hl7.fhir.HumanName;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Identifier;
@@ -512,38 +529,46 @@ import org.hl7.fhir.IdentityAssuranceLevel;
 import org.hl7.fhir.IdentityAssuranceLevelList;
 import org.hl7.fhir.ImagingStudy;
 import org.hl7.fhir.ImagingStudyInstance;
+import org.hl7.fhir.ImagingStudyPerformer;
 import org.hl7.fhir.ImagingStudySeries;
+import org.hl7.fhir.ImagingStudyStatus;
+import org.hl7.fhir.ImagingStudyStatusList;
 import org.hl7.fhir.Immunization;
 import org.hl7.fhir.ImmunizationEducation;
 import org.hl7.fhir.ImmunizationEvaluation;
 import org.hl7.fhir.ImmunizationEvaluationStatusCodes;
 import org.hl7.fhir.ImmunizationEvaluationStatusCodesList;
-import org.hl7.fhir.ImmunizationPractitioner;
+import org.hl7.fhir.ImmunizationPerformer;
+import org.hl7.fhir.ImmunizationProtocolApplied;
+import org.hl7.fhir.ImmunizationReaction;
 import org.hl7.fhir.ImmunizationRecommendation;
 import org.hl7.fhir.ImmunizationRecommendationDateCriterion;
 import org.hl7.fhir.ImmunizationRecommendationRecommendation;
 import org.hl7.fhir.ImmunizationStatusCodes;
 import org.hl7.fhir.ImmunizationStatusCodesList;
 import org.hl7.fhir.ImplementationGuide;
-import org.hl7.fhir.ImplementationGuideDependency;
+import org.hl7.fhir.ImplementationGuideDefinition;
+import org.hl7.fhir.ImplementationGuideDependsOn;
 import org.hl7.fhir.ImplementationGuideGlobal;
-import org.hl7.fhir.ImplementationGuideInput;
-import org.hl7.fhir.ImplementationGuideInputDependency;
-import org.hl7.fhir.ImplementationGuideInputGlobal;
-import org.hl7.fhir.ImplementationGuideInputPackage;
-import org.hl7.fhir.ImplementationGuideInputPage;
-import org.hl7.fhir.ImplementationGuideInputResource;
-import org.hl7.fhir.ImplementationGuideOutput;
-import org.hl7.fhir.ImplementationGuideOutputDependency;
-import org.hl7.fhir.ImplementationGuideOutputGlobal;
-import org.hl7.fhir.ImplementationGuideOutputPage;
-import org.hl7.fhir.ImplementationGuideOutputResource;
-import org.hl7.fhir.ImplementationGuidePackage;
+import org.hl7.fhir.ImplementationGuideGrouping;
+import org.hl7.fhir.ImplementationGuideManifest;
 import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.ImplementationGuidePage1;
+import org.hl7.fhir.ImplementationGuideParameter;
 import org.hl7.fhir.ImplementationGuideResource;
-import org.hl7.fhir.InstanceAvailability;
-import org.hl7.fhir.InstanceAvailabilityList;
+import org.hl7.fhir.ImplementationGuideResource1;
+import org.hl7.fhir.ImplementationGuideTemplate;
 import org.hl7.fhir.Instant;
+import org.hl7.fhir.InsurancePlan;
+import org.hl7.fhir.InsurancePlanBenefit;
+import org.hl7.fhir.InsurancePlanBenefit1;
+import org.hl7.fhir.InsurancePlanContact;
+import org.hl7.fhir.InsurancePlanCost;
+import org.hl7.fhir.InsurancePlanCoverage;
+import org.hl7.fhir.InsurancePlanGeneralCost;
+import org.hl7.fhir.InsurancePlanLimit;
+import org.hl7.fhir.InsurancePlanPlan;
+import org.hl7.fhir.InsurancePlanSpecificCost;
 import org.hl7.fhir.Invoice;
 import org.hl7.fhir.InvoiceLineItem;
 import org.hl7.fhir.InvoiceParticipant;
@@ -556,7 +581,6 @@ import org.hl7.fhir.IssueSeverity;
 import org.hl7.fhir.IssueSeverityList;
 import org.hl7.fhir.IssueType;
 import org.hl7.fhir.IssueTypeList;
-import org.hl7.fhir.ItemInstance;
 import org.hl7.fhir.Library;
 import org.hl7.fhir.LinkType;
 import org.hl7.fhir.LinkTypeList;
@@ -579,12 +603,12 @@ import org.hl7.fhir.LocationStatus;
 import org.hl7.fhir.LocationStatusList;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.MarketingStatus;
-import org.hl7.fhir.MeasmntPrinciple;
-import org.hl7.fhir.MeasmntPrincipleList;
 import org.hl7.fhir.Measure;
+import org.hl7.fhir.MeasureComponent;
 import org.hl7.fhir.MeasureGroup;
 import org.hl7.fhir.MeasurePopulation;
 import org.hl7.fhir.MeasureReport;
+import org.hl7.fhir.MeasureReportComponent;
 import org.hl7.fhir.MeasureReportGroup;
 import org.hl7.fhir.MeasureReportPopulation;
 import org.hl7.fhir.MeasureReportPopulation1;
@@ -597,62 +621,73 @@ import org.hl7.fhir.MeasureReportTypeList;
 import org.hl7.fhir.MeasureStratifier;
 import org.hl7.fhir.MeasureSupplementalData;
 import org.hl7.fhir.Media;
-import org.hl7.fhir.MediaStatus;
-import org.hl7.fhir.MediaStatusList;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationAdministration;
 import org.hl7.fhir.MedicationAdministrationDosage;
 import org.hl7.fhir.MedicationAdministrationPerformer;
-import org.hl7.fhir.MedicationAdministrationStatus;
-import org.hl7.fhir.MedicationAdministrationStatusList;
 import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationDispense;
 import org.hl7.fhir.MedicationDispensePerformer;
-import org.hl7.fhir.MedicationDispenseStatus;
-import org.hl7.fhir.MedicationDispenseStatusList;
 import org.hl7.fhir.MedicationDispenseSubstitution;
 import org.hl7.fhir.MedicationIngredient;
+import org.hl7.fhir.MedicationKnowledge;
+import org.hl7.fhir.MedicationKnowledgeAdministrationGuidelines;
+import org.hl7.fhir.MedicationKnowledgeCost;
+import org.hl7.fhir.MedicationKnowledgeDosage;
+import org.hl7.fhir.MedicationKnowledgeDrugCharacteristic;
+import org.hl7.fhir.MedicationKnowledgeIngredient;
+import org.hl7.fhir.MedicationKnowledgeKinetics;
+import org.hl7.fhir.MedicationKnowledgeMaxDispense;
+import org.hl7.fhir.MedicationKnowledgeMedicineClassification;
+import org.hl7.fhir.MedicationKnowledgeMonitoringProgram;
+import org.hl7.fhir.MedicationKnowledgeMonograph;
+import org.hl7.fhir.MedicationKnowledgePackaging;
+import org.hl7.fhir.MedicationKnowledgePatientCharacteristics;
+import org.hl7.fhir.MedicationKnowledgeRegulatory;
+import org.hl7.fhir.MedicationKnowledgeRelatedMedicationKnowledge;
+import org.hl7.fhir.MedicationKnowledgeSchedule;
+import org.hl7.fhir.MedicationKnowledgeSubstitution;
 import org.hl7.fhir.MedicationRequest;
 import org.hl7.fhir.MedicationRequestDispenseRequest;
+import org.hl7.fhir.MedicationRequestInitialFill;
 import org.hl7.fhir.MedicationRequestIntent;
 import org.hl7.fhir.MedicationRequestIntentList;
-import org.hl7.fhir.MedicationRequestStatus;
-import org.hl7.fhir.MedicationRequestStatusList;
 import org.hl7.fhir.MedicationRequestSubstitution;
 import org.hl7.fhir.MedicationStatement;
-import org.hl7.fhir.MedicationStatementStatus;
-import org.hl7.fhir.MedicationStatementStatusList;
-import org.hl7.fhir.MedicationStatus;
-import org.hl7.fhir.MedicationStatusList;
+import org.hl7.fhir.MedicationStatusCodes;
+import org.hl7.fhir.MedicationStatusCodesList;
+import org.hl7.fhir.MedicationrequestStatus;
+import org.hl7.fhir.MedicationrequestStatusList;
 import org.hl7.fhir.MedicinalProduct;
 import org.hl7.fhir.MedicinalProductAuthorization;
-import org.hl7.fhir.MedicinalProductAuthorizationApplication;
 import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
 import org.hl7.fhir.MedicinalProductAuthorizationProcedure;
-import org.hl7.fhir.MedicinalProductClinicals;
-import org.hl7.fhir.MedicinalProductClinicalsContraindication;
-import org.hl7.fhir.MedicinalProductClinicalsInteractions;
-import org.hl7.fhir.MedicinalProductClinicalsOtherTherapy;
-import org.hl7.fhir.MedicinalProductClinicalsPopulation;
-import org.hl7.fhir.MedicinalProductClinicalsTherapeuticIndication;
-import org.hl7.fhir.MedicinalProductClinicalsUndesirableEffects;
+import org.hl7.fhir.MedicinalProductContraindication;
+import org.hl7.fhir.MedicinalProductContraindicationOtherTherapy;
 import org.hl7.fhir.MedicinalProductCountryLanguage;
-import org.hl7.fhir.MedicinalProductDeviceSpec;
-import org.hl7.fhir.MedicinalProductDeviceSpecMaterial;
+import org.hl7.fhir.MedicinalProductIndication;
+import org.hl7.fhir.MedicinalProductIndicationOtherTherapy;
 import org.hl7.fhir.MedicinalProductIngredient;
 import org.hl7.fhir.MedicinalProductIngredientReferenceStrength;
 import org.hl7.fhir.MedicinalProductIngredientSpecifiedSubstance;
 import org.hl7.fhir.MedicinalProductIngredientStrength;
 import org.hl7.fhir.MedicinalProductIngredientSubstance;
+import org.hl7.fhir.MedicinalProductInteraction;
+import org.hl7.fhir.MedicinalProductInteractionInteractant;
+import org.hl7.fhir.MedicinalProductManufactured;
 import org.hl7.fhir.MedicinalProductManufacturingBusinessOperation;
 import org.hl7.fhir.MedicinalProductName;
 import org.hl7.fhir.MedicinalProductNamePart;
 import org.hl7.fhir.MedicinalProductPackaged;
 import org.hl7.fhir.MedicinalProductPackagedBatchIdentifier;
-import org.hl7.fhir.MedicinalProductPackagedManufacturedItem;
 import org.hl7.fhir.MedicinalProductPackagedPackageItem;
 import org.hl7.fhir.MedicinalProductPharmaceutical;
 import org.hl7.fhir.MedicinalProductPharmaceuticalCharacteristics;
+import org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration;
+import org.hl7.fhir.MedicinalProductPharmaceuticalTargetSpecies;
+import org.hl7.fhir.MedicinalProductPharmaceuticalWithdrawalPeriod;
+import org.hl7.fhir.MedicinalProductSpecialDesignation;
+import org.hl7.fhir.MedicinalProductUndesirableEffect;
 import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
@@ -662,7 +697,18 @@ import org.hl7.fhir.MessageHeaderResponse;
 import org.hl7.fhir.MessageHeaderSource;
 import org.hl7.fhir.MessageSignificanceCategory;
 import org.hl7.fhir.MessageSignificanceCategoryList;
+import org.hl7.fhir.MessageheaderResponseRequest;
+import org.hl7.fhir.MessageheaderResponseRequestList;
 import org.hl7.fhir.Meta;
+import org.hl7.fhir.MolecularSequence;
+import org.hl7.fhir.MolecularSequenceInner;
+import org.hl7.fhir.MolecularSequenceOuter;
+import org.hl7.fhir.MolecularSequenceQuality;
+import org.hl7.fhir.MolecularSequenceReferenceSeq;
+import org.hl7.fhir.MolecularSequenceRepository;
+import org.hl7.fhir.MolecularSequenceRoc;
+import org.hl7.fhir.MolecularSequenceStructureVariant;
+import org.hl7.fhir.MolecularSequenceVariant;
 import org.hl7.fhir.Money;
 import org.hl7.fhir.NameUse;
 import org.hl7.fhir.NameUseList;
@@ -675,8 +721,6 @@ import org.hl7.fhir.NamingSystemUniqueId;
 import org.hl7.fhir.Narrative;
 import org.hl7.fhir.NarrativeStatus;
 import org.hl7.fhir.NarrativeStatusList;
-import org.hl7.fhir.Need;
-import org.hl7.fhir.NeedList;
 import org.hl7.fhir.NoteType;
 import org.hl7.fhir.NoteTypeList;
 import org.hl7.fhir.NutritionOrder;
@@ -684,31 +728,26 @@ import org.hl7.fhir.NutritionOrderAdministration;
 import org.hl7.fhir.NutritionOrderEnteralFormula;
 import org.hl7.fhir.NutritionOrderNutrient;
 import org.hl7.fhir.NutritionOrderOralDiet;
-import org.hl7.fhir.NutritionOrderStatus;
-import org.hl7.fhir.NutritionOrderStatusList;
 import org.hl7.fhir.NutritionOrderSupplement;
 import org.hl7.fhir.NutritionOrderTexture;
 import org.hl7.fhir.Observation;
 import org.hl7.fhir.ObservationComponent;
+import org.hl7.fhir.ObservationDataType;
+import org.hl7.fhir.ObservationDataTypeList;
 import org.hl7.fhir.ObservationDefinition;
 import org.hl7.fhir.ObservationDefinitionQualifiedInterval;
 import org.hl7.fhir.ObservationDefinitionQuantitativeDetails;
+import org.hl7.fhir.ObservationRangeCategory;
+import org.hl7.fhir.ObservationRangeCategoryList;
 import org.hl7.fhir.ObservationReferenceRange;
 import org.hl7.fhir.ObservationStatus;
 import org.hl7.fhir.ObservationStatusList;
-import org.hl7.fhir.OccupationalData;
-import org.hl7.fhir.OccupationalDataCombatZoneHazardousDuty;
-import org.hl7.fhir.OccupationalDataDuration;
-import org.hl7.fhir.OccupationalDataEmploymentStatus;
-import org.hl7.fhir.OccupationalDataIndustry;
-import org.hl7.fhir.OccupationalDataPastOrPresentOccupation;
-import org.hl7.fhir.OccupationalDataRetirementStatus;
-import org.hl7.fhir.OccupationalDataUsualOccupation;
 import org.hl7.fhir.Oid;
 import org.hl7.fhir.OperationDefinition;
 import org.hl7.fhir.OperationDefinitionBinding;
 import org.hl7.fhir.OperationDefinitionOverload;
 import org.hl7.fhir.OperationDefinitionParameter;
+import org.hl7.fhir.OperationDefinitionReferencedFrom;
 import org.hl7.fhir.OperationKind;
 import org.hl7.fhir.OperationKindList;
 import org.hl7.fhir.OperationOutcome;
@@ -716,10 +755,10 @@ import org.hl7.fhir.OperationOutcomeIssue;
 import org.hl7.fhir.OperationParameterUse;
 import org.hl7.fhir.OperationParameterUseList;
 import org.hl7.fhir.Organization;
+import org.hl7.fhir.OrganizationAffiliation;
 import org.hl7.fhir.OrganizationContact;
-import org.hl7.fhir.OrganizationRole;
-import org.hl7.fhir.OrganizationRoleAvailableTime;
-import org.hl7.fhir.OrganizationRoleNotAvailable;
+import org.hl7.fhir.OrientationType;
+import org.hl7.fhir.OrientationTypeList;
 import org.hl7.fhir.ParameterDefinition;
 import org.hl7.fhir.Parameters;
 import org.hl7.fhir.ParametersParameter;
@@ -728,7 +767,6 @@ import org.hl7.fhir.ParticipantRequiredList;
 import org.hl7.fhir.ParticipationStatus;
 import org.hl7.fhir.ParticipationStatusList;
 import org.hl7.fhir.Patient;
-import org.hl7.fhir.PatientAnimal;
 import org.hl7.fhir.PatientCommunication;
 import org.hl7.fhir.PatientContact;
 import org.hl7.fhir.PatientLink;
@@ -747,6 +785,7 @@ import org.hl7.fhir.PlanDefinitionGoal;
 import org.hl7.fhir.PlanDefinitionParticipant;
 import org.hl7.fhir.PlanDefinitionRelatedAction;
 import org.hl7.fhir.PlanDefinitionTarget;
+import org.hl7.fhir.Population;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Practitioner;
 import org.hl7.fhir.PractitionerQualification;
@@ -756,22 +795,7 @@ import org.hl7.fhir.PractitionerRoleNotAvailable;
 import org.hl7.fhir.Procedure;
 import org.hl7.fhir.ProcedureFocalDevice;
 import org.hl7.fhir.ProcedurePerformer;
-import org.hl7.fhir.ProcessOutcomeCodes;
-import org.hl7.fhir.ProcessOutcomeCodesList;
-import org.hl7.fhir.ProcessRequest;
-import org.hl7.fhir.ProcessRequestItem;
-import org.hl7.fhir.ProcessResponse;
-import org.hl7.fhir.ProcessResponseProcessNote;
 import org.hl7.fhir.ProdCharacteristic;
-import org.hl7.fhir.ProductPlan;
-import org.hl7.fhir.ProductPlanBenefit;
-import org.hl7.fhir.ProductPlanBenefit1;
-import org.hl7.fhir.ProductPlanCategory;
-import org.hl7.fhir.ProductPlanContact;
-import org.hl7.fhir.ProductPlanCost;
-import org.hl7.fhir.ProductPlanCoverage;
-import org.hl7.fhir.ProductPlanItem;
-import org.hl7.fhir.ProductPlanPlan;
 import org.hl7.fhir.ProductShelfLife;
 import org.hl7.fhir.PropertyRepresentation;
 import org.hl7.fhir.PropertyRepresentationList;
@@ -784,19 +808,20 @@ import org.hl7.fhir.ProvenanceEntityRole;
 import org.hl7.fhir.ProvenanceEntityRoleList;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.PublicationStatusList;
-import org.hl7.fhir.PushTypeAvailable;
-import org.hl7.fhir.PushTypeAvailableList;
 import org.hl7.fhir.QualityType;
 import org.hl7.fhir.QualityTypeList;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.QuantityComparator;
 import org.hl7.fhir.QuantityComparatorList;
 import org.hl7.fhir.Questionnaire;
+import org.hl7.fhir.QuestionnaireAnswerOption;
 import org.hl7.fhir.QuestionnaireEnableWhen;
+import org.hl7.fhir.QuestionnaireInitial;
 import org.hl7.fhir.QuestionnaireItem;
+import org.hl7.fhir.QuestionnaireItemOperator;
+import org.hl7.fhir.QuestionnaireItemOperatorList;
 import org.hl7.fhir.QuestionnaireItemType;
 import org.hl7.fhir.QuestionnaireItemTypeList;
-import org.hl7.fhir.QuestionnaireOption;
 import org.hl7.fhir.QuestionnaireResponse;
 import org.hl7.fhir.QuestionnaireResponseAnswer;
 import org.hl7.fhir.QuestionnaireResponseItem;
@@ -813,6 +838,7 @@ import org.hl7.fhir.RelatedArtifact;
 import org.hl7.fhir.RelatedArtifactType;
 import org.hl7.fhir.RelatedArtifactTypeList;
 import org.hl7.fhir.RelatedPerson;
+import org.hl7.fhir.RelatedPersonCommunication;
 import org.hl7.fhir.RemittanceOutcome;
 import org.hl7.fhir.RemittanceOutcomeList;
 import org.hl7.fhir.RepositoryType;
@@ -825,8 +851,15 @@ import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestIntentList;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestPriorityList;
+import org.hl7.fhir.RequestResourceType;
+import org.hl7.fhir.RequestResourceTypeList;
 import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.RequestStatusList;
+import org.hl7.fhir.ResearchDefinition;
+import org.hl7.fhir.ResearchElementDefinition;
+import org.hl7.fhir.ResearchElementDefinitionCharacteristic;
+import org.hl7.fhir.ResearchElementType;
+import org.hl7.fhir.ResearchElementTypeList;
 import org.hl7.fhir.ResearchStudy;
 import org.hl7.fhir.ResearchStudyArm;
 import org.hl7.fhir.ResearchStudyObjective;
@@ -845,10 +878,16 @@ import org.hl7.fhir.ResponseType;
 import org.hl7.fhir.ResponseTypeList;
 import org.hl7.fhir.RestfulCapabilityMode;
 import org.hl7.fhir.RestfulCapabilityModeList;
-import org.hl7.fhir.RetirementStatus;
-import org.hl7.fhir.RetirementStatusList;
 import org.hl7.fhir.RiskAssessment;
 import org.hl7.fhir.RiskAssessmentPrediction;
+import org.hl7.fhir.RiskEvidenceSynthesis;
+import org.hl7.fhir.RiskEvidenceSynthesisCertainty;
+import org.hl7.fhir.RiskEvidenceSynthesisCertaintySubcomponent;
+import org.hl7.fhir.RiskEvidenceSynthesisPrecisionEstimate;
+import org.hl7.fhir.RiskEvidenceSynthesisRiskEstimate;
+import org.hl7.fhir.RiskEvidenceSynthesisSampleSize;
+import org.hl7.fhir.SPDXLicense;
+import org.hl7.fhir.SPDXLicenseList;
 import org.hl7.fhir.SampledData;
 import org.hl7.fhir.SampledDataDataType;
 import org.hl7.fhir.Schedule;
@@ -862,16 +901,8 @@ import org.hl7.fhir.SearchParamType;
 import org.hl7.fhir.SearchParamTypeList;
 import org.hl7.fhir.SearchParameter;
 import org.hl7.fhir.SearchParameterComponent;
-import org.hl7.fhir.Sequence;
-import org.hl7.fhir.SequenceInner;
-import org.hl7.fhir.SequenceOuter;
-import org.hl7.fhir.SequenceQuality;
-import org.hl7.fhir.SequenceReferenceSeq;
-import org.hl7.fhir.SequenceRepository;
-import org.hl7.fhir.SequenceRoc;
-import org.hl7.fhir.SequenceStructureVariant;
-import org.hl7.fhir.SequenceVariant;
-import org.hl7.fhir.ServiceDefinition;
+import org.hl7.fhir.SequenceType;
+import org.hl7.fhir.SequenceTypeList;
 import org.hl7.fhir.ServiceRequest;
 import org.hl7.fhir.Signature;
 import org.hl7.fhir.SlicingRules;
@@ -879,21 +910,27 @@ import org.hl7.fhir.SlicingRulesList;
 import org.hl7.fhir.Slot;
 import org.hl7.fhir.SlotStatus;
 import org.hl7.fhir.SlotStatusList;
+import org.hl7.fhir.SortDirection;
+import org.hl7.fhir.SortDirectionList;
 import org.hl7.fhir.Specimen;
 import org.hl7.fhir.SpecimenCollection;
 import org.hl7.fhir.SpecimenContainedPreference;
 import org.hl7.fhir.SpecimenContainedPreferenceList;
 import org.hl7.fhir.SpecimenContainer;
 import org.hl7.fhir.SpecimenDefinition;
-import org.hl7.fhir.SpecimenDefinitionContainerAdditive;
+import org.hl7.fhir.SpecimenDefinitionAdditive;
+import org.hl7.fhir.SpecimenDefinitionContainer;
 import org.hl7.fhir.SpecimenDefinitionHandling;
-import org.hl7.fhir.SpecimenDefinitionSpecimenToLab;
+import org.hl7.fhir.SpecimenDefinitionTypeTested;
 import org.hl7.fhir.SpecimenProcessing;
 import org.hl7.fhir.SpecimenStatus;
 import org.hl7.fhir.SpecimenStatusList;
 import org.hl7.fhir.Status;
 import org.hl7.fhir.StatusList;
+import org.hl7.fhir.StrandType;
+import org.hl7.fhir.StrandTypeList;
 import org.hl7.fhir.StructureDefinition;
+import org.hl7.fhir.StructureDefinitionContext;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
 import org.hl7.fhir.StructureDefinitionKindList;
@@ -933,7 +970,10 @@ import org.hl7.fhir.SubstanceAmount;
 import org.hl7.fhir.SubstanceAmountReferenceRange;
 import org.hl7.fhir.SubstanceIngredient;
 import org.hl7.fhir.SubstanceInstance;
-import org.hl7.fhir.SubstanceMoiety;
+import org.hl7.fhir.SubstanceNucleicAcid;
+import org.hl7.fhir.SubstanceNucleicAcidLinkage;
+import org.hl7.fhir.SubstanceNucleicAcidSubunit;
+import org.hl7.fhir.SubstanceNucleicAcidSugar;
 import org.hl7.fhir.SubstancePolymer;
 import org.hl7.fhir.SubstancePolymerDegreeOfPolymerisation;
 import org.hl7.fhir.SubstancePolymerMonomerSet;
@@ -941,22 +981,31 @@ import org.hl7.fhir.SubstancePolymerRepeat;
 import org.hl7.fhir.SubstancePolymerRepeatUnit;
 import org.hl7.fhir.SubstancePolymerStartingMaterial;
 import org.hl7.fhir.SubstancePolymerStructuralRepresentation;
+import org.hl7.fhir.SubstanceProtein;
+import org.hl7.fhir.SubstanceProteinSubunit;
 import org.hl7.fhir.SubstanceReferenceInformation;
 import org.hl7.fhir.SubstanceReferenceInformationClassification;
 import org.hl7.fhir.SubstanceReferenceInformationGene;
 import org.hl7.fhir.SubstanceReferenceInformationGeneElement;
-import org.hl7.fhir.SubstanceReferenceInformationRelationship;
 import org.hl7.fhir.SubstanceReferenceInformationTarget;
+import org.hl7.fhir.SubstanceSourceMaterial;
+import org.hl7.fhir.SubstanceSourceMaterialAuthor;
+import org.hl7.fhir.SubstanceSourceMaterialFractionDescription;
+import org.hl7.fhir.SubstanceSourceMaterialHybrid;
+import org.hl7.fhir.SubstanceSourceMaterialOrganism;
+import org.hl7.fhir.SubstanceSourceMaterialOrganismGeneral;
+import org.hl7.fhir.SubstanceSourceMaterialPartDescription;
 import org.hl7.fhir.SubstanceSpecification;
+import org.hl7.fhir.SubstanceSpecificationCode;
 import org.hl7.fhir.SubstanceSpecificationIsotope;
 import org.hl7.fhir.SubstanceSpecificationMoiety;
 import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
-import org.hl7.fhir.SubstanceSpecificationOfficialName;
+import org.hl7.fhir.SubstanceSpecificationName;
+import org.hl7.fhir.SubstanceSpecificationOfficial;
 import org.hl7.fhir.SubstanceSpecificationProperty;
-import org.hl7.fhir.SubstanceSpecificationStructuralRepresentation;
+import org.hl7.fhir.SubstanceSpecificationRelationship;
+import org.hl7.fhir.SubstanceSpecificationRepresentation;
 import org.hl7.fhir.SubstanceSpecificationStructure;
-import org.hl7.fhir.SubstanceSpecificationSubstanceCode;
-import org.hl7.fhir.SubstanceSpecificationSubstanceName;
 import org.hl7.fhir.SupplyDelivery;
 import org.hl7.fhir.SupplyDeliveryStatus;
 import org.hl7.fhir.SupplyDeliveryStatusList;
@@ -967,10 +1016,10 @@ import org.hl7.fhir.SupplyRequestStatus;
 import org.hl7.fhir.SupplyRequestStatusList;
 import org.hl7.fhir.SystemRestfulInteraction;
 import org.hl7.fhir.SystemRestfulInteractionList;
-import org.hl7.fhir.SystemVersionProcessingMode;
-import org.hl7.fhir.SystemVersionProcessingModeList;
 import org.hl7.fhir.Task;
 import org.hl7.fhir.TaskInput;
+import org.hl7.fhir.TaskIntent;
+import org.hl7.fhir.TaskIntentList;
 import org.hl7.fhir.TaskOutput;
 import org.hl7.fhir.TaskRestriction;
 import org.hl7.fhir.TaskStatus;
@@ -980,6 +1029,9 @@ import org.hl7.fhir.TerminologyCapabilitiesClosure;
 import org.hl7.fhir.TerminologyCapabilitiesCodeSystem;
 import org.hl7.fhir.TerminologyCapabilitiesExpansion;
 import org.hl7.fhir.TerminologyCapabilitiesFilter;
+import org.hl7.fhir.TerminologyCapabilitiesImplementation;
+import org.hl7.fhir.TerminologyCapabilitiesParameter;
+import org.hl7.fhir.TerminologyCapabilitiesSoftware;
 import org.hl7.fhir.TerminologyCapabilitiesTranslation;
 import org.hl7.fhir.TerminologyCapabilitiesValidateCode;
 import org.hl7.fhir.TerminologyCapabilitiesVersion;
@@ -1013,19 +1065,9 @@ import org.hl7.fhir.TestScriptLink;
 import org.hl7.fhir.TestScriptMetadata;
 import org.hl7.fhir.TestScriptOperation;
 import org.hl7.fhir.TestScriptOrigin;
-import org.hl7.fhir.TestScriptParam;
-import org.hl7.fhir.TestScriptParam1;
-import org.hl7.fhir.TestScriptParam2;
-import org.hl7.fhir.TestScriptParam3;
 import org.hl7.fhir.TestScriptRequestHeader;
 import org.hl7.fhir.TestScriptRequestMethodCode;
 import org.hl7.fhir.TestScriptRequestMethodCodeList;
-import org.hl7.fhir.TestScriptRule;
-import org.hl7.fhir.TestScriptRule1;
-import org.hl7.fhir.TestScriptRule2;
-import org.hl7.fhir.TestScriptRule3;
-import org.hl7.fhir.TestScriptRuleset;
-import org.hl7.fhir.TestScriptRuleset1;
 import org.hl7.fhir.TestScriptSetup;
 import org.hl7.fhir.TestScriptTeardown;
 import org.hl7.fhir.TestScriptTest;
@@ -1034,7 +1076,6 @@ import org.hl7.fhir.Time;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TimingRepeat;
 import org.hl7.fhir.TriggerDefinition;
-import org.hl7.fhir.TriggerDefinitionCondition;
 import org.hl7.fhir.TriggerType;
 import org.hl7.fhir.TriggerTypeList;
 import org.hl7.fhir.TypeDerivationRule;
@@ -1045,27 +1086,15 @@ import org.hl7.fhir.UDIEntryType;
 import org.hl7.fhir.UDIEntryTypeList;
 import org.hl7.fhir.UnitsOfTime;
 import org.hl7.fhir.UnitsOfTimeList;
-import org.hl7.fhir.UnknownContentCode;
-import org.hl7.fhir.UnknownContentCodeList;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 import org.hl7.fhir.UsageContext;
 import org.hl7.fhir.Use;
 import org.hl7.fhir.UseList;
-import org.hl7.fhir.UserSession;
-import org.hl7.fhir.UserSessionContext;
-import org.hl7.fhir.UserSessionStatus;
-import org.hl7.fhir.UserSessionStatus1;
-import org.hl7.fhir.UserSessionStatusList;
-import org.hl7.fhir.UserSessionStatusSource;
-import org.hl7.fhir.UserSessionStatusSourceList;
-import org.hl7.fhir.UsualOccupation;
-import org.hl7.fhir.UsualOccupationList;
 import org.hl7.fhir.Uuid;
-import org.hl7.fhir.ValidationStatus;
-import org.hl7.fhir.ValidationStatusList;
-import org.hl7.fhir.ValidationType;
-import org.hl7.fhir.ValidationTypeList;
+import org.hl7.fhir.VConfidentialityClassification;
+import org.hl7.fhir.VConfidentialityClassificationList;
 import org.hl7.fhir.ValueSet;
 import org.hl7.fhir.ValueSetCompose;
 import org.hl7.fhir.ValueSetConcept;
@@ -1075,6 +1104,8 @@ import org.hl7.fhir.ValueSetExpansion;
 import org.hl7.fhir.ValueSetFilter;
 import org.hl7.fhir.ValueSetInclude;
 import org.hl7.fhir.ValueSetParameter;
+import org.hl7.fhir.VariableType;
+import org.hl7.fhir.VariableTypeList;
 import org.hl7.fhir.VerificationResult;
 import org.hl7.fhir.VerificationResultAttestation;
 import org.hl7.fhir.VerificationResultPrimarySource;
@@ -1084,7 +1115,8 @@ import org.hl7.fhir.VisionBaseList;
 import org.hl7.fhir.VisionEyes;
 import org.hl7.fhir.VisionEyesList;
 import org.hl7.fhir.VisionPrescription;
-import org.hl7.fhir.VisionPrescriptionDispense;
+import org.hl7.fhir.VisionPrescriptionLensSpecification;
+import org.hl7.fhir.VisionPrescriptionPrism;
 import org.hl7.fhir.XPathUsageType;
 import org.hl7.fhir.XPathUsageTypeList;
 
@@ -1139,7 +1171,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.ACTION_CARDINALITY_BEHAVIOR: return createActionCardinalityBehavior();
 			case FhirPackage.ACTION_CONDITION_KIND: return createActionConditionKind();
 			case FhirPackage.ACTION_GROUPING_BEHAVIOR: return createActionGroupingBehavior();
-			case FhirPackage.ACTION_LIST: return createActionList();
 			case FhirPackage.ACTION_PARTICIPANT_TYPE: return createActionParticipantType();
 			case FhirPackage.ACTION_PRECHECK_BEHAVIOR: return createActionPrecheckBehavior();
 			case FhirPackage.ACTION_RELATIONSHIP_TYPE: return createActionRelationshipType();
@@ -1160,12 +1191,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.AGGREGATION_MODE: return createAggregationMode();
 			case FhirPackage.ALLERGY_INTOLERANCE: return createAllergyIntolerance();
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY: return createAllergyIntoleranceCategory();
-			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS: return createAllergyIntoleranceClinicalStatus();
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY: return createAllergyIntoleranceCriticality();
 			case FhirPackage.ALLERGY_INTOLERANCE_REACTION: return createAllergyIntoleranceReaction();
 			case FhirPackage.ALLERGY_INTOLERANCE_SEVERITY: return createAllergyIntoleranceSeverity();
 			case FhirPackage.ALLERGY_INTOLERANCE_TYPE: return createAllergyIntoleranceType();
-			case FhirPackage.ALLERGY_INTOLERANCE_VERIFICATION_STATUS: return createAllergyIntoleranceVerificationStatus();
 			case FhirPackage.ANNOTATION: return createAnnotation();
 			case FhirPackage.APPOINTMENT: return createAppointment();
 			case FhirPackage.APPOINTMENT_PARTICIPANT: return createAppointmentParticipant();
@@ -1206,9 +1235,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.BUNDLE_RESPONSE: return createBundleResponse();
 			case FhirPackage.BUNDLE_SEARCH: return createBundleSearch();
 			case FhirPackage.BUNDLE_TYPE: return createBundleType();
-			case FhirPackage.CAN_PUSH_UPDATES: return createCanPushUpdates();
+			case FhirPackage.CANONICAL: return createCanonical();
 			case FhirPackage.CAPABILITY_STATEMENT: return createCapabilityStatement();
-			case FhirPackage.CAPABILITY_STATEMENT_CERTIFICATE: return createCapabilityStatementCertificate();
 			case FhirPackage.CAPABILITY_STATEMENT_DOCUMENT: return createCapabilityStatementDocument();
 			case FhirPackage.CAPABILITY_STATEMENT_ENDPOINT: return createCapabilityStatementEndpoint();
 			case FhirPackage.CAPABILITY_STATEMENT_IMPLEMENTATION: return createCapabilityStatementImplementation();
@@ -1229,19 +1257,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.CARE_PLAN_ACTIVITY_STATUS: return createCarePlanActivityStatus();
 			case FhirPackage.CARE_PLAN_DETAIL: return createCarePlanDetail();
 			case FhirPackage.CARE_PLAN_INTENT: return createCarePlanIntent();
-			case FhirPackage.CARE_PLAN_STATUS: return createCarePlanStatus();
 			case FhirPackage.CARE_TEAM: return createCareTeam();
 			case FhirPackage.CARE_TEAM_PARTICIPANT: return createCareTeamParticipant();
 			case FhirPackage.CARE_TEAM_STATUS: return createCareTeamStatus();
+			case FhirPackage.CATALOG_ENTRY: return createCatalogEntry();
+			case FhirPackage.CATALOG_ENTRY_RELATED_ENTRY: return createCatalogEntryRelatedEntry();
+			case FhirPackage.CATALOG_ENTRY_RELATION_TYPE: return createCatalogEntryRelationType();
 			case FhirPackage.CHARGE_ITEM: return createChargeItem();
-			case FhirPackage.CHARGE_ITEM_PARTICIPANT: return createChargeItemParticipant();
+			case FhirPackage.CHARGE_ITEM_DEFINITION: return createChargeItemDefinition();
+			case FhirPackage.CHARGE_ITEM_DEFINITION_APPLICABILITY: return createChargeItemDefinitionApplicability();
+			case FhirPackage.CHARGE_ITEM_DEFINITION_PRICE_COMPONENT: return createChargeItemDefinitionPriceComponent();
+			case FhirPackage.CHARGE_ITEM_DEFINITION_PROPERTY_GROUP: return createChargeItemDefinitionPropertyGroup();
+			case FhirPackage.CHARGE_ITEM_PERFORMER: return createChargeItemPerformer();
 			case FhirPackage.CHARGE_ITEM_STATUS: return createChargeItemStatus();
 			case FhirPackage.CLAIM: return createClaim();
 			case FhirPackage.CLAIM_ACCIDENT: return createClaimAccident();
 			case FhirPackage.CLAIM_CARE_TEAM: return createClaimCareTeam();
 			case FhirPackage.CLAIM_DETAIL: return createClaimDetail();
 			case FhirPackage.CLAIM_DIAGNOSIS: return createClaimDiagnosis();
-			case FhirPackage.CLAIM_INFORMATION: return createClaimInformation();
 			case FhirPackage.CLAIM_INSURANCE: return createClaimInsurance();
 			case FhirPackage.CLAIM_ITEM: return createClaimItem();
 			case FhirPackage.CLAIM_PAYEE: return createClaimPayee();
@@ -1252,13 +1285,17 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.CLAIM_RESPONSE_ADD_ITEM: return createClaimResponseAddItem();
 			case FhirPackage.CLAIM_RESPONSE_ADJUDICATION: return createClaimResponseAdjudication();
 			case FhirPackage.CLAIM_RESPONSE_DETAIL: return createClaimResponseDetail();
+			case FhirPackage.CLAIM_RESPONSE_DETAIL1: return createClaimResponseDetail1();
 			case FhirPackage.CLAIM_RESPONSE_ERROR: return createClaimResponseError();
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE: return createClaimResponseInsurance();
 			case FhirPackage.CLAIM_RESPONSE_ITEM: return createClaimResponseItem();
 			case FhirPackage.CLAIM_RESPONSE_PAYMENT: return createClaimResponsePayment();
 			case FhirPackage.CLAIM_RESPONSE_PROCESS_NOTE: return createClaimResponseProcessNote();
 			case FhirPackage.CLAIM_RESPONSE_SUB_DETAIL: return createClaimResponseSubDetail();
+			case FhirPackage.CLAIM_RESPONSE_SUB_DETAIL1: return createClaimResponseSubDetail1();
+			case FhirPackage.CLAIM_RESPONSE_TOTAL: return createClaimResponseTotal();
 			case FhirPackage.CLAIM_SUB_DETAIL: return createClaimSubDetail();
+			case FhirPackage.CLAIM_SUPPORTING_INFO: return createClaimSupportingInfo();
 			case FhirPackage.CLINICAL_IMPRESSION: return createClinicalImpression();
 			case FhirPackage.CLINICAL_IMPRESSION_FINDING: return createClinicalImpressionFinding();
 			case FhirPackage.CLINICAL_IMPRESSION_INVESTIGATION: return createClinicalImpressionInvestigation();
@@ -1300,11 +1337,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.CONDITION: return createCondition();
 			case FhirPackage.CONDITIONAL_DELETE_STATUS: return createConditionalDeleteStatus();
 			case FhirPackage.CONDITIONAL_READ_STATUS: return createConditionalReadStatus();
-			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES: return createConditionClinicalStatusCodes();
 			case FhirPackage.CONDITION_EVIDENCE: return createConditionEvidence();
 			case FhirPackage.CONDITION_STAGE: return createConditionStage();
-			case FhirPackage.CONDITION_VERIFICATION_STATUS: return createConditionVerificationStatus();
-			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION: return createConfidentialityClassification();
 			case FhirPackage.CONSENT: return createConsent();
 			case FhirPackage.CONSENT_ACTOR: return createConsentActor();
 			case FhirPackage.CONSENT_DATA: return createConsentData();
@@ -1312,7 +1346,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.CONSENT_POLICY: return createConsentPolicy();
 			case FhirPackage.CONSENT_PROVISION: return createConsentProvision();
 			case FhirPackage.CONSENT_PROVISION_TYPE: return createConsentProvisionType();
-			case FhirPackage.CONSENT_SCOPE_CODES: return createConsentScopeCodes();
 			case FhirPackage.CONSENT_STATE: return createConsentState();
 			case FhirPackage.CONSENT_VERIFICATION: return createConsentVerification();
 			case FhirPackage.CONSTRAINT_SEVERITY: return createConstraintSeverity();
@@ -1321,16 +1354,21 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.CONTACT_POINT_SYSTEM: return createContactPointSystem();
 			case FhirPackage.CONTACT_POINT_USE: return createContactPointUse();
 			case FhirPackage.CONTRACT: return createContract();
-			case FhirPackage.CONTRACT_AGENT: return createContractAgent();
+			case FhirPackage.CONTRACT_ACTION: return createContractAction();
+			case FhirPackage.CONTRACT_ANSWER: return createContractAnswer();
 			case FhirPackage.CONTRACT_ASSET: return createContractAsset();
-			case FhirPackage.CONTRACT_DATA: return createContractData();
-			case FhirPackage.CONTRACT_DATA_MEANING: return createContractDataMeaning();
+			case FhirPackage.CONTRACT_CONTENT_DEFINITION: return createContractContentDefinition();
+			case FhirPackage.CONTRACT_CONTEXT: return createContractContext();
 			case FhirPackage.CONTRACT_FRIENDLY: return createContractFriendly();
 			case FhirPackage.CONTRACT_LEGAL: return createContractLegal();
 			case FhirPackage.CONTRACT_OFFER: return createContractOffer();
+			case FhirPackage.CONTRACT_PARTY: return createContractParty();
+			case FhirPackage.CONTRACT_RESOURCE_PUBLICATION_STATUS_CODES: return createContractResourcePublicationStatusCodes();
 			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES: return createContractResourceStatusCodes();
 			case FhirPackage.CONTRACT_RULE: return createContractRule();
+			case FhirPackage.CONTRACT_SECURITY_LABEL: return createContractSecurityLabel();
 			case FhirPackage.CONTRACT_SIGNER: return createContractSigner();
+			case FhirPackage.CONTRACT_SUBJECT: return createContractSubject();
 			case FhirPackage.CONTRACT_TERM: return createContractTerm();
 			case FhirPackage.CONTRACT_VALUED_ITEM: return createContractValuedItem();
 			case FhirPackage.CONTRIBUTOR: return createContributor();
@@ -1338,22 +1376,39 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.COUNT: return createCount();
 			case FhirPackage.COVERAGE: return createCoverage();
 			case FhirPackage.COVERAGE_CLASS: return createCoverageClass();
-			case FhirPackage.COVERAGE_COPAY: return createCoverageCopay();
-			case FhirPackage.COVERAGE_GROUPING: return createCoverageGrouping();
+			case FhirPackage.COVERAGE_COST_TO_BENEFICIARY: return createCoverageCostToBeneficiary();
+			case FhirPackage.COVERAGE_ELIGIBILITY_REQUEST: return createCoverageEligibilityRequest();
+			case FhirPackage.COVERAGE_ELIGIBILITY_REQUEST_DIAGNOSIS: return createCoverageEligibilityRequestDiagnosis();
+			case FhirPackage.COVERAGE_ELIGIBILITY_REQUEST_INSURANCE: return createCoverageEligibilityRequestInsurance();
+			case FhirPackage.COVERAGE_ELIGIBILITY_REQUEST_ITEM: return createCoverageEligibilityRequestItem();
+			case FhirPackage.COVERAGE_ELIGIBILITY_REQUEST_SUPPORTING_INFO: return createCoverageEligibilityRequestSupportingInfo();
+			case FhirPackage.COVERAGE_ELIGIBILITY_RESPONSE: return createCoverageEligibilityResponse();
+			case FhirPackage.COVERAGE_ELIGIBILITY_RESPONSE_BENEFIT: return createCoverageEligibilityResponseBenefit();
+			case FhirPackage.COVERAGE_ELIGIBILITY_RESPONSE_ERROR: return createCoverageEligibilityResponseError();
+			case FhirPackage.COVERAGE_ELIGIBILITY_RESPONSE_INSURANCE: return createCoverageEligibilityResponseInsurance();
+			case FhirPackage.COVERAGE_ELIGIBILITY_RESPONSE_ITEM: return createCoverageEligibilityResponseItem();
+			case FhirPackage.COVERAGE_EXCEPTION: return createCoverageException();
 			case FhirPackage.DATA_REQUIREMENT: return createDataRequirement();
 			case FhirPackage.DATA_REQUIREMENT_CODE_FILTER: return createDataRequirementCodeFilter();
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER: return createDataRequirementDateFilter();
+			case FhirPackage.DATA_REQUIREMENT_SORT: return createDataRequirementSort();
 			case FhirPackage.DATE: return createDate();
 			case FhirPackage.DATE_TIME: return createDateTime();
 			case FhirPackage.DAYS_OF_WEEK: return createDaysOfWeek();
 			case FhirPackage.DECIMAL: return createDecimal();
 			case FhirPackage.DETECTED_ISSUE: return createDetectedIssue();
+			case FhirPackage.DETECTED_ISSUE_EVIDENCE: return createDetectedIssueEvidence();
 			case FhirPackage.DETECTED_ISSUE_MITIGATION: return createDetectedIssueMitigation();
 			case FhirPackage.DETECTED_ISSUE_SEVERITY: return createDetectedIssueSeverity();
 			case FhirPackage.DEVICE: return createDevice();
-			case FhirPackage.DEVICE_COMPONENT: return createDeviceComponent();
-			case FhirPackage.DEVICE_COMPONENT_PRODUCTION_SPECIFICATION: return createDeviceComponentProductionSpecification();
-			case FhirPackage.DEVICE_COMPONENT_PROPERTY: return createDeviceComponentProperty();
+			case FhirPackage.DEVICE_DEFINITION: return createDeviceDefinition();
+			case FhirPackage.DEVICE_DEFINITION_CAPABILITY: return createDeviceDefinitionCapability();
+			case FhirPackage.DEVICE_DEFINITION_DEVICE_NAME: return createDeviceDefinitionDeviceName();
+			case FhirPackage.DEVICE_DEFINITION_MATERIAL: return createDeviceDefinitionMaterial();
+			case FhirPackage.DEVICE_DEFINITION_PROPERTY: return createDeviceDefinitionProperty();
+			case FhirPackage.DEVICE_DEFINITION_SPECIALIZATION: return createDeviceDefinitionSpecialization();
+			case FhirPackage.DEVICE_DEFINITION_UDI_DEVICE_IDENTIFIER: return createDeviceDefinitionUdiDeviceIdentifier();
+			case FhirPackage.DEVICE_DEVICE_NAME: return createDeviceDeviceName();
 			case FhirPackage.DEVICE_METRIC: return createDeviceMetric();
 			case FhirPackage.DEVICE_METRIC_CALIBRATION: return createDeviceMetricCalibration();
 			case FhirPackage.DEVICE_METRIC_CALIBRATION_STATE: return createDeviceMetricCalibrationState();
@@ -1361,32 +1416,41 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.DEVICE_METRIC_CATEGORY: return createDeviceMetricCategory();
 			case FhirPackage.DEVICE_METRIC_COLOR: return createDeviceMetricColor();
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS: return createDeviceMetricOperationalStatus();
+			case FhirPackage.DEVICE_NAME_TYPE: return createDeviceNameType();
+			case FhirPackage.DEVICE_PROPERTY: return createDeviceProperty();
 			case FhirPackage.DEVICE_REQUEST: return createDeviceRequest();
 			case FhirPackage.DEVICE_REQUEST_PARAMETER: return createDeviceRequestParameter();
-			case FhirPackage.DEVICE_UDI: return createDeviceUdi();
+			case FhirPackage.DEVICE_SPECIALIZATION: return createDeviceSpecialization();
+			case FhirPackage.DEVICE_UDI_CARRIER: return createDeviceUdiCarrier();
 			case FhirPackage.DEVICE_USE_STATEMENT: return createDeviceUseStatement();
 			case FhirPackage.DEVICE_USE_STATEMENT_STATUS: return createDeviceUseStatementStatus();
+			case FhirPackage.DEVICE_VERSION: return createDeviceVersion();
 			case FhirPackage.DIAGNOSTIC_REPORT: return createDiagnosticReport();
 			case FhirPackage.DIAGNOSTIC_REPORT_MEDIA: return createDiagnosticReportMedia();
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS: return createDiagnosticReportStatus();
 			case FhirPackage.DISCRIMINATOR_TYPE: return createDiscriminatorType();
 			case FhirPackage.DISTANCE: return createDistance();
 			case FhirPackage.DOCUMENT_MANIFEST: return createDocumentManifest();
-			case FhirPackage.DOCUMENT_MANIFEST_AGENT: return createDocumentManifestAgent();
 			case FhirPackage.DOCUMENT_MANIFEST_RELATED: return createDocumentManifestRelated();
 			case FhirPackage.DOCUMENT_MODE: return createDocumentMode();
 			case FhirPackage.DOCUMENT_REFERENCE: return createDocumentReference();
-			case FhirPackage.DOCUMENT_REFERENCE_AGENT: return createDocumentReferenceAgent();
 			case FhirPackage.DOCUMENT_REFERENCE_CONTENT: return createDocumentReferenceContent();
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT: return createDocumentReferenceContext();
-			case FhirPackage.DOCUMENT_REFERENCE_RELATED: return createDocumentReferenceRelated();
 			case FhirPackage.DOCUMENT_REFERENCE_RELATES_TO: return createDocumentReferenceRelatesTo();
 			case FhirPackage.DOCUMENT_REFERENCE_STATUS: return createDocumentReferenceStatus();
 			case FhirPackage.DOCUMENT_RELATIONSHIP_TYPE: return createDocumentRelationshipType();
 			case FhirPackage.DOCUMENT_ROOT: return createDocumentRoot();
 			case FhirPackage.DOMAIN_RESOURCE: return createDomainResource();
 			case FhirPackage.DOSAGE: return createDosage();
+			case FhirPackage.DOSAGE_DOSE_AND_RATE: return createDosageDoseAndRate();
 			case FhirPackage.DURATION: return createDuration();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS: return createEffectEvidenceSynthesis();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_CERTAINTY: return createEffectEvidenceSynthesisCertainty();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_CERTAINTY_SUBCOMPONENT: return createEffectEvidenceSynthesisCertaintySubcomponent();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_EFFECT_ESTIMATE: return createEffectEvidenceSynthesisEffectEstimate();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_PRECISION_ESTIMATE: return createEffectEvidenceSynthesisPrecisionEstimate();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_RESULTS_BY_EXPOSURE: return createEffectEvidenceSynthesisResultsByExposure();
+			case FhirPackage.EFFECT_EVIDENCE_SYNTHESIS_SAMPLE_SIZE: return createEffectEvidenceSynthesisSampleSize();
 			case FhirPackage.ELEMENT: return createElement();
 			case FhirPackage.ELEMENT_DEFINITION: return createElementDefinition();
 			case FhirPackage.ELEMENT_DEFINITION_BASE: return createElementDefinitionBase();
@@ -1397,14 +1461,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.ELEMENT_DEFINITION_MAPPING: return createElementDefinitionMapping();
 			case FhirPackage.ELEMENT_DEFINITION_SLICING: return createElementDefinitionSlicing();
 			case FhirPackage.ELEMENT_DEFINITION_TYPE: return createElementDefinitionType();
-			case FhirPackage.ELIGIBILITY_REQUEST: return createEligibilityRequest();
-			case FhirPackage.ELIGIBILITY_REQUEST_AUTHORIZATION: return createEligibilityRequestAuthorization();
-			case FhirPackage.ELIGIBILITY_RESPONSE: return createEligibilityResponse();
-			case FhirPackage.ELIGIBILITY_RESPONSE_AUTHORIZATION: return createEligibilityResponseAuthorization();
-			case FhirPackage.ELIGIBILITY_RESPONSE_BENEFIT_BALANCE: return createEligibilityResponseBenefitBalance();
-			case FhirPackage.ELIGIBILITY_RESPONSE_ERROR: return createEligibilityResponseError();
-			case FhirPackage.ELIGIBILITY_RESPONSE_FINANCIAL: return createEligibilityResponseFinancial();
-			case FhirPackage.ELIGIBILITY_RESPONSE_INSURANCE: return createEligibilityResponseInsurance();
+			case FhirPackage.ELIGIBILITY_REQUEST_PURPOSE: return createEligibilityRequestPurpose();
+			case FhirPackage.ELIGIBILITY_RESPONSE_PURPOSE: return createEligibilityResponsePurpose();
+			case FhirPackage.ENABLE_WHEN_BEHAVIOR: return createEnableWhenBehavior();
 			case FhirPackage.ENCOUNTER: return createEncounter();
 			case FhirPackage.ENCOUNTER_CLASS_HISTORY: return createEncounterClassHistory();
 			case FhirPackage.ENCOUNTER_DIAGNOSIS: return createEncounterDiagnosis();
@@ -1418,8 +1477,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.ENDPOINT_STATUS: return createEndpointStatus();
 			case FhirPackage.ENROLLMENT_REQUEST: return createEnrollmentRequest();
 			case FhirPackage.ENROLLMENT_RESPONSE: return createEnrollmentResponse();
-			case FhirPackage.ENTRY_DEFINITION: return createEntryDefinition();
-			case FhirPackage.ENTRY_DEFINITION_RELATED_ENTRY: return createEntryDefinitionRelatedEntry();
 			case FhirPackage.EPISODE_OF_CARE: return createEpisodeOfCare();
 			case FhirPackage.EPISODE_OF_CARE_DIAGNOSIS: return createEpisodeOfCareDiagnosis();
 			case FhirPackage.EPISODE_OF_CARE_STATUS: return createEpisodeOfCareStatus();
@@ -1428,6 +1485,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.EVENT_DEFINITION: return createEventDefinition();
 			case FhirPackage.EVENT_STATUS: return createEventStatus();
 			case FhirPackage.EVENT_TIMING: return createEventTiming();
+			case FhirPackage.EVIDENCE: return createEvidence();
+			case FhirPackage.EVIDENCE_VARIABLE: return createEvidenceVariable();
+			case FhirPackage.EVIDENCE_VARIABLE_CHARACTERISTIC: return createEvidenceVariableCharacteristic();
+			case FhirPackage.EVIDENCE_VARIABLE_TYPE: return createEvidenceVariableType();
 			case FhirPackage.EXAMPLE_SCENARIO: return createExampleScenario();
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR: return createExampleScenarioActor();
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE: return createExampleScenarioActorType();
@@ -1435,18 +1496,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.EXAMPLE_SCENARIO_CONTAINED_INSTANCE: return createExampleScenarioContainedInstance();
 			case FhirPackage.EXAMPLE_SCENARIO_INSTANCE: return createExampleScenarioInstance();
 			case FhirPackage.EXAMPLE_SCENARIO_OPERATION: return createExampleScenarioOperation();
-			case FhirPackage.EXAMPLE_SCENARIO_OPTION: return createExampleScenarioOption();
 			case FhirPackage.EXAMPLE_SCENARIO_PROCESS: return createExampleScenarioProcess();
 			case FhirPackage.EXAMPLE_SCENARIO_STEP: return createExampleScenarioStep();
 			case FhirPackage.EXAMPLE_SCENARIO_VERSION: return createExampleScenarioVersion();
-			case FhirPackage.EXPANSION_PROFILE: return createExpansionProfile();
-			case FhirPackage.EXPANSION_PROFILE_DESIGNATION: return createExpansionProfileDesignation();
-			case FhirPackage.EXPANSION_PROFILE_DESIGNATION1: return createExpansionProfileDesignation1();
-			case FhirPackage.EXPANSION_PROFILE_DESIGNATION2: return createExpansionProfileDesignation2();
-			case FhirPackage.EXPANSION_PROFILE_EXCLUDE: return createExpansionProfileExclude();
-			case FhirPackage.EXPANSION_PROFILE_EXCLUDED_SYSTEM: return createExpansionProfileExcludedSystem();
-			case FhirPackage.EXPANSION_PROFILE_FIXED_VERSION: return createExpansionProfileFixedVersion();
-			case FhirPackage.EXPANSION_PROFILE_INCLUDE: return createExpansionProfileInclude();
 			case FhirPackage.EXPLANATION_OF_BENEFIT: return createExplanationOfBenefit();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ACCIDENT: return createExplanationOfBenefitAccident();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ADD_ITEM: return createExplanationOfBenefitAddItem();
@@ -1454,9 +1506,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_BENEFIT_BALANCE: return createExplanationOfBenefitBenefitBalance();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_CARE_TEAM: return createExplanationOfBenefitCareTeam();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL: return createExplanationOfBenefitDetail();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_DETAIL1: return createExplanationOfBenefitDetail1();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_DIAGNOSIS: return createExplanationOfBenefitDiagnosis();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_FINANCIAL: return createExplanationOfBenefitFinancial();
-			case FhirPackage.EXPLANATION_OF_BENEFIT_INFORMATION: return createExplanationOfBenefitInformation();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_INSURANCE: return createExplanationOfBenefitInsurance();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_ITEM: return createExplanationOfBenefitItem();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_PAYEE: return createExplanationOfBenefitPayee();
@@ -1466,23 +1518,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.EXPLANATION_OF_BENEFIT_RELATED: return createExplanationOfBenefitRelated();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS: return createExplanationOfBenefitStatus();
 			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL: return createExplanationOfBenefitSubDetail();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUB_DETAIL1: return createExplanationOfBenefitSubDetail1();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_SUPPORTING_INFO: return createExplanationOfBenefitSupportingInfo();
+			case FhirPackage.EXPLANATION_OF_BENEFIT_TOTAL: return createExplanationOfBenefitTotal();
+			case FhirPackage.EXPOSURE_STATE: return createExposureState();
+			case FhirPackage.EXPRESSION: return createExpression();
 			case FhirPackage.EXPRESSION_LANGUAGE: return createExpressionLanguage();
 			case FhirPackage.EXTENSION: return createExtension();
-			case FhirPackage.EXTENSION_CONTEXT: return createExtensionContext();
-			case FhirPackage.FAILURE_ACTION: return createFailureAction();
+			case FhirPackage.EXTENSION_CONTEXT_TYPE: return createExtensionContextType();
 			case FhirPackage.FAMILY_HISTORY_STATUS: return createFamilyHistoryStatus();
 			case FhirPackage.FAMILY_MEMBER_HISTORY: return createFamilyMemberHistory();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION: return createFamilyMemberHistoryCondition();
-			case FhirPackage.FHIR_ALL_TYPES: return createFHIRAllTypes();
-			case FhirPackage.FHIR_DEFINED_TYPE: return createFHIRDefinedType();
 			case FhirPackage.FHIR_DEVICE_STATUS: return createFHIRDeviceStatus();
 			case FhirPackage.FHIR_SUBSTANCE_STATUS: return createFHIRSubstanceStatus();
+			case FhirPackage.FHIR_VERSION: return createFHIRVersion();
 			case FhirPackage.FILTER_OPERATOR: return createFilterOperator();
 			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES: return createFinancialResourceStatusCodes();
 			case FhirPackage.FLAG: return createFlag();
 			case FhirPackage.FLAG_STATUS: return createFlagStatus();
 			case FhirPackage.GOAL: return createGoal();
-			case FhirPackage.GOAL_STATUS: return createGoalStatus();
+			case FhirPackage.GOAL_LIFECYCLE_STATUS: return createGoalLifecycleStatus();
 			case FhirPackage.GOAL_TARGET: return createGoalTarget();
 			case FhirPackage.GRAPH_COMPARTMENT_RULE: return createGraphCompartmentRule();
 			case FhirPackage.GRAPH_COMPARTMENT_USE: return createGraphCompartmentUse();
@@ -1492,17 +1547,17 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.GRAPH_DEFINITION_TARGET: return createGraphDefinitionTarget();
 			case FhirPackage.GROUP: return createGroup();
 			case FhirPackage.GROUP_CHARACTERISTIC: return createGroupCharacteristic();
+			case FhirPackage.GROUP_MEASURE: return createGroupMeasure();
 			case FhirPackage.GROUP_MEMBER: return createGroupMember();
 			case FhirPackage.GROUP_TYPE: return createGroupType();
 			case FhirPackage.GUIDANCE_RESPONSE: return createGuidanceResponse();
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS: return createGuidanceResponseStatus();
-			case FhirPackage.GUIDE_DEPENDENCY_TYPE: return createGuideDependencyType();
-			case FhirPackage.GUIDE_PAGE_KIND: return createGuidePageKind();
-			case FhirPackage.HAZARDOUS_DUTY_WORK: return createHazardousDutyWork();
+			case FhirPackage.GUIDE_PAGE_GENERATION: return createGuidePageGeneration();
+			case FhirPackage.GUIDE_PARAMETER_CODE: return createGuideParameterCode();
 			case FhirPackage.HEALTHCARE_SERVICE: return createHealthcareService();
 			case FhirPackage.HEALTHCARE_SERVICE_AVAILABLE_TIME: return createHealthcareServiceAvailableTime();
+			case FhirPackage.HEALTHCARE_SERVICE_ELIGIBILITY: return createHealthcareServiceEligibility();
 			case FhirPackage.HEALTHCARE_SERVICE_NOT_AVAILABLE: return createHealthcareServiceNotAvailable();
-			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS: return createHistoryOfEmploymentStatus();
 			case FhirPackage.HTTP_VERB: return createHTTPVerb();
 			case FhirPackage.HUMAN_NAME: return createHumanName();
 			case FhirPackage.ID: return createId();
@@ -1511,35 +1566,43 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.IDENTITY_ASSURANCE_LEVEL: return createIdentityAssuranceLevel();
 			case FhirPackage.IMAGING_STUDY: return createImagingStudy();
 			case FhirPackage.IMAGING_STUDY_INSTANCE: return createImagingStudyInstance();
+			case FhirPackage.IMAGING_STUDY_PERFORMER: return createImagingStudyPerformer();
 			case FhirPackage.IMAGING_STUDY_SERIES: return createImagingStudySeries();
+			case FhirPackage.IMAGING_STUDY_STATUS: return createImagingStudyStatus();
 			case FhirPackage.IMMUNIZATION: return createImmunization();
 			case FhirPackage.IMMUNIZATION_EDUCATION: return createImmunizationEducation();
 			case FhirPackage.IMMUNIZATION_EVALUATION: return createImmunizationEvaluation();
 			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES: return createImmunizationEvaluationStatusCodes();
-			case FhirPackage.IMMUNIZATION_PRACTITIONER: return createImmunizationPractitioner();
+			case FhirPackage.IMMUNIZATION_PERFORMER: return createImmunizationPerformer();
+			case FhirPackage.IMMUNIZATION_PROTOCOL_APPLIED: return createImmunizationProtocolApplied();
+			case FhirPackage.IMMUNIZATION_REACTION: return createImmunizationReaction();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION: return createImmunizationRecommendation();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_DATE_CRITERION: return createImmunizationRecommendationDateCriterion();
 			case FhirPackage.IMMUNIZATION_RECOMMENDATION_RECOMMENDATION: return createImmunizationRecommendationRecommendation();
 			case FhirPackage.IMMUNIZATION_STATUS_CODES: return createImmunizationStatusCodes();
 			case FhirPackage.IMPLEMENTATION_GUIDE: return createImplementationGuide();
-			case FhirPackage.IMPLEMENTATION_GUIDE_DEPENDENCY: return createImplementationGuideDependency();
+			case FhirPackage.IMPLEMENTATION_GUIDE_DEFINITION: return createImplementationGuideDefinition();
+			case FhirPackage.IMPLEMENTATION_GUIDE_DEPENDS_ON: return createImplementationGuideDependsOn();
 			case FhirPackage.IMPLEMENTATION_GUIDE_GLOBAL: return createImplementationGuideGlobal();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT: return createImplementationGuideInput();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_DEPENDENCY: return createImplementationGuideInputDependency();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_GLOBAL: return createImplementationGuideInputGlobal();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_PACKAGE: return createImplementationGuideInputPackage();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_PAGE: return createImplementationGuideInputPage();
-			case FhirPackage.IMPLEMENTATION_GUIDE_INPUT_RESOURCE: return createImplementationGuideInputResource();
-			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT: return createImplementationGuideOutput();
-			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_DEPENDENCY: return createImplementationGuideOutputDependency();
-			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_GLOBAL: return createImplementationGuideOutputGlobal();
-			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_PAGE: return createImplementationGuideOutputPage();
-			case FhirPackage.IMPLEMENTATION_GUIDE_OUTPUT_RESOURCE: return createImplementationGuideOutputResource();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PACKAGE: return createImplementationGuidePackage();
+			case FhirPackage.IMPLEMENTATION_GUIDE_GROUPING: return createImplementationGuideGrouping();
+			case FhirPackage.IMPLEMENTATION_GUIDE_MANIFEST: return createImplementationGuideManifest();
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE: return createImplementationGuidePage();
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE1: return createImplementationGuidePage1();
+			case FhirPackage.IMPLEMENTATION_GUIDE_PARAMETER: return createImplementationGuideParameter();
 			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE: return createImplementationGuideResource();
-			case FhirPackage.INSTANCE_AVAILABILITY: return createInstanceAvailability();
+			case FhirPackage.IMPLEMENTATION_GUIDE_RESOURCE1: return createImplementationGuideResource1();
+			case FhirPackage.IMPLEMENTATION_GUIDE_TEMPLATE: return createImplementationGuideTemplate();
 			case FhirPackage.INSTANT: return createInstant();
+			case FhirPackage.INSURANCE_PLAN: return createInsurancePlan();
+			case FhirPackage.INSURANCE_PLAN_BENEFIT: return createInsurancePlanBenefit();
+			case FhirPackage.INSURANCE_PLAN_BENEFIT1: return createInsurancePlanBenefit1();
+			case FhirPackage.INSURANCE_PLAN_CONTACT: return createInsurancePlanContact();
+			case FhirPackage.INSURANCE_PLAN_COST: return createInsurancePlanCost();
+			case FhirPackage.INSURANCE_PLAN_COVERAGE: return createInsurancePlanCoverage();
+			case FhirPackage.INSURANCE_PLAN_GENERAL_COST: return createInsurancePlanGeneralCost();
+			case FhirPackage.INSURANCE_PLAN_LIMIT: return createInsurancePlanLimit();
+			case FhirPackage.INSURANCE_PLAN_PLAN: return createInsurancePlanPlan();
+			case FhirPackage.INSURANCE_PLAN_SPECIFIC_COST: return createInsurancePlanSpecificCost();
 			case FhirPackage.INTEGER: return createInteger();
 			case FhirPackage.INVOICE: return createInvoice();
 			case FhirPackage.INVOICE_LINE_ITEM: return createInvoiceLineItem();
@@ -1549,7 +1612,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.INVOICE_STATUS: return createInvoiceStatus();
 			case FhirPackage.ISSUE_SEVERITY: return createIssueSeverity();
 			case FhirPackage.ISSUE_TYPE: return createIssueType();
-			case FhirPackage.ITEM_INSTANCE: return createItemInstance();
 			case FhirPackage.LIBRARY: return createLibrary();
 			case FhirPackage.LINKAGE: return createLinkage();
 			case FhirPackage.LINKAGE_ITEM: return createLinkageItem();
@@ -1566,11 +1628,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.LOCATION_STATUS: return createLocationStatus();
 			case FhirPackage.MARKDOWN: return createMarkdown();
 			case FhirPackage.MARKETING_STATUS: return createMarketingStatus();
-			case FhirPackage.MEASMNT_PRINCIPLE: return createMeasmntPrinciple();
 			case FhirPackage.MEASURE: return createMeasure();
+			case FhirPackage.MEASURE_COMPONENT: return createMeasureComponent();
 			case FhirPackage.MEASURE_GROUP: return createMeasureGroup();
 			case FhirPackage.MEASURE_POPULATION: return createMeasurePopulation();
 			case FhirPackage.MEASURE_REPORT: return createMeasureReport();
+			case FhirPackage.MEASURE_REPORT_COMPONENT: return createMeasureReportComponent();
 			case FhirPackage.MEASURE_REPORT_GROUP: return createMeasureReportGroup();
 			case FhirPackage.MEASURE_REPORT_POPULATION: return createMeasureReportPopulation();
 			case FhirPackage.MEASURE_REPORT_POPULATION1: return createMeasureReportPopulation1();
@@ -1581,64 +1644,89 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.MEASURE_STRATIFIER: return createMeasureStratifier();
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA: return createMeasureSupplementalData();
 			case FhirPackage.MEDIA: return createMedia();
-			case FhirPackage.MEDIA_STATUS: return createMediaStatus();
 			case FhirPackage.MEDICATION: return createMedication();
 			case FhirPackage.MEDICATION_ADMINISTRATION: return createMedicationAdministration();
 			case FhirPackage.MEDICATION_ADMINISTRATION_DOSAGE: return createMedicationAdministrationDosage();
 			case FhirPackage.MEDICATION_ADMINISTRATION_PERFORMER: return createMedicationAdministrationPerformer();
-			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS: return createMedicationAdministrationStatus();
 			case FhirPackage.MEDICATION_BATCH: return createMedicationBatch();
 			case FhirPackage.MEDICATION_DISPENSE: return createMedicationDispense();
 			case FhirPackage.MEDICATION_DISPENSE_PERFORMER: return createMedicationDispensePerformer();
-			case FhirPackage.MEDICATION_DISPENSE_STATUS: return createMedicationDispenseStatus();
 			case FhirPackage.MEDICATION_DISPENSE_SUBSTITUTION: return createMedicationDispenseSubstitution();
 			case FhirPackage.MEDICATION_INGREDIENT: return createMedicationIngredient();
+			case FhirPackage.MEDICATION_KNOWLEDGE: return createMedicationKnowledge();
+			case FhirPackage.MEDICATION_KNOWLEDGE_ADMINISTRATION_GUIDELINES: return createMedicationKnowledgeAdministrationGuidelines();
+			case FhirPackage.MEDICATION_KNOWLEDGE_COST: return createMedicationKnowledgeCost();
+			case FhirPackage.MEDICATION_KNOWLEDGE_DOSAGE: return createMedicationKnowledgeDosage();
+			case FhirPackage.MEDICATION_KNOWLEDGE_DRUG_CHARACTERISTIC: return createMedicationKnowledgeDrugCharacteristic();
+			case FhirPackage.MEDICATION_KNOWLEDGE_INGREDIENT: return createMedicationKnowledgeIngredient();
+			case FhirPackage.MEDICATION_KNOWLEDGE_KINETICS: return createMedicationKnowledgeKinetics();
+			case FhirPackage.MEDICATION_KNOWLEDGE_MAX_DISPENSE: return createMedicationKnowledgeMaxDispense();
+			case FhirPackage.MEDICATION_KNOWLEDGE_MEDICINE_CLASSIFICATION: return createMedicationKnowledgeMedicineClassification();
+			case FhirPackage.MEDICATION_KNOWLEDGE_MONITORING_PROGRAM: return createMedicationKnowledgeMonitoringProgram();
+			case FhirPackage.MEDICATION_KNOWLEDGE_MONOGRAPH: return createMedicationKnowledgeMonograph();
+			case FhirPackage.MEDICATION_KNOWLEDGE_PACKAGING: return createMedicationKnowledgePackaging();
+			case FhirPackage.MEDICATION_KNOWLEDGE_PATIENT_CHARACTERISTICS: return createMedicationKnowledgePatientCharacteristics();
+			case FhirPackage.MEDICATION_KNOWLEDGE_REGULATORY: return createMedicationKnowledgeRegulatory();
+			case FhirPackage.MEDICATION_KNOWLEDGE_RELATED_MEDICATION_KNOWLEDGE: return createMedicationKnowledgeRelatedMedicationKnowledge();
+			case FhirPackage.MEDICATION_KNOWLEDGE_SCHEDULE: return createMedicationKnowledgeSchedule();
+			case FhirPackage.MEDICATION_KNOWLEDGE_SUBSTITUTION: return createMedicationKnowledgeSubstitution();
 			case FhirPackage.MEDICATION_REQUEST: return createMedicationRequest();
 			case FhirPackage.MEDICATION_REQUEST_DISPENSE_REQUEST: return createMedicationRequestDispenseRequest();
+			case FhirPackage.MEDICATION_REQUEST_INITIAL_FILL: return createMedicationRequestInitialFill();
 			case FhirPackage.MEDICATION_REQUEST_INTENT: return createMedicationRequestIntent();
-			case FhirPackage.MEDICATION_REQUEST_STATUS: return createMedicationRequestStatus();
+			case FhirPackage.MEDICATIONREQUEST_STATUS: return createMedicationrequestStatus();
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION: return createMedicationRequestSubstitution();
 			case FhirPackage.MEDICATION_STATEMENT: return createMedicationStatement();
-			case FhirPackage.MEDICATION_STATEMENT_STATUS: return createMedicationStatementStatus();
-			case FhirPackage.MEDICATION_STATUS: return createMedicationStatus();
+			case FhirPackage.MEDICATION_STATUS_CODES: return createMedicationStatusCodes();
 			case FhirPackage.MEDICINAL_PRODUCT: return createMedicinalProduct();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION: return createMedicinalProductAuthorization();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_APPLICATION: return createMedicinalProductAuthorizationApplication();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_JURISDICTIONAL_AUTHORIZATION: return createMedicinalProductAuthorizationJurisdictionalAuthorization();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE: return createMedicinalProductAuthorizationProcedure();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS: return createMedicinalProductClinicals();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_CONTRAINDICATION: return createMedicinalProductClinicalsContraindication();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_INTERACTIONS: return createMedicinalProductClinicalsInteractions();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_OTHER_THERAPY: return createMedicinalProductClinicalsOtherTherapy();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_POPULATION: return createMedicinalProductClinicalsPopulation();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_THERAPEUTIC_INDICATION: return createMedicinalProductClinicalsTherapeuticIndication();
-			case FhirPackage.MEDICINAL_PRODUCT_CLINICALS_UNDESIRABLE_EFFECTS: return createMedicinalProductClinicalsUndesirableEffects();
+			case FhirPackage.MEDICINAL_PRODUCT_CONTRAINDICATION: return createMedicinalProductContraindication();
+			case FhirPackage.MEDICINAL_PRODUCT_CONTRAINDICATION_OTHER_THERAPY: return createMedicinalProductContraindicationOtherTherapy();
 			case FhirPackage.MEDICINAL_PRODUCT_COUNTRY_LANGUAGE: return createMedicinalProductCountryLanguage();
-			case FhirPackage.MEDICINAL_PRODUCT_DEVICE_SPEC: return createMedicinalProductDeviceSpec();
-			case FhirPackage.MEDICINAL_PRODUCT_DEVICE_SPEC_MATERIAL: return createMedicinalProductDeviceSpecMaterial();
+			case FhirPackage.MEDICINAL_PRODUCT_INDICATION: return createMedicinalProductIndication();
+			case FhirPackage.MEDICINAL_PRODUCT_INDICATION_OTHER_THERAPY: return createMedicinalProductIndicationOtherTherapy();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT: return createMedicinalProductIngredient();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_REFERENCE_STRENGTH: return createMedicinalProductIngredientReferenceStrength();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_SPECIFIED_SUBSTANCE: return createMedicinalProductIngredientSpecifiedSubstance();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH: return createMedicinalProductIngredientStrength();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_SUBSTANCE: return createMedicinalProductIngredientSubstance();
+			case FhirPackage.MEDICINAL_PRODUCT_INTERACTION: return createMedicinalProductInteraction();
+			case FhirPackage.MEDICINAL_PRODUCT_INTERACTION_INTERACTANT: return createMedicinalProductInteractionInteractant();
+			case FhirPackage.MEDICINAL_PRODUCT_MANUFACTURED: return createMedicinalProductManufactured();
 			case FhirPackage.MEDICINAL_PRODUCT_MANUFACTURING_BUSINESS_OPERATION: return createMedicinalProductManufacturingBusinessOperation();
 			case FhirPackage.MEDICINAL_PRODUCT_NAME: return createMedicinalProductName();
 			case FhirPackage.MEDICINAL_PRODUCT_NAME_PART: return createMedicinalProductNamePart();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED: return createMedicinalProductPackaged();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_BATCH_IDENTIFIER: return createMedicinalProductPackagedBatchIdentifier();
-			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_MANUFACTURED_ITEM: return createMedicinalProductPackagedManufacturedItem();
 			case FhirPackage.MEDICINAL_PRODUCT_PACKAGED_PACKAGE_ITEM: return createMedicinalProductPackagedPackageItem();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL: return createMedicinalProductPharmaceutical();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL_CHARACTERISTICS: return createMedicinalProductPharmaceuticalCharacteristics();
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL_ROUTE_OF_ADMINISTRATION: return createMedicinalProductPharmaceuticalRouteOfAdministration();
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL_TARGET_SPECIES: return createMedicinalProductPharmaceuticalTargetSpecies();
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL_WITHDRAWAL_PERIOD: return createMedicinalProductPharmaceuticalWithdrawalPeriod();
+			case FhirPackage.MEDICINAL_PRODUCT_SPECIAL_DESIGNATION: return createMedicinalProductSpecialDesignation();
+			case FhirPackage.MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT: return createMedicinalProductUndesirableEffect();
 			case FhirPackage.MESSAGE_DEFINITION: return createMessageDefinition();
 			case FhirPackage.MESSAGE_DEFINITION_ALLOWED_RESPONSE: return createMessageDefinitionAllowedResponse();
 			case FhirPackage.MESSAGE_DEFINITION_FOCUS: return createMessageDefinitionFocus();
 			case FhirPackage.MESSAGE_HEADER: return createMessageHeader();
 			case FhirPackage.MESSAGE_HEADER_DESTINATION: return createMessageHeaderDestination();
 			case FhirPackage.MESSAGE_HEADER_RESPONSE: return createMessageHeaderResponse();
+			case FhirPackage.MESSAGEHEADER_RESPONSE_REQUEST: return createMessageheaderResponseRequest();
 			case FhirPackage.MESSAGE_HEADER_SOURCE: return createMessageHeaderSource();
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY: return createMessageSignificanceCategory();
 			case FhirPackage.META: return createMeta();
+			case FhirPackage.MOLECULAR_SEQUENCE: return createMolecularSequence();
+			case FhirPackage.MOLECULAR_SEQUENCE_INNER: return createMolecularSequenceInner();
+			case FhirPackage.MOLECULAR_SEQUENCE_OUTER: return createMolecularSequenceOuter();
+			case FhirPackage.MOLECULAR_SEQUENCE_QUALITY: return createMolecularSequenceQuality();
+			case FhirPackage.MOLECULAR_SEQUENCE_REFERENCE_SEQ: return createMolecularSequenceReferenceSeq();
+			case FhirPackage.MOLECULAR_SEQUENCE_REPOSITORY: return createMolecularSequenceRepository();
+			case FhirPackage.MOLECULAR_SEQUENCE_ROC: return createMolecularSequenceRoc();
+			case FhirPackage.MOLECULAR_SEQUENCE_STRUCTURE_VARIANT: return createMolecularSequenceStructureVariant();
+			case FhirPackage.MOLECULAR_SEQUENCE_VARIANT: return createMolecularSequenceVariant();
 			case FhirPackage.MONEY: return createMoney();
 			case FhirPackage.NAME_USE: return createNameUse();
 			case FhirPackage.NAMING_SYSTEM: return createNamingSystem();
@@ -1647,52 +1735,43 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.NAMING_SYSTEM_UNIQUE_ID: return createNamingSystemUniqueId();
 			case FhirPackage.NARRATIVE: return createNarrative();
 			case FhirPackage.NARRATIVE_STATUS: return createNarrativeStatus();
-			case FhirPackage.NEED: return createNeed();
 			case FhirPackage.NOTE_TYPE: return createNoteType();
 			case FhirPackage.NUTRITION_ORDER: return createNutritionOrder();
 			case FhirPackage.NUTRITION_ORDER_ADMINISTRATION: return createNutritionOrderAdministration();
 			case FhirPackage.NUTRITION_ORDER_ENTERAL_FORMULA: return createNutritionOrderEnteralFormula();
 			case FhirPackage.NUTRITION_ORDER_NUTRIENT: return createNutritionOrderNutrient();
 			case FhirPackage.NUTRITION_ORDER_ORAL_DIET: return createNutritionOrderOralDiet();
-			case FhirPackage.NUTRITION_ORDER_STATUS: return createNutritionOrderStatus();
 			case FhirPackage.NUTRITION_ORDER_SUPPLEMENT: return createNutritionOrderSupplement();
 			case FhirPackage.NUTRITION_ORDER_TEXTURE: return createNutritionOrderTexture();
 			case FhirPackage.OBSERVATION: return createObservation();
 			case FhirPackage.OBSERVATION_COMPONENT: return createObservationComponent();
+			case FhirPackage.OBSERVATION_DATA_TYPE: return createObservationDataType();
 			case FhirPackage.OBSERVATION_DEFINITION: return createObservationDefinition();
 			case FhirPackage.OBSERVATION_DEFINITION_QUALIFIED_INTERVAL: return createObservationDefinitionQualifiedInterval();
 			case FhirPackage.OBSERVATION_DEFINITION_QUANTITATIVE_DETAILS: return createObservationDefinitionQuantitativeDetails();
+			case FhirPackage.OBSERVATION_RANGE_CATEGORY: return createObservationRangeCategory();
 			case FhirPackage.OBSERVATION_REFERENCE_RANGE: return createObservationReferenceRange();
 			case FhirPackage.OBSERVATION_STATUS: return createObservationStatus();
-			case FhirPackage.OCCUPATIONAL_DATA: return createOccupationalData();
-			case FhirPackage.OCCUPATIONAL_DATA_COMBAT_ZONE_HAZARDOUS_DUTY: return createOccupationalDataCombatZoneHazardousDuty();
-			case FhirPackage.OCCUPATIONAL_DATA_DURATION: return createOccupationalDataDuration();
-			case FhirPackage.OCCUPATIONAL_DATA_EMPLOYMENT_STATUS: return createOccupationalDataEmploymentStatus();
-			case FhirPackage.OCCUPATIONAL_DATA_INDUSTRY: return createOccupationalDataIndustry();
-			case FhirPackage.OCCUPATIONAL_DATA_PAST_OR_PRESENT_OCCUPATION: return createOccupationalDataPastOrPresentOccupation();
-			case FhirPackage.OCCUPATIONAL_DATA_RETIREMENT_STATUS: return createOccupationalDataRetirementStatus();
-			case FhirPackage.OCCUPATIONAL_DATA_USUAL_OCCUPATION: return createOccupationalDataUsualOccupation();
 			case FhirPackage.OID: return createOid();
 			case FhirPackage.OPERATION_DEFINITION: return createOperationDefinition();
 			case FhirPackage.OPERATION_DEFINITION_BINDING: return createOperationDefinitionBinding();
 			case FhirPackage.OPERATION_DEFINITION_OVERLOAD: return createOperationDefinitionOverload();
 			case FhirPackage.OPERATION_DEFINITION_PARAMETER: return createOperationDefinitionParameter();
+			case FhirPackage.OPERATION_DEFINITION_REFERENCED_FROM: return createOperationDefinitionReferencedFrom();
 			case FhirPackage.OPERATION_KIND: return createOperationKind();
 			case FhirPackage.OPERATION_OUTCOME: return createOperationOutcome();
 			case FhirPackage.OPERATION_OUTCOME_ISSUE: return createOperationOutcomeIssue();
 			case FhirPackage.OPERATION_PARAMETER_USE: return createOperationParameterUse();
 			case FhirPackage.ORGANIZATION: return createOrganization();
+			case FhirPackage.ORGANIZATION_AFFILIATION: return createOrganizationAffiliation();
 			case FhirPackage.ORGANIZATION_CONTACT: return createOrganizationContact();
-			case FhirPackage.ORGANIZATION_ROLE: return createOrganizationRole();
-			case FhirPackage.ORGANIZATION_ROLE_AVAILABLE_TIME: return createOrganizationRoleAvailableTime();
-			case FhirPackage.ORGANIZATION_ROLE_NOT_AVAILABLE: return createOrganizationRoleNotAvailable();
+			case FhirPackage.ORIENTATION_TYPE: return createOrientationType();
 			case FhirPackage.PARAMETER_DEFINITION: return createParameterDefinition();
 			case FhirPackage.PARAMETERS: return createParameters();
 			case FhirPackage.PARAMETERS_PARAMETER: return createParametersParameter();
 			case FhirPackage.PARTICIPANT_REQUIRED: return createParticipantRequired();
 			case FhirPackage.PARTICIPATION_STATUS: return createParticipationStatus();
 			case FhirPackage.PATIENT: return createPatient();
-			case FhirPackage.PATIENT_ANIMAL: return createPatientAnimal();
 			case FhirPackage.PATIENT_COMMUNICATION: return createPatientCommunication();
 			case FhirPackage.PATIENT_CONTACT: return createPatientContact();
 			case FhirPackage.PATIENT_LINK: return createPatientLink();
@@ -1711,6 +1790,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.PLAN_DEFINITION_PARTICIPANT: return createPlanDefinitionParticipant();
 			case FhirPackage.PLAN_DEFINITION_RELATED_ACTION: return createPlanDefinitionRelatedAction();
 			case FhirPackage.PLAN_DEFINITION_TARGET: return createPlanDefinitionTarget();
+			case FhirPackage.POPULATION: return createPopulation();
 			case FhirPackage.POSITIVE_INT: return createPositiveInt();
 			case FhirPackage.PRACTITIONER: return createPractitioner();
 			case FhirPackage.PRACTITIONER_QUALIFICATION: return createPractitionerQualification();
@@ -1720,21 +1800,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.PROCEDURE: return createProcedure();
 			case FhirPackage.PROCEDURE_FOCAL_DEVICE: return createProcedureFocalDevice();
 			case FhirPackage.PROCEDURE_PERFORMER: return createProcedurePerformer();
-			case FhirPackage.PROCESS_OUTCOME_CODES: return createProcessOutcomeCodes();
-			case FhirPackage.PROCESS_REQUEST: return createProcessRequest();
-			case FhirPackage.PROCESS_REQUEST_ITEM: return createProcessRequestItem();
-			case FhirPackage.PROCESS_RESPONSE: return createProcessResponse();
-			case FhirPackage.PROCESS_RESPONSE_PROCESS_NOTE: return createProcessResponseProcessNote();
 			case FhirPackage.PROD_CHARACTERISTIC: return createProdCharacteristic();
-			case FhirPackage.PRODUCT_PLAN: return createProductPlan();
-			case FhirPackage.PRODUCT_PLAN_BENEFIT: return createProductPlanBenefit();
-			case FhirPackage.PRODUCT_PLAN_BENEFIT1: return createProductPlanBenefit1();
-			case FhirPackage.PRODUCT_PLAN_CATEGORY: return createProductPlanCategory();
-			case FhirPackage.PRODUCT_PLAN_CONTACT: return createProductPlanContact();
-			case FhirPackage.PRODUCT_PLAN_COST: return createProductPlanCost();
-			case FhirPackage.PRODUCT_PLAN_COVERAGE: return createProductPlanCoverage();
-			case FhirPackage.PRODUCT_PLAN_ITEM: return createProductPlanItem();
-			case FhirPackage.PRODUCT_PLAN_PLAN: return createProductPlanPlan();
 			case FhirPackage.PRODUCT_SHELF_LIFE: return createProductShelfLife();
 			case FhirPackage.PROPERTY_REPRESENTATION: return createPropertyRepresentation();
 			case FhirPackage.PROPERTY_TYPE: return createPropertyType();
@@ -1743,15 +1809,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.PROVENANCE_ENTITY: return createProvenanceEntity();
 			case FhirPackage.PROVENANCE_ENTITY_ROLE: return createProvenanceEntityRole();
 			case FhirPackage.PUBLICATION_STATUS: return createPublicationStatus();
-			case FhirPackage.PUSH_TYPE_AVAILABLE: return createPushTypeAvailable();
 			case FhirPackage.QUALITY_TYPE: return createQualityType();
 			case FhirPackage.QUANTITY: return createQuantity();
 			case FhirPackage.QUANTITY_COMPARATOR: return createQuantityComparator();
 			case FhirPackage.QUESTIONNAIRE: return createQuestionnaire();
+			case FhirPackage.QUESTIONNAIRE_ANSWER_OPTION: return createQuestionnaireAnswerOption();
 			case FhirPackage.QUESTIONNAIRE_ENABLE_WHEN: return createQuestionnaireEnableWhen();
+			case FhirPackage.QUESTIONNAIRE_INITIAL: return createQuestionnaireInitial();
 			case FhirPackage.QUESTIONNAIRE_ITEM: return createQuestionnaireItem();
+			case FhirPackage.QUESTIONNAIRE_ITEM_OPERATOR: return createQuestionnaireItemOperator();
 			case FhirPackage.QUESTIONNAIRE_ITEM_TYPE: return createQuestionnaireItemType();
-			case FhirPackage.QUESTIONNAIRE_OPTION: return createQuestionnaireOption();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE: return createQuestionnaireResponse();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ANSWER: return createQuestionnaireResponseAnswer();
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_ITEM: return createQuestionnaireResponseItem();
@@ -1764,6 +1831,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.RELATED_ARTIFACT: return createRelatedArtifact();
 			case FhirPackage.RELATED_ARTIFACT_TYPE: return createRelatedArtifactType();
 			case FhirPackage.RELATED_PERSON: return createRelatedPerson();
+			case FhirPackage.RELATED_PERSON_COMMUNICATION: return createRelatedPersonCommunication();
 			case FhirPackage.REMITTANCE_OUTCOME: return createRemittanceOutcome();
 			case FhirPackage.REPOSITORY_TYPE: return createRepositoryType();
 			case FhirPackage.REQUEST_GROUP: return createRequestGroup();
@@ -1772,7 +1840,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.REQUEST_GROUP_RELATED_ACTION: return createRequestGroupRelatedAction();
 			case FhirPackage.REQUEST_INTENT: return createRequestIntent();
 			case FhirPackage.REQUEST_PRIORITY: return createRequestPriority();
+			case FhirPackage.REQUEST_RESOURCE_TYPE: return createRequestResourceType();
 			case FhirPackage.REQUEST_STATUS: return createRequestStatus();
+			case FhirPackage.RESEARCH_DEFINITION: return createResearchDefinition();
+			case FhirPackage.RESEARCH_ELEMENT_DEFINITION: return createResearchElementDefinition();
+			case FhirPackage.RESEARCH_ELEMENT_DEFINITION_CHARACTERISTIC: return createResearchElementDefinitionCharacteristic();
+			case FhirPackage.RESEARCH_ELEMENT_TYPE: return createResearchElementType();
 			case FhirPackage.RESEARCH_STUDY: return createResearchStudy();
 			case FhirPackage.RESEARCH_STUDY_ARM: return createResearchStudyArm();
 			case FhirPackage.RESEARCH_STUDY_OBJECTIVE: return createResearchStudyObjective();
@@ -1785,9 +1858,14 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.RESOURCE_VERSION_POLICY: return createResourceVersionPolicy();
 			case FhirPackage.RESPONSE_TYPE: return createResponseType();
 			case FhirPackage.RESTFUL_CAPABILITY_MODE: return createRestfulCapabilityMode();
-			case FhirPackage.RETIREMENT_STATUS: return createRetirementStatus();
 			case FhirPackage.RISK_ASSESSMENT: return createRiskAssessment();
 			case FhirPackage.RISK_ASSESSMENT_PREDICTION: return createRiskAssessmentPrediction();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS: return createRiskEvidenceSynthesis();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS_CERTAINTY: return createRiskEvidenceSynthesisCertainty();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS_CERTAINTY_SUBCOMPONENT: return createRiskEvidenceSynthesisCertaintySubcomponent();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS_PRECISION_ESTIMATE: return createRiskEvidenceSynthesisPrecisionEstimate();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS_RISK_ESTIMATE: return createRiskEvidenceSynthesisRiskEstimate();
+			case FhirPackage.RISK_EVIDENCE_SYNTHESIS_SAMPLE_SIZE: return createRiskEvidenceSynthesisSampleSize();
 			case FhirPackage.SAMPLED_DATA: return createSampledData();
 			case FhirPackage.SAMPLED_DATA_DATA_TYPE: return createSampledDataDataType();
 			case FhirPackage.SCHEDULE: return createSchedule();
@@ -1797,34 +1875,30 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.SEARCH_PARAMETER: return createSearchParameter();
 			case FhirPackage.SEARCH_PARAMETER_COMPONENT: return createSearchParameterComponent();
 			case FhirPackage.SEARCH_PARAM_TYPE: return createSearchParamType();
-			case FhirPackage.SEQUENCE: return createSequence();
-			case FhirPackage.SEQUENCE_INNER: return createSequenceInner();
-			case FhirPackage.SEQUENCE_OUTER: return createSequenceOuter();
-			case FhirPackage.SEQUENCE_QUALITY: return createSequenceQuality();
-			case FhirPackage.SEQUENCE_REFERENCE_SEQ: return createSequenceReferenceSeq();
-			case FhirPackage.SEQUENCE_REPOSITORY: return createSequenceRepository();
-			case FhirPackage.SEQUENCE_ROC: return createSequenceRoc();
-			case FhirPackage.SEQUENCE_STRUCTURE_VARIANT: return createSequenceStructureVariant();
-			case FhirPackage.SEQUENCE_VARIANT: return createSequenceVariant();
-			case FhirPackage.SERVICE_DEFINITION: return createServiceDefinition();
+			case FhirPackage.SEQUENCE_TYPE: return createSequenceType();
 			case FhirPackage.SERVICE_REQUEST: return createServiceRequest();
 			case FhirPackage.SIGNATURE: return createSignature();
 			case FhirPackage.SLICING_RULES: return createSlicingRules();
 			case FhirPackage.SLOT: return createSlot();
 			case FhirPackage.SLOT_STATUS: return createSlotStatus();
+			case FhirPackage.SORT_DIRECTION: return createSortDirection();
+			case FhirPackage.SPDX_LICENSE: return createSPDXLicense();
 			case FhirPackage.SPECIMEN: return createSpecimen();
 			case FhirPackage.SPECIMEN_COLLECTION: return createSpecimenCollection();
 			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE: return createSpecimenContainedPreference();
 			case FhirPackage.SPECIMEN_CONTAINER: return createSpecimenContainer();
 			case FhirPackage.SPECIMEN_DEFINITION: return createSpecimenDefinition();
-			case FhirPackage.SPECIMEN_DEFINITION_CONTAINER_ADDITIVE: return createSpecimenDefinitionContainerAdditive();
+			case FhirPackage.SPECIMEN_DEFINITION_ADDITIVE: return createSpecimenDefinitionAdditive();
+			case FhirPackage.SPECIMEN_DEFINITION_CONTAINER: return createSpecimenDefinitionContainer();
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING: return createSpecimenDefinitionHandling();
-			case FhirPackage.SPECIMEN_DEFINITION_SPECIMEN_TO_LAB: return createSpecimenDefinitionSpecimenToLab();
+			case FhirPackage.SPECIMEN_DEFINITION_TYPE_TESTED: return createSpecimenDefinitionTypeTested();
 			case FhirPackage.SPECIMEN_PROCESSING: return createSpecimenProcessing();
 			case FhirPackage.SPECIMEN_STATUS: return createSpecimenStatus();
 			case FhirPackage.STATUS: return createStatus();
+			case FhirPackage.STRAND_TYPE: return createStrandType();
 			case FhirPackage.STRING: return createString();
 			case FhirPackage.STRUCTURE_DEFINITION: return createStructureDefinition();
+			case FhirPackage.STRUCTURE_DEFINITION_CONTEXT: return createStructureDefinitionContext();
 			case FhirPackage.STRUCTURE_DEFINITION_DIFFERENTIAL: return createStructureDefinitionDifferential();
 			case FhirPackage.STRUCTURE_DEFINITION_KIND: return createStructureDefinitionKind();
 			case FhirPackage.STRUCTURE_DEFINITION_MAPPING: return createStructureDefinitionMapping();
@@ -1854,7 +1928,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.SUBSTANCE_AMOUNT_REFERENCE_RANGE: return createSubstanceAmountReferenceRange();
 			case FhirPackage.SUBSTANCE_INGREDIENT: return createSubstanceIngredient();
 			case FhirPackage.SUBSTANCE_INSTANCE: return createSubstanceInstance();
-			case FhirPackage.SUBSTANCE_MOIETY: return createSubstanceMoiety();
+			case FhirPackage.SUBSTANCE_NUCLEIC_ACID: return createSubstanceNucleicAcid();
+			case FhirPackage.SUBSTANCE_NUCLEIC_ACID_LINKAGE: return createSubstanceNucleicAcidLinkage();
+			case FhirPackage.SUBSTANCE_NUCLEIC_ACID_SUBUNIT: return createSubstanceNucleicAcidSubunit();
+			case FhirPackage.SUBSTANCE_NUCLEIC_ACID_SUGAR: return createSubstanceNucleicAcidSugar();
 			case FhirPackage.SUBSTANCE_POLYMER: return createSubstancePolymer();
 			case FhirPackage.SUBSTANCE_POLYMER_DEGREE_OF_POLYMERISATION: return createSubstancePolymerDegreeOfPolymerisation();
 			case FhirPackage.SUBSTANCE_POLYMER_MONOMER_SET: return createSubstancePolymerMonomerSet();
@@ -1862,22 +1939,31 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.SUBSTANCE_POLYMER_REPEAT_UNIT: return createSubstancePolymerRepeatUnit();
 			case FhirPackage.SUBSTANCE_POLYMER_STARTING_MATERIAL: return createSubstancePolymerStartingMaterial();
 			case FhirPackage.SUBSTANCE_POLYMER_STRUCTURAL_REPRESENTATION: return createSubstancePolymerStructuralRepresentation();
+			case FhirPackage.SUBSTANCE_PROTEIN: return createSubstanceProtein();
+			case FhirPackage.SUBSTANCE_PROTEIN_SUBUNIT: return createSubstanceProteinSubunit();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION: return createSubstanceReferenceInformation();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_CLASSIFICATION: return createSubstanceReferenceInformationClassification();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_GENE: return createSubstanceReferenceInformationGene();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_GENE_ELEMENT: return createSubstanceReferenceInformationGeneElement();
-			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_RELATIONSHIP: return createSubstanceReferenceInformationRelationship();
 			case FhirPackage.SUBSTANCE_REFERENCE_INFORMATION_TARGET: return createSubstanceReferenceInformationTarget();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL: return createSubstanceSourceMaterial();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_AUTHOR: return createSubstanceSourceMaterialAuthor();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_FRACTION_DESCRIPTION: return createSubstanceSourceMaterialFractionDescription();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_HYBRID: return createSubstanceSourceMaterialHybrid();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_ORGANISM: return createSubstanceSourceMaterialOrganism();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_ORGANISM_GENERAL: return createSubstanceSourceMaterialOrganismGeneral();
+			case FhirPackage.SUBSTANCE_SOURCE_MATERIAL_PART_DESCRIPTION: return createSubstanceSourceMaterialPartDescription();
 			case FhirPackage.SUBSTANCE_SPECIFICATION: return createSubstanceSpecification();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_CODE: return createSubstanceSpecificationCode();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE: return createSubstanceSpecificationIsotope();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY: return createSubstanceSpecificationMoiety();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOLECULAR_WEIGHT: return createSubstanceSpecificationMolecularWeight();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_OFFICIAL_NAME: return createSubstanceSpecificationOfficialName();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_NAME: return createSubstanceSpecificationName();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_OFFICIAL: return createSubstanceSpecificationOfficial();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_PROPERTY: return createSubstanceSpecificationProperty();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURAL_REPRESENTATION: return createSubstanceSpecificationStructuralRepresentation();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_RELATIONSHIP: return createSubstanceSpecificationRelationship();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_REPRESENTATION: return createSubstanceSpecificationRepresentation();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE: return createSubstanceSpecificationStructure();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_SUBSTANCE_CODE: return createSubstanceSpecificationSubstanceCode();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_SUBSTANCE_NAME: return createSubstanceSpecificationSubstanceName();
 			case FhirPackage.SUPPLY_DELIVERY: return createSupplyDelivery();
 			case FhirPackage.SUPPLY_DELIVERY_STATUS: return createSupplyDeliveryStatus();
 			case FhirPackage.SUPPLY_DELIVERY_SUPPLIED_ITEM: return createSupplyDeliverySuppliedItem();
@@ -1885,9 +1971,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.SUPPLY_REQUEST_PARAMETER: return createSupplyRequestParameter();
 			case FhirPackage.SUPPLY_REQUEST_STATUS: return createSupplyRequestStatus();
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION: return createSystemRestfulInteraction();
-			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE: return createSystemVersionProcessingMode();
 			case FhirPackage.TASK: return createTask();
 			case FhirPackage.TASK_INPUT: return createTaskInput();
+			case FhirPackage.TASK_INTENT: return createTaskIntent();
 			case FhirPackage.TASK_OUTPUT: return createTaskOutput();
 			case FhirPackage.TASK_RESTRICTION: return createTaskRestriction();
 			case FhirPackage.TASK_STATUS: return createTaskStatus();
@@ -1896,6 +1982,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM: return createTerminologyCapabilitiesCodeSystem();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_EXPANSION: return createTerminologyCapabilitiesExpansion();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_FILTER: return createTerminologyCapabilitiesFilter();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_IMPLEMENTATION: return createTerminologyCapabilitiesImplementation();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_PARAMETER: return createTerminologyCapabilitiesParameter();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_SOFTWARE: return createTerminologyCapabilitiesSoftware();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_TRANSLATION: return createTerminologyCapabilitiesTranslation();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_VALIDATE_CODE: return createTerminologyCapabilitiesValidateCode();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_VERSION: return createTerminologyCapabilitiesVersion();
@@ -1925,18 +2014,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.TEST_SCRIPT_METADATA: return createTestScriptMetadata();
 			case FhirPackage.TEST_SCRIPT_OPERATION: return createTestScriptOperation();
 			case FhirPackage.TEST_SCRIPT_ORIGIN: return createTestScriptOrigin();
-			case FhirPackage.TEST_SCRIPT_PARAM: return createTestScriptParam();
-			case FhirPackage.TEST_SCRIPT_PARAM1: return createTestScriptParam1();
-			case FhirPackage.TEST_SCRIPT_PARAM2: return createTestScriptParam2();
-			case FhirPackage.TEST_SCRIPT_PARAM3: return createTestScriptParam3();
 			case FhirPackage.TEST_SCRIPT_REQUEST_HEADER: return createTestScriptRequestHeader();
 			case FhirPackage.TEST_SCRIPT_REQUEST_METHOD_CODE: return createTestScriptRequestMethodCode();
-			case FhirPackage.TEST_SCRIPT_RULE: return createTestScriptRule();
-			case FhirPackage.TEST_SCRIPT_RULE1: return createTestScriptRule1();
-			case FhirPackage.TEST_SCRIPT_RULE2: return createTestScriptRule2();
-			case FhirPackage.TEST_SCRIPT_RULE3: return createTestScriptRule3();
-			case FhirPackage.TEST_SCRIPT_RULESET: return createTestScriptRuleset();
-			case FhirPackage.TEST_SCRIPT_RULESET1: return createTestScriptRuleset1();
 			case FhirPackage.TEST_SCRIPT_SETUP: return createTestScriptSetup();
 			case FhirPackage.TEST_SCRIPT_TEARDOWN: return createTestScriptTeardown();
 			case FhirPackage.TEST_SCRIPT_TEST: return createTestScriptTest();
@@ -1945,26 +2024,17 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.TIMING: return createTiming();
 			case FhirPackage.TIMING_REPEAT: return createTimingRepeat();
 			case FhirPackage.TRIGGER_DEFINITION: return createTriggerDefinition();
-			case FhirPackage.TRIGGER_DEFINITION_CONDITION: return createTriggerDefinitionCondition();
 			case FhirPackage.TRIGGER_TYPE: return createTriggerType();
 			case FhirPackage.TYPE_DERIVATION_RULE: return createTypeDerivationRule();
 			case FhirPackage.TYPE_RESTFUL_INTERACTION: return createTypeRestfulInteraction();
 			case FhirPackage.UDI_ENTRY_TYPE: return createUDIEntryType();
 			case FhirPackage.UNITS_OF_TIME: return createUnitsOfTime();
-			case FhirPackage.UNKNOWN_CONTENT_CODE: return createUnknownContentCode();
 			case FhirPackage.UNSIGNED_INT: return createUnsignedInt();
 			case FhirPackage.URI: return createUri();
+			case FhirPackage.URL: return createUrl();
 			case FhirPackage.USAGE_CONTEXT: return createUsageContext();
 			case FhirPackage.USE: return createUse();
-			case FhirPackage.USER_SESSION: return createUserSession();
-			case FhirPackage.USER_SESSION_CONTEXT: return createUserSessionContext();
-			case FhirPackage.USER_SESSION_STATUS: return createUserSessionStatus();
-			case FhirPackage.USER_SESSION_STATUS1: return createUserSessionStatus1();
-			case FhirPackage.USER_SESSION_STATUS_SOURCE: return createUserSessionStatusSource();
-			case FhirPackage.USUAL_OCCUPATION: return createUsualOccupation();
 			case FhirPackage.UUID: return createUuid();
-			case FhirPackage.VALIDATION_STATUS: return createValidationStatus();
-			case FhirPackage.VALIDATION_TYPE: return createValidationType();
 			case FhirPackage.VALUE_SET: return createValueSet();
 			case FhirPackage.VALUE_SET_COMPOSE: return createValueSetCompose();
 			case FhirPackage.VALUE_SET_CONCEPT: return createValueSetConcept();
@@ -1974,6 +2044,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.VALUE_SET_FILTER: return createValueSetFilter();
 			case FhirPackage.VALUE_SET_INCLUDE: return createValueSetInclude();
 			case FhirPackage.VALUE_SET_PARAMETER: return createValueSetParameter();
+			case FhirPackage.VARIABLE_TYPE: return createVariableType();
+			case FhirPackage.VCONFIDENTIALITY_CLASSIFICATION: return createVConfidentialityClassification();
 			case FhirPackage.VERIFICATION_RESULT: return createVerificationResult();
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION: return createVerificationResultAttestation();
 			case FhirPackage.VERIFICATION_RESULT_PRIMARY_SOURCE: return createVerificationResultPrimarySource();
@@ -1981,7 +2053,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			case FhirPackage.VISION_BASE: return createVisionBase();
 			case FhirPackage.VISION_EYES: return createVisionEyes();
 			case FhirPackage.VISION_PRESCRIPTION: return createVisionPrescription();
-			case FhirPackage.VISION_PRESCRIPTION_DISPENSE: return createVisionPrescriptionDispense();
+			case FhirPackage.VISION_PRESCRIPTION_LENS_SPECIFICATION: return createVisionPrescriptionLensSpecification();
+			case FhirPackage.VISION_PRESCRIPTION_PRISM: return createVisionPrescriptionPrism();
 			case FhirPackage.XPATH_USAGE_TYPE: return createXPathUsageType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -2004,8 +2077,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createActionConditionKindListFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST:
 				return createActionGroupingBehaviorListFromString(eDataType, initialValue);
-			case FhirPackage.ACTION_LIST_LIST:
-				return createActionListListFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST:
 				return createActionParticipantTypeListFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST:
@@ -2028,16 +2099,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createAggregationModeListFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST:
 				return createAllergyIntoleranceCategoryListFromString(eDataType, initialValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST:
-				return createAllergyIntoleranceClinicalStatusListFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST:
 				return createAllergyIntoleranceCriticalityListFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_SEVERITY_LIST:
 				return createAllergyIntoleranceSeverityListFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_TYPE_LIST:
 				return createAllergyIntoleranceTypeListFromString(eDataType, initialValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_VERIFICATION_STATUS_LIST:
-				return createAllergyIntoleranceVerificationStatusListFromString(eDataType, initialValue);
 			case FhirPackage.APPOINTMENT_STATUS_LIST:
 				return createAppointmentStatusListFromString(eDataType, initialValue);
 			case FhirPackage.ASSERTION_DIRECTION_TYPE_LIST:
@@ -2062,8 +2129,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createBiologicallyDerivedProductStorageScaleListFromString(eDataType, initialValue);
 			case FhirPackage.BUNDLE_TYPE_LIST:
 				return createBundleTypeListFromString(eDataType, initialValue);
-			case FhirPackage.CAN_PUSH_UPDATES_LIST:
-				return createCanPushUpdatesListFromString(eDataType, initialValue);
 			case FhirPackage.CAPABILITY_STATEMENT_KIND_LIST:
 				return createCapabilityStatementKindListFromString(eDataType, initialValue);
 			case FhirPackage.CARE_PLAN_ACTIVITY_KIND_LIST:
@@ -2072,10 +2137,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createCarePlanActivityStatusListFromString(eDataType, initialValue);
 			case FhirPackage.CARE_PLAN_INTENT_LIST:
 				return createCarePlanIntentListFromString(eDataType, initialValue);
-			case FhirPackage.CARE_PLAN_STATUS_LIST:
-				return createCarePlanStatusListFromString(eDataType, initialValue);
 			case FhirPackage.CARE_TEAM_STATUS_LIST:
 				return createCareTeamStatusListFromString(eDataType, initialValue);
+			case FhirPackage.CATALOG_ENTRY_RELATION_TYPE_LIST:
+				return createCatalogEntryRelationTypeListFromString(eDataType, initialValue);
 			case FhirPackage.CHARGE_ITEM_STATUS_LIST:
 				return createChargeItemStatusListFromString(eDataType, initialValue);
 			case FhirPackage.CLAIM_PROCESSING_CODES_LIST:
@@ -2102,18 +2167,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createConditionalDeleteStatusListFromString(eDataType, initialValue);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST:
 				return createConditionalReadStatusListFromString(eDataType, initialValue);
-			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST:
-				return createConditionClinicalStatusCodesListFromString(eDataType, initialValue);
-			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST:
-				return createConditionVerificationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST:
-				return createConfidentialityClassificationListFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST:
 				return createConsentDataMeaningListFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_PROVISION_TYPE_LIST:
 				return createConsentProvisionTypeListFromString(eDataType, initialValue);
-			case FhirPackage.CONSENT_SCOPE_CODES_LIST:
-				return createConsentScopeCodesListFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_STATE_LIST:
 				return createConsentStateListFromString(eDataType, initialValue);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST:
@@ -2122,8 +2179,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createContactPointSystemListFromString(eDataType, initialValue);
 			case FhirPackage.CONTACT_POINT_USE_LIST:
 				return createContactPointUseListFromString(eDataType, initialValue);
-			case FhirPackage.CONTRACT_DATA_MEANING_LIST:
-				return createContractDataMeaningListFromString(eDataType, initialValue);
+			case FhirPackage.CONTRACT_RESOURCE_PUBLICATION_STATUS_CODES_LIST:
+				return createContractResourcePublicationStatusCodesListFromString(eDataType, initialValue);
 			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST:
 				return createContractResourceStatusCodesListFromString(eDataType, initialValue);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST:
@@ -2142,6 +2199,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createDeviceMetricColorListFromString(eDataType, initialValue);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST:
 				return createDeviceMetricOperationalStatusListFromString(eDataType, initialValue);
+			case FhirPackage.DEVICE_NAME_TYPE_LIST:
+				return createDeviceNameTypeListFromString(eDataType, initialValue);
 			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST:
 				return createDeviceUseStatementStatusListFromString(eDataType, initialValue);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST:
@@ -2154,6 +2213,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createDocumentReferenceStatusListFromString(eDataType, initialValue);
 			case FhirPackage.DOCUMENT_RELATIONSHIP_TYPE_LIST:
 				return createDocumentRelationshipTypeListFromString(eDataType, initialValue);
+			case FhirPackage.ELIGIBILITY_REQUEST_PURPOSE_LIST:
+				return createEligibilityRequestPurposeListFromString(eDataType, initialValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_PURPOSE_LIST:
+				return createEligibilityResponsePurposeListFromString(eDataType, initialValue);
+			case FhirPackage.ENABLE_WHEN_BEHAVIOR_LIST:
+				return createEnableWhenBehaviorListFromString(eDataType, initialValue);
 			case FhirPackage.ENCOUNTER_LOCATION_STATUS_LIST:
 				return createEncounterLocationStatusListFromString(eDataType, initialValue);
 			case FhirPackage.ENCOUNTER_STATUS_LIST:
@@ -2168,62 +2233,60 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createEventStatusListFromString(eDataType, initialValue);
 			case FhirPackage.EVENT_TIMING_LIST:
 				return createEventTimingListFromString(eDataType, initialValue);
+			case FhirPackage.EVIDENCE_VARIABLE_TYPE_LIST:
+				return createEvidenceVariableTypeListFromString(eDataType, initialValue);
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE_LIST:
 				return createExampleScenarioActorTypeListFromString(eDataType, initialValue);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST:
 				return createExplanationOfBenefitStatusListFromString(eDataType, initialValue);
+			case FhirPackage.EXPOSURE_STATE_LIST:
+				return createExposureStateListFromString(eDataType, initialValue);
 			case FhirPackage.EXPRESSION_LANGUAGE_LIST:
 				return createExpressionLanguageListFromString(eDataType, initialValue);
-			case FhirPackage.EXTENSION_CONTEXT_LIST:
-				return createExtensionContextListFromString(eDataType, initialValue);
-			case FhirPackage.FAILURE_ACTION_LIST:
-				return createFailureActionListFromString(eDataType, initialValue);
+			case FhirPackage.EXTENSION_CONTEXT_TYPE_LIST:
+				return createExtensionContextTypeListFromString(eDataType, initialValue);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST:
 				return createFamilyHistoryStatusListFromString(eDataType, initialValue);
-			case FhirPackage.FHIR_ALL_TYPES_LIST:
-				return createFHIRAllTypesListFromString(eDataType, initialValue);
-			case FhirPackage.FHIR_DEFINED_TYPE_LIST:
-				return createFHIRDefinedTypeListFromString(eDataType, initialValue);
 			case FhirPackage.FHIR_DEVICE_STATUS_LIST:
 				return createFHIRDeviceStatusListFromString(eDataType, initialValue);
 			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST:
 				return createFHIRSubstanceStatusListFromString(eDataType, initialValue);
+			case FhirPackage.FHIR_VERSION_LIST:
+				return createFHIRVersionListFromString(eDataType, initialValue);
 			case FhirPackage.FILTER_OPERATOR_LIST:
 				return createFilterOperatorListFromString(eDataType, initialValue);
 			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST:
 				return createFinancialResourceStatusCodesListFromString(eDataType, initialValue);
 			case FhirPackage.FLAG_STATUS_LIST:
 				return createFlagStatusListFromString(eDataType, initialValue);
-			case FhirPackage.GOAL_STATUS_LIST:
-				return createGoalStatusListFromString(eDataType, initialValue);
+			case FhirPackage.GOAL_LIFECYCLE_STATUS_LIST:
+				return createGoalLifecycleStatusListFromString(eDataType, initialValue);
 			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST:
 				return createGraphCompartmentRuleListFromString(eDataType, initialValue);
 			case FhirPackage.GRAPH_COMPARTMENT_USE_LIST:
 				return createGraphCompartmentUseListFromString(eDataType, initialValue);
+			case FhirPackage.GROUP_MEASURE_LIST:
+				return createGroupMeasureListFromString(eDataType, initialValue);
 			case FhirPackage.GROUP_TYPE_LIST:
 				return createGroupTypeListFromString(eDataType, initialValue);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST:
 				return createGuidanceResponseStatusListFromString(eDataType, initialValue);
-			case FhirPackage.GUIDE_DEPENDENCY_TYPE_LIST:
-				return createGuideDependencyTypeListFromString(eDataType, initialValue);
-			case FhirPackage.GUIDE_PAGE_KIND_LIST:
-				return createGuidePageKindListFromString(eDataType, initialValue);
-			case FhirPackage.HAZARDOUS_DUTY_WORK_LIST:
-				return createHazardousDutyWorkListFromString(eDataType, initialValue);
-			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS_LIST:
-				return createHistoryOfEmploymentStatusListFromString(eDataType, initialValue);
+			case FhirPackage.GUIDE_PAGE_GENERATION_LIST:
+				return createGuidePageGenerationListFromString(eDataType, initialValue);
+			case FhirPackage.GUIDE_PARAMETER_CODE_LIST:
+				return createGuideParameterCodeListFromString(eDataType, initialValue);
 			case FhirPackage.HTTP_VERB_LIST:
 				return createHTTPVerbListFromString(eDataType, initialValue);
 			case FhirPackage.IDENTIFIER_USE_LIST:
 				return createIdentifierUseListFromString(eDataType, initialValue);
 			case FhirPackage.IDENTITY_ASSURANCE_LEVEL_LIST:
 				return createIdentityAssuranceLevelListFromString(eDataType, initialValue);
+			case FhirPackage.IMAGING_STUDY_STATUS_LIST:
+				return createImagingStudyStatusListFromString(eDataType, initialValue);
 			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES_LIST:
 				return createImmunizationEvaluationStatusCodesListFromString(eDataType, initialValue);
 			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST:
 				return createImmunizationStatusCodesListFromString(eDataType, initialValue);
-			case FhirPackage.INSTANCE_AVAILABILITY_LIST:
-				return createInstanceAvailabilityListFromString(eDataType, initialValue);
 			case FhirPackage.INVOICE_PRICE_COMPONENT_TYPE_LIST:
 				return createInvoicePriceComponentTypeListFromString(eDataType, initialValue);
 			case FhirPackage.INVOICE_STATUS_LIST:
@@ -2244,26 +2307,18 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createLocationModeListFromString(eDataType, initialValue);
 			case FhirPackage.LOCATION_STATUS_LIST:
 				return createLocationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.MEASMNT_PRINCIPLE_LIST:
-				return createMeasmntPrincipleListFromString(eDataType, initialValue);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST:
 				return createMeasureReportStatusListFromString(eDataType, initialValue);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST:
 				return createMeasureReportTypeListFromString(eDataType, initialValue);
-			case FhirPackage.MEDIA_STATUS_LIST:
-				return createMediaStatusListFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST:
-				return createMedicationAdministrationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST:
-				return createMedicationDispenseStatusListFromString(eDataType, initialValue);
 			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST:
 				return createMedicationRequestIntentListFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST:
-				return createMedicationRequestStatusListFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST:
-				return createMedicationStatementStatusListFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_STATUS_LIST:
-				return createMedicationStatusListFromString(eDataType, initialValue);
+			case FhirPackage.MEDICATIONREQUEST_STATUS_LIST:
+				return createMedicationrequestStatusListFromString(eDataType, initialValue);
+			case FhirPackage.MEDICATION_STATUS_CODES_LIST:
+				return createMedicationStatusCodesListFromString(eDataType, initialValue);
+			case FhirPackage.MESSAGEHEADER_RESPONSE_REQUEST_LIST:
+				return createMessageheaderResponseRequestListFromString(eDataType, initialValue);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST:
 				return createMessageSignificanceCategoryListFromString(eDataType, initialValue);
 			case FhirPackage.NAME_USE_LIST:
@@ -2274,24 +2329,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createNamingSystemTypeListFromString(eDataType, initialValue);
 			case FhirPackage.NARRATIVE_STATUS_LIST:
 				return createNarrativeStatusListFromString(eDataType, initialValue);
-			case FhirPackage.NEED_LIST:
-				return createNeedListFromString(eDataType, initialValue);
 			case FhirPackage.NOTE_TYPE_LIST:
 				return createNoteTypeListFromString(eDataType, initialValue);
-			case FhirPackage.NUTRITION_ORDER_STATUS_LIST:
-				return createNutritionOrderStatusListFromString(eDataType, initialValue);
+			case FhirPackage.OBSERVATION_DATA_TYPE_LIST:
+				return createObservationDataTypeListFromString(eDataType, initialValue);
+			case FhirPackage.OBSERVATION_RANGE_CATEGORY_LIST:
+				return createObservationRangeCategoryListFromString(eDataType, initialValue);
 			case FhirPackage.OBSERVATION_STATUS_LIST:
 				return createObservationStatusListFromString(eDataType, initialValue);
 			case FhirPackage.OPERATION_KIND_LIST:
 				return createOperationKindListFromString(eDataType, initialValue);
 			case FhirPackage.OPERATION_PARAMETER_USE_LIST:
 				return createOperationParameterUseListFromString(eDataType, initialValue);
+			case FhirPackage.ORIENTATION_TYPE_LIST:
+				return createOrientationTypeListFromString(eDataType, initialValue);
 			case FhirPackage.PARTICIPANT_REQUIRED_LIST:
 				return createParticipantRequiredListFromString(eDataType, initialValue);
 			case FhirPackage.PARTICIPATION_STATUS_LIST:
 				return createParticipationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.PROCESS_OUTCOME_CODES_LIST:
-				return createProcessOutcomeCodesListFromString(eDataType, initialValue);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST:
 				return createPropertyRepresentationListFromString(eDataType, initialValue);
 			case FhirPackage.PROPERTY_TYPE_LIST:
@@ -2300,12 +2355,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createProvenanceEntityRoleListFromString(eDataType, initialValue);
 			case FhirPackage.PUBLICATION_STATUS_LIST:
 				return createPublicationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.PUSH_TYPE_AVAILABLE_LIST:
-				return createPushTypeAvailableListFromString(eDataType, initialValue);
 			case FhirPackage.QUALITY_TYPE_LIST:
 				return createQualityTypeListFromString(eDataType, initialValue);
 			case FhirPackage.QUANTITY_COMPARATOR_LIST:
 				return createQuantityComparatorListFromString(eDataType, initialValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM_OPERATOR_LIST:
+				return createQuestionnaireItemOperatorListFromString(eDataType, initialValue);
 			case FhirPackage.QUESTIONNAIRE_ITEM_TYPE_LIST:
 				return createQuestionnaireItemTypeListFromString(eDataType, initialValue);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST:
@@ -2324,8 +2379,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createRequestIntentListFromString(eDataType, initialValue);
 			case FhirPackage.REQUEST_PRIORITY_LIST:
 				return createRequestPriorityListFromString(eDataType, initialValue);
+			case FhirPackage.REQUEST_RESOURCE_TYPE_LIST:
+				return createRequestResourceTypeListFromString(eDataType, initialValue);
 			case FhirPackage.REQUEST_STATUS_LIST:
 				return createRequestStatusListFromString(eDataType, initialValue);
+			case FhirPackage.RESEARCH_ELEMENT_TYPE_LIST:
+				return createResearchElementTypeListFromString(eDataType, initialValue);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST:
 				return createResearchStudyStatusListFromString(eDataType, initialValue);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST:
@@ -2338,8 +2397,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createResponseTypeListFromString(eDataType, initialValue);
 			case FhirPackage.RESTFUL_CAPABILITY_MODE_LIST:
 				return createRestfulCapabilityModeListFromString(eDataType, initialValue);
-			case FhirPackage.RETIREMENT_STATUS_LIST:
-				return createRetirementStatusListFromString(eDataType, initialValue);
 			case FhirPackage.SEARCH_COMPARATOR_LIST:
 				return createSearchComparatorListFromString(eDataType, initialValue);
 			case FhirPackage.SEARCH_ENTRY_MODE_LIST:
@@ -2348,16 +2405,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createSearchModifierCodeListFromString(eDataType, initialValue);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST:
 				return createSearchParamTypeListFromString(eDataType, initialValue);
+			case FhirPackage.SEQUENCE_TYPE_LIST:
+				return createSequenceTypeListFromString(eDataType, initialValue);
 			case FhirPackage.SLICING_RULES_LIST:
 				return createSlicingRulesListFromString(eDataType, initialValue);
 			case FhirPackage.SLOT_STATUS_LIST:
 				return createSlotStatusListFromString(eDataType, initialValue);
+			case FhirPackage.SORT_DIRECTION_LIST:
+				return createSortDirectionListFromString(eDataType, initialValue);
+			case FhirPackage.SPDX_LICENSE_LIST:
+				return createSPDXLicenseListFromString(eDataType, initialValue);
 			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE_LIST:
 				return createSpecimenContainedPreferenceListFromString(eDataType, initialValue);
 			case FhirPackage.SPECIMEN_STATUS_LIST:
 				return createSpecimenStatusListFromString(eDataType, initialValue);
 			case FhirPackage.STATUS_LIST:
 				return createStatusListFromString(eDataType, initialValue);
+			case FhirPackage.STRAND_TYPE_LIST:
+				return createStrandTypeListFromString(eDataType, initialValue);
 			case FhirPackage.STRUCTURE_DEFINITION_KIND_LIST:
 				return createStructureDefinitionKindListFromString(eDataType, initialValue);
 			case FhirPackage.STRUCTURE_MAP_CONTEXT_TYPE_LIST:
@@ -2384,8 +2449,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createSupplyRequestStatusListFromString(eDataType, initialValue);
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION_LIST:
 				return createSystemRestfulInteractionListFromString(eDataType, initialValue);
-			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE_LIST:
-				return createSystemVersionProcessingModeListFromString(eDataType, initialValue);
+			case FhirPackage.TASK_INTENT_LIST:
+				return createTaskIntentListFromString(eDataType, initialValue);
 			case FhirPackage.TASK_STATUS_LIST:
 				return createTaskStatusListFromString(eDataType, initialValue);
 			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST:
@@ -2408,20 +2473,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createUDIEntryTypeListFromString(eDataType, initialValue);
 			case FhirPackage.UNITS_OF_TIME_LIST:
 				return createUnitsOfTimeListFromString(eDataType, initialValue);
-			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST:
-				return createUnknownContentCodeListFromString(eDataType, initialValue);
 			case FhirPackage.USE_LIST:
 				return createUseListFromString(eDataType, initialValue);
-			case FhirPackage.USER_SESSION_STATUS_LIST:
-				return createUserSessionStatusListFromString(eDataType, initialValue);
-			case FhirPackage.USER_SESSION_STATUS_SOURCE_LIST:
-				return createUserSessionStatusSourceListFromString(eDataType, initialValue);
-			case FhirPackage.USUAL_OCCUPATION_LIST:
-				return createUsualOccupationListFromString(eDataType, initialValue);
-			case FhirPackage.VALIDATION_STATUS_LIST:
-				return createValidationStatusListFromString(eDataType, initialValue);
-			case FhirPackage.VALIDATION_TYPE_LIST:
-				return createValidationTypeListFromString(eDataType, initialValue);
+			case FhirPackage.VARIABLE_TYPE_LIST:
+				return createVariableTypeListFromString(eDataType, initialValue);
+			case FhirPackage.VCONFIDENTIALITY_CLASSIFICATION_LIST:
+				return createVConfidentialityClassificationListFromString(eDataType, initialValue);
 			case FhirPackage.VISION_BASE_LIST:
 				return createVisionBaseListFromString(eDataType, initialValue);
 			case FhirPackage.VISION_EYES_LIST:
@@ -2436,8 +2493,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createActionConditionKindListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST_OBJECT:
 				return createActionGroupingBehaviorListObjectFromString(eDataType, initialValue);
-			case FhirPackage.ACTION_LIST_LIST_OBJECT:
-				return createActionListListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST_OBJECT:
 				return createActionParticipantTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST_OBJECT:
@@ -2460,16 +2515,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createAggregationModeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST_OBJECT:
 				return createAllergyIntoleranceCategoryListObjectFromString(eDataType, initialValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST_OBJECT:
-				return createAllergyIntoleranceClinicalStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST_OBJECT:
 				return createAllergyIntoleranceCriticalityListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_SEVERITY_LIST_OBJECT:
 				return createAllergyIntoleranceSeverityListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_TYPE_LIST_OBJECT:
 				return createAllergyIntoleranceTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_VERIFICATION_STATUS_LIST_OBJECT:
-				return createAllergyIntoleranceVerificationStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.APPOINTMENT_STATUS_LIST_OBJECT:
 				return createAppointmentStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ASSERTION_DIRECTION_TYPE_LIST_OBJECT:
@@ -2500,8 +2551,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createBooleanPrimitiveObjectFromString(eDataType, initialValue);
 			case FhirPackage.BUNDLE_TYPE_LIST_OBJECT:
 				return createBundleTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CAN_PUSH_UPDATES_LIST_OBJECT:
-				return createCanPushUpdatesListObjectFromString(eDataType, initialValue);
+			case FhirPackage.CANONICAL_PRIMITIVE:
+				return createCanonicalPrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.CAPABILITY_STATEMENT_KIND_LIST_OBJECT:
 				return createCapabilityStatementKindListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CARE_PLAN_ACTIVITY_KIND_LIST_OBJECT:
@@ -2510,10 +2561,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createCarePlanActivityStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CARE_PLAN_INTENT_LIST_OBJECT:
 				return createCarePlanIntentListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CARE_PLAN_STATUS_LIST_OBJECT:
-				return createCarePlanStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CARE_TEAM_STATUS_LIST_OBJECT:
 				return createCareTeamStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.CATALOG_ENTRY_RELATION_TYPE_LIST_OBJECT:
+				return createCatalogEntryRelationTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CHARGE_ITEM_STATUS_LIST_OBJECT:
 				return createChargeItemStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CLAIM_PROCESSING_CODES_LIST_OBJECT:
@@ -2542,18 +2593,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createConditionalDeleteStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST_OBJECT:
 				return createConditionalReadStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST_OBJECT:
-				return createConditionClinicalStatusCodesListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST_OBJECT:
-				return createConditionVerificationStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST_OBJECT:
-				return createConfidentialityClassificationListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST_OBJECT:
 				return createConsentDataMeaningListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_PROVISION_TYPE_LIST_OBJECT:
 				return createConsentProvisionTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CONSENT_SCOPE_CODES_LIST_OBJECT:
-				return createConsentScopeCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONSENT_STATE_LIST_OBJECT:
 				return createConsentStateListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST_OBJECT:
@@ -2562,8 +2605,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createContactPointSystemListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONTACT_POINT_USE_LIST_OBJECT:
 				return createContactPointUseListObjectFromString(eDataType, initialValue);
-			case FhirPackage.CONTRACT_DATA_MEANING_LIST_OBJECT:
-				return createContractDataMeaningListObjectFromString(eDataType, initialValue);
+			case FhirPackage.CONTRACT_RESOURCE_PUBLICATION_STATUS_CODES_LIST_OBJECT:
+				return createContractResourcePublicationStatusCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST_OBJECT:
 				return createContractResourceStatusCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST_OBJECT:
@@ -2592,6 +2635,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createDeviceMetricColorListObjectFromString(eDataType, initialValue);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST_OBJECT:
 				return createDeviceMetricOperationalStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.DEVICE_NAME_TYPE_LIST_OBJECT:
+				return createDeviceNameTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST_OBJECT:
 				return createDeviceUseStatementStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST_OBJECT:
@@ -2604,6 +2649,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createDocumentReferenceStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.DOCUMENT_RELATIONSHIP_TYPE_LIST_OBJECT:
 				return createDocumentRelationshipTypeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.ELIGIBILITY_REQUEST_PURPOSE_LIST_OBJECT:
+				return createEligibilityRequestPurposeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_PURPOSE_LIST_OBJECT:
+				return createEligibilityResponsePurposeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.ENABLE_WHEN_BEHAVIOR_LIST_OBJECT:
+				return createEnableWhenBehaviorListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ENCOUNTER_LOCATION_STATUS_LIST_OBJECT:
 				return createEncounterLocationStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ENCOUNTER_STATUS_LIST_OBJECT:
@@ -2618,50 +2669,48 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createEventStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.EVENT_TIMING_LIST_OBJECT:
 				return createEventTimingListObjectFromString(eDataType, initialValue);
+			case FhirPackage.EVIDENCE_VARIABLE_TYPE_LIST_OBJECT:
+				return createEvidenceVariableTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE_LIST_OBJECT:
 				return createExampleScenarioActorTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST_OBJECT:
 				return createExplanationOfBenefitStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.EXPOSURE_STATE_LIST_OBJECT:
+				return createExposureStateListObjectFromString(eDataType, initialValue);
 			case FhirPackage.EXPRESSION_LANGUAGE_LIST_OBJECT:
 				return createExpressionLanguageListObjectFromString(eDataType, initialValue);
-			case FhirPackage.EXTENSION_CONTEXT_LIST_OBJECT:
-				return createExtensionContextListObjectFromString(eDataType, initialValue);
-			case FhirPackage.FAILURE_ACTION_LIST_OBJECT:
-				return createFailureActionListObjectFromString(eDataType, initialValue);
+			case FhirPackage.EXTENSION_CONTEXT_TYPE_LIST_OBJECT:
+				return createExtensionContextTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST_OBJECT:
 				return createFamilyHistoryStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.FHIR_ALL_TYPES_LIST_OBJECT:
-				return createFHIRAllTypesListObjectFromString(eDataType, initialValue);
-			case FhirPackage.FHIR_DEFINED_TYPE_LIST_OBJECT:
-				return createFHIRDefinedTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FHIR_DEVICE_STATUS_LIST_OBJECT:
 				return createFHIRDeviceStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST_OBJECT:
 				return createFHIRSubstanceStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.FHIR_VERSION_LIST_OBJECT:
+				return createFHIRVersionListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FILTER_OPERATOR_LIST_OBJECT:
 				return createFilterOperatorListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST_OBJECT:
 				return createFinancialResourceStatusCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.FLAG_STATUS_LIST_OBJECT:
 				return createFlagStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.GOAL_STATUS_LIST_OBJECT:
-				return createGoalStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.GOAL_LIFECYCLE_STATUS_LIST_OBJECT:
+				return createGoalLifecycleStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST_OBJECT:
 				return createGraphCompartmentRuleListObjectFromString(eDataType, initialValue);
 			case FhirPackage.GRAPH_COMPARTMENT_USE_LIST_OBJECT:
 				return createGraphCompartmentUseListObjectFromString(eDataType, initialValue);
+			case FhirPackage.GROUP_MEASURE_LIST_OBJECT:
+				return createGroupMeasureListObjectFromString(eDataType, initialValue);
 			case FhirPackage.GROUP_TYPE_LIST_OBJECT:
 				return createGroupTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST_OBJECT:
 				return createGuidanceResponseStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.GUIDE_DEPENDENCY_TYPE_LIST_OBJECT:
-				return createGuideDependencyTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.GUIDE_PAGE_KIND_LIST_OBJECT:
-				return createGuidePageKindListObjectFromString(eDataType, initialValue);
-			case FhirPackage.HAZARDOUS_DUTY_WORK_LIST_OBJECT:
-				return createHazardousDutyWorkListObjectFromString(eDataType, initialValue);
-			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS_LIST_OBJECT:
-				return createHistoryOfEmploymentStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.GUIDE_PAGE_GENERATION_LIST_OBJECT:
+				return createGuidePageGenerationListObjectFromString(eDataType, initialValue);
+			case FhirPackage.GUIDE_PARAMETER_CODE_LIST_OBJECT:
+				return createGuideParameterCodeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.HTTP_VERB_LIST_OBJECT:
 				return createHTTPVerbListObjectFromString(eDataType, initialValue);
 			case FhirPackage.IDENTIFIER_USE_LIST_OBJECT:
@@ -2670,12 +2719,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createIdentityAssuranceLevelListObjectFromString(eDataType, initialValue);
 			case FhirPackage.ID_PRIMITIVE:
 				return createIdPrimitiveFromString(eDataType, initialValue);
+			case FhirPackage.IMAGING_STUDY_STATUS_LIST_OBJECT:
+				return createImagingStudyStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES_LIST_OBJECT:
 				return createImmunizationEvaluationStatusCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST_OBJECT:
 				return createImmunizationStatusCodesListObjectFromString(eDataType, initialValue);
-			case FhirPackage.INSTANCE_AVAILABILITY_LIST_OBJECT:
-				return createInstanceAvailabilityListObjectFromString(eDataType, initialValue);
 			case FhirPackage.INSTANT_PRIMITIVE:
 				return createInstantPrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.INTEGER_PRIMITIVE:
@@ -2704,26 +2753,18 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createLocationStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.MARKDOWN_PRIMITIVE:
 				return createMarkdownPrimitiveFromString(eDataType, initialValue);
-			case FhirPackage.MEASMNT_PRINCIPLE_LIST_OBJECT:
-				return createMeasmntPrincipleListObjectFromString(eDataType, initialValue);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST_OBJECT:
 				return createMeasureReportStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST_OBJECT:
 				return createMeasureReportTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDIA_STATUS_LIST_OBJECT:
-				return createMediaStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST_OBJECT:
-				return createMedicationAdministrationStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST_OBJECT:
-				return createMedicationDispenseStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST_OBJECT:
 				return createMedicationRequestIntentListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST_OBJECT:
-				return createMedicationRequestStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST_OBJECT:
-				return createMedicationStatementStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.MEDICATION_STATUS_LIST_OBJECT:
-				return createMedicationStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.MEDICATIONREQUEST_STATUS_LIST_OBJECT:
+				return createMedicationrequestStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.MEDICATION_STATUS_CODES_LIST_OBJECT:
+				return createMedicationStatusCodesListObjectFromString(eDataType, initialValue);
+			case FhirPackage.MESSAGEHEADER_RESPONSE_REQUEST_LIST_OBJECT:
+				return createMessageheaderResponseRequestListObjectFromString(eDataType, initialValue);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST_OBJECT:
 				return createMessageSignificanceCategoryListObjectFromString(eDataType, initialValue);
 			case FhirPackage.NAME_USE_LIST_OBJECT:
@@ -2734,12 +2775,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createNamingSystemTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.NARRATIVE_STATUS_LIST_OBJECT:
 				return createNarrativeStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.NEED_LIST_OBJECT:
-				return createNeedListObjectFromString(eDataType, initialValue);
 			case FhirPackage.NOTE_TYPE_LIST_OBJECT:
 				return createNoteTypeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.NUTRITION_ORDER_STATUS_LIST_OBJECT:
-				return createNutritionOrderStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.OBSERVATION_DATA_TYPE_LIST_OBJECT:
+				return createObservationDataTypeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.OBSERVATION_RANGE_CATEGORY_LIST_OBJECT:
+				return createObservationRangeCategoryListObjectFromString(eDataType, initialValue);
 			case FhirPackage.OBSERVATION_STATUS_LIST_OBJECT:
 				return createObservationStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.OID_PRIMITIVE:
@@ -2748,14 +2789,14 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createOperationKindListObjectFromString(eDataType, initialValue);
 			case FhirPackage.OPERATION_PARAMETER_USE_LIST_OBJECT:
 				return createOperationParameterUseListObjectFromString(eDataType, initialValue);
+			case FhirPackage.ORIENTATION_TYPE_LIST_OBJECT:
+				return createOrientationTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.PARTICIPANT_REQUIRED_LIST_OBJECT:
 				return createParticipantRequiredListObjectFromString(eDataType, initialValue);
 			case FhirPackage.PARTICIPATION_STATUS_LIST_OBJECT:
 				return createParticipationStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.POSITIVE_INT_PRIMITIVE:
 				return createPositiveIntPrimitiveFromString(eDataType, initialValue);
-			case FhirPackage.PROCESS_OUTCOME_CODES_LIST_OBJECT:
-				return createProcessOutcomeCodesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST_OBJECT:
 				return createPropertyRepresentationListObjectFromString(eDataType, initialValue);
 			case FhirPackage.PROPERTY_TYPE_LIST_OBJECT:
@@ -2764,12 +2805,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createProvenanceEntityRoleListObjectFromString(eDataType, initialValue);
 			case FhirPackage.PUBLICATION_STATUS_LIST_OBJECT:
 				return createPublicationStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.PUSH_TYPE_AVAILABLE_LIST_OBJECT:
-				return createPushTypeAvailableListObjectFromString(eDataType, initialValue);
 			case FhirPackage.QUALITY_TYPE_LIST_OBJECT:
 				return createQualityTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.QUANTITY_COMPARATOR_LIST_OBJECT:
 				return createQuantityComparatorListObjectFromString(eDataType, initialValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM_OPERATOR_LIST_OBJECT:
+				return createQuestionnaireItemOperatorListObjectFromString(eDataType, initialValue);
 			case FhirPackage.QUESTIONNAIRE_ITEM_TYPE_LIST_OBJECT:
 				return createQuestionnaireItemTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST_OBJECT:
@@ -2788,8 +2829,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createRequestIntentListObjectFromString(eDataType, initialValue);
 			case FhirPackage.REQUEST_PRIORITY_LIST_OBJECT:
 				return createRequestPriorityListObjectFromString(eDataType, initialValue);
+			case FhirPackage.REQUEST_RESOURCE_TYPE_LIST_OBJECT:
+				return createRequestResourceTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.REQUEST_STATUS_LIST_OBJECT:
 				return createRequestStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.RESEARCH_ELEMENT_TYPE_LIST_OBJECT:
+				return createResearchElementTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST_OBJECT:
 				return createResearchStudyStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST_OBJECT:
@@ -2802,8 +2847,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createResponseTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.RESTFUL_CAPABILITY_MODE_LIST_OBJECT:
 				return createRestfulCapabilityModeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.RETIREMENT_STATUS_LIST_OBJECT:
-				return createRetirementStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SAMPLED_DATA_DATA_TYPE_PRIMITIVE:
 				return createSampledDataDataTypePrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.SEARCH_COMPARATOR_LIST_OBJECT:
@@ -2814,16 +2857,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createSearchModifierCodeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST_OBJECT:
 				return createSearchParamTypeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.SEQUENCE_TYPE_LIST_OBJECT:
+				return createSequenceTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SLICING_RULES_LIST_OBJECT:
 				return createSlicingRulesListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SLOT_STATUS_LIST_OBJECT:
 				return createSlotStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.SORT_DIRECTION_LIST_OBJECT:
+				return createSortDirectionListObjectFromString(eDataType, initialValue);
+			case FhirPackage.SPDX_LICENSE_LIST_OBJECT:
+				return createSPDXLicenseListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE_LIST_OBJECT:
 				return createSpecimenContainedPreferenceListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SPECIMEN_STATUS_LIST_OBJECT:
 				return createSpecimenStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.STATUS_LIST_OBJECT:
 				return createStatusListObjectFromString(eDataType, initialValue);
+			case FhirPackage.STRAND_TYPE_LIST_OBJECT:
+				return createStrandTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.STRING_PRIMITIVE:
 				return createStringPrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.STRUCTURE_DEFINITION_KIND_LIST_OBJECT:
@@ -2852,8 +2903,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createSupplyRequestStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION_LIST_OBJECT:
 				return createSystemRestfulInteractionListObjectFromString(eDataType, initialValue);
-			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE_LIST_OBJECT:
-				return createSystemVersionProcessingModeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.TASK_INTENT_LIST_OBJECT:
+				return createTaskIntentListObjectFromString(eDataType, initialValue);
 			case FhirPackage.TASK_STATUS_LIST_OBJECT:
 				return createTaskStatusListObjectFromString(eDataType, initialValue);
 			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST_OBJECT:
@@ -2878,26 +2929,20 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return createUDIEntryTypeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.UNITS_OF_TIME_LIST_OBJECT:
 				return createUnitsOfTimeListObjectFromString(eDataType, initialValue);
-			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST_OBJECT:
-				return createUnknownContentCodeListObjectFromString(eDataType, initialValue);
 			case FhirPackage.UNSIGNED_INT_PRIMITIVE:
 				return createUnsignedIntPrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.URI_PRIMITIVE:
 				return createUriPrimitiveFromString(eDataType, initialValue);
+			case FhirPackage.URL_PRIMITIVE:
+				return createUrlPrimitiveFromString(eDataType, initialValue);
 			case FhirPackage.USE_LIST_OBJECT:
 				return createUseListObjectFromString(eDataType, initialValue);
-			case FhirPackage.USER_SESSION_STATUS_LIST_OBJECT:
-				return createUserSessionStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.USER_SESSION_STATUS_SOURCE_LIST_OBJECT:
-				return createUserSessionStatusSourceListObjectFromString(eDataType, initialValue);
-			case FhirPackage.USUAL_OCCUPATION_LIST_OBJECT:
-				return createUsualOccupationListObjectFromString(eDataType, initialValue);
 			case FhirPackage.UUID_PRIMITIVE:
 				return createUuidPrimitiveFromString(eDataType, initialValue);
-			case FhirPackage.VALIDATION_STATUS_LIST_OBJECT:
-				return createValidationStatusListObjectFromString(eDataType, initialValue);
-			case FhirPackage.VALIDATION_TYPE_LIST_OBJECT:
-				return createValidationTypeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.VARIABLE_TYPE_LIST_OBJECT:
+				return createVariableTypeListObjectFromString(eDataType, initialValue);
+			case FhirPackage.VCONFIDENTIALITY_CLASSIFICATION_LIST_OBJECT:
+				return createVConfidentialityClassificationListObjectFromString(eDataType, initialValue);
 			case FhirPackage.VISION_BASE_LIST_OBJECT:
 				return createVisionBaseListObjectFromString(eDataType, initialValue);
 			case FhirPackage.VISION_EYES_LIST_OBJECT:
@@ -2925,8 +2970,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertActionConditionKindListToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST:
 				return convertActionGroupingBehaviorListToString(eDataType, instanceValue);
-			case FhirPackage.ACTION_LIST_LIST:
-				return convertActionListListToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST:
 				return convertActionParticipantTypeListToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST:
@@ -2949,16 +2992,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertAggregationModeListToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST:
 				return convertAllergyIntoleranceCategoryListToString(eDataType, instanceValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST:
-				return convertAllergyIntoleranceClinicalStatusListToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST:
 				return convertAllergyIntoleranceCriticalityListToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_SEVERITY_LIST:
 				return convertAllergyIntoleranceSeverityListToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_TYPE_LIST:
 				return convertAllergyIntoleranceTypeListToString(eDataType, instanceValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_VERIFICATION_STATUS_LIST:
-				return convertAllergyIntoleranceVerificationStatusListToString(eDataType, instanceValue);
 			case FhirPackage.APPOINTMENT_STATUS_LIST:
 				return convertAppointmentStatusListToString(eDataType, instanceValue);
 			case FhirPackage.ASSERTION_DIRECTION_TYPE_LIST:
@@ -2983,8 +3022,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertBiologicallyDerivedProductStorageScaleListToString(eDataType, instanceValue);
 			case FhirPackage.BUNDLE_TYPE_LIST:
 				return convertBundleTypeListToString(eDataType, instanceValue);
-			case FhirPackage.CAN_PUSH_UPDATES_LIST:
-				return convertCanPushUpdatesListToString(eDataType, instanceValue);
 			case FhirPackage.CAPABILITY_STATEMENT_KIND_LIST:
 				return convertCapabilityStatementKindListToString(eDataType, instanceValue);
 			case FhirPackage.CARE_PLAN_ACTIVITY_KIND_LIST:
@@ -2993,10 +3030,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertCarePlanActivityStatusListToString(eDataType, instanceValue);
 			case FhirPackage.CARE_PLAN_INTENT_LIST:
 				return convertCarePlanIntentListToString(eDataType, instanceValue);
-			case FhirPackage.CARE_PLAN_STATUS_LIST:
-				return convertCarePlanStatusListToString(eDataType, instanceValue);
 			case FhirPackage.CARE_TEAM_STATUS_LIST:
 				return convertCareTeamStatusListToString(eDataType, instanceValue);
+			case FhirPackage.CATALOG_ENTRY_RELATION_TYPE_LIST:
+				return convertCatalogEntryRelationTypeListToString(eDataType, instanceValue);
 			case FhirPackage.CHARGE_ITEM_STATUS_LIST:
 				return convertChargeItemStatusListToString(eDataType, instanceValue);
 			case FhirPackage.CLAIM_PROCESSING_CODES_LIST:
@@ -3023,18 +3060,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertConditionalDeleteStatusListToString(eDataType, instanceValue);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST:
 				return convertConditionalReadStatusListToString(eDataType, instanceValue);
-			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST:
-				return convertConditionClinicalStatusCodesListToString(eDataType, instanceValue);
-			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST:
-				return convertConditionVerificationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST:
-				return convertConfidentialityClassificationListToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST:
 				return convertConsentDataMeaningListToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_PROVISION_TYPE_LIST:
 				return convertConsentProvisionTypeListToString(eDataType, instanceValue);
-			case FhirPackage.CONSENT_SCOPE_CODES_LIST:
-				return convertConsentScopeCodesListToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_STATE_LIST:
 				return convertConsentStateListToString(eDataType, instanceValue);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST:
@@ -3043,8 +3072,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertContactPointSystemListToString(eDataType, instanceValue);
 			case FhirPackage.CONTACT_POINT_USE_LIST:
 				return convertContactPointUseListToString(eDataType, instanceValue);
-			case FhirPackage.CONTRACT_DATA_MEANING_LIST:
-				return convertContractDataMeaningListToString(eDataType, instanceValue);
+			case FhirPackage.CONTRACT_RESOURCE_PUBLICATION_STATUS_CODES_LIST:
+				return convertContractResourcePublicationStatusCodesListToString(eDataType, instanceValue);
 			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST:
 				return convertContractResourceStatusCodesListToString(eDataType, instanceValue);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST:
@@ -3063,6 +3092,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertDeviceMetricColorListToString(eDataType, instanceValue);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST:
 				return convertDeviceMetricOperationalStatusListToString(eDataType, instanceValue);
+			case FhirPackage.DEVICE_NAME_TYPE_LIST:
+				return convertDeviceNameTypeListToString(eDataType, instanceValue);
 			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST:
 				return convertDeviceUseStatementStatusListToString(eDataType, instanceValue);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST:
@@ -3075,6 +3106,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertDocumentReferenceStatusListToString(eDataType, instanceValue);
 			case FhirPackage.DOCUMENT_RELATIONSHIP_TYPE_LIST:
 				return convertDocumentRelationshipTypeListToString(eDataType, instanceValue);
+			case FhirPackage.ELIGIBILITY_REQUEST_PURPOSE_LIST:
+				return convertEligibilityRequestPurposeListToString(eDataType, instanceValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_PURPOSE_LIST:
+				return convertEligibilityResponsePurposeListToString(eDataType, instanceValue);
+			case FhirPackage.ENABLE_WHEN_BEHAVIOR_LIST:
+				return convertEnableWhenBehaviorListToString(eDataType, instanceValue);
 			case FhirPackage.ENCOUNTER_LOCATION_STATUS_LIST:
 				return convertEncounterLocationStatusListToString(eDataType, instanceValue);
 			case FhirPackage.ENCOUNTER_STATUS_LIST:
@@ -3089,62 +3126,60 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertEventStatusListToString(eDataType, instanceValue);
 			case FhirPackage.EVENT_TIMING_LIST:
 				return convertEventTimingListToString(eDataType, instanceValue);
+			case FhirPackage.EVIDENCE_VARIABLE_TYPE_LIST:
+				return convertEvidenceVariableTypeListToString(eDataType, instanceValue);
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE_LIST:
 				return convertExampleScenarioActorTypeListToString(eDataType, instanceValue);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST:
 				return convertExplanationOfBenefitStatusListToString(eDataType, instanceValue);
+			case FhirPackage.EXPOSURE_STATE_LIST:
+				return convertExposureStateListToString(eDataType, instanceValue);
 			case FhirPackage.EXPRESSION_LANGUAGE_LIST:
 				return convertExpressionLanguageListToString(eDataType, instanceValue);
-			case FhirPackage.EXTENSION_CONTEXT_LIST:
-				return convertExtensionContextListToString(eDataType, instanceValue);
-			case FhirPackage.FAILURE_ACTION_LIST:
-				return convertFailureActionListToString(eDataType, instanceValue);
+			case FhirPackage.EXTENSION_CONTEXT_TYPE_LIST:
+				return convertExtensionContextTypeListToString(eDataType, instanceValue);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST:
 				return convertFamilyHistoryStatusListToString(eDataType, instanceValue);
-			case FhirPackage.FHIR_ALL_TYPES_LIST:
-				return convertFHIRAllTypesListToString(eDataType, instanceValue);
-			case FhirPackage.FHIR_DEFINED_TYPE_LIST:
-				return convertFHIRDefinedTypeListToString(eDataType, instanceValue);
 			case FhirPackage.FHIR_DEVICE_STATUS_LIST:
 				return convertFHIRDeviceStatusListToString(eDataType, instanceValue);
 			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST:
 				return convertFHIRSubstanceStatusListToString(eDataType, instanceValue);
+			case FhirPackage.FHIR_VERSION_LIST:
+				return convertFHIRVersionListToString(eDataType, instanceValue);
 			case FhirPackage.FILTER_OPERATOR_LIST:
 				return convertFilterOperatorListToString(eDataType, instanceValue);
 			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST:
 				return convertFinancialResourceStatusCodesListToString(eDataType, instanceValue);
 			case FhirPackage.FLAG_STATUS_LIST:
 				return convertFlagStatusListToString(eDataType, instanceValue);
-			case FhirPackage.GOAL_STATUS_LIST:
-				return convertGoalStatusListToString(eDataType, instanceValue);
+			case FhirPackage.GOAL_LIFECYCLE_STATUS_LIST:
+				return convertGoalLifecycleStatusListToString(eDataType, instanceValue);
 			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST:
 				return convertGraphCompartmentRuleListToString(eDataType, instanceValue);
 			case FhirPackage.GRAPH_COMPARTMENT_USE_LIST:
 				return convertGraphCompartmentUseListToString(eDataType, instanceValue);
+			case FhirPackage.GROUP_MEASURE_LIST:
+				return convertGroupMeasureListToString(eDataType, instanceValue);
 			case FhirPackage.GROUP_TYPE_LIST:
 				return convertGroupTypeListToString(eDataType, instanceValue);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST:
 				return convertGuidanceResponseStatusListToString(eDataType, instanceValue);
-			case FhirPackage.GUIDE_DEPENDENCY_TYPE_LIST:
-				return convertGuideDependencyTypeListToString(eDataType, instanceValue);
-			case FhirPackage.GUIDE_PAGE_KIND_LIST:
-				return convertGuidePageKindListToString(eDataType, instanceValue);
-			case FhirPackage.HAZARDOUS_DUTY_WORK_LIST:
-				return convertHazardousDutyWorkListToString(eDataType, instanceValue);
-			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS_LIST:
-				return convertHistoryOfEmploymentStatusListToString(eDataType, instanceValue);
+			case FhirPackage.GUIDE_PAGE_GENERATION_LIST:
+				return convertGuidePageGenerationListToString(eDataType, instanceValue);
+			case FhirPackage.GUIDE_PARAMETER_CODE_LIST:
+				return convertGuideParameterCodeListToString(eDataType, instanceValue);
 			case FhirPackage.HTTP_VERB_LIST:
 				return convertHTTPVerbListToString(eDataType, instanceValue);
 			case FhirPackage.IDENTIFIER_USE_LIST:
 				return convertIdentifierUseListToString(eDataType, instanceValue);
 			case FhirPackage.IDENTITY_ASSURANCE_LEVEL_LIST:
 				return convertIdentityAssuranceLevelListToString(eDataType, instanceValue);
+			case FhirPackage.IMAGING_STUDY_STATUS_LIST:
+				return convertImagingStudyStatusListToString(eDataType, instanceValue);
 			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES_LIST:
 				return convertImmunizationEvaluationStatusCodesListToString(eDataType, instanceValue);
 			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST:
 				return convertImmunizationStatusCodesListToString(eDataType, instanceValue);
-			case FhirPackage.INSTANCE_AVAILABILITY_LIST:
-				return convertInstanceAvailabilityListToString(eDataType, instanceValue);
 			case FhirPackage.INVOICE_PRICE_COMPONENT_TYPE_LIST:
 				return convertInvoicePriceComponentTypeListToString(eDataType, instanceValue);
 			case FhirPackage.INVOICE_STATUS_LIST:
@@ -3165,26 +3200,18 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertLocationModeListToString(eDataType, instanceValue);
 			case FhirPackage.LOCATION_STATUS_LIST:
 				return convertLocationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.MEASMNT_PRINCIPLE_LIST:
-				return convertMeasmntPrincipleListToString(eDataType, instanceValue);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST:
 				return convertMeasureReportStatusListToString(eDataType, instanceValue);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST:
 				return convertMeasureReportTypeListToString(eDataType, instanceValue);
-			case FhirPackage.MEDIA_STATUS_LIST:
-				return convertMediaStatusListToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST:
-				return convertMedicationAdministrationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST:
-				return convertMedicationDispenseStatusListToString(eDataType, instanceValue);
 			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST:
 				return convertMedicationRequestIntentListToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST:
-				return convertMedicationRequestStatusListToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST:
-				return convertMedicationStatementStatusListToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_STATUS_LIST:
-				return convertMedicationStatusListToString(eDataType, instanceValue);
+			case FhirPackage.MEDICATIONREQUEST_STATUS_LIST:
+				return convertMedicationrequestStatusListToString(eDataType, instanceValue);
+			case FhirPackage.MEDICATION_STATUS_CODES_LIST:
+				return convertMedicationStatusCodesListToString(eDataType, instanceValue);
+			case FhirPackage.MESSAGEHEADER_RESPONSE_REQUEST_LIST:
+				return convertMessageheaderResponseRequestListToString(eDataType, instanceValue);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST:
 				return convertMessageSignificanceCategoryListToString(eDataType, instanceValue);
 			case FhirPackage.NAME_USE_LIST:
@@ -3195,24 +3222,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertNamingSystemTypeListToString(eDataType, instanceValue);
 			case FhirPackage.NARRATIVE_STATUS_LIST:
 				return convertNarrativeStatusListToString(eDataType, instanceValue);
-			case FhirPackage.NEED_LIST:
-				return convertNeedListToString(eDataType, instanceValue);
 			case FhirPackage.NOTE_TYPE_LIST:
 				return convertNoteTypeListToString(eDataType, instanceValue);
-			case FhirPackage.NUTRITION_ORDER_STATUS_LIST:
-				return convertNutritionOrderStatusListToString(eDataType, instanceValue);
+			case FhirPackage.OBSERVATION_DATA_TYPE_LIST:
+				return convertObservationDataTypeListToString(eDataType, instanceValue);
+			case FhirPackage.OBSERVATION_RANGE_CATEGORY_LIST:
+				return convertObservationRangeCategoryListToString(eDataType, instanceValue);
 			case FhirPackage.OBSERVATION_STATUS_LIST:
 				return convertObservationStatusListToString(eDataType, instanceValue);
 			case FhirPackage.OPERATION_KIND_LIST:
 				return convertOperationKindListToString(eDataType, instanceValue);
 			case FhirPackage.OPERATION_PARAMETER_USE_LIST:
 				return convertOperationParameterUseListToString(eDataType, instanceValue);
+			case FhirPackage.ORIENTATION_TYPE_LIST:
+				return convertOrientationTypeListToString(eDataType, instanceValue);
 			case FhirPackage.PARTICIPANT_REQUIRED_LIST:
 				return convertParticipantRequiredListToString(eDataType, instanceValue);
 			case FhirPackage.PARTICIPATION_STATUS_LIST:
 				return convertParticipationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.PROCESS_OUTCOME_CODES_LIST:
-				return convertProcessOutcomeCodesListToString(eDataType, instanceValue);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST:
 				return convertPropertyRepresentationListToString(eDataType, instanceValue);
 			case FhirPackage.PROPERTY_TYPE_LIST:
@@ -3221,12 +3248,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertProvenanceEntityRoleListToString(eDataType, instanceValue);
 			case FhirPackage.PUBLICATION_STATUS_LIST:
 				return convertPublicationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.PUSH_TYPE_AVAILABLE_LIST:
-				return convertPushTypeAvailableListToString(eDataType, instanceValue);
 			case FhirPackage.QUALITY_TYPE_LIST:
 				return convertQualityTypeListToString(eDataType, instanceValue);
 			case FhirPackage.QUANTITY_COMPARATOR_LIST:
 				return convertQuantityComparatorListToString(eDataType, instanceValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM_OPERATOR_LIST:
+				return convertQuestionnaireItemOperatorListToString(eDataType, instanceValue);
 			case FhirPackage.QUESTIONNAIRE_ITEM_TYPE_LIST:
 				return convertQuestionnaireItemTypeListToString(eDataType, instanceValue);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST:
@@ -3245,8 +3272,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertRequestIntentListToString(eDataType, instanceValue);
 			case FhirPackage.REQUEST_PRIORITY_LIST:
 				return convertRequestPriorityListToString(eDataType, instanceValue);
+			case FhirPackage.REQUEST_RESOURCE_TYPE_LIST:
+				return convertRequestResourceTypeListToString(eDataType, instanceValue);
 			case FhirPackage.REQUEST_STATUS_LIST:
 				return convertRequestStatusListToString(eDataType, instanceValue);
+			case FhirPackage.RESEARCH_ELEMENT_TYPE_LIST:
+				return convertResearchElementTypeListToString(eDataType, instanceValue);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST:
 				return convertResearchStudyStatusListToString(eDataType, instanceValue);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST:
@@ -3259,8 +3290,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertResponseTypeListToString(eDataType, instanceValue);
 			case FhirPackage.RESTFUL_CAPABILITY_MODE_LIST:
 				return convertRestfulCapabilityModeListToString(eDataType, instanceValue);
-			case FhirPackage.RETIREMENT_STATUS_LIST:
-				return convertRetirementStatusListToString(eDataType, instanceValue);
 			case FhirPackage.SEARCH_COMPARATOR_LIST:
 				return convertSearchComparatorListToString(eDataType, instanceValue);
 			case FhirPackage.SEARCH_ENTRY_MODE_LIST:
@@ -3269,16 +3298,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertSearchModifierCodeListToString(eDataType, instanceValue);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST:
 				return convertSearchParamTypeListToString(eDataType, instanceValue);
+			case FhirPackage.SEQUENCE_TYPE_LIST:
+				return convertSequenceTypeListToString(eDataType, instanceValue);
 			case FhirPackage.SLICING_RULES_LIST:
 				return convertSlicingRulesListToString(eDataType, instanceValue);
 			case FhirPackage.SLOT_STATUS_LIST:
 				return convertSlotStatusListToString(eDataType, instanceValue);
+			case FhirPackage.SORT_DIRECTION_LIST:
+				return convertSortDirectionListToString(eDataType, instanceValue);
+			case FhirPackage.SPDX_LICENSE_LIST:
+				return convertSPDXLicenseListToString(eDataType, instanceValue);
 			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE_LIST:
 				return convertSpecimenContainedPreferenceListToString(eDataType, instanceValue);
 			case FhirPackage.SPECIMEN_STATUS_LIST:
 				return convertSpecimenStatusListToString(eDataType, instanceValue);
 			case FhirPackage.STATUS_LIST:
 				return convertStatusListToString(eDataType, instanceValue);
+			case FhirPackage.STRAND_TYPE_LIST:
+				return convertStrandTypeListToString(eDataType, instanceValue);
 			case FhirPackage.STRUCTURE_DEFINITION_KIND_LIST:
 				return convertStructureDefinitionKindListToString(eDataType, instanceValue);
 			case FhirPackage.STRUCTURE_MAP_CONTEXT_TYPE_LIST:
@@ -3305,8 +3342,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertSupplyRequestStatusListToString(eDataType, instanceValue);
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION_LIST:
 				return convertSystemRestfulInteractionListToString(eDataType, instanceValue);
-			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE_LIST:
-				return convertSystemVersionProcessingModeListToString(eDataType, instanceValue);
+			case FhirPackage.TASK_INTENT_LIST:
+				return convertTaskIntentListToString(eDataType, instanceValue);
 			case FhirPackage.TASK_STATUS_LIST:
 				return convertTaskStatusListToString(eDataType, instanceValue);
 			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST:
@@ -3329,20 +3366,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertUDIEntryTypeListToString(eDataType, instanceValue);
 			case FhirPackage.UNITS_OF_TIME_LIST:
 				return convertUnitsOfTimeListToString(eDataType, instanceValue);
-			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST:
-				return convertUnknownContentCodeListToString(eDataType, instanceValue);
 			case FhirPackage.USE_LIST:
 				return convertUseListToString(eDataType, instanceValue);
-			case FhirPackage.USER_SESSION_STATUS_LIST:
-				return convertUserSessionStatusListToString(eDataType, instanceValue);
-			case FhirPackage.USER_SESSION_STATUS_SOURCE_LIST:
-				return convertUserSessionStatusSourceListToString(eDataType, instanceValue);
-			case FhirPackage.USUAL_OCCUPATION_LIST:
-				return convertUsualOccupationListToString(eDataType, instanceValue);
-			case FhirPackage.VALIDATION_STATUS_LIST:
-				return convertValidationStatusListToString(eDataType, instanceValue);
-			case FhirPackage.VALIDATION_TYPE_LIST:
-				return convertValidationTypeListToString(eDataType, instanceValue);
+			case FhirPackage.VARIABLE_TYPE_LIST:
+				return convertVariableTypeListToString(eDataType, instanceValue);
+			case FhirPackage.VCONFIDENTIALITY_CLASSIFICATION_LIST:
+				return convertVConfidentialityClassificationListToString(eDataType, instanceValue);
 			case FhirPackage.VISION_BASE_LIST:
 				return convertVisionBaseListToString(eDataType, instanceValue);
 			case FhirPackage.VISION_EYES_LIST:
@@ -3357,8 +3386,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertActionConditionKindListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_GROUPING_BEHAVIOR_LIST_OBJECT:
 				return convertActionGroupingBehaviorListObjectToString(eDataType, instanceValue);
-			case FhirPackage.ACTION_LIST_LIST_OBJECT:
-				return convertActionListListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_PARTICIPANT_TYPE_LIST_OBJECT:
 				return convertActionParticipantTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ACTION_PRECHECK_BEHAVIOR_LIST_OBJECT:
@@ -3381,16 +3408,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertAggregationModeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CATEGORY_LIST_OBJECT:
 				return convertAllergyIntoleranceCategoryListObjectToString(eDataType, instanceValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_CLINICAL_STATUS_LIST_OBJECT:
-				return convertAllergyIntoleranceClinicalStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_CRITICALITY_LIST_OBJECT:
 				return convertAllergyIntoleranceCriticalityListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_SEVERITY_LIST_OBJECT:
 				return convertAllergyIntoleranceSeverityListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ALLERGY_INTOLERANCE_TYPE_LIST_OBJECT:
 				return convertAllergyIntoleranceTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.ALLERGY_INTOLERANCE_VERIFICATION_STATUS_LIST_OBJECT:
-				return convertAllergyIntoleranceVerificationStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.APPOINTMENT_STATUS_LIST_OBJECT:
 				return convertAppointmentStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ASSERTION_DIRECTION_TYPE_LIST_OBJECT:
@@ -3421,8 +3444,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertBooleanPrimitiveObjectToString(eDataType, instanceValue);
 			case FhirPackage.BUNDLE_TYPE_LIST_OBJECT:
 				return convertBundleTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CAN_PUSH_UPDATES_LIST_OBJECT:
-				return convertCanPushUpdatesListObjectToString(eDataType, instanceValue);
+			case FhirPackage.CANONICAL_PRIMITIVE:
+				return convertCanonicalPrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.CAPABILITY_STATEMENT_KIND_LIST_OBJECT:
 				return convertCapabilityStatementKindListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CARE_PLAN_ACTIVITY_KIND_LIST_OBJECT:
@@ -3431,10 +3454,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertCarePlanActivityStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CARE_PLAN_INTENT_LIST_OBJECT:
 				return convertCarePlanIntentListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CARE_PLAN_STATUS_LIST_OBJECT:
-				return convertCarePlanStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CARE_TEAM_STATUS_LIST_OBJECT:
 				return convertCareTeamStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.CATALOG_ENTRY_RELATION_TYPE_LIST_OBJECT:
+				return convertCatalogEntryRelationTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CHARGE_ITEM_STATUS_LIST_OBJECT:
 				return convertChargeItemStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CLAIM_PROCESSING_CODES_LIST_OBJECT:
@@ -3463,18 +3486,10 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertConditionalDeleteStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONDITIONAL_READ_STATUS_LIST_OBJECT:
 				return convertConditionalReadStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CONDITION_CLINICAL_STATUS_CODES_LIST_OBJECT:
-				return convertConditionClinicalStatusCodesListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CONDITION_VERIFICATION_STATUS_LIST_OBJECT:
-				return convertConditionVerificationStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CONFIDENTIALITY_CLASSIFICATION_LIST_OBJECT:
-				return convertConfidentialityClassificationListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_DATA_MEANING_LIST_OBJECT:
 				return convertConsentDataMeaningListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_PROVISION_TYPE_LIST_OBJECT:
 				return convertConsentProvisionTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CONSENT_SCOPE_CODES_LIST_OBJECT:
-				return convertConsentScopeCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONSENT_STATE_LIST_OBJECT:
 				return convertConsentStateListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONSTRAINT_SEVERITY_LIST_OBJECT:
@@ -3483,8 +3498,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertContactPointSystemListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONTACT_POINT_USE_LIST_OBJECT:
 				return convertContactPointUseListObjectToString(eDataType, instanceValue);
-			case FhirPackage.CONTRACT_DATA_MEANING_LIST_OBJECT:
-				return convertContractDataMeaningListObjectToString(eDataType, instanceValue);
+			case FhirPackage.CONTRACT_RESOURCE_PUBLICATION_STATUS_CODES_LIST_OBJECT:
+				return convertContractResourcePublicationStatusCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONTRACT_RESOURCE_STATUS_CODES_LIST_OBJECT:
 				return convertContractResourceStatusCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.CONTRIBUTOR_TYPE_LIST_OBJECT:
@@ -3513,6 +3528,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertDeviceMetricColorListObjectToString(eDataType, instanceValue);
 			case FhirPackage.DEVICE_METRIC_OPERATIONAL_STATUS_LIST_OBJECT:
 				return convertDeviceMetricOperationalStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.DEVICE_NAME_TYPE_LIST_OBJECT:
+				return convertDeviceNameTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.DEVICE_USE_STATEMENT_STATUS_LIST_OBJECT:
 				return convertDeviceUseStatementStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.DIAGNOSTIC_REPORT_STATUS_LIST_OBJECT:
@@ -3525,6 +3542,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertDocumentReferenceStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.DOCUMENT_RELATIONSHIP_TYPE_LIST_OBJECT:
 				return convertDocumentRelationshipTypeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.ELIGIBILITY_REQUEST_PURPOSE_LIST_OBJECT:
+				return convertEligibilityRequestPurposeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.ELIGIBILITY_RESPONSE_PURPOSE_LIST_OBJECT:
+				return convertEligibilityResponsePurposeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.ENABLE_WHEN_BEHAVIOR_LIST_OBJECT:
+				return convertEnableWhenBehaviorListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ENCOUNTER_LOCATION_STATUS_LIST_OBJECT:
 				return convertEncounterLocationStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ENCOUNTER_STATUS_LIST_OBJECT:
@@ -3539,50 +3562,48 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertEventStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.EVENT_TIMING_LIST_OBJECT:
 				return convertEventTimingListObjectToString(eDataType, instanceValue);
+			case FhirPackage.EVIDENCE_VARIABLE_TYPE_LIST_OBJECT:
+				return convertEvidenceVariableTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.EXAMPLE_SCENARIO_ACTOR_TYPE_LIST_OBJECT:
 				return convertExampleScenarioActorTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.EXPLANATION_OF_BENEFIT_STATUS_LIST_OBJECT:
 				return convertExplanationOfBenefitStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.EXPOSURE_STATE_LIST_OBJECT:
+				return convertExposureStateListObjectToString(eDataType, instanceValue);
 			case FhirPackage.EXPRESSION_LANGUAGE_LIST_OBJECT:
 				return convertExpressionLanguageListObjectToString(eDataType, instanceValue);
-			case FhirPackage.EXTENSION_CONTEXT_LIST_OBJECT:
-				return convertExtensionContextListObjectToString(eDataType, instanceValue);
-			case FhirPackage.FAILURE_ACTION_LIST_OBJECT:
-				return convertFailureActionListObjectToString(eDataType, instanceValue);
+			case FhirPackage.EXTENSION_CONTEXT_TYPE_LIST_OBJECT:
+				return convertExtensionContextTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FAMILY_HISTORY_STATUS_LIST_OBJECT:
 				return convertFamilyHistoryStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.FHIR_ALL_TYPES_LIST_OBJECT:
-				return convertFHIRAllTypesListObjectToString(eDataType, instanceValue);
-			case FhirPackage.FHIR_DEFINED_TYPE_LIST_OBJECT:
-				return convertFHIRDefinedTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FHIR_DEVICE_STATUS_LIST_OBJECT:
 				return convertFHIRDeviceStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FHIR_SUBSTANCE_STATUS_LIST_OBJECT:
 				return convertFHIRSubstanceStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.FHIR_VERSION_LIST_OBJECT:
+				return convertFHIRVersionListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FILTER_OPERATOR_LIST_OBJECT:
 				return convertFilterOperatorListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FINANCIAL_RESOURCE_STATUS_CODES_LIST_OBJECT:
 				return convertFinancialResourceStatusCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.FLAG_STATUS_LIST_OBJECT:
 				return convertFlagStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.GOAL_STATUS_LIST_OBJECT:
-				return convertGoalStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.GOAL_LIFECYCLE_STATUS_LIST_OBJECT:
+				return convertGoalLifecycleStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.GRAPH_COMPARTMENT_RULE_LIST_OBJECT:
 				return convertGraphCompartmentRuleListObjectToString(eDataType, instanceValue);
 			case FhirPackage.GRAPH_COMPARTMENT_USE_LIST_OBJECT:
 				return convertGraphCompartmentUseListObjectToString(eDataType, instanceValue);
+			case FhirPackage.GROUP_MEASURE_LIST_OBJECT:
+				return convertGroupMeasureListObjectToString(eDataType, instanceValue);
 			case FhirPackage.GROUP_TYPE_LIST_OBJECT:
 				return convertGroupTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.GUIDANCE_RESPONSE_STATUS_LIST_OBJECT:
 				return convertGuidanceResponseStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.GUIDE_DEPENDENCY_TYPE_LIST_OBJECT:
-				return convertGuideDependencyTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.GUIDE_PAGE_KIND_LIST_OBJECT:
-				return convertGuidePageKindListObjectToString(eDataType, instanceValue);
-			case FhirPackage.HAZARDOUS_DUTY_WORK_LIST_OBJECT:
-				return convertHazardousDutyWorkListObjectToString(eDataType, instanceValue);
-			case FhirPackage.HISTORY_OF_EMPLOYMENT_STATUS_LIST_OBJECT:
-				return convertHistoryOfEmploymentStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.GUIDE_PAGE_GENERATION_LIST_OBJECT:
+				return convertGuidePageGenerationListObjectToString(eDataType, instanceValue);
+			case FhirPackage.GUIDE_PARAMETER_CODE_LIST_OBJECT:
+				return convertGuideParameterCodeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.HTTP_VERB_LIST_OBJECT:
 				return convertHTTPVerbListObjectToString(eDataType, instanceValue);
 			case FhirPackage.IDENTIFIER_USE_LIST_OBJECT:
@@ -3591,12 +3612,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertIdentityAssuranceLevelListObjectToString(eDataType, instanceValue);
 			case FhirPackage.ID_PRIMITIVE:
 				return convertIdPrimitiveToString(eDataType, instanceValue);
+			case FhirPackage.IMAGING_STUDY_STATUS_LIST_OBJECT:
+				return convertImagingStudyStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.IMMUNIZATION_EVALUATION_STATUS_CODES_LIST_OBJECT:
 				return convertImmunizationEvaluationStatusCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.IMMUNIZATION_STATUS_CODES_LIST_OBJECT:
 				return convertImmunizationStatusCodesListObjectToString(eDataType, instanceValue);
-			case FhirPackage.INSTANCE_AVAILABILITY_LIST_OBJECT:
-				return convertInstanceAvailabilityListObjectToString(eDataType, instanceValue);
 			case FhirPackage.INSTANT_PRIMITIVE:
 				return convertInstantPrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.INTEGER_PRIMITIVE:
@@ -3625,26 +3646,18 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertLocationStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.MARKDOWN_PRIMITIVE:
 				return convertMarkdownPrimitiveToString(eDataType, instanceValue);
-			case FhirPackage.MEASMNT_PRINCIPLE_LIST_OBJECT:
-				return convertMeasmntPrincipleListObjectToString(eDataType, instanceValue);
 			case FhirPackage.MEASURE_REPORT_STATUS_LIST_OBJECT:
 				return convertMeasureReportStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.MEASURE_REPORT_TYPE_LIST_OBJECT:
 				return convertMeasureReportTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDIA_STATUS_LIST_OBJECT:
-				return convertMediaStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_ADMINISTRATION_STATUS_LIST_OBJECT:
-				return convertMedicationAdministrationStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_DISPENSE_STATUS_LIST_OBJECT:
-				return convertMedicationDispenseStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.MEDICATION_REQUEST_INTENT_LIST_OBJECT:
 				return convertMedicationRequestIntentListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_REQUEST_STATUS_LIST_OBJECT:
-				return convertMedicationRequestStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_STATEMENT_STATUS_LIST_OBJECT:
-				return convertMedicationStatementStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.MEDICATION_STATUS_LIST_OBJECT:
-				return convertMedicationStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.MEDICATIONREQUEST_STATUS_LIST_OBJECT:
+				return convertMedicationrequestStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.MEDICATION_STATUS_CODES_LIST_OBJECT:
+				return convertMedicationStatusCodesListObjectToString(eDataType, instanceValue);
+			case FhirPackage.MESSAGEHEADER_RESPONSE_REQUEST_LIST_OBJECT:
+				return convertMessageheaderResponseRequestListObjectToString(eDataType, instanceValue);
 			case FhirPackage.MESSAGE_SIGNIFICANCE_CATEGORY_LIST_OBJECT:
 				return convertMessageSignificanceCategoryListObjectToString(eDataType, instanceValue);
 			case FhirPackage.NAME_USE_LIST_OBJECT:
@@ -3655,12 +3668,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertNamingSystemTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.NARRATIVE_STATUS_LIST_OBJECT:
 				return convertNarrativeStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.NEED_LIST_OBJECT:
-				return convertNeedListObjectToString(eDataType, instanceValue);
 			case FhirPackage.NOTE_TYPE_LIST_OBJECT:
 				return convertNoteTypeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.NUTRITION_ORDER_STATUS_LIST_OBJECT:
-				return convertNutritionOrderStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.OBSERVATION_DATA_TYPE_LIST_OBJECT:
+				return convertObservationDataTypeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.OBSERVATION_RANGE_CATEGORY_LIST_OBJECT:
+				return convertObservationRangeCategoryListObjectToString(eDataType, instanceValue);
 			case FhirPackage.OBSERVATION_STATUS_LIST_OBJECT:
 				return convertObservationStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.OID_PRIMITIVE:
@@ -3669,14 +3682,14 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertOperationKindListObjectToString(eDataType, instanceValue);
 			case FhirPackage.OPERATION_PARAMETER_USE_LIST_OBJECT:
 				return convertOperationParameterUseListObjectToString(eDataType, instanceValue);
+			case FhirPackage.ORIENTATION_TYPE_LIST_OBJECT:
+				return convertOrientationTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.PARTICIPANT_REQUIRED_LIST_OBJECT:
 				return convertParticipantRequiredListObjectToString(eDataType, instanceValue);
 			case FhirPackage.PARTICIPATION_STATUS_LIST_OBJECT:
 				return convertParticipationStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.POSITIVE_INT_PRIMITIVE:
 				return convertPositiveIntPrimitiveToString(eDataType, instanceValue);
-			case FhirPackage.PROCESS_OUTCOME_CODES_LIST_OBJECT:
-				return convertProcessOutcomeCodesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.PROPERTY_REPRESENTATION_LIST_OBJECT:
 				return convertPropertyRepresentationListObjectToString(eDataType, instanceValue);
 			case FhirPackage.PROPERTY_TYPE_LIST_OBJECT:
@@ -3685,12 +3698,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertProvenanceEntityRoleListObjectToString(eDataType, instanceValue);
 			case FhirPackage.PUBLICATION_STATUS_LIST_OBJECT:
 				return convertPublicationStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.PUSH_TYPE_AVAILABLE_LIST_OBJECT:
-				return convertPushTypeAvailableListObjectToString(eDataType, instanceValue);
 			case FhirPackage.QUALITY_TYPE_LIST_OBJECT:
 				return convertQualityTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.QUANTITY_COMPARATOR_LIST_OBJECT:
 				return convertQuantityComparatorListObjectToString(eDataType, instanceValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM_OPERATOR_LIST_OBJECT:
+				return convertQuestionnaireItemOperatorListObjectToString(eDataType, instanceValue);
 			case FhirPackage.QUESTIONNAIRE_ITEM_TYPE_LIST_OBJECT:
 				return convertQuestionnaireItemTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.QUESTIONNAIRE_RESPONSE_STATUS_LIST_OBJECT:
@@ -3709,8 +3722,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertRequestIntentListObjectToString(eDataType, instanceValue);
 			case FhirPackage.REQUEST_PRIORITY_LIST_OBJECT:
 				return convertRequestPriorityListObjectToString(eDataType, instanceValue);
+			case FhirPackage.REQUEST_RESOURCE_TYPE_LIST_OBJECT:
+				return convertRequestResourceTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.REQUEST_STATUS_LIST_OBJECT:
 				return convertRequestStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.RESEARCH_ELEMENT_TYPE_LIST_OBJECT:
+				return convertResearchElementTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.RESEARCH_STUDY_STATUS_LIST_OBJECT:
 				return convertResearchStudyStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.RESEARCH_SUBJECT_STATUS_LIST_OBJECT:
@@ -3723,8 +3740,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertResponseTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.RESTFUL_CAPABILITY_MODE_LIST_OBJECT:
 				return convertRestfulCapabilityModeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.RETIREMENT_STATUS_LIST_OBJECT:
-				return convertRetirementStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SAMPLED_DATA_DATA_TYPE_PRIMITIVE:
 				return convertSampledDataDataTypePrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.SEARCH_COMPARATOR_LIST_OBJECT:
@@ -3735,16 +3750,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertSearchModifierCodeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SEARCH_PARAM_TYPE_LIST_OBJECT:
 				return convertSearchParamTypeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.SEQUENCE_TYPE_LIST_OBJECT:
+				return convertSequenceTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SLICING_RULES_LIST_OBJECT:
 				return convertSlicingRulesListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SLOT_STATUS_LIST_OBJECT:
 				return convertSlotStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.SORT_DIRECTION_LIST_OBJECT:
+				return convertSortDirectionListObjectToString(eDataType, instanceValue);
+			case FhirPackage.SPDX_LICENSE_LIST_OBJECT:
+				return convertSPDXLicenseListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SPECIMEN_CONTAINED_PREFERENCE_LIST_OBJECT:
 				return convertSpecimenContainedPreferenceListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SPECIMEN_STATUS_LIST_OBJECT:
 				return convertSpecimenStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.STATUS_LIST_OBJECT:
 				return convertStatusListObjectToString(eDataType, instanceValue);
+			case FhirPackage.STRAND_TYPE_LIST_OBJECT:
+				return convertStrandTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.STRING_PRIMITIVE:
 				return convertStringPrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.STRUCTURE_DEFINITION_KIND_LIST_OBJECT:
@@ -3773,8 +3796,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertSupplyRequestStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.SYSTEM_RESTFUL_INTERACTION_LIST_OBJECT:
 				return convertSystemRestfulInteractionListObjectToString(eDataType, instanceValue);
-			case FhirPackage.SYSTEM_VERSION_PROCESSING_MODE_LIST_OBJECT:
-				return convertSystemVersionProcessingModeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.TASK_INTENT_LIST_OBJECT:
+				return convertTaskIntentListObjectToString(eDataType, instanceValue);
 			case FhirPackage.TASK_STATUS_LIST_OBJECT:
 				return convertTaskStatusListObjectToString(eDataType, instanceValue);
 			case FhirPackage.TEST_REPORT_ACTION_RESULT_LIST_OBJECT:
@@ -3799,26 +3822,20 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 				return convertUDIEntryTypeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.UNITS_OF_TIME_LIST_OBJECT:
 				return convertUnitsOfTimeListObjectToString(eDataType, instanceValue);
-			case FhirPackage.UNKNOWN_CONTENT_CODE_LIST_OBJECT:
-				return convertUnknownContentCodeListObjectToString(eDataType, instanceValue);
 			case FhirPackage.UNSIGNED_INT_PRIMITIVE:
 				return convertUnsignedIntPrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.URI_PRIMITIVE:
 				return convertUriPrimitiveToString(eDataType, instanceValue);
+			case FhirPackage.URL_PRIMITIVE:
+				return convertUrlPrimitiveToString(eDataType, instanceValue);
 			case FhirPackage.USE_LIST_OBJECT:
 				return convertUseListObjectToString(eDataType, instanceValue);
-			case FhirPackage.USER_SESSION_STATUS_LIST_OBJECT:
-				return convertUserSessionStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.USER_SESSION_STATUS_SOURCE_LIST_OBJECT:
-				return convertUserSessionStatusSourceListObjectToString(eDataType, instanceValue);
-			case FhirPackage.USUAL_OCCUPATION_LIST_OBJECT:
-				return convertUsualOccupationListObjectToString(eDataType, instanceValue);
 			case FhirPackage.UUID_PRIMITIVE:
 				return convertUuidPrimitiveToString(eDataType, instanceValue);
-			case FhirPackage.VALIDATION_STATUS_LIST_OBJECT:
-				return convertValidationStatusListObjectToString(eDataType, instanceValue);
-			case FhirPackage.VALIDATION_TYPE_LIST_OBJECT:
-				return convertValidationTypeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.VARIABLE_TYPE_LIST_OBJECT:
+				return convertVariableTypeListObjectToString(eDataType, instanceValue);
+			case FhirPackage.VCONFIDENTIALITY_CLASSIFICATION_LIST_OBJECT:
+				return convertVConfidentialityClassificationListObjectToString(eDataType, instanceValue);
 			case FhirPackage.VISION_BASE_LIST_OBJECT:
 				return convertVisionBaseListObjectToString(eDataType, instanceValue);
 			case FhirPackage.VISION_EYES_LIST_OBJECT:
@@ -3898,16 +3915,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ActionGroupingBehavior createActionGroupingBehavior() {
 		ActionGroupingBehaviorImpl actionGroupingBehavior = new ActionGroupingBehaviorImpl();
 		return actionGroupingBehavior;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionList createActionList() {
-		ActionListImpl actionList = new ActionListImpl();
-		return actionList;
 	}
 
 	/**
@@ -4115,16 +4122,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllergyIntoleranceClinicalStatus createAllergyIntoleranceClinicalStatus() {
-		AllergyIntoleranceClinicalStatusImpl allergyIntoleranceClinicalStatus = new AllergyIntoleranceClinicalStatusImpl();
-		return allergyIntoleranceClinicalStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AllergyIntoleranceCriticality createAllergyIntoleranceCriticality() {
 		AllergyIntoleranceCriticalityImpl allergyIntoleranceCriticality = new AllergyIntoleranceCriticalityImpl();
 		return allergyIntoleranceCriticality;
@@ -4158,16 +4155,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public AllergyIntoleranceType createAllergyIntoleranceType() {
 		AllergyIntoleranceTypeImpl allergyIntoleranceType = new AllergyIntoleranceTypeImpl();
 		return allergyIntoleranceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceVerificationStatus createAllergyIntoleranceVerificationStatus() {
-		AllergyIntoleranceVerificationStatusImpl allergyIntoleranceVerificationStatus = new AllergyIntoleranceVerificationStatusImpl();
-		return allergyIntoleranceVerificationStatus;
 	}
 
 	/**
@@ -4575,9 +4562,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanPushUpdates createCanPushUpdates() {
-		CanPushUpdatesImpl canPushUpdates = new CanPushUpdatesImpl();
-		return canPushUpdates;
+	public Canonical createCanonical() {
+		CanonicalImpl canonical = new CanonicalImpl();
+		return canonical;
 	}
 
 	/**
@@ -4588,16 +4575,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public CapabilityStatement createCapabilityStatement() {
 		CapabilityStatementImpl capabilityStatement = new CapabilityStatementImpl();
 		return capabilityStatement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CapabilityStatementCertificate createCapabilityStatementCertificate() {
-		CapabilityStatementCertificateImpl capabilityStatementCertificate = new CapabilityStatementCertificateImpl();
-		return capabilityStatementCertificate;
 	}
 
 	/**
@@ -4805,16 +4782,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CarePlanStatus createCarePlanStatus() {
-		CarePlanStatusImpl carePlanStatus = new CarePlanStatusImpl();
-		return carePlanStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CareTeam createCareTeam() {
 		CareTeamImpl careTeam = new CareTeamImpl();
 		return careTeam;
@@ -4845,6 +4812,36 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CatalogEntry createCatalogEntry() {
+		CatalogEntryImpl catalogEntry = new CatalogEntryImpl();
+		return catalogEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CatalogEntryRelatedEntry createCatalogEntryRelatedEntry() {
+		CatalogEntryRelatedEntryImpl catalogEntryRelatedEntry = new CatalogEntryRelatedEntryImpl();
+		return catalogEntryRelatedEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CatalogEntryRelationType createCatalogEntryRelationType() {
+		CatalogEntryRelationTypeImpl catalogEntryRelationType = new CatalogEntryRelationTypeImpl();
+		return catalogEntryRelationType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ChargeItem createChargeItem() {
 		ChargeItemImpl chargeItem = new ChargeItemImpl();
 		return chargeItem;
@@ -4855,9 +4852,49 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChargeItemParticipant createChargeItemParticipant() {
-		ChargeItemParticipantImpl chargeItemParticipant = new ChargeItemParticipantImpl();
-		return chargeItemParticipant;
+	public ChargeItemDefinition createChargeItemDefinition() {
+		ChargeItemDefinitionImpl chargeItemDefinition = new ChargeItemDefinitionImpl();
+		return chargeItemDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChargeItemDefinitionApplicability createChargeItemDefinitionApplicability() {
+		ChargeItemDefinitionApplicabilityImpl chargeItemDefinitionApplicability = new ChargeItemDefinitionApplicabilityImpl();
+		return chargeItemDefinitionApplicability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChargeItemDefinitionPriceComponent createChargeItemDefinitionPriceComponent() {
+		ChargeItemDefinitionPriceComponentImpl chargeItemDefinitionPriceComponent = new ChargeItemDefinitionPriceComponentImpl();
+		return chargeItemDefinitionPriceComponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChargeItemDefinitionPropertyGroup createChargeItemDefinitionPropertyGroup() {
+		ChargeItemDefinitionPropertyGroupImpl chargeItemDefinitionPropertyGroup = new ChargeItemDefinitionPropertyGroupImpl();
+		return chargeItemDefinitionPropertyGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChargeItemPerformer createChargeItemPerformer() {
+		ChargeItemPerformerImpl chargeItemPerformer = new ChargeItemPerformerImpl();
+		return chargeItemPerformer;
 	}
 
 	/**
@@ -4918,16 +4955,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ClaimDiagnosis createClaimDiagnosis() {
 		ClaimDiagnosisImpl claimDiagnosis = new ClaimDiagnosisImpl();
 		return claimDiagnosis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClaimInformation createClaimInformation() {
-		ClaimInformationImpl claimInformation = new ClaimInformationImpl();
-		return claimInformation;
 	}
 
 	/**
@@ -5035,6 +5062,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ClaimResponseDetail1 createClaimResponseDetail1() {
+		ClaimResponseDetail1Impl claimResponseDetail1 = new ClaimResponseDetail1Impl();
+		return claimResponseDetail1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ClaimResponseError createClaimResponseError() {
 		ClaimResponseErrorImpl claimResponseError = new ClaimResponseErrorImpl();
 		return claimResponseError;
@@ -5095,9 +5132,39 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ClaimResponseSubDetail1 createClaimResponseSubDetail1() {
+		ClaimResponseSubDetail1Impl claimResponseSubDetail1 = new ClaimResponseSubDetail1Impl();
+		return claimResponseSubDetail1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimResponseTotal createClaimResponseTotal() {
+		ClaimResponseTotalImpl claimResponseTotal = new ClaimResponseTotalImpl();
+		return claimResponseTotal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ClaimSubDetail createClaimSubDetail() {
 		ClaimSubDetailImpl claimSubDetail = new ClaimSubDetailImpl();
 		return claimSubDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClaimSupportingInfo createClaimSupportingInfo() {
+		ClaimSupportingInfoImpl claimSupportingInfo = new ClaimSupportingInfoImpl();
+		return claimSupportingInfo;
 	}
 
 	/**
@@ -5515,16 +5582,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionClinicalStatusCodes createConditionClinicalStatusCodes() {
-		ConditionClinicalStatusCodesImpl conditionClinicalStatusCodes = new ConditionClinicalStatusCodesImpl();
-		return conditionClinicalStatusCodes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConditionEvidence createConditionEvidence() {
 		ConditionEvidenceImpl conditionEvidence = new ConditionEvidenceImpl();
 		return conditionEvidence;
@@ -5538,26 +5595,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ConditionStage createConditionStage() {
 		ConditionStageImpl conditionStage = new ConditionStageImpl();
 		return conditionStage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConditionVerificationStatus createConditionVerificationStatus() {
-		ConditionVerificationStatusImpl conditionVerificationStatus = new ConditionVerificationStatusImpl();
-		return conditionVerificationStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConfidentialityClassification createConfidentialityClassification() {
-		ConfidentialityClassificationImpl confidentialityClassification = new ConfidentialityClassificationImpl();
-		return confidentialityClassification;
 	}
 
 	/**
@@ -5628,16 +5665,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ConsentProvisionType createConsentProvisionType() {
 		ConsentProvisionTypeImpl consentProvisionType = new ConsentProvisionTypeImpl();
 		return consentProvisionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConsentScopeCodes createConsentScopeCodes() {
-		ConsentScopeCodesImpl consentScopeCodes = new ConsentScopeCodesImpl();
-		return consentScopeCodes;
 	}
 
 	/**
@@ -5725,9 +5752,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContractAgent createContractAgent() {
-		ContractAgentImpl contractAgent = new ContractAgentImpl();
-		return contractAgent;
+	public ContractAction createContractAction() {
+		ContractActionImpl contractAction = new ContractActionImpl();
+		return contractAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContractAnswer createContractAnswer() {
+		ContractAnswerImpl contractAnswer = new ContractAnswerImpl();
+		return contractAnswer;
 	}
 
 	/**
@@ -5745,9 +5782,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContractData createContractData() {
-		ContractDataImpl contractData = new ContractDataImpl();
-		return contractData;
+	public ContractContentDefinition createContractContentDefinition() {
+		ContractContentDefinitionImpl contractContentDefinition = new ContractContentDefinitionImpl();
+		return contractContentDefinition;
 	}
 
 	/**
@@ -5755,9 +5792,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContractDataMeaning createContractDataMeaning() {
-		ContractDataMeaningImpl contractDataMeaning = new ContractDataMeaningImpl();
-		return contractDataMeaning;
+	public ContractContext createContractContext() {
+		ContractContextImpl contractContext = new ContractContextImpl();
+		return contractContext;
 	}
 
 	/**
@@ -5795,6 +5832,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ContractParty createContractParty() {
+		ContractPartyImpl contractParty = new ContractPartyImpl();
+		return contractParty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContractResourcePublicationStatusCodes createContractResourcePublicationStatusCodes() {
+		ContractResourcePublicationStatusCodesImpl contractResourcePublicationStatusCodes = new ContractResourcePublicationStatusCodesImpl();
+		return contractResourcePublicationStatusCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ContractResourceStatusCodes createContractResourceStatusCodes() {
 		ContractResourceStatusCodesImpl contractResourceStatusCodes = new ContractResourceStatusCodesImpl();
 		return contractResourceStatusCodes;
@@ -5815,9 +5872,29 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ContractSecurityLabel createContractSecurityLabel() {
+		ContractSecurityLabelImpl contractSecurityLabel = new ContractSecurityLabelImpl();
+		return contractSecurityLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ContractSigner createContractSigner() {
 		ContractSignerImpl contractSigner = new ContractSignerImpl();
 		return contractSigner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContractSubject createContractSubject() {
+		ContractSubjectImpl contractSubject = new ContractSubjectImpl();
+		return contractSubject;
 	}
 
 	/**
@@ -5895,9 +5972,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CoverageCopay createCoverageCopay() {
-		CoverageCopayImpl coverageCopay = new CoverageCopayImpl();
-		return coverageCopay;
+	public CoverageCostToBeneficiary createCoverageCostToBeneficiary() {
+		CoverageCostToBeneficiaryImpl coverageCostToBeneficiary = new CoverageCostToBeneficiaryImpl();
+		return coverageCostToBeneficiary;
 	}
 
 	/**
@@ -5905,9 +5982,109 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CoverageGrouping createCoverageGrouping() {
-		CoverageGroupingImpl coverageGrouping = new CoverageGroupingImpl();
-		return coverageGrouping;
+	public CoverageEligibilityRequest createCoverageEligibilityRequest() {
+		CoverageEligibilityRequestImpl coverageEligibilityRequest = new CoverageEligibilityRequestImpl();
+		return coverageEligibilityRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityRequestDiagnosis createCoverageEligibilityRequestDiagnosis() {
+		CoverageEligibilityRequestDiagnosisImpl coverageEligibilityRequestDiagnosis = new CoverageEligibilityRequestDiagnosisImpl();
+		return coverageEligibilityRequestDiagnosis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityRequestInsurance createCoverageEligibilityRequestInsurance() {
+		CoverageEligibilityRequestInsuranceImpl coverageEligibilityRequestInsurance = new CoverageEligibilityRequestInsuranceImpl();
+		return coverageEligibilityRequestInsurance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityRequestItem createCoverageEligibilityRequestItem() {
+		CoverageEligibilityRequestItemImpl coverageEligibilityRequestItem = new CoverageEligibilityRequestItemImpl();
+		return coverageEligibilityRequestItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityRequestSupportingInfo createCoverageEligibilityRequestSupportingInfo() {
+		CoverageEligibilityRequestSupportingInfoImpl coverageEligibilityRequestSupportingInfo = new CoverageEligibilityRequestSupportingInfoImpl();
+		return coverageEligibilityRequestSupportingInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityResponse createCoverageEligibilityResponse() {
+		CoverageEligibilityResponseImpl coverageEligibilityResponse = new CoverageEligibilityResponseImpl();
+		return coverageEligibilityResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityResponseBenefit createCoverageEligibilityResponseBenefit() {
+		CoverageEligibilityResponseBenefitImpl coverageEligibilityResponseBenefit = new CoverageEligibilityResponseBenefitImpl();
+		return coverageEligibilityResponseBenefit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityResponseError createCoverageEligibilityResponseError() {
+		CoverageEligibilityResponseErrorImpl coverageEligibilityResponseError = new CoverageEligibilityResponseErrorImpl();
+		return coverageEligibilityResponseError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityResponseInsurance createCoverageEligibilityResponseInsurance() {
+		CoverageEligibilityResponseInsuranceImpl coverageEligibilityResponseInsurance = new CoverageEligibilityResponseInsuranceImpl();
+		return coverageEligibilityResponseInsurance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageEligibilityResponseItem createCoverageEligibilityResponseItem() {
+		CoverageEligibilityResponseItemImpl coverageEligibilityResponseItem = new CoverageEligibilityResponseItemImpl();
+		return coverageEligibilityResponseItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoverageException createCoverageException() {
+		CoverageExceptionImpl coverageException = new CoverageExceptionImpl();
+		return coverageException;
 	}
 
 	/**
@@ -5938,6 +6115,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public DataRequirementDateFilter createDataRequirementDateFilter() {
 		DataRequirementDateFilterImpl dataRequirementDateFilter = new DataRequirementDateFilterImpl();
 		return dataRequirementDateFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataRequirementSort createDataRequirementSort() {
+		DataRequirementSortImpl dataRequirementSort = new DataRequirementSortImpl();
+		return dataRequirementSort;
 	}
 
 	/**
@@ -5995,6 +6182,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DetectedIssueEvidence createDetectedIssueEvidence() {
+		DetectedIssueEvidenceImpl detectedIssueEvidence = new DetectedIssueEvidenceImpl();
+		return detectedIssueEvidence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DetectedIssueMitigation createDetectedIssueMitigation() {
 		DetectedIssueMitigationImpl detectedIssueMitigation = new DetectedIssueMitigationImpl();
 		return detectedIssueMitigation;
@@ -6025,9 +6222,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceComponent createDeviceComponent() {
-		DeviceComponentImpl deviceComponent = new DeviceComponentImpl();
-		return deviceComponent;
+	public DeviceDefinition createDeviceDefinition() {
+		DeviceDefinitionImpl deviceDefinition = new DeviceDefinitionImpl();
+		return deviceDefinition;
 	}
 
 	/**
@@ -6035,9 +6232,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceComponentProductionSpecification createDeviceComponentProductionSpecification() {
-		DeviceComponentProductionSpecificationImpl deviceComponentProductionSpecification = new DeviceComponentProductionSpecificationImpl();
-		return deviceComponentProductionSpecification;
+	public DeviceDefinitionCapability createDeviceDefinitionCapability() {
+		DeviceDefinitionCapabilityImpl deviceDefinitionCapability = new DeviceDefinitionCapabilityImpl();
+		return deviceDefinitionCapability;
 	}
 
 	/**
@@ -6045,9 +6242,59 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceComponentProperty createDeviceComponentProperty() {
-		DeviceComponentPropertyImpl deviceComponentProperty = new DeviceComponentPropertyImpl();
-		return deviceComponentProperty;
+	public DeviceDefinitionDeviceName createDeviceDefinitionDeviceName() {
+		DeviceDefinitionDeviceNameImpl deviceDefinitionDeviceName = new DeviceDefinitionDeviceNameImpl();
+		return deviceDefinitionDeviceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceDefinitionMaterial createDeviceDefinitionMaterial() {
+		DeviceDefinitionMaterialImpl deviceDefinitionMaterial = new DeviceDefinitionMaterialImpl();
+		return deviceDefinitionMaterial;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceDefinitionProperty createDeviceDefinitionProperty() {
+		DeviceDefinitionPropertyImpl deviceDefinitionProperty = new DeviceDefinitionPropertyImpl();
+		return deviceDefinitionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceDefinitionSpecialization createDeviceDefinitionSpecialization() {
+		DeviceDefinitionSpecializationImpl deviceDefinitionSpecialization = new DeviceDefinitionSpecializationImpl();
+		return deviceDefinitionSpecialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceDefinitionUdiDeviceIdentifier createDeviceDefinitionUdiDeviceIdentifier() {
+		DeviceDefinitionUdiDeviceIdentifierImpl deviceDefinitionUdiDeviceIdentifier = new DeviceDefinitionUdiDeviceIdentifierImpl();
+		return deviceDefinitionUdiDeviceIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceDeviceName createDeviceDeviceName() {
+		DeviceDeviceNameImpl deviceDeviceName = new DeviceDeviceNameImpl();
+		return deviceDeviceName;
 	}
 
 	/**
@@ -6125,6 +6372,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DeviceNameType createDeviceNameType() {
+		DeviceNameTypeImpl deviceNameType = new DeviceNameTypeImpl();
+		return deviceNameType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceProperty createDeviceProperty() {
+		DevicePropertyImpl deviceProperty = new DevicePropertyImpl();
+		return deviceProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DeviceRequest createDeviceRequest() {
 		DeviceRequestImpl deviceRequest = new DeviceRequestImpl();
 		return deviceRequest;
@@ -6145,9 +6412,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceUdi createDeviceUdi() {
-		DeviceUdiImpl deviceUdi = new DeviceUdiImpl();
-		return deviceUdi;
+	public DeviceSpecialization createDeviceSpecialization() {
+		DeviceSpecializationImpl deviceSpecialization = new DeviceSpecializationImpl();
+		return deviceSpecialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceUdiCarrier createDeviceUdiCarrier() {
+		DeviceUdiCarrierImpl deviceUdiCarrier = new DeviceUdiCarrierImpl();
+		return deviceUdiCarrier;
 	}
 
 	/**
@@ -6168,6 +6445,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public DeviceUseStatementStatus createDeviceUseStatementStatus() {
 		DeviceUseStatementStatusImpl deviceUseStatementStatus = new DeviceUseStatementStatusImpl();
 		return deviceUseStatementStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeviceVersion createDeviceVersion() {
+		DeviceVersionImpl deviceVersion = new DeviceVersionImpl();
+		return deviceVersion;
 	}
 
 	/**
@@ -6235,16 +6522,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentManifestAgent createDocumentManifestAgent() {
-		DocumentManifestAgentImpl documentManifestAgent = new DocumentManifestAgentImpl();
-		return documentManifestAgent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DocumentManifestRelated createDocumentManifestRelated() {
 		DocumentManifestRelatedImpl documentManifestRelated = new DocumentManifestRelatedImpl();
 		return documentManifestRelated;
@@ -6275,16 +6552,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentReferenceAgent createDocumentReferenceAgent() {
-		DocumentReferenceAgentImpl documentReferenceAgent = new DocumentReferenceAgentImpl();
-		return documentReferenceAgent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DocumentReferenceContent createDocumentReferenceContent() {
 		DocumentReferenceContentImpl documentReferenceContent = new DocumentReferenceContentImpl();
 		return documentReferenceContent;
@@ -6298,16 +6565,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public DocumentReferenceContext createDocumentReferenceContext() {
 		DocumentReferenceContextImpl documentReferenceContext = new DocumentReferenceContextImpl();
 		return documentReferenceContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DocumentReferenceRelated createDocumentReferenceRelated() {
-		DocumentReferenceRelatedImpl documentReferenceRelated = new DocumentReferenceRelatedImpl();
-		return documentReferenceRelated;
 	}
 
 	/**
@@ -6375,9 +6632,89 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DosageDoseAndRate createDosageDoseAndRate() {
+		DosageDoseAndRateImpl dosageDoseAndRate = new DosageDoseAndRateImpl();
+		return dosageDoseAndRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Duration createDuration() {
 		DurationImpl duration = new DurationImpl();
 		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesis createEffectEvidenceSynthesis() {
+		EffectEvidenceSynthesisImpl effectEvidenceSynthesis = new EffectEvidenceSynthesisImpl();
+		return effectEvidenceSynthesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisCertainty createEffectEvidenceSynthesisCertainty() {
+		EffectEvidenceSynthesisCertaintyImpl effectEvidenceSynthesisCertainty = new EffectEvidenceSynthesisCertaintyImpl();
+		return effectEvidenceSynthesisCertainty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisCertaintySubcomponent createEffectEvidenceSynthesisCertaintySubcomponent() {
+		EffectEvidenceSynthesisCertaintySubcomponentImpl effectEvidenceSynthesisCertaintySubcomponent = new EffectEvidenceSynthesisCertaintySubcomponentImpl();
+		return effectEvidenceSynthesisCertaintySubcomponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisEffectEstimate createEffectEvidenceSynthesisEffectEstimate() {
+		EffectEvidenceSynthesisEffectEstimateImpl effectEvidenceSynthesisEffectEstimate = new EffectEvidenceSynthesisEffectEstimateImpl();
+		return effectEvidenceSynthesisEffectEstimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisPrecisionEstimate createEffectEvidenceSynthesisPrecisionEstimate() {
+		EffectEvidenceSynthesisPrecisionEstimateImpl effectEvidenceSynthesisPrecisionEstimate = new EffectEvidenceSynthesisPrecisionEstimateImpl();
+		return effectEvidenceSynthesisPrecisionEstimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisResultsByExposure createEffectEvidenceSynthesisResultsByExposure() {
+		EffectEvidenceSynthesisResultsByExposureImpl effectEvidenceSynthesisResultsByExposure = new EffectEvidenceSynthesisResultsByExposureImpl();
+		return effectEvidenceSynthesisResultsByExposure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectEvidenceSynthesisSampleSize createEffectEvidenceSynthesisSampleSize() {
+		EffectEvidenceSynthesisSampleSizeImpl effectEvidenceSynthesisSampleSize = new EffectEvidenceSynthesisSampleSizeImpl();
+		return effectEvidenceSynthesisSampleSize;
 	}
 
 	/**
@@ -6485,9 +6822,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EligibilityRequest createEligibilityRequest() {
-		EligibilityRequestImpl eligibilityRequest = new EligibilityRequestImpl();
-		return eligibilityRequest;
+	public EligibilityRequestPurpose createEligibilityRequestPurpose() {
+		EligibilityRequestPurposeImpl eligibilityRequestPurpose = new EligibilityRequestPurposeImpl();
+		return eligibilityRequestPurpose;
 	}
 
 	/**
@@ -6495,9 +6832,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EligibilityRequestAuthorization createEligibilityRequestAuthorization() {
-		EligibilityRequestAuthorizationImpl eligibilityRequestAuthorization = new EligibilityRequestAuthorizationImpl();
-		return eligibilityRequestAuthorization;
+	public EligibilityResponsePurpose createEligibilityResponsePurpose() {
+		EligibilityResponsePurposeImpl eligibilityResponsePurpose = new EligibilityResponsePurposeImpl();
+		return eligibilityResponsePurpose;
 	}
 
 	/**
@@ -6505,59 +6842,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EligibilityResponse createEligibilityResponse() {
-		EligibilityResponseImpl eligibilityResponse = new EligibilityResponseImpl();
-		return eligibilityResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponseAuthorization createEligibilityResponseAuthorization() {
-		EligibilityResponseAuthorizationImpl eligibilityResponseAuthorization = new EligibilityResponseAuthorizationImpl();
-		return eligibilityResponseAuthorization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponseBenefitBalance createEligibilityResponseBenefitBalance() {
-		EligibilityResponseBenefitBalanceImpl eligibilityResponseBenefitBalance = new EligibilityResponseBenefitBalanceImpl();
-		return eligibilityResponseBenefitBalance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponseError createEligibilityResponseError() {
-		EligibilityResponseErrorImpl eligibilityResponseError = new EligibilityResponseErrorImpl();
-		return eligibilityResponseError;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponseFinancial createEligibilityResponseFinancial() {
-		EligibilityResponseFinancialImpl eligibilityResponseFinancial = new EligibilityResponseFinancialImpl();
-		return eligibilityResponseFinancial;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EligibilityResponseInsurance createEligibilityResponseInsurance() {
-		EligibilityResponseInsuranceImpl eligibilityResponseInsurance = new EligibilityResponseInsuranceImpl();
-		return eligibilityResponseInsurance;
+	public EnableWhenBehavior createEnableWhenBehavior() {
+		EnableWhenBehaviorImpl enableWhenBehavior = new EnableWhenBehaviorImpl();
+		return enableWhenBehavior;
 	}
 
 	/**
@@ -6695,26 +6982,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryDefinition createEntryDefinition() {
-		EntryDefinitionImpl entryDefinition = new EntryDefinitionImpl();
-		return entryDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntryDefinitionRelatedEntry createEntryDefinitionRelatedEntry() {
-		EntryDefinitionRelatedEntryImpl entryDefinitionRelatedEntry = new EntryDefinitionRelatedEntryImpl();
-		return entryDefinitionRelatedEntry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EpisodeOfCare createEpisodeOfCare() {
 		EpisodeOfCareImpl episodeOfCare = new EpisodeOfCareImpl();
 		return episodeOfCare;
@@ -6795,6 +7062,46 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Evidence createEvidence() {
+		EvidenceImpl evidence = new EvidenceImpl();
+		return evidence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvidenceVariable createEvidenceVariable() {
+		EvidenceVariableImpl evidenceVariable = new EvidenceVariableImpl();
+		return evidenceVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvidenceVariableCharacteristic createEvidenceVariableCharacteristic() {
+		EvidenceVariableCharacteristicImpl evidenceVariableCharacteristic = new EvidenceVariableCharacteristicImpl();
+		return evidenceVariableCharacteristic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvidenceVariableType createEvidenceVariableType() {
+		EvidenceVariableTypeImpl evidenceVariableType = new EvidenceVariableTypeImpl();
+		return evidenceVariableType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExampleScenario createExampleScenario() {
 		ExampleScenarioImpl exampleScenario = new ExampleScenarioImpl();
 		return exampleScenario;
@@ -6865,16 +7172,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExampleScenarioOption createExampleScenarioOption() {
-		ExampleScenarioOptionImpl exampleScenarioOption = new ExampleScenarioOptionImpl();
-		return exampleScenarioOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ExampleScenarioProcess createExampleScenarioProcess() {
 		ExampleScenarioProcessImpl exampleScenarioProcess = new ExampleScenarioProcessImpl();
 		return exampleScenarioProcess;
@@ -6898,86 +7195,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ExampleScenarioVersion createExampleScenarioVersion() {
 		ExampleScenarioVersionImpl exampleScenarioVersion = new ExampleScenarioVersionImpl();
 		return exampleScenarioVersion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfile createExpansionProfile() {
-		ExpansionProfileImpl expansionProfile = new ExpansionProfileImpl();
-		return expansionProfile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileDesignation createExpansionProfileDesignation() {
-		ExpansionProfileDesignationImpl expansionProfileDesignation = new ExpansionProfileDesignationImpl();
-		return expansionProfileDesignation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileDesignation1 createExpansionProfileDesignation1() {
-		ExpansionProfileDesignation1Impl expansionProfileDesignation1 = new ExpansionProfileDesignation1Impl();
-		return expansionProfileDesignation1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileDesignation2 createExpansionProfileDesignation2() {
-		ExpansionProfileDesignation2Impl expansionProfileDesignation2 = new ExpansionProfileDesignation2Impl();
-		return expansionProfileDesignation2;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileExclude createExpansionProfileExclude() {
-		ExpansionProfileExcludeImpl expansionProfileExclude = new ExpansionProfileExcludeImpl();
-		return expansionProfileExclude;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileExcludedSystem createExpansionProfileExcludedSystem() {
-		ExpansionProfileExcludedSystemImpl expansionProfileExcludedSystem = new ExpansionProfileExcludedSystemImpl();
-		return expansionProfileExcludedSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileFixedVersion createExpansionProfileFixedVersion() {
-		ExpansionProfileFixedVersionImpl expansionProfileFixedVersion = new ExpansionProfileFixedVersionImpl();
-		return expansionProfileFixedVersion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpansionProfileInclude createExpansionProfileInclude() {
-		ExpansionProfileIncludeImpl expansionProfileInclude = new ExpansionProfileIncludeImpl();
-		return expansionProfileInclude;
 	}
 
 	/**
@@ -7055,6 +7272,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExplanationOfBenefitDetail1 createExplanationOfBenefitDetail1() {
+		ExplanationOfBenefitDetail1Impl explanationOfBenefitDetail1 = new ExplanationOfBenefitDetail1Impl();
+		return explanationOfBenefitDetail1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExplanationOfBenefitDiagnosis createExplanationOfBenefitDiagnosis() {
 		ExplanationOfBenefitDiagnosisImpl explanationOfBenefitDiagnosis = new ExplanationOfBenefitDiagnosisImpl();
 		return explanationOfBenefitDiagnosis;
@@ -7068,16 +7295,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ExplanationOfBenefitFinancial createExplanationOfBenefitFinancial() {
 		ExplanationOfBenefitFinancialImpl explanationOfBenefitFinancial = new ExplanationOfBenefitFinancialImpl();
 		return explanationOfBenefitFinancial;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExplanationOfBenefitInformation createExplanationOfBenefitInformation() {
-		ExplanationOfBenefitInformationImpl explanationOfBenefitInformation = new ExplanationOfBenefitInformationImpl();
-		return explanationOfBenefitInformation;
 	}
 
 	/**
@@ -7175,6 +7392,56 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExplanationOfBenefitSubDetail1 createExplanationOfBenefitSubDetail1() {
+		ExplanationOfBenefitSubDetail1Impl explanationOfBenefitSubDetail1 = new ExplanationOfBenefitSubDetail1Impl();
+		return explanationOfBenefitSubDetail1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitSupportingInfo createExplanationOfBenefitSupportingInfo() {
+		ExplanationOfBenefitSupportingInfoImpl explanationOfBenefitSupportingInfo = new ExplanationOfBenefitSupportingInfoImpl();
+		return explanationOfBenefitSupportingInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExplanationOfBenefitTotal createExplanationOfBenefitTotal() {
+		ExplanationOfBenefitTotalImpl explanationOfBenefitTotal = new ExplanationOfBenefitTotalImpl();
+		return explanationOfBenefitTotal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExposureState createExposureState() {
+		ExposureStateImpl exposureState = new ExposureStateImpl();
+		return exposureState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression createExpression() {
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExpressionLanguage createExpressionLanguage() {
 		ExpressionLanguageImpl expressionLanguage = new ExpressionLanguageImpl();
 		return expressionLanguage;
@@ -7195,19 +7462,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionContext createExtensionContext() {
-		ExtensionContextImpl extensionContext = new ExtensionContextImpl();
-		return extensionContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FailureAction createFailureAction() {
-		FailureActionImpl failureAction = new FailureActionImpl();
-		return failureAction;
+	public ExtensionContextType createExtensionContextType() {
+		ExtensionContextTypeImpl extensionContextType = new ExtensionContextTypeImpl();
+		return extensionContextType;
 	}
 
 	/**
@@ -7245,26 +7502,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FHIRAllTypes createFHIRAllTypes() {
-		FHIRAllTypesImpl fhirAllTypes = new FHIRAllTypesImpl();
-		return fhirAllTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FHIRDefinedType createFHIRDefinedType() {
-		FHIRDefinedTypeImpl fhirDefinedType = new FHIRDefinedTypeImpl();
-		return fhirDefinedType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FHIRDeviceStatus createFHIRDeviceStatus() {
 		FHIRDeviceStatusImpl fhirDeviceStatus = new FHIRDeviceStatusImpl();
 		return fhirDeviceStatus;
@@ -7278,6 +7515,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public FHIRSubstanceStatus createFHIRSubstanceStatus() {
 		FHIRSubstanceStatusImpl fhirSubstanceStatus = new FHIRSubstanceStatusImpl();
 		return fhirSubstanceStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FHIRVersion createFHIRVersion() {
+		FHIRVersionImpl fhirVersion = new FHIRVersionImpl();
+		return fhirVersion;
 	}
 
 	/**
@@ -7335,9 +7582,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalStatus createGoalStatus() {
-		GoalStatusImpl goalStatus = new GoalStatusImpl();
-		return goalStatus;
+	public GoalLifecycleStatus createGoalLifecycleStatus() {
+		GoalLifecycleStatusImpl goalLifecycleStatus = new GoalLifecycleStatusImpl();
+		return goalLifecycleStatus;
 	}
 
 	/**
@@ -7435,6 +7682,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GroupMeasure createGroupMeasure() {
+		GroupMeasureImpl groupMeasure = new GroupMeasureImpl();
+		return groupMeasure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GroupMember createGroupMember() {
 		GroupMemberImpl groupMember = new GroupMemberImpl();
 		return groupMember;
@@ -7475,9 +7732,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuideDependencyType createGuideDependencyType() {
-		GuideDependencyTypeImpl guideDependencyType = new GuideDependencyTypeImpl();
-		return guideDependencyType;
+	public GuidePageGeneration createGuidePageGeneration() {
+		GuidePageGenerationImpl guidePageGeneration = new GuidePageGenerationImpl();
+		return guidePageGeneration;
 	}
 
 	/**
@@ -7485,19 +7742,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuidePageKind createGuidePageKind() {
-		GuidePageKindImpl guidePageKind = new GuidePageKindImpl();
-		return guidePageKind;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HazardousDutyWork createHazardousDutyWork() {
-		HazardousDutyWorkImpl hazardousDutyWork = new HazardousDutyWorkImpl();
-		return hazardousDutyWork;
+	public GuideParameterCode createGuideParameterCode() {
+		GuideParameterCodeImpl guideParameterCode = new GuideParameterCodeImpl();
+		return guideParameterCode;
 	}
 
 	/**
@@ -7525,9 +7772,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HealthcareServiceNotAvailable createHealthcareServiceNotAvailable() {
-		HealthcareServiceNotAvailableImpl healthcareServiceNotAvailable = new HealthcareServiceNotAvailableImpl();
-		return healthcareServiceNotAvailable;
+	public HealthcareServiceEligibility createHealthcareServiceEligibility() {
+		HealthcareServiceEligibilityImpl healthcareServiceEligibility = new HealthcareServiceEligibilityImpl();
+		return healthcareServiceEligibility;
 	}
 
 	/**
@@ -7535,9 +7782,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HistoryOfEmploymentStatus createHistoryOfEmploymentStatus() {
-		HistoryOfEmploymentStatusImpl historyOfEmploymentStatus = new HistoryOfEmploymentStatusImpl();
-		return historyOfEmploymentStatus;
+	public HealthcareServiceNotAvailable createHealthcareServiceNotAvailable() {
+		HealthcareServiceNotAvailableImpl healthcareServiceNotAvailable = new HealthcareServiceNotAvailableImpl();
+		return healthcareServiceNotAvailable;
 	}
 
 	/**
@@ -7625,9 +7872,29 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImagingStudyPerformer createImagingStudyPerformer() {
+		ImagingStudyPerformerImpl imagingStudyPerformer = new ImagingStudyPerformerImpl();
+		return imagingStudyPerformer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImagingStudySeries createImagingStudySeries() {
 		ImagingStudySeriesImpl imagingStudySeries = new ImagingStudySeriesImpl();
 		return imagingStudySeries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImagingStudyStatus createImagingStudyStatus() {
+		ImagingStudyStatusImpl imagingStudyStatus = new ImagingStudyStatusImpl();
+		return imagingStudyStatus;
 	}
 
 	/**
@@ -7675,9 +7942,29 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImmunizationPractitioner createImmunizationPractitioner() {
-		ImmunizationPractitionerImpl immunizationPractitioner = new ImmunizationPractitionerImpl();
-		return immunizationPractitioner;
+	public ImmunizationPerformer createImmunizationPerformer() {
+		ImmunizationPerformerImpl immunizationPerformer = new ImmunizationPerformerImpl();
+		return immunizationPerformer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImmunizationProtocolApplied createImmunizationProtocolApplied() {
+		ImmunizationProtocolAppliedImpl immunizationProtocolApplied = new ImmunizationProtocolAppliedImpl();
+		return immunizationProtocolApplied;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImmunizationReaction createImmunizationReaction() {
+		ImmunizationReactionImpl immunizationReaction = new ImmunizationReactionImpl();
+		return immunizationReaction;
 	}
 
 	/**
@@ -7735,9 +8022,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideDependency createImplementationGuideDependency() {
-		ImplementationGuideDependencyImpl implementationGuideDependency = new ImplementationGuideDependencyImpl();
-		return implementationGuideDependency;
+	public ImplementationGuideDefinition createImplementationGuideDefinition() {
+		ImplementationGuideDefinitionImpl implementationGuideDefinition = new ImplementationGuideDefinitionImpl();
+		return implementationGuideDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideDependsOn createImplementationGuideDependsOn() {
+		ImplementationGuideDependsOnImpl implementationGuideDependsOn = new ImplementationGuideDependsOnImpl();
+		return implementationGuideDependsOn;
 	}
 
 	/**
@@ -7755,9 +8052,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideInput createImplementationGuideInput() {
-		ImplementationGuideInputImpl implementationGuideInput = new ImplementationGuideInputImpl();
-		return implementationGuideInput;
+	public ImplementationGuideGrouping createImplementationGuideGrouping() {
+		ImplementationGuideGroupingImpl implementationGuideGrouping = new ImplementationGuideGroupingImpl();
+		return implementationGuideGrouping;
 	}
 
 	/**
@@ -7765,109 +8062,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuideInputDependency createImplementationGuideInputDependency() {
-		ImplementationGuideInputDependencyImpl implementationGuideInputDependency = new ImplementationGuideInputDependencyImpl();
-		return implementationGuideInputDependency;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideInputGlobal createImplementationGuideInputGlobal() {
-		ImplementationGuideInputGlobalImpl implementationGuideInputGlobal = new ImplementationGuideInputGlobalImpl();
-		return implementationGuideInputGlobal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideInputPackage createImplementationGuideInputPackage() {
-		ImplementationGuideInputPackageImpl implementationGuideInputPackage = new ImplementationGuideInputPackageImpl();
-		return implementationGuideInputPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideInputPage createImplementationGuideInputPage() {
-		ImplementationGuideInputPageImpl implementationGuideInputPage = new ImplementationGuideInputPageImpl();
-		return implementationGuideInputPage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideInputResource createImplementationGuideInputResource() {
-		ImplementationGuideInputResourceImpl implementationGuideInputResource = new ImplementationGuideInputResourceImpl();
-		return implementationGuideInputResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideOutput createImplementationGuideOutput() {
-		ImplementationGuideOutputImpl implementationGuideOutput = new ImplementationGuideOutputImpl();
-		return implementationGuideOutput;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideOutputDependency createImplementationGuideOutputDependency() {
-		ImplementationGuideOutputDependencyImpl implementationGuideOutputDependency = new ImplementationGuideOutputDependencyImpl();
-		return implementationGuideOutputDependency;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideOutputGlobal createImplementationGuideOutputGlobal() {
-		ImplementationGuideOutputGlobalImpl implementationGuideOutputGlobal = new ImplementationGuideOutputGlobalImpl();
-		return implementationGuideOutputGlobal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideOutputPage createImplementationGuideOutputPage() {
-		ImplementationGuideOutputPageImpl implementationGuideOutputPage = new ImplementationGuideOutputPageImpl();
-		return implementationGuideOutputPage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuideOutputResource createImplementationGuideOutputResource() {
-		ImplementationGuideOutputResourceImpl implementationGuideOutputResource = new ImplementationGuideOutputResourceImpl();
-		return implementationGuideOutputResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationGuidePackage createImplementationGuidePackage() {
-		ImplementationGuidePackageImpl implementationGuidePackage = new ImplementationGuidePackageImpl();
-		return implementationGuidePackage;
+	public ImplementationGuideManifest createImplementationGuideManifest() {
+		ImplementationGuideManifestImpl implementationGuideManifest = new ImplementationGuideManifestImpl();
+		return implementationGuideManifest;
 	}
 
 	/**
@@ -7885,6 +8082,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImplementationGuidePage1 createImplementationGuidePage1() {
+		ImplementationGuidePage1Impl implementationGuidePage1 = new ImplementationGuidePage1Impl();
+		return implementationGuidePage1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideParameter createImplementationGuideParameter() {
+		ImplementationGuideParameterImpl implementationGuideParameter = new ImplementationGuideParameterImpl();
+		return implementationGuideParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImplementationGuideResource createImplementationGuideResource() {
 		ImplementationGuideResourceImpl implementationGuideResource = new ImplementationGuideResourceImpl();
 		return implementationGuideResource;
@@ -7895,9 +8112,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceAvailability createInstanceAvailability() {
-		InstanceAvailabilityImpl instanceAvailability = new InstanceAvailabilityImpl();
-		return instanceAvailability;
+	public ImplementationGuideResource1 createImplementationGuideResource1() {
+		ImplementationGuideResource1Impl implementationGuideResource1 = new ImplementationGuideResource1Impl();
+		return implementationGuideResource1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideTemplate createImplementationGuideTemplate() {
+		ImplementationGuideTemplateImpl implementationGuideTemplate = new ImplementationGuideTemplateImpl();
+		return implementationGuideTemplate;
 	}
 
 	/**
@@ -7908,6 +8135,106 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public Instant createInstant() {
 		InstantImpl instant = new InstantImpl();
 		return instant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlan createInsurancePlan() {
+		InsurancePlanImpl insurancePlan = new InsurancePlanImpl();
+		return insurancePlan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanBenefit createInsurancePlanBenefit() {
+		InsurancePlanBenefitImpl insurancePlanBenefit = new InsurancePlanBenefitImpl();
+		return insurancePlanBenefit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanBenefit1 createInsurancePlanBenefit1() {
+		InsurancePlanBenefit1Impl insurancePlanBenefit1 = new InsurancePlanBenefit1Impl();
+		return insurancePlanBenefit1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanContact createInsurancePlanContact() {
+		InsurancePlanContactImpl insurancePlanContact = new InsurancePlanContactImpl();
+		return insurancePlanContact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanCost createInsurancePlanCost() {
+		InsurancePlanCostImpl insurancePlanCost = new InsurancePlanCostImpl();
+		return insurancePlanCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanCoverage createInsurancePlanCoverage() {
+		InsurancePlanCoverageImpl insurancePlanCoverage = new InsurancePlanCoverageImpl();
+		return insurancePlanCoverage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanGeneralCost createInsurancePlanGeneralCost() {
+		InsurancePlanGeneralCostImpl insurancePlanGeneralCost = new InsurancePlanGeneralCostImpl();
+		return insurancePlanGeneralCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanLimit createInsurancePlanLimit() {
+		InsurancePlanLimitImpl insurancePlanLimit = new InsurancePlanLimitImpl();
+		return insurancePlanLimit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanPlan createInsurancePlanPlan() {
+		InsurancePlanPlanImpl insurancePlanPlan = new InsurancePlanPlanImpl();
+		return insurancePlanPlan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InsurancePlanSpecificCost createInsurancePlanSpecificCost() {
+		InsurancePlanSpecificCostImpl insurancePlanSpecificCost = new InsurancePlanSpecificCostImpl();
+		return insurancePlanSpecificCost;
 	}
 
 	/**
@@ -7998,16 +8325,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public IssueType createIssueType() {
 		IssueTypeImpl issueType = new IssueTypeImpl();
 		return issueType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ItemInstance createItemInstance() {
-		ItemInstanceImpl itemInstance = new ItemInstanceImpl();
-		return itemInstance;
 	}
 
 	/**
@@ -8175,9 +8492,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasmntPrinciple createMeasmntPrinciple() {
-		MeasmntPrincipleImpl measmntPrinciple = new MeasmntPrincipleImpl();
-		return measmntPrinciple;
+	public Measure createMeasure() {
+		MeasureImpl measure = new MeasureImpl();
+		return measure;
 	}
 
 	/**
@@ -8185,9 +8502,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measure createMeasure() {
-		MeasureImpl measure = new MeasureImpl();
-		return measure;
+	public MeasureComponent createMeasureComponent() {
+		MeasureComponentImpl measureComponent = new MeasureComponentImpl();
+		return measureComponent;
 	}
 
 	/**
@@ -8218,6 +8535,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public MeasureReport createMeasureReport() {
 		MeasureReportImpl measureReport = new MeasureReportImpl();
 		return measureReport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MeasureReportComponent createMeasureReportComponent() {
+		MeasureReportComponentImpl measureReportComponent = new MeasureReportComponentImpl();
+		return measureReportComponent;
 	}
 
 	/**
@@ -8325,16 +8652,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediaStatus createMediaStatus() {
-		MediaStatusImpl mediaStatus = new MediaStatusImpl();
-		return mediaStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Medication createMedication() {
 		MedicationImpl medication = new MedicationImpl();
 		return medication;
@@ -8375,16 +8692,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationAdministrationStatus createMedicationAdministrationStatus() {
-		MedicationAdministrationStatusImpl medicationAdministrationStatus = new MedicationAdministrationStatusImpl();
-		return medicationAdministrationStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicationBatch createMedicationBatch() {
 		MedicationBatchImpl medicationBatch = new MedicationBatchImpl();
 		return medicationBatch;
@@ -8415,16 +8722,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationDispenseStatus createMedicationDispenseStatus() {
-		MedicationDispenseStatusImpl medicationDispenseStatus = new MedicationDispenseStatusImpl();
-		return medicationDispenseStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicationDispenseSubstitution createMedicationDispenseSubstitution() {
 		MedicationDispenseSubstitutionImpl medicationDispenseSubstitution = new MedicationDispenseSubstitutionImpl();
 		return medicationDispenseSubstitution;
@@ -8438,6 +8735,176 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public MedicationIngredient createMedicationIngredient() {
 		MedicationIngredientImpl medicationIngredient = new MedicationIngredientImpl();
 		return medicationIngredient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledge createMedicationKnowledge() {
+		MedicationKnowledgeImpl medicationKnowledge = new MedicationKnowledgeImpl();
+		return medicationKnowledge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeAdministrationGuidelines createMedicationKnowledgeAdministrationGuidelines() {
+		MedicationKnowledgeAdministrationGuidelinesImpl medicationKnowledgeAdministrationGuidelines = new MedicationKnowledgeAdministrationGuidelinesImpl();
+		return medicationKnowledgeAdministrationGuidelines;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeCost createMedicationKnowledgeCost() {
+		MedicationKnowledgeCostImpl medicationKnowledgeCost = new MedicationKnowledgeCostImpl();
+		return medicationKnowledgeCost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeDosage createMedicationKnowledgeDosage() {
+		MedicationKnowledgeDosageImpl medicationKnowledgeDosage = new MedicationKnowledgeDosageImpl();
+		return medicationKnowledgeDosage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeDrugCharacteristic createMedicationKnowledgeDrugCharacteristic() {
+		MedicationKnowledgeDrugCharacteristicImpl medicationKnowledgeDrugCharacteristic = new MedicationKnowledgeDrugCharacteristicImpl();
+		return medicationKnowledgeDrugCharacteristic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeIngredient createMedicationKnowledgeIngredient() {
+		MedicationKnowledgeIngredientImpl medicationKnowledgeIngredient = new MedicationKnowledgeIngredientImpl();
+		return medicationKnowledgeIngredient;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeKinetics createMedicationKnowledgeKinetics() {
+		MedicationKnowledgeKineticsImpl medicationKnowledgeKinetics = new MedicationKnowledgeKineticsImpl();
+		return medicationKnowledgeKinetics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeMaxDispense createMedicationKnowledgeMaxDispense() {
+		MedicationKnowledgeMaxDispenseImpl medicationKnowledgeMaxDispense = new MedicationKnowledgeMaxDispenseImpl();
+		return medicationKnowledgeMaxDispense;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeMedicineClassification createMedicationKnowledgeMedicineClassification() {
+		MedicationKnowledgeMedicineClassificationImpl medicationKnowledgeMedicineClassification = new MedicationKnowledgeMedicineClassificationImpl();
+		return medicationKnowledgeMedicineClassification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeMonitoringProgram createMedicationKnowledgeMonitoringProgram() {
+		MedicationKnowledgeMonitoringProgramImpl medicationKnowledgeMonitoringProgram = new MedicationKnowledgeMonitoringProgramImpl();
+		return medicationKnowledgeMonitoringProgram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeMonograph createMedicationKnowledgeMonograph() {
+		MedicationKnowledgeMonographImpl medicationKnowledgeMonograph = new MedicationKnowledgeMonographImpl();
+		return medicationKnowledgeMonograph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgePackaging createMedicationKnowledgePackaging() {
+		MedicationKnowledgePackagingImpl medicationKnowledgePackaging = new MedicationKnowledgePackagingImpl();
+		return medicationKnowledgePackaging;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgePatientCharacteristics createMedicationKnowledgePatientCharacteristics() {
+		MedicationKnowledgePatientCharacteristicsImpl medicationKnowledgePatientCharacteristics = new MedicationKnowledgePatientCharacteristicsImpl();
+		return medicationKnowledgePatientCharacteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeRegulatory createMedicationKnowledgeRegulatory() {
+		MedicationKnowledgeRegulatoryImpl medicationKnowledgeRegulatory = new MedicationKnowledgeRegulatoryImpl();
+		return medicationKnowledgeRegulatory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeRelatedMedicationKnowledge createMedicationKnowledgeRelatedMedicationKnowledge() {
+		MedicationKnowledgeRelatedMedicationKnowledgeImpl medicationKnowledgeRelatedMedicationKnowledge = new MedicationKnowledgeRelatedMedicationKnowledgeImpl();
+		return medicationKnowledgeRelatedMedicationKnowledge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeSchedule createMedicationKnowledgeSchedule() {
+		MedicationKnowledgeScheduleImpl medicationKnowledgeSchedule = new MedicationKnowledgeScheduleImpl();
+		return medicationKnowledgeSchedule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicationKnowledgeSubstitution createMedicationKnowledgeSubstitution() {
+		MedicationKnowledgeSubstitutionImpl medicationKnowledgeSubstitution = new MedicationKnowledgeSubstitutionImpl();
+		return medicationKnowledgeSubstitution;
 	}
 
 	/**
@@ -8465,6 +8932,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MedicationRequestInitialFill createMedicationRequestInitialFill() {
+		MedicationRequestInitialFillImpl medicationRequestInitialFill = new MedicationRequestInitialFillImpl();
+		return medicationRequestInitialFill;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MedicationRequestIntent createMedicationRequestIntent() {
 		MedicationRequestIntentImpl medicationRequestIntent = new MedicationRequestIntentImpl();
 		return medicationRequestIntent;
@@ -8475,9 +8952,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationRequestStatus createMedicationRequestStatus() {
-		MedicationRequestStatusImpl medicationRequestStatus = new MedicationRequestStatusImpl();
-		return medicationRequestStatus;
+	public MedicationrequestStatus createMedicationrequestStatus() {
+		MedicationrequestStatusImpl medicationrequestStatus = new MedicationrequestStatusImpl();
+		return medicationrequestStatus;
 	}
 
 	/**
@@ -8505,19 +8982,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatementStatus createMedicationStatementStatus() {
-		MedicationStatementStatusImpl medicationStatementStatus = new MedicationStatementStatusImpl();
-		return medicationStatementStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationStatus createMedicationStatus() {
-		MedicationStatusImpl medicationStatus = new MedicationStatusImpl();
-		return medicationStatus;
+	public MedicationStatusCodes createMedicationStatusCodes() {
+		MedicationStatusCodesImpl medicationStatusCodes = new MedicationStatusCodesImpl();
+		return medicationStatusCodes;
 	}
 
 	/**
@@ -8545,16 +9012,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductAuthorizationApplication createMedicinalProductAuthorizationApplication() {
-		MedicinalProductAuthorizationApplicationImpl medicinalProductAuthorizationApplication = new MedicinalProductAuthorizationApplicationImpl();
-		return medicinalProductAuthorizationApplication;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicinalProductAuthorizationJurisdictionalAuthorization createMedicinalProductAuthorizationJurisdictionalAuthorization() {
 		MedicinalProductAuthorizationJurisdictionalAuthorizationImpl medicinalProductAuthorizationJurisdictionalAuthorization = new MedicinalProductAuthorizationJurisdictionalAuthorizationImpl();
 		return medicinalProductAuthorizationJurisdictionalAuthorization;
@@ -8575,9 +9032,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductClinicals createMedicinalProductClinicals() {
-		MedicinalProductClinicalsImpl medicinalProductClinicals = new MedicinalProductClinicalsImpl();
-		return medicinalProductClinicals;
+	public MedicinalProductContraindication createMedicinalProductContraindication() {
+		MedicinalProductContraindicationImpl medicinalProductContraindication = new MedicinalProductContraindicationImpl();
+		return medicinalProductContraindication;
 	}
 
 	/**
@@ -8585,59 +9042,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductClinicalsContraindication createMedicinalProductClinicalsContraindication() {
-		MedicinalProductClinicalsContraindicationImpl medicinalProductClinicalsContraindication = new MedicinalProductClinicalsContraindicationImpl();
-		return medicinalProductClinicalsContraindication;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicinalProductClinicalsInteractions createMedicinalProductClinicalsInteractions() {
-		MedicinalProductClinicalsInteractionsImpl medicinalProductClinicalsInteractions = new MedicinalProductClinicalsInteractionsImpl();
-		return medicinalProductClinicalsInteractions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicinalProductClinicalsOtherTherapy createMedicinalProductClinicalsOtherTherapy() {
-		MedicinalProductClinicalsOtherTherapyImpl medicinalProductClinicalsOtherTherapy = new MedicinalProductClinicalsOtherTherapyImpl();
-		return medicinalProductClinicalsOtherTherapy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicinalProductClinicalsPopulation createMedicinalProductClinicalsPopulation() {
-		MedicinalProductClinicalsPopulationImpl medicinalProductClinicalsPopulation = new MedicinalProductClinicalsPopulationImpl();
-		return medicinalProductClinicalsPopulation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicinalProductClinicalsTherapeuticIndication createMedicinalProductClinicalsTherapeuticIndication() {
-		MedicinalProductClinicalsTherapeuticIndicationImpl medicinalProductClinicalsTherapeuticIndication = new MedicinalProductClinicalsTherapeuticIndicationImpl();
-		return medicinalProductClinicalsTherapeuticIndication;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicinalProductClinicalsUndesirableEffects createMedicinalProductClinicalsUndesirableEffects() {
-		MedicinalProductClinicalsUndesirableEffectsImpl medicinalProductClinicalsUndesirableEffects = new MedicinalProductClinicalsUndesirableEffectsImpl();
-		return medicinalProductClinicalsUndesirableEffects;
+	public MedicinalProductContraindicationOtherTherapy createMedicinalProductContraindicationOtherTherapy() {
+		MedicinalProductContraindicationOtherTherapyImpl medicinalProductContraindicationOtherTherapy = new MedicinalProductContraindicationOtherTherapyImpl();
+		return medicinalProductContraindicationOtherTherapy;
 	}
 
 	/**
@@ -8655,9 +9062,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductDeviceSpec createMedicinalProductDeviceSpec() {
-		MedicinalProductDeviceSpecImpl medicinalProductDeviceSpec = new MedicinalProductDeviceSpecImpl();
-		return medicinalProductDeviceSpec;
+	public MedicinalProductIndication createMedicinalProductIndication() {
+		MedicinalProductIndicationImpl medicinalProductIndication = new MedicinalProductIndicationImpl();
+		return medicinalProductIndication;
 	}
 
 	/**
@@ -8665,9 +9072,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductDeviceSpecMaterial createMedicinalProductDeviceSpecMaterial() {
-		MedicinalProductDeviceSpecMaterialImpl medicinalProductDeviceSpecMaterial = new MedicinalProductDeviceSpecMaterialImpl();
-		return medicinalProductDeviceSpecMaterial;
+	public MedicinalProductIndicationOtherTherapy createMedicinalProductIndicationOtherTherapy() {
+		MedicinalProductIndicationOtherTherapyImpl medicinalProductIndicationOtherTherapy = new MedicinalProductIndicationOtherTherapyImpl();
+		return medicinalProductIndicationOtherTherapy;
 	}
 
 	/**
@@ -8725,6 +9132,36 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MedicinalProductInteraction createMedicinalProductInteraction() {
+		MedicinalProductInteractionImpl medicinalProductInteraction = new MedicinalProductInteractionImpl();
+		return medicinalProductInteraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductInteractionInteractant createMedicinalProductInteractionInteractant() {
+		MedicinalProductInteractionInteractantImpl medicinalProductInteractionInteractant = new MedicinalProductInteractionInteractantImpl();
+		return medicinalProductInteractionInteractant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductManufactured createMedicinalProductManufactured() {
+		MedicinalProductManufacturedImpl medicinalProductManufactured = new MedicinalProductManufacturedImpl();
+		return medicinalProductManufactured;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MedicinalProductManufacturingBusinessOperation createMedicinalProductManufacturingBusinessOperation() {
 		MedicinalProductManufacturingBusinessOperationImpl medicinalProductManufacturingBusinessOperation = new MedicinalProductManufacturingBusinessOperationImpl();
 		return medicinalProductManufacturingBusinessOperation;
@@ -8775,16 +9212,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicinalProductPackagedManufacturedItem createMedicinalProductPackagedManufacturedItem() {
-		MedicinalProductPackagedManufacturedItemImpl medicinalProductPackagedManufacturedItem = new MedicinalProductPackagedManufacturedItemImpl();
-		return medicinalProductPackagedManufacturedItem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicinalProductPackagedPackageItem createMedicinalProductPackagedPackageItem() {
 		MedicinalProductPackagedPackageItemImpl medicinalProductPackagedPackageItem = new MedicinalProductPackagedPackageItemImpl();
 		return medicinalProductPackagedPackageItem;
@@ -8808,6 +9235,56 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public MedicinalProductPharmaceuticalCharacteristics createMedicinalProductPharmaceuticalCharacteristics() {
 		MedicinalProductPharmaceuticalCharacteristicsImpl medicinalProductPharmaceuticalCharacteristics = new MedicinalProductPharmaceuticalCharacteristicsImpl();
 		return medicinalProductPharmaceuticalCharacteristics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductPharmaceuticalRouteOfAdministration createMedicinalProductPharmaceuticalRouteOfAdministration() {
+		MedicinalProductPharmaceuticalRouteOfAdministrationImpl medicinalProductPharmaceuticalRouteOfAdministration = new MedicinalProductPharmaceuticalRouteOfAdministrationImpl();
+		return medicinalProductPharmaceuticalRouteOfAdministration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductPharmaceuticalTargetSpecies createMedicinalProductPharmaceuticalTargetSpecies() {
+		MedicinalProductPharmaceuticalTargetSpeciesImpl medicinalProductPharmaceuticalTargetSpecies = new MedicinalProductPharmaceuticalTargetSpeciesImpl();
+		return medicinalProductPharmaceuticalTargetSpecies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductPharmaceuticalWithdrawalPeriod createMedicinalProductPharmaceuticalWithdrawalPeriod() {
+		MedicinalProductPharmaceuticalWithdrawalPeriodImpl medicinalProductPharmaceuticalWithdrawalPeriod = new MedicinalProductPharmaceuticalWithdrawalPeriodImpl();
+		return medicinalProductPharmaceuticalWithdrawalPeriod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductSpecialDesignation createMedicinalProductSpecialDesignation() {
+		MedicinalProductSpecialDesignationImpl medicinalProductSpecialDesignation = new MedicinalProductSpecialDesignationImpl();
+		return medicinalProductSpecialDesignation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MedicinalProductUndesirableEffect createMedicinalProductUndesirableEffect() {
+		MedicinalProductUndesirableEffectImpl medicinalProductUndesirableEffect = new MedicinalProductUndesirableEffectImpl();
+		return medicinalProductUndesirableEffect;
 	}
 
 	/**
@@ -8875,6 +9352,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MessageheaderResponseRequest createMessageheaderResponseRequest() {
+		MessageheaderResponseRequestImpl messageheaderResponseRequest = new MessageheaderResponseRequestImpl();
+		return messageheaderResponseRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MessageHeaderSource createMessageHeaderSource() {
 		MessageHeaderSourceImpl messageHeaderSource = new MessageHeaderSourceImpl();
 		return messageHeaderSource;
@@ -8898,6 +9385,96 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public Meta createMeta() {
 		MetaImpl meta = new MetaImpl();
 		return meta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequence createMolecularSequence() {
+		MolecularSequenceImpl molecularSequence = new MolecularSequenceImpl();
+		return molecularSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceInner createMolecularSequenceInner() {
+		MolecularSequenceInnerImpl molecularSequenceInner = new MolecularSequenceInnerImpl();
+		return molecularSequenceInner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceOuter createMolecularSequenceOuter() {
+		MolecularSequenceOuterImpl molecularSequenceOuter = new MolecularSequenceOuterImpl();
+		return molecularSequenceOuter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceQuality createMolecularSequenceQuality() {
+		MolecularSequenceQualityImpl molecularSequenceQuality = new MolecularSequenceQualityImpl();
+		return molecularSequenceQuality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceReferenceSeq createMolecularSequenceReferenceSeq() {
+		MolecularSequenceReferenceSeqImpl molecularSequenceReferenceSeq = new MolecularSequenceReferenceSeqImpl();
+		return molecularSequenceReferenceSeq;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceRepository createMolecularSequenceRepository() {
+		MolecularSequenceRepositoryImpl molecularSequenceRepository = new MolecularSequenceRepositoryImpl();
+		return molecularSequenceRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceRoc createMolecularSequenceRoc() {
+		MolecularSequenceRocImpl molecularSequenceRoc = new MolecularSequenceRocImpl();
+		return molecularSequenceRoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceStructureVariant createMolecularSequenceStructureVariant() {
+		MolecularSequenceStructureVariantImpl molecularSequenceStructureVariant = new MolecularSequenceStructureVariantImpl();
+		return molecularSequenceStructureVariant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MolecularSequenceVariant createMolecularSequenceVariant() {
+		MolecularSequenceVariantImpl molecularSequenceVariant = new MolecularSequenceVariantImpl();
+		return molecularSequenceVariant;
 	}
 
 	/**
@@ -8985,16 +9562,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Need createNeed() {
-		NeedImpl need = new NeedImpl();
-		return need;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NoteType createNoteType() {
 		NoteTypeImpl noteType = new NoteTypeImpl();
 		return noteType;
@@ -9055,16 +9622,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NutritionOrderStatus createNutritionOrderStatus() {
-		NutritionOrderStatusImpl nutritionOrderStatus = new NutritionOrderStatusImpl();
-		return nutritionOrderStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NutritionOrderSupplement createNutritionOrderSupplement() {
 		NutritionOrderSupplementImpl nutritionOrderSupplement = new NutritionOrderSupplementImpl();
 		return nutritionOrderSupplement;
@@ -9105,6 +9662,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ObservationDataType createObservationDataType() {
+		ObservationDataTypeImpl observationDataType = new ObservationDataTypeImpl();
+		return observationDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ObservationDefinition createObservationDefinition() {
 		ObservationDefinitionImpl observationDefinition = new ObservationDefinitionImpl();
 		return observationDefinition;
@@ -9135,6 +9702,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ObservationRangeCategory createObservationRangeCategory() {
+		ObservationRangeCategoryImpl observationRangeCategory = new ObservationRangeCategoryImpl();
+		return observationRangeCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ObservationReferenceRange createObservationReferenceRange() {
 		ObservationReferenceRangeImpl observationReferenceRange = new ObservationReferenceRangeImpl();
 		return observationReferenceRange;
@@ -9148,86 +9725,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public ObservationStatus createObservationStatus() {
 		ObservationStatusImpl observationStatus = new ObservationStatusImpl();
 		return observationStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalData createOccupationalData() {
-		OccupationalDataImpl occupationalData = new OccupationalDataImpl();
-		return occupationalData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataCombatZoneHazardousDuty createOccupationalDataCombatZoneHazardousDuty() {
-		OccupationalDataCombatZoneHazardousDutyImpl occupationalDataCombatZoneHazardousDuty = new OccupationalDataCombatZoneHazardousDutyImpl();
-		return occupationalDataCombatZoneHazardousDuty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataDuration createOccupationalDataDuration() {
-		OccupationalDataDurationImpl occupationalDataDuration = new OccupationalDataDurationImpl();
-		return occupationalDataDuration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataEmploymentStatus createOccupationalDataEmploymentStatus() {
-		OccupationalDataEmploymentStatusImpl occupationalDataEmploymentStatus = new OccupationalDataEmploymentStatusImpl();
-		return occupationalDataEmploymentStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataIndustry createOccupationalDataIndustry() {
-		OccupationalDataIndustryImpl occupationalDataIndustry = new OccupationalDataIndustryImpl();
-		return occupationalDataIndustry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataPastOrPresentOccupation createOccupationalDataPastOrPresentOccupation() {
-		OccupationalDataPastOrPresentOccupationImpl occupationalDataPastOrPresentOccupation = new OccupationalDataPastOrPresentOccupationImpl();
-		return occupationalDataPastOrPresentOccupation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataRetirementStatus createOccupationalDataRetirementStatus() {
-		OccupationalDataRetirementStatusImpl occupationalDataRetirementStatus = new OccupationalDataRetirementStatusImpl();
-		return occupationalDataRetirementStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OccupationalDataUsualOccupation createOccupationalDataUsualOccupation() {
-		OccupationalDataUsualOccupationImpl occupationalDataUsualOccupation = new OccupationalDataUsualOccupationImpl();
-		return occupationalDataUsualOccupation;
 	}
 
 	/**
@@ -9285,6 +9782,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OperationDefinitionReferencedFrom createOperationDefinitionReferencedFrom() {
+		OperationDefinitionReferencedFromImpl operationDefinitionReferencedFrom = new OperationDefinitionReferencedFromImpl();
+		return operationDefinitionReferencedFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OperationKind createOperationKind() {
 		OperationKindImpl operationKind = new OperationKindImpl();
 		return operationKind;
@@ -9335,6 +9842,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OrganizationAffiliation createOrganizationAffiliation() {
+		OrganizationAffiliationImpl organizationAffiliation = new OrganizationAffiliationImpl();
+		return organizationAffiliation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OrganizationContact createOrganizationContact() {
 		OrganizationContactImpl organizationContact = new OrganizationContactImpl();
 		return organizationContact;
@@ -9345,29 +9862,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrganizationRole createOrganizationRole() {
-		OrganizationRoleImpl organizationRole = new OrganizationRoleImpl();
-		return organizationRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OrganizationRoleAvailableTime createOrganizationRoleAvailableTime() {
-		OrganizationRoleAvailableTimeImpl organizationRoleAvailableTime = new OrganizationRoleAvailableTimeImpl();
-		return organizationRoleAvailableTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OrganizationRoleNotAvailable createOrganizationRoleNotAvailable() {
-		OrganizationRoleNotAvailableImpl organizationRoleNotAvailable = new OrganizationRoleNotAvailableImpl();
-		return organizationRoleNotAvailable;
+	public OrientationType createOrientationType() {
+		OrientationTypeImpl orientationType = new OrientationTypeImpl();
+		return orientationType;
 	}
 
 	/**
@@ -9428,16 +9925,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public Patient createPatient() {
 		PatientImpl patient = new PatientImpl();
 		return patient;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PatientAnimal createPatientAnimal() {
-		PatientAnimalImpl patientAnimal = new PatientAnimalImpl();
-		return patientAnimal;
 	}
 
 	/**
@@ -9625,6 +10112,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Population createPopulation() {
+		PopulationImpl population = new PopulationImpl();
+		return population;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PositiveInt createPositiveInt() {
 		PositiveIntImpl positiveInt = new PositiveIntImpl();
 		return positiveInt;
@@ -9715,149 +10212,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessOutcomeCodes createProcessOutcomeCodes() {
-		ProcessOutcomeCodesImpl processOutcomeCodes = new ProcessOutcomeCodesImpl();
-		return processOutcomeCodes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessRequest createProcessRequest() {
-		ProcessRequestImpl processRequest = new ProcessRequestImpl();
-		return processRequest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessRequestItem createProcessRequestItem() {
-		ProcessRequestItemImpl processRequestItem = new ProcessRequestItemImpl();
-		return processRequestItem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessResponse createProcessResponse() {
-		ProcessResponseImpl processResponse = new ProcessResponseImpl();
-		return processResponse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessResponseProcessNote createProcessResponseProcessNote() {
-		ProcessResponseProcessNoteImpl processResponseProcessNote = new ProcessResponseProcessNoteImpl();
-		return processResponseProcessNote;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ProdCharacteristic createProdCharacteristic() {
 		ProdCharacteristicImpl prodCharacteristic = new ProdCharacteristicImpl();
 		return prodCharacteristic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlan createProductPlan() {
-		ProductPlanImpl productPlan = new ProductPlanImpl();
-		return productPlan;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanBenefit createProductPlanBenefit() {
-		ProductPlanBenefitImpl productPlanBenefit = new ProductPlanBenefitImpl();
-		return productPlanBenefit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanBenefit1 createProductPlanBenefit1() {
-		ProductPlanBenefit1Impl productPlanBenefit1 = new ProductPlanBenefit1Impl();
-		return productPlanBenefit1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanCategory createProductPlanCategory() {
-		ProductPlanCategoryImpl productPlanCategory = new ProductPlanCategoryImpl();
-		return productPlanCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanContact createProductPlanContact() {
-		ProductPlanContactImpl productPlanContact = new ProductPlanContactImpl();
-		return productPlanContact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanCost createProductPlanCost() {
-		ProductPlanCostImpl productPlanCost = new ProductPlanCostImpl();
-		return productPlanCost;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanCoverage createProductPlanCoverage() {
-		ProductPlanCoverageImpl productPlanCoverage = new ProductPlanCoverageImpl();
-		return productPlanCoverage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanItem createProductPlanItem() {
-		ProductPlanItemImpl productPlanItem = new ProductPlanItemImpl();
-		return productPlanItem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProductPlanPlan createProductPlanPlan() {
-		ProductPlanPlanImpl productPlanPlan = new ProductPlanPlanImpl();
-		return productPlanPlan;
 	}
 
 	/**
@@ -9945,16 +10302,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PushTypeAvailable createPushTypeAvailable() {
-		PushTypeAvailableImpl pushTypeAvailable = new PushTypeAvailableImpl();
-		return pushTypeAvailable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QualityType createQualityType() {
 		QualityTypeImpl qualityType = new QualityTypeImpl();
 		return qualityType;
@@ -9995,9 +10342,29 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QuestionnaireAnswerOption createQuestionnaireAnswerOption() {
+		QuestionnaireAnswerOptionImpl questionnaireAnswerOption = new QuestionnaireAnswerOptionImpl();
+		return questionnaireAnswerOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QuestionnaireEnableWhen createQuestionnaireEnableWhen() {
 		QuestionnaireEnableWhenImpl questionnaireEnableWhen = new QuestionnaireEnableWhenImpl();
 		return questionnaireEnableWhen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireInitial createQuestionnaireInitial() {
+		QuestionnaireInitialImpl questionnaireInitial = new QuestionnaireInitialImpl();
+		return questionnaireInitial;
 	}
 
 	/**
@@ -10015,9 +10382,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireItemType createQuestionnaireItemType() {
-		QuestionnaireItemTypeImpl questionnaireItemType = new QuestionnaireItemTypeImpl();
-		return questionnaireItemType;
+	public QuestionnaireItemOperator createQuestionnaireItemOperator() {
+		QuestionnaireItemOperatorImpl questionnaireItemOperator = new QuestionnaireItemOperatorImpl();
+		return questionnaireItemOperator;
 	}
 
 	/**
@@ -10025,9 +10392,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QuestionnaireOption createQuestionnaireOption() {
-		QuestionnaireOptionImpl questionnaireOption = new QuestionnaireOptionImpl();
-		return questionnaireOption;
+	public QuestionnaireItemType createQuestionnaireItemType() {
+		QuestionnaireItemTypeImpl questionnaireItemType = new QuestionnaireItemTypeImpl();
+		return questionnaireItemType;
 	}
 
 	/**
@@ -10155,6 +10522,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RelatedPersonCommunication createRelatedPersonCommunication() {
+		RelatedPersonCommunicationImpl relatedPersonCommunication = new RelatedPersonCommunicationImpl();
+		return relatedPersonCommunication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RemittanceOutcome createRemittanceOutcome() {
 		RemittanceOutcomeImpl remittanceOutcome = new RemittanceOutcomeImpl();
 		return remittanceOutcome;
@@ -10235,9 +10612,59 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RequestResourceType createRequestResourceType() {
+		RequestResourceTypeImpl requestResourceType = new RequestResourceTypeImpl();
+		return requestResourceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RequestStatus createRequestStatus() {
 		RequestStatusImpl requestStatus = new RequestStatusImpl();
 		return requestStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchDefinition createResearchDefinition() {
+		ResearchDefinitionImpl researchDefinition = new ResearchDefinitionImpl();
+		return researchDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchElementDefinition createResearchElementDefinition() {
+		ResearchElementDefinitionImpl researchElementDefinition = new ResearchElementDefinitionImpl();
+		return researchElementDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchElementDefinitionCharacteristic createResearchElementDefinitionCharacteristic() {
+		ResearchElementDefinitionCharacteristicImpl researchElementDefinitionCharacteristic = new ResearchElementDefinitionCharacteristicImpl();
+		return researchElementDefinitionCharacteristic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchElementType createResearchElementType() {
+		ResearchElementTypeImpl researchElementType = new ResearchElementTypeImpl();
+		return researchElementType;
 	}
 
 	/**
@@ -10365,16 +10792,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetirementStatus createRetirementStatus() {
-		RetirementStatusImpl retirementStatus = new RetirementStatusImpl();
-		return retirementStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public RiskAssessment createRiskAssessment() {
 		RiskAssessmentImpl riskAssessment = new RiskAssessmentImpl();
 		return riskAssessment;
@@ -10388,6 +10805,66 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public RiskAssessmentPrediction createRiskAssessmentPrediction() {
 		RiskAssessmentPredictionImpl riskAssessmentPrediction = new RiskAssessmentPredictionImpl();
 		return riskAssessmentPrediction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesis createRiskEvidenceSynthesis() {
+		RiskEvidenceSynthesisImpl riskEvidenceSynthesis = new RiskEvidenceSynthesisImpl();
+		return riskEvidenceSynthesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesisCertainty createRiskEvidenceSynthesisCertainty() {
+		RiskEvidenceSynthesisCertaintyImpl riskEvidenceSynthesisCertainty = new RiskEvidenceSynthesisCertaintyImpl();
+		return riskEvidenceSynthesisCertainty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesisCertaintySubcomponent createRiskEvidenceSynthesisCertaintySubcomponent() {
+		RiskEvidenceSynthesisCertaintySubcomponentImpl riskEvidenceSynthesisCertaintySubcomponent = new RiskEvidenceSynthesisCertaintySubcomponentImpl();
+		return riskEvidenceSynthesisCertaintySubcomponent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesisPrecisionEstimate createRiskEvidenceSynthesisPrecisionEstimate() {
+		RiskEvidenceSynthesisPrecisionEstimateImpl riskEvidenceSynthesisPrecisionEstimate = new RiskEvidenceSynthesisPrecisionEstimateImpl();
+		return riskEvidenceSynthesisPrecisionEstimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesisRiskEstimate createRiskEvidenceSynthesisRiskEstimate() {
+		RiskEvidenceSynthesisRiskEstimateImpl riskEvidenceSynthesisRiskEstimate = new RiskEvidenceSynthesisRiskEstimateImpl();
+		return riskEvidenceSynthesisRiskEstimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RiskEvidenceSynthesisSampleSize createRiskEvidenceSynthesisSampleSize() {
+		RiskEvidenceSynthesisSampleSizeImpl riskEvidenceSynthesisSampleSize = new RiskEvidenceSynthesisSampleSizeImpl();
+		return riskEvidenceSynthesisSampleSize;
 	}
 
 	/**
@@ -10485,99 +10962,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sequence createSequence() {
-		SequenceImpl sequence = new SequenceImpl();
-		return sequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceInner createSequenceInner() {
-		SequenceInnerImpl sequenceInner = new SequenceInnerImpl();
-		return sequenceInner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceOuter createSequenceOuter() {
-		SequenceOuterImpl sequenceOuter = new SequenceOuterImpl();
-		return sequenceOuter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceQuality createSequenceQuality() {
-		SequenceQualityImpl sequenceQuality = new SequenceQualityImpl();
-		return sequenceQuality;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceReferenceSeq createSequenceReferenceSeq() {
-		SequenceReferenceSeqImpl sequenceReferenceSeq = new SequenceReferenceSeqImpl();
-		return sequenceReferenceSeq;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceRepository createSequenceRepository() {
-		SequenceRepositoryImpl sequenceRepository = new SequenceRepositoryImpl();
-		return sequenceRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceRoc createSequenceRoc() {
-		SequenceRocImpl sequenceRoc = new SequenceRocImpl();
-		return sequenceRoc;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceStructureVariant createSequenceStructureVariant() {
-		SequenceStructureVariantImpl sequenceStructureVariant = new SequenceStructureVariantImpl();
-		return sequenceStructureVariant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SequenceVariant createSequenceVariant() {
-		SequenceVariantImpl sequenceVariant = new SequenceVariantImpl();
-		return sequenceVariant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ServiceDefinition createServiceDefinition() {
-		ServiceDefinitionImpl serviceDefinition = new ServiceDefinitionImpl();
-		return serviceDefinition;
+	public SequenceType createSequenceType() {
+		SequenceTypeImpl sequenceType = new SequenceTypeImpl();
+		return sequenceType;
 	}
 
 	/**
@@ -10635,6 +11022,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SortDirection createSortDirection() {
+		SortDirectionImpl sortDirection = new SortDirectionImpl();
+		return sortDirection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SPDXLicense createSPDXLicense() {
+		SPDXLicenseImpl spdxLicense = new SPDXLicenseImpl();
+		return spdxLicense;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Specimen createSpecimen() {
 		SpecimenImpl specimen = new SpecimenImpl();
 		return specimen;
@@ -10685,9 +11092,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpecimenDefinitionContainerAdditive createSpecimenDefinitionContainerAdditive() {
-		SpecimenDefinitionContainerAdditiveImpl specimenDefinitionContainerAdditive = new SpecimenDefinitionContainerAdditiveImpl();
-		return specimenDefinitionContainerAdditive;
+	public SpecimenDefinitionAdditive createSpecimenDefinitionAdditive() {
+		SpecimenDefinitionAdditiveImpl specimenDefinitionAdditive = new SpecimenDefinitionAdditiveImpl();
+		return specimenDefinitionAdditive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecimenDefinitionContainer createSpecimenDefinitionContainer() {
+		SpecimenDefinitionContainerImpl specimenDefinitionContainer = new SpecimenDefinitionContainerImpl();
+		return specimenDefinitionContainer;
 	}
 
 	/**
@@ -10705,9 +11122,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpecimenDefinitionSpecimenToLab createSpecimenDefinitionSpecimenToLab() {
-		SpecimenDefinitionSpecimenToLabImpl specimenDefinitionSpecimenToLab = new SpecimenDefinitionSpecimenToLabImpl();
-		return specimenDefinitionSpecimenToLab;
+	public SpecimenDefinitionTypeTested createSpecimenDefinitionTypeTested() {
+		SpecimenDefinitionTypeTestedImpl specimenDefinitionTypeTested = new SpecimenDefinitionTypeTestedImpl();
+		return specimenDefinitionTypeTested;
 	}
 
 	/**
@@ -10745,6 +11162,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StrandType createStrandType() {
+		StrandTypeImpl strandType = new StrandTypeImpl();
+		return strandType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.String createString() {
 		StringImpl string = new StringImpl();
 		return string;
@@ -10758,6 +11185,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public StructureDefinition createStructureDefinition() {
 		StructureDefinitionImpl structureDefinition = new StructureDefinitionImpl();
 		return structureDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructureDefinitionContext createStructureDefinitionContext() {
+		StructureDefinitionContextImpl structureDefinitionContext = new StructureDefinitionContextImpl();
+		return structureDefinitionContext;
 	}
 
 	/**
@@ -11055,9 +11492,39 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubstanceMoiety createSubstanceMoiety() {
-		SubstanceMoietyImpl substanceMoiety = new SubstanceMoietyImpl();
-		return substanceMoiety;
+	public SubstanceNucleicAcid createSubstanceNucleicAcid() {
+		SubstanceNucleicAcidImpl substanceNucleicAcid = new SubstanceNucleicAcidImpl();
+		return substanceNucleicAcid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceNucleicAcidLinkage createSubstanceNucleicAcidLinkage() {
+		SubstanceNucleicAcidLinkageImpl substanceNucleicAcidLinkage = new SubstanceNucleicAcidLinkageImpl();
+		return substanceNucleicAcidLinkage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceNucleicAcidSubunit createSubstanceNucleicAcidSubunit() {
+		SubstanceNucleicAcidSubunitImpl substanceNucleicAcidSubunit = new SubstanceNucleicAcidSubunitImpl();
+		return substanceNucleicAcidSubunit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceNucleicAcidSugar createSubstanceNucleicAcidSugar() {
+		SubstanceNucleicAcidSugarImpl substanceNucleicAcidSugar = new SubstanceNucleicAcidSugarImpl();
+		return substanceNucleicAcidSugar;
 	}
 
 	/**
@@ -11135,6 +11602,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SubstanceProtein createSubstanceProtein() {
+		SubstanceProteinImpl substanceProtein = new SubstanceProteinImpl();
+		return substanceProtein;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceProteinSubunit createSubstanceProteinSubunit() {
+		SubstanceProteinSubunitImpl substanceProteinSubunit = new SubstanceProteinSubunitImpl();
+		return substanceProteinSubunit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SubstanceReferenceInformation createSubstanceReferenceInformation() {
 		SubstanceReferenceInformationImpl substanceReferenceInformation = new SubstanceReferenceInformationImpl();
 		return substanceReferenceInformation;
@@ -11175,16 +11662,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubstanceReferenceInformationRelationship createSubstanceReferenceInformationRelationship() {
-		SubstanceReferenceInformationRelationshipImpl substanceReferenceInformationRelationship = new SubstanceReferenceInformationRelationshipImpl();
-		return substanceReferenceInformationRelationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SubstanceReferenceInformationTarget createSubstanceReferenceInformationTarget() {
 		SubstanceReferenceInformationTargetImpl substanceReferenceInformationTarget = new SubstanceReferenceInformationTargetImpl();
 		return substanceReferenceInformationTarget;
@@ -11195,9 +11672,89 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SubstanceSourceMaterial createSubstanceSourceMaterial() {
+		SubstanceSourceMaterialImpl substanceSourceMaterial = new SubstanceSourceMaterialImpl();
+		return substanceSourceMaterial;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialAuthor createSubstanceSourceMaterialAuthor() {
+		SubstanceSourceMaterialAuthorImpl substanceSourceMaterialAuthor = new SubstanceSourceMaterialAuthorImpl();
+		return substanceSourceMaterialAuthor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialFractionDescription createSubstanceSourceMaterialFractionDescription() {
+		SubstanceSourceMaterialFractionDescriptionImpl substanceSourceMaterialFractionDescription = new SubstanceSourceMaterialFractionDescriptionImpl();
+		return substanceSourceMaterialFractionDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialHybrid createSubstanceSourceMaterialHybrid() {
+		SubstanceSourceMaterialHybridImpl substanceSourceMaterialHybrid = new SubstanceSourceMaterialHybridImpl();
+		return substanceSourceMaterialHybrid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialOrganism createSubstanceSourceMaterialOrganism() {
+		SubstanceSourceMaterialOrganismImpl substanceSourceMaterialOrganism = new SubstanceSourceMaterialOrganismImpl();
+		return substanceSourceMaterialOrganism;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialOrganismGeneral createSubstanceSourceMaterialOrganismGeneral() {
+		SubstanceSourceMaterialOrganismGeneralImpl substanceSourceMaterialOrganismGeneral = new SubstanceSourceMaterialOrganismGeneralImpl();
+		return substanceSourceMaterialOrganismGeneral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSourceMaterialPartDescription createSubstanceSourceMaterialPartDescription() {
+		SubstanceSourceMaterialPartDescriptionImpl substanceSourceMaterialPartDescription = new SubstanceSourceMaterialPartDescriptionImpl();
+		return substanceSourceMaterialPartDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SubstanceSpecification createSubstanceSpecification() {
 		SubstanceSpecificationImpl substanceSpecification = new SubstanceSpecificationImpl();
 		return substanceSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSpecificationCode createSubstanceSpecificationCode() {
+		SubstanceSpecificationCodeImpl substanceSpecificationCode = new SubstanceSpecificationCodeImpl();
+		return substanceSpecificationCode;
 	}
 
 	/**
@@ -11235,9 +11792,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubstanceSpecificationOfficialName createSubstanceSpecificationOfficialName() {
-		SubstanceSpecificationOfficialNameImpl substanceSpecificationOfficialName = new SubstanceSpecificationOfficialNameImpl();
-		return substanceSpecificationOfficialName;
+	public SubstanceSpecificationName createSubstanceSpecificationName() {
+		SubstanceSpecificationNameImpl substanceSpecificationName = new SubstanceSpecificationNameImpl();
+		return substanceSpecificationName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSpecificationOfficial createSubstanceSpecificationOfficial() {
+		SubstanceSpecificationOfficialImpl substanceSpecificationOfficial = new SubstanceSpecificationOfficialImpl();
+		return substanceSpecificationOfficial;
 	}
 
 	/**
@@ -11255,9 +11822,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubstanceSpecificationStructuralRepresentation createSubstanceSpecificationStructuralRepresentation() {
-		SubstanceSpecificationStructuralRepresentationImpl substanceSpecificationStructuralRepresentation = new SubstanceSpecificationStructuralRepresentationImpl();
-		return substanceSpecificationStructuralRepresentation;
+	public SubstanceSpecificationRelationship createSubstanceSpecificationRelationship() {
+		SubstanceSpecificationRelationshipImpl substanceSpecificationRelationship = new SubstanceSpecificationRelationshipImpl();
+		return substanceSpecificationRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubstanceSpecificationRepresentation createSubstanceSpecificationRepresentation() {
+		SubstanceSpecificationRepresentationImpl substanceSpecificationRepresentation = new SubstanceSpecificationRepresentationImpl();
+		return substanceSpecificationRepresentation;
 	}
 
 	/**
@@ -11268,26 +11845,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public SubstanceSpecificationStructure createSubstanceSpecificationStructure() {
 		SubstanceSpecificationStructureImpl substanceSpecificationStructure = new SubstanceSpecificationStructureImpl();
 		return substanceSpecificationStructure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SubstanceSpecificationSubstanceCode createSubstanceSpecificationSubstanceCode() {
-		SubstanceSpecificationSubstanceCodeImpl substanceSpecificationSubstanceCode = new SubstanceSpecificationSubstanceCodeImpl();
-		return substanceSpecificationSubstanceCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SubstanceSpecificationSubstanceName createSubstanceSpecificationSubstanceName() {
-		SubstanceSpecificationSubstanceNameImpl substanceSpecificationSubstanceName = new SubstanceSpecificationSubstanceNameImpl();
-		return substanceSpecificationSubstanceName;
 	}
 
 	/**
@@ -11365,16 +11922,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemVersionProcessingMode createSystemVersionProcessingMode() {
-		SystemVersionProcessingModeImpl systemVersionProcessingMode = new SystemVersionProcessingModeImpl();
-		return systemVersionProcessingMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
@@ -11388,6 +11935,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public TaskInput createTaskInput() {
 		TaskInputImpl taskInput = new TaskInputImpl();
 		return taskInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskIntent createTaskIntent() {
+		TaskIntentImpl taskIntent = new TaskIntentImpl();
+		return taskIntent;
 	}
 
 	/**
@@ -11468,6 +12025,36 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public TerminologyCapabilitiesFilter createTerminologyCapabilitiesFilter() {
 		TerminologyCapabilitiesFilterImpl terminologyCapabilitiesFilter = new TerminologyCapabilitiesFilterImpl();
 		return terminologyCapabilitiesFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminologyCapabilitiesImplementation createTerminologyCapabilitiesImplementation() {
+		TerminologyCapabilitiesImplementationImpl terminologyCapabilitiesImplementation = new TerminologyCapabilitiesImplementationImpl();
+		return terminologyCapabilitiesImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminologyCapabilitiesParameter createTerminologyCapabilitiesParameter() {
+		TerminologyCapabilitiesParameterImpl terminologyCapabilitiesParameter = new TerminologyCapabilitiesParameterImpl();
+		return terminologyCapabilitiesParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminologyCapabilitiesSoftware createTerminologyCapabilitiesSoftware() {
+		TerminologyCapabilitiesSoftwareImpl terminologyCapabilitiesSoftware = new TerminologyCapabilitiesSoftwareImpl();
+		return terminologyCapabilitiesSoftware;
 	}
 
 	/**
@@ -11765,46 +12352,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TestScriptParam createTestScriptParam() {
-		TestScriptParamImpl testScriptParam = new TestScriptParamImpl();
-		return testScriptParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptParam1 createTestScriptParam1() {
-		TestScriptParam1Impl testScriptParam1 = new TestScriptParam1Impl();
-		return testScriptParam1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptParam2 createTestScriptParam2() {
-		TestScriptParam2Impl testScriptParam2 = new TestScriptParam2Impl();
-		return testScriptParam2;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptParam3 createTestScriptParam3() {
-		TestScriptParam3Impl testScriptParam3 = new TestScriptParam3Impl();
-		return testScriptParam3;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TestScriptRequestHeader createTestScriptRequestHeader() {
 		TestScriptRequestHeaderImpl testScriptRequestHeader = new TestScriptRequestHeaderImpl();
 		return testScriptRequestHeader;
@@ -11818,66 +12365,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public TestScriptRequestMethodCode createTestScriptRequestMethodCode() {
 		TestScriptRequestMethodCodeImpl testScriptRequestMethodCode = new TestScriptRequestMethodCodeImpl();
 		return testScriptRequestMethodCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRule createTestScriptRule() {
-		TestScriptRuleImpl testScriptRule = new TestScriptRuleImpl();
-		return testScriptRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRule1 createTestScriptRule1() {
-		TestScriptRule1Impl testScriptRule1 = new TestScriptRule1Impl();
-		return testScriptRule1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRule2 createTestScriptRule2() {
-		TestScriptRule2Impl testScriptRule2 = new TestScriptRule2Impl();
-		return testScriptRule2;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRule3 createTestScriptRule3() {
-		TestScriptRule3Impl testScriptRule3 = new TestScriptRule3Impl();
-		return testScriptRule3;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRuleset createTestScriptRuleset() {
-		TestScriptRulesetImpl testScriptRuleset = new TestScriptRulesetImpl();
-		return testScriptRuleset;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TestScriptRuleset1 createTestScriptRuleset1() {
-		TestScriptRuleset1Impl testScriptRuleset1 = new TestScriptRuleset1Impl();
-		return testScriptRuleset1;
 	}
 
 	/**
@@ -11965,16 +12452,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TriggerDefinitionCondition createTriggerDefinitionCondition() {
-		TriggerDefinitionConditionImpl triggerDefinitionCondition = new TriggerDefinitionConditionImpl();
-		return triggerDefinitionCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TriggerType createTriggerType() {
 		TriggerTypeImpl triggerType = new TriggerTypeImpl();
 		return triggerType;
@@ -12025,16 +12502,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnknownContentCode createUnknownContentCode() {
-		UnknownContentCodeImpl unknownContentCode = new UnknownContentCodeImpl();
-		return unknownContentCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UnsignedInt createUnsignedInt() {
 		UnsignedIntImpl unsignedInt = new UnsignedIntImpl();
 		return unsignedInt;
@@ -12048,6 +12515,16 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	public Uri createUri() {
 		UriImpl uri = new UriImpl();
 		return uri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Url createUrl() {
+		UrlImpl url = new UrlImpl();
+		return url;
 	}
 
 	/**
@@ -12075,89 +12552,9 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UserSession createUserSession() {
-		UserSessionImpl userSession = new UserSessionImpl();
-		return userSession;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionContext createUserSessionContext() {
-		UserSessionContextImpl userSessionContext = new UserSessionContextImpl();
-		return userSessionContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionStatus createUserSessionStatus() {
-		UserSessionStatusImpl userSessionStatus = new UserSessionStatusImpl();
-		return userSessionStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionStatus1 createUserSessionStatus1() {
-		UserSessionStatus1Impl userSessionStatus1 = new UserSessionStatus1Impl();
-		return userSessionStatus1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionStatusSource createUserSessionStatusSource() {
-		UserSessionStatusSourceImpl userSessionStatusSource = new UserSessionStatusSourceImpl();
-		return userSessionStatusSource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UsualOccupation createUsualOccupation() {
-		UsualOccupationImpl usualOccupation = new UsualOccupationImpl();
-		return usualOccupation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Uuid createUuid() {
 		UuidImpl uuid = new UuidImpl();
 		return uuid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValidationStatus createValidationStatus() {
-		ValidationStatusImpl validationStatus = new ValidationStatusImpl();
-		return validationStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValidationType createValidationType() {
-		ValidationTypeImpl validationType = new ValidationTypeImpl();
-		return validationType;
 	}
 
 	/**
@@ -12255,6 +12652,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VariableType createVariableType() {
+		VariableTypeImpl variableType = new VariableTypeImpl();
+		return variableType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VConfidentialityClassification createVConfidentialityClassification() {
+		VConfidentialityClassificationImpl vConfidentialityClassification = new VConfidentialityClassificationImpl();
+		return vConfidentialityClassification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VerificationResult createVerificationResult() {
 		VerificationResultImpl verificationResult = new VerificationResultImpl();
 		return verificationResult;
@@ -12325,9 +12742,19 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisionPrescriptionDispense createVisionPrescriptionDispense() {
-		VisionPrescriptionDispenseImpl visionPrescriptionDispense = new VisionPrescriptionDispenseImpl();
-		return visionPrescriptionDispense;
+	public VisionPrescriptionLensSpecification createVisionPrescriptionLensSpecification() {
+		VisionPrescriptionLensSpecificationImpl visionPrescriptionLensSpecification = new VisionPrescriptionLensSpecificationImpl();
+		return visionPrescriptionLensSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VisionPrescriptionPrism createVisionPrescriptionPrism() {
+		VisionPrescriptionPrismImpl visionPrescriptionPrism = new VisionPrescriptionPrismImpl();
+		return visionPrescriptionPrism;
 	}
 
 	/**
@@ -12417,26 +12844,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertActionGroupingBehaviorListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionListList createActionListListFromString(EDataType eDataType, String initialValue) {
-		ActionListList result = ActionListList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertActionListListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -12665,26 +13072,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllergyIntoleranceClinicalStatusList createAllergyIntoleranceClinicalStatusListFromString(EDataType eDataType, String initialValue) {
-		AllergyIntoleranceClinicalStatusList result = AllergyIntoleranceClinicalStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAllergyIntoleranceClinicalStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AllergyIntoleranceCriticalityList createAllergyIntoleranceCriticalityListFromString(EDataType eDataType, String initialValue) {
 		AllergyIntoleranceCriticalityList result = AllergyIntoleranceCriticalityList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -12737,26 +13124,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertAllergyIntoleranceTypeListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceVerificationStatusList createAllergyIntoleranceVerificationStatusListFromString(EDataType eDataType, String initialValue) {
-		AllergyIntoleranceVerificationStatusList result = AllergyIntoleranceVerificationStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAllergyIntoleranceVerificationStatusListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -13005,26 +13372,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanPushUpdatesList createCanPushUpdatesListFromString(EDataType eDataType, String initialValue) {
-		CanPushUpdatesList result = CanPushUpdatesList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCanPushUpdatesListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CapabilityStatementKindList createCapabilityStatementKindListFromString(EDataType eDataType, String initialValue) {
 		CapabilityStatementKindList result = CapabilityStatementKindList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -13105,26 +13452,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CarePlanStatusList createCarePlanStatusListFromString(EDataType eDataType, String initialValue) {
-		CarePlanStatusList result = CarePlanStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCarePlanStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CareTeamStatusList createCareTeamStatusListFromString(EDataType eDataType, String initialValue) {
 		CareTeamStatusList result = CareTeamStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -13137,6 +13464,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertCareTeamStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CatalogEntryRelationTypeList createCatalogEntryRelationTypeListFromString(EDataType eDataType, String initialValue) {
+		CatalogEntryRelationTypeList result = CatalogEntryRelationTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCatalogEntryRelationTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -13405,66 +13752,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionClinicalStatusCodesList createConditionClinicalStatusCodesListFromString(EDataType eDataType, String initialValue) {
-		ConditionClinicalStatusCodesList result = ConditionClinicalStatusCodesList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConditionClinicalStatusCodesListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConditionVerificationStatusList createConditionVerificationStatusListFromString(EDataType eDataType, String initialValue) {
-		ConditionVerificationStatusList result = ConditionVerificationStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConditionVerificationStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConfidentialityClassificationList createConfidentialityClassificationListFromString(EDataType eDataType, String initialValue) {
-		ConfidentialityClassificationList result = ConfidentialityClassificationList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConfidentialityClassificationListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConsentDataMeaningList createConsentDataMeaningListFromString(EDataType eDataType, String initialValue) {
 		ConsentDataMeaningList result = ConsentDataMeaningList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -13497,26 +13784,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertConsentProvisionTypeListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConsentScopeCodesList createConsentScopeCodesListFromString(EDataType eDataType, String initialValue) {
-		ConsentScopeCodesList result = ConsentScopeCodesList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConsentScopeCodesListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -13605,8 +13872,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContractDataMeaningList createContractDataMeaningListFromString(EDataType eDataType, String initialValue) {
-		ContractDataMeaningList result = ContractDataMeaningList.get(initialValue);
+	public ContractResourcePublicationStatusCodesList createContractResourcePublicationStatusCodesListFromString(EDataType eDataType, String initialValue) {
+		ContractResourcePublicationStatusCodesList result = ContractResourcePublicationStatusCodesList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -13616,7 +13883,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertContractDataMeaningListToString(EDataType eDataType, Object instanceValue) {
+	public String convertContractResourcePublicationStatusCodesListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -13805,6 +14072,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DeviceNameTypeList createDeviceNameTypeListFromString(EDataType eDataType, String initialValue) {
+		DeviceNameTypeList result = DeviceNameTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDeviceNameTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DeviceUseStatementStatusList createDeviceUseStatementStatusListFromString(EDataType eDataType, String initialValue) {
 		DeviceUseStatementStatusList result = DeviceUseStatementStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -13917,6 +14204,66 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertDocumentRelationshipTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityRequestPurposeList createEligibilityRequestPurposeListFromString(EDataType eDataType, String initialValue) {
+		EligibilityRequestPurposeList result = EligibilityRequestPurposeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEligibilityRequestPurposeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponsePurposeList createEligibilityResponsePurposeListFromString(EDataType eDataType, String initialValue) {
+		EligibilityResponsePurposeList result = EligibilityResponsePurposeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEligibilityResponsePurposeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnableWhenBehaviorList createEnableWhenBehaviorListFromString(EDataType eDataType, String initialValue) {
+		EnableWhenBehaviorList result = EnableWhenBehaviorList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnableWhenBehaviorListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14065,6 +14412,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EvidenceVariableTypeList createEvidenceVariableTypeListFromString(EDataType eDataType, String initialValue) {
+		EvidenceVariableTypeList result = EvidenceVariableTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEvidenceVariableTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExampleScenarioActorTypeList createExampleScenarioActorTypeListFromString(EDataType eDataType, String initialValue) {
 		ExampleScenarioActorTypeList result = ExampleScenarioActorTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14105,6 +14472,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExposureStateList createExposureStateListFromString(EDataType eDataType, String initialValue) {
+		ExposureStateList result = ExposureStateList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExposureStateListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExpressionLanguageList createExpressionLanguageListFromString(EDataType eDataType, String initialValue) {
 		ExpressionLanguageList result = ExpressionLanguageList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14125,8 +14512,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionContextList createExtensionContextListFromString(EDataType eDataType, String initialValue) {
-		ExtensionContextList result = ExtensionContextList.get(initialValue);
+	public ExtensionContextTypeList createExtensionContextTypeListFromString(EDataType eDataType, String initialValue) {
+		ExtensionContextTypeList result = ExtensionContextTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14136,27 +14523,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertExtensionContextListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FailureActionList createFailureActionListFromString(EDataType eDataType, String initialValue) {
-		FailureActionList result = FailureActionList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFailureActionListToString(EDataType eDataType, Object instanceValue) {
+	public String convertExtensionContextTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14177,46 +14544,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertFamilyHistoryStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FHIRAllTypesList createFHIRAllTypesListFromString(EDataType eDataType, String initialValue) {
-		FHIRAllTypesList result = FHIRAllTypesList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFHIRAllTypesListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FHIRDefinedTypeList createFHIRDefinedTypeListFromString(EDataType eDataType, String initialValue) {
-		FHIRDefinedTypeList result = FHIRDefinedTypeList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFHIRDefinedTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14257,6 +14584,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertFHIRSubstanceStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FHIRVersionList createFHIRVersionListFromString(EDataType eDataType, String initialValue) {
+		FHIRVersionList result = FHIRVersionList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFHIRVersionListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14325,8 +14672,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalStatusList createGoalStatusListFromString(EDataType eDataType, String initialValue) {
-		GoalStatusList result = GoalStatusList.get(initialValue);
+	public GoalLifecycleStatusList createGoalLifecycleStatusListFromString(EDataType eDataType, String initialValue) {
+		GoalLifecycleStatusList result = GoalLifecycleStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14336,7 +14683,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGoalStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertGoalLifecycleStatusListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14385,6 +14732,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GroupMeasureList createGroupMeasureListFromString(EDataType eDataType, String initialValue) {
+		GroupMeasureList result = GroupMeasureList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGroupMeasureListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GroupTypeList createGroupTypeListFromString(EDataType eDataType, String initialValue) {
 		GroupTypeList result = GroupTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14425,8 +14792,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuideDependencyTypeList createGuideDependencyTypeListFromString(EDataType eDataType, String initialValue) {
-		GuideDependencyTypeList result = GuideDependencyTypeList.get(initialValue);
+	public GuidePageGenerationList createGuidePageGenerationListFromString(EDataType eDataType, String initialValue) {
+		GuidePageGenerationList result = GuidePageGenerationList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14436,7 +14803,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGuideDependencyTypeListToString(EDataType eDataType, Object instanceValue) {
+	public String convertGuidePageGenerationListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14445,8 +14812,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuidePageKindList createGuidePageKindListFromString(EDataType eDataType, String initialValue) {
-		GuidePageKindList result = GuidePageKindList.get(initialValue);
+	public GuideParameterCodeList createGuideParameterCodeListFromString(EDataType eDataType, String initialValue) {
+		GuideParameterCodeList result = GuideParameterCodeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14456,47 +14823,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGuidePageKindListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HazardousDutyWorkList createHazardousDutyWorkListFromString(EDataType eDataType, String initialValue) {
-		HazardousDutyWorkList result = HazardousDutyWorkList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHazardousDutyWorkListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HistoryOfEmploymentStatusList createHistoryOfEmploymentStatusListFromString(EDataType eDataType, String initialValue) {
-		HistoryOfEmploymentStatusList result = HistoryOfEmploymentStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHistoryOfEmploymentStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertGuideParameterCodeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14565,6 +14892,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImagingStudyStatusList createImagingStudyStatusListFromString(EDataType eDataType, String initialValue) {
+		ImagingStudyStatusList result = ImagingStudyStatusList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertImagingStudyStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImmunizationEvaluationStatusCodesList createImmunizationEvaluationStatusCodesListFromString(EDataType eDataType, String initialValue) {
 		ImmunizationEvaluationStatusCodesList result = ImmunizationEvaluationStatusCodesList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14597,26 +14944,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertImmunizationStatusCodesListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InstanceAvailabilityList createInstanceAvailabilityListFromString(EDataType eDataType, String initialValue) {
-		InstanceAvailabilityList result = InstanceAvailabilityList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInstanceAvailabilityListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14825,26 +15152,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasmntPrincipleList createMeasmntPrincipleListFromString(EDataType eDataType, String initialValue) {
-		MeasmntPrincipleList result = MeasmntPrincipleList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMeasmntPrincipleListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MeasureReportStatusList createMeasureReportStatusListFromString(EDataType eDataType, String initialValue) {
 		MeasureReportStatusList result = MeasureReportStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14885,66 +15192,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediaStatusList createMediaStatusListFromString(EDataType eDataType, String initialValue) {
-		MediaStatusList result = MediaStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMediaStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationAdministrationStatusList createMedicationAdministrationStatusListFromString(EDataType eDataType, String initialValue) {
-		MedicationAdministrationStatusList result = MedicationAdministrationStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMedicationAdministrationStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationDispenseStatusList createMedicationDispenseStatusListFromString(EDataType eDataType, String initialValue) {
-		MedicationDispenseStatusList result = MedicationDispenseStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMedicationDispenseStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicationRequestIntentList createMedicationRequestIntentListFromString(EDataType eDataType, String initialValue) {
 		MedicationRequestIntentList result = MedicationRequestIntentList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -14965,8 +15212,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationRequestStatusList createMedicationRequestStatusListFromString(EDataType eDataType, String initialValue) {
-		MedicationRequestStatusList result = MedicationRequestStatusList.get(initialValue);
+	public MedicationrequestStatusList createMedicationrequestStatusListFromString(EDataType eDataType, String initialValue) {
+		MedicationrequestStatusList result = MedicationrequestStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14976,7 +15223,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationRequestStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertMedicationrequestStatusListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -14985,8 +15232,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatementStatusList createMedicationStatementStatusListFromString(EDataType eDataType, String initialValue) {
-		MedicationStatementStatusList result = MedicationStatementStatusList.get(initialValue);
+	public MedicationStatusCodesList createMedicationStatusCodesListFromString(EDataType eDataType, String initialValue) {
+		MedicationStatusCodesList result = MedicationStatusCodesList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -14996,7 +15243,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationStatementStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertMedicationStatusCodesListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15005,8 +15252,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatusList createMedicationStatusListFromString(EDataType eDataType, String initialValue) {
-		MedicationStatusList result = MedicationStatusList.get(initialValue);
+	public MessageheaderResponseRequestList createMessageheaderResponseRequestListFromString(EDataType eDataType, String initialValue) {
+		MessageheaderResponseRequestList result = MessageheaderResponseRequestList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -15016,7 +15263,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertMessageheaderResponseRequestListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15125,26 +15372,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeedList createNeedListFromString(EDataType eDataType, String initialValue) {
-		NeedList result = NeedList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNeedListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NoteTypeList createNoteTypeListFromString(EDataType eDataType, String initialValue) {
 		NoteTypeList result = NoteTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15165,8 +15392,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NutritionOrderStatusList createNutritionOrderStatusListFromString(EDataType eDataType, String initialValue) {
-		NutritionOrderStatusList result = NutritionOrderStatusList.get(initialValue);
+	public ObservationDataTypeList createObservationDataTypeListFromString(EDataType eDataType, String initialValue) {
+		ObservationDataTypeList result = ObservationDataTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -15176,7 +15403,27 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertNutritionOrderStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertObservationDataTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObservationRangeCategoryList createObservationRangeCategoryListFromString(EDataType eDataType, String initialValue) {
+		ObservationRangeCategoryList result = ObservationRangeCategoryList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertObservationRangeCategoryListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15245,6 +15492,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OrientationTypeList createOrientationTypeListFromString(EDataType eDataType, String initialValue) {
+		OrientationTypeList result = OrientationTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOrientationTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParticipantRequiredList createParticipantRequiredListFromString(EDataType eDataType, String initialValue) {
 		ParticipantRequiredList result = ParticipantRequiredList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15277,26 +15544,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertParticipationStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessOutcomeCodesList createProcessOutcomeCodesListFromString(EDataType eDataType, String initialValue) {
-		ProcessOutcomeCodesList result = ProcessOutcomeCodesList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProcessOutcomeCodesListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15385,26 +15632,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PushTypeAvailableList createPushTypeAvailableListFromString(EDataType eDataType, String initialValue) {
-		PushTypeAvailableList result = PushTypeAvailableList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPushTypeAvailableListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QualityTypeList createQualityTypeListFromString(EDataType eDataType, String initialValue) {
 		QualityTypeList result = QualityTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15437,6 +15664,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertQuantityComparatorListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireItemOperatorList createQuestionnaireItemOperatorListFromString(EDataType eDataType, String initialValue) {
+		QuestionnaireItemOperatorList result = QuestionnaireItemOperatorList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQuestionnaireItemOperatorListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15625,6 +15872,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RequestResourceTypeList createRequestResourceTypeListFromString(EDataType eDataType, String initialValue) {
+		RequestResourceTypeList result = RequestResourceTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRequestResourceTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RequestStatusList createRequestStatusListFromString(EDataType eDataType, String initialValue) {
 		RequestStatusList result = RequestStatusList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15637,6 +15904,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertRequestStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchElementTypeList createResearchElementTypeListFromString(EDataType eDataType, String initialValue) {
+		ResearchElementTypeList result = ResearchElementTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertResearchElementTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15765,26 +16052,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetirementStatusList createRetirementStatusListFromString(EDataType eDataType, String initialValue) {
-		RetirementStatusList result = RetirementStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRetirementStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SearchComparatorList createSearchComparatorListFromString(EDataType eDataType, String initialValue) {
 		SearchComparatorList result = SearchComparatorList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15865,6 +16132,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceTypeList createSequenceTypeListFromString(EDataType eDataType, String initialValue) {
+		SequenceTypeList result = SequenceTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSequenceTypeListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SlicingRulesList createSlicingRulesListFromString(EDataType eDataType, String initialValue) {
 		SlicingRulesList result = SlicingRulesList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -15897,6 +16184,46 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertSlotStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SortDirectionList createSortDirectionListFromString(EDataType eDataType, String initialValue) {
+		SortDirectionList result = SortDirectionList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSortDirectionListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SPDXLicenseList createSPDXLicenseListFromString(EDataType eDataType, String initialValue) {
+		SPDXLicenseList result = SPDXLicenseList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSPDXLicenseListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -15957,6 +16284,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertStatusListToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StrandTypeList createStrandTypeListFromString(EDataType eDataType, String initialValue) {
+		StrandTypeList result = StrandTypeList.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStrandTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -16225,8 +16572,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemVersionProcessingModeList createSystemVersionProcessingModeListFromString(EDataType eDataType, String initialValue) {
-		SystemVersionProcessingModeList result = SystemVersionProcessingModeList.get(initialValue);
+	public TaskIntentList createTaskIntentListFromString(EDataType eDataType, String initialValue) {
+		TaskIntentList result = TaskIntentList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -16236,7 +16583,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertSystemVersionProcessingModeListToString(EDataType eDataType, Object instanceValue) {
+	public String convertTaskIntentListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -16465,26 +16812,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnknownContentCodeList createUnknownContentCodeListFromString(EDataType eDataType, String initialValue) {
-		UnknownContentCodeList result = UnknownContentCodeList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUnknownContentCodeListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public UseList createUseListFromString(EDataType eDataType, String initialValue) {
 		UseList result = UseList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -16505,8 +16832,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UserSessionStatusList createUserSessionStatusListFromString(EDataType eDataType, String initialValue) {
-		UserSessionStatusList result = UserSessionStatusList.get(initialValue);
+	public VariableTypeList createVariableTypeListFromString(EDataType eDataType, String initialValue) {
+		VariableTypeList result = VariableTypeList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -16516,7 +16843,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertUserSessionStatusListToString(EDataType eDataType, Object instanceValue) {
+	public String convertVariableTypeListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -16525,8 +16852,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UserSessionStatusSourceList createUserSessionStatusSourceListFromString(EDataType eDataType, String initialValue) {
-		UserSessionStatusSourceList result = UserSessionStatusSourceList.get(initialValue);
+	public VConfidentialityClassificationList createVConfidentialityClassificationListFromString(EDataType eDataType, String initialValue) {
+		VConfidentialityClassificationList result = VConfidentialityClassificationList.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -16536,67 +16863,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertUserSessionStatusSourceListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UsualOccupationList createUsualOccupationListFromString(EDataType eDataType, String initialValue) {
-		UsualOccupationList result = UsualOccupationList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUsualOccupationListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValidationStatusList createValidationStatusListFromString(EDataType eDataType, String initialValue) {
-		ValidationStatusList result = ValidationStatusList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertValidationStatusListToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValidationTypeList createValidationTypeListFromString(EDataType eDataType, String initialValue) {
-		ValidationTypeList result = ValidationTypeList.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertValidationTypeListToString(EDataType eDataType, Object instanceValue) {
+	public String convertVConfidentialityClassificationListToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -16730,24 +16997,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertActionGroupingBehaviorListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertActionGroupingBehaviorListToString(FhirPackage.eINSTANCE.getActionGroupingBehaviorList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActionListList createActionListListObjectFromString(EDataType eDataType, String initialValue) {
-		return createActionListListFromString(FhirPackage.eINSTANCE.getActionListList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertActionListListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertActionListListToString(FhirPackage.eINSTANCE.getActionListList(), instanceValue);
 	}
 
 	/**
@@ -16953,24 +17202,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllergyIntoleranceClinicalStatusList createAllergyIntoleranceClinicalStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createAllergyIntoleranceClinicalStatusListFromString(FhirPackage.eINSTANCE.getAllergyIntoleranceClinicalStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAllergyIntoleranceClinicalStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertAllergyIntoleranceClinicalStatusListToString(FhirPackage.eINSTANCE.getAllergyIntoleranceClinicalStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AllergyIntoleranceCriticalityList createAllergyIntoleranceCriticalityListObjectFromString(EDataType eDataType, String initialValue) {
 		return createAllergyIntoleranceCriticalityListFromString(FhirPackage.eINSTANCE.getAllergyIntoleranceCriticalityList(), initialValue);
 	}
@@ -17018,24 +17249,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertAllergyIntoleranceTypeListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertAllergyIntoleranceTypeListToString(FhirPackage.eINSTANCE.getAllergyIntoleranceTypeList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AllergyIntoleranceVerificationStatusList createAllergyIntoleranceVerificationStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createAllergyIntoleranceVerificationStatusListFromString(FhirPackage.eINSTANCE.getAllergyIntoleranceVerificationStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAllergyIntoleranceVerificationStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertAllergyIntoleranceVerificationStatusListToString(FhirPackage.eINSTANCE.getAllergyIntoleranceVerificationStatusList(), instanceValue);
 	}
 
 	/**
@@ -17313,8 +17526,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CanPushUpdatesList createCanPushUpdatesListObjectFromString(EDataType eDataType, String initialValue) {
-		return createCanPushUpdatesListFromString(FhirPackage.eINSTANCE.getCanPushUpdatesList(), initialValue);
+	public String createCanonicalPrimitiveFromString(EDataType eDataType, String initialValue) {
+		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.ANY_URI, initialValue);
 	}
 
 	/**
@@ -17322,8 +17535,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCanPushUpdatesListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertCanPushUpdatesListToString(FhirPackage.eINSTANCE.getCanPushUpdatesList(), instanceValue);
+	public String convertCanonicalPrimitiveToString(EDataType eDataType, Object instanceValue) {
+		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.ANY_URI, instanceValue);
 	}
 
 	/**
@@ -17403,24 +17616,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CarePlanStatusList createCarePlanStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createCarePlanStatusListFromString(FhirPackage.eINSTANCE.getCarePlanStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCarePlanStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertCarePlanStatusListToString(FhirPackage.eINSTANCE.getCarePlanStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CareTeamStatusList createCareTeamStatusListObjectFromString(EDataType eDataType, String initialValue) {
 		return createCareTeamStatusListFromString(FhirPackage.eINSTANCE.getCareTeamStatusList(), initialValue);
 	}
@@ -17432,6 +17627,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertCareTeamStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertCareTeamStatusListToString(FhirPackage.eINSTANCE.getCareTeamStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CatalogEntryRelationTypeList createCatalogEntryRelationTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createCatalogEntryRelationTypeListFromString(FhirPackage.eINSTANCE.getCatalogEntryRelationTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCatalogEntryRelationTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertCatalogEntryRelationTypeListToString(FhirPackage.eINSTANCE.getCatalogEntryRelationTypeList(), instanceValue);
 	}
 
 	/**
@@ -17691,60 +17904,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionClinicalStatusCodesList createConditionClinicalStatusCodesListObjectFromString(EDataType eDataType, String initialValue) {
-		return createConditionClinicalStatusCodesListFromString(FhirPackage.eINSTANCE.getConditionClinicalStatusCodesList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConditionClinicalStatusCodesListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertConditionClinicalStatusCodesListToString(FhirPackage.eINSTANCE.getConditionClinicalStatusCodesList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConditionVerificationStatusList createConditionVerificationStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createConditionVerificationStatusListFromString(FhirPackage.eINSTANCE.getConditionVerificationStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConditionVerificationStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertConditionVerificationStatusListToString(FhirPackage.eINSTANCE.getConditionVerificationStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConfidentialityClassificationList createConfidentialityClassificationListObjectFromString(EDataType eDataType, String initialValue) {
-		return createConfidentialityClassificationListFromString(FhirPackage.eINSTANCE.getConfidentialityClassificationList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConfidentialityClassificationListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertConfidentialityClassificationListToString(FhirPackage.eINSTANCE.getConfidentialityClassificationList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConsentDataMeaningList createConsentDataMeaningListObjectFromString(EDataType eDataType, String initialValue) {
 		return createConsentDataMeaningListFromString(FhirPackage.eINSTANCE.getConsentDataMeaningList(), initialValue);
 	}
@@ -17774,24 +17933,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertConsentProvisionTypeListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertConsentProvisionTypeListToString(FhirPackage.eINSTANCE.getConsentProvisionTypeList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConsentScopeCodesList createConsentScopeCodesListObjectFromString(EDataType eDataType, String initialValue) {
-		return createConsentScopeCodesListFromString(FhirPackage.eINSTANCE.getConsentScopeCodesList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertConsentScopeCodesListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertConsentScopeCodesListToString(FhirPackage.eINSTANCE.getConsentScopeCodesList(), instanceValue);
 	}
 
 	/**
@@ -17871,8 +18012,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContractDataMeaningList createContractDataMeaningListObjectFromString(EDataType eDataType, String initialValue) {
-		return createContractDataMeaningListFromString(FhirPackage.eINSTANCE.getContractDataMeaningList(), initialValue);
+	public ContractResourcePublicationStatusCodesList createContractResourcePublicationStatusCodesListObjectFromString(EDataType eDataType, String initialValue) {
+		return createContractResourcePublicationStatusCodesListFromString(FhirPackage.eINSTANCE.getContractResourcePublicationStatusCodesList(), initialValue);
 	}
 
 	/**
@@ -17880,8 +18021,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertContractDataMeaningListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertContractDataMeaningListToString(FhirPackage.eINSTANCE.getContractDataMeaningList(), instanceValue);
+	public String convertContractResourcePublicationStatusCodesListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertContractResourcePublicationStatusCodesListToString(FhirPackage.eINSTANCE.getContractResourcePublicationStatusCodesList(), instanceValue);
 	}
 
 	/**
@@ -17926,7 +18067,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public XMLGregorianCalendar createDatePrimitiveFromString(EDataType eDataType, String initialValue) {
-		return createDatePrimitiveBaseFromString(FhirPackage.eINSTANCE.getDatePrimitiveBase(), initialValue);
+		return (XMLGregorianCalendar)createDatePrimitiveBaseFromString(FhirPackage.eINSTANCE.getDatePrimitiveBase(), initialValue);
 	}
 
 	/**
@@ -17943,12 +18084,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar createDatePrimitiveBaseFromString(EDataType eDataType, String initialValue) {
+	public Object createDatePrimitiveBaseFromString(EDataType eDataType, String initialValue) {
 		if (initialValue == null) return null;
-		XMLGregorianCalendar result = null;
+		Object result = null;
 		RuntimeException exception = null;
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -17957,7 +18098,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			exception = e;
 		}
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR_MONTH, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR_MONTH, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -17966,7 +18107,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			exception = e;
 		}
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -18022,7 +18163,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public XMLGregorianCalendar createDateTimePrimitiveFromString(EDataType eDataType, String initialValue) {
-		return createDateTimePrimitiveBaseFromString(FhirPackage.eINSTANCE.getDateTimePrimitiveBase(), initialValue);
+		return (XMLGregorianCalendar)createDateTimePrimitiveBaseFromString(FhirPackage.eINSTANCE.getDateTimePrimitiveBase(), initialValue);
 	}
 
 	/**
@@ -18039,12 +18180,12 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar createDateTimePrimitiveBaseFromString(EDataType eDataType, String initialValue) {
+	public Object createDateTimePrimitiveBaseFromString(EDataType eDataType, String initialValue) {
 		if (initialValue == null) return null;
-		XMLGregorianCalendar result = null;
+		Object result = null;
 		RuntimeException exception = null;
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -18053,7 +18194,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			exception = e;
 		}
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR_MONTH, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.GYEAR_MONTH, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -18062,7 +18203,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			exception = e;
 		}
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -18071,7 +18212,7 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 			exception = e;
 		}
 		try {
-			result = (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -18153,8 +18294,31 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigDecimal createDecimalPrimitiveFromString(EDataType eDataType, String initialValue) {
-		return (BigDecimal)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DECIMAL, initialValue);
+	public Object createDecimalPrimitiveFromString(EDataType eDataType, String initialValue) {
+		if (initialValue == null) return null;
+		Object result = null;
+		RuntimeException exception = null;
+		try {
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DECIMAL, initialValue);
+			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
+				return result;
+			}
+		}
+		catch (RuntimeException e) {
+			exception = e;
+		}
+		try {
+			result = XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DOUBLE, initialValue);
+			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
+				return result;
+			}
+		}
+		catch (RuntimeException e) {
+			exception = e;
+		}
+		if (result != null || exception == null) return result;
+    
+		throw exception;
 	}
 
 	/**
@@ -18163,7 +18327,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * @generated
 	 */
 	public String convertDecimalPrimitiveToString(EDataType eDataType, Object instanceValue) {
-		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.DECIMAL, instanceValue);
+		if (instanceValue == null) return null;
+		if (XMLTypePackage.Literals.DECIMAL.isInstance(instanceValue)) {
+			try {
+				String value = XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.DECIMAL, instanceValue);
+				if (value != null) return value;
+			}
+			catch (Exception e) {
+				// Keep trying other member types until all have failed.
+			}
+		}
+		if (XMLTypePackage.Literals.DOUBLE.isInstance(instanceValue)) {
+			try {
+				String value = XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.DOUBLE, instanceValue);
+				if (value != null) return value;
+			}
+			catch (Exception e) {
+				// Keep trying other member types until all have failed.
+			}
+		}
+		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
 	}
 
 	/**
@@ -18279,6 +18462,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DeviceNameTypeList createDeviceNameTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createDeviceNameTypeListFromString(FhirPackage.eINSTANCE.getDeviceNameTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDeviceNameTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertDeviceNameTypeListToString(FhirPackage.eINSTANCE.getDeviceNameTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DeviceUseStatementStatusList createDeviceUseStatementStatusListObjectFromString(EDataType eDataType, String initialValue) {
 		return createDeviceUseStatementStatusListFromString(FhirPackage.eINSTANCE.getDeviceUseStatementStatusList(), initialValue);
 	}
@@ -18380,6 +18581,60 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertDocumentRelationshipTypeListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertDocumentRelationshipTypeListToString(FhirPackage.eINSTANCE.getDocumentRelationshipTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityRequestPurposeList createEligibilityRequestPurposeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createEligibilityRequestPurposeListFromString(FhirPackage.eINSTANCE.getEligibilityRequestPurposeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEligibilityRequestPurposeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertEligibilityRequestPurposeListToString(FhirPackage.eINSTANCE.getEligibilityRequestPurposeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EligibilityResponsePurposeList createEligibilityResponsePurposeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createEligibilityResponsePurposeListFromString(FhirPackage.eINSTANCE.getEligibilityResponsePurposeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEligibilityResponsePurposeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertEligibilityResponsePurposeListToString(FhirPackage.eINSTANCE.getEligibilityResponsePurposeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnableWhenBehaviorList createEnableWhenBehaviorListObjectFromString(EDataType eDataType, String initialValue) {
+		return createEnableWhenBehaviorListFromString(FhirPackage.eINSTANCE.getEnableWhenBehaviorList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnableWhenBehaviorListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertEnableWhenBehaviorListToString(FhirPackage.eINSTANCE.getEnableWhenBehaviorList(), instanceValue);
 	}
 
 	/**
@@ -18513,6 +18768,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EvidenceVariableTypeList createEvidenceVariableTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createEvidenceVariableTypeListFromString(FhirPackage.eINSTANCE.getEvidenceVariableTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEvidenceVariableTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertEvidenceVariableTypeListToString(FhirPackage.eINSTANCE.getEvidenceVariableTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExampleScenarioActorTypeList createExampleScenarioActorTypeListObjectFromString(EDataType eDataType, String initialValue) {
 		return createExampleScenarioActorTypeListFromString(FhirPackage.eINSTANCE.getExampleScenarioActorTypeList(), initialValue);
 	}
@@ -18549,6 +18822,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExposureStateList createExposureStateListObjectFromString(EDataType eDataType, String initialValue) {
+		return createExposureStateListFromString(FhirPackage.eINSTANCE.getExposureStateList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExposureStateListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertExposureStateListToString(FhirPackage.eINSTANCE.getExposureStateList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExpressionLanguageList createExpressionLanguageListObjectFromString(EDataType eDataType, String initialValue) {
 		return createExpressionLanguageListFromString(FhirPackage.eINSTANCE.getExpressionLanguageList(), initialValue);
 	}
@@ -18567,8 +18858,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtensionContextList createExtensionContextListObjectFromString(EDataType eDataType, String initialValue) {
-		return createExtensionContextListFromString(FhirPackage.eINSTANCE.getExtensionContextList(), initialValue);
+	public ExtensionContextTypeList createExtensionContextTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createExtensionContextTypeListFromString(FhirPackage.eINSTANCE.getExtensionContextTypeList(), initialValue);
 	}
 
 	/**
@@ -18576,26 +18867,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertExtensionContextListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertExtensionContextListToString(FhirPackage.eINSTANCE.getExtensionContextList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FailureActionList createFailureActionListObjectFromString(EDataType eDataType, String initialValue) {
-		return createFailureActionListFromString(FhirPackage.eINSTANCE.getFailureActionList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFailureActionListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertFailureActionListToString(FhirPackage.eINSTANCE.getFailureActionList(), instanceValue);
+	public String convertExtensionContextTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertExtensionContextTypeListToString(FhirPackage.eINSTANCE.getExtensionContextTypeList(), instanceValue);
 	}
 
 	/**
@@ -18614,42 +18887,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertFamilyHistoryStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertFamilyHistoryStatusListToString(FhirPackage.eINSTANCE.getFamilyHistoryStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FHIRAllTypesList createFHIRAllTypesListObjectFromString(EDataType eDataType, String initialValue) {
-		return createFHIRAllTypesListFromString(FhirPackage.eINSTANCE.getFHIRAllTypesList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFHIRAllTypesListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertFHIRAllTypesListToString(FhirPackage.eINSTANCE.getFHIRAllTypesList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FHIRDefinedTypeList createFHIRDefinedTypeListObjectFromString(EDataType eDataType, String initialValue) {
-		return createFHIRDefinedTypeListFromString(FhirPackage.eINSTANCE.getFHIRDefinedTypeList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFHIRDefinedTypeListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertFHIRDefinedTypeListToString(FhirPackage.eINSTANCE.getFHIRDefinedTypeList(), instanceValue);
 	}
 
 	/**
@@ -18686,6 +18923,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertFHIRSubstanceStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertFHIRSubstanceStatusListToString(FhirPackage.eINSTANCE.getFHIRSubstanceStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FHIRVersionList createFHIRVersionListObjectFromString(EDataType eDataType, String initialValue) {
+		return createFHIRVersionListFromString(FhirPackage.eINSTANCE.getFHIRVersionList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFHIRVersionListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertFHIRVersionListToString(FhirPackage.eINSTANCE.getFHIRVersionList(), instanceValue);
 	}
 
 	/**
@@ -18747,8 +19002,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalStatusList createGoalStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createGoalStatusListFromString(FhirPackage.eINSTANCE.getGoalStatusList(), initialValue);
+	public GoalLifecycleStatusList createGoalLifecycleStatusListObjectFromString(EDataType eDataType, String initialValue) {
+		return createGoalLifecycleStatusListFromString(FhirPackage.eINSTANCE.getGoalLifecycleStatusList(), initialValue);
 	}
 
 	/**
@@ -18756,8 +19011,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGoalStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertGoalStatusListToString(FhirPackage.eINSTANCE.getGoalStatusList(), instanceValue);
+	public String convertGoalLifecycleStatusListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertGoalLifecycleStatusListToString(FhirPackage.eINSTANCE.getGoalLifecycleStatusList(), instanceValue);
 	}
 
 	/**
@@ -18801,6 +19056,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GroupMeasureList createGroupMeasureListObjectFromString(EDataType eDataType, String initialValue) {
+		return createGroupMeasureListFromString(FhirPackage.eINSTANCE.getGroupMeasureList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGroupMeasureListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertGroupMeasureListToString(FhirPackage.eINSTANCE.getGroupMeasureList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GroupTypeList createGroupTypeListObjectFromString(EDataType eDataType, String initialValue) {
 		return createGroupTypeListFromString(FhirPackage.eINSTANCE.getGroupTypeList(), initialValue);
 	}
@@ -18837,8 +19110,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuideDependencyTypeList createGuideDependencyTypeListObjectFromString(EDataType eDataType, String initialValue) {
-		return createGuideDependencyTypeListFromString(FhirPackage.eINSTANCE.getGuideDependencyTypeList(), initialValue);
+	public GuidePageGenerationList createGuidePageGenerationListObjectFromString(EDataType eDataType, String initialValue) {
+		return createGuidePageGenerationListFromString(FhirPackage.eINSTANCE.getGuidePageGenerationList(), initialValue);
 	}
 
 	/**
@@ -18846,8 +19119,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGuideDependencyTypeListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertGuideDependencyTypeListToString(FhirPackage.eINSTANCE.getGuideDependencyTypeList(), instanceValue);
+	public String convertGuidePageGenerationListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertGuidePageGenerationListToString(FhirPackage.eINSTANCE.getGuidePageGenerationList(), instanceValue);
 	}
 
 	/**
@@ -18855,8 +19128,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuidePageKindList createGuidePageKindListObjectFromString(EDataType eDataType, String initialValue) {
-		return createGuidePageKindListFromString(FhirPackage.eINSTANCE.getGuidePageKindList(), initialValue);
+	public GuideParameterCodeList createGuideParameterCodeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createGuideParameterCodeListFromString(FhirPackage.eINSTANCE.getGuideParameterCodeList(), initialValue);
 	}
 
 	/**
@@ -18864,44 +19137,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGuidePageKindListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertGuidePageKindListToString(FhirPackage.eINSTANCE.getGuidePageKindList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HazardousDutyWorkList createHazardousDutyWorkListObjectFromString(EDataType eDataType, String initialValue) {
-		return createHazardousDutyWorkListFromString(FhirPackage.eINSTANCE.getHazardousDutyWorkList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHazardousDutyWorkListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertHazardousDutyWorkListToString(FhirPackage.eINSTANCE.getHazardousDutyWorkList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HistoryOfEmploymentStatusList createHistoryOfEmploymentStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createHistoryOfEmploymentStatusListFromString(FhirPackage.eINSTANCE.getHistoryOfEmploymentStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHistoryOfEmploymentStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertHistoryOfEmploymentStatusListToString(FhirPackage.eINSTANCE.getHistoryOfEmploymentStatusList(), instanceValue);
+	public String convertGuideParameterCodeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertGuideParameterCodeListToString(FhirPackage.eINSTANCE.getGuideParameterCodeList(), instanceValue);
 	}
 
 	/**
@@ -18981,6 +19218,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImagingStudyStatusList createImagingStudyStatusListObjectFromString(EDataType eDataType, String initialValue) {
+		return createImagingStudyStatusListFromString(FhirPackage.eINSTANCE.getImagingStudyStatusList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertImagingStudyStatusListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertImagingStudyStatusListToString(FhirPackage.eINSTANCE.getImagingStudyStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImmunizationEvaluationStatusCodesList createImmunizationEvaluationStatusCodesListObjectFromString(EDataType eDataType, String initialValue) {
 		return createImmunizationEvaluationStatusCodesListFromString(FhirPackage.eINSTANCE.getImmunizationEvaluationStatusCodesList(), initialValue);
 	}
@@ -19017,26 +19272,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceAvailabilityList createInstanceAvailabilityListObjectFromString(EDataType eDataType, String initialValue) {
-		return createInstanceAvailabilityListFromString(FhirPackage.eINSTANCE.getInstanceAvailabilityList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInstanceAvailabilityListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertInstanceAvailabilityListToString(FhirPackage.eINSTANCE.getInstanceAvailabilityList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XMLGregorianCalendar createInstantPrimitiveFromString(EDataType eDataType, String initialValue) {
-		return (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
+	public Object createInstantPrimitiveFromString(EDataType eDataType, String initialValue) {
+		return XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
 	}
 
 	/**
@@ -19287,24 +19524,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MeasmntPrincipleList createMeasmntPrincipleListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMeasmntPrincipleListFromString(FhirPackage.eINSTANCE.getMeasmntPrincipleList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMeasmntPrincipleListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMeasmntPrincipleListToString(FhirPackage.eINSTANCE.getMeasmntPrincipleList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MeasureReportStatusList createMeasureReportStatusListObjectFromString(EDataType eDataType, String initialValue) {
 		return createMeasureReportStatusListFromString(FhirPackage.eINSTANCE.getMeasureReportStatusList(), initialValue);
 	}
@@ -19341,60 +19560,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediaStatusList createMediaStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMediaStatusListFromString(FhirPackage.eINSTANCE.getMediaStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMediaStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMediaStatusListToString(FhirPackage.eINSTANCE.getMediaStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationAdministrationStatusList createMedicationAdministrationStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMedicationAdministrationStatusListFromString(FhirPackage.eINSTANCE.getMedicationAdministrationStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMedicationAdministrationStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMedicationAdministrationStatusListToString(FhirPackage.eINSTANCE.getMedicationAdministrationStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MedicationDispenseStatusList createMedicationDispenseStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMedicationDispenseStatusListFromString(FhirPackage.eINSTANCE.getMedicationDispenseStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMedicationDispenseStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMedicationDispenseStatusListToString(FhirPackage.eINSTANCE.getMedicationDispenseStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MedicationRequestIntentList createMedicationRequestIntentListObjectFromString(EDataType eDataType, String initialValue) {
 		return createMedicationRequestIntentListFromString(FhirPackage.eINSTANCE.getMedicationRequestIntentList(), initialValue);
 	}
@@ -19413,8 +19578,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationRequestStatusList createMedicationRequestStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMedicationRequestStatusListFromString(FhirPackage.eINSTANCE.getMedicationRequestStatusList(), initialValue);
+	public MedicationrequestStatusList createMedicationrequestStatusListObjectFromString(EDataType eDataType, String initialValue) {
+		return createMedicationrequestStatusListFromString(FhirPackage.eINSTANCE.getMedicationrequestStatusList(), initialValue);
 	}
 
 	/**
@@ -19422,8 +19587,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationRequestStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMedicationRequestStatusListToString(FhirPackage.eINSTANCE.getMedicationRequestStatusList(), instanceValue);
+	public String convertMedicationrequestStatusListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertMedicationrequestStatusListToString(FhirPackage.eINSTANCE.getMedicationrequestStatusList(), instanceValue);
 	}
 
 	/**
@@ -19431,8 +19596,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatementStatusList createMedicationStatementStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMedicationStatementStatusListFromString(FhirPackage.eINSTANCE.getMedicationStatementStatusList(), initialValue);
+	public MedicationStatusCodesList createMedicationStatusCodesListObjectFromString(EDataType eDataType, String initialValue) {
+		return createMedicationStatusCodesListFromString(FhirPackage.eINSTANCE.getMedicationStatusCodesList(), initialValue);
 	}
 
 	/**
@@ -19440,8 +19605,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationStatementStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMedicationStatementStatusListToString(FhirPackage.eINSTANCE.getMedicationStatementStatusList(), instanceValue);
+	public String convertMedicationStatusCodesListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertMedicationStatusCodesListToString(FhirPackage.eINSTANCE.getMedicationStatusCodesList(), instanceValue);
 	}
 
 	/**
@@ -19449,8 +19614,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatusList createMedicationStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createMedicationStatusListFromString(FhirPackage.eINSTANCE.getMedicationStatusList(), initialValue);
+	public MessageheaderResponseRequestList createMessageheaderResponseRequestListObjectFromString(EDataType eDataType, String initialValue) {
+		return createMessageheaderResponseRequestListFromString(FhirPackage.eINSTANCE.getMessageheaderResponseRequestList(), initialValue);
 	}
 
 	/**
@@ -19458,8 +19623,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMedicationStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertMedicationStatusListToString(FhirPackage.eINSTANCE.getMedicationStatusList(), instanceValue);
+	public String convertMessageheaderResponseRequestListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertMessageheaderResponseRequestListToString(FhirPackage.eINSTANCE.getMessageheaderResponseRequestList(), instanceValue);
 	}
 
 	/**
@@ -19557,24 +19722,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeedList createNeedListObjectFromString(EDataType eDataType, String initialValue) {
-		return createNeedListFromString(FhirPackage.eINSTANCE.getNeedList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNeedListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertNeedListToString(FhirPackage.eINSTANCE.getNeedList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NoteTypeList createNoteTypeListObjectFromString(EDataType eDataType, String initialValue) {
 		return createNoteTypeListFromString(FhirPackage.eINSTANCE.getNoteTypeList(), initialValue);
 	}
@@ -19593,8 +19740,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NutritionOrderStatusList createNutritionOrderStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createNutritionOrderStatusListFromString(FhirPackage.eINSTANCE.getNutritionOrderStatusList(), initialValue);
+	public ObservationDataTypeList createObservationDataTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createObservationDataTypeListFromString(FhirPackage.eINSTANCE.getObservationDataTypeList(), initialValue);
 	}
 
 	/**
@@ -19602,8 +19749,26 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertNutritionOrderStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertNutritionOrderStatusListToString(FhirPackage.eINSTANCE.getNutritionOrderStatusList(), instanceValue);
+	public String convertObservationDataTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertObservationDataTypeListToString(FhirPackage.eINSTANCE.getObservationDataTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObservationRangeCategoryList createObservationRangeCategoryListObjectFromString(EDataType eDataType, String initialValue) {
+		return createObservationRangeCategoryListFromString(FhirPackage.eINSTANCE.getObservationRangeCategoryList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertObservationRangeCategoryListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertObservationRangeCategoryListToString(FhirPackage.eINSTANCE.getObservationRangeCategoryList(), instanceValue);
 	}
 
 	/**
@@ -19683,6 +19848,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OrientationTypeList createOrientationTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createOrientationTypeListFromString(FhirPackage.eINSTANCE.getOrientationTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOrientationTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertOrientationTypeListToString(FhirPackage.eINSTANCE.getOrientationTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParticipantRequiredList createParticipantRequiredListObjectFromString(EDataType eDataType, String initialValue) {
 		return createParticipantRequiredListFromString(FhirPackage.eINSTANCE.getParticipantRequiredList(), initialValue);
 	}
@@ -19730,24 +19913,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertPositiveIntPrimitiveToString(EDataType eDataType, Object instanceValue) {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.POSITIVE_INTEGER, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessOutcomeCodesList createProcessOutcomeCodesListObjectFromString(EDataType eDataType, String initialValue) {
-		return createProcessOutcomeCodesListFromString(FhirPackage.eINSTANCE.getProcessOutcomeCodesList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProcessOutcomeCodesListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertProcessOutcomeCodesListToString(FhirPackage.eINSTANCE.getProcessOutcomeCodesList(), instanceValue);
 	}
 
 	/**
@@ -19827,24 +19992,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PushTypeAvailableList createPushTypeAvailableListObjectFromString(EDataType eDataType, String initialValue) {
-		return createPushTypeAvailableListFromString(FhirPackage.eINSTANCE.getPushTypeAvailableList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPushTypeAvailableListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertPushTypeAvailableListToString(FhirPackage.eINSTANCE.getPushTypeAvailableList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QualityTypeList createQualityTypeListObjectFromString(EDataType eDataType, String initialValue) {
 		return createQualityTypeListFromString(FhirPackage.eINSTANCE.getQualityTypeList(), initialValue);
 	}
@@ -19874,6 +20021,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertQuantityComparatorListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertQuantityComparatorListToString(FhirPackage.eINSTANCE.getQuantityComparatorList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuestionnaireItemOperatorList createQuestionnaireItemOperatorListObjectFromString(EDataType eDataType, String initialValue) {
+		return createQuestionnaireItemOperatorListFromString(FhirPackage.eINSTANCE.getQuestionnaireItemOperatorList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQuestionnaireItemOperatorListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertQuestionnaireItemOperatorListToString(FhirPackage.eINSTANCE.getQuestionnaireItemOperatorList(), instanceValue);
 	}
 
 	/**
@@ -20043,6 +20208,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RequestResourceTypeList createRequestResourceTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createRequestResourceTypeListFromString(FhirPackage.eINSTANCE.getRequestResourceTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRequestResourceTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertRequestResourceTypeListToString(FhirPackage.eINSTANCE.getRequestResourceTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RequestStatusList createRequestStatusListObjectFromString(EDataType eDataType, String initialValue) {
 		return createRequestStatusListFromString(FhirPackage.eINSTANCE.getRequestStatusList(), initialValue);
 	}
@@ -20054,6 +20237,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertRequestStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertRequestStatusListToString(FhirPackage.eINSTANCE.getRequestStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResearchElementTypeList createResearchElementTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createResearchElementTypeListFromString(FhirPackage.eINSTANCE.getResearchElementTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertResearchElementTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertResearchElementTypeListToString(FhirPackage.eINSTANCE.getResearchElementTypeList(), instanceValue);
 	}
 
 	/**
@@ -20169,24 +20370,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RetirementStatusList createRetirementStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createRetirementStatusListFromString(FhirPackage.eINSTANCE.getRetirementStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRetirementStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertRetirementStatusListToString(FhirPackage.eINSTANCE.getRetirementStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String createSampledDataDataTypePrimitiveFromString(EDataType eDataType, String initialValue) {
 		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.STRING, initialValue);
 	}
@@ -20277,6 +20460,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceTypeList createSequenceTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createSequenceTypeListFromString(FhirPackage.eINSTANCE.getSequenceTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSequenceTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertSequenceTypeListToString(FhirPackage.eINSTANCE.getSequenceTypeList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SlicingRulesList createSlicingRulesListObjectFromString(EDataType eDataType, String initialValue) {
 		return createSlicingRulesListFromString(FhirPackage.eINSTANCE.getSlicingRulesList(), initialValue);
 	}
@@ -20306,6 +20507,42 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertSlotStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertSlotStatusListToString(FhirPackage.eINSTANCE.getSlotStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SortDirectionList createSortDirectionListObjectFromString(EDataType eDataType, String initialValue) {
+		return createSortDirectionListFromString(FhirPackage.eINSTANCE.getSortDirectionList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSortDirectionListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertSortDirectionListToString(FhirPackage.eINSTANCE.getSortDirectionList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SPDXLicenseList createSPDXLicenseListObjectFromString(EDataType eDataType, String initialValue) {
+		return createSPDXLicenseListFromString(FhirPackage.eINSTANCE.getSPDXLicenseList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSPDXLicenseListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertSPDXLicenseListToString(FhirPackage.eINSTANCE.getSPDXLicenseList(), instanceValue);
 	}
 
 	/**
@@ -20360,6 +20597,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertStatusListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertStatusListToString(FhirPackage.eINSTANCE.getStatusList(), instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StrandTypeList createStrandTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createStrandTypeListFromString(FhirPackage.eINSTANCE.getStrandTypeList(), initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStrandTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertStrandTypeListToString(FhirPackage.eINSTANCE.getStrandTypeList(), instanceValue);
 	}
 
 	/**
@@ -20619,8 +20874,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemVersionProcessingModeList createSystemVersionProcessingModeListObjectFromString(EDataType eDataType, String initialValue) {
-		return createSystemVersionProcessingModeListFromString(FhirPackage.eINSTANCE.getSystemVersionProcessingModeList(), initialValue);
+	public TaskIntentList createTaskIntentListObjectFromString(EDataType eDataType, String initialValue) {
+		return createTaskIntentListFromString(FhirPackage.eINSTANCE.getTaskIntentList(), initialValue);
 	}
 
 	/**
@@ -20628,8 +20883,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertSystemVersionProcessingModeListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertSystemVersionProcessingModeListToString(FhirPackage.eINSTANCE.getSystemVersionProcessingModeList(), instanceValue);
+	public String convertTaskIntentListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertTaskIntentListToString(FhirPackage.eINSTANCE.getTaskIntentList(), instanceValue);
 	}
 
 	/**
@@ -20745,8 +21000,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar createTimePrimitiveFromString(EDataType eDataType, String initialValue) {
-		return (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.TIME, initialValue);
+	public Object createTimePrimitiveFromString(EDataType eDataType, String initialValue) {
+		return XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.TIME, initialValue);
 	}
 
 	/**
@@ -20853,24 +21108,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnknownContentCodeList createUnknownContentCodeListObjectFromString(EDataType eDataType, String initialValue) {
-		return createUnknownContentCodeListFromString(FhirPackage.eINSTANCE.getUnknownContentCodeList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUnknownContentCodeListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertUnknownContentCodeListToString(FhirPackage.eINSTANCE.getUnknownContentCodeList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BigInteger createUnsignedIntPrimitiveFromString(EDataType eDataType, String initialValue) {
 		return (BigInteger)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.NON_NEGATIVE_INTEGER, initialValue);
 	}
@@ -20907,6 +21144,24 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String createUrlPrimitiveFromString(EDataType eDataType, String initialValue) {
+		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.ANY_URI, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUrlPrimitiveToString(EDataType eDataType, Object instanceValue) {
+		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.ANY_URI, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UseList createUseListObjectFromString(EDataType eDataType, String initialValue) {
 		return createUseListFromString(FhirPackage.eINSTANCE.getUseList(), initialValue);
 	}
@@ -20918,60 +21173,6 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 */
 	public String convertUseListObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertUseListToString(FhirPackage.eINSTANCE.getUseList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionStatusList createUserSessionStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createUserSessionStatusListFromString(FhirPackage.eINSTANCE.getUserSessionStatusList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUserSessionStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertUserSessionStatusListToString(FhirPackage.eINSTANCE.getUserSessionStatusList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UserSessionStatusSourceList createUserSessionStatusSourceListObjectFromString(EDataType eDataType, String initialValue) {
-		return createUserSessionStatusSourceListFromString(FhirPackage.eINSTANCE.getUserSessionStatusSourceList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUserSessionStatusSourceListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertUserSessionStatusSourceListToString(FhirPackage.eINSTANCE.getUserSessionStatusSourceList(), instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UsualOccupationList createUsualOccupationListObjectFromString(EDataType eDataType, String initialValue) {
-		return createUsualOccupationListFromString(FhirPackage.eINSTANCE.getUsualOccupationList(), initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertUsualOccupationListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertUsualOccupationListToString(FhirPackage.eINSTANCE.getUsualOccupationList(), instanceValue);
 	}
 
 	/**
@@ -20997,8 +21198,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidationStatusList createValidationStatusListObjectFromString(EDataType eDataType, String initialValue) {
-		return createValidationStatusListFromString(FhirPackage.eINSTANCE.getValidationStatusList(), initialValue);
+	public VariableTypeList createVariableTypeListObjectFromString(EDataType eDataType, String initialValue) {
+		return createVariableTypeListFromString(FhirPackage.eINSTANCE.getVariableTypeList(), initialValue);
 	}
 
 	/**
@@ -21006,8 +21207,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertValidationStatusListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertValidationStatusListToString(FhirPackage.eINSTANCE.getValidationStatusList(), instanceValue);
+	public String convertVariableTypeListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertVariableTypeListToString(FhirPackage.eINSTANCE.getVariableTypeList(), instanceValue);
 	}
 
 	/**
@@ -21015,8 +21216,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidationTypeList createValidationTypeListObjectFromString(EDataType eDataType, String initialValue) {
-		return createValidationTypeListFromString(FhirPackage.eINSTANCE.getValidationTypeList(), initialValue);
+	public VConfidentialityClassificationList createVConfidentialityClassificationListObjectFromString(EDataType eDataType, String initialValue) {
+		return createVConfidentialityClassificationListFromString(FhirPackage.eINSTANCE.getVConfidentialityClassificationList(), initialValue);
 	}
 
 	/**
@@ -21024,8 +21225,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertValidationTypeListObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertValidationTypeListToString(FhirPackage.eINSTANCE.getValidationTypeList(), instanceValue);
+	public String convertVConfidentialityClassificationListObjectToString(EDataType eDataType, Object instanceValue) {
+		return convertVConfidentialityClassificationListToString(FhirPackage.eINSTANCE.getVConfidentialityClassificationList(), instanceValue);
 	}
 
 	/**

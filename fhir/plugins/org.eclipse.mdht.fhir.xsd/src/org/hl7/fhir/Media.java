@@ -22,11 +22,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Media#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getView <em>View</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Media#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Media#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getCreatedDateTime <em>Created Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getCreatedPeriod <em>Created Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Media#getIssued <em>Issued</em>}</li>
@@ -104,13 +104,13 @@ public interface Media extends DomainResource {
 	 * The current state of the {{title}}.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
-	 * @see #setStatus(MediaStatus)
+	 * @see #setStatus(EventStatus)
 	 * @see org.hl7.fhir.FhirPackage#getMedia_Status()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	MediaStatus getStatus();
+	EventStatus getStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Media#getStatus <em>Status</em>}' containment reference.
@@ -120,23 +120,33 @@ public interface Media extends DomainResource {
 	 * @see #getStatus()
 	 * @generated
 	 */
-	void setStatus(MediaStatus value);
+	void setStatus(EventStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.
+	 * A code that classifies whether the media is an image, video or audio recording or some other media category.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedia_Category()
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Type()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getCategory();
+	CodeableConcept getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Modality</b></em>' containment reference.
@@ -217,30 +227,30 @@ public interface Media extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care that establishes the context for this media.
+	 * The encounter that establishes the context for this media.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getMedia_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedia_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Media#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Media#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Created Date Time</b></em>' containment reference.

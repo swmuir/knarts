@@ -56,7 +56,7 @@ public interface PersonLink extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Level of assurance that this link is actually associated with the target resource.
+	 * Level of assurance that this link is associated with the target resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Assurance</em>' containment reference.
 	 * @see #setAssurance(IdentityAssuranceLevel)

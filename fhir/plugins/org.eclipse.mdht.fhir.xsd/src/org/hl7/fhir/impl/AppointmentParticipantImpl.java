@@ -22,6 +22,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ParticipantRequired;
 import org.hl7.fhir.ParticipationStatus;
+import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 
 /**
@@ -36,6 +37,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.AppointmentParticipantImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentParticipantImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AppointmentParticipantImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AppointmentParticipantImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +82,16 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 	 * @ordered
 	 */
 	protected ParticipationStatus status;
+
+	/**
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPeriod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Period period;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +258,49 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPeriod(Period newPeriod, NotificationChain msgs) {
+		Period oldPeriod = period;
+		period = newPeriod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD, oldPeriod, newPeriod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriod(Period newPeriod) {
+		if (newPeriod != period) {
+			NotificationChain msgs = null;
+			if (period != null)
+				msgs = ((InternalEObject)period).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD, null, msgs);
+			if (newPeriod != null)
+				msgs = ((InternalEObject)newPeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD, null, msgs);
+			msgs = basicSetPeriod(newPeriod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD, newPeriod, newPeriod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -257,6 +312,8 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 				return basicSetRequired(null, msgs);
 			case FhirPackage.APPOINTMENT_PARTICIPANT__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD:
+				return basicSetPeriod(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -277,6 +334,8 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 				return getRequired();
 			case FhirPackage.APPOINTMENT_PARTICIPANT__STATUS:
 				return getStatus();
+			case FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD:
+				return getPeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -303,6 +362,9 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 			case FhirPackage.APPOINTMENT_PARTICIPANT__STATUS:
 				setStatus((ParticipationStatus)newValue);
 				return;
+			case FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD:
+				setPeriod((Period)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,6 +389,9 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 			case FhirPackage.APPOINTMENT_PARTICIPANT__STATUS:
 				setStatus((ParticipationStatus)null);
 				return;
+			case FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD:
+				setPeriod((Period)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +412,8 @@ public class AppointmentParticipantImpl extends BackboneElementImpl implements A
 				return required != null;
 			case FhirPackage.APPOINTMENT_PARTICIPANT__STATUS:
 				return status != null;
+			case FhirPackage.APPOINTMENT_PARTICIPANT__PERIOD:
+				return period != null;
 		}
 		return super.eIsSet(featureID);
 	}

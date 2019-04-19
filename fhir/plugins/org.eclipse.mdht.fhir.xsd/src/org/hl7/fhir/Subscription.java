@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
+ * The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -25,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Subscription#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.Subscription#getChannel <em>Channel</em>}</li>
- *   <li>{@link org.hl7.fhir.Subscription#getTag <em>Tag</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubscription()
@@ -204,21 +203,5 @@ public interface Subscription extends DomainResource {
 	 * @generated
 	 */
 	void setChannel(SubscriptionChannel value);
-
-	/**
-	 * Returns the value of the '<em><b>Tag</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Coding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A tag to add to any resource that matches the criteria, after the subscription is processed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Tag</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubscription_Tag()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='tag' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Coding> getTag();
 
 } // Subscription

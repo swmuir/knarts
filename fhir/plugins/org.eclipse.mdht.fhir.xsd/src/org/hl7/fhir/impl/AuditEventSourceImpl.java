@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.AuditEventSource;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ import org.hl7.fhir.Identifier;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.AuditEventSourceImpl#getSite <em>Site</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AuditEventSourceImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AuditEventSourceImpl#getObserver <em>Observer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AuditEventSourceImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -49,14 +49,14 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	protected org.hl7.fhir.String site;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getObserver() <em>Observer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
+	 * @see #getObserver()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected Reference observer;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
@@ -135,8 +135,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
-		return identifier;
+	public Reference getObserver() {
+		return observer;
 	}
 
 	/**
@@ -144,11 +144,11 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public NotificationChain basicSetObserver(Reference newObserver, NotificationChain msgs) {
+		Reference oldObserver = observer;
+		observer = newObserver;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER, oldObserver, newObserver);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -159,18 +159,18 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setObserver(Reference newObserver) {
+		if (newObserver != observer) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (observer != null)
+				msgs = ((InternalEObject)observer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER, null, msgs);
+			if (newObserver != null)
+				msgs = ((InternalEObject)newObserver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER, null, msgs);
+			msgs = basicSetObserver(newObserver, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER, newIdentifier, newIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER, newObserver, newObserver));
 	}
 
 	/**
@@ -195,8 +195,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_SOURCE__SITE:
 				return basicSetSite(null, msgs);
-			case FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+			case FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER:
+				return basicSetObserver(null, msgs);
 			case FhirPackage.AUDIT_EVENT_SOURCE__TYPE:
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 		}
@@ -213,8 +213,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_SOURCE__SITE:
 				return getSite();
-			case FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER:
-				return getIdentifier();
+			case FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER:
+				return getObserver();
 			case FhirPackage.AUDIT_EVENT_SOURCE__TYPE:
 				return getType();
 		}
@@ -233,8 +233,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 			case FhirPackage.AUDIT_EVENT_SOURCE__SITE:
 				setSite((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+			case FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER:
+				setObserver((Reference)newValue);
 				return;
 			case FhirPackage.AUDIT_EVENT_SOURCE__TYPE:
 				getType().clear();
@@ -255,8 +255,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 			case FhirPackage.AUDIT_EVENT_SOURCE__SITE:
 				setSite((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER:
-				setIdentifier((Identifier)null);
+			case FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER:
+				setObserver((Reference)null);
 				return;
 			case FhirPackage.AUDIT_EVENT_SOURCE__TYPE:
 				getType().clear();
@@ -275,8 +275,8 @@ public class AuditEventSourceImpl extends BackboneElementImpl implements AuditEv
 		switch (featureID) {
 			case FhirPackage.AUDIT_EVENT_SOURCE__SITE:
 				return site != null;
-			case FhirPackage.AUDIT_EVENT_SOURCE__IDENTIFIER:
-				return identifier != null;
+			case FhirPackage.AUDIT_EVENT_SOURCE__OBSERVER:
+				return observer != null;
 			case FhirPackage.AUDIT_EVENT_SOURCE__TYPE:
 				return type != null && !type.isEmpty();
 		}

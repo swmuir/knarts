@@ -38,7 +38,17 @@ public enum ExpressionLanguageList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEXT_FHIRPATH(1, "textFhirpath", "text/fhirpath");
+	TEXT_FHIRPATH(1, "textFhirpath", "text/fhirpath"),
+
+	/**
+	 * The '<em><b>Application XFhir Query</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #APPLICATION_XFHIR_QUERY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	APPLICATION_XFHIR_QUERY(2, "applicationXFhirQuery", "application/x-fhir-query");
 
 	/**
 	 * The '<em><b>Text Cql</b></em>' literal value.
@@ -69,6 +79,20 @@ public enum ExpressionLanguageList implements Enumerator {
 	public static final int TEXT_FHIRPATH_VALUE = 1;
 
 	/**
+	 * The '<em><b>Application XFhir Query</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * FHIR Query
+	 * <!-- end-model-doc -->
+	 * @see #APPLICATION_XFHIR_QUERY
+	 * @model name="applicationXFhirQuery" literal="application/x-fhir-query"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int APPLICATION_XFHIR_QUERY_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Expression Language List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +102,7 @@ public enum ExpressionLanguageList implements Enumerator {
 		new ExpressionLanguageList[] {
 			TEXT_CQL,
 			TEXT_FHIRPATH,
+			APPLICATION_XFHIR_QUERY,
 		};
 
 	/**
@@ -136,6 +161,7 @@ public enum ExpressionLanguageList implements Enumerator {
 		switch (value) {
 			case TEXT_CQL_VALUE: return TEXT_CQL;
 			case TEXT_FHIRPATH_VALUE: return TEXT_FHIRPATH;
+			case APPLICATION_XFHIR_QUERY_VALUE: return APPLICATION_XFHIR_QUERY;
 		}
 		return null;
 	}

@@ -24,11 +24,11 @@ import org.hl7.fhir.CompositionEvent;
 import org.hl7.fhir.CompositionRelatesTo;
 import org.hl7.fhir.CompositionSection;
 import org.hl7.fhir.CompositionStatus;
-import org.hl7.fhir.ConfidentialityClassification;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.VConfidentialityClassification;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CompositionImpl#getDate <em>Date</em>}</li>
@@ -89,14 +89,14 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClass_()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept class_;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -156,7 +156,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConfidentialityClassification confidentiality;
+	protected VConfidentialityClassification confidentiality;
 
 	/**
 	 * The cached value of the '{@link #getAttester() <em>Attester</em>}' containment reference list.
@@ -361,42 +361,11 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getClass_() {
-		return class_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClass(CodeableConcept newClass, NotificationChain msgs) {
-		CodeableConcept oldClass = class_;
-		class_ = newClass;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION__CLASS, oldClass, newClass);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.COMPOSITION__CATEGORY);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(CodeableConcept newClass) {
-		if (newClass != class_) {
-			NotificationChain msgs = null;
-			if (class_ != null)
-				msgs = ((InternalEObject)class_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION__CLASS, null, msgs);
-			if (newClass != null)
-				msgs = ((InternalEObject)newClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.COMPOSITION__CLASS, null, msgs);
-			msgs = basicSetClass(newClass, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION__CLASS, newClass, newClass));
+		return category;
 	}
 
 	/**
@@ -588,7 +557,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfidentialityClassification getConfidentiality() {
+	public VConfidentialityClassification getConfidentiality() {
 		return confidentiality;
 	}
 
@@ -597,8 +566,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConfidentiality(ConfidentialityClassification newConfidentiality, NotificationChain msgs) {
-		ConfidentialityClassification oldConfidentiality = confidentiality;
+	public NotificationChain basicSetConfidentiality(VConfidentialityClassification newConfidentiality, NotificationChain msgs) {
+		VConfidentialityClassification oldConfidentiality = confidentiality;
 		confidentiality = newConfidentiality;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COMPOSITION__CONFIDENTIALITY, oldConfidentiality, newConfidentiality);
@@ -612,7 +581,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConfidentiality(ConfidentialityClassification newConfidentiality) {
+	public void setConfidentiality(VConfidentialityClassification newConfidentiality) {
 		if (newConfidentiality != confidentiality) {
 			NotificationChain msgs = null;
 			if (confidentiality != null)
@@ -731,8 +700,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return basicSetStatus(null, msgs);
 			case FhirPackage.COMPOSITION__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.COMPOSITION__CLASS:
-				return basicSetClass(null, msgs);
+			case FhirPackage.COMPOSITION__CATEGORY:
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.COMPOSITION__SUBJECT:
 				return basicSetSubject(null, msgs);
 			case FhirPackage.COMPOSITION__ENCOUNTER:
@@ -773,8 +742,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return getStatus();
 			case FhirPackage.COMPOSITION__TYPE:
 				return getType();
-			case FhirPackage.COMPOSITION__CLASS:
-				return getClass_();
+			case FhirPackage.COMPOSITION__CATEGORY:
+				return getCategory();
 			case FhirPackage.COMPOSITION__SUBJECT:
 				return getSubject();
 			case FhirPackage.COMPOSITION__ENCOUNTER:
@@ -819,8 +788,9 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 			case FhirPackage.COMPOSITION__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.COMPOSITION__CLASS:
-				setClass((CodeableConcept)newValue);
+			case FhirPackage.COMPOSITION__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.COMPOSITION__SUBJECT:
 				setSubject((Reference)newValue);
@@ -839,7 +809,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.COMPOSITION__CONFIDENTIALITY:
-				setConfidentiality((ConfidentialityClassification)newValue);
+				setConfidentiality((VConfidentialityClassification)newValue);
 				return;
 			case FhirPackage.COMPOSITION__ATTESTER:
 				getAttester().clear();
@@ -881,8 +851,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 			case FhirPackage.COMPOSITION__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.COMPOSITION__CLASS:
-				setClass((CodeableConcept)null);
+			case FhirPackage.COMPOSITION__CATEGORY:
+				getCategory().clear();
 				return;
 			case FhirPackage.COMPOSITION__SUBJECT:
 				setSubject((Reference)null);
@@ -900,7 +870,7 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				setTitle((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.COMPOSITION__CONFIDENTIALITY:
-				setConfidentiality((ConfidentialityClassification)null);
+				setConfidentiality((VConfidentialityClassification)null);
 				return;
 			case FhirPackage.COMPOSITION__ATTESTER:
 				getAttester().clear();
@@ -935,8 +905,8 @@ public class CompositionImpl extends DomainResourceImpl implements Composition {
 				return status != null;
 			case FhirPackage.COMPOSITION__TYPE:
 				return type != null;
-			case FhirPackage.COMPOSITION__CLASS:
-				return class_ != null;
+			case FhirPackage.COMPOSITION__CATEGORY:
+				return category != null && !category.isEmpty();
 			case FhirPackage.COMPOSITION__SUBJECT:
 				return subject != null;
 			case FhirPackage.COMPOSITION__ENCOUNTER:

@@ -21,6 +21,7 @@ import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.CapabilityStatementMessaging;
 import org.hl7.fhir.CapabilityStatementSupportedMessage;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.UnsignedInt;
 
 /**
@@ -68,7 +69,7 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String documentation;
+	protected Markdown documentation;
 
 	/**
 	 * The cached value of the '{@link #getSupportedMessage() <em>Supported Message</em>}' containment reference list.
@@ -159,7 +160,7 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDocumentation() {
+	public Markdown getDocumentation() {
 		return documentation;
 	}
 
@@ -168,8 +169,8 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocumentation(org.hl7.fhir.String newDocumentation, NotificationChain msgs) {
-		org.hl7.fhir.String oldDocumentation = documentation;
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION, oldDocumentation, newDocumentation);
@@ -183,7 +184,7 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocumentation(org.hl7.fhir.String newDocumentation) {
+	public void setDocumentation(Markdown newDocumentation) {
 		if (newDocumentation != documentation) {
 			NotificationChain msgs = null;
 			if (documentation != null)
@@ -266,7 +267,7 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				setReliableCache((UnsignedInt)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)newValue);
+				setDocumentation((Markdown)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
 				getSupportedMessage().clear();
@@ -291,7 +292,7 @@ public class CapabilityStatementMessagingImpl extends BackboneElementImpl implem
 				setReliableCache((UnsignedInt)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)null);
+				setDocumentation((Markdown)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_MESSAGING__SUPPORTED_MESSAGE:
 				getSupportedMessage().clear();

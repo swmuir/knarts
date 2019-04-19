@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
@@ -42,15 +43,16 @@ import org.hl7.fhir.RemittanceOutcome;
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getPaymentIssuer <em>Payment Issuer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getRequest <em>Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getRequestor <em>Requestor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getPaymentDate <em>Payment Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getPaymentAmount <em>Payment Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getPaymentIdentifier <em>Payment Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getDetail <em>Detail</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getTotal <em>Total</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getFormCode <em>Form Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PaymentReconciliationImpl#getProcessNote <em>Process Note</em>}</li>
  * </ul>
  *
@@ -98,14 +100,14 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	protected DateTime created;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getPaymentIssuer() <em>Payment Issuer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
+	 * @see #getPaymentIssuer()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected Reference paymentIssuer;
 
 	/**
 	 * The cached value of the '{@link #getRequest() <em>Request</em>}' containment reference.
@@ -116,6 +118,16 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * @ordered
 	 */
 	protected Reference request;
+
+	/**
+	 * The cached value of the '{@link #getRequestor() <em>Requestor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference requestor;
 
 	/**
 	 * The cached value of the '{@link #getOutcome() <em>Outcome</em>}' containment reference.
@@ -138,24 +150,34 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	protected org.hl7.fhir.String disposition;
 
 	/**
-	 * The cached value of the '{@link #getRequestProvider() <em>Request Provider</em>}' containment reference.
+	 * The cached value of the '{@link #getPaymentDate() <em>Payment Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestProvider()
+	 * @see #getPaymentDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requestProvider;
+	protected Date paymentDate;
 
 	/**
-	 * The cached value of the '{@link #getRequestOrganization() <em>Request Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getPaymentAmount() <em>Payment Amount</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequestOrganization()
+	 * @see #getPaymentAmount()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference requestOrganization;
+	protected Money paymentAmount;
+
+	/**
+	 * The cached value of the '{@link #getPaymentIdentifier() <em>Payment Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPaymentIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected Identifier paymentIdentifier;
 
 	/**
 	 * The cached value of the '{@link #getDetail() <em>Detail</em>}' containment reference list.
@@ -168,24 +190,14 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	protected EList<PaymentReconciliationDetail> detail;
 
 	/**
-	 * The cached value of the '{@link #getForm() <em>Form</em>}' containment reference.
+	 * The cached value of the '{@link #getFormCode() <em>Form Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getForm()
+	 * @see #getFormCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept form;
-
-	/**
-	 * The cached value of the '{@link #getTotal() <em>Total</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTotal()
-	 * @generated
-	 * @ordered
-	 */
-	protected Money total;
+	protected CodeableConcept formCode;
 
 	/**
 	 * The cached value of the '{@link #getProcessNote() <em>Process Note</em>}' containment reference list.
@@ -362,8 +374,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
+	public Reference getPaymentIssuer() {
+		return paymentIssuer;
 	}
 
 	/**
@@ -371,11 +383,11 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
+	public NotificationChain basicSetPaymentIssuer(Reference newPaymentIssuer, NotificationChain msgs) {
+		Reference oldPaymentIssuer = paymentIssuer;
+		paymentIssuer = newPaymentIssuer;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER, oldPaymentIssuer, newPaymentIssuer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -386,18 +398,18 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
+	public void setPaymentIssuer(Reference newPaymentIssuer) {
+		if (newPaymentIssuer != paymentIssuer) {
 			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
+			if (paymentIssuer != null)
+				msgs = ((InternalEObject)paymentIssuer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER, null, msgs);
+			if (newPaymentIssuer != null)
+				msgs = ((InternalEObject)newPaymentIssuer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER, null, msgs);
+			msgs = basicSetPaymentIssuer(newPaymentIssuer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER, newPaymentIssuer, newPaymentIssuer));
 	}
 
 	/**
@@ -441,6 +453,49 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUEST, newRequest, newRequest));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRequestor() {
+		return requestor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestor(Reference newRequestor, NotificationChain msgs) {
+		Reference oldRequestor = requestor;
+		requestor = newRequestor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR, oldRequestor, newRequestor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestor(Reference newRequestor) {
+		if (newRequestor != requestor) {
+			NotificationChain msgs = null;
+			if (requestor != null)
+				msgs = ((InternalEObject)requestor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR, null, msgs);
+			if (newRequestor != null)
+				msgs = ((InternalEObject)newRequestor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR, null, msgs);
+			msgs = basicSetRequestor(newRequestor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR, newRequestor, newRequestor));
 	}
 
 	/**
@@ -534,8 +589,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestProvider() {
-		return requestProvider;
+	public Date getPaymentDate() {
+		return paymentDate;
 	}
 
 	/**
@@ -543,11 +598,11 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestProvider(Reference newRequestProvider, NotificationChain msgs) {
-		Reference oldRequestProvider = requestProvider;
-		requestProvider = newRequestProvider;
+	public NotificationChain basicSetPaymentDate(Date newPaymentDate, NotificationChain msgs) {
+		Date oldPaymentDate = paymentDate;
+		paymentDate = newPaymentDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER, oldRequestProvider, newRequestProvider);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE, oldPaymentDate, newPaymentDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -558,18 +613,18 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestProvider(Reference newRequestProvider) {
-		if (newRequestProvider != requestProvider) {
+	public void setPaymentDate(Date newPaymentDate) {
+		if (newPaymentDate != paymentDate) {
 			NotificationChain msgs = null;
-			if (requestProvider != null)
-				msgs = ((InternalEObject)requestProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER, null, msgs);
-			if (newRequestProvider != null)
-				msgs = ((InternalEObject)newRequestProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER, null, msgs);
-			msgs = basicSetRequestProvider(newRequestProvider, msgs);
+			if (paymentDate != null)
+				msgs = ((InternalEObject)paymentDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE, null, msgs);
+			if (newPaymentDate != null)
+				msgs = ((InternalEObject)newPaymentDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE, null, msgs);
+			msgs = basicSetPaymentDate(newPaymentDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER, newRequestProvider, newRequestProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE, newPaymentDate, newPaymentDate));
 	}
 
 	/**
@@ -577,8 +632,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestOrganization() {
-		return requestOrganization;
+	public Money getPaymentAmount() {
+		return paymentAmount;
 	}
 
 	/**
@@ -586,11 +641,11 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRequestOrganization(Reference newRequestOrganization, NotificationChain msgs) {
-		Reference oldRequestOrganization = requestOrganization;
-		requestOrganization = newRequestOrganization;
+	public NotificationChain basicSetPaymentAmount(Money newPaymentAmount, NotificationChain msgs) {
+		Money oldPaymentAmount = paymentAmount;
+		paymentAmount = newPaymentAmount;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION, oldRequestOrganization, newRequestOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT, oldPaymentAmount, newPaymentAmount);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -601,18 +656,61 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequestOrganization(Reference newRequestOrganization) {
-		if (newRequestOrganization != requestOrganization) {
+	public void setPaymentAmount(Money newPaymentAmount) {
+		if (newPaymentAmount != paymentAmount) {
 			NotificationChain msgs = null;
-			if (requestOrganization != null)
-				msgs = ((InternalEObject)requestOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION, null, msgs);
-			if (newRequestOrganization != null)
-				msgs = ((InternalEObject)newRequestOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION, null, msgs);
-			msgs = basicSetRequestOrganization(newRequestOrganization, msgs);
+			if (paymentAmount != null)
+				msgs = ((InternalEObject)paymentAmount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT, null, msgs);
+			if (newPaymentAmount != null)
+				msgs = ((InternalEObject)newPaymentAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT, null, msgs);
+			msgs = basicSetPaymentAmount(newPaymentAmount, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION, newRequestOrganization, newRequestOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT, newPaymentAmount, newPaymentAmount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Identifier getPaymentIdentifier() {
+		return paymentIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPaymentIdentifier(Identifier newPaymentIdentifier, NotificationChain msgs) {
+		Identifier oldPaymentIdentifier = paymentIdentifier;
+		paymentIdentifier = newPaymentIdentifier;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER, oldPaymentIdentifier, newPaymentIdentifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPaymentIdentifier(Identifier newPaymentIdentifier) {
+		if (newPaymentIdentifier != paymentIdentifier) {
+			NotificationChain msgs = null;
+			if (paymentIdentifier != null)
+				msgs = ((InternalEObject)paymentIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER, null, msgs);
+			if (newPaymentIdentifier != null)
+				msgs = ((InternalEObject)newPaymentIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER, null, msgs);
+			msgs = basicSetPaymentIdentifier(newPaymentIdentifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER, newPaymentIdentifier, newPaymentIdentifier));
 	}
 
 	/**
@@ -632,8 +730,8 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getForm() {
-		return form;
+	public CodeableConcept getFormCode() {
+		return formCode;
 	}
 
 	/**
@@ -641,11 +739,11 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetForm(CodeableConcept newForm, NotificationChain msgs) {
-		CodeableConcept oldForm = form;
-		form = newForm;
+	public NotificationChain basicSetFormCode(CodeableConcept newFormCode, NotificationChain msgs) {
+		CodeableConcept oldFormCode = formCode;
+		formCode = newFormCode;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__FORM, oldForm, newForm);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE, oldFormCode, newFormCode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -656,61 +754,18 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setForm(CodeableConcept newForm) {
-		if (newForm != form) {
+	public void setFormCode(CodeableConcept newFormCode) {
+		if (newFormCode != formCode) {
 			NotificationChain msgs = null;
-			if (form != null)
-				msgs = ((InternalEObject)form).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__FORM, null, msgs);
-			if (newForm != null)
-				msgs = ((InternalEObject)newForm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__FORM, null, msgs);
-			msgs = basicSetForm(newForm, msgs);
+			if (formCode != null)
+				msgs = ((InternalEObject)formCode).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE, null, msgs);
+			if (newFormCode != null)
+				msgs = ((InternalEObject)newFormCode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE, null, msgs);
+			msgs = basicSetFormCode(newFormCode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__FORM, newForm, newForm));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Money getTotal() {
-		return total;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTotal(Money newTotal, NotificationChain msgs) {
-		Money oldTotal = total;
-		total = newTotal;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__TOTAL, oldTotal, newTotal);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTotal(Money newTotal) {
-		if (newTotal != total) {
-			NotificationChain msgs = null;
-			if (total != null)
-				msgs = ((InternalEObject)total).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__TOTAL, null, msgs);
-			if (newTotal != null)
-				msgs = ((InternalEObject)newTotal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PAYMENT_RECONCILIATION__TOTAL, null, msgs);
-			msgs = basicSetTotal(newTotal, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__TOTAL, newTotal, newTotal));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE, newFormCode, newFormCode));
 	}
 
 	/**
@@ -741,24 +796,26 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return basicSetPeriod(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__CREATED:
 				return basicSetCreated(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER:
+				return basicSetPaymentIssuer(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST:
 				return basicSetRequest(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR:
+				return basicSetRequestor(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				return basicSetDisposition(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER:
-				return basicSetRequestProvider(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION:
-				return basicSetRequestOrganization(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE:
+				return basicSetPaymentDate(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT:
+				return basicSetPaymentAmount(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER:
+				return basicSetPaymentIdentifier(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__DETAIL:
 				return ((InternalEList<?>)getDetail()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__FORM:
-				return basicSetForm(null, msgs);
-			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
-				return basicSetTotal(null, msgs);
+			case FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE:
+				return basicSetFormCode(null, msgs);
 			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
 				return ((InternalEList<?>)getProcessNote()).basicRemove(otherEnd, msgs);
 		}
@@ -781,24 +838,26 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return getPeriod();
 			case FhirPackage.PAYMENT_RECONCILIATION__CREATED:
 				return getCreated();
-			case FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION:
-				return getOrganization();
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER:
+				return getPaymentIssuer();
 			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST:
 				return getRequest();
+			case FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR:
+				return getRequestor();
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
 				return getOutcome();
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				return getDisposition();
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER:
-				return getRequestProvider();
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION:
-				return getRequestOrganization();
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE:
+				return getPaymentDate();
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT:
+				return getPaymentAmount();
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER:
+				return getPaymentIdentifier();
 			case FhirPackage.PAYMENT_RECONCILIATION__DETAIL:
 				return getDetail();
-			case FhirPackage.PAYMENT_RECONCILIATION__FORM:
-				return getForm();
-			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
-				return getTotal();
+			case FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE:
+				return getFormCode();
 			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
 				return getProcessNote();
 		}
@@ -827,11 +886,14 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__CREATED:
 				setCreated((DateTime)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER:
+				setPaymentIssuer((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST:
 				setRequest((Reference)newValue);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR:
+				setRequestor((Reference)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
 				setOutcome((RemittanceOutcome)newValue);
@@ -839,21 +901,21 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER:
-				setRequestProvider((Reference)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE:
+				setPaymentDate((Date)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT:
+				setPaymentAmount((Money)newValue);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER:
+				setPaymentIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__DETAIL:
 				getDetail().clear();
 				getDetail().addAll((Collection<? extends PaymentReconciliationDetail>)newValue);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__FORM:
-				setForm((CodeableConcept)newValue);
-				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
-				setTotal((Money)newValue);
+			case FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE:
+				setFormCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
 				getProcessNote().clear();
@@ -883,11 +945,14 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__CREATED:
 				setCreated((DateTime)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER:
+				setPaymentIssuer((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST:
 				setRequest((Reference)null);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR:
+				setRequestor((Reference)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
 				setOutcome((RemittanceOutcome)null);
@@ -895,20 +960,20 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				setDisposition((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER:
-				setRequestProvider((Reference)null);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE:
+				setPaymentDate((Date)null);
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)null);
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT:
+				setPaymentAmount((Money)null);
+				return;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER:
+				setPaymentIdentifier((Identifier)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__DETAIL:
 				getDetail().clear();
 				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__FORM:
-				setForm((CodeableConcept)null);
-				return;
-			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
-				setTotal((Money)null);
+			case FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE:
+				setFormCode((CodeableConcept)null);
 				return;
 			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
 				getProcessNote().clear();
@@ -933,24 +998,26 @@ public class PaymentReconciliationImpl extends DomainResourceImpl implements Pay
 				return period != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__CREATED:
 				return created != null;
-			case FhirPackage.PAYMENT_RECONCILIATION__ORGANIZATION:
-				return organization != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_ISSUER:
+				return paymentIssuer != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST:
 				return request != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__REQUESTOR:
+				return requestor != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__OUTCOME:
 				return outcome != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__DISPOSITION:
 				return disposition != null;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_PROVIDER:
-				return requestProvider != null;
-			case FhirPackage.PAYMENT_RECONCILIATION__REQUEST_ORGANIZATION:
-				return requestOrganization != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_DATE:
+				return paymentDate != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_AMOUNT:
+				return paymentAmount != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__PAYMENT_IDENTIFIER:
+				return paymentIdentifier != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__DETAIL:
 				return detail != null && !detail.isEmpty();
-			case FhirPackage.PAYMENT_RECONCILIATION__FORM:
-				return form != null;
-			case FhirPackage.PAYMENT_RECONCILIATION__TOTAL:
-				return total != null;
+			case FhirPackage.PAYMENT_RECONCILIATION__FORM_CODE:
+				return formCode != null;
 			case FhirPackage.PAYMENT_RECONCILIATION__PROCESS_NOTE:
 				return processNote != null && !processNote.isEmpty();
 		}

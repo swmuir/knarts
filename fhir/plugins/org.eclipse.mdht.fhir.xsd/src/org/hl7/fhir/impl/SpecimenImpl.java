@@ -48,6 +48,7 @@ import org.hl7.fhir.SpecimenStatus;
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getProcessing <em>Processing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -163,6 +164,16 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * @ordered
 	 */
 	protected EList<SpecimenContainer> container;
+
+	/**
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> condition;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -516,6 +527,18 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getCondition() {
+		if (condition == null) {
+			condition = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SPECIMEN__CONDITION);
+		}
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Annotation> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.SPECIMEN__NOTE);
@@ -553,6 +576,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return ((InternalEList<?>)getProcessing()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return ((InternalEList<?>)getContainer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SPECIMEN__CONDITION:
+				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SPECIMEN__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
@@ -589,6 +614,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return getProcessing();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return getContainer();
+			case FhirPackage.SPECIMEN__CONDITION:
+				return getCondition();
 			case FhirPackage.SPECIMEN__NOTE:
 				return getNote();
 		}
@@ -642,6 +669,10 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				getContainer().clear();
 				getContainer().addAll((Collection<? extends SpecimenContainer>)newValue);
 				return;
+			case FhirPackage.SPECIMEN__CONDITION:
+				getCondition().clear();
+				getCondition().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
 			case FhirPackage.SPECIMEN__NOTE:
 				getNote().clear();
 				getNote().addAll((Collection<? extends Annotation>)newValue);
@@ -691,6 +722,9 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 			case FhirPackage.SPECIMEN__CONTAINER:
 				getContainer().clear();
 				return;
+			case FhirPackage.SPECIMEN__CONDITION:
+				getCondition().clear();
+				return;
 			case FhirPackage.SPECIMEN__NOTE:
 				getNote().clear();
 				return;
@@ -728,6 +762,8 @@ public class SpecimenImpl extends DomainResourceImpl implements Specimen {
 				return processing != null && !processing.isEmpty();
 			case FhirPackage.SPECIMEN__CONTAINER:
 				return container != null && !container.isEmpty();
+			case FhirPackage.SPECIMEN__CONDITION:
+				return condition != null && !condition.isEmpty();
 			case FhirPackage.SPECIMEN__NOTE:
 				return note != null && !note.isEmpty();
 		}

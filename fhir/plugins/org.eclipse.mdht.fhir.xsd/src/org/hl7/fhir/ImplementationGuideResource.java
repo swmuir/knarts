@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -9,20 +10,20 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+ * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getExample <em>Example</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getFhirVersion <em>Fhir Version</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getSourceUri <em>Source Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getSourceReference <em>Source Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getExampleFor <em>Example For</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getExampleBoolean <em>Example Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getExampleCanonical <em>Example Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuideResource#getGroupingId <em>Grouping Id</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource()
@@ -31,30 +32,46 @@ package org.hl7.fhir;
  */
 public interface ImplementationGuideResource extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Example</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.
+	 * Where this resource is found.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Example</em>' containment reference.
-	 * @see #setExample(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_Example()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='example' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Reference</em>' containment reference.
+	 * @see #setReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_Reference()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='reference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getExample();
+	Reference getReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getExample <em>Example</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getReference <em>Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Example</em>' containment reference.
-	 * @see #getExample()
+	 * @param value the new value of the '<em>Reference</em>' containment reference.
+	 * @see #getReference()
 	 * @generated
 	 */
-	void setExample(org.hl7.fhir.Boolean value);
+	void setReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Fhir Version</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.FHIRVersion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Fhir Version</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_FhirVersion()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fhirVersion' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<FHIRVersion> getFhirVersion();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
@@ -109,109 +126,83 @@ public interface ImplementationGuideResource extends BackboneElement {
 	void setDescription(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Acronym</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A short code that may be used to identify the resource throughout the implementation guide.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Acronym</em>' containment reference.
-	 * @see #setAcronym(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_Acronym()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='acronym' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getAcronym();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getAcronym <em>Acronym</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Acronym</em>' containment reference.
-	 * @see #getAcronym()
-	 * @generated
-	 */
-	void setAcronym(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Source Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Example Boolean</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Uri</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Example Boolean</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Uri</em>' containment reference.
-	 * @see #setSourceUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_SourceUri()
+	 * @return the value of the '<em>Example Boolean</em>' containment reference.
+	 * @see #setExampleBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_ExampleBoolean()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sourceUri' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='exampleBoolean' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getSourceUri();
+	org.hl7.fhir.Boolean getExampleBoolean();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getSourceUri <em>Source Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getExampleBoolean <em>Example Boolean</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Uri</em>' containment reference.
-	 * @see #getSourceUri()
+	 * @param value the new value of the '<em>Example Boolean</em>' containment reference.
+	 * @see #getExampleBoolean()
 	 * @generated
 	 */
-	void setSourceUri(Uri value);
+	void setExampleBoolean(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Source Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Example Canonical</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Example Canonical</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Reference</em>' containment reference.
-	 * @see #setSourceReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_SourceReference()
+	 * @return the value of the '<em>Example Canonical</em>' containment reference.
+	 * @see #setExampleCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_ExampleCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sourceReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='exampleCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSourceReference();
+	Canonical getExampleCanonical();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getSourceReference <em>Source Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getExampleCanonical <em>Example Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Reference</em>' containment reference.
-	 * @see #getSourceReference()
+	 * @param value the new value of the '<em>Example Canonical</em>' containment reference.
+	 * @see #getExampleCanonical()
 	 * @generated
 	 */
-	void setSourceReference(Reference value);
+	void setExampleCanonical(Canonical value);
 
 	/**
-	 * Returns the value of the '<em><b>Example For</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Grouping Id</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions.
+	 * Reference to the id of the grouping this resource appears in.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Example For</em>' containment reference.
-	 * @see #setExampleFor(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_ExampleFor()
+	 * @return the value of the '<em>Grouping Id</em>' containment reference.
+	 * @see #setGroupingId(Id)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuideResource_GroupingId()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='exampleFor' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='groupingId' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getExampleFor();
+	Id getGroupingId();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getExampleFor <em>Example For</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuideResource#getGroupingId <em>Grouping Id</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Example For</em>' containment reference.
-	 * @see #getExampleFor()
+	 * @param value the new value of the '<em>Grouping Id</em>' containment reference.
+	 * @see #getGroupingId()
 	 * @generated
 	 */
-	void setExampleFor(Reference value);
+	void setGroupingId(Id value);
 
 } // ImplementationGuideResource

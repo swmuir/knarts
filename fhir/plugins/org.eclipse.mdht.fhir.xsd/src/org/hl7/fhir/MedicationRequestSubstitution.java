@@ -16,7 +16,8 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowed <em>Allowed</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowedBoolean <em>Allowed Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowedCodeableConcept <em>Allowed Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequestSubstitution#getReason <em>Reason</em>}</li>
  * </ul>
  *
@@ -26,30 +27,58 @@ package org.hl7.fhir;
  */
 public interface MedicationRequestSubstitution extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Allowed</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Allowed Boolean</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Allowed Boolean</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * True if the prescriber allows a different drug to be dispensed from what was prescribed.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Allowed</em>' containment reference.
-	 * @see #setAllowed(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestSubstitution_Allowed()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='allowed' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Allowed Boolean</em>' containment reference.
+	 * @see #setAllowedBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestSubstitution_AllowedBoolean()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='allowedBoolean' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getAllowed();
+	org.hl7.fhir.Boolean getAllowedBoolean();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowed <em>Allowed</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowedBoolean <em>Allowed Boolean</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Allowed</em>' containment reference.
-	 * @see #getAllowed()
+	 * @param value the new value of the '<em>Allowed Boolean</em>' containment reference.
+	 * @see #getAllowedBoolean()
 	 * @generated
 	 */
-	void setAllowed(org.hl7.fhir.Boolean value);
+	void setAllowedBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Allowed Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Allowed Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allowed Codeable Concept</em>' containment reference.
+	 * @see #setAllowedCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestSubstitution_AllowedCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='allowedCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getAllowedCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestSubstitution#getAllowedCodeableConcept <em>Allowed Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allowed Codeable Concept</em>' containment reference.
+	 * @see #getAllowedCodeableConcept()
+	 * @generated
+	 */
+	void setAllowedCodeableConcept(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason</b></em>' containment reference.

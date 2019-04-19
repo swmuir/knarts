@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getSubCategory <em>Sub Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getExcluded <em>Excluded</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getDescription <em>Description</em>}</li>
@@ -38,7 +37,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Dental, Vision, Medical, Pharmacy, Rehab etc.
+	 * Code to identify the general type of benefits under which products and services are provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -60,37 +59,11 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Sub Category</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sub Category</em>' containment reference.
-	 * @see #setSubCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitBenefitBalance_SubCategory()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subCategory' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	CodeableConcept getSubCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitBenefitBalance#getSubCategory <em>Sub Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sub Category</em>' containment reference.
-	 * @see #getSubCategory()
-	 * @generated
-	 */
-	void setSubCategory(CodeableConcept value);
-
-	/**
 	 * Returns the value of the '<em><b>Excluded</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+	 * True if the indicated class of service is excluded from the plan, missing or False indicates the product or service is included in the coverage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Excluded</em>' containment reference.
 	 * @see #setExcluded(org.hl7.fhir.Boolean)
@@ -116,7 +89,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A short name or tag for the benefit, for example MED01, or DENT2.
+	 * A short name or tag for the benefit.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' containment reference.
 	 * @see #setName(org.hl7.fhir.String)
@@ -142,7 +115,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+	 * A richer description of the benefit or services covered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)
@@ -168,7 +141,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Network designation.
+	 * Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Network</em>' containment reference.
 	 * @see #setNetwork(CodeableConcept)
@@ -194,7 +167,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Unit designation: individual or family.
+	 * Indicates if the benefits apply to an individual or to the family.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unit</em>' containment reference.
 	 * @see #setUnit(CodeableConcept)
@@ -220,7 +193,7 @@ public interface ExplanationOfBenefitBenefitBalance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
+	 * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Term</em>' containment reference.
 	 * @see #setTerm(CodeableConcept)

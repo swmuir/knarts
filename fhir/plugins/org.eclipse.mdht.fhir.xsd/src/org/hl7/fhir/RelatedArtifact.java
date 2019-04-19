@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.RelatedArtifact#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.RelatedArtifact#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.RelatedArtifact#getDisplay <em>Display</em>}</li>
  *   <li>{@link org.hl7.fhir.RelatedArtifact#getCitation <em>Citation</em>}</li>
  *   <li>{@link org.hl7.fhir.RelatedArtifact#getUrl <em>Url</em>}</li>
@@ -57,6 +58,32 @@ public interface RelatedArtifact extends Element {
 	void setType(RelatedArtifactType value);
 
 	/**
+	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Label</em>' containment reference.
+	 * @see #setLabel(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getRelatedArtifact_Label()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='label' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getLabel();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RelatedArtifact#getLabel <em>Label</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label</em>' containment reference.
+	 * @see #getLabel()
+	 * @generated
+	 */
+	void setLabel(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Display</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,13 +117,13 @@ public interface RelatedArtifact extends Element {
 	 * A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Citation</em>' containment reference.
-	 * @see #setCitation(org.hl7.fhir.String)
+	 * @see #setCitation(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getRelatedArtifact_Citation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='citation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCitation();
+	Markdown getCitation();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RelatedArtifact#getCitation <em>Citation</em>}' containment reference.
@@ -106,7 +133,7 @@ public interface RelatedArtifact extends Element {
 	 * @see #getCitation()
 	 * @generated
 	 */
-	void setCitation(org.hl7.fhir.String value);
+	void setCitation(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
@@ -116,13 +143,13 @@ public interface RelatedArtifact extends Element {
 	 * A url for the artifact that can be followed to access the actual content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
+	 * @see #setUrl(Url)
 	 * @see org.hl7.fhir.FhirPackage#getRelatedArtifact_Url()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
+	Url getUrl();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RelatedArtifact#getUrl <em>Url</em>}' containment reference.
@@ -132,7 +159,7 @@ public interface RelatedArtifact extends Element {
 	 * @see #getUrl()
 	 * @generated
 	 */
-	void setUrl(Uri value);
+	void setUrl(Url value);
 
 	/**
 	 * Returns the value of the '<em><b>Document</b></em>' containment reference.
@@ -168,13 +195,13 @@ public interface RelatedArtifact extends Element {
 	 * The related resource, such as a library, value set, profile, or other knowledge resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(Reference)
+	 * @see #setResource(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getRelatedArtifact_Resource()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getResource();
+	Canonical getResource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RelatedArtifact#getResource <em>Resource</em>}' containment reference.
@@ -184,6 +211,6 @@ public interface RelatedArtifact extends Element {
 	 * @see #getResource()
 	 * @generated
 	 */
-	void setResource(Reference value);
+	void setResource(Canonical value);
 
 } // RelatedArtifact

@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getNumberOfInstances <em>Number Of Instances</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudySeries#getAvailability <em>Availability</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudySeries#getLaterality <em>Laterality</em>}</li>
@@ -42,16 +41,16 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Formal identifier for this series.
+	 * The DICOM Series Instance UID for the series.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Uid</em>' containment reference.
-	 * @see #setUid(Oid)
+	 * @see #setUid(Id)
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Uid()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Oid getUid();
+	Id getUid();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudySeries#getUid <em>Uid</em>}' containment reference.
@@ -61,7 +60,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 * @see #getUid()
 	 * @generated
 	 */
-	void setUid(Oid value);
+	void setUid(Id value);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
@@ -168,38 +167,12 @@ public interface ImagingStudySeries extends BackboneElement {
 	void setNumberOfInstances(UnsignedInt value);
 
 	/**
-	 * Returns the value of the '<em><b>Availability</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Availability of series (online, offline or nearline).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Availability</em>' containment reference.
-	 * @see #setAvailability(InstanceAvailability)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Availability()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='availability' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	InstanceAvailability getAvailability();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudySeries#getAvailability <em>Availability</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Availability</em>' containment reference.
-	 * @see #getAvailability()
-	 * @generated
-	 */
-	void setAvailability(InstanceAvailability value);
-
-	/**
 	 * Returns the value of the '<em><b>Endpoint</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
+	 * The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.connectionType.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Endpoint</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Endpoint()
@@ -305,11 +278,11 @@ public interface ImagingStudySeries extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Performer</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * The list contents are of type {@link org.hl7.fhir.ImagingStudyPerformer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The physician or operator (often the radiology technician) who performed the series.
+	 * Indicates who or what performed the series and how they were involved.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudySeries_Performer()
@@ -317,7 +290,7 @@ public interface ImagingStudySeries extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='performer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getPerformer();
+	EList<ImagingStudyPerformer> getPerformer();
 
 	/**
 	 * Returns the value of the '<em><b>Instance</b></em>' containment reference list.

@@ -30,7 +30,7 @@ public interface BundleSearch extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Why this entry is in the result set - whether it's included as a match or because of an _include requirement.
+	 * Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mode</em>' containment reference.
 	 * @see #setMode(SearchEntryMode)

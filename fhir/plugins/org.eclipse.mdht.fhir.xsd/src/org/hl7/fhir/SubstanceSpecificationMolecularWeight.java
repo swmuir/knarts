@@ -86,13 +86,13 @@ public interface SubstanceSpecificationMolecularWeight extends BackboneElement {
 	 * Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(org.hl7.fhir.String)
+	 * @see #setAmount(Quantity)
 	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationMolecularWeight_Amount()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getAmount();
+	Quantity getAmount();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationMolecularWeight#getAmount <em>Amount</em>}' containment reference.
@@ -102,6 +102,6 @@ public interface SubstanceSpecificationMolecularWeight extends BackboneElement {
 	 * @see #getAmount()
 	 * @generated
 	 */
-	void setAmount(org.hl7.fhir.String value);
+	void setAmount(Quantity value);
 
 } // SubstanceSpecificationMolecularWeight

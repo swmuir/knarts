@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.TerminologyCapabilitiesCodeSystem;
 import org.hl7.fhir.TerminologyCapabilitiesVersion;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +32,7 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesCodeSystemImpl#getUri <em>Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesCodeSystemImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesCodeSystemImpl#getSubsumption <em>Subsumption</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,7 +46,7 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri uri;
+	protected Canonical uri;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference list.
@@ -56,6 +57,16 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * @ordered
 	 */
 	protected EList<TerminologyCapabilitiesVersion> version;
+
+	/**
+	 * The cached value of the '{@link #getSubsumption() <em>Subsumption</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubsumption()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean subsumption;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +92,7 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUri() {
+	public Canonical getUri() {
 		return uri;
 	}
 
@@ -90,8 +101,8 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUri(Uri newUri, NotificationChain msgs) {
-		Uri oldUri = uri;
+	public NotificationChain basicSetUri(Canonical newUri, NotificationChain msgs) {
+		Canonical oldUri = uri;
 		uri = newUri;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__URI, oldUri, newUri);
@@ -105,7 +116,7 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUri(Uri newUri) {
+	public void setUri(Canonical newUri) {
 		if (newUri != uri) {
 			NotificationChain msgs = null;
 			if (uri != null)
@@ -136,6 +147,49 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.Boolean getSubsumption() {
+		return subsumption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubsumption(org.hl7.fhir.Boolean newSubsumption, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldSubsumption = subsumption;
+		subsumption = newSubsumption;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION, oldSubsumption, newSubsumption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubsumption(org.hl7.fhir.Boolean newSubsumption) {
+		if (newSubsumption != subsumption) {
+			NotificationChain msgs = null;
+			if (subsumption != null)
+				msgs = ((InternalEObject)subsumption).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION, null, msgs);
+			if (newSubsumption != null)
+				msgs = ((InternalEObject)newSubsumption).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION, null, msgs);
+			msgs = basicSetSubsumption(newSubsumption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION, newSubsumption, newSubsumption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -143,6 +197,8 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 				return basicSetUri(null, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__VERSION:
 				return ((InternalEList<?>)getVersion()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION:
+				return basicSetSubsumption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,6 +215,8 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 				return getUri();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__VERSION:
 				return getVersion();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION:
+				return getSubsumption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,11 +231,14 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__URI:
-				setUri((Uri)newValue);
+				setUri((Canonical)newValue);
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__VERSION:
 				getVersion().clear();
 				getVersion().addAll((Collection<? extends TerminologyCapabilitiesVersion>)newValue);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION:
+				setSubsumption((org.hl7.fhir.Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,10 +253,13 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__URI:
-				setUri((Uri)null);
+				setUri((Canonical)null);
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__VERSION:
 				getVersion().clear();
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION:
+				setSubsumption((org.hl7.fhir.Boolean)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,6 +277,8 @@ public class TerminologyCapabilitiesCodeSystemImpl extends BackboneElementImpl i
 				return uri != null;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__VERSION:
 				return version != null && !version.isEmpty();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES_CODE_SYSTEM__SUBSUMPTION:
+				return subsumption != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,9 +18,11 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getProcedureReference <em>Procedure Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitProcedure#getUdi <em>Udi</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcedure()
@@ -32,7 +35,7 @@ public interface ExplanationOfBenefitProcedure extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of procedures which serves to order and provide a link.
+	 * A number to uniquely identify procedure entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -54,11 +57,27 @@ public interface ExplanationOfBenefitProcedure extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the condition was observed or the relative ranking.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcedure_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getType();
+
+	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date and optionally time the procedure was performed .
+	 * Date and optionally time the procedure was performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -132,5 +151,21 @@ public interface ExplanationOfBenefitProcedure extends BackboneElement {
 	 * @generated
 	 */
 	void setProcedureReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Udi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unique Device Identifiers associated with this line item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Udi</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitProcedure_Udi()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='udi' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getUdi();
 
 } // ExplanationOfBenefitProcedure

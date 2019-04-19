@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CapabilityStatementSecurity#getCors <em>Cors</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementSecurity#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatementSecurity#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.CapabilityStatementSecurity#getCertificate <em>Certificate</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSecurity()
@@ -33,7 +32,7 @@ public interface CapabilityStatementSecurity extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
+	 * Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cors</em>' containment reference.
 	 * @see #setCors(org.hl7.fhir.Boolean)
@@ -78,13 +77,13 @@ public interface CapabilityStatementSecurity extends BackboneElement {
 	 * General description of how security works.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
+	 * @see #setDescription(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSecurity_Description()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDescription();
+	Markdown getDescription();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementSecurity#getDescription <em>Description</em>}' containment reference.
@@ -94,22 +93,6 @@ public interface CapabilityStatementSecurity extends BackboneElement {
 	 * @see #getDescription()
 	 * @generated
 	 */
-	void setDescription(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Certificate</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CapabilityStatementCertificate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Certificates associated with security profiles.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Certificate</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSecurity_Certificate()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='certificate' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CapabilityStatementCertificate> getCertificate();
+	void setDescription(Markdown value);
 
 } // CapabilityStatementSecurity

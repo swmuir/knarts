@@ -31,7 +31,7 @@ import org.hl7.fhir.Id;
  *
  * @generated
  */
-public class ElementDefinitionMappingImpl extends ElementImpl implements ElementDefinitionMapping {
+public class ElementDefinitionMappingImpl extends BackboneElementImpl implements ElementDefinitionMapping {
 	/**
 	 * The cached value of the '{@link #getIdentity() <em>Identity</em>}' containment reference.
 	 * <!-- begin-user-doc -->

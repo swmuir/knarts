@@ -34,7 +34,7 @@ public class ClaimProcessingCodesImpl extends ElementImpl implements ClaimProces
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ClaimProcessingCodesList VALUE_EDEFAULT = ClaimProcessingCodesList.COMPLETE;
+	protected static final ClaimProcessingCodesList VALUE_EDEFAULT = ClaimProcessingCodesList.QUEUED;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

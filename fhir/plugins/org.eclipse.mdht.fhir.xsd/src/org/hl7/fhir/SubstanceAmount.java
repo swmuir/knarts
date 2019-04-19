@@ -29,7 +29,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='SubstanceAmount' kind='elementOnly'"
  * @generated
  */
-public interface SubstanceAmount extends Element {
+public interface SubstanceAmount extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Amount Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

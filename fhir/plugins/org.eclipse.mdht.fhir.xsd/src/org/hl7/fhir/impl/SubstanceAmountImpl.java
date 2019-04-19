@@ -35,7 +35,7 @@ import org.hl7.fhir.SubstanceAmountReferenceRange;
  *
  * @generated
  */
-public class SubstanceAmountImpl extends ElementImpl implements SubstanceAmount {
+public class SubstanceAmountImpl extends BackboneElementImpl implements SubstanceAmount {
 	/**
 	 * The cached value of the '{@link #getAmountQuantity() <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->

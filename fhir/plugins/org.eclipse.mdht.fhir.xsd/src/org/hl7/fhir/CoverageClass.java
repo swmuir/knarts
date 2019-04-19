@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Financial instrument which may be used to reimburse or pay for health care products and services.
+ * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,16 +31,16 @@ public interface CoverageClass extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of classification for which an insurer-specific class tag or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+	 * The type of classification for which an insurer-specific class label or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getCoverageClass_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CoverageClass#getType <em>Type</em>}' containment reference.
@@ -50,14 +50,14 @@ public interface CoverageClass extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For example the Group or Plan number.
+	 * The alphanumeric string value associated with the insurer issued label.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(org.hl7.fhir.String)

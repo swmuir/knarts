@@ -62,7 +62,7 @@ public interface MedicinalProductIngredientSubstance extends BackboneElement {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strength</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductIngredientSubstance_Strength()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='strength' namespace='##targetNamespace'"
 	 * @generated
 	 */

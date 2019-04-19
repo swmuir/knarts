@@ -33,7 +33,7 @@ public interface ClaimResponseDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line number.
+	 * A number to uniquely reference the claim detail entry.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detail Sequence</em>' containment reference.
 	 * @see #setDetailSequence(PositiveInt)
@@ -60,7 +60,7 @@ public interface ClaimResponseDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of note references to the notes provided below.
+	 * The numbers associated with notes below which apply to the adjudication of this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note Number</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseDetail_NoteNumber()
@@ -76,11 +76,11 @@ public interface ClaimResponseDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The adjudications results.
+	 * The adjudication results.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjudication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseDetail_Adjudication()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='adjudication' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -92,7 +92,7 @@ public interface ClaimResponseDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The third tier service adjudications for submitted services.
+	 * A sub-detail adjudication of a simple product or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getClaimResponseDetail_SubDetail()

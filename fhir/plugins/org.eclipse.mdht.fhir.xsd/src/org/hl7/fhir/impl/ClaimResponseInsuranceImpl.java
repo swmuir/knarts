@@ -2,20 +2,13 @@
  */
 package org.hl7.fhir.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.ClaimResponseInsurance;
 import org.hl7.fhir.FhirPackage;
@@ -34,7 +27,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseInsuranceImpl#getFocal <em>Focal</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseInsuranceImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseInsuranceImpl#getBusinessArrangement <em>Business Arrangement</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimResponseInsuranceImpl#getPreAuthRef <em>Pre Auth Ref</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimResponseInsuranceImpl#getClaimResponse <em>Claim Response</em>}</li>
  * </ul>
  *
@@ -80,16 +72,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String businessArrangement;
-
-	/**
-	 * The cached value of the '{@link #getPreAuthRef() <em>Pre Auth Ref</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreAuthRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<org.hl7.fhir.String> preAuthRef;
 
 	/**
 	 * The cached value of the '{@link #getClaimResponse() <em>Claim Response</em>}' containment reference.
@@ -297,18 +279,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getPreAuthRef() {
-		if (preAuthRef == null) {
-			preAuthRef = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF);
-		}
-		return preAuthRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Reference getClaimResponse() {
 		return claimResponse;
 	}
@@ -363,8 +333,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 				return basicSetCoverage(null, msgs);
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__BUSINESS_ARRANGEMENT:
 				return basicSetBusinessArrangement(null, msgs);
-			case FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF:
-				return ((InternalEList<?>)getPreAuthRef()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__CLAIM_RESPONSE:
 				return basicSetClaimResponse(null, msgs);
 		}
@@ -387,8 +355,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 				return getCoverage();
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__BUSINESS_ARRANGEMENT:
 				return getBusinessArrangement();
-			case FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF:
-				return getPreAuthRef();
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__CLAIM_RESPONSE:
 				return getClaimResponse();
 		}
@@ -400,7 +366,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -415,10 +380,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 				return;
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__BUSINESS_ARRANGEMENT:
 				setBusinessArrangement((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF:
-				getPreAuthRef().clear();
-				getPreAuthRef().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
 				return;
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__CLAIM_RESPONSE:
 				setClaimResponse((Reference)newValue);
@@ -447,9 +408,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__BUSINESS_ARRANGEMENT:
 				setBusinessArrangement((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF:
-				getPreAuthRef().clear();
-				return;
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__CLAIM_RESPONSE:
 				setClaimResponse((Reference)null);
 				return;
@@ -473,8 +431,6 @@ public class ClaimResponseInsuranceImpl extends BackboneElementImpl implements C
 				return coverage != null;
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__BUSINESS_ARRANGEMENT:
 				return businessArrangement != null;
-			case FhirPackage.CLAIM_RESPONSE_INSURANCE__PRE_AUTH_REF:
-				return preAuthRef != null && !preAuthRef.isEmpty();
 			case FhirPackage.CLAIM_RESPONSE_INSURANCE__CLAIM_RESPONSE:
 				return claimResponse != null;
 		}

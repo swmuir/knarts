@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.EnrollmentRequest#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getCandidate <em>Candidate</em>}</li>
  *   <li>{@link org.hl7.fhir.EnrollmentRequest#getCoverage <em>Coverage</em>}</li>
  * </ul>
@@ -152,32 +151,6 @@ public interface EnrollmentRequest extends DomainResource {
 	 * @generated
 	 */
 	void setProvider(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getEnrollmentRequest_Organization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOrganization();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.EnrollmentRequest#getOrganization <em>Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
-	 * @generated
-	 */
-	void setOrganization(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Candidate</b></em>' containment reference.

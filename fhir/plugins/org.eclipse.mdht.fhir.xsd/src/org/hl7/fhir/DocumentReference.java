@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A reference to a document.
+ * A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -23,11 +23,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DocumentReference#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getDocStatus <em>Doc Status</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentReference#getAgent <em>Agent</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentReference#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getAuthenticator <em>Authenticator</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getCustodian <em>Custodian</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentReference#getRelatesTo <em>Relates To</em>}</li>
@@ -163,30 +162,20 @@ public interface DocumentReference extends DomainResource {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Class</em>' containment reference.
-	 * @see #setClass(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Class()
+	 * @return the value of the '<em>Category</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='class' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getClass_();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getClass_ <em>Class</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' containment reference.
-	 * @see #getClass_()
-	 * @generated
-	 */
-	void setClass(CodeableConcept value);
+	EList<CodeableConcept> getCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
@@ -215,32 +204,6 @@ public interface DocumentReference extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * When the document was created.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Created</em>' containment reference.
-	 * @see #setCreated(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Created()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	DateTime getCreated();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DocumentReference#getCreated <em>Created</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' containment reference.
-	 * @see #getCreated()
-	 * @generated
-	 */
-	void setCreated(DateTime value);
-
-	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,20 +230,20 @@ public interface DocumentReference extends DomainResource {
 	void setDate(Instant value);
 
 	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DocumentReferenceAgent}.
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An actor taking an active role in the document.
+	 * Identifies who is responsible for adding the information to the document.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Agent()
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentReference_Author()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DocumentReferenceAgent> getAgent();
+	EList<Reference> getAuthor();
 
 	/**
 	 * Returns the value of the '<em><b>Authenticator</b></em>' containment reference.
@@ -355,7 +318,7 @@ public interface DocumentReference extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Human-readable description of the source document. This is sometimes known as the "title".
+	 * Human-readable description of the source document.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)

@@ -16,12 +16,13 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getSubstanceId <em>Substance Id</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getSubstanceName <em>Substance Name</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getDefiningSubstanceReference <em>Defining Substance Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getDefiningSubstanceCodeableConcept <em>Defining Substance Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmountQuantity <em>Amount Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmountString <em>Amount String</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty()
@@ -30,63 +31,63 @@ package org.hl7.fhir;
  */
 public interface SubstanceSpecificationProperty extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Description todo.
+	 * A category for this property, e.g. Physical, Chemical, Enzymatic.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_Type()
+	 * @return the value of the '<em>Category</em>' containment reference.
+	 * @see #setCategory(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_Category()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	CodeableConcept getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getType <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getCategory <em>Category</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * @param value the new value of the '<em>Category</em>' containment reference.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Description todo.
+	 * Property type e.g. viscosity, pH, isoelectric point.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_Name()
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='name' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getName();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getName <em>Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' containment reference.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setName(CodeableConcept value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A field that should be used to capture parameters that were used in the measurement of a property.
+	 * Parameters that were used in the measurement of a property (e.g. for viscosity: measured at 20C with a pH of 7.1).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference.
 	 * @see #setParameters(org.hl7.fhir.String)
@@ -108,81 +109,111 @@ public interface SubstanceSpecificationProperty extends BackboneElement {
 	void setParameters(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Substance Id</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Defining Substance Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Defining Substance Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifier for a substance upon which a defining property depends.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substance Id</em>' containment reference.
-	 * @see #setSubstanceId(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_SubstanceId()
+	 * @return the value of the '<em>Defining Substance Reference</em>' containment reference.
+	 * @see #setDefiningSubstanceReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_DefiningSubstanceReference()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='substanceId' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='definingSubstanceReference' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getSubstanceId();
+	Reference getDefiningSubstanceReference();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getSubstanceId <em>Substance Id</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getDefiningSubstanceReference <em>Defining Substance Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Substance Id</em>' containment reference.
-	 * @see #getSubstanceId()
+	 * @param value the new value of the '<em>Defining Substance Reference</em>' containment reference.
+	 * @see #getDefiningSubstanceReference()
 	 * @generated
 	 */
-	void setSubstanceId(Identifier value);
+	void setDefiningSubstanceReference(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Substance Name</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Defining Substance Codeable Concept</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Defining Substance Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Description todo.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Substance Name</em>' containment reference.
-	 * @see #setSubstanceName(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_SubstanceName()
+	 * @return the value of the '<em>Defining Substance Codeable Concept</em>' containment reference.
+	 * @see #setDefiningSubstanceCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_DefiningSubstanceCodeableConcept()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='substanceName' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='definingSubstanceCodeableConcept' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getSubstanceName();
+	CodeableConcept getDefiningSubstanceCodeableConcept();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getSubstanceName <em>Substance Name</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getDefiningSubstanceCodeableConcept <em>Defining Substance Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Substance Name</em>' containment reference.
-	 * @see #getSubstanceName()
+	 * @param value the new value of the '<em>Defining Substance Codeable Concept</em>' containment reference.
+	 * @see #getDefiningSubstanceCodeableConcept()
 	 * @generated
 	 */
-	void setSubstanceName(org.hl7.fhir.String value);
+	void setDefiningSubstanceCodeableConcept(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Amount Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Amount Quantity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Quantitative value for this property.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_Amount()
+	 * @return the value of the '<em>Amount Quantity</em>' containment reference.
+	 * @see #setAmountQuantity(Quantity)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_AmountQuantity()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='amountQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getAmount();
+	Quantity getAmountQuantity();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmount <em>Amount</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmountQuantity <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Amount</em>' containment reference.
-	 * @see #getAmount()
+	 * @param value the new value of the '<em>Amount Quantity</em>' containment reference.
+	 * @see #getAmountQuantity()
 	 * @generated
 	 */
-	void setAmount(org.hl7.fhir.String value);
+	void setAmountQuantity(Quantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Amount String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Amount String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Amount String</em>' containment reference.
+	 * @see #setAmountString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationProperty_AmountString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='amountString' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getAmountString();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationProperty#getAmountString <em>Amount String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Amount String</em>' containment reference.
+	 * @see #getAmountString()
+	 * @generated
+	 */
+	void setAmountString(org.hl7.fhir.String value);
 
 } // SubstanceSpecificationProperty

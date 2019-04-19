@@ -22,6 +22,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.MedicinalProductPharmaceutical;
 import org.hl7.fhir.MedicinalProductPharmaceuticalCharacteristics;
+import org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration;
 import org.hl7.fhir.Reference;
 
 /**
@@ -35,10 +36,10 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getAdministrableDoseForm <em>Administrable Dose Form</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getUnitOfPresentation <em>Unit Of Presentation</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getRouteOfAdministration <em>Route Of Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getCharacteristics <em>Characteristics</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductPharmaceuticalImpl#getRouteOfAdministration <em>Route Of Administration</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,16 +76,6 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	protected CodeableConcept unitOfPresentation;
 
 	/**
-	 * The cached value of the '{@link #getRouteOfAdministration() <em>Route Of Administration</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRouteOfAdministration()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> routeOfAdministration;
-
-	/**
 	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,7 +93,7 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.hl7.fhir.String> device;
+	protected EList<Reference> device;
 
 	/**
 	 * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
@@ -113,6 +104,16 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	 * @ordered
 	 */
 	protected EList<MedicinalProductPharmaceuticalCharacteristics> characteristics;
+
+	/**
+	 * The cached value of the '{@link #getRouteOfAdministration() <em>Route Of Administration</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRouteOfAdministration()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MedicinalProductPharmaceuticalRouteOfAdministration> routeOfAdministration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,18 +237,6 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getRouteOfAdministration() {
-		if (routeOfAdministration == null) {
-			routeOfAdministration = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION);
-		}
-		return routeOfAdministration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getIngredient() {
 		if (ingredient == null) {
 			ingredient = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT);
@@ -260,9 +249,9 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.hl7.fhir.String> getDevice() {
+	public EList<Reference> getDevice() {
 		if (device == null) {
-			device = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE);
+			device = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE);
 		}
 		return device;
 	}
@@ -284,6 +273,18 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MedicinalProductPharmaceuticalRouteOfAdministration> getRouteOfAdministration() {
+		if (routeOfAdministration == null) {
+			routeOfAdministration = new EObjectContainmentEList<MedicinalProductPharmaceuticalRouteOfAdministration>(MedicinalProductPharmaceuticalRouteOfAdministration.class, this, FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION);
+		}
+		return routeOfAdministration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -293,14 +294,14 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 				return basicSetAdministrableDoseForm(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__UNIT_OF_PRESENTATION:
 				return basicSetUnitOfPresentation(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
-				return ((InternalEList<?>)getRouteOfAdministration()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT:
 				return ((InternalEList<?>)getIngredient()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE:
 				return ((InternalEList<?>)getDevice()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__CHARACTERISTICS:
 				return ((InternalEList<?>)getCharacteristics()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
+				return ((InternalEList<?>)getRouteOfAdministration()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -319,14 +320,14 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 				return getAdministrableDoseForm();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__UNIT_OF_PRESENTATION:
 				return getUnitOfPresentation();
-			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
-				return getRouteOfAdministration();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT:
 				return getIngredient();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE:
 				return getDevice();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__CHARACTERISTICS:
 				return getCharacteristics();
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
+				return getRouteOfAdministration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -350,21 +351,21 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__UNIT_OF_PRESENTATION:
 				setUnitOfPresentation((CodeableConcept)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
-				getRouteOfAdministration().clear();
-				getRouteOfAdministration().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT:
 				getIngredient().clear();
 				getIngredient().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE:
 				getDevice().clear();
-				getDevice().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
+				getDevice().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__CHARACTERISTICS:
 				getCharacteristics().clear();
 				getCharacteristics().addAll((Collection<? extends MedicinalProductPharmaceuticalCharacteristics>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
+				getRouteOfAdministration().clear();
+				getRouteOfAdministration().addAll((Collection<? extends MedicinalProductPharmaceuticalRouteOfAdministration>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -387,9 +388,6 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__UNIT_OF_PRESENTATION:
 				setUnitOfPresentation((CodeableConcept)null);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
-				getRouteOfAdministration().clear();
-				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT:
 				getIngredient().clear();
 				return;
@@ -398,6 +396,9 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__CHARACTERISTICS:
 				getCharacteristics().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
+				getRouteOfAdministration().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -417,14 +418,14 @@ public class MedicinalProductPharmaceuticalImpl extends DomainResourceImpl imple
 				return administrableDoseForm != null;
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__UNIT_OF_PRESENTATION:
 				return unitOfPresentation != null;
-			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
-				return routeOfAdministration != null && !routeOfAdministration.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__INGREDIENT:
 				return ingredient != null && !ingredient.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__DEVICE:
 				return device != null && !device.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__CHARACTERISTICS:
 				return characteristics != null && !characteristics.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT_PHARMACEUTICAL__ROUTE_OF_ADMINISTRATION:
+				return routeOfAdministration != null && !routeOfAdministration.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

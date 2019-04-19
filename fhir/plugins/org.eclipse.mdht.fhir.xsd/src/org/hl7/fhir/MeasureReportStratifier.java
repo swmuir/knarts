@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The MeasureReport resource contains the results of evaluating a measure.
+ * The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -27,30 +27,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MeasureReportStratifier extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The meaning of this stratifier, as defined in the measure definition.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(CodeableConcept)
+	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratifier_Code()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCode();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureReportStratifier#getCode <em>Code</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(CodeableConcept value);
+	EList<CodeableConcept> getCode();
 
 	/**
 	 * Returns the value of the '<em><b>Stratum</b></em>' containment reference list.

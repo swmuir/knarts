@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model extendedMetaData="name='ElementDefinition.Type' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionType extends Element {
+public interface ElementDefinitionType extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -57,56 +57,36 @@ public interface ElementDefinitionType extends Element {
 	void setCode(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.
+	 * Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Uri)
+	 * @return the value of the '<em>Profile</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionType_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getProfile();
+	EList<Canonical> getProfile();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionType#getProfile <em>Profile</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Profile</em>' containment reference.
-	 * @see #getProfile()
-	 * @generated
-	 */
-	void setProfile(Uri value);
-
-	/**
-	 * Returns the value of the '<em><b>Target Profile</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Profile</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
+	 * Used when the type is "Reference" or "canonical", and identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Target Profile</em>' containment reference.
-	 * @see #setTargetProfile(Uri)
+	 * @return the value of the '<em>Target Profile</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionType_TargetProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='targetProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getTargetProfile();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionType#getTargetProfile <em>Target Profile</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Profile</em>' containment reference.
-	 * @see #getTargetProfile()
-	 * @generated
-	 */
-	void setTargetProfile(Uri value);
+	EList<Canonical> getTargetProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregation</b></em>' containment reference list.

@@ -34,8 +34,6 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getResponseCode <em>Response Code</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScriptAssert#getRule <em>Rule</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScriptAssert#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getSourceId <em>Source Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getValidateProfileId <em>Validate Profile Id</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScriptAssert#getValue <em>Value</em>}</li>
@@ -156,7 +154,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+	 * The FHIRPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Compare To Source Expression</em>' containment reference.
 	 * @see #setCompareToSourceExpression(org.hl7.fhir.String)
@@ -234,7 +232,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+	 * The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(org.hl7.fhir.String)
@@ -445,13 +443,13 @@ public interface TestScriptAssert extends BackboneElement {
 	 * The type of the resource.  See http://build.fhir.org/resourcelist.html.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(FHIRDefinedType)
+	 * @see #setResource(Code)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Resource()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FHIRDefinedType getResource();
+	Code getResource();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getResource <em>Resource</em>}' containment reference.
@@ -461,7 +459,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @see #getResource()
 	 * @generated
 	 */
-	void setResource(FHIRDefinedType value);
+	void setResource(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Response</b></em>' containment reference.
@@ -514,58 +512,6 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @generated
 	 */
 	void setResponseCode(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Rule</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The TestScript.rule this assert will evaluate.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rule</em>' containment reference.
-	 * @see #setRule(TestScriptRule2)
-	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Rule()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TestScriptRule2 getRule();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRule <em>Rule</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rule</em>' containment reference.
-	 * @see #getRule()
-	 * @generated
-	 */
-	void setRule(TestScriptRule2 value);
-
-	/**
-	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The TestScript.ruleset this assert will evaluate.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ruleset</em>' containment reference.
-	 * @see #setRuleset(TestScriptRuleset1)
-	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_Ruleset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	TestScriptRuleset1 getRuleset();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TestScriptAssert#getRuleset <em>Ruleset</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ruleset</em>' containment reference.
-	 * @see #getRuleset()
-	 * @generated
-	 */
-	void setRuleset(TestScriptRuleset1 value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Id</b></em>' containment reference.
@@ -655,7 +601,7 @@ public interface TestScriptAssert extends BackboneElement {
 	 * @return the value of the '<em>Warning Only</em>' containment reference.
 	 * @see #setWarningOnly(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptAssert_WarningOnly()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='warningOnly' namespace='##targetNamespace'"
 	 * @generated
 	 */

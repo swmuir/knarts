@@ -40,10 +40,11 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getStatusReason <em>Status Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getDate <em>Date</em>}</li>
@@ -56,7 +57,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getFinding <em>Finding</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getPrognosisCodeableConcept <em>Prognosis Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getPrognosisReference <em>Prognosis Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getSupportingInfo <em>Supporting Info</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClinicalImpressionImpl#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -82,6 +83,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * @ordered
 	 */
 	protected ClinicalImpressionStatus status;
+
+	/**
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatusReason()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept statusReason;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -114,14 +125,14 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
@@ -244,14 +255,14 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	protected EList<Reference> prognosisReference;
 
 	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getSupportingInfo() <em>Supporting Info</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAction()
+	 * @see #getSupportingInfo()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> action;
+	protected EList<Reference> supportingInfo;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -335,6 +346,49 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getStatusReason() {
+		return statusReason;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStatusReason(CodeableConcept newStatusReason, NotificationChain msgs) {
+		CodeableConcept oldStatusReason = statusReason;
+		statusReason = newStatusReason;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON, oldStatusReason, newStatusReason);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatusReason(CodeableConcept newStatusReason) {
+		if (newStatusReason != statusReason) {
+			NotificationChain msgs = null;
+			if (statusReason != null)
+				msgs = ((InternalEObject)statusReason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON, null, msgs);
+			if (newStatusReason != null)
+				msgs = ((InternalEObject)newStatusReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON, null, msgs);
+			msgs = basicSetStatusReason(newStatusReason, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON, newStatusReason, newStatusReason));
 	}
 
 	/**
@@ -471,8 +525,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -480,11 +534,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -495,18 +549,18 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -844,11 +898,11 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getAction() {
-		if (action == null) {
-			action = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION__ACTION);
+	public EList<Reference> getSupportingInfo() {
+		if (supportingInfo == null) {
+			supportingInfo = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO);
 		}
-		return action;
+		return supportingInfo;
 	}
 
 	/**
@@ -875,14 +929,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON:
+				return basicSetStatusReason(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
@@ -907,8 +963,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return ((InternalEList<?>)getPrognosisCodeableConcept()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_REFERENCE:
 				return ((InternalEList<?>)getPrognosisReference()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CLINICAL_IMPRESSION__ACTION:
-				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO:
+				return ((InternalEList<?>)getSupportingInfo()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLINICAL_IMPRESSION__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 		}
@@ -927,14 +983,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return getIdentifier();
 			case FhirPackage.CLINICAL_IMPRESSION__STATUS:
 				return getStatus();
+			case FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON:
+				return getStatusReason();
 			case FhirPackage.CLINICAL_IMPRESSION__CODE:
 				return getCode();
 			case FhirPackage.CLINICAL_IMPRESSION__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return getSubject();
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return getContext();
+			case FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return getEffectiveDateTime();
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
@@ -959,8 +1017,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return getPrognosisCodeableConcept();
 			case FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_REFERENCE:
 				return getPrognosisReference();
-			case FhirPackage.CLINICAL_IMPRESSION__ACTION:
-				return getAction();
+			case FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO:
+				return getSupportingInfo();
 			case FhirPackage.CLINICAL_IMPRESSION__NOTE:
 				return getNote();
 		}
@@ -983,6 +1041,9 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__STATUS:
 				setStatus((ClinicalImpressionStatus)newValue);
 				return;
+			case FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON:
+				setStatusReason((CodeableConcept)newValue);
+				return;
 			case FhirPackage.CLINICAL_IMPRESSION__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
@@ -992,8 +1053,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)newValue);
@@ -1037,9 +1098,9 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				getPrognosisReference().clear();
 				getPrognosisReference().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__ACTION:
-				getAction().clear();
-				getAction().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO:
+				getSupportingInfo().clear();
+				getSupportingInfo().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__NOTE:
 				getNote().clear();
@@ -1063,6 +1124,9 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__STATUS:
 				setStatus((ClinicalImpressionStatus)null);
 				return;
+			case FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON:
+				setStatusReason((CodeableConcept)null);
+				return;
 			case FhirPackage.CLINICAL_IMPRESSION__CODE:
 				setCode((CodeableConcept)null);
 				return;
@@ -1072,8 +1136,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)null);
@@ -1111,8 +1175,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 			case FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_REFERENCE:
 				getPrognosisReference().clear();
 				return;
-			case FhirPackage.CLINICAL_IMPRESSION__ACTION:
-				getAction().clear();
+			case FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO:
+				getSupportingInfo().clear();
 				return;
 			case FhirPackage.CLINICAL_IMPRESSION__NOTE:
 				getNote().clear();
@@ -1133,14 +1197,16 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.CLINICAL_IMPRESSION__STATUS:
 				return status != null;
+			case FhirPackage.CLINICAL_IMPRESSION__STATUS_REASON:
+				return statusReason != null;
 			case FhirPackage.CLINICAL_IMPRESSION__CODE:
 				return code != null;
 			case FhirPackage.CLINICAL_IMPRESSION__DESCRIPTION:
 				return description != null;
 			case FhirPackage.CLINICAL_IMPRESSION__SUBJECT:
 				return subject != null;
-			case FhirPackage.CLINICAL_IMPRESSION__CONTEXT:
-				return context != null;
+			case FhirPackage.CLINICAL_IMPRESSION__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_DATE_TIME:
 				return effectiveDateTime != null;
 			case FhirPackage.CLINICAL_IMPRESSION__EFFECTIVE_PERIOD:
@@ -1165,8 +1231,8 @@ public class ClinicalImpressionImpl extends DomainResourceImpl implements Clinic
 				return prognosisCodeableConcept != null && !prognosisCodeableConcept.isEmpty();
 			case FhirPackage.CLINICAL_IMPRESSION__PROGNOSIS_REFERENCE:
 				return prognosisReference != null && !prognosisReference.isEmpty();
-			case FhirPackage.CLINICAL_IMPRESSION__ACTION:
-				return action != null && !action.isEmpty();
+			case FhirPackage.CLINICAL_IMPRESSION__SUPPORTING_INFO:
+				return supportingInfo != null && !supportingInfo.isEmpty();
 			case FhirPackage.CLINICAL_IMPRESSION__NOTE:
 				return note != null && !note.isEmpty();
 		}

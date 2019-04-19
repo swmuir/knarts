@@ -22,7 +22,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getStereochemistry <em>Stereochemistry</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getOpticalActivity <em>Optical Activity</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getMolecularFormula <em>Molecular Formula</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmountQuantity <em>Amount Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmountString <em>Amount String</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationMoiety()
@@ -187,29 +188,57 @@ public interface SubstanceSpecificationMoiety extends BackboneElement {
 	void setMolecularFormula(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Amount Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Amount Quantity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Quantitative value for this moiety.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Amount</em>' containment reference.
-	 * @see #setAmount(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationMoiety_Amount()
+	 * @return the value of the '<em>Amount Quantity</em>' containment reference.
+	 * @see #setAmountQuantity(Quantity)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationMoiety_AmountQuantity()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='amount' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='amountQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getAmount();
+	Quantity getAmountQuantity();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmount <em>Amount</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmountQuantity <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Amount</em>' containment reference.
-	 * @see #getAmount()
+	 * @param value the new value of the '<em>Amount Quantity</em>' containment reference.
+	 * @see #getAmountQuantity()
 	 * @generated
 	 */
-	void setAmount(org.hl7.fhir.String value);
+	void setAmountQuantity(Quantity value);
+
+	/**
+	 * Returns the value of the '<em><b>Amount String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Amount String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Amount String</em>' containment reference.
+	 * @see #setAmountString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationMoiety_AmountString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='amountString' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getAmountString();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SubstanceSpecificationMoiety#getAmountString <em>Amount String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Amount String</em>' containment reference.
+	 * @see #getAmountString()
+	 * @generated
+	 */
+	void setAmountString(org.hl7.fhir.String value);
 
 } // SubstanceSpecificationMoiety

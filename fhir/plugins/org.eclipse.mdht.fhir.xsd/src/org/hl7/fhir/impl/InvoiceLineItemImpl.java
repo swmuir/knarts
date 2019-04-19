@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.InvoiceLineItem;
 import org.hl7.fhir.InvoicePriceComponent;
@@ -32,7 +33,8 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.InvoiceLineItemImpl#getSequence <em>Sequence</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.InvoiceLineItemImpl#getChargeItem <em>Charge Item</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.InvoiceLineItemImpl#getChargeItemReference <em>Charge Item Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.InvoiceLineItemImpl#getChargeItemCodeableConcept <em>Charge Item Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.InvoiceLineItemImpl#getPriceComponent <em>Price Component</em>}</li>
  * </ul>
  *
@@ -50,14 +52,24 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 	protected PositiveInt sequence;
 
 	/**
-	 * The cached value of the '{@link #getChargeItem() <em>Charge Item</em>}' containment reference.
+	 * The cached value of the '{@link #getChargeItemReference() <em>Charge Item Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChargeItem()
+	 * @see #getChargeItemReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference chargeItem;
+	protected Reference chargeItemReference;
+
+	/**
+	 * The cached value of the '{@link #getChargeItemCodeableConcept() <em>Charge Item Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChargeItemCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept chargeItemCodeableConcept;
 
 	/**
 	 * The cached value of the '{@link #getPriceComponent() <em>Price Component</em>}' containment reference list.
@@ -136,8 +148,8 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getChargeItem() {
-		return chargeItem;
+	public Reference getChargeItemReference() {
+		return chargeItemReference;
 	}
 
 	/**
@@ -145,11 +157,11 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetChargeItem(Reference newChargeItem, NotificationChain msgs) {
-		Reference oldChargeItem = chargeItem;
-		chargeItem = newChargeItem;
+	public NotificationChain basicSetChargeItemReference(Reference newChargeItemReference, NotificationChain msgs) {
+		Reference oldChargeItemReference = chargeItemReference;
+		chargeItemReference = newChargeItemReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM, oldChargeItem, newChargeItem);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE, oldChargeItemReference, newChargeItemReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -160,18 +172,61 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setChargeItem(Reference newChargeItem) {
-		if (newChargeItem != chargeItem) {
+	public void setChargeItemReference(Reference newChargeItemReference) {
+		if (newChargeItemReference != chargeItemReference) {
 			NotificationChain msgs = null;
-			if (chargeItem != null)
-				msgs = ((InternalEObject)chargeItem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM, null, msgs);
-			if (newChargeItem != null)
-				msgs = ((InternalEObject)newChargeItem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM, null, msgs);
-			msgs = basicSetChargeItem(newChargeItem, msgs);
+			if (chargeItemReference != null)
+				msgs = ((InternalEObject)chargeItemReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE, null, msgs);
+			if (newChargeItemReference != null)
+				msgs = ((InternalEObject)newChargeItemReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE, null, msgs);
+			msgs = basicSetChargeItemReference(newChargeItemReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM, newChargeItem, newChargeItem));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE, newChargeItemReference, newChargeItemReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getChargeItemCodeableConcept() {
+		return chargeItemCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetChargeItemCodeableConcept(CodeableConcept newChargeItemCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldChargeItemCodeableConcept = chargeItemCodeableConcept;
+		chargeItemCodeableConcept = newChargeItemCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT, oldChargeItemCodeableConcept, newChargeItemCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChargeItemCodeableConcept(CodeableConcept newChargeItemCodeableConcept) {
+		if (newChargeItemCodeableConcept != chargeItemCodeableConcept) {
+			NotificationChain msgs = null;
+			if (chargeItemCodeableConcept != null)
+				msgs = ((InternalEObject)chargeItemCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT, null, msgs);
+			if (newChargeItemCodeableConcept != null)
+				msgs = ((InternalEObject)newChargeItemCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetChargeItemCodeableConcept(newChargeItemCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT, newChargeItemCodeableConcept, newChargeItemCodeableConcept));
 	}
 
 	/**
@@ -196,8 +251,10 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 		switch (featureID) {
 			case FhirPackage.INVOICE_LINE_ITEM__SEQUENCE:
 				return basicSetSequence(null, msgs);
-			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM:
-				return basicSetChargeItem(null, msgs);
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE:
+				return basicSetChargeItemReference(null, msgs);
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT:
+				return basicSetChargeItemCodeableConcept(null, msgs);
 			case FhirPackage.INVOICE_LINE_ITEM__PRICE_COMPONENT:
 				return ((InternalEList<?>)getPriceComponent()).basicRemove(otherEnd, msgs);
 		}
@@ -214,8 +271,10 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 		switch (featureID) {
 			case FhirPackage.INVOICE_LINE_ITEM__SEQUENCE:
 				return getSequence();
-			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM:
-				return getChargeItem();
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE:
+				return getChargeItemReference();
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT:
+				return getChargeItemCodeableConcept();
 			case FhirPackage.INVOICE_LINE_ITEM__PRICE_COMPONENT:
 				return getPriceComponent();
 		}
@@ -234,8 +293,11 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 			case FhirPackage.INVOICE_LINE_ITEM__SEQUENCE:
 				setSequence((PositiveInt)newValue);
 				return;
-			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM:
-				setChargeItem((Reference)newValue);
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE:
+				setChargeItemReference((Reference)newValue);
+				return;
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT:
+				setChargeItemCodeableConcept((CodeableConcept)newValue);
 				return;
 			case FhirPackage.INVOICE_LINE_ITEM__PRICE_COMPONENT:
 				getPriceComponent().clear();
@@ -256,8 +318,11 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 			case FhirPackage.INVOICE_LINE_ITEM__SEQUENCE:
 				setSequence((PositiveInt)null);
 				return;
-			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM:
-				setChargeItem((Reference)null);
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE:
+				setChargeItemReference((Reference)null);
+				return;
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT:
+				setChargeItemCodeableConcept((CodeableConcept)null);
 				return;
 			case FhirPackage.INVOICE_LINE_ITEM__PRICE_COMPONENT:
 				getPriceComponent().clear();
@@ -276,8 +341,10 @@ public class InvoiceLineItemImpl extends BackboneElementImpl implements InvoiceL
 		switch (featureID) {
 			case FhirPackage.INVOICE_LINE_ITEM__SEQUENCE:
 				return sequence != null;
-			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM:
-				return chargeItem != null;
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_REFERENCE:
+				return chargeItemReference != null;
+			case FhirPackage.INVOICE_LINE_ITEM__CHARGE_ITEM_CODEABLE_CONCEPT:
+				return chargeItemCodeableConcept != null;
 			case FhirPackage.INVOICE_LINE_ITEM__PRICE_COMPONENT:
 				return priceComponent != null && !priceComponent.isEmpty();
 		}

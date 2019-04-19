@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getInformationSequence <em>Information Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getProductOrService <em>Product Or Service</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitItem#getServicedDate <em>Serviced Date</em>}</li>
@@ -55,7 +55,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line number.
+	 * A number to uniquely identify item entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -82,7 +82,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Careteam applicable for this service or product line.
+	 * Care team members related to this service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Care Team Sequence</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_CareTeamSequence()
@@ -98,7 +98,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Diagnosis applicable for this service or product line.
+	 * Diagnoses applicable for this service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnosis Sequence</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_DiagnosisSequence()
@@ -114,7 +114,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Procedures applicable for this service or product line.
+	 * Procedures applicable for this service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Procedure Sequence</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_ProcedureSequence()
@@ -130,7 +130,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Exceptions, special conditions and supporting information pplicable for this service or product line.
+	 * Exceptions, special conditions and supporting information applicable for this service or product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Information Sequence</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_InformationSequence()
@@ -145,7 +145,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of reveneu or cost center providing the product and/or service.
+	 * The type of revenue or cost center providing the product and/or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Revenue</em>' containment reference.
 	 * @see #setRevenue(CodeableConcept)
@@ -171,7 +171,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * Code to identify the general type of benefits under which products and services are provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -193,30 +193,30 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Product Or Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
+	 * When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Service()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #setProductOrService(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_ProductOrService()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='productOrService' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getService();
+	CodeableConcept getProductOrService();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitItem#getService <em>Service</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitItem#getProductOrService <em>Product Or Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service</em>' containment reference.
-	 * @see #getService()
+	 * @param value the new value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #getProductOrService()
 	 * @generated
 	 */
-	void setService(CodeableConcept value);
+	void setProductOrService(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
@@ -224,7 +224,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+	 * Item typification or modifiers codes to convey additional context for the product or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Modifier()
@@ -240,7 +240,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+	 * Identifies the program under which this may be recovered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Program Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_ProgramCode()
@@ -416,7 +416,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
+	 * If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unit Price</em>' containment reference.
 	 * @see #setUnitPrice(Money)
@@ -468,7 +468,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+	 * The quantity times the unit price for an additional service or product or charge.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Net</em>' containment reference.
 	 * @see #setNet(Money)
@@ -495,7 +495,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of Unique Device Identifiers associated with this line item.
+	 * Unique Device Identifiers associated with this line item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Udi</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Udi()
@@ -510,7 +510,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Physical service site on the patient (limb, tooth, etc).
+	 * Physical service site on the patient (limb, tooth, etc.).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Body Site</em>' containment reference.
 	 * @see #setBodySite(CodeableConcept)
@@ -537,7 +537,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A region or surface of the site, eg. limb region or tooth surface(s).
+	 * A region or surface of the bodySite, e.g. limb region or tooth surface(s).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Site</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_SubSite()
@@ -569,7 +569,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of note references to the notes provided below.
+	 * The numbers associated with notes below which apply to the adjudication of this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note Number</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_NoteNumber()
@@ -585,7 +585,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The adjudications results.
+	 * If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjudication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Adjudication()
@@ -601,7 +601,7 @@ public interface ExplanationOfBenefitItem extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Second tier of goods and services.
+	 * Second-tier of goods and services.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitItem_Detail()

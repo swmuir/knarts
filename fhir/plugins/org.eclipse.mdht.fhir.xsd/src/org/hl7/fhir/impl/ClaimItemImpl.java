@@ -45,7 +45,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getInformationSequence <em>Information Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProductOrService <em>Product Or Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ClaimItemImpl#getServicedDate <em>Serviced Date</em>}</li>
@@ -138,14 +138,14 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	protected CodeableConcept category;
 
 	/**
-	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
+	 * The cached value of the '{@link #getProductOrService() <em>Product Or Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getService()
+	 * @see #getProductOrService()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept service;
+	protected CodeableConcept productOrService;
 
 	/**
 	 * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
@@ -508,8 +508,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getService() {
-		return service;
+	public CodeableConcept getProductOrService() {
+		return productOrService;
 	}
 
 	/**
@@ -517,11 +517,11 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetService(CodeableConcept newService, NotificationChain msgs) {
-		CodeableConcept oldService = service;
-		service = newService;
+	public NotificationChain basicSetProductOrService(CodeableConcept newProductOrService, NotificationChain msgs) {
+		CodeableConcept oldProductOrService = productOrService;
+		productOrService = newProductOrService;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICE, oldService, newService);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE, oldProductOrService, newProductOrService);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -532,18 +532,18 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setService(CodeableConcept newService) {
-		if (newService != service) {
+	public void setProductOrService(CodeableConcept newProductOrService) {
+		if (newProductOrService != productOrService) {
 			NotificationChain msgs = null;
-			if (service != null)
-				msgs = ((InternalEObject)service).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICE, null, msgs);
-			if (newService != null)
-				msgs = ((InternalEObject)newService).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__SERVICE, null, msgs);
-			msgs = basicSetService(newService, msgs);
+			if (productOrService != null)
+				msgs = ((InternalEObject)productOrService).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE, null, msgs);
+			if (newProductOrService != null)
+				msgs = ((InternalEObject)newProductOrService).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE, null, msgs);
+			msgs = basicSetProductOrService(newProductOrService, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__SERVICE, newService, newService));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE, newProductOrService, newProductOrService));
 	}
 
 	/**
@@ -1070,8 +1070,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return basicSetRevenue(null, msgs);
 			case FhirPackage.CLAIM_ITEM__CATEGORY:
 				return basicSetCategory(null, msgs);
-			case FhirPackage.CLAIM_ITEM__SERVICE:
-				return basicSetService(null, msgs);
+			case FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE:
+				return basicSetProductOrService(null, msgs);
 			case FhirPackage.CLAIM_ITEM__MODIFIER:
 				return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
@@ -1130,8 +1130,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return getRevenue();
 			case FhirPackage.CLAIM_ITEM__CATEGORY:
 				return getCategory();
-			case FhirPackage.CLAIM_ITEM__SERVICE:
-				return getService();
+			case FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE:
+				return getProductOrService();
 			case FhirPackage.CLAIM_ITEM__MODIFIER:
 				return getModifier();
 			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:
@@ -1202,8 +1202,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__CATEGORY:
 				setCategory((CodeableConcept)newValue);
 				return;
-			case FhirPackage.CLAIM_ITEM__SERVICE:
-				setService((CodeableConcept)newValue);
+			case FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE:
+				setProductOrService((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CLAIM_ITEM__MODIFIER:
 				getModifier().clear();
@@ -1292,8 +1292,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 			case FhirPackage.CLAIM_ITEM__CATEGORY:
 				setCategory((CodeableConcept)null);
 				return;
-			case FhirPackage.CLAIM_ITEM__SERVICE:
-				setService((CodeableConcept)null);
+			case FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE:
+				setProductOrService((CodeableConcept)null);
 				return;
 			case FhirPackage.CLAIM_ITEM__MODIFIER:
 				getModifier().clear();
@@ -1369,8 +1369,8 @@ public class ClaimItemImpl extends BackboneElementImpl implements ClaimItem {
 				return revenue != null;
 			case FhirPackage.CLAIM_ITEM__CATEGORY:
 				return category != null;
-			case FhirPackage.CLAIM_ITEM__SERVICE:
-				return service != null;
+			case FhirPackage.CLAIM_ITEM__PRODUCT_OR_SERVICE:
+				return productOrService != null;
 			case FhirPackage.CLAIM_ITEM__MODIFIER:
 				return modifier != null && !modifier.isEmpty();
 			case FhirPackage.CLAIM_ITEM__PROGRAM_CODE:

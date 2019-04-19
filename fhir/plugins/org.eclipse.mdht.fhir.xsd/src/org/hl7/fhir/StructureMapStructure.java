@@ -32,16 +32,16 @@ public interface StructureMapStructure extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The canonical URL that identifies the structure.
+	 * The canonical reference to the structure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
+	 * @see #setUrl(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getStructureMapStructure_Url()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
+	Canonical getUrl();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.StructureMapStructure#getUrl <em>Url</em>}' containment reference.
@@ -51,7 +51,7 @@ public interface StructureMapStructure extends BackboneElement {
 	 * @see #getUrl()
 	 * @generated
 	 */
-	void setUrl(Uri value);
+	void setUrl(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.

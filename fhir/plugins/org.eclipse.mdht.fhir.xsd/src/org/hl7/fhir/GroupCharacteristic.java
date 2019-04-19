@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
+ * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -21,6 +21,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.GroupCharacteristic#getValueBoolean <em>Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.GroupCharacteristic#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.GroupCharacteristic#getValueRange <em>Value Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.GroupCharacteristic#getValueReference <em>Value Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.GroupCharacteristic#getExclude <em>Exclude</em>}</li>
  *   <li>{@link org.hl7.fhir.GroupCharacteristic#getPeriod <em>Period</em>}</li>
  * </ul>
@@ -163,6 +164,33 @@ public interface GroupCharacteristic extends BackboneElement {
 	 * @generated
 	 */
 	void setValueRange(Range value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Reference</em>' containment reference.
+	 * @see #setValueReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGroupCharacteristic_ValueReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getValueReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GroupCharacteristic#getValueReference <em>Value Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Reference</em>' containment reference.
+	 * @see #getValueReference()
+	 * @generated
+	 */
+	void setValueReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Exclude</b></em>' containment reference.

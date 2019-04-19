@@ -34,7 +34,7 @@ public class RemittanceOutcomeImpl extends ElementImpl implements RemittanceOutc
 	 * @generated
 	 * @ordered
 	 */
-	protected static final RemittanceOutcomeList VALUE_EDEFAULT = RemittanceOutcomeList.COMPLETE;
+	protected static final RemittanceOutcomeList VALUE_EDEFAULT = RemittanceOutcomeList.QUEUED;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

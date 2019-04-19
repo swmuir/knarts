@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
+ * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -34,9 +34,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ConceptMap#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMap#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMap#getSourceUri <em>Source Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMap#getSourceReference <em>Source Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMap#getSourceCanonical <em>Source Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMap#getTargetUri <em>Target Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMap#getTargetReference <em>Target Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMap#getTargetCanonical <em>Target Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMap#getGroup <em>Group</em>}</li>
  * </ul>
  *
@@ -50,7 +50,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.
+	 * An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -206,7 +206,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -232,7 +232,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the concept map was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
+	 * The date  (and optionally time) when the concept map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -258,7 +258,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the concept map.
+	 * The name of the organization or individual that published the concept map.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -327,7 +327,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate concept map instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate concept map instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getConceptMap_UseContext()
@@ -358,7 +358,7 @@ public interface ConceptMap extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this concept map is needed and why it has been designed as it has.
+	 * Explanation of why this concept map is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -433,31 +433,31 @@ public interface ConceptMap extends DomainResource {
 	void setSourceUri(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Source Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Source Canonical</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Source Canonical</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Reference</em>' containment reference.
-	 * @see #setSourceReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMap_SourceReference()
+	 * @return the value of the '<em>Source Canonical</em>' containment reference.
+	 * @see #setSourceCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMap_SourceCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='sourceReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='sourceCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSourceReference();
+	Canonical getSourceCanonical();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMap#getSourceReference <em>Source Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMap#getSourceCanonical <em>Source Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Reference</em>' containment reference.
-	 * @see #getSourceReference()
+	 * @param value the new value of the '<em>Source Canonical</em>' containment reference.
+	 * @see #getSourceCanonical()
 	 * @generated
 	 */
-	void setSourceReference(Reference value);
+	void setSourceCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Uri</b></em>' containment reference.
@@ -487,31 +487,31 @@ public interface ConceptMap extends DomainResource {
 	void setTargetUri(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Target Canonical</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Target Reference</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Target Canonical</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Reference</em>' containment reference.
-	 * @see #setTargetReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMap_TargetReference()
+	 * @return the value of the '<em>Target Canonical</em>' containment reference.
+	 * @see #setTargetCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMap_TargetCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='targetReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='targetCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getTargetReference();
+	Canonical getTargetCanonical();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMap#getTargetReference <em>Target Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMap#getTargetCanonical <em>Target Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Reference</em>' containment reference.
-	 * @see #getTargetReference()
+	 * @param value the new value of the '<em>Target Canonical</em>' containment reference.
+	 * @see #getTargetCanonical()
 	 * @generated
 	 */
-	void setTargetReference(Reference value);
+	void setTargetCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference list.

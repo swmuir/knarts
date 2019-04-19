@@ -27,7 +27,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -151,7 +151,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri address;
+	protected Url address;
 
 	/**
 	 * The cached value of the '{@link #getHeader() <em>Header</em>}' containment reference list.
@@ -450,7 +450,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getAddress() {
+	public Url getAddress() {
 		return address;
 	}
 
@@ -459,8 +459,8 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAddress(Uri newAddress, NotificationChain msgs) {
-		Uri oldAddress = address;
+	public NotificationChain basicSetAddress(Url newAddress, NotificationChain msgs) {
+		Url oldAddress = address;
 		address = newAddress;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENDPOINT__ADDRESS, oldAddress, newAddress);
@@ -474,7 +474,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAddress(Uri newAddress) {
+	public void setAddress(Url newAddress) {
 		if (newAddress != address) {
 			NotificationChain msgs = null;
 			if (address != null)
@@ -609,7 +609,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				getPayloadMimeType().addAll((Collection<? extends Code>)newValue);
 				return;
 			case FhirPackage.ENDPOINT__ADDRESS:
-				setAddress((Uri)newValue);
+				setAddress((Url)newValue);
 				return;
 			case FhirPackage.ENDPOINT__HEADER:
 				getHeader().clear();
@@ -655,7 +655,7 @@ public class EndpointImpl extends DomainResourceImpl implements Endpoint {
 				getPayloadMimeType().clear();
 				return;
 			case FhirPackage.ENDPOINT__ADDRESS:
-				setAddress((Uri)null);
+				setAddress((Url)null);
 				return;
 			case FhirPackage.ENDPOINT__HEADER:
 				getHeader().clear();

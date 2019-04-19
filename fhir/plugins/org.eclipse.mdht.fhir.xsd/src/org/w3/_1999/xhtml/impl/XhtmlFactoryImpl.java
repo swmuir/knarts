@@ -6,8 +6,6 @@ import java.math.BigInteger;
 
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -1237,8 +1235,8 @@ public class XhtmlFactoryImpl extends EFactoryImpl implements XhtmlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLGregorianCalendar createDatetimeFromString(EDataType eDataType, String initialValue) {
-		return (XMLGregorianCalendar)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
+	public Object createDatetimeFromString(EDataType eDataType, String initialValue) {
+		return XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.DATE_TIME, initialValue);
 	}
 
 	/**

@@ -24,6 +24,7 @@ import org.hl7.fhir.GroupCharacteristic;
 import org.hl7.fhir.GroupMember;
 import org.hl7.fhir.GroupType;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
 
 /**
@@ -41,6 +42,7 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GroupImpl#getManagingEntity <em>Managing Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GroupImpl#getMember <em>Member</em>}</li>
  * </ul>
@@ -117,6 +119,16 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * @ordered
 	 */
 	protected UnsignedInt quantity;
+
+	/**
+	 * The cached value of the '{@link #getManagingEntity() <em>Managing Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManagingEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference managingEntity;
 
 	/**
 	 * The cached value of the '{@link #getCharacteristic() <em>Characteristic</em>}' containment reference list.
@@ -432,6 +444,49 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getManagingEntity() {
+		return managingEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetManagingEntity(Reference newManagingEntity, NotificationChain msgs) {
+		Reference oldManagingEntity = managingEntity;
+		managingEntity = newManagingEntity;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__MANAGING_ENTITY, oldManagingEntity, newManagingEntity);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setManagingEntity(Reference newManagingEntity) {
+		if (newManagingEntity != managingEntity) {
+			NotificationChain msgs = null;
+			if (managingEntity != null)
+				msgs = ((InternalEObject)managingEntity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__MANAGING_ENTITY, null, msgs);
+			if (newManagingEntity != null)
+				msgs = ((InternalEObject)newManagingEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GROUP__MANAGING_ENTITY, null, msgs);
+			msgs = basicSetManagingEntity(newManagingEntity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GROUP__MANAGING_ENTITY, newManagingEntity, newManagingEntity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<GroupCharacteristic> getCharacteristic() {
 		if (characteristic == null) {
 			characteristic = new EObjectContainmentEList<GroupCharacteristic>(GroupCharacteristic.class, this, FhirPackage.GROUP__CHARACTERISTIC);
@@ -473,6 +528,8 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 				return basicSetName(null, msgs);
 			case FhirPackage.GROUP__QUANTITY:
 				return basicSetQuantity(null, msgs);
+			case FhirPackage.GROUP__MANAGING_ENTITY:
+				return basicSetManagingEntity(null, msgs);
 			case FhirPackage.GROUP__CHARACTERISTIC:
 				return ((InternalEList<?>)getCharacteristic()).basicRemove(otherEnd, msgs);
 			case FhirPackage.GROUP__MEMBER:
@@ -503,6 +560,8 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 				return getName();
 			case FhirPackage.GROUP__QUANTITY:
 				return getQuantity();
+			case FhirPackage.GROUP__MANAGING_ENTITY:
+				return getManagingEntity();
 			case FhirPackage.GROUP__CHARACTERISTIC:
 				return getCharacteristic();
 			case FhirPackage.GROUP__MEMBER:
@@ -541,6 +600,9 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 				return;
 			case FhirPackage.GROUP__QUANTITY:
 				setQuantity((UnsignedInt)newValue);
+				return;
+			case FhirPackage.GROUP__MANAGING_ENTITY:
+				setManagingEntity((Reference)newValue);
 				return;
 			case FhirPackage.GROUP__CHARACTERISTIC:
 				getCharacteristic().clear();
@@ -583,6 +645,9 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 			case FhirPackage.GROUP__QUANTITY:
 				setQuantity((UnsignedInt)null);
 				return;
+			case FhirPackage.GROUP__MANAGING_ENTITY:
+				setManagingEntity((Reference)null);
+				return;
 			case FhirPackage.GROUP__CHARACTERISTIC:
 				getCharacteristic().clear();
 				return;
@@ -615,6 +680,8 @@ public class GroupImpl extends DomainResourceImpl implements Group {
 				return name != null;
 			case FhirPackage.GROUP__QUANTITY:
 				return quantity != null;
+			case FhirPackage.GROUP__MANAGING_ENTITY:
+				return managingEntity != null;
 			case FhirPackage.GROUP__CHARACTERISTIC:
 				return characteristic != null && !characteristic.isEmpty();
 			case FhirPackage.GROUP__MEMBER:

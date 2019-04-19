@@ -45,7 +45,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this graph definition is (or will be) published.
+	 * An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -149,7 +149,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -175,7 +175,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the graph definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes.
+	 * The date  (and optionally time) when the graph definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -201,7 +201,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the graph definition.
+	 * The name of the organization or individual that published the graph definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -270,7 +270,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate graph definition instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate graph definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinition_UseContext()
@@ -301,7 +301,7 @@ public interface GraphDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this graph definition is needed and why it has been designed as it has.
+	 * Explanation of why this graph definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -330,13 +330,13 @@ public interface GraphDefinition extends DomainResource {
 	 * The type of FHIR resource at which instances of this graph start.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Start</em>' containment reference.
-	 * @see #setStart(ResourceType)
+	 * @see #setStart(Code)
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinition_Start()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='start' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getStart();
+	Code getStart();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinition#getStart <em>Start</em>}' containment reference.
@@ -346,7 +346,7 @@ public interface GraphDefinition extends DomainResource {
 	 * @see #getStart()
 	 * @generated
 	 */
-	void setStart(ResourceType value);
+	void setStart(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
@@ -356,13 +356,13 @@ public interface GraphDefinition extends DomainResource {
 	 * The profile that describes the use of the base resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Uri)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinition_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinition#getProfile <em>Profile</em>}' containment reference.
@@ -372,7 +372,7 @@ public interface GraphDefinition extends DomainResource {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Uri value);
+	void setProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Link</b></em>' containment reference list.

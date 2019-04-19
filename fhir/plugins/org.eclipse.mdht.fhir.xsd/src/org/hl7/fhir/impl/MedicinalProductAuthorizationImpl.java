@@ -21,7 +21,6 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.MarketingStatus;
 import org.hl7.fhir.MedicinalProductAuthorization;
 import org.hl7.fhir.MedicinalProductAuthorizationJurisdictionalAuthorization;
 import org.hl7.fhir.MedicinalProductAuthorizationProcedure;
@@ -37,8 +36,9 @@ import org.hl7.fhir.Reference;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getCountry <em>Country</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getRestoreDate <em>Restore Date</em>}</li>
@@ -46,25 +46,35 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getDataExclusivityPeriod <em>Data Exclusivity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getDateOfFirstAuthorization <em>Date Of First Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getInternationalBirthDate <em>International Birth Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getLegalBasis <em>Legal Basis</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getJurisdictionalAuthorization <em>Jurisdictional Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getHolder <em>Holder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getRegulator <em>Regulator</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationImpl#getMarketingStatus <em>Marketing Status</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implements MedicinalProductAuthorization {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subject;
 
 	/**
 	 * The cached value of the '{@link #getCountry() <em>Country</em>}' containment reference list.
@@ -77,14 +87,14 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	protected EList<CodeableConcept> country;
 
 	/**
-	 * The cached value of the '{@link #getLegalStatusOfSupply() <em>Legal Status Of Supply</em>}' containment reference.
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLegalStatusOfSupply()
+	 * @see #getJurisdiction()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept legalStatusOfSupply;
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -157,6 +167,16 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	protected DateTime internationalBirthDate;
 
 	/**
+	 * The cached value of the '{@link #getLegalBasis() <em>Legal Basis</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLegalBasis()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept legalBasis;
+
+	/**
 	 * The cached value of the '{@link #getJurisdictionalAuthorization() <em>Jurisdictional Authorization</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,16 +217,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	protected MedicinalProductAuthorizationProcedure procedure;
 
 	/**
-	 * The cached value of the '{@link #getMarketingStatus() <em>Marketing Status</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMarketingStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MarketingStatus> marketingStatus;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -230,7 +240,10 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER);
+		}
 		return identifier;
 	}
 
@@ -239,11 +252,20 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
+	public Reference getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubject(Reference newSubject, NotificationChain msgs) {
+		Reference oldSubject = subject;
+		subject = newSubject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER, oldIdentifier, newIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT, oldSubject, newSubject);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -254,18 +276,18 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
+	public void setSubject(Reference newSubject) {
+		if (newSubject != subject) {
 			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
+			if (subject != null)
+				msgs = ((InternalEObject)subject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT, null, msgs);
+			if (newSubject != null)
+				msgs = ((InternalEObject)newSubject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT, null, msgs);
+			msgs = basicSetSubject(newSubject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER, newIdentifier, newIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT, newSubject, newSubject));
 	}
 
 	/**
@@ -285,42 +307,11 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getLegalStatusOfSupply() {
-		return legalStatusOfSupply;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLegalStatusOfSupply(CodeableConcept newLegalStatusOfSupply, NotificationChain msgs) {
-		CodeableConcept oldLegalStatusOfSupply = legalStatusOfSupply;
-		legalStatusOfSupply = newLegalStatusOfSupply;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY, oldLegalStatusOfSupply, newLegalStatusOfSupply);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLegalStatusOfSupply(CodeableConcept newLegalStatusOfSupply) {
-		if (newLegalStatusOfSupply != legalStatusOfSupply) {
-			NotificationChain msgs = null;
-			if (legalStatusOfSupply != null)
-				msgs = ((InternalEObject)legalStatusOfSupply).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY, null, msgs);
-			if (newLegalStatusOfSupply != null)
-				msgs = ((InternalEObject)newLegalStatusOfSupply).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY, null, msgs);
-			msgs = basicSetLegalStatusOfSupply(newLegalStatusOfSupply, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY, newLegalStatusOfSupply, newLegalStatusOfSupply));
+		return jurisdiction;
 	}
 
 	/**
@@ -629,6 +620,49 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getLegalBasis() {
+		return legalBasis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLegalBasis(CodeableConcept newLegalBasis, NotificationChain msgs) {
+		CodeableConcept oldLegalBasis = legalBasis;
+		legalBasis = newLegalBasis;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS, oldLegalBasis, newLegalBasis);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLegalBasis(CodeableConcept newLegalBasis) {
+		if (newLegalBasis != legalBasis) {
+			NotificationChain msgs = null;
+			if (legalBasis != null)
+				msgs = ((InternalEObject)legalBasis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS, null, msgs);
+			if (newLegalBasis != null)
+				msgs = ((InternalEObject)newLegalBasis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS, null, msgs);
+			msgs = basicSetLegalBasis(newLegalBasis, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS, newLegalBasis, newLegalBasis));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MedicinalProductAuthorizationJurisdictionalAuthorization> getJurisdictionalAuthorization() {
 		if (jurisdictionalAuthorization == null) {
 			jurisdictionalAuthorization = new EObjectContainmentEList<MedicinalProductAuthorizationJurisdictionalAuthorization>(MedicinalProductAuthorizationJurisdictionalAuthorization.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION);
@@ -770,27 +804,17 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MarketingStatus> getMarketingStatus() {
-		if (marketingStatus == null) {
-			marketingStatus = new EObjectContainmentEList<MarketingStatus>(MarketingStatus.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS);
-		}
-		return marketingStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT:
+				return basicSetSubject(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__COUNTRY:
 				return ((InternalEList<?>)getCountry()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
-				return basicSetLegalStatusOfSupply(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS_DATE:
@@ -805,6 +829,8 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return basicSetDateOfFirstAuthorization(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__INTERNATIONAL_BIRTH_DATE:
 				return basicSetInternationalBirthDate(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS:
+				return basicSetLegalBasis(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION:
 				return ((InternalEList<?>)getJurisdictionalAuthorization()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__HOLDER:
@@ -813,8 +839,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return basicSetRegulator(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__PROCEDURE:
 				return basicSetProcedure(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS:
-				return ((InternalEList<?>)getMarketingStatus()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -829,10 +853,12 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT:
+				return getSubject();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__COUNTRY:
 				return getCountry();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
-				return getLegalStatusOfSupply();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS:
 				return getStatus();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS_DATE:
@@ -847,6 +873,8 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return getDateOfFirstAuthorization();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__INTERNATIONAL_BIRTH_DATE:
 				return getInternationalBirthDate();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS:
+				return getLegalBasis();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION:
 				return getJurisdictionalAuthorization();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__HOLDER:
@@ -855,8 +883,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return getRegulator();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__PROCEDURE:
 				return getProcedure();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS:
-				return getMarketingStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -871,14 +897,19 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT:
+				setSubject((Reference)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__COUNTRY:
 				getCountry().clear();
 				getCountry().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
-				setLegalStatusOfSupply((CodeableConcept)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS:
 				setStatus((CodeableConcept)newValue);
@@ -901,6 +932,9 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__INTERNATIONAL_BIRTH_DATE:
 				setInternationalBirthDate((DateTime)newValue);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS:
+				setLegalBasis((CodeableConcept)newValue);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION:
 				getJurisdictionalAuthorization().clear();
 				getJurisdictionalAuthorization().addAll((Collection<? extends MedicinalProductAuthorizationJurisdictionalAuthorization>)newValue);
@@ -913,10 +947,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__PROCEDURE:
 				setProcedure((MedicinalProductAuthorizationProcedure)newValue);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS:
-				getMarketingStatus().clear();
-				getMarketingStatus().addAll((Collection<? extends MarketingStatus>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -931,13 +961,16 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT:
+				setSubject((Reference)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__COUNTRY:
 				getCountry().clear();
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
-				setLegalStatusOfSupply((CodeableConcept)null);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION:
+				getJurisdiction().clear();
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS:
 				setStatus((CodeableConcept)null);
@@ -960,6 +993,9 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__INTERNATIONAL_BIRTH_DATE:
 				setInternationalBirthDate((DateTime)null);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS:
+				setLegalBasis((CodeableConcept)null);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION:
 				getJurisdictionalAuthorization().clear();
 				return;
@@ -971,9 +1007,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__PROCEDURE:
 				setProcedure((MedicinalProductAuthorizationProcedure)null);
-				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS:
-				getMarketingStatus().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -988,11 +1021,13 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__SUBJECT:
+				return subject != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__COUNTRY:
 				return country != null && !country.isEmpty();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_STATUS_OF_SUPPLY:
-				return legalStatusOfSupply != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS:
 				return status != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__STATUS_DATE:
@@ -1007,6 +1042,8 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return dateOfFirstAuthorization != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__INTERNATIONAL_BIRTH_DATE:
 				return internationalBirthDate != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__LEGAL_BASIS:
+				return legalBasis != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__JURISDICTIONAL_AUTHORIZATION:
 				return jurisdictionalAuthorization != null && !jurisdictionalAuthorization.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__HOLDER:
@@ -1015,8 +1052,6 @@ public class MedicinalProductAuthorizationImpl extends DomainResourceImpl implem
 				return regulator != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__PROCEDURE:
 				return procedure != null;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION__MARKETING_STATUS:
-				return marketingStatus != null && !marketingStatus.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

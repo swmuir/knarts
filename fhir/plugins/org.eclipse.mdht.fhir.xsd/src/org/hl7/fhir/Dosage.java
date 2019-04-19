@@ -28,21 +28,17 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Dosage#getSite <em>Site</em>}</li>
  *   <li>{@link org.hl7.fhir.Dosage#getRoute <em>Route</em>}</li>
  *   <li>{@link org.hl7.fhir.Dosage#getMethod <em>Method</em>}</li>
- *   <li>{@link org.hl7.fhir.Dosage#getDoseRange <em>Dose Range</em>}</li>
- *   <li>{@link org.hl7.fhir.Dosage#getDoseQuantity <em>Dose Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Dosage#getDoseAndRate <em>Dose And Rate</em>}</li>
  *   <li>{@link org.hl7.fhir.Dosage#getMaxDosePerPeriod <em>Max Dose Per Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Dosage#getMaxDosePerAdministration <em>Max Dose Per Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.Dosage#getMaxDosePerLifetime <em>Max Dose Per Lifetime</em>}</li>
- *   <li>{@link org.hl7.fhir.Dosage#getRateRatio <em>Rate Ratio</em>}</li>
- *   <li>{@link org.hl7.fhir.Dosage#getRateRange <em>Rate Range</em>}</li>
- *   <li>{@link org.hl7.fhir.Dosage#getRateQuantity <em>Rate Quantity</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getDosage()
  * @model extendedMetaData="name='Dosage' kind='elementOnly'"
  * @generated
  */
-public interface Dosage extends Element {
+public interface Dosage extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -296,58 +292,20 @@ public interface Dosage extends Element {
 	void setMethod(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Dose Range</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dose And Rate</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DosageDoseAndRate}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dose Range</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dose Range</em>' containment reference.
-	 * @see #setDoseRange(Range)
-	 * @see org.hl7.fhir.FhirPackage#getDosage_DoseRange()
+	 * <!-- begin-model-doc -->
+	 * The amount of medication administered.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Dose And Rate</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDosage_DoseAndRate()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='doseRange' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='doseAndRate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Range getDoseRange();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Dosage#getDoseRange <em>Dose Range</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dose Range</em>' containment reference.
-	 * @see #getDoseRange()
-	 * @generated
-	 */
-	void setDoseRange(Range value);
-
-	/**
-	 * Returns the value of the '<em><b>Dose Quantity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dose Quantity</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dose Quantity</em>' containment reference.
-	 * @see #setDoseQuantity(Quantity)
-	 * @see org.hl7.fhir.FhirPackage#getDosage_DoseQuantity()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='doseQuantity' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Quantity getDoseQuantity();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Dosage#getDoseQuantity <em>Dose Quantity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dose Quantity</em>' containment reference.
-	 * @see #getDoseQuantity()
-	 * @generated
-	 */
-	void setDoseQuantity(Quantity value);
+	EList<DosageDoseAndRate> getDoseAndRate();
 
 	/**
 	 * Returns the value of the '<em><b>Max Dose Per Period</b></em>' containment reference.
@@ -426,86 +384,5 @@ public interface Dosage extends Element {
 	 * @generated
 	 */
 	void setMaxDosePerLifetime(Quantity value);
-
-	/**
-	 * Returns the value of the '<em><b>Rate Ratio</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rate Ratio</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rate Ratio</em>' containment reference.
-	 * @see #setRateRatio(Ratio)
-	 * @see org.hl7.fhir.FhirPackage#getDosage_RateRatio()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rateRatio' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Ratio getRateRatio();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Dosage#getRateRatio <em>Rate Ratio</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rate Ratio</em>' containment reference.
-	 * @see #getRateRatio()
-	 * @generated
-	 */
-	void setRateRatio(Ratio value);
-
-	/**
-	 * Returns the value of the '<em><b>Rate Range</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rate Range</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rate Range</em>' containment reference.
-	 * @see #setRateRange(Range)
-	 * @see org.hl7.fhir.FhirPackage#getDosage_RateRange()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rateRange' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Range getRateRange();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Dosage#getRateRange <em>Rate Range</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rate Range</em>' containment reference.
-	 * @see #getRateRange()
-	 * @generated
-	 */
-	void setRateRange(Range value);
-
-	/**
-	 * Returns the value of the '<em><b>Rate Quantity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rate Quantity</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rate Quantity</em>' containment reference.
-	 * @see #setRateQuantity(Quantity)
-	 * @see org.hl7.fhir.FhirPackage#getDosage_RateQuantity()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rateQuantity' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Quantity getRateQuantity();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Dosage#getRateQuantity <em>Rate Quantity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rate Quantity</em>' containment reference.
-	 * @see #getRateQuantity()
-	 * @generated
-	 */
-	void setRateQuantity(Quantity value);
 
 } // Dosage

@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Specifies clinical/business/etc metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
+ * Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *
@@ -21,6 +21,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.UsageContext#getValueCodeableConcept <em>Value Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.UsageContext#getValueQuantity <em>Value Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.UsageContext#getValueRange <em>Value Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.UsageContext#getValueReference <em>Value Reference</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getUsageContext()
@@ -134,5 +135,32 @@ public interface UsageContext extends Element {
 	 * @generated
 	 */
 	void setValueRange(Range value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Reference</em>' containment reference.
+	 * @see #setValueReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getUsageContext_ValueReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getValueReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.UsageContext#getValueReference <em>Value Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Reference</em>' containment reference.
+	 * @see #getValueReference()
+	 * @generated
+	 */
+	void setValueReference(Reference value);
 
 } // UsageContext

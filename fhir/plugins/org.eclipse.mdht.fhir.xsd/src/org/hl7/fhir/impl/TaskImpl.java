@@ -18,16 +18,17 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
-import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.Task;
 import org.hl7.fhir.TaskInput;
+import org.hl7.fhir.TaskIntent;
 import org.hl7.fhir.TaskOutput;
 import org.hl7.fhir.TaskRestriction;
 import org.hl7.fhir.TaskStatus;
@@ -42,8 +43,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getInstantiatesReference <em>Instantiates Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPartOf <em>Part Of</em>}</li>
@@ -56,15 +57,17 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getFor <em>For</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.TaskImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getExecutionPeriod <em>Execution Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getLastModified <em>Last Modified</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getOwner <em>Owner</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TaskImpl#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getRelevantHistory <em>Relevant History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TaskImpl#getRestriction <em>Restriction</em>}</li>
@@ -86,6 +89,16 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected EList<Identifier> identifier;
 
 	/**
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesCanonical()
+	 * @generated
+	 * @ordered
+	 */
+	protected Canonical instantiatesCanonical;
+
+	/**
 	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,16 +107,6 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * @ordered
 	 */
 	protected Uri instantiatesUri;
-
-	/**
-	 * The cached value of the '{@link #getInstantiatesReference() <em>Instantiates Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInstantiatesReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference instantiatesReference;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -173,7 +176,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected RequestIntent intent;
+	protected TaskIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -226,14 +229,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected Reference for_;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getExecutionPeriod() <em>Execution Period</em>}' containment reference.
@@ -296,6 +299,16 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	protected Reference owner;
 
 	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference location;
+
+	/**
 	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,6 +327,16 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * @ordered
 	 */
 	protected Reference reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getInsurance() <em>Insurance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInsurance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> insurance;
 
 	/**
 	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
@@ -401,6 +424,49 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Canonical getInstantiatesCanonical() {
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInstantiatesCanonical(Canonical newInstantiatesCanonical, NotificationChain msgs) {
+		Canonical oldInstantiatesCanonical = instantiatesCanonical;
+		instantiatesCanonical = newInstantiatesCanonical;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INSTANTIATES_CANONICAL, oldInstantiatesCanonical, newInstantiatesCanonical);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInstantiatesCanonical(Canonical newInstantiatesCanonical) {
+		if (newInstantiatesCanonical != instantiatesCanonical) {
+			NotificationChain msgs = null;
+			if (instantiatesCanonical != null)
+				msgs = ((InternalEObject)instantiatesCanonical).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__INSTANTIATES_CANONICAL, null, msgs);
+			if (newInstantiatesCanonical != null)
+				msgs = ((InternalEObject)newInstantiatesCanonical).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__INSTANTIATES_CANONICAL, null, msgs);
+			msgs = basicSetInstantiatesCanonical(newInstantiatesCanonical, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INSTANTIATES_CANONICAL, newInstantiatesCanonical, newInstantiatesCanonical));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Uri getInstantiatesUri() {
 		return instantiatesUri;
 	}
@@ -437,49 +503,6 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INSTANTIATES_URI, newInstantiatesUri, newInstantiatesUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getInstantiatesReference() {
-		return instantiatesReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInstantiatesReference(Reference newInstantiatesReference, NotificationChain msgs) {
-		Reference oldInstantiatesReference = instantiatesReference;
-		instantiatesReference = newInstantiatesReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INSTANTIATES_REFERENCE, oldInstantiatesReference, newInstantiatesReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInstantiatesReference(Reference newInstantiatesReference) {
-		if (newInstantiatesReference != instantiatesReference) {
-			NotificationChain msgs = null;
-			if (instantiatesReference != null)
-				msgs = ((InternalEObject)instantiatesReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__INSTANTIATES_REFERENCE, null, msgs);
-			if (newInstantiatesReference != null)
-				msgs = ((InternalEObject)newInstantiatesReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__INSTANTIATES_REFERENCE, null, msgs);
-			msgs = basicSetInstantiatesReference(newInstantiatesReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INSTANTIATES_REFERENCE, newInstantiatesReference, newInstantiatesReference));
 	}
 
 	/**
@@ -683,7 +706,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequestIntent getIntent() {
+	public TaskIntent getIntent() {
 		return intent;
 	}
 
@@ -692,8 +715,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
-		RequestIntent oldIntent = intent;
+	public NotificationChain basicSetIntent(TaskIntent newIntent, NotificationChain msgs) {
+		TaskIntent oldIntent = intent;
 		intent = newIntent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__INTENT, oldIntent, newIntent);
@@ -707,7 +730,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntent(RequestIntent newIntent) {
+	public void setIntent(TaskIntent newIntent) {
 		if (newIntent != intent) {
 			NotificationChain msgs = null;
 			if (intent != null)
@@ -941,8 +964,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -950,11 +973,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -965,18 +988,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -1211,6 +1234,49 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
+		Reference oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__LOCATION, oldLocation, newLocation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocation(Reference newLocation) {
+		if (newLocation != location) {
+			NotificationChain msgs = null;
+			if (location != null)
+				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__LOCATION, null, msgs);
+			if (newLocation != null)
+				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TASK__LOCATION, null, msgs);
+			msgs = basicSetLocation(newLocation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__LOCATION, newLocation, newLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodeableConcept getReasonCode() {
 		return reasonCode;
 	}
@@ -1290,6 +1356,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TASK__REASON_REFERENCE, newReasonReference, newReasonReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getInsurance() {
+		if (insurance == null) {
+			insurance = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.TASK__INSURANCE);
+		}
+		return insurance;
 	}
 
 	/**
@@ -1393,10 +1471,10 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
+			case FhirPackage.TASK__INSTANTIATES_CANONICAL:
+				return basicSetInstantiatesCanonical(null, msgs);
 			case FhirPackage.TASK__INSTANTIATES_URI:
 				return basicSetInstantiatesUri(null, msgs);
-			case FhirPackage.TASK__INSTANTIATES_REFERENCE:
-				return basicSetInstantiatesReference(null, msgs);
 			case FhirPackage.TASK__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__GROUP_IDENTIFIER:
@@ -1421,8 +1499,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return basicSetFocus(null, msgs);
 			case FhirPackage.TASK__FOR:
 				return basicSetFor(null, msgs);
-			case FhirPackage.TASK__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.TASK__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.TASK__EXECUTION_PERIOD:
 				return basicSetExecutionPeriod(null, msgs);
 			case FhirPackage.TASK__AUTHORED_ON:
@@ -1435,10 +1513,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return ((InternalEList<?>)getPerformerType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__OWNER:
 				return basicSetOwner(null, msgs);
+			case FhirPackage.TASK__LOCATION:
+				return basicSetLocation(null, msgs);
 			case FhirPackage.TASK__REASON_CODE:
 				return basicSetReasonCode(null, msgs);
 			case FhirPackage.TASK__REASON_REFERENCE:
 				return basicSetReasonReference(null, msgs);
+			case FhirPackage.TASK__INSURANCE:
+				return ((InternalEList<?>)getInsurance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__NOTE:
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TASK__RELEVANT_HISTORY:
@@ -1463,10 +1545,10 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return getIdentifier();
+			case FhirPackage.TASK__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
 			case FhirPackage.TASK__INSTANTIATES_URI:
 				return getInstantiatesUri();
-			case FhirPackage.TASK__INSTANTIATES_REFERENCE:
-				return getInstantiatesReference();
 			case FhirPackage.TASK__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.TASK__GROUP_IDENTIFIER:
@@ -1491,8 +1573,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return getFocus();
 			case FhirPackage.TASK__FOR:
 				return getFor();
-			case FhirPackage.TASK__CONTEXT:
-				return getContext();
+			case FhirPackage.TASK__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.TASK__EXECUTION_PERIOD:
 				return getExecutionPeriod();
 			case FhirPackage.TASK__AUTHORED_ON:
@@ -1505,10 +1587,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return getPerformerType();
 			case FhirPackage.TASK__OWNER:
 				return getOwner();
+			case FhirPackage.TASK__LOCATION:
+				return getLocation();
 			case FhirPackage.TASK__REASON_CODE:
 				return getReasonCode();
 			case FhirPackage.TASK__REASON_REFERENCE:
 				return getReasonReference();
+			case FhirPackage.TASK__INSURANCE:
+				return getInsurance();
 			case FhirPackage.TASK__NOTE:
 				return getNote();
 			case FhirPackage.TASK__RELEVANT_HISTORY:
@@ -1536,11 +1622,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
+			case FhirPackage.TASK__INSTANTIATES_CANONICAL:
+				setInstantiatesCanonical((Canonical)newValue);
+				return;
 			case FhirPackage.TASK__INSTANTIATES_URI:
 				setInstantiatesUri((Uri)newValue);
-				return;
-			case FhirPackage.TASK__INSTANTIATES_REFERENCE:
-				setInstantiatesReference((Reference)newValue);
 				return;
 			case FhirPackage.TASK__BASED_ON:
 				getBasedOn().clear();
@@ -1563,7 +1649,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				setBusinessStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.TASK__INTENT:
-				setIntent((RequestIntent)newValue);
+				setIntent((TaskIntent)newValue);
 				return;
 			case FhirPackage.TASK__PRIORITY:
 				setPriority((RequestPriority)newValue);
@@ -1580,8 +1666,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__FOR:
 				setFor((Reference)newValue);
 				return;
-			case FhirPackage.TASK__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.TASK__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.TASK__EXECUTION_PERIOD:
 				setExecutionPeriod((Period)newValue);
@@ -1602,11 +1688,18 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__OWNER:
 				setOwner((Reference)newValue);
 				return;
+			case FhirPackage.TASK__LOCATION:
+				setLocation((Reference)newValue);
+				return;
 			case FhirPackage.TASK__REASON_CODE:
 				setReasonCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.TASK__REASON_REFERENCE:
 				setReasonReference((Reference)newValue);
+				return;
+			case FhirPackage.TASK__INSURANCE:
+				getInsurance().clear();
+				getInsurance().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.TASK__NOTE:
 				getNote().clear();
@@ -1642,11 +1735,11 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__IDENTIFIER:
 				getIdentifier().clear();
 				return;
+			case FhirPackage.TASK__INSTANTIATES_CANONICAL:
+				setInstantiatesCanonical((Canonical)null);
+				return;
 			case FhirPackage.TASK__INSTANTIATES_URI:
 				setInstantiatesUri((Uri)null);
-				return;
-			case FhirPackage.TASK__INSTANTIATES_REFERENCE:
-				setInstantiatesReference((Reference)null);
 				return;
 			case FhirPackage.TASK__BASED_ON:
 				getBasedOn().clear();
@@ -1667,7 +1760,7 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				setBusinessStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.TASK__INTENT:
-				setIntent((RequestIntent)null);
+				setIntent((TaskIntent)null);
 				return;
 			case FhirPackage.TASK__PRIORITY:
 				setPriority((RequestPriority)null);
@@ -1684,8 +1777,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__FOR:
 				setFor((Reference)null);
 				return;
-			case FhirPackage.TASK__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.TASK__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.TASK__EXECUTION_PERIOD:
 				setExecutionPeriod((Period)null);
@@ -1705,11 +1798,17 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 			case FhirPackage.TASK__OWNER:
 				setOwner((Reference)null);
 				return;
+			case FhirPackage.TASK__LOCATION:
+				setLocation((Reference)null);
+				return;
 			case FhirPackage.TASK__REASON_CODE:
 				setReasonCode((CodeableConcept)null);
 				return;
 			case FhirPackage.TASK__REASON_REFERENCE:
 				setReasonReference((Reference)null);
+				return;
+			case FhirPackage.TASK__INSURANCE:
+				getInsurance().clear();
 				return;
 			case FhirPackage.TASK__NOTE:
 				getNote().clear();
@@ -1740,10 +1839,10 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 		switch (featureID) {
 			case FhirPackage.TASK__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
+			case FhirPackage.TASK__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null;
 			case FhirPackage.TASK__INSTANTIATES_URI:
 				return instantiatesUri != null;
-			case FhirPackage.TASK__INSTANTIATES_REFERENCE:
-				return instantiatesReference != null;
 			case FhirPackage.TASK__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.TASK__GROUP_IDENTIFIER:
@@ -1768,8 +1867,8 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return focus != null;
 			case FhirPackage.TASK__FOR:
 				return for_ != null;
-			case FhirPackage.TASK__CONTEXT:
-				return context != null;
+			case FhirPackage.TASK__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.TASK__EXECUTION_PERIOD:
 				return executionPeriod != null;
 			case FhirPackage.TASK__AUTHORED_ON:
@@ -1782,10 +1881,14 @@ public class TaskImpl extends DomainResourceImpl implements Task {
 				return performerType != null && !performerType.isEmpty();
 			case FhirPackage.TASK__OWNER:
 				return owner != null;
+			case FhirPackage.TASK__LOCATION:
+				return location != null;
 			case FhirPackage.TASK__REASON_CODE:
 				return reasonCode != null;
 			case FhirPackage.TASK__REASON_REFERENCE:
 				return reasonReference != null;
+			case FhirPackage.TASK__INSURANCE:
+				return insurance != null && !insurance.isEmpty();
 			case FhirPackage.TASK__NOTE:
 				return note != null && !note.isEmpty();
 			case FhirPackage.TASK__RELEVANT_HISTORY:

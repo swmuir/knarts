@@ -33,13 +33,13 @@ public interface MessageDefinitionAllowedResponse extends BackboneElement {
 	 * A reference to the message definition that must be adhered to by this supported response.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Message</em>' containment reference.
-	 * @see #setMessage(Reference)
+	 * @see #setMessage(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinitionAllowedResponse_Message()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='message' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getMessage();
+	Canonical getMessage();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinitionAllowedResponse#getMessage <em>Message</em>}' containment reference.
@@ -49,7 +49,7 @@ public interface MessageDefinitionAllowedResponse extends BackboneElement {
 	 * @see #getMessage()
 	 * @generated
 	 */
-	void setMessage(Reference value);
+	void setMessage(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Situation</b></em>' containment reference.

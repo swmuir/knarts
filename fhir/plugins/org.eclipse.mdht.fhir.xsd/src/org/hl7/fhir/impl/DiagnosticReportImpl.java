@@ -43,7 +43,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEffectiveDateTime <em>Effective Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getEffectivePeriod <em>Effective Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getIssued <em>Issued</em>}</li>
@@ -54,7 +54,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getImagingStudy <em>Imaging Study</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getMedia <em>Media</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getConclusion <em>Conclusion</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getCodedDiagnosis <em>Coded Diagnosis</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getConclusionCode <em>Conclusion Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DiagnosticReportImpl#getPresentedForm <em>Presented Form</em>}</li>
  * </ul>
  *
@@ -92,14 +92,14 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	protected DiagnosticReportStatus status;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept category;
+	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -122,14 +122,14 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getEffectiveDateTime() <em>Effective Date Time</em>}' containment reference.
@@ -232,14 +232,14 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	protected org.hl7.fhir.String conclusion;
 
 	/**
-	 * The cached value of the '{@link #getCodedDiagnosis() <em>Coded Diagnosis</em>}' containment reference list.
+	 * The cached value of the '{@link #getConclusionCode() <em>Conclusion Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodedDiagnosis()
+	 * @see #getConclusionCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> codedDiagnosis;
+	protected EList<CodeableConcept> conclusionCode;
 
 	/**
 	 * The cached value of the '{@link #getPresentedForm() <em>Presented Form</em>}' containment reference list.
@@ -342,42 +342,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getCategory() {
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_REPORT__CATEGORY);
+		}
 		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCategory(CodeableConcept newCategory, NotificationChain msgs) {
-		CodeableConcept oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CATEGORY, oldCategory, newCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategory(CodeableConcept newCategory) {
-		if (newCategory != category) {
-			NotificationChain msgs = null;
-			if (category != null)
-				msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CATEGORY, null, msgs);
-			if (newCategory != null)
-				msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CATEGORY, null, msgs);
-			msgs = basicSetCategory(newCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CATEGORY, newCategory, newCategory));
 	}
 
 	/**
@@ -471,8 +440,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -480,11 +449,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -495,18 +464,18 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -758,11 +727,11 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getCodedDiagnosis() {
-		if (codedDiagnosis == null) {
-			codedDiagnosis = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS);
+	public EList<CodeableConcept> getConclusionCode() {
+		if (conclusionCode == null) {
+			conclusionCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE);
 		}
-		return codedDiagnosis;
+		return conclusionCode;
 	}
 
 	/**
@@ -792,13 +761,13 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
-				return basicSetCategory(null, msgs);
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return basicSetEffectiveDateTime(null, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -819,8 +788,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return ((InternalEList<?>)getMedia()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return basicSetConclusion(null, msgs);
-			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
-				return ((InternalEList<?>)getCodedDiagnosis()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE:
+				return ((InternalEList<?>)getConclusionCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM:
 				return ((InternalEList<?>)getPresentedForm()).basicRemove(otherEnd, msgs);
 		}
@@ -847,8 +816,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return getCode();
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return getSubject();
-			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
-				return getContext();
+			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return getEffectiveDateTime();
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -869,8 +838,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return getMedia();
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return getConclusion();
-			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
-				return getCodedDiagnosis();
+			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE:
+				return getConclusionCode();
 			case FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM:
 				return getPresentedForm();
 		}
@@ -898,7 +867,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				setStatus((DiagnosticReportStatus)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
-				setCategory((CodeableConcept)newValue);
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CODE:
 				setCode((CodeableConcept)newValue);
@@ -906,8 +876,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)newValue);
@@ -945,9 +915,9 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				setConclusion((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
-				getCodedDiagnosis().clear();
-				getCodedDiagnosis().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE:
+				getConclusionCode().clear();
+				getConclusionCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM:
 				getPresentedForm().clear();
@@ -975,7 +945,7 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				setStatus((DiagnosticReportStatus)null);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
-				setCategory((CodeableConcept)null);
+				getCategory().clear();
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__CODE:
 				setCode((CodeableConcept)null);
@@ -983,8 +953,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				setEffectiveDateTime((DateTime)null);
@@ -1016,8 +986,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				setConclusion((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
-				getCodedDiagnosis().clear();
+			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE:
+				getConclusionCode().clear();
 				return;
 			case FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM:
 				getPresentedForm().clear();
@@ -1041,13 +1011,13 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 			case FhirPackage.DIAGNOSTIC_REPORT__STATUS:
 				return status != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__CATEGORY:
-				return category != null;
+				return category != null && !category.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__CODE:
 				return code != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__SUBJECT:
 				return subject != null;
-			case FhirPackage.DIAGNOSTIC_REPORT__CONTEXT:
-				return context != null;
+			case FhirPackage.DIAGNOSTIC_REPORT__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_DATE_TIME:
 				return effectiveDateTime != null;
 			case FhirPackage.DIAGNOSTIC_REPORT__EFFECTIVE_PERIOD:
@@ -1068,8 +1038,8 @@ public class DiagnosticReportImpl extends DomainResourceImpl implements Diagnost
 				return media != null && !media.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION:
 				return conclusion != null;
-			case FhirPackage.DIAGNOSTIC_REPORT__CODED_DIAGNOSIS:
-				return codedDiagnosis != null && !codedDiagnosis.isEmpty();
+			case FhirPackage.DIAGNOSTIC_REPORT__CONCLUSION_CODE:
+				return conclusionCode != null && !conclusionCode.isEmpty();
 			case FhirPackage.DIAGNOSTIC_REPORT__PRESENTED_FORM:
 				return presentedForm != null && !presentedForm.isEmpty();
 		}

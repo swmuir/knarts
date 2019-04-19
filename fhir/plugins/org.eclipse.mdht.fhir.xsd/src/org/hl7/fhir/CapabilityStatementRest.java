@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -66,13 +66,13 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 * Information about the system's restful capabilities that apply across all applications, such as security.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Documentation</em>' containment reference.
-	 * @see #setDocumentation(org.hl7.fhir.String)
+	 * @see #setDocumentation(Markdown)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementRest_Documentation()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='documentation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getDocumentation();
+	Markdown getDocumentation();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementRest#getDocumentation <em>Documentation</em>}' containment reference.
@@ -82,7 +82,7 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 * @see #getDocumentation()
 	 * @generated
 	 */
-	void setDocumentation(org.hl7.fhir.String value);
+	void setDocumentation(Markdown value);
 
 	/**
 	 * Returns the value of the '<em><b>Security</b></em>' containment reference.
@@ -176,7 +176,7 @@ public interface CapabilityStatementRest extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Compartment</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -188,6 +188,6 @@ public interface CapabilityStatementRest extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='compartment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getCompartment();
+	EList<Canonical> getCompartment();
 
 } // CapabilityStatementRest

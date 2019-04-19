@@ -28,7 +28,7 @@ import org.hl7.fhir.FhirPackage;
  *
  * @generated
  */
-public class ElementDefinitionDiscriminatorImpl extends ElementImpl implements ElementDefinitionDiscriminator {
+public class ElementDefinitionDiscriminatorImpl extends BackboneElementImpl implements ElementDefinitionDiscriminator {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->

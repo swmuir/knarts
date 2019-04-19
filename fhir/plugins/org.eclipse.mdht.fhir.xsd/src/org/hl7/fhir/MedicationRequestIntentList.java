@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see org.hl7.fhir.FhirPackage#getMedicationRequestIntentList()
- * @model extendedMetaData="name='MedicationRequestIntent-list'"
+ * @model extendedMetaData="name='medicationRequestIntent-list'"
  * @generated
  */
 public enum MedicationRequestIntentList implements Enumerator {
@@ -51,6 +51,36 @@ public enum MedicationRequestIntentList implements Enumerator {
 	ORDER(2, "order", "order"),
 
 	/**
+	 * The '<em><b>Original Order</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ORIGINAL_ORDER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ORIGINAL_ORDER(3, "originalOrder", "original-order"),
+
+	/**
+	 * The '<em><b>Reflex Order</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REFLEX_ORDER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REFLEX_ORDER(4, "reflexOrder", "reflex-order"),
+
+	/**
+	 * The '<em><b>Filler Order</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILLER_ORDER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILLER_ORDER(5, "fillerOrder", "filler-order"),
+
+	/**
 	 * The '<em><b>Instance Order</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +88,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INSTANCE_ORDER(3, "instanceOrder", "instance-order"),
+	INSTANCE_ORDER(6, "instanceOrder", "instance-order"),
 
 	/**
 	 * The '<em><b>Option</b></em>' literal object.
@@ -68,7 +98,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPTION(4, "option", "option");
+	OPTION(7, "option", "option");
 
 	/**
 	 * The '<em><b>Proposal</b></em>' literal value.
@@ -113,6 +143,48 @@ public enum MedicationRequestIntentList implements Enumerator {
 	public static final int ORDER_VALUE = 2;
 
 	/**
+	 * The '<em><b>Original Order</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Original Order
+	 * <!-- end-model-doc -->
+	 * @see #ORIGINAL_ORDER
+	 * @model name="originalOrder" literal="original-order"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ORIGINAL_ORDER_VALUE = 3;
+
+	/**
+	 * The '<em><b>Reflex Order</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reflex Order
+	 * <!-- end-model-doc -->
+	 * @see #REFLEX_ORDER
+	 * @model name="reflexOrder" literal="reflex-order"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REFLEX_ORDER_VALUE = 4;
+
+	/**
+	 * The '<em><b>Filler Order</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Filler Order
+	 * <!-- end-model-doc -->
+	 * @see #FILLER_ORDER
+	 * @model name="fillerOrder" literal="filler-order"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILLER_ORDER_VALUE = 5;
+
+	/**
 	 * The '<em><b>Instance Order</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,7 +196,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INSTANCE_ORDER_VALUE = 3;
+	public static final int INSTANCE_ORDER_VALUE = 6;
 
 	/**
 	 * The '<em><b>Option</b></em>' literal value.
@@ -138,7 +210,7 @@ public enum MedicationRequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPTION_VALUE = 4;
+	public static final int OPTION_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>Medication Request Intent List</b></em>' enumerators.
@@ -151,6 +223,9 @@ public enum MedicationRequestIntentList implements Enumerator {
 			PROPOSAL,
 			PLAN,
 			ORDER,
+			ORIGINAL_ORDER,
+			REFLEX_ORDER,
+			FILLER_ORDER,
 			INSTANCE_ORDER,
 			OPTION,
 		};
@@ -212,6 +287,9 @@ public enum MedicationRequestIntentList implements Enumerator {
 			case PROPOSAL_VALUE: return PROPOSAL;
 			case PLAN_VALUE: return PLAN;
 			case ORDER_VALUE: return ORDER;
+			case ORIGINAL_ORDER_VALUE: return ORIGINAL_ORDER;
+			case REFLEX_ORDER_VALUE: return REFLEX_ORDER;
+			case FILLER_ORDER_VALUE: return FILLER_ORDER;
 			case INSTANCE_ORDER_VALUE: return INSTANCE_ORDER;
 			case OPTION_VALUE: return OPTION;
 		}

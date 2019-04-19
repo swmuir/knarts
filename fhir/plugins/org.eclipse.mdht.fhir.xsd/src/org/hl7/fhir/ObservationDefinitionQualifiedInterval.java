@@ -19,8 +19,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getRange <em>Range</em>}</li>
- *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getContext <em>Context</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getAppliesTo <em>Applies To</em>}</li>
+ *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getGender <em>Gender</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getAge <em>Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getGestationalAge <em>Gestational Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getCondition <em>Condition</em>}</li>
@@ -36,16 +37,16 @@ public interface ObservationDefinitionQualifiedInterval extends BackboneElement 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The category or type of interval.
+	 * The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
+	 * @see #setCategory(ObservationRangeCategory)
 	 * @see org.hl7.fhir.FhirPackage#getObservationDefinitionQualifiedInterval_Category()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
+	ObservationRangeCategory getCategory();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getCategory <em>Category</em>}' containment reference.
@@ -55,14 +56,14 @@ public interface ObservationDefinitionQualifiedInterval extends BackboneElement 
 	 * @see #getCategory()
 	 * @generated
 	 */
-	void setCategory(CodeableConcept value);
+	void setCategory(ObservationRangeCategory value);
 
 	/**
 	 * Returns the value of the '<em><b>Range</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The value and associated unit of the low bound (inclusive) of the reference range.
+	 * The low and high values determining the interval. There may be only one of the two.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Range</em>' containment reference.
 	 * @see #setRange(Range)
@@ -84,30 +85,30 @@ public interface ObservationDefinitionQualifiedInterval extends BackboneElement 
 	void setRange(Range value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Codes to indicate what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
+	 * Codes to indicate the health context the range applies to. For example, the normal or therapeutic range.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getObservationDefinitionQualifiedInterval_Type()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getObservationDefinitionQualifiedInterval_Context()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getType();
+	CodeableConcept getContext();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getType <em>Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' containment reference.
-	 * @see #getType()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setType(CodeableConcept value);
+	void setContext(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Applies To</b></em>' containment reference list.
@@ -124,6 +125,32 @@ public interface ObservationDefinitionQualifiedInterval extends BackboneElement 
 	 * @generated
 	 */
 	EList<CodeableConcept> getAppliesTo();
+
+	/**
+	 * Returns the value of the '<em><b>Gender</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Sex of the population the range applies to.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Gender</em>' containment reference.
+	 * @see #setGender(AdministrativeGender)
+	 * @see org.hl7.fhir.FhirPackage#getObservationDefinitionQualifiedInterval_Gender()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='gender' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	AdministrativeGender getGender();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ObservationDefinitionQualifiedInterval#getGender <em>Gender</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gender</em>' containment reference.
+	 * @see #getGender()
+	 * @generated
+	 */
+	void setGender(AdministrativeGender value);
 
 	/**
 	 * Returns the value of the '<em><b>Age</b></em>' containment reference.
@@ -156,7 +183,7 @@ public interface ObservationDefinitionQualifiedInterval extends BackboneElement 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The gestational age at which this reference range is applicable, in the context of pregnancy.
+	 * The gestational age to which this reference range is applicable, in the context of pregnancy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Gestational Age</em>' containment reference.
 	 * @see #setGestationalAge(Range)

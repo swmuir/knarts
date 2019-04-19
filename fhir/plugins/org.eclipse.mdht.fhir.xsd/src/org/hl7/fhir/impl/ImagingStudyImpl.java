@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
@@ -24,8 +25,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ImagingStudy;
 import org.hl7.fhir.ImagingStudySeries;
-import org.hl7.fhir.InstanceAvailability;
-import org.hl7.fhir.Oid;
+import org.hl7.fhir.ImagingStudyStatus;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
 
@@ -37,13 +37,11 @@ import org.hl7.fhir.UnsignedInt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getUid <em>Uid</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getAccession <em>Accession</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getModalityList <em>Modality List</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getStarted <em>Started</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReferrer <em>Referrer</em>}</li>
@@ -53,7 +51,10 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedureReference <em>Procedure Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getProcedureCode <em>Procedure Code</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudyImpl#getSeries <em>Series</em>}</li>
  * </ul>
@@ -61,26 +62,6 @@ import org.hl7.fhir.UnsignedInt;
  * @generated
  */
 public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy {
-	/**
-	 * The cached value of the '{@link #getUid() <em>Uid</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUid()
-	 * @generated
-	 * @ordered
-	 */
-	protected Oid uid;
-
-	/**
-	 * The cached value of the '{@link #getAccession() <em>Accession</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccession()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier accession;
-
 	/**
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -92,24 +73,24 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAvailability()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected InstanceAvailability availability;
+	protected ImagingStudyStatus status;
 
 	/**
-	 * The cached value of the '{@link #getModalityList() <em>Modality List</em>}' containment reference list.
+	 * The cached value of the '{@link #getModality() <em>Modality</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModalityList()
+	 * @see #getModality()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Coding> modalityList;
+	protected EList<Coding> modality;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -122,14 +103,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getStarted() <em>Started</em>}' containment reference.
@@ -202,14 +183,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected UnsignedInt numberOfInstances;
 
 	/**
-	 * The cached value of the '{@link #getProcedureReference() <em>Procedure Reference</em>}' containment reference list.
+	 * The cached value of the '{@link #getProcedureReference() <em>Procedure Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProcedureReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> procedureReference;
+	protected Reference procedureReference;
 
 	/**
 	 * The cached value of the '{@link #getProcedureCode() <em>Procedure Code</em>}' containment reference list.
@@ -222,14 +203,44 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	protected EList<CodeableConcept> procedureCode;
 
 	/**
-	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReason()
+	 * @see #getLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reason;
+	protected Reference location;
+
+	/**
+	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> reasonCode;
+
+	/**
+	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReasonReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> reasonReference;
+
+	/**
+	 * The cached value of the '{@link #getNote() <em>Note</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> note;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
@@ -275,92 +286,6 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Oid getUid() {
-		return uid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUid(Oid newUid, NotificationChain msgs) {
-		Oid oldUid = uid;
-		uid = newUid;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__UID, oldUid, newUid);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUid(Oid newUid) {
-		if (newUid != uid) {
-			NotificationChain msgs = null;
-			if (uid != null)
-				msgs = ((InternalEObject)uid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__UID, null, msgs);
-			if (newUid != null)
-				msgs = ((InternalEObject)newUid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__UID, null, msgs);
-			msgs = basicSetUid(newUid, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__UID, newUid, newUid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getAccession() {
-		return accession;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAccession(Identifier newAccession, NotificationChain msgs) {
-		Identifier oldAccession = accession;
-		accession = newAccession;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__ACCESSION, oldAccession, newAccession);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAccession(Identifier newAccession) {
-		if (newAccession != accession) {
-			NotificationChain msgs = null;
-			if (accession != null)
-				msgs = ((InternalEObject)accession).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__ACCESSION, null, msgs);
-			if (newAccession != null)
-				msgs = ((InternalEObject)newAccession).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__ACCESSION, null, msgs);
-			msgs = basicSetAccession(newAccession, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__ACCESSION, newAccession, newAccession));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Identifier> getIdentifier() {
 		if (identifier == null) {
 			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.IMAGING_STUDY__IDENTIFIER);
@@ -373,8 +298,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceAvailability getAvailability() {
-		return availability;
+	public ImagingStudyStatus getStatus() {
+		return status;
 	}
 
 	/**
@@ -382,11 +307,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAvailability(InstanceAvailability newAvailability, NotificationChain msgs) {
-		InstanceAvailability oldAvailability = availability;
-		availability = newAvailability;
+	public NotificationChain basicSetStatus(ImagingStudyStatus newStatus, NotificationChain msgs) {
+		ImagingStudyStatus oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, oldAvailability, newAvailability);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STATUS, oldStatus, newStatus);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -397,18 +322,18 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAvailability(InstanceAvailability newAvailability) {
-		if (newAvailability != availability) {
+	public void setStatus(ImagingStudyStatus newStatus) {
+		if (newStatus != status) {
 			NotificationChain msgs = null;
-			if (availability != null)
-				msgs = ((InternalEObject)availability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
-			if (newAvailability != null)
-				msgs = ((InternalEObject)newAvailability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__AVAILABILITY, null, msgs);
-			msgs = basicSetAvailability(newAvailability, msgs);
+			if (status != null)
+				msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STATUS, null, msgs);
+			if (newStatus != null)
+				msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__STATUS, null, msgs);
+			msgs = basicSetStatus(newStatus, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__AVAILABILITY, newAvailability, newAvailability));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__STATUS, newStatus, newStatus));
 	}
 
 	/**
@@ -416,11 +341,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getModalityList() {
-		if (modalityList == null) {
-			modalityList = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.IMAGING_STUDY__MODALITY_LIST);
+	public EList<Coding> getModality() {
+		if (modality == null) {
+			modality = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.IMAGING_STUDY__MODALITY);
 		}
-		return modalityList;
+		return modality;
 	}
 
 	/**
@@ -471,8 +396,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -480,11 +405,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -495,18 +420,18 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -722,11 +647,42 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getProcedureReference() {
-		if (procedureReference == null) {
-			procedureReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE);
-		}
+	public Reference getProcedureReference() {
 		return procedureReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProcedureReference(Reference newProcedureReference, NotificationChain msgs) {
+		Reference oldProcedureReference = procedureReference;
+		procedureReference = newProcedureReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE, oldProcedureReference, newProcedureReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcedureReference(Reference newProcedureReference) {
+		if (newProcedureReference != procedureReference) {
+			NotificationChain msgs = null;
+			if (procedureReference != null)
+				msgs = ((InternalEObject)procedureReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE, null, msgs);
+			if (newProcedureReference != null)
+				msgs = ((InternalEObject)newProcedureReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE, null, msgs);
+			msgs = basicSetProcedureReference(newProcedureReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE, newProcedureReference, newProcedureReference));
 	}
 
 	/**
@@ -746,8 +702,8 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReason() {
-		return reason;
+	public Reference getLocation() {
+		return location;
 	}
 
 	/**
@@ -755,11 +711,11 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReason(CodeableConcept newReason, NotificationChain msgs) {
-		CodeableConcept oldReason = reason;
-		reason = newReason;
+	public NotificationChain basicSetLocation(Reference newLocation, NotificationChain msgs) {
+		Reference oldLocation = location;
+		location = newLocation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__REASON, oldReason, newReason);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__LOCATION, oldLocation, newLocation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -770,18 +726,54 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReason(CodeableConcept newReason) {
-		if (newReason != reason) {
+	public void setLocation(Reference newLocation) {
+		if (newLocation != location) {
 			NotificationChain msgs = null;
-			if (reason != null)
-				msgs = ((InternalEObject)reason).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__REASON, null, msgs);
-			if (newReason != null)
-				msgs = ((InternalEObject)newReason).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__REASON, null, msgs);
-			msgs = basicSetReason(newReason, msgs);
+			if (location != null)
+				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__LOCATION, null, msgs);
+			if (newLocation != null)
+				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY__LOCATION, null, msgs);
+			msgs = basicSetLocation(newLocation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__REASON, newReason, newReason));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY__LOCATION, newLocation, newLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getReasonCode() {
+		if (reasonCode == null) {
+			reasonCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.IMAGING_STUDY__REASON_CODE);
+		}
+		return reasonCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReasonReference() {
+		if (reasonReference == null) {
+			reasonReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY__REASON_REFERENCE);
+		}
+		return reasonReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Annotation> getNote() {
+		if (note == null) {
+			note = new EObjectContainmentEList<Annotation>(Annotation.class, this, FhirPackage.IMAGING_STUDY__NOTE);
+		}
+		return note;
 	}
 
 	/**
@@ -847,20 +839,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__UID:
-				return basicSetUid(null, msgs);
-			case FhirPackage.IMAGING_STUDY__ACCESSION:
-				return basicSetAccession(null, msgs);
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				return basicSetAvailability(null, msgs);
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return ((InternalEList<?>)getModalityList()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__STATUS:
+				return basicSetStatus(null, msgs);
+			case FhirPackage.IMAGING_STUDY__MODALITY:
+				return ((InternalEList<?>)getModality()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.IMAGING_STUDY__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.IMAGING_STUDY__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.IMAGING_STUDY__STARTED:
 				return basicSetStarted(null, msgs);
 			case FhirPackage.IMAGING_STUDY__BASED_ON:
@@ -876,11 +864,17 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				return basicSetNumberOfInstances(null, msgs);
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
-				return ((InternalEList<?>)getProcedureReference()).basicRemove(otherEnd, msgs);
+				return basicSetProcedureReference(null, msgs);
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
 				return ((InternalEList<?>)getProcedureCode()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMAGING_STUDY__REASON:
-				return basicSetReason(null, msgs);
+			case FhirPackage.IMAGING_STUDY__LOCATION:
+				return basicSetLocation(null, msgs);
+			case FhirPackage.IMAGING_STUDY__REASON_CODE:
+				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__REASON_REFERENCE:
+				return ((InternalEList<?>)getReasonReference()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMAGING_STUDY__NOTE:
+				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMAGING_STUDY__SERIES:
@@ -897,20 +891,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__UID:
-				return getUid();
-			case FhirPackage.IMAGING_STUDY__ACCESSION:
-				return getAccession();
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				return getAvailability();
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return getModalityList();
+			case FhirPackage.IMAGING_STUDY__STATUS:
+				return getStatus();
+			case FhirPackage.IMAGING_STUDY__MODALITY:
+				return getModality();
 			case FhirPackage.IMAGING_STUDY__SUBJECT:
 				return getSubject();
-			case FhirPackage.IMAGING_STUDY__CONTEXT:
-				return getContext();
+			case FhirPackage.IMAGING_STUDY__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.IMAGING_STUDY__STARTED:
 				return getStarted();
 			case FhirPackage.IMAGING_STUDY__BASED_ON:
@@ -929,8 +919,14 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				return getProcedureReference();
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
 				return getProcedureCode();
-			case FhirPackage.IMAGING_STUDY__REASON:
-				return getReason();
+			case FhirPackage.IMAGING_STUDY__LOCATION:
+				return getLocation();
+			case FhirPackage.IMAGING_STUDY__REASON_CODE:
+				return getReasonCode();
+			case FhirPackage.IMAGING_STUDY__REASON_REFERENCE:
+				return getReasonReference();
+			case FhirPackage.IMAGING_STUDY__NOTE:
+				return getNote();
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return getDescription();
 			case FhirPackage.IMAGING_STUDY__SERIES:
@@ -948,28 +944,22 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__UID:
-				setUid((Oid)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY__ACCESSION:
-				setAccession((Identifier)newValue);
-				return;
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				setAvailability((InstanceAvailability)newValue);
+			case FhirPackage.IMAGING_STUDY__STATUS:
+				setStatus((ImagingStudyStatus)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				getModalityList().clear();
-				getModalityList().addAll((Collection<? extends Coding>)newValue);
+			case FhirPackage.IMAGING_STUDY__MODALITY:
+				getModality().clear();
+				getModality().addAll((Collection<? extends Coding>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.IMAGING_STUDY__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__STARTED:
 				setStarted((DateTime)newValue);
@@ -996,15 +986,26 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				setNumberOfInstances((UnsignedInt)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
-				getProcedureReference().clear();
-				getProcedureReference().addAll((Collection<? extends Reference>)newValue);
+				setProcedureReference((Reference)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
 				getProcedureCode().clear();
 				getProcedureCode().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.IMAGING_STUDY__REASON:
-				setReason((CodeableConcept)newValue);
+			case FhirPackage.IMAGING_STUDY__LOCATION:
+				setLocation((Reference)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__REASON_CODE:
+				getReasonCode().clear();
+				getReasonCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__REASON_REFERENCE:
+				getReasonReference().clear();
+				getReasonReference().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.IMAGING_STUDY__NOTE:
+				getNote().clear();
+				getNote().addAll((Collection<? extends Annotation>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)newValue);
@@ -1025,26 +1026,20 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__UID:
-				setUid((Oid)null);
-				return;
-			case FhirPackage.IMAGING_STUDY__ACCESSION:
-				setAccession((Identifier)null);
-				return;
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				setAvailability((InstanceAvailability)null);
+			case FhirPackage.IMAGING_STUDY__STATUS:
+				setStatus((ImagingStudyStatus)null);
 				return;
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				getModalityList().clear();
+			case FhirPackage.IMAGING_STUDY__MODALITY:
+				getModality().clear();
 				return;
 			case FhirPackage.IMAGING_STUDY__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.IMAGING_STUDY__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.IMAGING_STUDY__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__STARTED:
 				setStarted((DateTime)null);
@@ -1068,13 +1063,22 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 				setNumberOfInstances((UnsignedInt)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
-				getProcedureReference().clear();
+				setProcedureReference((Reference)null);
 				return;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
 				getProcedureCode().clear();
 				return;
-			case FhirPackage.IMAGING_STUDY__REASON:
-				setReason((CodeableConcept)null);
+			case FhirPackage.IMAGING_STUDY__LOCATION:
+				setLocation((Reference)null);
+				return;
+			case FhirPackage.IMAGING_STUDY__REASON_CODE:
+				getReasonCode().clear();
+				return;
+			case FhirPackage.IMAGING_STUDY__REASON_REFERENCE:
+				getReasonReference().clear();
+				return;
+			case FhirPackage.IMAGING_STUDY__NOTE:
+				getNote().clear();
 				return;
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				setDescription((org.hl7.fhir.String)null);
@@ -1094,20 +1098,16 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMAGING_STUDY__UID:
-				return uid != null;
-			case FhirPackage.IMAGING_STUDY__ACCESSION:
-				return accession != null;
 			case FhirPackage.IMAGING_STUDY__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.IMAGING_STUDY__AVAILABILITY:
-				return availability != null;
-			case FhirPackage.IMAGING_STUDY__MODALITY_LIST:
-				return modalityList != null && !modalityList.isEmpty();
+			case FhirPackage.IMAGING_STUDY__STATUS:
+				return status != null;
+			case FhirPackage.IMAGING_STUDY__MODALITY:
+				return modality != null && !modality.isEmpty();
 			case FhirPackage.IMAGING_STUDY__SUBJECT:
 				return subject != null;
-			case FhirPackage.IMAGING_STUDY__CONTEXT:
-				return context != null;
+			case FhirPackage.IMAGING_STUDY__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.IMAGING_STUDY__STARTED:
 				return started != null;
 			case FhirPackage.IMAGING_STUDY__BASED_ON:
@@ -1123,11 +1123,17 @@ public class ImagingStudyImpl extends DomainResourceImpl implements ImagingStudy
 			case FhirPackage.IMAGING_STUDY__NUMBER_OF_INSTANCES:
 				return numberOfInstances != null;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_REFERENCE:
-				return procedureReference != null && !procedureReference.isEmpty();
+				return procedureReference != null;
 			case FhirPackage.IMAGING_STUDY__PROCEDURE_CODE:
 				return procedureCode != null && !procedureCode.isEmpty();
-			case FhirPackage.IMAGING_STUDY__REASON:
-				return reason != null;
+			case FhirPackage.IMAGING_STUDY__LOCATION:
+				return location != null;
+			case FhirPackage.IMAGING_STUDY__REASON_CODE:
+				return reasonCode != null && !reasonCode.isEmpty();
+			case FhirPackage.IMAGING_STUDY__REASON_REFERENCE:
+				return reasonReference != null && !reasonReference.isEmpty();
+			case FhirPackage.IMAGING_STUDY__NOTE:
+				return note != null && !note.isEmpty();
 			case FhirPackage.IMAGING_STUDY__DESCRIPTION:
 				return description != null;
 			case FhirPackage.IMAGING_STUDY__SERIES:

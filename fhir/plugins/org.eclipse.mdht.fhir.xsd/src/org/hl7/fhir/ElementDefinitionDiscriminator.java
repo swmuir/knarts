@@ -25,7 +25,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='ElementDefinition.Discriminator' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionDiscriminator extends Element {
+public interface ElementDefinitionDiscriminator extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public interface ElementDefinitionDiscriminator extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.
+	 * A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(org.hl7.fhir.String)

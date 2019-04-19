@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ import org.hl7.fhir.Uri;
  *
  * @generated
  */
-public class ElementDefinitionConstraintImpl extends ElementImpl implements ElementDefinitionConstraint {
+public class ElementDefinitionConstraintImpl extends BackboneElementImpl implements ElementDefinitionConstraint {
 	/**
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -104,7 +104,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri source;
+	protected Canonical source;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,7 +388,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getSource() {
+	public Canonical getSource() {
 		return source;
 	}
 
@@ -397,8 +397,8 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSource(Uri newSource, NotificationChain msgs) {
-		Uri oldSource = source;
+	public NotificationChain basicSetSource(Canonical newSource, NotificationChain msgs) {
+		Canonical oldSource = source;
 		source = newSource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE, oldSource, newSource);
@@ -412,7 +412,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(Uri newSource) {
+	public void setSource(Canonical newSource) {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
@@ -505,7 +505,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				setXpath((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
-				setSource((Uri)newValue);
+				setSource((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -538,7 +538,7 @@ public class ElementDefinitionConstraintImpl extends ElementImpl implements Elem
 				setXpath((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.ELEMENT_DEFINITION_CONSTRAINT__SOURCE:
-				setSource((Uri)null);
+				setSource((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

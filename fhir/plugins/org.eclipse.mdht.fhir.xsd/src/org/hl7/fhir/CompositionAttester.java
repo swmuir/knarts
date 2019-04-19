@@ -2,7 +2,6 @@
  */
 package org.hl7.fhir;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
+ * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -28,20 +27,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CompositionAttester extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Mode</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CompositionAttestationMode}.
+	 * Returns the value of the '<em><b>Mode</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The type of attestation the authenticator offers.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Mode</em>' containment reference list.
+	 * @return the value of the '<em>Mode</em>' containment reference.
+	 * @see #setMode(CompositionAttestationMode)
 	 * @see org.hl7.fhir.FhirPackage#getCompositionAttester_Mode()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='mode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CompositionAttestationMode> getMode();
+	CompositionAttestationMode getMode();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CompositionAttester#getMode <em>Mode</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mode</em>' containment reference.
+	 * @see #getMode()
+	 * @generated
+	 */
+	void setMode(CompositionAttestationMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' containment reference.

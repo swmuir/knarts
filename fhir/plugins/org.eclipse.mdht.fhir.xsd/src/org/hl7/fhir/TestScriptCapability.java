@@ -41,7 +41,7 @@ public interface TestScriptCapability extends BackboneElement {
 	 * @return the value of the '<em>Required</em>' containment reference.
 	 * @see #setRequired(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptCapability_Required()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='required' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -67,7 +67,7 @@ public interface TestScriptCapability extends BackboneElement {
 	 * @return the value of the '<em>Validated</em>' containment reference.
 	 * @see #setValidated(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptCapability_Validated()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='validated' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -175,13 +175,13 @@ public interface TestScriptCapability extends BackboneElement {
 	 * Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Capabilities</em>' containment reference.
-	 * @see #setCapabilities(Reference)
+	 * @see #setCapabilities(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptCapability_Capabilities()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='capabilities' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getCapabilities();
+	Canonical getCapabilities();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.TestScriptCapability#getCapabilities <em>Capabilities</em>}' containment reference.
@@ -191,6 +191,6 @@ public interface TestScriptCapability extends BackboneElement {
 	 * @see #getCapabilities()
 	 * @generated
 	 */
-	void setCapabilities(Reference value);
+	void setCapabilities(Canonical value);
 
 } // TestScriptCapability

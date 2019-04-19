@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource
+ * The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

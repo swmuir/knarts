@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Specimen#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getProcessing <em>Processing</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.hl7.fhir.Specimen#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.Specimen#getNote <em>Note</em>}</li>
  * </ul>
  *
@@ -136,12 +137,12 @@ public interface Specimen extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Where the specimen came from. This may be from the patient(s) or from the environment or a device.
+	 * Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Subject()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -272,6 +273,22 @@ public interface Specimen extends DomainResource {
 	 * @generated
 	 */
 	EList<SpecimenContainer> getContainer();
+
+	/**
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A mode or state of being that describes the nature of the specimen.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Condition</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSpecimen_Condition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getCondition();
 
 	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.

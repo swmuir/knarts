@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.Duration;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Quantity;
@@ -29,9 +30,12 @@ import org.hl7.fhir.SpecimenCollection;
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getCollector <em>Collector</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getCollectedDateTime <em>Collected Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getCollectedPeriod <em>Collected Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getFastingStatusCodeableConcept <em>Fasting Status Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenCollectionImpl#getFastingStatusDuration <em>Fasting Status Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +72,16 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	protected Period collectedPeriod;
 
 	/**
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration duration;
+
+	/**
 	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,6 +110,26 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	 * @ordered
 	 */
 	protected CodeableConcept bodySite;
+
+	/**
+	 * The cached value of the '{@link #getFastingStatusCodeableConcept() <em>Fasting Status Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFastingStatusCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept fastingStatusCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getFastingStatusDuration() <em>Fasting Status Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFastingStatusDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration fastingStatusDuration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,6 +284,49 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Duration getDuration() {
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDuration(Duration newDuration, NotificationChain msgs) {
+		Duration oldDuration = duration;
+		duration = newDuration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__DURATION, oldDuration, newDuration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDuration(Duration newDuration) {
+		if (newDuration != duration) {
+			NotificationChain msgs = null;
+			if (duration != null)
+				msgs = ((InternalEObject)duration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__DURATION, null, msgs);
+			if (newDuration != null)
+				msgs = ((InternalEObject)newDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__DURATION, null, msgs);
+			msgs = basicSetDuration(newDuration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__DURATION, newDuration, newDuration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Quantity getQuantity() {
 		return quantity;
 	}
@@ -379,6 +456,92 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getFastingStatusCodeableConcept() {
+		return fastingStatusCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFastingStatusCodeableConcept(CodeableConcept newFastingStatusCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldFastingStatusCodeableConcept = fastingStatusCodeableConcept;
+		fastingStatusCodeableConcept = newFastingStatusCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT, oldFastingStatusCodeableConcept, newFastingStatusCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFastingStatusCodeableConcept(CodeableConcept newFastingStatusCodeableConcept) {
+		if (newFastingStatusCodeableConcept != fastingStatusCodeableConcept) {
+			NotificationChain msgs = null;
+			if (fastingStatusCodeableConcept != null)
+				msgs = ((InternalEObject)fastingStatusCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT, null, msgs);
+			if (newFastingStatusCodeableConcept != null)
+				msgs = ((InternalEObject)newFastingStatusCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetFastingStatusCodeableConcept(newFastingStatusCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT, newFastingStatusCodeableConcept, newFastingStatusCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Duration getFastingStatusDuration() {
+		return fastingStatusDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFastingStatusDuration(Duration newFastingStatusDuration, NotificationChain msgs) {
+		Duration oldFastingStatusDuration = fastingStatusDuration;
+		fastingStatusDuration = newFastingStatusDuration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION, oldFastingStatusDuration, newFastingStatusDuration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFastingStatusDuration(Duration newFastingStatusDuration) {
+		if (newFastingStatusDuration != fastingStatusDuration) {
+			NotificationChain msgs = null;
+			if (fastingStatusDuration != null)
+				msgs = ((InternalEObject)fastingStatusDuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION, null, msgs);
+			if (newFastingStatusDuration != null)
+				msgs = ((InternalEObject)newFastingStatusDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION, null, msgs);
+			msgs = basicSetFastingStatusDuration(newFastingStatusDuration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION, newFastingStatusDuration, newFastingStatusDuration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -388,12 +551,18 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				return basicSetCollectedDateTime(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
 				return basicSetCollectedPeriod(null, msgs);
+			case FhirPackage.SPECIMEN_COLLECTION__DURATION:
+				return basicSetDuration(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__QUANTITY:
 				return basicSetQuantity(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__METHOD:
 				return basicSetMethod(null, msgs);
 			case FhirPackage.SPECIMEN_COLLECTION__BODY_SITE:
 				return basicSetBodySite(null, msgs);
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT:
+				return basicSetFastingStatusCodeableConcept(null, msgs);
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION:
+				return basicSetFastingStatusDuration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -412,12 +581,18 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				return getCollectedDateTime();
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
 				return getCollectedPeriod();
+			case FhirPackage.SPECIMEN_COLLECTION__DURATION:
+				return getDuration();
 			case FhirPackage.SPECIMEN_COLLECTION__QUANTITY:
 				return getQuantity();
 			case FhirPackage.SPECIMEN_COLLECTION__METHOD:
 				return getMethod();
 			case FhirPackage.SPECIMEN_COLLECTION__BODY_SITE:
 				return getBodySite();
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT:
+				return getFastingStatusCodeableConcept();
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION:
+				return getFastingStatusDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -439,6 +614,9 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
 				setCollectedPeriod((Period)newValue);
 				return;
+			case FhirPackage.SPECIMEN_COLLECTION__DURATION:
+				setDuration((Duration)newValue);
+				return;
 			case FhirPackage.SPECIMEN_COLLECTION__QUANTITY:
 				setQuantity((Quantity)newValue);
 				return;
@@ -447,6 +625,12 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__BODY_SITE:
 				setBodySite((CodeableConcept)newValue);
+				return;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT:
+				setFastingStatusCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION:
+				setFastingStatusDuration((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -469,6 +653,9 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
 				setCollectedPeriod((Period)null);
 				return;
+			case FhirPackage.SPECIMEN_COLLECTION__DURATION:
+				setDuration((Duration)null);
+				return;
 			case FhirPackage.SPECIMEN_COLLECTION__QUANTITY:
 				setQuantity((Quantity)null);
 				return;
@@ -477,6 +664,12 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				return;
 			case FhirPackage.SPECIMEN_COLLECTION__BODY_SITE:
 				setBodySite((CodeableConcept)null);
+				return;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT:
+				setFastingStatusCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION:
+				setFastingStatusDuration((Duration)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -496,12 +689,18 @@ public class SpecimenCollectionImpl extends BackboneElementImpl implements Speci
 				return collectedDateTime != null;
 			case FhirPackage.SPECIMEN_COLLECTION__COLLECTED_PERIOD:
 				return collectedPeriod != null;
+			case FhirPackage.SPECIMEN_COLLECTION__DURATION:
+				return duration != null;
 			case FhirPackage.SPECIMEN_COLLECTION__QUANTITY:
 				return quantity != null;
 			case FhirPackage.SPECIMEN_COLLECTION__METHOD:
 				return method != null;
 			case FhirPackage.SPECIMEN_COLLECTION__BODY_SITE:
 				return bodySite != null;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_CODEABLE_CONCEPT:
+				return fastingStatusCodeableConcept != null;
+			case FhirPackage.SPECIMEN_COLLECTION__FASTING_STATUS_DURATION:
+				return fastingStatusDuration != null;
 		}
 		return super.eIsSet(featureID);
 	}

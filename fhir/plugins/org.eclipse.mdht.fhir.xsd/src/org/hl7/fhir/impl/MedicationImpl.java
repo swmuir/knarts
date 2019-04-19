@@ -19,11 +19,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Medication;
 import org.hl7.fhir.MedicationBatch;
 import org.hl7.fhir.MedicationIngredient;
-import org.hl7.fhir.MedicationStatus;
-import org.hl7.fhir.Quantity;
+import org.hl7.fhir.MedicationStatusCodes;
+import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
 
 /**
@@ -34,6 +35,7 @@ import org.hl7.fhir.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationImpl#getManufacturer <em>Manufacturer</em>}</li>
@@ -46,6 +48,16 @@ import org.hl7.fhir.Reference;
  * @generated
  */
 public class MedicationImpl extends DomainResourceImpl implements Medication {
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Identifier> identifier;
+
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -64,7 +76,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * @generated
 	 * @ordered
 	 */
-	protected MedicationStatus status;
+	protected MedicationStatusCodes status;
 
 	/**
 	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference.
@@ -94,7 +106,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity amount;
+	protected Ratio amount;
 
 	/**
 	 * The cached value of the '{@link #getIngredient() <em>Ingredient</em>}' containment reference list.
@@ -133,6 +145,18 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	protected EClass eStaticClass() {
 		return FhirPackage.eINSTANCE.getMedication();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEDICATION__IDENTIFIER);
+		}
+		return identifier;
 	}
 
 	/**
@@ -183,7 +207,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MedicationStatus getStatus() {
+	public MedicationStatusCodes getStatus() {
 		return status;
 	}
 
@@ -192,8 +216,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(MedicationStatus newStatus, NotificationChain msgs) {
-		MedicationStatus oldStatus = status;
+	public NotificationChain basicSetStatus(MedicationStatusCodes newStatus, NotificationChain msgs) {
+		MedicationStatusCodes oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__STATUS, oldStatus, newStatus);
@@ -207,7 +231,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(MedicationStatus newStatus) {
+	public void setStatus(MedicationStatusCodes newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -312,7 +336,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity getAmount() {
+	public Ratio getAmount() {
 		return amount;
 	}
 
@@ -321,8 +345,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(Quantity newAmount, NotificationChain msgs) {
-		Quantity oldAmount = amount;
+	public NotificationChain basicSetAmount(Ratio newAmount, NotificationChain msgs) {
+		Ratio oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION__AMOUNT, oldAmount, newAmount);
@@ -336,7 +360,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(Quantity newAmount) {
+	public void setAmount(Ratio newAmount) {
 		if (newAmount != amount) {
 			NotificationChain msgs = null;
 			if (amount != null)
@@ -413,6 +437,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION__IDENTIFIER:
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICATION__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.MEDICATION__STATUS:
@@ -439,6 +465,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.MEDICATION__CODE:
 				return getCode();
 			case FhirPackage.MEDICATION__STATUS:
@@ -466,11 +494,15 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION__IDENTIFIER:
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
+				return;
 			case FhirPackage.MEDICATION__CODE:
 				setCode((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION__STATUS:
-				setStatus((MedicationStatus)newValue);
+				setStatus((MedicationStatusCodes)newValue);
 				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)newValue);
@@ -479,7 +511,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				setForm((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION__AMOUNT:
-				setAmount((Quantity)newValue);
+				setAmount((Ratio)newValue);
 				return;
 			case FhirPackage.MEDICATION__INGREDIENT:
 				getIngredient().clear();
@@ -500,11 +532,14 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION__IDENTIFIER:
+				getIdentifier().clear();
+				return;
 			case FhirPackage.MEDICATION__CODE:
 				setCode((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION__STATUS:
-				setStatus((MedicationStatus)null);
+				setStatus((MedicationStatusCodes)null);
 				return;
 			case FhirPackage.MEDICATION__MANUFACTURER:
 				setManufacturer((Reference)null);
@@ -513,7 +548,7 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 				setForm((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION__AMOUNT:
-				setAmount((Quantity)null);
+				setAmount((Ratio)null);
 				return;
 			case FhirPackage.MEDICATION__INGREDIENT:
 				getIngredient().clear();
@@ -533,6 +568,8 @@ public class MedicationImpl extends DomainResourceImpl implements Medication {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FhirPackage.MEDICATION__IDENTIFIER:
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MEDICATION__CODE:
 				return code != null;
 			case FhirPackage.MEDICATION__STATUS:

@@ -17,7 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
@@ -27,8 +29,8 @@ import org.hl7.fhir.MessageDefinition;
 import org.hl7.fhir.MessageDefinitionAllowedResponse;
 import org.hl7.fhir.MessageDefinitionFocus;
 import org.hl7.fhir.MessageSignificanceCategory;
+import org.hl7.fhir.MessageheaderResponseRequest;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -45,6 +47,7 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getDate <em>Date</em>}</li>
@@ -57,12 +60,13 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getBase <em>Base</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getReplaces <em>Replaces</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getEvent <em>Event</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getEventCoding <em>Event Coding</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getEventUri <em>Event Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getResponseRequired <em>Response Required</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getAllowedResponse <em>Allowed Response</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MessageDefinitionImpl#getGraph <em>Graph</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,14 +83,14 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	protected Uri url;
 
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
@@ -117,6 +121,16 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String title;
+
+	/**
+	 * The cached value of the '{@link #getReplaces() <em>Replaces</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Canonical> replaces;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -226,7 +240,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference base;
+	protected Canonical base;
 
 	/**
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference list.
@@ -236,27 +250,27 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> parent;
+	protected EList<Canonical> parent;
 
 	/**
-	 * The cached value of the '{@link #getReplaces() <em>Replaces</em>}' containment reference list.
+	 * The cached value of the '{@link #getEventCoding() <em>Event Coding</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReplaces()
+	 * @see #getEventCoding()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> replaces;
+	protected Coding eventCoding;
 
 	/**
-	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference.
+	 * The cached value of the '{@link #getEventUri() <em>Event Uri</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvent()
+	 * @see #getEventUri()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri event;
+	protected Uri eventUri;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
@@ -286,7 +300,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean responseRequired;
+	protected MessageheaderResponseRequest responseRequired;
 
 	/**
 	 * The cached value of the '{@link #getAllowedResponse() <em>Allowed Response</em>}' containment reference list.
@@ -297,6 +311,16 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * @ordered
 	 */
 	protected EList<MessageDefinitionAllowedResponse> allowedResponse;
+
+	/**
+	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Canonical> graph;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -365,42 +389,11 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MESSAGE_DEFINITION__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -530,6 +523,18 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Canonical> getReplaces() {
+		if (replaces == null) {
+			replaces = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.MESSAGE_DEFINITION__REPLACES);
+		}
+		return replaces;
 	}
 
 	/**
@@ -874,7 +879,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getBase() {
+	public Canonical getBase() {
 		return base;
 	}
 
@@ -883,8 +888,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBase(Reference newBase, NotificationChain msgs) {
-		Reference oldBase = base;
+	public NotificationChain basicSetBase(Canonical newBase, NotificationChain msgs) {
+		Canonical oldBase = base;
 		base = newBase;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__BASE, oldBase, newBase);
@@ -898,7 +903,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBase(Reference newBase) {
+	public void setBase(Canonical newBase) {
 		if (newBase != base) {
 			NotificationChain msgs = null;
 			if (base != null)
@@ -917,9 +922,9 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getParent() {
+	public EList<Canonical> getParent() {
 		if (parent == null) {
-			parent = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_DEFINITION__PARENT);
+			parent = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.MESSAGE_DEFINITION__PARENT);
 		}
 		return parent;
 	}
@@ -929,11 +934,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getReplaces() {
-		if (replaces == null) {
-			replaces = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MESSAGE_DEFINITION__REPLACES);
-		}
-		return replaces;
+	public Coding getEventCoding() {
+		return eventCoding;
 	}
 
 	/**
@@ -941,20 +943,11 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getEvent() {
-		return event;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEvent(Uri newEvent, NotificationChain msgs) {
-		Uri oldEvent = event;
-		event = newEvent;
+	public NotificationChain basicSetEventCoding(Coding newEventCoding, NotificationChain msgs) {
+		Coding oldEventCoding = eventCoding;
+		eventCoding = newEventCoding;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT, oldEvent, newEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT_CODING, oldEventCoding, newEventCoding);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -965,18 +958,61 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEvent(Uri newEvent) {
-		if (newEvent != event) {
+	public void setEventCoding(Coding newEventCoding) {
+		if (newEventCoding != eventCoding) {
 			NotificationChain msgs = null;
-			if (event != null)
-				msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT, null, msgs);
-			if (newEvent != null)
-				msgs = ((InternalEObject)newEvent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT, null, msgs);
-			msgs = basicSetEvent(newEvent, msgs);
+			if (eventCoding != null)
+				msgs = ((InternalEObject)eventCoding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT_CODING, null, msgs);
+			if (newEventCoding != null)
+				msgs = ((InternalEObject)newEventCoding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT_CODING, null, msgs);
+			msgs = basicSetEventCoding(newEventCoding, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT, newEvent, newEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT_CODING, newEventCoding, newEventCoding));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Uri getEventUri() {
+		return eventUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEventUri(Uri newEventUri, NotificationChain msgs) {
+		Uri oldEventUri = eventUri;
+		eventUri = newEventUri;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT_URI, oldEventUri, newEventUri);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventUri(Uri newEventUri) {
+		if (newEventUri != eventUri) {
+			NotificationChain msgs = null;
+			if (eventUri != null)
+				msgs = ((InternalEObject)eventUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT_URI, null, msgs);
+			if (newEventUri != null)
+				msgs = ((InternalEObject)newEventUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MESSAGE_DEFINITION__EVENT_URI, null, msgs);
+			msgs = basicSetEventUri(newEventUri, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__EVENT_URI, newEventUri, newEventUri));
 	}
 
 	/**
@@ -1039,7 +1075,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getResponseRequired() {
+	public MessageheaderResponseRequest getResponseRequired() {
 		return responseRequired;
 	}
 
@@ -1048,8 +1084,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResponseRequired(org.hl7.fhir.Boolean newResponseRequired, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldResponseRequired = responseRequired;
+	public NotificationChain basicSetResponseRequired(MessageheaderResponseRequest newResponseRequired, NotificationChain msgs) {
+		MessageheaderResponseRequest oldResponseRequired = responseRequired;
 		responseRequired = newResponseRequired;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_DEFINITION__RESPONSE_REQUIRED, oldResponseRequired, newResponseRequired);
@@ -1063,7 +1099,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResponseRequired(org.hl7.fhir.Boolean newResponseRequired) {
+	public void setResponseRequired(MessageheaderResponseRequest newResponseRequired) {
 		if (newResponseRequired != responseRequired) {
 			NotificationChain msgs = null;
 			if (responseRequired != null)
@@ -1094,19 +1130,33 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Canonical> getGraph() {
+		if (graph == null) {
+			graph = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.MESSAGE_DEFINITION__GRAPH);
+		}
+		return graph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MESSAGE_DEFINITION__URL:
 				return basicSetUrl(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__VERSION:
 				return basicSetVersion(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__NAME:
 				return basicSetName(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__TITLE:
 				return basicSetTitle(null, msgs);
+			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
+				return ((InternalEList<?>)getReplaces()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__EXPERIMENTAL:
@@ -1131,10 +1181,10 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return basicSetBase(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__PARENT:
 				return ((InternalEList<?>)getParent()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
-				return ((InternalEList<?>)getReplaces()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				return basicSetEvent(null, msgs);
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_CODING:
+				return basicSetEventCoding(null, msgs);
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_URI:
+				return basicSetEventUri(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				return basicSetCategory(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__FOCUS:
@@ -1143,6 +1193,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return basicSetResponseRequired(null, msgs);
 			case FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE:
 				return ((InternalEList<?>)getAllowedResponse()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MESSAGE_DEFINITION__GRAPH:
+				return ((InternalEList<?>)getGraph()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1165,6 +1217,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return getName();
 			case FhirPackage.MESSAGE_DEFINITION__TITLE:
 				return getTitle();
+			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
+				return getReplaces();
 			case FhirPackage.MESSAGE_DEFINITION__STATUS:
 				return getStatus();
 			case FhirPackage.MESSAGE_DEFINITION__EXPERIMENTAL:
@@ -1189,10 +1243,10 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return getBase();
 			case FhirPackage.MESSAGE_DEFINITION__PARENT:
 				return getParent();
-			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
-				return getReplaces();
-			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				return getEvent();
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_CODING:
+				return getEventCoding();
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_URI:
+				return getEventUri();
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				return getCategory();
 			case FhirPackage.MESSAGE_DEFINITION__FOCUS:
@@ -1201,6 +1255,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return getResponseRequired();
 			case FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE:
 				return getAllowedResponse();
+			case FhirPackage.MESSAGE_DEFINITION__GRAPH:
+				return getGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1218,7 +1274,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setUrl((Uri)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__VERSION:
 				setVersion((org.hl7.fhir.String)newValue);
@@ -1228,6 +1285,10 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
+				getReplaces().clear();
+				getReplaces().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__STATUS:
 				setStatus((PublicationStatus)newValue);
@@ -1263,18 +1324,17 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__BASE:
-				setBase((Reference)newValue);
+				setBase((Canonical)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__PARENT:
 				getParent().clear();
-				getParent().addAll((Collection<? extends Reference>)newValue);
+				getParent().addAll((Collection<? extends Canonical>)newValue);
 				return;
-			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
-				getReplaces().clear();
-				getReplaces().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_CODING:
+				setEventCoding((Coding)newValue);
 				return;
-			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				setEvent((Uri)newValue);
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_URI:
+				setEventUri((Uri)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				setCategory((MessageSignificanceCategory)newValue);
@@ -1284,11 +1344,15 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				getFocus().addAll((Collection<? extends MessageDefinitionFocus>)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__RESPONSE_REQUIRED:
-				setResponseRequired((org.hl7.fhir.Boolean)newValue);
+				setResponseRequired((MessageheaderResponseRequest)newValue);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE:
 				getAllowedResponse().clear();
 				getAllowedResponse().addAll((Collection<? extends MessageDefinitionAllowedResponse>)newValue);
+				return;
+			case FhirPackage.MESSAGE_DEFINITION__GRAPH:
+				getGraph().clear();
+				getGraph().addAll((Collection<? extends Canonical>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1306,7 +1370,7 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setUrl((Uri)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__VERSION:
 				setVersion((org.hl7.fhir.String)null);
@@ -1316,6 +1380,9 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__TITLE:
 				setTitle((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
+				getReplaces().clear();
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__STATUS:
 				setStatus((PublicationStatus)null);
@@ -1348,16 +1415,16 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__BASE:
-				setBase((Reference)null);
+				setBase((Canonical)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__PARENT:
 				getParent().clear();
 				return;
-			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
-				getReplaces().clear();
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_CODING:
+				setEventCoding((Coding)null);
 				return;
-			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				setEvent((Uri)null);
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_URI:
+				setEventUri((Uri)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				setCategory((MessageSignificanceCategory)null);
@@ -1366,10 +1433,13 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				getFocus().clear();
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__RESPONSE_REQUIRED:
-				setResponseRequired((org.hl7.fhir.Boolean)null);
+				setResponseRequired((MessageheaderResponseRequest)null);
 				return;
 			case FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE:
 				getAllowedResponse().clear();
+				return;
+			case FhirPackage.MESSAGE_DEFINITION__GRAPH:
+				getGraph().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1386,13 +1456,15 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 			case FhirPackage.MESSAGE_DEFINITION__URL:
 				return url != null;
 			case FhirPackage.MESSAGE_DEFINITION__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MESSAGE_DEFINITION__VERSION:
 				return version != null;
 			case FhirPackage.MESSAGE_DEFINITION__NAME:
 				return name != null;
 			case FhirPackage.MESSAGE_DEFINITION__TITLE:
 				return title != null;
+			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
+				return replaces != null && !replaces.isEmpty();
 			case FhirPackage.MESSAGE_DEFINITION__STATUS:
 				return status != null;
 			case FhirPackage.MESSAGE_DEFINITION__EXPERIMENTAL:
@@ -1417,10 +1489,10 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return base != null;
 			case FhirPackage.MESSAGE_DEFINITION__PARENT:
 				return parent != null && !parent.isEmpty();
-			case FhirPackage.MESSAGE_DEFINITION__REPLACES:
-				return replaces != null && !replaces.isEmpty();
-			case FhirPackage.MESSAGE_DEFINITION__EVENT:
-				return event != null;
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_CODING:
+				return eventCoding != null;
+			case FhirPackage.MESSAGE_DEFINITION__EVENT_URI:
+				return eventUri != null;
 			case FhirPackage.MESSAGE_DEFINITION__CATEGORY:
 				return category != null;
 			case FhirPackage.MESSAGE_DEFINITION__FOCUS:
@@ -1429,6 +1501,8 @@ public class MessageDefinitionImpl extends DomainResourceImpl implements Message
 				return responseRequired != null;
 			case FhirPackage.MESSAGE_DEFINITION__ALLOWED_RESPONSE:
 				return allowedResponse != null && !allowedResponse.isEmpty();
+			case FhirPackage.MESSAGE_DEFINITION__GRAPH:
+				return graph != null && !graph.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

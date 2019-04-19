@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.AppointmentParticipant#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.AppointmentParticipant#getRequired <em>Required</em>}</li>
  *   <li>{@link org.hl7.fhir.AppointmentParticipant#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.AppointmentParticipant#getPeriod <em>Period</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getAppointmentParticipant()
@@ -75,7 +76,7 @@ public interface AppointmentParticipant extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
+	 * Whether this participant is required to be present at the meeting. This covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required</em>' containment reference.
 	 * @see #setRequired(ParticipantRequired)
@@ -121,5 +122,31 @@ public interface AppointmentParticipant extends BackboneElement {
 	 * @generated
 	 */
 	void setStatus(ParticipationStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Participation period of the actor.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Period</em>' containment reference.
+	 * @see #setPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getAppointmentParticipant_Period()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AppointmentParticipant#getPeriod <em>Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Period</em>' containment reference.
+	 * @see #getPeriod()
+	 * @generated
+	 */
+	void setPeriod(Period value);
 
 } // AppointmentParticipant

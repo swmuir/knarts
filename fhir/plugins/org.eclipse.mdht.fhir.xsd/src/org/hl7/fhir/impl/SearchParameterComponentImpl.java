@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.SearchParameterComponent;
 
 /**
@@ -37,7 +37,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference definition;
+	protected Canonical definition;
 
 	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -73,7 +73,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getDefinition() {
+	public Canonical getDefinition() {
 		return definition;
 	}
 
@@ -82,8 +82,8 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
+	public NotificationChain basicSetDefinition(Canonical newDefinition, NotificationChain msgs) {
+		Canonical oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER_COMPONENT__DEFINITION, oldDefinition, newDefinition);
@@ -97,7 +97,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Reference newDefinition) {
+	public void setDefinition(Canonical newDefinition) {
 		if (newDefinition != definition) {
 			NotificationChain msgs = null;
 			if (definition != null)
@@ -195,7 +195,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.SEARCH_PARAMETER_COMPONENT__DEFINITION:
-				setDefinition((Reference)newValue);
+				setDefinition((Canonical)newValue);
 				return;
 			case FhirPackage.SEARCH_PARAMETER_COMPONENT__EXPRESSION:
 				setExpression((org.hl7.fhir.String)newValue);
@@ -213,7 +213,7 @@ public class SearchParameterComponentImpl extends BackboneElementImpl implements
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SEARCH_PARAMETER_COMPONENT__DEFINITION:
-				setDefinition((Reference)null);
+				setDefinition((Canonical)null);
 				return;
 			case FhirPackage.SEARCH_PARAMETER_COMPONENT__EXPRESSION:
 				setExpression((org.hl7.fhir.String)null);

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Identifier;
 import org.hl7.fhir.ProvenanceAgent;
 import org.hl7.fhir.Reference;
 
@@ -33,10 +32,8 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getWhoIdentifier <em>Who Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getWhoReference <em>Who Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getOnBehalfOfIdentifier <em>On Behalf Of Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getWho <em>Who</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProvenanceAgentImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,44 +60,24 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	protected EList<CodeableConcept> role;
 
 	/**
-	 * The cached value of the '{@link #getWhoIdentifier() <em>Who Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getWho() <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWhoIdentifier()
+	 * @see #getWho()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier whoIdentifier;
+	protected Reference who;
 
 	/**
-	 * The cached value of the '{@link #getWhoReference() <em>Who Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getOnBehalfOf() <em>On Behalf Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWhoReference()
+	 * @see #getOnBehalfOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference whoReference;
-
-	/**
-	 * The cached value of the '{@link #getOnBehalfOfIdentifier() <em>On Behalf Of Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnBehalfOfIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Identifier onBehalfOfIdentifier;
-
-	/**
-	 * The cached value of the '{@link #getOnBehalfOfReference() <em>On Behalf Of Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnBehalfOfReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference onBehalfOfReference;
+	protected Reference onBehalfOf;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,8 +158,8 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getWhoIdentifier() {
-		return whoIdentifier;
+	public Reference getWho() {
+		return who;
 	}
 
 	/**
@@ -190,11 +167,11 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWhoIdentifier(Identifier newWhoIdentifier, NotificationChain msgs) {
-		Identifier oldWhoIdentifier = whoIdentifier;
-		whoIdentifier = newWhoIdentifier;
+	public NotificationChain basicSetWho(Reference newWho, NotificationChain msgs) {
+		Reference oldWho = who;
+		who = newWho;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER, oldWhoIdentifier, newWhoIdentifier);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO, oldWho, newWho);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -205,18 +182,18 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWhoIdentifier(Identifier newWhoIdentifier) {
-		if (newWhoIdentifier != whoIdentifier) {
+	public void setWho(Reference newWho) {
+		if (newWho != who) {
 			NotificationChain msgs = null;
-			if (whoIdentifier != null)
-				msgs = ((InternalEObject)whoIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER, null, msgs);
-			if (newWhoIdentifier != null)
-				msgs = ((InternalEObject)newWhoIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER, null, msgs);
-			msgs = basicSetWhoIdentifier(newWhoIdentifier, msgs);
+			if (who != null)
+				msgs = ((InternalEObject)who).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO, null, msgs);
+			if (newWho != null)
+				msgs = ((InternalEObject)newWho).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO, null, msgs);
+			msgs = basicSetWho(newWho, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER, newWhoIdentifier, newWhoIdentifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO, newWho, newWho));
 	}
 
 	/**
@@ -224,8 +201,8 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getWhoReference() {
-		return whoReference;
+	public Reference getOnBehalfOf() {
+		return onBehalfOf;
 	}
 
 	/**
@@ -233,11 +210,11 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWhoReference(Reference newWhoReference, NotificationChain msgs) {
-		Reference oldWhoReference = whoReference;
-		whoReference = newWhoReference;
+	public NotificationChain basicSetOnBehalfOf(Reference newOnBehalfOf, NotificationChain msgs) {
+		Reference oldOnBehalfOf = onBehalfOf;
+		onBehalfOf = newOnBehalfOf;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE, oldWhoReference, newWhoReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF, oldOnBehalfOf, newOnBehalfOf);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -248,104 +225,18 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWhoReference(Reference newWhoReference) {
-		if (newWhoReference != whoReference) {
+	public void setOnBehalfOf(Reference newOnBehalfOf) {
+		if (newOnBehalfOf != onBehalfOf) {
 			NotificationChain msgs = null;
-			if (whoReference != null)
-				msgs = ((InternalEObject)whoReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE, null, msgs);
-			if (newWhoReference != null)
-				msgs = ((InternalEObject)newWhoReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE, null, msgs);
-			msgs = basicSetWhoReference(newWhoReference, msgs);
+			if (onBehalfOf != null)
+				msgs = ((InternalEObject)onBehalfOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF, null, msgs);
+			if (newOnBehalfOf != null)
+				msgs = ((InternalEObject)newOnBehalfOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF, null, msgs);
+			msgs = basicSetOnBehalfOf(newOnBehalfOf, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE, newWhoReference, newWhoReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Identifier getOnBehalfOfIdentifier() {
-		return onBehalfOfIdentifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnBehalfOfIdentifier(Identifier newOnBehalfOfIdentifier, NotificationChain msgs) {
-		Identifier oldOnBehalfOfIdentifier = onBehalfOfIdentifier;
-		onBehalfOfIdentifier = newOnBehalfOfIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER, oldOnBehalfOfIdentifier, newOnBehalfOfIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnBehalfOfIdentifier(Identifier newOnBehalfOfIdentifier) {
-		if (newOnBehalfOfIdentifier != onBehalfOfIdentifier) {
-			NotificationChain msgs = null;
-			if (onBehalfOfIdentifier != null)
-				msgs = ((InternalEObject)onBehalfOfIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER, null, msgs);
-			if (newOnBehalfOfIdentifier != null)
-				msgs = ((InternalEObject)newOnBehalfOfIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER, null, msgs);
-			msgs = basicSetOnBehalfOfIdentifier(newOnBehalfOfIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER, newOnBehalfOfIdentifier, newOnBehalfOfIdentifier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOnBehalfOfReference() {
-		return onBehalfOfReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnBehalfOfReference(Reference newOnBehalfOfReference, NotificationChain msgs) {
-		Reference oldOnBehalfOfReference = onBehalfOfReference;
-		onBehalfOfReference = newOnBehalfOfReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE, oldOnBehalfOfReference, newOnBehalfOfReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnBehalfOfReference(Reference newOnBehalfOfReference) {
-		if (newOnBehalfOfReference != onBehalfOfReference) {
-			NotificationChain msgs = null;
-			if (onBehalfOfReference != null)
-				msgs = ((InternalEObject)onBehalfOfReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE, null, msgs);
-			if (newOnBehalfOfReference != null)
-				msgs = ((InternalEObject)newOnBehalfOfReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE, null, msgs);
-			msgs = basicSetOnBehalfOfReference(newOnBehalfOfReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE, newOnBehalfOfReference, newOnBehalfOfReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF, newOnBehalfOf, newOnBehalfOf));
 	}
 
 	/**
@@ -360,14 +251,10 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 				return basicSetType(null, msgs);
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
 				return ((InternalEList<?>)getRole()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER:
-				return basicSetWhoIdentifier(null, msgs);
-			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
-				return basicSetWhoReference(null, msgs);
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER:
-				return basicSetOnBehalfOfIdentifier(null, msgs);
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE:
-				return basicSetOnBehalfOfReference(null, msgs);
+			case FhirPackage.PROVENANCE_AGENT__WHO:
+				return basicSetWho(null, msgs);
+			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF:
+				return basicSetOnBehalfOf(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -384,14 +271,10 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 				return getType();
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
 				return getRole();
-			case FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER:
-				return getWhoIdentifier();
-			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
-				return getWhoReference();
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER:
-				return getOnBehalfOfIdentifier();
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE:
-				return getOnBehalfOfReference();
+			case FhirPackage.PROVENANCE_AGENT__WHO:
+				return getWho();
+			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF:
+				return getOnBehalfOf();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,17 +295,11 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 				getRole().clear();
 				getRole().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER:
-				setWhoIdentifier((Identifier)newValue);
+			case FhirPackage.PROVENANCE_AGENT__WHO:
+				setWho((Reference)newValue);
 				return;
-			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
-				setWhoReference((Reference)newValue);
-				return;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER:
-				setOnBehalfOfIdentifier((Identifier)newValue);
-				return;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE:
-				setOnBehalfOfReference((Reference)newValue);
+			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -442,17 +319,11 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
 				getRole().clear();
 				return;
-			case FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER:
-				setWhoIdentifier((Identifier)null);
+			case FhirPackage.PROVENANCE_AGENT__WHO:
+				setWho((Reference)null);
 				return;
-			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
-				setWhoReference((Reference)null);
-				return;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER:
-				setOnBehalfOfIdentifier((Identifier)null);
-				return;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE:
-				setOnBehalfOfReference((Reference)null);
+			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -470,14 +341,10 @@ public class ProvenanceAgentImpl extends BackboneElementImpl implements Provenan
 				return type != null;
 			case FhirPackage.PROVENANCE_AGENT__ROLE:
 				return role != null && !role.isEmpty();
-			case FhirPackage.PROVENANCE_AGENT__WHO_IDENTIFIER:
-				return whoIdentifier != null;
-			case FhirPackage.PROVENANCE_AGENT__WHO_REFERENCE:
-				return whoReference != null;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_IDENTIFIER:
-				return onBehalfOfIdentifier != null;
-			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF_REFERENCE:
-				return onBehalfOfReference != null;
+			case FhirPackage.PROVENANCE_AGENT__WHO:
+				return who != null;
+			case FhirPackage.PROVENANCE_AGENT__ON_BEHALF_OF:
+				return onBehalfOf != null;
 		}
 		return super.eIsSet(featureID);
 	}

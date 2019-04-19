@@ -39,15 +39,17 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getDetected <em>Detected</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getRecordedDate <em>Recorded Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getResultingCondition <em>Resulting Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSeriousness <em>Seriousness</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getRecorder <em>Recorder</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getEventParticipant <em>Event Participant</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSuspectEntity <em>Suspect Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getSubjectMedicalHistory <em>Subject Medical History</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AdverseEventImpl#getReferenceDocument <em>Reference Document</em>}</li>
@@ -108,6 +110,16 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	protected Reference subject;
 
 	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference encounter;
+
+	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +128,26 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * @ordered
 	 */
 	protected DateTime date;
+
+	/**
+	 * The cached value of the '{@link #getDetected() <em>Detected</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDetected()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime detected;
+
+	/**
+	 * The cached value of the '{@link #getRecordedDate() <em>Recorded Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordedDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime recordedDate;
 
 	/**
 	 * The cached value of the '{@link #getResultingCondition() <em>Resulting Condition</em>}' containment reference list.
@@ -178,24 +210,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	protected Reference recorder;
 
 	/**
-	 * The cached value of the '{@link #getEventParticipant() <em>Event Participant</em>}' containment reference.
+	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventParticipant()
+	 * @see #getContributor()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference eventParticipant;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String description;
+	protected EList<Reference> contributor;
 
 	/**
 	 * The cached value of the '{@link #getSuspectEntity() <em>Suspect Entity</em>}' containment reference list.
@@ -445,6 +467,49 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getEncounter() {
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__ENCOUNTER, oldEncounter, newEncounter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
+			NotificationChain msgs = null;
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__ENCOUNTER, newEncounter, newEncounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DateTime getDate() {
 		return date;
 	}
@@ -481,6 +546,92 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getDetected() {
+		return detected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDetected(DateTime newDetected, NotificationChain msgs) {
+		DateTime oldDetected = detected;
+		detected = newDetected;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__DETECTED, oldDetected, newDetected);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDetected(DateTime newDetected) {
+		if (newDetected != detected) {
+			NotificationChain msgs = null;
+			if (detected != null)
+				msgs = ((InternalEObject)detected).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__DETECTED, null, msgs);
+			if (newDetected != null)
+				msgs = ((InternalEObject)newDetected).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__DETECTED, null, msgs);
+			msgs = basicSetDetected(newDetected, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__DETECTED, newDetected, newDetected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getRecordedDate() {
+		return recordedDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecordedDate(DateTime newRecordedDate, NotificationChain msgs) {
+		DateTime oldRecordedDate = recordedDate;
+		recordedDate = newRecordedDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__RECORDED_DATE, oldRecordedDate, newRecordedDate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecordedDate(DateTime newRecordedDate) {
+		if (newRecordedDate != recordedDate) {
+			NotificationChain msgs = null;
+			if (recordedDate != null)
+				msgs = ((InternalEObject)recordedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__RECORDED_DATE, null, msgs);
+			if (newRecordedDate != null)
+				msgs = ((InternalEObject)newRecordedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__RECORDED_DATE, null, msgs);
+			msgs = basicSetRecordedDate(newRecordedDate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__RECORDED_DATE, newRecordedDate, newRecordedDate));
 	}
 
 	/**
@@ -715,85 +866,11 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEventParticipant() {
-		return eventParticipant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEventParticipant(Reference newEventParticipant, NotificationChain msgs) {
-		Reference oldEventParticipant = eventParticipant;
-		eventParticipant = newEventParticipant;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT, oldEventParticipant, newEventParticipant);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Reference> getContributor() {
+		if (contributor == null) {
+			contributor = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ADVERSE_EVENT__CONTRIBUTOR);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEventParticipant(Reference newEventParticipant) {
-		if (newEventParticipant != eventParticipant) {
-			NotificationChain msgs = null;
-			if (eventParticipant != null)
-				msgs = ((InternalEObject)eventParticipant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT, null, msgs);
-			if (newEventParticipant != null)
-				msgs = ((InternalEObject)newEventParticipant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT, null, msgs);
-			msgs = basicSetEventParticipant(newEventParticipant, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT, newEventParticipant, newEventParticipant));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ADVERSE_EVENT__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ADVERSE_EVENT__DESCRIPTION, newDescription, newDescription));
+		return contributor;
 	}
 
 	/**
@@ -862,8 +939,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return basicSetEvent(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return basicSetSubject(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return basicSetDate(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__DETECTED:
+				return basicSetDetected(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__RECORDED_DATE:
+				return basicSetRecordedDate(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
 				return ((InternalEList<?>)getResultingCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
@@ -876,10 +959,8 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return basicSetOutcome(null, msgs);
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
 				return basicSetRecorder(null, msgs);
-			case FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT:
-				return basicSetEventParticipant(null, msgs);
-			case FhirPackage.ADVERSE_EVENT__DESCRIPTION:
-				return basicSetDescription(null, msgs);
+			case FhirPackage.ADVERSE_EVENT__CONTRIBUTOR:
+				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY:
 				return ((InternalEList<?>)getSuspectEntity()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ADVERSE_EVENT__SUBJECT_MEDICAL_HISTORY:
@@ -910,8 +991,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return getEvent();
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return getSubject();
+			case FhirPackage.ADVERSE_EVENT__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return getDate();
+			case FhirPackage.ADVERSE_EVENT__DETECTED:
+				return getDetected();
+			case FhirPackage.ADVERSE_EVENT__RECORDED_DATE:
+				return getRecordedDate();
 			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
 				return getResultingCondition();
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
@@ -924,10 +1011,8 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return getOutcome();
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
 				return getRecorder();
-			case FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT:
-				return getEventParticipant();
-			case FhirPackage.ADVERSE_EVENT__DESCRIPTION:
-				return getDescription();
+			case FhirPackage.ADVERSE_EVENT__CONTRIBUTOR:
+				return getContributor();
 			case FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY:
 				return getSuspectEntity();
 			case FhirPackage.ADVERSE_EVENT__SUBJECT_MEDICAL_HISTORY:
@@ -965,8 +1050,17 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
+			case FhirPackage.ADVERSE_EVENT__ENCOUNTER:
+				setEncounter((Reference)newValue);
+				return;
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				setDate((DateTime)newValue);
+				return;
+			case FhirPackage.ADVERSE_EVENT__DETECTED:
+				setDetected((DateTime)newValue);
+				return;
+			case FhirPackage.ADVERSE_EVENT__RECORDED_DATE:
+				setRecordedDate((DateTime)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
 				getResultingCondition().clear();
@@ -987,11 +1081,9 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
 				setRecorder((Reference)newValue);
 				return;
-			case FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT:
-				setEventParticipant((Reference)newValue);
-				return;
-			case FhirPackage.ADVERSE_EVENT__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
+			case FhirPackage.ADVERSE_EVENT__CONTRIBUTOR:
+				getContributor().clear();
+				getContributor().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY:
 				getSuspectEntity().clear();
@@ -1036,8 +1128,17 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				setSubject((Reference)null);
 				return;
+			case FhirPackage.ADVERSE_EVENT__ENCOUNTER:
+				setEncounter((Reference)null);
+				return;
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				setDate((DateTime)null);
+				return;
+			case FhirPackage.ADVERSE_EVENT__DETECTED:
+				setDetected((DateTime)null);
+				return;
+			case FhirPackage.ADVERSE_EVENT__RECORDED_DATE:
+				setRecordedDate((DateTime)null);
 				return;
 			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
 				getResultingCondition().clear();
@@ -1057,11 +1158,8 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
 				setRecorder((Reference)null);
 				return;
-			case FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT:
-				setEventParticipant((Reference)null);
-				return;
-			case FhirPackage.ADVERSE_EVENT__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
+			case FhirPackage.ADVERSE_EVENT__CONTRIBUTOR:
+				getContributor().clear();
 				return;
 			case FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY:
 				getSuspectEntity().clear();
@@ -1097,8 +1195,14 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return event != null;
 			case FhirPackage.ADVERSE_EVENT__SUBJECT:
 				return subject != null;
+			case FhirPackage.ADVERSE_EVENT__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.ADVERSE_EVENT__DATE:
 				return date != null;
+			case FhirPackage.ADVERSE_EVENT__DETECTED:
+				return detected != null;
+			case FhirPackage.ADVERSE_EVENT__RECORDED_DATE:
+				return recordedDate != null;
 			case FhirPackage.ADVERSE_EVENT__RESULTING_CONDITION:
 				return resultingCondition != null && !resultingCondition.isEmpty();
 			case FhirPackage.ADVERSE_EVENT__LOCATION:
@@ -1111,10 +1215,8 @@ public class AdverseEventImpl extends DomainResourceImpl implements AdverseEvent
 				return outcome != null;
 			case FhirPackage.ADVERSE_EVENT__RECORDER:
 				return recorder != null;
-			case FhirPackage.ADVERSE_EVENT__EVENT_PARTICIPANT:
-				return eventParticipant != null;
-			case FhirPackage.ADVERSE_EVENT__DESCRIPTION:
-				return description != null;
+			case FhirPackage.ADVERSE_EVENT__CONTRIBUTOR:
+				return contributor != null && !contributor.isEmpty();
 			case FhirPackage.ADVERSE_EVENT__SUSPECT_ENTITY:
 				return suspectEntity != null && !suspectEntity.isEmpty();
 			case FhirPackage.ADVERSE_EVENT__SUBJECT_MEDICAL_HISTORY:

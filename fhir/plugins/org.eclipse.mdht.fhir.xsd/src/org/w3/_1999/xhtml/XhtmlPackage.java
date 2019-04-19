@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -591,15 +590,6 @@ public interface XhtmlPackage extends EPackage {
 	int INLINE_FEATURE_COUNT = 26;
 
 	/**
-	 * The number of operations of the '<em>Inline</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INLINE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.AbbrTypeImpl <em>Abbr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -916,15 +906,6 @@ public interface XhtmlPackage extends EPackage {
 	int ABBR_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Abbr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABBR_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.AContentImpl <em>AContent</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1167,15 +1148,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACONTENT_FEATURE_COUNT = 25;
-
-	/**
-	 * The number of operations of the '<em>AContent</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACONTENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.AcronymTypeImpl <em>Acronym Type</em>}' class.
@@ -1494,15 +1466,6 @@ public interface XhtmlPackage extends EPackage {
 	int ACRONYM_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Acronym Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACRONYM_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.AddressTypeImpl <em>Address Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1819,15 +1782,6 @@ public interface XhtmlPackage extends EPackage {
 	int ADDRESS_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Address Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADDRESS_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.AreaTypeImpl <em>Area Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1971,15 +1925,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int AREA_TYPE_FEATURE_COUNT = 14;
-
-	/**
-	 * The number of operations of the '<em>Area Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AREA_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ATypeImpl <em>AType</em>}' class.
@@ -2388,15 +2333,6 @@ public interface XhtmlPackage extends EPackage {
 	int ATYPE_FEATURE_COUNT = ACONTENT_FEATURE_COUNT + 18;
 
 	/**
-	 * The number of operations of the '<em>AType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATYPE_OPERATION_COUNT = ACONTENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BdoTypeImpl <em>Bdo Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2711,15 +2647,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int BDO_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Bdo Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BDO_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BigTypeImpl <em>Big Type</em>}' class.
@@ -3038,15 +2965,6 @@ public interface XhtmlPackage extends EPackage {
 	int BIG_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Big Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BIG_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BlockImpl <em>Block</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3217,15 +3135,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int BLOCK_FEATURE_COUNT = 17;
-
-	/**
-	 * The number of operations of the '<em>Block</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BlockquoteTypeImpl <em>Blockquote Type</em>}' class.
@@ -3472,15 +3381,6 @@ public interface XhtmlPackage extends EPackage {
 	int BLOCKQUOTE_TYPE_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of operations of the '<em>Blockquote Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCKQUOTE_TYPE_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BrTypeImpl <em>Br Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3534,15 +3434,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int BR_TYPE_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Br Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.BTypeImpl <em>BType</em>}' class.
@@ -3861,15 +3752,6 @@ public interface XhtmlPackage extends EPackage {
 	int BTYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>BType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BTYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.CaptionTypeImpl <em>Caption Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4184,15 +4066,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPTION_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Caption Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPTION_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.CiteTypeImpl <em>Cite Type</em>}' class.
@@ -4511,15 +4384,6 @@ public interface XhtmlPackage extends EPackage {
 	int CITE_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Cite Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CITE_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.CodeTypeImpl <em>Code Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4836,15 +4700,6 @@ public interface XhtmlPackage extends EPackage {
 	int CODE_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Code Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ColgroupTypeImpl <em>Colgroup Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4990,15 +4845,6 @@ public interface XhtmlPackage extends EPackage {
 	int COLGROUP_TYPE_FEATURE_COUNT = 14;
 
 	/**
-	 * The number of operations of the '<em>Colgroup Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLGROUP_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ColTypeImpl <em>Col Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5133,15 +4979,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int COL_TYPE_FEATURE_COUNT = 13;
-
-	/**
-	 * The number of operations of the '<em>Col Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.FlowImpl <em>Flow</em>}' class.
@@ -5539,15 +5376,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int FLOW_FEATURE_COUNT = 42;
-
-	/**
-	 * The number of operations of the '<em>Flow</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLOW_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DdTypeImpl <em>Dd Type</em>}' class.
@@ -6010,15 +5838,6 @@ public interface XhtmlPackage extends EPackage {
 	int DD_TYPE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Dd Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DD_TYPE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DfnTypeImpl <em>Dfn Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6333,15 +6152,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int DFN_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Dfn Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DFN_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DivTypeImpl <em>Div Type</em>}' class.
@@ -6804,15 +6614,6 @@ public interface XhtmlPackage extends EPackage {
 	int DIV_TYPE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Div Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIV_TYPE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DlTypeImpl <em>Dl Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6920,15 +6721,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int DL_TYPE_FEATURE_COUNT = 10;
-
-	/**
-	 * The number of operations of the '<em>Dl Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DocumentRootImpl <em>Document Root</em>}' class.
@@ -7454,15 +7246,6 @@ public interface XhtmlPackage extends EPackage {
 	int DOCUMENT_ROOT_FEATURE_COUNT = 56;
 
 	/**
-	 * The number of operations of the '<em>Document Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.DtTypeImpl <em>Dt Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7777,15 +7560,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int DT_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Dt Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DT_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.EmTypeImpl <em>Em Type</em>}' class.
@@ -8104,15 +7878,6 @@ public interface XhtmlPackage extends EPackage {
 	int EM_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Em Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EM_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H1TypeImpl <em>H1 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8427,15 +8192,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int H1_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>H1 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H1_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H2TypeImpl <em>H2 Type</em>}' class.
@@ -8754,15 +8510,6 @@ public interface XhtmlPackage extends EPackage {
 	int H2_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>H2 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H2_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H3TypeImpl <em>H3 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9077,15 +8824,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int H3_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>H3 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H3_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H4TypeImpl <em>H4 Type</em>}' class.
@@ -9404,15 +9142,6 @@ public interface XhtmlPackage extends EPackage {
 	int H4_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>H4 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H4_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H5TypeImpl <em>H5 Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9727,15 +9456,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int H5_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>H5 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H5_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.H6TypeImpl <em>H6 Type</em>}' class.
@@ -10054,15 +9774,6 @@ public interface XhtmlPackage extends EPackage {
 	int H6_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>H6 Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int H6_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.HrTypeImpl <em>Hr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10143,15 +9854,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int HR_TYPE_FEATURE_COUNT = 7;
-
-	/**
-	 * The number of operations of the '<em>Hr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ImgTypeImpl <em>Img Type</em>}' class.
@@ -10297,15 +9999,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMG_TYPE_FEATURE_COUNT = 14;
-
-	/**
-	 * The number of operations of the '<em>Img Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMG_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ITypeImpl <em>IType</em>}' class.
@@ -10624,15 +10317,6 @@ public interface XhtmlPackage extends EPackage {
 	int ITYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>IType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.KbdTypeImpl <em>Kbd Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10947,15 +10631,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int KBD_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Kbd Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KBD_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.LiTypeImpl <em>Li Type</em>}' class.
@@ -11418,15 +11093,6 @@ public interface XhtmlPackage extends EPackage {
 	int LI_TYPE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Li Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LI_TYPE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.MapTypeImpl <em>Map Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11680,15 +11346,6 @@ public interface XhtmlPackage extends EPackage {
 	int MAP_TYPE_FEATURE_COUNT = 26;
 
 	/**
-	 * The number of operations of the '<em>Map Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.OlTypeImpl <em>Ol Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11778,15 +11435,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int OL_TYPE_FEATURE_COUNT = 8;
-
-	/**
-	 * The number of operations of the '<em>Ol Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.PreContentImpl <em>Pre Content</em>}' class.
@@ -12031,15 +11679,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRE_CONTENT_FEATURE_COUNT = 25;
-
-	/**
-	 * The number of operations of the '<em>Pre Content</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_CONTENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.PreTypeImpl <em>Pre Type</em>}' class.
@@ -12358,15 +11997,6 @@ public interface XhtmlPackage extends EPackage {
 	int PRE_TYPE_FEATURE_COUNT = PRE_CONTENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of operations of the '<em>Pre Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_TYPE_OPERATION_COUNT = PRE_CONTENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.PTypeImpl <em>PType</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12681,15 +12311,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int PTYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>PType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PTYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.QTypeImpl <em>QType</em>}' class.
@@ -13017,15 +12638,6 @@ public interface XhtmlPackage extends EPackage {
 	int QTYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of operations of the '<em>QType</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QTYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.SampTypeImpl <em>Samp Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13340,15 +12952,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SAMP_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Samp Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAMP_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.SmallTypeImpl <em>Small Type</em>}' class.
@@ -13667,15 +13270,6 @@ public interface XhtmlPackage extends EPackage {
 	int SMALL_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Small Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SMALL_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.SpanTypeImpl <em>Span Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13990,15 +13584,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPAN_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Span Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPAN_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.StrongTypeImpl <em>Strong Type</em>}' class.
@@ -14317,15 +13902,6 @@ public interface XhtmlPackage extends EPackage {
 	int STRONG_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Strong Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRONG_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.SubTypeImpl <em>Sub Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14640,15 +14216,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUB_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of operations of the '<em>Sub Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.SupTypeImpl <em>Sup Type</em>}' class.
@@ -14967,15 +14534,6 @@ public interface XhtmlPackage extends EPackage {
 	int SUP_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Sup Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUP_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TableTypeImpl <em>Table Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15184,15 +14742,6 @@ public interface XhtmlPackage extends EPackage {
 	int TABLE_TYPE_FEATURE_COUNT = 21;
 
 	/**
-	 * The number of operations of the '<em>Table Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TbodyTypeImpl <em>Tbody Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15318,15 +14867,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int TBODY_TYPE_FEATURE_COUNT = 12;
-
-	/**
-	 * The number of operations of the '<em>Tbody Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TBODY_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TdTypeImpl <em>Td Type</em>}' class.
@@ -15879,15 +15419,6 @@ public interface XhtmlPackage extends EPackage {
 	int TD_TYPE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 17;
 
 	/**
-	 * The number of operations of the '<em>Td Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TD_TYPE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TfootTypeImpl <em>Tfoot Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16015,15 +15546,6 @@ public interface XhtmlPackage extends EPackage {
 	int TFOOT_TYPE_FEATURE_COUNT = 12;
 
 	/**
-	 * The number of operations of the '<em>Tfoot Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TFOOT_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TheadTypeImpl <em>Thead Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16149,15 +15671,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int THEAD_TYPE_FEATURE_COUNT = 12;
-
-	/**
-	 * The number of operations of the '<em>Thead Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THEAD_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.ThTypeImpl <em>Th Type</em>}' class.
@@ -16710,15 +16223,6 @@ public interface XhtmlPackage extends EPackage {
 	int TH_TYPE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 17;
 
 	/**
-	 * The number of operations of the '<em>Th Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TH_TYPE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TrTypeImpl <em>Tr Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16862,15 +16366,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int TR_TYPE_FEATURE_COUNT = 14;
-
-	/**
-	 * The number of operations of the '<em>Tr Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TR_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.TtTypeImpl <em>Tt Type</em>}' class.
@@ -17189,15 +16684,6 @@ public interface XhtmlPackage extends EPackage {
 	int TT_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Tt Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TT_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.UlTypeImpl <em>Ul Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17287,15 +16773,6 @@ public interface XhtmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int UL_TYPE_FEATURE_COUNT = 8;
-
-	/**
-	 * The number of operations of the '<em>Ul Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UL_TYPE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.impl.VarTypeImpl <em>Var Type</em>}' class.
@@ -17614,15 +17091,6 @@ public interface XhtmlPackage extends EPackage {
 	int VAR_TYPE_FEATURE_COUNT = INLINE_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Var Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VAR_TYPE_OPERATION_COUNT = INLINE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.w3._1999.xhtml.AlignType <em>Align Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17796,7 +17264,7 @@ public interface XhtmlPackage extends EPackage {
 	 * The meta object id for the '<em>Datetime</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javax.xml.datatype.XMLGregorianCalendar
+	 * @see java.lang.Object
 	 * @see org.w3._1999.xhtml.impl.XhtmlPackageImpl#getDatetime()
 	 * @generated
 	 */
@@ -26278,12 +25746,12 @@ public interface XhtmlPackage extends EPackage {
 	EDataType getCoords();
 
 	/**
-	 * Returns the meta object for data type '{@link javax.xml.datatype.XMLGregorianCalendar <em>Datetime</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.Object <em>Datetime</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Datetime</em>'.
-	 * @see javax.xml.datatype.XMLGregorianCalendar
-	 * @model instanceClass="javax.xml.datatype.XMLGregorianCalendar"
+	 * @see java.lang.Object
+	 * @model instanceClass="java.lang.Object"
 	 *        extendedMetaData="name='Datetime' baseType='http://www.eclipse.org/emf/2003/XMLType#dateTime'"
 	 * @generated
 	 */

@@ -22,7 +22,11 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Device;
-import org.hl7.fhir.DeviceUdi;
+import org.hl7.fhir.DeviceDeviceName;
+import org.hl7.fhir.DeviceProperty;
+import org.hl7.fhir.DeviceSpecialization;
+import org.hl7.fhir.DeviceUdiCarrier;
+import org.hl7.fhir.DeviceVersion;
 import org.hl7.fhir.FHIRDeviceStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -38,15 +42,23 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUdi <em>Udi</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUdiCarrier <em>Udi Carrier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getLotNumber <em>Lot Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getStatusReason <em>Status Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getDistinctIdentifier <em>Distinct Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getManufactureDate <em>Manufacture Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getExpirationDate <em>Expiration Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getLotNumber <em>Lot Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getSerialNumber <em>Serial Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getDeviceName <em>Device Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getModelNumber <em>Model Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getPartNumber <em>Part Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getContact <em>Contact</em>}</li>
@@ -54,6 +66,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getSafety <em>Safety</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,14 +83,24 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getUdi() <em>Udi</em>}' containment reference.
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUdi()
+	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
 	 */
-	protected DeviceUdi udi;
+	protected Reference definition;
+
+	/**
+	 * The cached value of the '{@link #getUdiCarrier() <em>Udi Carrier</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUdiCarrier()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceUdiCarrier> udiCarrier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -90,24 +113,24 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected FHIRDeviceStatus status;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getStatusReason() <em>Status Reason</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getStatusReason()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected EList<CodeableConcept> statusReason;
 
 	/**
-	 * The cached value of the '{@link #getLotNumber() <em>Lot Number</em>}' containment reference.
+	 * The cached value of the '{@link #getDistinctIdentifier() <em>Distinct Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLotNumber()
+	 * @see #getDistinctIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String lotNumber;
+	protected org.hl7.fhir.String distinctIdentifier;
 
 	/**
 	 * The cached value of the '{@link #getManufacturer() <em>Manufacturer</em>}' containment reference.
@@ -140,24 +163,94 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected DateTime expirationDate;
 
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
+	 * The cached value of the '{@link #getLotNumber() <em>Lot Number</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getLotNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String model;
+	protected org.hl7.fhir.String lotNumber;
 
 	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
+	 * The cached value of the '{@link #getSerialNumber() <em>Serial Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSerialNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String serialNumber;
+
+	/**
+	 * The cached value of the '{@link #getDeviceName() <em>Device Name</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeviceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceDeviceName> deviceName;
+
+	/**
+	 * The cached value of the '{@link #getModelNumber() <em>Model Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String modelNumber;
+
+	/**
+	 * The cached value of the '{@link #getPartNumber() <em>Part Number</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPartNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String partNumber;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept type;
+
+	/**
+	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceSpecialization> specialization;
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String version;
+	protected EList<DeviceVersion> version;
+
+	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DeviceProperty> property;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -230,6 +323,16 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	protected EList<CodeableConcept> safety;
 
 	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference parent;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -265,8 +368,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeviceUdi getUdi() {
-		return udi;
+	public Reference getDefinition() {
+		return definition;
 	}
 
 	/**
@@ -274,11 +377,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUdi(DeviceUdi newUdi, NotificationChain msgs) {
-		DeviceUdi oldUdi = udi;
-		udi = newUdi;
+	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
+		Reference oldDefinition = definition;
+		definition = newDefinition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI, oldUdi, newUdi);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__DEFINITION, oldDefinition, newDefinition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -289,18 +392,30 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUdi(DeviceUdi newUdi) {
-		if (newUdi != udi) {
+	public void setDefinition(Reference newDefinition) {
+		if (newDefinition != definition) {
 			NotificationChain msgs = null;
-			if (udi != null)
-				msgs = ((InternalEObject)udi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI, null, msgs);
-			if (newUdi != null)
-				msgs = ((InternalEObject)newUdi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__UDI, null, msgs);
-			msgs = basicSetUdi(newUdi, msgs);
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__UDI, newUdi, newUdi));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__DEFINITION, newDefinition, newDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DeviceUdiCarrier> getUdiCarrier() {
+		if (udiCarrier == null) {
+			udiCarrier = new EObjectContainmentEList<DeviceUdiCarrier>(DeviceUdiCarrier.class, this, FhirPackage.DEVICE__UDI_CARRIER);
+		}
+		return udiCarrier;
 	}
 
 	/**
@@ -351,8 +466,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
-		return type;
+	public EList<CodeableConcept> getStatusReason() {
+		if (statusReason == null) {
+			statusReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.DEVICE__STATUS_REASON);
+		}
+		return statusReason;
 	}
 
 	/**
@@ -360,11 +478,20 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
+	public org.hl7.fhir.String getDistinctIdentifier() {
+		return distinctIdentifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDistinctIdentifier(org.hl7.fhir.String newDistinctIdentifier, NotificationChain msgs) {
+		org.hl7.fhir.String oldDistinctIdentifier = distinctIdentifier;
+		distinctIdentifier = newDistinctIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__DISTINCT_IDENTIFIER, oldDistinctIdentifier, newDistinctIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -375,61 +502,18 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
+	public void setDistinctIdentifier(org.hl7.fhir.String newDistinctIdentifier) {
+		if (newDistinctIdentifier != distinctIdentifier) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (distinctIdentifier != null)
+				msgs = ((InternalEObject)distinctIdentifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__DISTINCT_IDENTIFIER, null, msgs);
+			if (newDistinctIdentifier != null)
+				msgs = ((InternalEObject)newDistinctIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__DISTINCT_IDENTIFIER, null, msgs);
+			msgs = basicSetDistinctIdentifier(newDistinctIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__TYPE, newType, newType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getLotNumber() {
-		return lotNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLotNumber(org.hl7.fhir.String newLotNumber, NotificationChain msgs) {
-		org.hl7.fhir.String oldLotNumber = lotNumber;
-		lotNumber = newLotNumber;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__LOT_NUMBER, oldLotNumber, newLotNumber);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLotNumber(org.hl7.fhir.String newLotNumber) {
-		if (newLotNumber != lotNumber) {
-			NotificationChain msgs = null;
-			if (lotNumber != null)
-				msgs = ((InternalEObject)lotNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__LOT_NUMBER, null, msgs);
-			if (newLotNumber != null)
-				msgs = ((InternalEObject)newLotNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__LOT_NUMBER, null, msgs);
-			msgs = basicSetLotNumber(newLotNumber, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__LOT_NUMBER, newLotNumber, newLotNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__DISTINCT_IDENTIFIER, newDistinctIdentifier, newDistinctIdentifier));
 	}
 
 	/**
@@ -566,8 +650,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getModel() {
-		return model;
+	public org.hl7.fhir.String getLotNumber() {
+		return lotNumber;
 	}
 
 	/**
@@ -575,11 +659,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModel(org.hl7.fhir.String newModel, NotificationChain msgs) {
-		org.hl7.fhir.String oldModel = model;
-		model = newModel;
+	public NotificationChain basicSetLotNumber(org.hl7.fhir.String newLotNumber, NotificationChain msgs) {
+		org.hl7.fhir.String oldLotNumber = lotNumber;
+		lotNumber = newLotNumber;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__MODEL, oldModel, newModel);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__LOT_NUMBER, oldLotNumber, newLotNumber);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -590,18 +674,18 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModel(org.hl7.fhir.String newModel) {
-		if (newModel != model) {
+	public void setLotNumber(org.hl7.fhir.String newLotNumber) {
+		if (newLotNumber != lotNumber) {
 			NotificationChain msgs = null;
-			if (model != null)
-				msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__MODEL, null, msgs);
-			if (newModel != null)
-				msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__MODEL, null, msgs);
-			msgs = basicSetModel(newModel, msgs);
+			if (lotNumber != null)
+				msgs = ((InternalEObject)lotNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__LOT_NUMBER, null, msgs);
+			if (newLotNumber != null)
+				msgs = ((InternalEObject)newLotNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__LOT_NUMBER, null, msgs);
+			msgs = basicSetLotNumber(newLotNumber, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__MODEL, newModel, newModel));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__LOT_NUMBER, newLotNumber, newLotNumber));
 	}
 
 	/**
@@ -609,7 +693,206 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getVersion() {
+	public org.hl7.fhir.String getSerialNumber() {
+		return serialNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSerialNumber(org.hl7.fhir.String newSerialNumber, NotificationChain msgs) {
+		org.hl7.fhir.String oldSerialNumber = serialNumber;
+		serialNumber = newSerialNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__SERIAL_NUMBER, oldSerialNumber, newSerialNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSerialNumber(org.hl7.fhir.String newSerialNumber) {
+		if (newSerialNumber != serialNumber) {
+			NotificationChain msgs = null;
+			if (serialNumber != null)
+				msgs = ((InternalEObject)serialNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__SERIAL_NUMBER, null, msgs);
+			if (newSerialNumber != null)
+				msgs = ((InternalEObject)newSerialNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__SERIAL_NUMBER, null, msgs);
+			msgs = basicSetSerialNumber(newSerialNumber, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__SERIAL_NUMBER, newSerialNumber, newSerialNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DeviceDeviceName> getDeviceName() {
+		if (deviceName == null) {
+			deviceName = new EObjectContainmentEList<DeviceDeviceName>(DeviceDeviceName.class, this, FhirPackage.DEVICE__DEVICE_NAME);
+		}
+		return deviceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getModelNumber() {
+		return modelNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModelNumber(org.hl7.fhir.String newModelNumber, NotificationChain msgs) {
+		org.hl7.fhir.String oldModelNumber = modelNumber;
+		modelNumber = newModelNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__MODEL_NUMBER, oldModelNumber, newModelNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModelNumber(org.hl7.fhir.String newModelNumber) {
+		if (newModelNumber != modelNumber) {
+			NotificationChain msgs = null;
+			if (modelNumber != null)
+				msgs = ((InternalEObject)modelNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__MODEL_NUMBER, null, msgs);
+			if (newModelNumber != null)
+				msgs = ((InternalEObject)newModelNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__MODEL_NUMBER, null, msgs);
+			msgs = basicSetModelNumber(newModelNumber, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__MODEL_NUMBER, newModelNumber, newModelNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getPartNumber() {
+		return partNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPartNumber(org.hl7.fhir.String newPartNumber, NotificationChain msgs) {
+		org.hl7.fhir.String oldPartNumber = partNumber;
+		partNumber = newPartNumber;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__PART_NUMBER, oldPartNumber, newPartNumber);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPartNumber(org.hl7.fhir.String newPartNumber) {
+		if (newPartNumber != partNumber) {
+			NotificationChain msgs = null;
+			if (partNumber != null)
+				msgs = ((InternalEObject)partNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__PART_NUMBER, null, msgs);
+			if (newPartNumber != null)
+				msgs = ((InternalEObject)newPartNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__PART_NUMBER, null, msgs);
+			msgs = basicSetPartNumber(newPartNumber, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__PART_NUMBER, newPartNumber, newPartNumber));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DeviceSpecialization> getSpecialization() {
+		if (specialization == null) {
+			specialization = new EObjectContainmentEList<DeviceSpecialization>(DeviceSpecialization.class, this, FhirPackage.DEVICE__SPECIALIZATION);
+		}
+		return specialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DeviceVersion> getVersion() {
+		if (version == null) {
+			version = new EObjectContainmentEList<DeviceVersion>(DeviceVersion.class, this, FhirPackage.DEVICE__VERSION);
+		}
 		return version;
 	}
 
@@ -618,33 +901,11 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVersion(org.hl7.fhir.String newVersion, NotificationChain msgs) {
-		org.hl7.fhir.String oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__VERSION, oldVersion, newVersion);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<DeviceProperty> getProperty() {
+		if (property == null) {
+			property = new EObjectContainmentEList<DeviceProperty>(DeviceProperty.class, this, FhirPackage.DEVICE__PROPERTY);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(org.hl7.fhir.String newVersion) {
-		if (newVersion != version) {
-			NotificationChain msgs = null;
-			if (version != null)
-				msgs = ((InternalEObject)version).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__VERSION, null, msgs);
-			if (newVersion != null)
-				msgs = ((InternalEObject)newVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__VERSION, null, msgs);
-			msgs = basicSetVersion(newVersion, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__VERSION, newVersion, newVersion));
+		return property;
 	}
 
 	/**
@@ -860,29 +1121,88 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Reference getParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(Reference newParent, NotificationChain msgs) {
+		Reference oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__PARENT, oldParent, newParent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(Reference newParent) {
+		if (newParent != parent) {
+			NotificationChain msgs = null;
+			if (parent != null)
+				msgs = ((InternalEObject)parent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__PARENT, null, msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE__PARENT, null, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE__UDI:
-				return basicSetUdi(null, msgs);
+			case FhirPackage.DEVICE__DEFINITION:
+				return basicSetDefinition(null, msgs);
+			case FhirPackage.DEVICE__UDI_CARRIER:
+				return ((InternalEList<?>)getUdiCarrier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.DEVICE__TYPE:
-				return basicSetType(null, msgs);
-			case FhirPackage.DEVICE__LOT_NUMBER:
-				return basicSetLotNumber(null, msgs);
+			case FhirPackage.DEVICE__STATUS_REASON:
+				return ((InternalEList<?>)getStatusReason()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE__DISTINCT_IDENTIFIER:
+				return basicSetDistinctIdentifier(null, msgs);
 			case FhirPackage.DEVICE__MANUFACTURER:
 				return basicSetManufacturer(null, msgs);
 			case FhirPackage.DEVICE__MANUFACTURE_DATE:
 				return basicSetManufactureDate(null, msgs);
 			case FhirPackage.DEVICE__EXPIRATION_DATE:
 				return basicSetExpirationDate(null, msgs);
-			case FhirPackage.DEVICE__MODEL:
-				return basicSetModel(null, msgs);
+			case FhirPackage.DEVICE__LOT_NUMBER:
+				return basicSetLotNumber(null, msgs);
+			case FhirPackage.DEVICE__SERIAL_NUMBER:
+				return basicSetSerialNumber(null, msgs);
+			case FhirPackage.DEVICE__DEVICE_NAME:
+				return ((InternalEList<?>)getDeviceName()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE__MODEL_NUMBER:
+				return basicSetModelNumber(null, msgs);
+			case FhirPackage.DEVICE__PART_NUMBER:
+				return basicSetPartNumber(null, msgs);
+			case FhirPackage.DEVICE__TYPE:
+				return basicSetType(null, msgs);
+			case FhirPackage.DEVICE__SPECIALIZATION:
+				return ((InternalEList<?>)getSpecialization()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE__VERSION:
-				return basicSetVersion(null, msgs);
+				return ((InternalEList<?>)getVersion()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE__PROPERTY:
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.DEVICE__OWNER:
@@ -897,6 +1217,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return ((InternalEList<?>)getNote()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE__SAFETY:
 				return ((InternalEList<?>)getSafety()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -911,24 +1233,40 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DEVICE__UDI:
-				return getUdi();
+			case FhirPackage.DEVICE__DEFINITION:
+				return getDefinition();
+			case FhirPackage.DEVICE__UDI_CARRIER:
+				return getUdiCarrier();
 			case FhirPackage.DEVICE__STATUS:
 				return getStatus();
-			case FhirPackage.DEVICE__TYPE:
-				return getType();
-			case FhirPackage.DEVICE__LOT_NUMBER:
-				return getLotNumber();
+			case FhirPackage.DEVICE__STATUS_REASON:
+				return getStatusReason();
+			case FhirPackage.DEVICE__DISTINCT_IDENTIFIER:
+				return getDistinctIdentifier();
 			case FhirPackage.DEVICE__MANUFACTURER:
 				return getManufacturer();
 			case FhirPackage.DEVICE__MANUFACTURE_DATE:
 				return getManufactureDate();
 			case FhirPackage.DEVICE__EXPIRATION_DATE:
 				return getExpirationDate();
-			case FhirPackage.DEVICE__MODEL:
-				return getModel();
+			case FhirPackage.DEVICE__LOT_NUMBER:
+				return getLotNumber();
+			case FhirPackage.DEVICE__SERIAL_NUMBER:
+				return getSerialNumber();
+			case FhirPackage.DEVICE__DEVICE_NAME:
+				return getDeviceName();
+			case FhirPackage.DEVICE__MODEL_NUMBER:
+				return getModelNumber();
+			case FhirPackage.DEVICE__PART_NUMBER:
+				return getPartNumber();
+			case FhirPackage.DEVICE__TYPE:
+				return getType();
+			case FhirPackage.DEVICE__SPECIALIZATION:
+				return getSpecialization();
 			case FhirPackage.DEVICE__VERSION:
 				return getVersion();
+			case FhirPackage.DEVICE__PROPERTY:
+				return getProperty();
 			case FhirPackage.DEVICE__PATIENT:
 				return getPatient();
 			case FhirPackage.DEVICE__OWNER:
@@ -943,6 +1281,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return getNote();
 			case FhirPackage.DEVICE__SAFETY:
 				return getSafety();
+			case FhirPackage.DEVICE__PARENT:
+				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -960,17 +1300,22 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DEVICE__UDI:
-				setUdi((DeviceUdi)newValue);
+			case FhirPackage.DEVICE__DEFINITION:
+				setDefinition((Reference)newValue);
+				return;
+			case FhirPackage.DEVICE__UDI_CARRIER:
+				getUdiCarrier().clear();
+				getUdiCarrier().addAll((Collection<? extends DeviceUdiCarrier>)newValue);
 				return;
 			case FhirPackage.DEVICE__STATUS:
 				setStatus((FHIRDeviceStatus)newValue);
 				return;
-			case FhirPackage.DEVICE__TYPE:
-				setType((CodeableConcept)newValue);
+			case FhirPackage.DEVICE__STATUS_REASON:
+				getStatusReason().clear();
+				getStatusReason().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.DEVICE__LOT_NUMBER:
-				setLotNumber((org.hl7.fhir.String)newValue);
+			case FhirPackage.DEVICE__DISTINCT_IDENTIFIER:
+				setDistinctIdentifier((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DEVICE__MANUFACTURER:
 				setManufacturer((org.hl7.fhir.String)newValue);
@@ -981,11 +1326,36 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__EXPIRATION_DATE:
 				setExpirationDate((DateTime)newValue);
 				return;
-			case FhirPackage.DEVICE__MODEL:
-				setModel((org.hl7.fhir.String)newValue);
+			case FhirPackage.DEVICE__LOT_NUMBER:
+				setLotNumber((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.DEVICE__SERIAL_NUMBER:
+				setSerialNumber((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.DEVICE__DEVICE_NAME:
+				getDeviceName().clear();
+				getDeviceName().addAll((Collection<? extends DeviceDeviceName>)newValue);
+				return;
+			case FhirPackage.DEVICE__MODEL_NUMBER:
+				setModelNumber((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.DEVICE__PART_NUMBER:
+				setPartNumber((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.DEVICE__TYPE:
+				setType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.DEVICE__SPECIALIZATION:
+				getSpecialization().clear();
+				getSpecialization().addAll((Collection<? extends DeviceSpecialization>)newValue);
 				return;
 			case FhirPackage.DEVICE__VERSION:
-				setVersion((org.hl7.fhir.String)newValue);
+				getVersion().clear();
+				getVersion().addAll((Collection<? extends DeviceVersion>)newValue);
+				return;
+			case FhirPackage.DEVICE__PROPERTY:
+				getProperty().clear();
+				getProperty().addAll((Collection<? extends DeviceProperty>)newValue);
 				return;
 			case FhirPackage.DEVICE__PATIENT:
 				setPatient((Reference)newValue);
@@ -1011,6 +1381,9 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				getSafety().clear();
 				getSafety().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.DEVICE__PARENT:
+				setParent((Reference)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1026,17 +1399,20 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DEVICE__UDI:
-				setUdi((DeviceUdi)null);
+			case FhirPackage.DEVICE__DEFINITION:
+				setDefinition((Reference)null);
+				return;
+			case FhirPackage.DEVICE__UDI_CARRIER:
+				getUdiCarrier().clear();
 				return;
 			case FhirPackage.DEVICE__STATUS:
 				setStatus((FHIRDeviceStatus)null);
 				return;
-			case FhirPackage.DEVICE__TYPE:
-				setType((CodeableConcept)null);
+			case FhirPackage.DEVICE__STATUS_REASON:
+				getStatusReason().clear();
 				return;
-			case FhirPackage.DEVICE__LOT_NUMBER:
-				setLotNumber((org.hl7.fhir.String)null);
+			case FhirPackage.DEVICE__DISTINCT_IDENTIFIER:
+				setDistinctIdentifier((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.DEVICE__MANUFACTURER:
 				setManufacturer((org.hl7.fhir.String)null);
@@ -1047,11 +1423,32 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__EXPIRATION_DATE:
 				setExpirationDate((DateTime)null);
 				return;
-			case FhirPackage.DEVICE__MODEL:
-				setModel((org.hl7.fhir.String)null);
+			case FhirPackage.DEVICE__LOT_NUMBER:
+				setLotNumber((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.DEVICE__SERIAL_NUMBER:
+				setSerialNumber((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.DEVICE__DEVICE_NAME:
+				getDeviceName().clear();
+				return;
+			case FhirPackage.DEVICE__MODEL_NUMBER:
+				setModelNumber((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.DEVICE__PART_NUMBER:
+				setPartNumber((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.DEVICE__TYPE:
+				setType((CodeableConcept)null);
+				return;
+			case FhirPackage.DEVICE__SPECIALIZATION:
+				getSpecialization().clear();
 				return;
 			case FhirPackage.DEVICE__VERSION:
-				setVersion((org.hl7.fhir.String)null);
+				getVersion().clear();
+				return;
+			case FhirPackage.DEVICE__PROPERTY:
+				getProperty().clear();
 				return;
 			case FhirPackage.DEVICE__PATIENT:
 				setPatient((Reference)null);
@@ -1074,6 +1471,9 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 			case FhirPackage.DEVICE__SAFETY:
 				getSafety().clear();
 				return;
+			case FhirPackage.DEVICE__PARENT:
+				setParent((Reference)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1088,24 +1488,40 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 		switch (featureID) {
 			case FhirPackage.DEVICE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DEVICE__UDI:
-				return udi != null;
+			case FhirPackage.DEVICE__DEFINITION:
+				return definition != null;
+			case FhirPackage.DEVICE__UDI_CARRIER:
+				return udiCarrier != null && !udiCarrier.isEmpty();
 			case FhirPackage.DEVICE__STATUS:
 				return status != null;
-			case FhirPackage.DEVICE__TYPE:
-				return type != null;
-			case FhirPackage.DEVICE__LOT_NUMBER:
-				return lotNumber != null;
+			case FhirPackage.DEVICE__STATUS_REASON:
+				return statusReason != null && !statusReason.isEmpty();
+			case FhirPackage.DEVICE__DISTINCT_IDENTIFIER:
+				return distinctIdentifier != null;
 			case FhirPackage.DEVICE__MANUFACTURER:
 				return manufacturer != null;
 			case FhirPackage.DEVICE__MANUFACTURE_DATE:
 				return manufactureDate != null;
 			case FhirPackage.DEVICE__EXPIRATION_DATE:
 				return expirationDate != null;
-			case FhirPackage.DEVICE__MODEL:
-				return model != null;
+			case FhirPackage.DEVICE__LOT_NUMBER:
+				return lotNumber != null;
+			case FhirPackage.DEVICE__SERIAL_NUMBER:
+				return serialNumber != null;
+			case FhirPackage.DEVICE__DEVICE_NAME:
+				return deviceName != null && !deviceName.isEmpty();
+			case FhirPackage.DEVICE__MODEL_NUMBER:
+				return modelNumber != null;
+			case FhirPackage.DEVICE__PART_NUMBER:
+				return partNumber != null;
+			case FhirPackage.DEVICE__TYPE:
+				return type != null;
+			case FhirPackage.DEVICE__SPECIALIZATION:
+				return specialization != null && !specialization.isEmpty();
 			case FhirPackage.DEVICE__VERSION:
-				return version != null;
+				return version != null && !version.isEmpty();
+			case FhirPackage.DEVICE__PROPERTY:
+				return property != null && !property.isEmpty();
 			case FhirPackage.DEVICE__PATIENT:
 				return patient != null;
 			case FhirPackage.DEVICE__OWNER:
@@ -1120,6 +1536,8 @@ public class DeviceImpl extends DomainResourceImpl implements Device {
 				return note != null && !note.isEmpty();
 			case FhirPackage.DEVICE__SAFETY:
 				return safety != null && !safety.isEmpty();
+			case FhirPackage.DEVICE__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}

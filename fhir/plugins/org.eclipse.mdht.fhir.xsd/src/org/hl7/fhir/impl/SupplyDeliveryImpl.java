@@ -55,14 +55,14 @@ import org.hl7.fhir.Timing;
  */
 public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDelivery {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -208,42 +208,11 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.SUPPLY_DELIVERY__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUPPLY_DELIVERY__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUPPLY_DELIVERY__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -678,7 +647,7 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUPPLY_DELIVERY__PART_OF:
@@ -755,7 +724,8 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
 				getBasedOn().clear();
@@ -809,7 +779,7 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
 				getBasedOn().clear();
@@ -860,7 +830,7 @@ public class SupplyDeliveryImpl extends DomainResourceImpl implements SupplyDeli
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.SUPPLY_DELIVERY__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.SUPPLY_DELIVERY__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.SUPPLY_DELIVERY__PART_OF:

@@ -54,7 +54,6 @@ import org.hl7.fhir.ValueSetExpansion;
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getImmutable <em>Immutable</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getExtensible <em>Extensible</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getCompose <em>Compose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ValueSetImpl#getExpansion <em>Expansion</em>}</li>
  * </ul>
@@ -221,16 +220,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * @ordered
 	 */
 	protected Markdown copyright;
-
-	/**
-	 * The cached value of the '{@link #getExtensible() <em>Extensible</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtensible()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Boolean extensible;
 
 	/**
 	 * The cached value of the '{@link #getCompose() <em>Compose</em>}' containment reference.
@@ -840,49 +829,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getExtensible() {
-		return extensible;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExtensible(org.hl7.fhir.Boolean newExtensible, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldExtensible = extensible;
-		extensible = newExtensible;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET__EXTENSIBLE, oldExtensible, newExtensible);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExtensible(org.hl7.fhir.Boolean newExtensible) {
-		if (newExtensible != extensible) {
-			NotificationChain msgs = null;
-			if (extensible != null)
-				msgs = ((InternalEObject)extensible).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET__EXTENSIBLE, null, msgs);
-			if (newExtensible != null)
-				msgs = ((InternalEObject)newExtensible).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VALUE_SET__EXTENSIBLE, null, msgs);
-			msgs = basicSetExtensible(newExtensible, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VALUE_SET__EXTENSIBLE, newExtensible, newExtensible));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ValueSetCompose getCompose() {
 		return compose;
 	}
@@ -1004,8 +950,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return basicSetPurpose(null, msgs);
 			case FhirPackage.VALUE_SET__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
-			case FhirPackage.VALUE_SET__EXTENSIBLE:
-				return basicSetExtensible(null, msgs);
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return basicSetCompose(null, msgs);
 			case FhirPackage.VALUE_SET__EXPANSION:
@@ -1054,8 +998,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return getPurpose();
 			case FhirPackage.VALUE_SET__COPYRIGHT:
 				return getCopyright();
-			case FhirPackage.VALUE_SET__EXTENSIBLE:
-				return getExtensible();
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return getCompose();
 			case FhirPackage.VALUE_SET__EXPANSION:
@@ -1125,9 +1067,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 			case FhirPackage.VALUE_SET__COPYRIGHT:
 				setCopyright((Markdown)newValue);
 				return;
-			case FhirPackage.VALUE_SET__EXTENSIBLE:
-				setExtensible((org.hl7.fhir.Boolean)newValue);
-				return;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				setCompose((ValueSetCompose)newValue);
 				return;
@@ -1194,9 +1133,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 			case FhirPackage.VALUE_SET__COPYRIGHT:
 				setCopyright((Markdown)null);
 				return;
-			case FhirPackage.VALUE_SET__EXTENSIBLE:
-				setExtensible((org.hl7.fhir.Boolean)null);
-				return;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				setCompose((ValueSetCompose)null);
 				return;
@@ -1247,8 +1183,6 @@ public class ValueSetImpl extends DomainResourceImpl implements ValueSet {
 				return purpose != null;
 			case FhirPackage.VALUE_SET__COPYRIGHT:
 				return copyright != null;
-			case FhirPackage.VALUE_SET__EXTENSIBLE:
-				return extensible != null;
 			case FhirPackage.VALUE_SET__COMPOSE:
 				return compose != null;
 			case FhirPackage.VALUE_SET__EXPANSION:

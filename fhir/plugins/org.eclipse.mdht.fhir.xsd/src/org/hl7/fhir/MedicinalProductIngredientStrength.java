@@ -18,7 +18,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getPresentation <em>Presentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getPresentationLowLimit <em>Presentation Low Limit</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getConcentration <em>Concentration</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getConcentrationLowLimit <em>Concentration Low Limit</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getMeasurementPoint <em>Measurement Point</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getCountry <em>Country</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductIngredientStrength#getReferenceStrength <em>Reference Strength</em>}</li>
@@ -56,6 +58,32 @@ public interface MedicinalProductIngredientStrength extends BackboneElement {
 	void setPresentation(Ratio value);
 
 	/**
+	 * Returns the value of the '<em><b>Presentation Low Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Presentation Low Limit</em>' containment reference.
+	 * @see #setPresentationLowLimit(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductIngredientStrength_PresentationLowLimit()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='presentationLowLimit' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Ratio getPresentationLowLimit();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductIngredientStrength#getPresentationLowLimit <em>Presentation Low Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Presentation Low Limit</em>' containment reference.
+	 * @see #getPresentationLowLimit()
+	 * @generated
+	 */
+	void setPresentationLowLimit(Ratio value);
+
+	/**
 	 * Returns the value of the '<em><b>Concentration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +108,32 @@ public interface MedicinalProductIngredientStrength extends BackboneElement {
 	 * @generated
 	 */
 	void setConcentration(Ratio value);
+
+	/**
+	 * Returns the value of the '<em><b>Concentration Low Limit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Concentration Low Limit</em>' containment reference.
+	 * @see #setConcentrationLowLimit(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductIngredientStrength_ConcentrationLowLimit()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='concentrationLowLimit' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Ratio getConcentrationLowLimit();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductIngredientStrength#getConcentrationLowLimit <em>Concentration Low Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Concentration Low Limit</em>' containment reference.
+	 * @see #getConcentrationLowLimit()
+	 * @generated
+	 */
+	void setConcentrationLowLimit(Ratio value);
 
 	/**
 	 * Returns the value of the '<em><b>Measurement Point</b></em>' containment reference.

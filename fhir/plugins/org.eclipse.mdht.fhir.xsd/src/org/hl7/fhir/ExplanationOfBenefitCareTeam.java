@@ -33,7 +33,7 @@ public interface ExplanationOfBenefitCareTeam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of careteam which serves to order and provide a link.
+	 * A number to uniquely identify care team entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -59,7 +59,7 @@ public interface ExplanationOfBenefitCareTeam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The members of the team who provided the overall service.
+	 * Member of the team who provided the product or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Provider</em>' containment reference.
 	 * @see #setProvider(Reference)
@@ -85,7 +85,7 @@ public interface ExplanationOfBenefitCareTeam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The practitioner who is billing and responsible for the claimed services rendered to the patient.
+	 * The party who is billing and/or responsible for the claimed products or services.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Responsible</em>' containment reference.
 	 * @see #setResponsible(org.hl7.fhir.Boolean)
@@ -111,7 +111,7 @@ public interface ExplanationOfBenefitCareTeam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The lead, assisting or supervising practitioner and their discipline if a multidisiplinary team.
+	 * The lead, assisting or supervising practitioner and their discipline if a multidisciplinary team.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Role</em>' containment reference.
 	 * @see #setRole(CodeableConcept)
@@ -137,7 +137,7 @@ public interface ExplanationOfBenefitCareTeam extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The qualification which is applicable for this service.
+	 * The qualification of the practitioner which is applicable for this service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Qualification</em>' containment reference.
 	 * @see #setQualification(CodeableConcept)

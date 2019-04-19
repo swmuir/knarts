@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Expression;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MeasureSupplementalData;
 
@@ -33,7 +34,6 @@ import org.hl7.fhir.MeasureSupplementalData;
  *   <li>{@link org.hl7.fhir.impl.MeasureSupplementalDataImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureSupplementalDataImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureSupplementalDataImpl#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureSupplementalDataImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,17 +77,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String criteria;
-
-	/**
-	 * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String path;
+	protected Expression criteria;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,7 +201,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getCriteria() {
+	public Expression getCriteria() {
 		return criteria;
 	}
 
@@ -220,8 +210,8 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCriteria(org.hl7.fhir.String newCriteria, NotificationChain msgs) {
-		org.hl7.fhir.String oldCriteria = criteria;
+	public NotificationChain basicSetCriteria(Expression newCriteria, NotificationChain msgs) {
+		Expression oldCriteria = criteria;
 		criteria = newCriteria;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA, oldCriteria, newCriteria);
@@ -235,7 +225,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriteria(org.hl7.fhir.String newCriteria) {
+	public void setCriteria(Expression newCriteria) {
 		if (newCriteria != criteria) {
 			NotificationChain msgs = null;
 			if (criteria != null)
@@ -254,49 +244,6 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getPath() {
-		return path;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPath(org.hl7.fhir.String newPath, NotificationChain msgs) {
-		org.hl7.fhir.String oldPath = path;
-		path = newPath;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH, oldPath, newPath);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPath(org.hl7.fhir.String newPath) {
-		if (newPath != path) {
-			NotificationChain msgs = null;
-			if (path != null)
-				msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH, null, msgs);
-			if (newPath != null)
-				msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH, null, msgs);
-			msgs = basicSetPath(newPath, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH, newPath, newPath));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -308,8 +255,6 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				return basicSetDescription(null, msgs);
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
 				return basicSetCriteria(null, msgs);
-			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH:
-				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -330,8 +275,6 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				return getDescription();
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
 				return getCriteria();
-			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH:
-				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,10 +299,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				setDescription((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
-				setCriteria((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH:
-				setPath((org.hl7.fhir.String)newValue);
+				setCriteria((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -383,10 +323,7 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				setDescription((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
-				setCriteria((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH:
-				setPath((org.hl7.fhir.String)null);
+				setCriteria((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -408,8 +345,6 @@ public class MeasureSupplementalDataImpl extends BackboneElementImpl implements 
 				return description != null;
 			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__CRITERIA:
 				return criteria != null;
-			case FhirPackage.MEASURE_SUPPLEMENTAL_DATA__PATH:
-				return path != null;
 		}
 		return super.eIsSet(featureID);
 	}

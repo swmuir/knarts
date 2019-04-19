@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A code system resource specifies a set of codes drawn from one or more code systems.
+ * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -23,6 +23,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueInteger <em>Value Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueBoolean <em>Value Boolean</em>}</li>
  *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueDateTime <em>Value Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.CodeSystemProperty1#getValueDecimal <em>Value Decimal</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty1()
@@ -217,5 +218,32 @@ public interface CodeSystemProperty1 extends BackboneElement {
 	 * @generated
 	 */
 	void setValueDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Decimal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Decimal</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Decimal</em>' containment reference.
+	 * @see #setValueDecimal(Decimal)
+	 * @see org.hl7.fhir.FhirPackage#getCodeSystemProperty1_ValueDecimal()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDecimal' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Decimal getValueDecimal();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CodeSystemProperty1#getValueDecimal <em>Value Decimal</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Decimal</em>' containment reference.
+	 * @see #getValueDecimal()
+	 * @generated
+	 */
+	void setValueDecimal(Decimal value);
 
 } // CodeSystemProperty1

@@ -22,7 +22,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SubstanceSpecificationIsotope;
 import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
-import org.hl7.fhir.SubstanceSpecificationStructuralRepresentation;
+import org.hl7.fhir.SubstanceSpecificationRepresentation;
 import org.hl7.fhir.SubstanceSpecificationStructure;
 
 /**
@@ -39,8 +39,8 @@ import org.hl7.fhir.SubstanceSpecificationStructure;
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getMolecularFormulaByMoiety <em>Molecular Formula By Moiety</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getIsotope <em>Isotope</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getMolecularWeight <em>Molecular Weight</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getReferenceSource <em>Reference Source</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getStructuralRepresentation <em>Structural Representation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationStructureImpl#getRepresentation <em>Representation</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,24 +107,24 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 	protected SubstanceSpecificationMolecularWeight molecularWeight;
 
 	/**
-	 * The cached value of the '{@link #getReferenceSource() <em>Reference Source</em>}' containment reference list.
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferenceSource()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> referenceSource;
+	protected EList<Reference> source;
 
 	/**
-	 * The cached value of the '{@link #getStructuralRepresentation() <em>Structural Representation</em>}' containment reference list.
+	 * The cached value of the '{@link #getRepresentation() <em>Representation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStructuralRepresentation()
+	 * @see #getRepresentation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SubstanceSpecificationStructuralRepresentation> structuralRepresentation;
+	protected EList<SubstanceSpecificationRepresentation> representation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -377,11 +377,11 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getReferenceSource() {
-		if (referenceSource == null) {
-			referenceSource = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE);
+	public EList<Reference> getSource() {
+		if (source == null) {
+			source = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE);
 		}
-		return referenceSource;
+		return source;
 	}
 
 	/**
@@ -389,11 +389,11 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SubstanceSpecificationStructuralRepresentation> getStructuralRepresentation() {
-		if (structuralRepresentation == null) {
-			structuralRepresentation = new EObjectContainmentEList<SubstanceSpecificationStructuralRepresentation>(SubstanceSpecificationStructuralRepresentation.class, this, FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION);
+	public EList<SubstanceSpecificationRepresentation> getRepresentation() {
+		if (representation == null) {
+			representation = new EObjectContainmentEList<SubstanceSpecificationRepresentation>(SubstanceSpecificationRepresentation.class, this, FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION);
 		}
-		return structuralRepresentation;
+		return representation;
 	}
 
 	/**
@@ -416,10 +416,10 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 				return ((InternalEList<?>)getIsotope()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__MOLECULAR_WEIGHT:
 				return basicSetMolecularWeight(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE:
-				return ((InternalEList<?>)getReferenceSource()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION:
-				return ((InternalEList<?>)getStructuralRepresentation()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE:
+				return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION:
+				return ((InternalEList<?>)getRepresentation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -444,10 +444,10 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 				return getIsotope();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__MOLECULAR_WEIGHT:
 				return getMolecularWeight();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE:
-				return getReferenceSource();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION:
-				return getStructuralRepresentation();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE:
+				return getSource();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION:
+				return getRepresentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -480,13 +480,13 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__MOLECULAR_WEIGHT:
 				setMolecularWeight((SubstanceSpecificationMolecularWeight)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE:
-				getReferenceSource().clear();
-				getReferenceSource().addAll((Collection<? extends Reference>)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE:
+				getSource().clear();
+				getSource().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION:
-				getStructuralRepresentation().clear();
-				getStructuralRepresentation().addAll((Collection<? extends SubstanceSpecificationStructuralRepresentation>)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION:
+				getRepresentation().clear();
+				getRepresentation().addAll((Collection<? extends SubstanceSpecificationRepresentation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -518,11 +518,11 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__MOLECULAR_WEIGHT:
 				setMolecularWeight((SubstanceSpecificationMolecularWeight)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE:
-				getReferenceSource().clear();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE:
+				getSource().clear();
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION:
-				getStructuralRepresentation().clear();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION:
+				getRepresentation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -548,10 +548,10 @@ public class SubstanceSpecificationStructureImpl extends BackboneElementImpl imp
 				return isotope != null && !isotope.isEmpty();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__MOLECULAR_WEIGHT:
 				return molecularWeight != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REFERENCE_SOURCE:
-				return referenceSource != null && !referenceSource.isEmpty();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__STRUCTURAL_REPRESENTATION:
-				return structuralRepresentation != null && !structuralRepresentation.isEmpty();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__SOURCE:
+				return source != null && !source.isEmpty();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_STRUCTURE__REPRESENTATION:
+				return representation != null && !representation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

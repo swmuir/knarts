@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.TestScriptCapability;
 import org.hl7.fhir.Uri;
 
@@ -110,7 +110,7 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference capabilities;
+	protected Canonical capabilities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,7 +332,7 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getCapabilities() {
+	public Canonical getCapabilities() {
 		return capabilities;
 	}
 
@@ -341,8 +341,8 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCapabilities(Reference newCapabilities, NotificationChain msgs) {
-		Reference oldCapabilities = capabilities;
+	public NotificationChain basicSetCapabilities(Canonical newCapabilities, NotificationChain msgs) {
+		Canonical oldCapabilities = capabilities;
 		capabilities = newCapabilities;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES, oldCapabilities, newCapabilities);
@@ -356,7 +356,7 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCapabilities(Reference newCapabilities) {
+	public void setCapabilities(Canonical newCapabilities) {
 		if (newCapabilities != capabilities) {
 			NotificationChain msgs = null;
 			if (capabilities != null)
@@ -452,7 +452,7 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				getLink().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
-				setCapabilities((Reference)newValue);
+				setCapabilities((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,7 +485,7 @@ public class TestScriptCapabilityImpl extends BackboneElementImpl implements Tes
 				getLink().clear();
 				return;
 			case FhirPackage.TEST_SCRIPT_CAPABILITY__CAPABILITIES:
-				setCapabilities((Reference)null);
+				setCapabilities((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

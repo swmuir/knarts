@@ -71,14 +71,14 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 	protected ExampleScenarioOperation operation;
 
 	/**
-	 * The cached value of the '{@link #getAlternative() <em>Alternative</em>}' containment reference.
+	 * The cached value of the '{@link #getAlternative() <em>Alternative</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAlternative()
 	 * @generated
 	 * @ordered
 	 */
-	protected ExampleScenarioAlternative alternative;
+	protected EList<ExampleScenarioAlternative> alternative;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,42 +202,11 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExampleScenarioAlternative getAlternative() {
+	public EList<ExampleScenarioAlternative> getAlternative() {
+		if (alternative == null) {
+			alternative = new EObjectContainmentEList<ExampleScenarioAlternative>(ExampleScenarioAlternative.class, this, FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE);
+		}
 		return alternative;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAlternative(ExampleScenarioAlternative newAlternative, NotificationChain msgs) {
-		ExampleScenarioAlternative oldAlternative = alternative;
-		alternative = newAlternative;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE, oldAlternative, newAlternative);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAlternative(ExampleScenarioAlternative newAlternative) {
-		if (newAlternative != alternative) {
-			NotificationChain msgs = null;
-			if (alternative != null)
-				msgs = ((InternalEObject)alternative).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE, null, msgs);
-			if (newAlternative != null)
-				msgs = ((InternalEObject)newAlternative).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE, null, msgs);
-			msgs = basicSetAlternative(newAlternative, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE, newAlternative, newAlternative));
 	}
 
 	/**
@@ -255,7 +224,7 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__OPERATION:
 				return basicSetOperation(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE:
-				return basicSetAlternative(null, msgs);
+				return ((InternalEList<?>)getAlternative()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -300,7 +269,8 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 				setOperation((ExampleScenarioOperation)newValue);
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE:
-				setAlternative((ExampleScenarioAlternative)newValue);
+				getAlternative().clear();
+				getAlternative().addAll((Collection<? extends ExampleScenarioAlternative>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -324,7 +294,7 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 				setOperation((ExampleScenarioOperation)null);
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE:
-				setAlternative((ExampleScenarioAlternative)null);
+				getAlternative().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -345,7 +315,7 @@ public class ExampleScenarioStepImpl extends BackboneElementImpl implements Exam
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__OPERATION:
 				return operation != null;
 			case FhirPackage.EXAMPLE_SCENARIO_STEP__ALTERNATIVE:
-				return alternative != null;
+				return alternative != null && !alternative.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

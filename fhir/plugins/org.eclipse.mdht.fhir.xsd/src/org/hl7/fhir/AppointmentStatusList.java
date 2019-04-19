@@ -98,7 +98,27 @@ public enum AppointmentStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(7, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(7, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>Checked In</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CHECKED_IN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CHECKED_IN(8, "checkedIn", "checked-in"),
+
+	/**
+	 * The '<em><b>Waitlist</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WAITLIST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WAITLIST(9, "waitlist", "waitlist");
 
 	/**
 	 * The '<em><b>Proposed</b></em>' literal value.
@@ -213,6 +233,34 @@ public enum AppointmentStatusList implements Enumerator {
 	public static final int ENTERED_IN_ERROR_VALUE = 7;
 
 	/**
+	 * The '<em><b>Checked In</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Checked In
+	 * <!-- end-model-doc -->
+	 * @see #CHECKED_IN
+	 * @model name="checkedIn" literal="checked-in"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CHECKED_IN_VALUE = 8;
+
+	/**
+	 * The '<em><b>Waitlist</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Waitlisted
+	 * <!-- end-model-doc -->
+	 * @see #WAITLIST
+	 * @model name="waitlist"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WAITLIST_VALUE = 9;
+
+	/**
 	 * An array of all the '<em><b>Appointment Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +276,8 @@ public enum AppointmentStatusList implements Enumerator {
 			CANCELLED,
 			NOSHOW,
 			ENTERED_IN_ERROR,
+			CHECKED_IN,
+			WAITLIST,
 		};
 
 	/**
@@ -292,6 +342,8 @@ public enum AppointmentStatusList implements Enumerator {
 			case CANCELLED_VALUE: return CANCELLED;
 			case NOSHOW_VALUE: return NOSHOW;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case CHECKED_IN_VALUE: return CHECKED_IN;
+			case WAITLIST_VALUE: return WAITLIST;
 		}
 		return null;
 	}

@@ -10,7 +10,7 @@ package org.hl7.fhir;
  *
  * <!-- begin-model-doc -->
  * A sequence of Unicode characters
- * Note that FHIR strings SHALL not exceed 1MB in size
+ * Note that FHIR strings SHALL NOT exceed 1MB in size
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

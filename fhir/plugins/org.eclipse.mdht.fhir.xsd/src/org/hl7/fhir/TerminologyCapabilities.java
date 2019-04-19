@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -32,6 +32,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getSoftware <em>Software</em>}</li>
+ *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getLockedDate <em>Locked Date</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getCodeSystem <em>Code System</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilities#getExpansion <em>Expansion</em>}</li>
@@ -51,7 +54,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this terminology capabilities is (or will be) published.
+	 * An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -181,7 +184,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -207,7 +210,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the terminology capabilities was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes.
+	 * The date  (and optionally time) when the terminology capabilities was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -233,7 +236,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the terminology capabilities.
+	 * The name of the organization or individual that published the terminology capabilities.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -302,7 +305,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate terminology capabilities instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate terminology capabilities instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilities_UseContext()
@@ -333,7 +336,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this terminology capabilities is needed and why it has been designed as it has.
+	 * Explanation of why this terminology capabilities is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -379,6 +382,84 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * @generated
 	 */
 	void setCopyright(Markdown value);
+
+	/**
+	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Kind</em>' containment reference.
+	 * @see #setKind(CapabilityStatementKind)
+	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilities_Kind()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CapabilityStatementKind getKind();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilities#getKind <em>Kind</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kind</em>' containment reference.
+	 * @see #getKind()
+	 * @generated
+	 */
+	void setKind(CapabilityStatementKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Software</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Software</em>' containment reference.
+	 * @see #setSoftware(TerminologyCapabilitiesSoftware)
+	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilities_Software()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='software' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TerminologyCapabilitiesSoftware getSoftware();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilities#getSoftware <em>Software</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Software</em>' containment reference.
+	 * @see #getSoftware()
+	 * @generated
+	 */
+	void setSoftware(TerminologyCapabilitiesSoftware value);
+
+	/**
+	 * Returns the value of the '<em><b>Implementation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Implementation</em>' containment reference.
+	 * @see #setImplementation(TerminologyCapabilitiesImplementation)
+	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilities_Implementation()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='implementation' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TerminologyCapabilitiesImplementation getImplementation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilities#getImplementation <em>Implementation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Implementation</em>' containment reference.
+	 * @see #getImplementation()
+	 * @generated
+	 */
+	void setImplementation(TerminologyCapabilitiesImplementation value);
 
 	/**
 	 * Returns the value of the '<em><b>Locked Date</b></em>' containment reference.
@@ -427,7 +508,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information about the $expansion operation.
+	 * Information about the [ValueSet/$expand](valueset-operation-expand.html) operation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expansion</em>' containment reference.
 	 * @see #setExpansion(TerminologyCapabilitiesExpansion)
@@ -453,7 +534,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The degree to which the the server supports the code search parameter on ValueSet, if it is supported.
+	 * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code Search</em>' containment reference.
 	 * @see #setCodeSearch(CodeSearchSupport)
@@ -479,7 +560,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information about the $validation operation.
+	 * Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Validate Code</em>' containment reference.
 	 * @see #setValidateCode(TerminologyCapabilitiesValidateCode)
@@ -505,7 +586,7 @@ public interface TerminologyCapabilities extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Information about the $translation operation.
+	 * Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Translation</em>' containment reference.
 	 * @see #setTranslation(TerminologyCapabilitiesTranslation)

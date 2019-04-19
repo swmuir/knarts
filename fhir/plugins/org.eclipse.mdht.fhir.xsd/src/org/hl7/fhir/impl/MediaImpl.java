@@ -22,11 +22,11 @@ import org.hl7.fhir.Attachment;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Decimal;
+import org.hl7.fhir.EventStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Media;
-import org.hl7.fhir.MediaStatus;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.PositiveInt;
 import org.hl7.fhir.Reference;
@@ -43,11 +43,11 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MediaImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getView <em>View</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MediaImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MediaImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getCreatedDateTime <em>Created Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getCreatedPeriod <em>Created Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MediaImpl#getIssued <em>Issued</em>}</li>
@@ -105,17 +105,17 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * @generated
 	 * @ordered
 	 */
-	protected MediaStatus status;
+	protected EventStatus status;
 
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategory()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> category;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getModality() <em>Modality</em>}' containment reference.
@@ -148,14 +148,14 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getCreatedDateTime() <em>Created Date Time</em>}' containment reference.
@@ -357,7 +357,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediaStatus getStatus() {
+	public EventStatus getStatus() {
 		return status;
 	}
 
@@ -366,8 +366,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStatus(MediaStatus newStatus, NotificationChain msgs) {
-		MediaStatus oldStatus = status;
+	public NotificationChain basicSetStatus(EventStatus newStatus, NotificationChain msgs) {
+		EventStatus oldStatus = status;
 		status = newStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__STATUS, oldStatus, newStatus);
@@ -381,7 +381,7 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatus(MediaStatus newStatus) {
+	public void setStatus(EventStatus newStatus) {
 		if (newStatus != status) {
 			NotificationChain msgs = null;
 			if (status != null)
@@ -400,11 +400,42 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getCategory() {
-		if (category == null) {
-			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.MEDIA__CATEGORY);
+	public CodeableConcept getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return category;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(CodeableConcept newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__TYPE, newType, newType));
 	}
 
 	/**
@@ -541,8 +572,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -550,11 +581,11 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -565,18 +596,18 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDIA__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDIA__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -1135,16 +1166,16 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return ((InternalEList<?>)getPartOf()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDIA__STATUS:
 				return basicSetStatus(null, msgs);
-			case FhirPackage.MEDIA__CATEGORY:
-				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case FhirPackage.MEDIA__TYPE:
+				return basicSetType(null, msgs);
 			case FhirPackage.MEDIA__MODALITY:
 				return basicSetModality(null, msgs);
 			case FhirPackage.MEDIA__VIEW:
 				return basicSetView(null, msgs);
 			case FhirPackage.MEDIA__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.MEDIA__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.MEDIA__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.MEDIA__CREATED_DATE_TIME:
 				return basicSetCreatedDateTime(null, msgs);
 			case FhirPackage.MEDIA__CREATED_PERIOD:
@@ -1193,16 +1224,16 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return getPartOf();
 			case FhirPackage.MEDIA__STATUS:
 				return getStatus();
-			case FhirPackage.MEDIA__CATEGORY:
-				return getCategory();
+			case FhirPackage.MEDIA__TYPE:
+				return getType();
 			case FhirPackage.MEDIA__MODALITY:
 				return getModality();
 			case FhirPackage.MEDIA__VIEW:
 				return getView();
 			case FhirPackage.MEDIA__SUBJECT:
 				return getSubject();
-			case FhirPackage.MEDIA__CONTEXT:
-				return getContext();
+			case FhirPackage.MEDIA__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.MEDIA__CREATED_DATE_TIME:
 				return getCreatedDateTime();
 			case FhirPackage.MEDIA__CREATED_PERIOD:
@@ -1257,11 +1288,10 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				getPartOf().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.MEDIA__STATUS:
-				setStatus((MediaStatus)newValue);
+				setStatus((EventStatus)newValue);
 				return;
-			case FhirPackage.MEDIA__CATEGORY:
-				getCategory().clear();
-				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+			case FhirPackage.MEDIA__TYPE:
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDIA__MODALITY:
 				setModality((CodeableConcept)newValue);
@@ -1272,8 +1302,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.MEDIA__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.MEDIA__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.MEDIA__CREATED_DATE_TIME:
 				setCreatedDateTime((DateTime)newValue);
@@ -1341,10 +1371,10 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				getPartOf().clear();
 				return;
 			case FhirPackage.MEDIA__STATUS:
-				setStatus((MediaStatus)null);
+				setStatus((EventStatus)null);
 				return;
-			case FhirPackage.MEDIA__CATEGORY:
-				getCategory().clear();
+			case FhirPackage.MEDIA__TYPE:
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDIA__MODALITY:
 				setModality((CodeableConcept)null);
@@ -1355,8 +1385,8 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 			case FhirPackage.MEDIA__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.MEDIA__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.MEDIA__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.MEDIA__CREATED_DATE_TIME:
 				setCreatedDateTime((DateTime)null);
@@ -1420,16 +1450,16 @@ public class MediaImpl extends DomainResourceImpl implements Media {
 				return partOf != null && !partOf.isEmpty();
 			case FhirPackage.MEDIA__STATUS:
 				return status != null;
-			case FhirPackage.MEDIA__CATEGORY:
-				return category != null && !category.isEmpty();
+			case FhirPackage.MEDIA__TYPE:
+				return type != null;
 			case FhirPackage.MEDIA__MODALITY:
 				return modality != null;
 			case FhirPackage.MEDIA__VIEW:
 				return view != null;
 			case FhirPackage.MEDIA__SUBJECT:
 				return subject != null;
-			case FhirPackage.MEDIA__CONTEXT:
-				return context != null;
+			case FhirPackage.MEDIA__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.MEDIA__CREATED_DATE_TIME:
 				return createdDateTime != null;
 			case FhirPackage.MEDIA__CREATED_PERIOD:

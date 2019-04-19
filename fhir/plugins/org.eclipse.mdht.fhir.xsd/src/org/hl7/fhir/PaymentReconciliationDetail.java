@@ -9,19 +9,22 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource provides payment details and claim references supporting a bulk payment.
+ * This resource provides the details including amount of a payment and allocates the payment items being paid.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPredecessor <em>Predecessor</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getRequest <em>Request</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getSubmitter <em>Submitter</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponse <em>Response</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getResponsible <em>Responsible</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliationDetail#getAmount <em>Amount</em>}</li>
  * </ul>
  *
@@ -31,11 +34,63 @@ package org.hl7.fhir;
  */
 public interface PaymentReconciliationDetail extends BackboneElement {
 	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unique identifier for the current payment item for the referenced payable.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Identifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getIdentifier <em>Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(Identifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Predecessor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unique identifier for the prior payment item for the referenced payable.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Predecessor</em>' containment reference.
+	 * @see #setPredecessor(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Predecessor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='predecessor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getPredecessor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPredecessor <em>Predecessor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Predecessor</em>' containment reference.
+	 * @see #getPredecessor()
+	 * @generated
+	 */
+	void setPredecessor(Identifier value);
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Code to indicate the nature of the payment, adjustment, funds advance, etc.
+	 * Code to indicate the nature of the payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -61,7 +116,7 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The claim or financial resource.
+	 * A resource, such as a Claim, the evaluation of which could lead to payment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request</em>' containment reference.
 	 * @see #setRequest(Reference)
@@ -83,37 +138,11 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	void setRequest(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Response</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The claim response resource.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Response</em>' containment reference.
-	 * @see #setResponse(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Response()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='response' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getResponse();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponse <em>Response</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Response</em>' containment reference.
-	 * @see #getResponse()
-	 * @generated
-	 */
-	void setResponse(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Submitter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Organization which submitted the claim or financial transaction.
+	 * The party which submitted the claim or financial transaction.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Submitter</em>' containment reference.
 	 * @see #setSubmitter(Reference)
@@ -135,37 +164,37 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	void setSubmitter(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Response</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization which is receiving the payment.
+	 * A resource, such as a ClaimResponse, which contains a commitment to payment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Payee</em>' containment reference.
-	 * @see #setPayee(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Payee()
+	 * @return the value of the '<em>Response</em>' containment reference.
+	 * @see #setResponse(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Response()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='payee' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='response' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getPayee();
+	Reference getResponse();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponse <em>Response</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payee</em>' containment reference.
-	 * @see #getPayee()
+	 * @param value the new value of the '<em>Response</em>' containment reference.
+	 * @see #getResponse()
 	 * @generated
 	 */
-	void setPayee(Reference value);
+	void setResponse(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date of the invoice or financial resource.
+	 * The date from the response resource containing a commitment to pay.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
@@ -187,11 +216,63 @@ public interface PaymentReconciliationDetail extends BackboneElement {
 	void setDate(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Responsible</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to the individual who is responsible for inquiries regarding the response and its payment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Responsible</em>' containment reference.
+	 * @see #setResponsible(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Responsible()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='responsible' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getResponsible();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getResponsible <em>Responsible</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Responsible</em>' containment reference.
+	 * @see #getResponsible()
+	 * @generated
+	 */
+	void setResponsible(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Payee</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The party which is receiving the payment.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payee</em>' containment reference.
+	 * @see #setPayee(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliationDetail_Payee()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='payee' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getPayee();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliationDetail#getPayee <em>Payee</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payee</em>' containment reference.
+	 * @see #getPayee()
+	 * @generated
+	 */
+	void setPayee(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Amount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Amount paid for this detail.
+	 * The monetary amount allocated from the total payment to the payable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
 	 * @see #setAmount(Money)

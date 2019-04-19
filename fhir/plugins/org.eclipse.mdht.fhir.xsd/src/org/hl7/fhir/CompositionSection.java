@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
+ * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
  * <!-- end-model-doc -->
  *
  * <p>
@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.CompositionSection#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.CompositionSection#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompositionSection#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.CompositionSection#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.CompositionSection#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.CompositionSection#getMode <em>Mode</em>}</li>
  *   <li>{@link org.hl7.fhir.CompositionSection#getOrderedBy <em>Ordered By</em>}</li>
@@ -83,6 +85,48 @@ public interface CompositionSection extends BackboneElement {
 	 * @generated
 	 */
 	void setCode(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies who is responsible for the information in this section, not necessarily who typed it in.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCompositionSection_Author()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getAuthor();
+
+	/**
+	 * Returns the value of the '<em><b>Focus</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If not focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Focus</em>' containment reference.
+	 * @see #setFocus(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCompositionSection_Focus()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='focus' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getFocus();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.CompositionSection#getFocus <em>Focus</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Focus</em>' containment reference.
+	 * @see #getFocus()
+	 * @generated
+	 */
+	void setFocus(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference.

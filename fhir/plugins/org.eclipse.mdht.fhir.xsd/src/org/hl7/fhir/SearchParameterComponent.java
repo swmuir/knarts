@@ -33,13 +33,13 @@ public interface SearchParameterComponent extends BackboneElement {
 	 * The definition of the search parameter that describes this part.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Reference)
+	 * @see #setDefinition(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getSearchParameterComponent_Definition()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinition();
+	Canonical getDefinition();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.SearchParameterComponent#getDefinition <em>Definition</em>}' containment reference.
@@ -49,7 +49,7 @@ public interface SearchParameterComponent extends BackboneElement {
 	 * @see #getDefinition()
 	 * @generated
 	 */
-	void setDefinition(Reference value);
+	void setDefinition(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.

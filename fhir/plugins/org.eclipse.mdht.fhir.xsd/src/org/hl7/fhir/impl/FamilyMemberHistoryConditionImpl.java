@@ -35,6 +35,7 @@ import org.hl7.fhir.Range;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getContributedToDeath <em>Contributed To Death</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.FamilyMemberHistoryConditionImpl#getOnsetPeriod <em>Onset Period</em>}</li>
@@ -64,6 +65,16 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 	 * @ordered
 	 */
 	protected CodeableConcept outcome;
+
+	/**
+	 * The cached value of the '{@link #getContributedToDeath() <em>Contributed To Death</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContributedToDeath()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean contributedToDeath;
 
 	/**
 	 * The cached value of the '{@link #getOnsetAge() <em>Onset Age</em>}' containment reference.
@@ -218,6 +229,49 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME, newOutcome, newOutcome));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getContributedToDeath() {
+		return contributedToDeath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContributedToDeath(org.hl7.fhir.Boolean newContributedToDeath, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldContributedToDeath = contributedToDeath;
+		contributedToDeath = newContributedToDeath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH, oldContributedToDeath, newContributedToDeath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContributedToDeath(org.hl7.fhir.Boolean newContributedToDeath) {
+		if (newContributedToDeath != contributedToDeath) {
+			NotificationChain msgs = null;
+			if (contributedToDeath != null)
+				msgs = ((InternalEObject)contributedToDeath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH, null, msgs);
+			if (newContributedToDeath != null)
+				msgs = ((InternalEObject)newContributedToDeath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH, null, msgs);
+			msgs = basicSetContributedToDeath(newContributedToDeath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH, newContributedToDeath, newContributedToDeath));
 	}
 
 	/**
@@ -416,6 +470,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return basicSetCode(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return basicSetOutcome(null, msgs);
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH:
+				return basicSetContributedToDeath(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
 				return basicSetOnsetAge(null, msgs);
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
@@ -442,6 +498,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return getCode();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return getOutcome();
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH:
+				return getContributedToDeath();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
 				return getOnsetAge();
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:
@@ -470,6 +528,9 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				setOutcome((CodeableConcept)newValue);
+				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH:
+				setContributedToDeath((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
 				setOnsetAge((Age)newValue);
@@ -505,6 +566,9 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				setOutcome((CodeableConcept)null);
 				return;
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH:
+				setContributedToDeath((org.hl7.fhir.Boolean)null);
+				return;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
 				setOnsetAge((Age)null);
 				return;
@@ -536,6 +600,8 @@ public class FamilyMemberHistoryConditionImpl extends BackboneElementImpl implem
 				return code != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__OUTCOME:
 				return outcome != null;
+			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__CONTRIBUTED_TO_DEATH:
+				return contributedToDeath != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_AGE:
 				return onsetAge != null;
 			case FhirPackage.FAMILY_MEMBER_HISTORY_CONDITION__ONSET_RANGE:

@@ -20,13 +20,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
-import org.hl7.fhir.FailureAction;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Need;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Status;
 import org.hl7.fhir.Timing;
-import org.hl7.fhir.ValidationType;
 import org.hl7.fhir.VerificationResult;
 import org.hl7.fhir.VerificationResultAttestation;
 import org.hl7.fhir.VerificationResultPrimarySource;
@@ -87,7 +84,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * @generated
 	 * @ordered
 	 */
-	protected Need need;
+	protected CodeableConcept need;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -117,7 +114,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * @generated
 	 * @ordered
 	 */
-	protected ValidationType validationType;
+	protected CodeableConcept validationType;
 
 	/**
 	 * The cached value of the '{@link #getValidationProcess() <em>Validation Process</em>}' containment reference list.
@@ -167,7 +164,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * @generated
 	 * @ordered
 	 */
-	protected FailureAction failureAction;
+	protected CodeableConcept failureAction;
 
 	/**
 	 * The cached value of the '{@link #getPrimarySource() <em>Primary Source</em>}' containment reference list.
@@ -247,7 +244,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Need getNeed() {
+	public CodeableConcept getNeed() {
 		return need;
 	}
 
@@ -256,8 +253,8 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNeed(Need newNeed, NotificationChain msgs) {
-		Need oldNeed = need;
+	public NotificationChain basicSetNeed(CodeableConcept newNeed, NotificationChain msgs) {
+		CodeableConcept oldNeed = need;
 		need = newNeed;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT__NEED, oldNeed, newNeed);
@@ -271,7 +268,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNeed(Need newNeed) {
+	public void setNeed(CodeableConcept newNeed) {
 		if (newNeed != need) {
 			NotificationChain msgs = null;
 			if (need != null)
@@ -376,7 +373,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidationType getValidationType() {
+	public CodeableConcept getValidationType() {
 		return validationType;
 	}
 
@@ -385,8 +382,8 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValidationType(ValidationType newValidationType, NotificationChain msgs) {
-		ValidationType oldValidationType = validationType;
+	public NotificationChain basicSetValidationType(CodeableConcept newValidationType, NotificationChain msgs) {
+		CodeableConcept oldValidationType = validationType;
 		validationType = newValidationType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT__VALIDATION_TYPE, oldValidationType, newValidationType);
@@ -400,7 +397,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValidationType(ValidationType newValidationType) {
+	public void setValidationType(CodeableConcept newValidationType) {
 		if (newValidationType != validationType) {
 			NotificationChain msgs = null;
 			if (validationType != null)
@@ -560,7 +557,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FailureAction getFailureAction() {
+	public CodeableConcept getFailureAction() {
 		return failureAction;
 	}
 
@@ -569,8 +566,8 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFailureAction(FailureAction newFailureAction, NotificationChain msgs) {
-		FailureAction oldFailureAction = failureAction;
+	public NotificationChain basicSetFailureAction(CodeableConcept newFailureAction, NotificationChain msgs) {
+		CodeableConcept oldFailureAction = failureAction;
 		failureAction = newFailureAction;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT__FAILURE_ACTION, oldFailureAction, newFailureAction);
@@ -584,7 +581,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFailureAction(FailureAction newFailureAction) {
+	public void setFailureAction(CodeableConcept newFailureAction) {
 		if (newFailureAction != failureAction) {
 			NotificationChain msgs = null;
 			if (failureAction != null)
@@ -763,7 +760,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				getTargetLocation().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__NEED:
-				setNeed((Need)newValue);
+				setNeed((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__STATUS:
 				setStatus((Status)newValue);
@@ -772,7 +769,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				setStatusDate((DateTime)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__VALIDATION_TYPE:
-				setValidationType((ValidationType)newValue);
+				setValidationType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__VALIDATION_PROCESS:
 				getValidationProcess().clear();
@@ -788,7 +785,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				setNextScheduled((Date)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__FAILURE_ACTION:
-				setFailureAction((FailureAction)newValue);
+				setFailureAction((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__PRIMARY_SOURCE:
 				getPrimarySource().clear();
@@ -820,7 +817,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				getTargetLocation().clear();
 				return;
 			case FhirPackage.VERIFICATION_RESULT__NEED:
-				setNeed((Need)null);
+				setNeed((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__STATUS:
 				setStatus((Status)null);
@@ -829,7 +826,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				setStatusDate((DateTime)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__VALIDATION_TYPE:
-				setValidationType((ValidationType)null);
+				setValidationType((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__VALIDATION_PROCESS:
 				getValidationProcess().clear();
@@ -844,7 +841,7 @@ public class VerificationResultImpl extends DomainResourceImpl implements Verifi
 				setNextScheduled((Date)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__FAILURE_ACTION:
-				setFailureAction((FailureAction)null);
+				setFailureAction((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT__PRIMARY_SOURCE:
 				getPrimarySource().clear();

@@ -17,14 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.FinancialResourceStatusCodes;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.VisionPrescription;
-import org.hl7.fhir.VisionPrescriptionDispense;
+import org.hl7.fhir.VisionPrescriptionLensSpecification;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,13 +35,12 @@ import org.hl7.fhir.VisionPrescriptionDispense;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getPatient <em>Patient</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getDateWritten <em>Date Written</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getPrescriber <em>Prescriber</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getReasonCodeableConcept <em>Reason Codeable Concept</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getReasonReference <em>Reason Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getDispense <em>Dispense</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VisionPrescriptionImpl#getLensSpecification <em>Lens Specification</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +65,16 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * @ordered
 	 */
 	protected FinancialResourceStatusCodes status;
+
+	/**
+	 * The cached value of the '{@link #getCreated() <em>Created</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreated()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime created;
 
 	/**
 	 * The cached value of the '{@link #getPatient() <em>Patient</em>}' containment reference.
@@ -109,34 +117,14 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	protected Reference prescriber;
 
 	/**
-	 * The cached value of the '{@link #getReasonCodeableConcept() <em>Reason Codeable Concept</em>}' containment reference.
+	 * The cached value of the '{@link #getLensSpecification() <em>Lens Specification</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReasonCodeableConcept()
+	 * @see #getLensSpecification()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept reasonCodeableConcept;
-
-	/**
-	 * The cached value of the '{@link #getReasonReference() <em>Reason Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReasonReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference reasonReference;
-
-	/**
-	 * The cached value of the '{@link #getDispense() <em>Dispense</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDispense()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VisionPrescriptionDispense> dispense;
+	protected EList<VisionPrescriptionLensSpecification> lensSpecification;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,6 +198,49 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__STATUS, newStatus, newStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DateTime getCreated() {
+		return created;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCreated(DateTime newCreated, NotificationChain msgs) {
+		DateTime oldCreated = created;
+		created = newCreated;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__CREATED, oldCreated, newCreated);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCreated(DateTime newCreated) {
+		if (newCreated != created) {
+			NotificationChain msgs = null;
+			if (created != null)
+				msgs = ((InternalEObject)created).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__CREATED, null, msgs);
+			if (newCreated != null)
+				msgs = ((InternalEObject)newCreated).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__CREATED, null, msgs);
+			msgs = basicSetCreated(newCreated, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__CREATED, newCreated, newCreated));
 	}
 
 	/**
@@ -389,97 +420,11 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getReasonCodeableConcept() {
-		return reasonCodeableConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonCodeableConcept(CodeableConcept newReasonCodeableConcept, NotificationChain msgs) {
-		CodeableConcept oldReasonCodeableConcept = reasonCodeableConcept;
-		reasonCodeableConcept = newReasonCodeableConcept;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT, oldReasonCodeableConcept, newReasonCodeableConcept);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<VisionPrescriptionLensSpecification> getLensSpecification() {
+		if (lensSpecification == null) {
+			lensSpecification = new EObjectContainmentEList<VisionPrescriptionLensSpecification>(VisionPrescriptionLensSpecification.class, this, FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonCodeableConcept(CodeableConcept newReasonCodeableConcept) {
-		if (newReasonCodeableConcept != reasonCodeableConcept) {
-			NotificationChain msgs = null;
-			if (reasonCodeableConcept != null)
-				msgs = ((InternalEObject)reasonCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT, null, msgs);
-			if (newReasonCodeableConcept != null)
-				msgs = ((InternalEObject)newReasonCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT, null, msgs);
-			msgs = basicSetReasonCodeableConcept(newReasonCodeableConcept, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT, newReasonCodeableConcept, newReasonCodeableConcept));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getReasonReference() {
-		return reasonReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetReasonReference(Reference newReasonReference, NotificationChain msgs) {
-		Reference oldReasonReference = reasonReference;
-		reasonReference = newReasonReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE, oldReasonReference, newReasonReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReasonReference(Reference newReasonReference) {
-		if (newReasonReference != reasonReference) {
-			NotificationChain msgs = null;
-			if (reasonReference != null)
-				msgs = ((InternalEObject)reasonReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE, null, msgs);
-			if (newReasonReference != null)
-				msgs = ((InternalEObject)newReasonReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE, null, msgs);
-			msgs = basicSetReasonReference(newReasonReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE, newReasonReference, newReasonReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<VisionPrescriptionDispense> getDispense() {
-		if (dispense == null) {
-			dispense = new EObjectContainmentEList<VisionPrescriptionDispense>(VisionPrescriptionDispense.class, this, FhirPackage.VISION_PRESCRIPTION__DISPENSE);
-		}
-		return dispense;
+		return lensSpecification;
 	}
 
 	/**
@@ -494,6 +439,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
 				return basicSetStatus(null, msgs);
+			case FhirPackage.VISION_PRESCRIPTION__CREATED:
+				return basicSetCreated(null, msgs);
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				return basicSetPatient(null, msgs);
 			case FhirPackage.VISION_PRESCRIPTION__ENCOUNTER:
@@ -502,12 +449,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return basicSetDateWritten(null, msgs);
 			case FhirPackage.VISION_PRESCRIPTION__PRESCRIBER:
 				return basicSetPrescriber(null, msgs);
-			case FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT:
-				return basicSetReasonCodeableConcept(null, msgs);
-			case FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE:
-				return basicSetReasonReference(null, msgs);
-			case FhirPackage.VISION_PRESCRIPTION__DISPENSE:
-				return ((InternalEList<?>)getDispense()).basicRemove(otherEnd, msgs);
+			case FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION:
+				return ((InternalEList<?>)getLensSpecification()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -524,6 +467,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return getIdentifier();
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
 				return getStatus();
+			case FhirPackage.VISION_PRESCRIPTION__CREATED:
+				return getCreated();
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				return getPatient();
 			case FhirPackage.VISION_PRESCRIPTION__ENCOUNTER:
@@ -532,12 +477,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return getDateWritten();
 			case FhirPackage.VISION_PRESCRIPTION__PRESCRIBER:
 				return getPrescriber();
-			case FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT:
-				return getReasonCodeableConcept();
-			case FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE:
-				return getReasonReference();
-			case FhirPackage.VISION_PRESCRIPTION__DISPENSE:
-				return getDispense();
+			case FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION:
+				return getLensSpecification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -558,6 +499,9 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
 				setStatus((FinancialResourceStatusCodes)newValue);
 				return;
+			case FhirPackage.VISION_PRESCRIPTION__CREATED:
+				setCreated((DateTime)newValue);
+				return;
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				setPatient((Reference)newValue);
 				return;
@@ -570,15 +514,9 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 			case FhirPackage.VISION_PRESCRIPTION__PRESCRIBER:
 				setPrescriber((Reference)newValue);
 				return;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)newValue);
-				return;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE:
-				setReasonReference((Reference)newValue);
-				return;
-			case FhirPackage.VISION_PRESCRIPTION__DISPENSE:
-				getDispense().clear();
-				getDispense().addAll((Collection<? extends VisionPrescriptionDispense>)newValue);
+			case FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION:
+				getLensSpecification().clear();
+				getLensSpecification().addAll((Collection<? extends VisionPrescriptionLensSpecification>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -598,6 +536,9 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
 				setStatus((FinancialResourceStatusCodes)null);
 				return;
+			case FhirPackage.VISION_PRESCRIPTION__CREATED:
+				setCreated((DateTime)null);
+				return;
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				setPatient((Reference)null);
 				return;
@@ -610,14 +551,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 			case FhirPackage.VISION_PRESCRIPTION__PRESCRIBER:
 				setPrescriber((Reference)null);
 				return;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT:
-				setReasonCodeableConcept((CodeableConcept)null);
-				return;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE:
-				setReasonReference((Reference)null);
-				return;
-			case FhirPackage.VISION_PRESCRIPTION__DISPENSE:
-				getDispense().clear();
+			case FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION:
+				getLensSpecification().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -635,6 +570,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.VISION_PRESCRIPTION__STATUS:
 				return status != null;
+			case FhirPackage.VISION_PRESCRIPTION__CREATED:
+				return created != null;
 			case FhirPackage.VISION_PRESCRIPTION__PATIENT:
 				return patient != null;
 			case FhirPackage.VISION_PRESCRIPTION__ENCOUNTER:
@@ -643,12 +580,8 @@ public class VisionPrescriptionImpl extends DomainResourceImpl implements Vision
 				return dateWritten != null;
 			case FhirPackage.VISION_PRESCRIPTION__PRESCRIBER:
 				return prescriber != null;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_CODEABLE_CONCEPT:
-				return reasonCodeableConcept != null;
-			case FhirPackage.VISION_PRESCRIPTION__REASON_REFERENCE:
-				return reasonReference != null;
-			case FhirPackage.VISION_PRESCRIPTION__DISPENSE:
-				return dispense != null && !dispense.isEmpty();
+			case FhirPackage.VISION_PRESCRIPTION__LENS_SPECIFICATION:
+				return lensSpecification != null && !lensSpecification.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

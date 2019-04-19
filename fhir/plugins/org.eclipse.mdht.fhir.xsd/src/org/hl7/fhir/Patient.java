@@ -32,7 +32,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Patient#getMultipleBirthInteger <em>Multiple Birth Integer</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getPhoto <em>Photo</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.Patient#getAnimal <em>Animal</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getCommunication <em>Communication</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getGeneralPractitioner <em>General Practitioner</em>}</li>
  *   <li>{@link org.hl7.fhir.Patient#getManagingOrganization <em>Managing Organization</em>}</li>
@@ -65,7 +64,12 @@ public interface Patient extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Whether this patient record is in active use.
+	 * Whether this patient record is in active use. 
+	 * Many systems use this property to mark as non-current patients, such as those that have not been seen for a period of time based on an organization's business rules.
+	 * 
+	 * It is often used to filter patient lists to exclude inactive patients
+	 * 
+	 * Deceased patients may also be marked as inactive for the same reasons, but may be active for some time after death.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' containment reference.
 	 * @see #setActive(org.hl7.fhir.Boolean)
@@ -351,32 +355,6 @@ public interface Patient extends DomainResource {
 	 * @generated
 	 */
 	EList<PatientContact> getContact();
-
-	/**
-	 * Returns the value of the '<em><b>Animal</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This patient is known to be an animal.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Animal</em>' containment reference.
-	 * @see #setAnimal(PatientAnimal)
-	 * @see org.hl7.fhir.FhirPackage#getPatient_Animal()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='animal' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	PatientAnimal getAnimal();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Patient#getAnimal <em>Animal</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Animal</em>' containment reference.
-	 * @see #getAnimal()
-	 * @generated
-	 */
-	void setAnimal(PatientAnimal value);
 
 	/**
 	 * Returns the value of the '<em><b>Communication</b></em>' containment reference list.

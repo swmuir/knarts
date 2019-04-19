@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getLinkId <em>Link Id</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getText <em>Text</em>}</li>
- *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getAnswer <em>Answer</em>}</li>
  *   <li>{@link org.hl7.fhir.QuestionnaireResponseItem#getItem <em>Item</em>}</li>
  * </ul>
@@ -107,32 +106,6 @@ public interface QuestionnaireResponseItem extends BackboneElement {
 	 * @generated
 	 */
 	void setText(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * More specific subject this section's answers are about, details the subject given in QuestionnaireResponse.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getQuestionnaireResponseItem_Subject()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getSubject();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.QuestionnaireResponseItem#getSubject <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
-	 * @generated
-	 */
-	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Answer</b></em>' containment reference list.

@@ -118,7 +118,27 @@ public enum SearchModifierCodeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TYPE(9, "type", "type");
+	TYPE(9, "type", "type"),
+
+	/**
+	 * The '<em><b>Identifier</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IDENTIFIER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IDENTIFIER(10, "identifier", "identifier"),
+
+	/**
+	 * The '<em><b>Of Type</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #OF_TYPE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	OF_TYPE(11, "ofType", "ofType");
 
 	/**
 	 * The '<em><b>Missing</b></em>' literal value.
@@ -261,6 +281,34 @@ public enum SearchModifierCodeList implements Enumerator {
 	public static final int TYPE_VALUE = 9;
 
 	/**
+	 * The '<em><b>Identifier</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifier
+	 * <!-- end-model-doc -->
+	 * @see #IDENTIFIER
+	 * @model name="identifier"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IDENTIFIER_VALUE = 10;
+
+	/**
+	 * The '<em><b>Of Type</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Of Type
+	 * <!-- end-model-doc -->
+	 * @see #OF_TYPE
+	 * @model name="ofType"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int OF_TYPE_VALUE = 11;
+
+	/**
 	 * An array of all the '<em><b>Search Modifier Code List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,6 +326,8 @@ public enum SearchModifierCodeList implements Enumerator {
 			BELOW,
 			ABOVE,
 			TYPE,
+			IDENTIFIER,
+			OF_TYPE,
 		};
 
 	/**
@@ -344,6 +394,8 @@ public enum SearchModifierCodeList implements Enumerator {
 			case BELOW_VALUE: return BELOW;
 			case ABOVE_VALUE: return ABOVE;
 			case TYPE_VALUE: return TYPE;
+			case IDENTIFIER_VALUE: return IDENTIFIER;
+			case OF_TYPE_VALUE: return OF_TYPE;
 		}
 		return null;
 	}

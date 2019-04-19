@@ -66,14 +66,14 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	protected org.hl7.fhir.Boolean active;
 
 	/**
-	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
+	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getServiceCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept serviceCategory;
+	protected EList<CodeableConcept> serviceCategory;
 
 	/**
 	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference list.
@@ -204,42 +204,11 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getServiceCategory() {
+	public EList<CodeableConcept> getServiceCategory() {
+		if (serviceCategory == null) {
+			serviceCategory = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SCHEDULE__SERVICE_CATEGORY);
+		}
 		return serviceCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetServiceCategory(CodeableConcept newServiceCategory, NotificationChain msgs) {
-		CodeableConcept oldServiceCategory = serviceCategory;
-		serviceCategory = newServiceCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__SERVICE_CATEGORY, oldServiceCategory, newServiceCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceCategory(CodeableConcept newServiceCategory) {
-		if (newServiceCategory != serviceCategory) {
-			NotificationChain msgs = null;
-			if (serviceCategory != null)
-				msgs = ((InternalEObject)serviceCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__SERVICE_CATEGORY, null, msgs);
-			if (newServiceCategory != null)
-				msgs = ((InternalEObject)newServiceCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SCHEDULE__SERVICE_CATEGORY, null, msgs);
-			msgs = basicSetServiceCategory(newServiceCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SCHEDULE__SERVICE_CATEGORY, newServiceCategory, newServiceCategory));
 	}
 
 	/**
@@ -377,7 +346,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__ACTIVE:
 				return basicSetActive(null, msgs);
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
-				return basicSetServiceCategory(null, msgs);
+				return ((InternalEList<?>)getServiceCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
 				return ((InternalEList<?>)getServiceType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SCHEDULE__SPECIALTY:
@@ -437,7 +406,8 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 				setActive((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)newValue);
+				getServiceCategory().clear();
+				getServiceCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
 				getServiceType().clear();
@@ -476,7 +446,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 				setActive((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)null);
+				getServiceCategory().clear();
 				return;
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
 				getServiceType().clear();
@@ -510,7 +480,7 @@ public class ScheduleImpl extends DomainResourceImpl implements Schedule {
 			case FhirPackage.SCHEDULE__ACTIVE:
 				return active != null;
 			case FhirPackage.SCHEDULE__SERVICE_CATEGORY:
-				return serviceCategory != null;
+				return serviceCategory != null && !serviceCategory.isEmpty();
 			case FhirPackage.SCHEDULE__SERVICE_TYPE:
 				return serviceType != null && !serviceType.isEmpty();
 			case FhirPackage.SCHEDULE__SPECIALTY:

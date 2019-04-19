@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
@@ -28,8 +29,6 @@ import org.hl7.fhir.OperationDefinitionOverload;
 import org.hl7.fhir.OperationDefinitionParameter;
 import org.hl7.fhir.OperationKind;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -44,6 +43,7 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.OperationDefinitionImpl#getExperimental <em>Experimental</em>}</li>
@@ -100,6 +100,16 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String name;
+
+	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -239,7 +249,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference base;
+	protected Canonical base;
 
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list.
@@ -249,7 +259,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceType> resource;
+	protected EList<Code> resource;
 
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
@@ -289,7 +299,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference inputProfile;
+	protected Canonical inputProfile;
 
 	/**
 	 * The cached value of the '{@link #getOutputProfile() <em>Output Profile</em>}' containment reference.
@@ -299,7 +309,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference outputProfile;
+	protected Canonical outputProfile;
 
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference list.
@@ -467,6 +477,49 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.OPERATION_DEFINITION__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__TITLE, newTitle, newTitle));
 	}
 
 	/**
@@ -940,7 +993,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getBase() {
+	public Canonical getBase() {
 		return base;
 	}
 
@@ -949,8 +1002,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBase(Reference newBase, NotificationChain msgs) {
-		Reference oldBase = base;
+	public NotificationChain basicSetBase(Canonical newBase, NotificationChain msgs) {
+		Canonical oldBase = base;
 		base = newBase;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__BASE, oldBase, newBase);
@@ -964,7 +1017,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBase(Reference newBase) {
+	public void setBase(Canonical newBase) {
 		if (newBase != base) {
 			NotificationChain msgs = null;
 			if (base != null)
@@ -983,9 +1036,9 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceType> getResource() {
+	public EList<Code> getResource() {
 		if (resource == null) {
-			resource = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.OPERATION_DEFINITION__RESOURCE);
+			resource = new EObjectContainmentEList<Code>(Code.class, this, FhirPackage.OPERATION_DEFINITION__RESOURCE);
 		}
 		return resource;
 	}
@@ -1124,7 +1177,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getInputProfile() {
+	public Canonical getInputProfile() {
 		return inputProfile;
 	}
 
@@ -1133,8 +1186,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInputProfile(Reference newInputProfile, NotificationChain msgs) {
-		Reference oldInputProfile = inputProfile;
+	public NotificationChain basicSetInputProfile(Canonical newInputProfile, NotificationChain msgs) {
+		Canonical oldInputProfile = inputProfile;
 		inputProfile = newInputProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__INPUT_PROFILE, oldInputProfile, newInputProfile);
@@ -1148,7 +1201,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInputProfile(Reference newInputProfile) {
+	public void setInputProfile(Canonical newInputProfile) {
 		if (newInputProfile != inputProfile) {
 			NotificationChain msgs = null;
 			if (inputProfile != null)
@@ -1167,7 +1220,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOutputProfile() {
+	public Canonical getOutputProfile() {
 		return outputProfile;
 	}
 
@@ -1176,8 +1229,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutputProfile(Reference newOutputProfile, NotificationChain msgs) {
-		Reference oldOutputProfile = outputProfile;
+	public NotificationChain basicSetOutputProfile(Canonical newOutputProfile, NotificationChain msgs) {
+		Canonical oldOutputProfile = outputProfile;
 		outputProfile = newOutputProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.OPERATION_DEFINITION__OUTPUT_PROFILE, oldOutputProfile, newOutputProfile);
@@ -1191,7 +1244,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputProfile(Reference newOutputProfile) {
+	public void setOutputProfile(Canonical newOutputProfile) {
 		if (newOutputProfile != outputProfile) {
 			NotificationChain msgs = null;
 			if (outputProfile != null)
@@ -1243,6 +1296,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				return basicSetVersion(null, msgs);
 			case FhirPackage.OPERATION_DEFINITION__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.OPERATION_DEFINITION__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.OPERATION_DEFINITION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.OPERATION_DEFINITION__KIND:
@@ -1305,6 +1360,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				return getVersion();
 			case FhirPackage.OPERATION_DEFINITION__NAME:
 				return getName();
+			case FhirPackage.OPERATION_DEFINITION__TITLE:
+				return getTitle();
 			case FhirPackage.OPERATION_DEFINITION__STATUS:
 				return getStatus();
 			case FhirPackage.OPERATION_DEFINITION__KIND:
@@ -1371,6 +1428,9 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 			case FhirPackage.OPERATION_DEFINITION__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.OPERATION_DEFINITION__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.OPERATION_DEFINITION__STATUS:
 				setStatus((PublicationStatus)newValue);
 				return;
@@ -1414,11 +1474,11 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				setComment((Markdown)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__BASE:
-				setBase((Reference)newValue);
+				setBase((Canonical)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__RESOURCE:
 				getResource().clear();
-				getResource().addAll((Collection<? extends ResourceType>)newValue);
+				getResource().addAll((Collection<? extends Code>)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__SYSTEM:
 				setSystem((org.hl7.fhir.Boolean)newValue);
@@ -1430,10 +1490,10 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				setInstance((org.hl7.fhir.Boolean)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__INPUT_PROFILE:
-				setInputProfile((Reference)newValue);
+				setInputProfile((Canonical)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__OUTPUT_PROFILE:
-				setOutputProfile((Reference)newValue);
+				setOutputProfile((Canonical)newValue);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__PARAMETER:
 				getParameter().clear();
@@ -1463,6 +1523,9 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				return;
 			case FhirPackage.OPERATION_DEFINITION__NAME:
 				setName((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.OPERATION_DEFINITION__TITLE:
+				setTitle((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__STATUS:
 				setStatus((PublicationStatus)null);
@@ -1504,7 +1567,7 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				setComment((Markdown)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__BASE:
-				setBase((Reference)null);
+				setBase((Canonical)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__RESOURCE:
 				getResource().clear();
@@ -1519,10 +1582,10 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				setInstance((org.hl7.fhir.Boolean)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__INPUT_PROFILE:
-				setInputProfile((Reference)null);
+				setInputProfile((Canonical)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__OUTPUT_PROFILE:
-				setOutputProfile((Reference)null);
+				setOutputProfile((Canonical)null);
 				return;
 			case FhirPackage.OPERATION_DEFINITION__PARAMETER:
 				getParameter().clear();
@@ -1548,6 +1611,8 @@ public class OperationDefinitionImpl extends DomainResourceImpl implements Opera
 				return version != null;
 			case FhirPackage.OPERATION_DEFINITION__NAME:
 				return name != null;
+			case FhirPackage.OPERATION_DEFINITION__TITLE:
+				return title != null;
 			case FhirPackage.OPERATION_DEFINITION__STATUS:
 				return status != null;
 			case FhirPackage.OPERATION_DEFINITION__KIND:

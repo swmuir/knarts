@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
+  Generated on Thu, Dec 27, 2018 22:37+1100 for FHIR v4.0.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -125,16 +125,20 @@
               <xs:documentation xml:lang="en">One possible path to achieve presumed immunity against a disease - within the context of an authority.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="doseNumber" minOccurs="0" maxOccurs="1" type="positiveInt">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="seriesDoses" minOccurs="0" maxOccurs="1" type="positiveInt">
+            </xs:annotation>
+            <xs:element name="doseNumberPositiveInt" type="positiveInt"/>
+            <xs:element name="doseNumberString" type="string"/>
+          </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">The recommended number of doses to achieve immunity.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="seriesDosesPositiveInt" type="positiveInt"/>
+            <xs:element name="seriesDosesString" type="string"/>
+          </xs:choice>
           <xs:element name="supportingImmunization" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Immunization event history and/or evaluation that supports the status and recommendation.</xs:documentation>

@@ -30,7 +30,7 @@ import org.hl7.fhir.MedicinalProductNamePart;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductNameImpl#getFullName <em>Full Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductNameImpl#getProductName <em>Product Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductNameImpl#getNamePart <em>Name Part</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductNameImpl#getCountryLanguage <em>Country Language</em>}</li>
  * </ul>
@@ -39,14 +39,14 @@ import org.hl7.fhir.MedicinalProductNamePart;
  */
 public class MedicinalProductNameImpl extends BackboneElementImpl implements MedicinalProductName {
 	/**
-	 * The cached value of the '{@link #getFullName() <em>Full Name</em>}' containment reference.
+	 * The cached value of the '{@link #getProductName() <em>Product Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFullName()
+	 * @see #getProductName()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String fullName;
+	protected org.hl7.fhir.String productName;
 
 	/**
 	 * The cached value of the '{@link #getNamePart() <em>Name Part</em>}' containment reference list.
@@ -92,8 +92,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getFullName() {
-		return fullName;
+	public org.hl7.fhir.String getProductName() {
+		return productName;
 	}
 
 	/**
@@ -101,11 +101,11 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFullName(org.hl7.fhir.String newFullName, NotificationChain msgs) {
-		org.hl7.fhir.String oldFullName = fullName;
-		fullName = newFullName;
+	public NotificationChain basicSetProductName(org.hl7.fhir.String newProductName, NotificationChain msgs) {
+		org.hl7.fhir.String oldProductName = productName;
+		productName = newProductName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME, oldFullName, newFullName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME, oldProductName, newProductName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -116,18 +116,18 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFullName(org.hl7.fhir.String newFullName) {
-		if (newFullName != fullName) {
+	public void setProductName(org.hl7.fhir.String newProductName) {
+		if (newProductName != productName) {
 			NotificationChain msgs = null;
-			if (fullName != null)
-				msgs = ((InternalEObject)fullName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME, null, msgs);
-			if (newFullName != null)
-				msgs = ((InternalEObject)newFullName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME, null, msgs);
-			msgs = basicSetFullName(newFullName, msgs);
+			if (productName != null)
+				msgs = ((InternalEObject)productName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME, null, msgs);
+			if (newProductName != null)
+				msgs = ((InternalEObject)newProductName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME, null, msgs);
+			msgs = basicSetProductName(newProductName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME, newFullName, newFullName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME, newProductName, newProductName));
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME:
-				return basicSetFullName(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME:
+				return basicSetProductName(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__NAME_PART:
 				return ((InternalEList<?>)getNamePart()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__COUNTRY_LANGUAGE:
@@ -180,8 +180,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME:
-				return getFullName();
+			case FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME:
+				return getProductName();
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__NAME_PART:
 				return getNamePart();
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__COUNTRY_LANGUAGE:
@@ -199,8 +199,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME:
-				setFullName((org.hl7.fhir.String)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME:
+				setProductName((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__NAME_PART:
 				getNamePart().clear();
@@ -222,8 +222,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME:
-				setFullName((org.hl7.fhir.String)null);
+			case FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME:
+				setProductName((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__NAME_PART:
 				getNamePart().clear();
@@ -243,8 +243,8 @@ public class MedicinalProductNameImpl extends BackboneElementImpl implements Med
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_NAME__FULL_NAME:
-				return fullName != null;
+			case FhirPackage.MEDICINAL_PRODUCT_NAME__PRODUCT_NAME:
+				return productName != null;
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__NAME_PART:
 				return namePart != null && !namePart.isEmpty();
 			case FhirPackage.MEDICINAL_PRODUCT_NAME__COUNTRY_LANGUAGE:

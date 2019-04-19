@@ -17,17 +17,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementInteraction;
 import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.CapabilityStatementResource;
 import org.hl7.fhir.CapabilityStatementSearchParam;
+import org.hl7.fhir.Code;
 import org.hl7.fhir.ConditionalDeleteStatus;
 import org.hl7.fhir.ConditionalReadStatus;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Markdown;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.ReferenceHandlingPolicy;
-import org.hl7.fhir.ResourceType;
 import org.hl7.fhir.ResourceVersionPolicy;
 
 /**
@@ -68,7 +68,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceType type;
+	protected Code type;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -78,7 +78,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference profile;
+	protected Canonical profile;
 
 	/**
 	 * The cached value of the '{@link #getSupportedProfile() <em>Supported Profile</em>}' containment reference list.
@@ -88,7 +88,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> supportedProfile;
+	protected EList<Canonical> supportedProfile;
 
 	/**
 	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference.
@@ -254,7 +254,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceType getType() {
+	public Code getType() {
 		return type;
 	}
 
@@ -263,8 +263,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(ResourceType newType, NotificationChain msgs) {
-		ResourceType oldType = type;
+	public NotificationChain basicSetType(Code newType, NotificationChain msgs) {
+		Code oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE, oldType, newType);
@@ -278,7 +278,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ResourceType newType) {
+	public void setType(Code newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -297,7 +297,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProfile() {
+	public Canonical getProfile() {
 		return profile;
 	}
 
@@ -306,8 +306,8 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(Reference newProfile, NotificationChain msgs) {
-		Reference oldProfile = profile;
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE, oldProfile, newProfile);
@@ -321,7 +321,7 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(Reference newProfile) {
+	public void setProfile(Canonical newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -340,9 +340,9 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getSupportedProfile() {
+	public EList<Canonical> getSupportedProfile() {
 		if (supportedProfile == null) {
-			supportedProfile = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE);
+			supportedProfile = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE);
 		}
 		return supportedProfile;
 	}
@@ -865,14 +865,14 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE:
-				setType((ResourceType)newValue);
+				setType((Code)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
-				setProfile((Reference)newValue);
+				setProfile((Canonical)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
 				getSupportedProfile().clear();
-				getSupportedProfile().addAll((Collection<? extends Reference>)newValue);
+				getSupportedProfile().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__DOCUMENTATION:
 				setDocumentation((Markdown)newValue);
@@ -935,10 +935,10 @@ public class CapabilityStatementResourceImpl extends BackboneElementImpl impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__TYPE:
-				setType((ResourceType)null);
+				setType((Code)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__PROFILE:
-				setProfile((Reference)null);
+				setProfile((Canonical)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_RESOURCE__SUPPORTED_PROFILE:
 				getSupportedProfile().clear();

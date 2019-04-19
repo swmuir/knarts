@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
@@ -81,7 +82,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> profile;
+	protected EList<Canonical> profile;
 
 	/**
 	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
@@ -256,9 +257,9 @@ public class MetaImpl extends ElementImpl implements Meta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getProfile() {
+	public EList<Canonical> getProfile() {
 		if (profile == null) {
-			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.META__PROFILE);
+			profile = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.META__PROFILE);
 		}
 		return profile;
 	}
@@ -355,7 +356,7 @@ public class MetaImpl extends ElementImpl implements Meta {
 				return;
 			case FhirPackage.META__PROFILE:
 				getProfile().clear();
-				getProfile().addAll((Collection<? extends Uri>)newValue);
+				getProfile().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.META__SECURITY:
 				getSecurity().clear();

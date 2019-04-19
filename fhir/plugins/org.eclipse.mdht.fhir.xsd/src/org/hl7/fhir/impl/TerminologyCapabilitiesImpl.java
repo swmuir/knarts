@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.CapabilityStatementKind;
 import org.hl7.fhir.CodeSearchSupport;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
@@ -28,6 +29,8 @@ import org.hl7.fhir.TerminologyCapabilities;
 import org.hl7.fhir.TerminologyCapabilitiesClosure;
 import org.hl7.fhir.TerminologyCapabilitiesCodeSystem;
 import org.hl7.fhir.TerminologyCapabilitiesExpansion;
+import org.hl7.fhir.TerminologyCapabilitiesImplementation;
+import org.hl7.fhir.TerminologyCapabilitiesSoftware;
 import org.hl7.fhir.TerminologyCapabilitiesTranslation;
 import org.hl7.fhir.TerminologyCapabilitiesValidateCode;
 import org.hl7.fhir.Uri;
@@ -55,6 +58,9 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getSoftware <em>Software</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getLockedDate <em>Locked Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getCodeSystem <em>Code System</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TerminologyCapabilitiesImpl#getExpansion <em>Expansion</em>}</li>
@@ -206,6 +212,36 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 	 * @ordered
 	 */
 	protected Markdown copyright;
+
+	/**
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected CapabilityStatementKind kind;
+
+	/**
+	 * The cached value of the '{@link #getSoftware() <em>Software</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSoftware()
+	 * @generated
+	 * @ordered
+	 */
+	protected TerminologyCapabilitiesSoftware software;
+
+	/**
+	 * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImplementation()
+	 * @generated
+	 * @ordered
+	 */
+	protected TerminologyCapabilitiesImplementation implementation;
 
 	/**
 	 * The cached value of the '{@link #getLockedDate() <em>Locked Date</em>}' containment reference.
@@ -810,6 +846,135 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CapabilityStatementKind getKind() {
+		return kind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetKind(CapabilityStatementKind newKind, NotificationChain msgs) {
+		CapabilityStatementKind oldKind = kind;
+		kind = newKind;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__KIND, oldKind, newKind);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKind(CapabilityStatementKind newKind) {
+		if (newKind != kind) {
+			NotificationChain msgs = null;
+			if (kind != null)
+				msgs = ((InternalEObject)kind).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__KIND, null, msgs);
+			if (newKind != null)
+				msgs = ((InternalEObject)newKind).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__KIND, null, msgs);
+			msgs = basicSetKind(newKind, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__KIND, newKind, newKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminologyCapabilitiesSoftware getSoftware() {
+		return software;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSoftware(TerminologyCapabilitiesSoftware newSoftware, NotificationChain msgs) {
+		TerminologyCapabilitiesSoftware oldSoftware = software;
+		software = newSoftware;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE, oldSoftware, newSoftware);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSoftware(TerminologyCapabilitiesSoftware newSoftware) {
+		if (newSoftware != software) {
+			NotificationChain msgs = null;
+			if (software != null)
+				msgs = ((InternalEObject)software).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE, null, msgs);
+			if (newSoftware != null)
+				msgs = ((InternalEObject)newSoftware).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE, null, msgs);
+			msgs = basicSetSoftware(newSoftware, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE, newSoftware, newSoftware));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TerminologyCapabilitiesImplementation getImplementation() {
+		return implementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetImplementation(TerminologyCapabilitiesImplementation newImplementation, NotificationChain msgs) {
+		TerminologyCapabilitiesImplementation oldImplementation = implementation;
+		implementation = newImplementation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION, oldImplementation, newImplementation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImplementation(TerminologyCapabilitiesImplementation newImplementation) {
+		if (newImplementation != implementation) {
+			NotificationChain msgs = null;
+			if (implementation != null)
+				msgs = ((InternalEObject)implementation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION, null, msgs);
+			if (newImplementation != null)
+				msgs = ((InternalEObject)newImplementation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION, null, msgs);
+			msgs = basicSetImplementation(newImplementation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION, newImplementation, newImplementation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Boolean getLockedDate() {
 		return lockedDate;
 	}
@@ -1111,6 +1276,12 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 				return basicSetPurpose(null, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__KIND:
+				return basicSetKind(null, msgs);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE:
+				return basicSetSoftware(null, msgs);
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION:
+				return basicSetImplementation(null, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__LOCKED_DATE:
 				return basicSetLockedDate(null, msgs);
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__CODE_SYSTEM:
@@ -1165,6 +1336,12 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 				return getPurpose();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__COPYRIGHT:
 				return getCopyright();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__KIND:
+				return getKind();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE:
+				return getSoftware();
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION:
+				return getImplementation();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__LOCKED_DATE:
 				return getLockedDate();
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__CODE_SYSTEM:
@@ -1236,6 +1413,15 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__COPYRIGHT:
 				setCopyright((Markdown)newValue);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__KIND:
+				setKind((CapabilityStatementKind)newValue);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE:
+				setSoftware((TerminologyCapabilitiesSoftware)newValue);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION:
+				setImplementation((TerminologyCapabilitiesImplementation)newValue);
 				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__LOCKED_DATE:
 				setLockedDate((org.hl7.fhir.Boolean)newValue);
@@ -1313,6 +1499,15 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__COPYRIGHT:
 				setCopyright((Markdown)null);
 				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__KIND:
+				setKind((CapabilityStatementKind)null);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE:
+				setSoftware((TerminologyCapabilitiesSoftware)null);
+				return;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION:
+				setImplementation((TerminologyCapabilitiesImplementation)null);
+				return;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__LOCKED_DATE:
 				setLockedDate((org.hl7.fhir.Boolean)null);
 				return;
@@ -1374,6 +1569,12 @@ public class TerminologyCapabilitiesImpl extends DomainResourceImpl implements T
 				return purpose != null;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__COPYRIGHT:
 				return copyright != null;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__KIND:
+				return kind != null;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__SOFTWARE:
+				return software != null;
+			case FhirPackage.TERMINOLOGY_CAPABILITIES__IMPLEMENTATION:
+				return implementation != null;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__LOCKED_DATE:
 				return lockedDate != null;
 			case FhirPackage.TERMINOLOGY_CAPABILITIES__CODE_SYSTEM:

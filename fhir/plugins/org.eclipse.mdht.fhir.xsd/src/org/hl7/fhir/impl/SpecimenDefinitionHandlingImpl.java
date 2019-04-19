@@ -24,10 +24,9 @@ import org.hl7.fhir.SpecimenDefinitionHandling;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getConditionSet <em>Condition Set</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getTempRange <em>Temp Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getTemperatureQualifier <em>Temperature Qualifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getTemperatureRange <em>Temperature Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getMaxDuration <em>Max Duration</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getLightExposure <em>Light Exposure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SpecimenDefinitionHandlingImpl#getInstruction <em>Instruction</em>}</li>
  * </ul>
  *
@@ -35,24 +34,24 @@ import org.hl7.fhir.SpecimenDefinitionHandling;
  */
 public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implements SpecimenDefinitionHandling {
 	/**
-	 * The cached value of the '{@link #getConditionSet() <em>Condition Set</em>}' containment reference.
+	 * The cached value of the '{@link #getTemperatureQualifier() <em>Temperature Qualifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConditionSet()
+	 * @see #getTemperatureQualifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept conditionSet;
+	protected CodeableConcept temperatureQualifier;
 
 	/**
-	 * The cached value of the '{@link #getTempRange() <em>Temp Range</em>}' containment reference.
+	 * The cached value of the '{@link #getTemperatureRange() <em>Temperature Range</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTempRange()
+	 * @see #getTemperatureRange()
 	 * @generated
 	 * @ordered
 	 */
-	protected Range tempRange;
+	protected Range temperatureRange;
 
 	/**
 	 * The cached value of the '{@link #getMaxDuration() <em>Max Duration</em>}' containment reference.
@@ -63,16 +62,6 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * @ordered
 	 */
 	protected Duration maxDuration;
-
-	/**
-	 * The cached value of the '{@link #getLightExposure() <em>Light Exposure</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLightExposure()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String lightExposure;
 
 	/**
 	 * The cached value of the '{@link #getInstruction() <em>Instruction</em>}' containment reference.
@@ -108,8 +97,8 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getConditionSet() {
-		return conditionSet;
+	public CodeableConcept getTemperatureQualifier() {
+		return temperatureQualifier;
 	}
 
 	/**
@@ -117,11 +106,11 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConditionSet(CodeableConcept newConditionSet, NotificationChain msgs) {
-		CodeableConcept oldConditionSet = conditionSet;
-		conditionSet = newConditionSet;
+	public NotificationChain basicSetTemperatureQualifier(CodeableConcept newTemperatureQualifier, NotificationChain msgs) {
+		CodeableConcept oldTemperatureQualifier = temperatureQualifier;
+		temperatureQualifier = newTemperatureQualifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET, oldConditionSet, newConditionSet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER, oldTemperatureQualifier, newTemperatureQualifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -132,18 +121,18 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConditionSet(CodeableConcept newConditionSet) {
-		if (newConditionSet != conditionSet) {
+	public void setTemperatureQualifier(CodeableConcept newTemperatureQualifier) {
+		if (newTemperatureQualifier != temperatureQualifier) {
 			NotificationChain msgs = null;
-			if (conditionSet != null)
-				msgs = ((InternalEObject)conditionSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET, null, msgs);
-			if (newConditionSet != null)
-				msgs = ((InternalEObject)newConditionSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET, null, msgs);
-			msgs = basicSetConditionSet(newConditionSet, msgs);
+			if (temperatureQualifier != null)
+				msgs = ((InternalEObject)temperatureQualifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER, null, msgs);
+			if (newTemperatureQualifier != null)
+				msgs = ((InternalEObject)newTemperatureQualifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER, null, msgs);
+			msgs = basicSetTemperatureQualifier(newTemperatureQualifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET, newConditionSet, newConditionSet));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER, newTemperatureQualifier, newTemperatureQualifier));
 	}
 
 	/**
@@ -151,8 +140,8 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Range getTempRange() {
-		return tempRange;
+	public Range getTemperatureRange() {
+		return temperatureRange;
 	}
 
 	/**
@@ -160,11 +149,11 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTempRange(Range newTempRange, NotificationChain msgs) {
-		Range oldTempRange = tempRange;
-		tempRange = newTempRange;
+	public NotificationChain basicSetTemperatureRange(Range newTemperatureRange, NotificationChain msgs) {
+		Range oldTemperatureRange = temperatureRange;
+		temperatureRange = newTemperatureRange;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE, oldTempRange, newTempRange);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE, oldTemperatureRange, newTemperatureRange);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -175,18 +164,18 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTempRange(Range newTempRange) {
-		if (newTempRange != tempRange) {
+	public void setTemperatureRange(Range newTemperatureRange) {
+		if (newTemperatureRange != temperatureRange) {
 			NotificationChain msgs = null;
-			if (tempRange != null)
-				msgs = ((InternalEObject)tempRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE, null, msgs);
-			if (newTempRange != null)
-				msgs = ((InternalEObject)newTempRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE, null, msgs);
-			msgs = basicSetTempRange(newTempRange, msgs);
+			if (temperatureRange != null)
+				msgs = ((InternalEObject)temperatureRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE, null, msgs);
+			if (newTemperatureRange != null)
+				msgs = ((InternalEObject)newTemperatureRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE, null, msgs);
+			msgs = basicSetTemperatureRange(newTemperatureRange, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE, newTempRange, newTempRange));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE, newTemperatureRange, newTemperatureRange));
 	}
 
 	/**
@@ -230,49 +219,6 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION, newMaxDuration, newMaxDuration));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getLightExposure() {
-		return lightExposure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLightExposure(org.hl7.fhir.String newLightExposure, NotificationChain msgs) {
-		org.hl7.fhir.String oldLightExposure = lightExposure;
-		lightExposure = newLightExposure;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE, oldLightExposure, newLightExposure);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLightExposure(org.hl7.fhir.String newLightExposure) {
-		if (newLightExposure != lightExposure) {
-			NotificationChain msgs = null;
-			if (lightExposure != null)
-				msgs = ((InternalEObject)lightExposure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE, null, msgs);
-			if (newLightExposure != null)
-				msgs = ((InternalEObject)newLightExposure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE, null, msgs);
-			msgs = basicSetLightExposure(newLightExposure, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE, newLightExposure, newLightExposure));
 	}
 
 	/**
@@ -326,14 +272,12 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET:
-				return basicSetConditionSet(null, msgs);
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE:
-				return basicSetTempRange(null, msgs);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER:
+				return basicSetTemperatureQualifier(null, msgs);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE:
+				return basicSetTemperatureRange(null, msgs);
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION:
 				return basicSetMaxDuration(null, msgs);
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE:
-				return basicSetLightExposure(null, msgs);
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__INSTRUCTION:
 				return basicSetInstruction(null, msgs);
 		}
@@ -348,14 +292,12 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET:
-				return getConditionSet();
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE:
-				return getTempRange();
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER:
+				return getTemperatureQualifier();
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE:
+				return getTemperatureRange();
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION:
 				return getMaxDuration();
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE:
-				return getLightExposure();
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__INSTRUCTION:
 				return getInstruction();
 		}
@@ -370,17 +312,14 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET:
-				setConditionSet((CodeableConcept)newValue);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER:
+				setTemperatureQualifier((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE:
-				setTempRange((Range)newValue);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE:
+				setTemperatureRange((Range)newValue);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION:
 				setMaxDuration((Duration)newValue);
-				return;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE:
-				setLightExposure((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__INSTRUCTION:
 				setInstruction((org.hl7.fhir.String)newValue);
@@ -397,17 +336,14 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET:
-				setConditionSet((CodeableConcept)null);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER:
+				setTemperatureQualifier((CodeableConcept)null);
 				return;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE:
-				setTempRange((Range)null);
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE:
+				setTemperatureRange((Range)null);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION:
 				setMaxDuration((Duration)null);
-				return;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE:
-				setLightExposure((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__INSTRUCTION:
 				setInstruction((org.hl7.fhir.String)null);
@@ -424,14 +360,12 @@ public class SpecimenDefinitionHandlingImpl extends BackboneElementImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__CONDITION_SET:
-				return conditionSet != null;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMP_RANGE:
-				return tempRange != null;
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_QUALIFIER:
+				return temperatureQualifier != null;
+			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__TEMPERATURE_RANGE:
+				return temperatureRange != null;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__MAX_DURATION:
 				return maxDuration != null;
-			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__LIGHT_EXPOSURE:
-				return lightExposure != null;
 			case FhirPackage.SPECIMEN_DEFINITION_HANDLING__INSTRUCTION:
 				return instruction != null;
 		}

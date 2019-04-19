@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getTargetProfile <em>Target Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getSearchType <em>Search Type</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getBinding <em>Binding</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getReferencedFrom <em>Referenced From</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinitionParameter#getPart <em>Part</em>}</li>
  * </ul>
  *
@@ -172,13 +173,13 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * The type for this parameter.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(FHIRAllTypes)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	FHIRAllTypes getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinitionParameter#getType <em>Type</em>}' containment reference.
@@ -188,15 +189,15 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(FHIRAllTypes value);
+	void setType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Profile</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.
+	 * Used when the type is "Reference" or "canonical", and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target Profile</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_TargetProfile()
@@ -204,7 +205,7 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='targetProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getTargetProfile();
+	EList<Canonical> getTargetProfile();
 
 	/**
 	 * Returns the value of the '<em><b>Search Type</b></em>' containment reference.
@@ -257,6 +258,22 @@ public interface OperationDefinitionParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setBinding(OperationDefinitionBinding value);
+
+	/**
+	 * Returns the value of the '<em><b>Referenced From</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.OperationDefinitionReferencedFrom}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Identifies other resource parameters within the operation invocation that are expected to resolve to this resource.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Referenced From</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinitionParameter_ReferencedFrom()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='referencedFrom' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<OperationDefinitionReferencedFrom> getReferencedFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Part</b></em>' containment reference list.

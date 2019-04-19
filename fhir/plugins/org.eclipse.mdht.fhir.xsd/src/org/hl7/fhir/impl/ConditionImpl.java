@@ -21,10 +21,8 @@ import org.hl7.fhir.Age;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Condition;
-import org.hl7.fhir.ConditionClinicalStatusCodes;
 import org.hl7.fhir.ConditionEvidence;
 import org.hl7.fhir.ConditionStage;
-import org.hl7.fhir.ConditionVerificationStatus;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -48,7 +46,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getOnsetDateTime <em>Onset Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getOnsetPeriod <em>Onset Period</em>}</li>
@@ -59,7 +57,7 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementPeriod <em>Abatement Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementRange <em>Abatement Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAbatementString <em>Abatement String</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getRecordedDate <em>Recorded Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ConditionImpl#getStage <em>Stage</em>}</li>
@@ -88,7 +86,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConditionClinicalStatusCodes clinicalStatus;
+	protected CodeableConcept clinicalStatus;
 
 	/**
 	 * The cached value of the '{@link #getVerificationStatus() <em>Verification Status</em>}' containment reference.
@@ -98,7 +96,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * @generated
 	 * @ordered
 	 */
-	protected ConditionVerificationStatus verificationStatus;
+	protected CodeableConcept verificationStatus;
 
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
@@ -151,14 +149,14 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getOnsetDateTime() <em>Onset Date Time</em>}' containment reference.
@@ -261,14 +259,14 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	protected org.hl7.fhir.String abatementString;
 
 	/**
-	 * The cached value of the '{@link #getAssertedDate() <em>Asserted Date</em>}' containment reference.
+	 * The cached value of the '{@link #getRecordedDate() <em>Recorded Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssertedDate()
+	 * @see #getRecordedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime assertedDate;
+	protected DateTime recordedDate;
 
 	/**
 	 * The cached value of the '{@link #getRecorder() <em>Recorder</em>}' containment reference.
@@ -356,7 +354,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionClinicalStatusCodes getClinicalStatus() {
+	public CodeableConcept getClinicalStatus() {
 		return clinicalStatus;
 	}
 
@@ -365,8 +363,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClinicalStatus(ConditionClinicalStatusCodes newClinicalStatus, NotificationChain msgs) {
-		ConditionClinicalStatusCodes oldClinicalStatus = clinicalStatus;
+	public NotificationChain basicSetClinicalStatus(CodeableConcept newClinicalStatus, NotificationChain msgs) {
+		CodeableConcept oldClinicalStatus = clinicalStatus;
 		clinicalStatus = newClinicalStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__CLINICAL_STATUS, oldClinicalStatus, newClinicalStatus);
@@ -380,7 +378,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClinicalStatus(ConditionClinicalStatusCodes newClinicalStatus) {
+	public void setClinicalStatus(CodeableConcept newClinicalStatus) {
 		if (newClinicalStatus != clinicalStatus) {
 			NotificationChain msgs = null;
 			if (clinicalStatus != null)
@@ -399,7 +397,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionVerificationStatus getVerificationStatus() {
+	public CodeableConcept getVerificationStatus() {
 		return verificationStatus;
 	}
 
@@ -408,8 +406,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVerificationStatus(ConditionVerificationStatus newVerificationStatus, NotificationChain msgs) {
-		ConditionVerificationStatus oldVerificationStatus = verificationStatus;
+	public NotificationChain basicSetVerificationStatus(CodeableConcept newVerificationStatus, NotificationChain msgs) {
+		CodeableConcept oldVerificationStatus = verificationStatus;
 		verificationStatus = newVerificationStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__VERIFICATION_STATUS, oldVerificationStatus, newVerificationStatus);
@@ -423,7 +421,7 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVerificationStatus(ConditionVerificationStatus newVerificationStatus) {
+	public void setVerificationStatus(CodeableConcept newVerificationStatus) {
 		if (newVerificationStatus != verificationStatus) {
 			NotificationChain msgs = null;
 			if (verificationStatus != null)
@@ -595,8 +593,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -604,11 +602,11 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -619,18 +617,18 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -1068,8 +1066,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getAssertedDate() {
-		return assertedDate;
+	public DateTime getRecordedDate() {
+		return recordedDate;
 	}
 
 	/**
@@ -1077,11 +1075,11 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAssertedDate(DateTime newAssertedDate, NotificationChain msgs) {
-		DateTime oldAssertedDate = assertedDate;
-		assertedDate = newAssertedDate;
+	public NotificationChain basicSetRecordedDate(DateTime newRecordedDate, NotificationChain msgs) {
+		DateTime oldRecordedDate = recordedDate;
+		recordedDate = newRecordedDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ASSERTED_DATE, oldAssertedDate, newAssertedDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__RECORDED_DATE, oldRecordedDate, newRecordedDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1092,18 +1090,18 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAssertedDate(DateTime newAssertedDate) {
-		if (newAssertedDate != assertedDate) {
+	public void setRecordedDate(DateTime newRecordedDate) {
+		if (newRecordedDate != recordedDate) {
 			NotificationChain msgs = null;
-			if (assertedDate != null)
-				msgs = ((InternalEObject)assertedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ASSERTED_DATE, null, msgs);
-			if (newAssertedDate != null)
-				msgs = ((InternalEObject)newAssertedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__ASSERTED_DATE, null, msgs);
-			msgs = basicSetAssertedDate(newAssertedDate, msgs);
+			if (recordedDate != null)
+				msgs = ((InternalEObject)recordedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__RECORDED_DATE, null, msgs);
+			if (newRecordedDate != null)
+				msgs = ((InternalEObject)newRecordedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONDITION__RECORDED_DATE, null, msgs);
+			msgs = basicSetRecordedDate(newRecordedDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__ASSERTED_DATE, newAssertedDate, newAssertedDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONDITION__RECORDED_DATE, newRecordedDate, newRecordedDate));
 	}
 
 	/**
@@ -1252,8 +1250,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONDITION__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.CONDITION__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.CONDITION__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.CONDITION__ONSET_DATE_TIME:
 				return basicSetOnsetDateTime(null, msgs);
 			case FhirPackage.CONDITION__ONSET_AGE:
@@ -1274,8 +1272,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return basicSetAbatementRange(null, msgs);
 			case FhirPackage.CONDITION__ABATEMENT_STRING:
 				return basicSetAbatementString(null, msgs);
-			case FhirPackage.CONDITION__ASSERTED_DATE:
-				return basicSetAssertedDate(null, msgs);
+			case FhirPackage.CONDITION__RECORDED_DATE:
+				return basicSetRecordedDate(null, msgs);
 			case FhirPackage.CONDITION__RECORDER:
 				return basicSetRecorder(null, msgs);
 			case FhirPackage.CONDITION__ASSERTER:
@@ -1314,8 +1312,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return getBodySite();
 			case FhirPackage.CONDITION__SUBJECT:
 				return getSubject();
-			case FhirPackage.CONDITION__CONTEXT:
-				return getContext();
+			case FhirPackage.CONDITION__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.CONDITION__ONSET_DATE_TIME:
 				return getOnsetDateTime();
 			case FhirPackage.CONDITION__ONSET_AGE:
@@ -1336,8 +1334,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return getAbatementRange();
 			case FhirPackage.CONDITION__ABATEMENT_STRING:
 				return getAbatementString();
-			case FhirPackage.CONDITION__ASSERTED_DATE:
-				return getAssertedDate();
+			case FhirPackage.CONDITION__RECORDED_DATE:
+				return getRecordedDate();
 			case FhirPackage.CONDITION__RECORDER:
 				return getRecorder();
 			case FhirPackage.CONDITION__ASSERTER:
@@ -1366,10 +1364,10 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.CONDITION__CLINICAL_STATUS:
-				setClinicalStatus((ConditionClinicalStatusCodes)newValue);
+				setClinicalStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CONDITION__VERIFICATION_STATUS:
-				setVerificationStatus((ConditionVerificationStatus)newValue);
+				setVerificationStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CONDITION__CATEGORY:
 				getCategory().clear();
@@ -1388,8 +1386,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.CONDITION__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.CONDITION__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.CONDITION__ONSET_DATE_TIME:
 				setOnsetDateTime((DateTime)newValue);
@@ -1421,8 +1419,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ABATEMENT_STRING:
 				setAbatementString((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.CONDITION__ASSERTED_DATE:
-				setAssertedDate((DateTime)newValue);
+			case FhirPackage.CONDITION__RECORDED_DATE:
+				setRecordedDate((DateTime)newValue);
 				return;
 			case FhirPackage.CONDITION__RECORDER:
 				setRecorder((Reference)newValue);
@@ -1458,10 +1456,10 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.CONDITION__CLINICAL_STATUS:
-				setClinicalStatus((ConditionClinicalStatusCodes)null);
+				setClinicalStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.CONDITION__VERIFICATION_STATUS:
-				setVerificationStatus((ConditionVerificationStatus)null);
+				setVerificationStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.CONDITION__CATEGORY:
 				getCategory().clear();
@@ -1478,8 +1476,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.CONDITION__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.CONDITION__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.CONDITION__ONSET_DATE_TIME:
 				setOnsetDateTime((DateTime)null);
@@ -1511,8 +1509,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 			case FhirPackage.CONDITION__ABATEMENT_STRING:
 				setAbatementString((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.CONDITION__ASSERTED_DATE:
-				setAssertedDate((DateTime)null);
+			case FhirPackage.CONDITION__RECORDED_DATE:
+				setRecordedDate((DateTime)null);
 				return;
 			case FhirPackage.CONDITION__RECORDER:
 				setRecorder((Reference)null);
@@ -1557,8 +1555,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return bodySite != null && !bodySite.isEmpty();
 			case FhirPackage.CONDITION__SUBJECT:
 				return subject != null;
-			case FhirPackage.CONDITION__CONTEXT:
-				return context != null;
+			case FhirPackage.CONDITION__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.CONDITION__ONSET_DATE_TIME:
 				return onsetDateTime != null;
 			case FhirPackage.CONDITION__ONSET_AGE:
@@ -1579,8 +1577,8 @@ public class ConditionImpl extends DomainResourceImpl implements Condition {
 				return abatementRange != null;
 			case FhirPackage.CONDITION__ABATEMENT_STRING:
 				return abatementString != null;
-			case FhirPackage.CONDITION__ASSERTED_DATE:
-				return assertedDate != null;
+			case FhirPackage.CONDITION__RECORDED_DATE:
+				return recordedDate != null;
 			case FhirPackage.CONDITION__RECORDER:
 				return recorder != null;
 			case FhirPackage.CONDITION__ASSERTER:

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CapabilityStatementEndpoint;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri address;
+	protected Url address;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +117,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getAddress() {
+	public Url getAddress() {
 		return address;
 	}
 
@@ -126,8 +126,8 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAddress(Uri newAddress, NotificationChain msgs) {
-		Uri oldAddress = address;
+	public NotificationChain basicSetAddress(Url newAddress, NotificationChain msgs) {
+		Url oldAddress = address;
 		address = newAddress;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_ENDPOINT__ADDRESS, oldAddress, newAddress);
@@ -141,7 +141,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAddress(Uri newAddress) {
+	public void setAddress(Url newAddress) {
 		if (newAddress != address) {
 			NotificationChain msgs = null;
 			if (address != null)
@@ -199,7 +199,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 				setProtocol((Coding)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_ENDPOINT__ADDRESS:
-				setAddress((Uri)newValue);
+				setAddress((Url)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +217,7 @@ public class CapabilityStatementEndpointImpl extends BackboneElementImpl impleme
 				setProtocol((Coding)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_ENDPOINT__ADDRESS:
-				setAddress((Uri)null);
+				setAddress((Url)null);
 				return;
 		}
 		super.eUnset(featureID);

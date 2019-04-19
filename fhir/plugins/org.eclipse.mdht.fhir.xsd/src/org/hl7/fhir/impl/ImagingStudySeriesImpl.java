@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Coding;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Id;
 import org.hl7.fhir.ImagingStudyInstance;
+import org.hl7.fhir.ImagingStudyPerformer;
 import org.hl7.fhir.ImagingStudySeries;
-import org.hl7.fhir.InstanceAvailability;
-import org.hl7.fhir.Oid;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.UnsignedInt;
 
@@ -40,7 +40,6 @@ import org.hl7.fhir.UnsignedInt;
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getModality <em>Modality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getNumberOfInstances <em>Number Of Instances</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getAvailability <em>Availability</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImagingStudySeriesImpl#getLaterality <em>Laterality</em>}</li>
@@ -61,7 +60,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * @generated
 	 * @ordered
 	 */
-	protected Oid uid;
+	protected Id uid;
 
 	/**
 	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
@@ -102,16 +101,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * @ordered
 	 */
 	protected UnsignedInt numberOfInstances;
-
-	/**
-	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAvailability()
-	 * @generated
-	 * @ordered
-	 */
-	protected InstanceAvailability availability;
 
 	/**
 	 * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' containment reference list.
@@ -171,7 +160,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> performer;
+	protected EList<ImagingStudyPerformer> performer;
 
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' containment reference list.
@@ -207,7 +196,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Oid getUid() {
+	public Id getUid() {
 		return uid;
 	}
 
@@ -216,8 +205,8 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUid(Oid newUid, NotificationChain msgs) {
-		Oid oldUid = uid;
+	public NotificationChain basicSetUid(Id newUid, NotificationChain msgs) {
+		Id oldUid = uid;
 		uid = newUid;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__UID, oldUid, newUid);
@@ -231,7 +220,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUid(Oid newUid) {
+	public void setUid(Id newUid) {
 		if (newUid != uid) {
 			NotificationChain msgs = null;
 			if (uid != null)
@@ -422,49 +411,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstanceAvailability getAvailability() {
-		return availability;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAvailability(InstanceAvailability newAvailability, NotificationChain msgs) {
-		InstanceAvailability oldAvailability = availability;
-		availability = newAvailability;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY, oldAvailability, newAvailability);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAvailability(InstanceAvailability newAvailability) {
-		if (newAvailability != availability) {
-			NotificationChain msgs = null;
-			if (availability != null)
-				msgs = ((InternalEObject)availability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY, null, msgs);
-			if (newAvailability != null)
-				msgs = ((InternalEObject)newAvailability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY, null, msgs);
-			msgs = basicSetAvailability(newAvailability, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY, newAvailability, newAvailability));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Reference> getEndpoint() {
 		if (endpoint == null) {
 			endpoint = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT);
@@ -618,9 +564,9 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getPerformer() {
+	public EList<ImagingStudyPerformer> getPerformer() {
 		if (performer == null) {
-			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.IMAGING_STUDY_SERIES__PERFORMER);
+			performer = new EObjectContainmentEList<ImagingStudyPerformer>(ImagingStudyPerformer.class, this, FhirPackage.IMAGING_STUDY_SERIES__PERFORMER);
 		}
 		return performer;
 	}
@@ -655,8 +601,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return basicSetDescription(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
 				return basicSetNumberOfInstances(null, msgs);
-			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
-				return basicSetAvailability(null, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT:
 				return ((InternalEList<?>)getEndpoint()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
@@ -693,8 +637,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return getDescription();
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
 				return getNumberOfInstances();
-			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
-				return getAvailability();
 			case FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT:
 				return getEndpoint();
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:
@@ -723,7 +665,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				setUid((Oid)newValue);
+				setUid((Id)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				setNumber((UnsignedInt)newValue);
@@ -736,9 +678,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
 				setNumberOfInstances((UnsignedInt)newValue);
-				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
-				setAvailability((InstanceAvailability)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT:
 				getEndpoint().clear();
@@ -759,7 +698,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__PERFORMER:
 				getPerformer().clear();
-				getPerformer().addAll((Collection<? extends Reference>)newValue);
+				getPerformer().addAll((Collection<? extends ImagingStudyPerformer>)newValue);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__INSTANCE:
 				getInstance().clear();
@@ -778,7 +717,7 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.IMAGING_STUDY_SERIES__UID:
-				setUid((Oid)null);
+				setUid((Id)null);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER:
 				setNumber((UnsignedInt)null);
@@ -791,9 +730,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
 				setNumberOfInstances((UnsignedInt)null);
-				return;
-			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
-				setAvailability((InstanceAvailability)null);
 				return;
 			case FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT:
 				getEndpoint().clear();
@@ -838,8 +774,6 @@ public class ImagingStudySeriesImpl extends BackboneElementImpl implements Imagi
 				return description != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__NUMBER_OF_INSTANCES:
 				return numberOfInstances != null;
-			case FhirPackage.IMAGING_STUDY_SERIES__AVAILABILITY:
-				return availability != null;
 			case FhirPackage.IMAGING_STUDY_SERIES__ENDPOINT:
 				return endpoint != null && !endpoint.isEmpty();
 			case FhirPackage.IMAGING_STUDY_SERIES__BODY_SITE:

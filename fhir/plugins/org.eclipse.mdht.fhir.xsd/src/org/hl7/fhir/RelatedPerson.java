@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.RelatedPerson#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.RelatedPerson#getPhoto <em>Photo</em>}</li>
  *   <li>{@link org.hl7.fhir.RelatedPerson#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.RelatedPerson#getCommunication <em>Communication</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getRelatedPerson()
@@ -261,5 +262,21 @@ public interface RelatedPerson extends DomainResource {
 	 * @generated
 	 */
 	void setPeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Communication</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.RelatedPersonCommunication}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A language which may be used to communicate with about the patient's health.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Communication</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getRelatedPerson_Communication()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='communication' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<RelatedPersonCommunication> getCommunication();
 
 } // RelatedPerson

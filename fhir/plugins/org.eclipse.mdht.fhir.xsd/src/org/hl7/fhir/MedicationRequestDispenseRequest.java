@@ -16,6 +16,8 @@ package org.hl7.fhir;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.hl7.fhir.MedicationRequestDispenseRequest#getInitialFill <em>Initial Fill</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicationRequestDispenseRequest#getDispenseInterval <em>Dispense Interval</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequestDispenseRequest#getValidityPeriod <em>Validity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequestDispenseRequest#getNumberOfRepeatsAllowed <em>Number Of Repeats Allowed</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicationRequestDispenseRequest#getQuantity <em>Quantity</em>}</li>
@@ -28,6 +30,58 @@ package org.hl7.fhir;
  * @generated
  */
 public interface MedicationRequestDispenseRequest extends BackboneElement {
+	/**
+	 * Returns the value of the '<em><b>Initial Fill</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates the quantity or duration for the first dispense of the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Initial Fill</em>' containment reference.
+	 * @see #setInitialFill(MedicationRequestInitialFill)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestDispenseRequest_InitialFill()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='initialFill' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	MedicationRequestInitialFill getInitialFill();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestDispenseRequest#getInitialFill <em>Initial Fill</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Fill</em>' containment reference.
+	 * @see #getInitialFill()
+	 * @generated
+	 */
+	void setInitialFill(MedicationRequestInitialFill value);
+
+	/**
+	 * Returns the value of the '<em><b>Dispense Interval</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The minimum period of time that must occur between dispenses of the medication.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Dispense Interval</em>' containment reference.
+	 * @see #setDispenseInterval(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getMedicationRequestDispenseRequest_DispenseInterval()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dispenseInterval' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Duration getDispenseInterval();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicationRequestDispenseRequest#getDispenseInterval <em>Dispense Interval</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dispense Interval</em>' containment reference.
+	 * @see #getDispenseInterval()
+	 * @generated
+	 */
+	void setDispenseInterval(Duration value);
+
 	/**
 	 * Returns the value of the '<em><b>Validity Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

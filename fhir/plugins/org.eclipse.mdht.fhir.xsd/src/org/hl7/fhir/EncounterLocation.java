@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.EncounterLocation#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterLocation#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.hl7.fhir.EncounterLocation#getPhysicalType <em>Physical Type</em>}</li>
  *   <li>{@link org.hl7.fhir.EncounterLocation#getPeriod <em>Period</em>}</li>
  * </ul>
  *
@@ -57,7 +58,7 @@ public interface EncounterLocation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.
+	 * The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(EncounterLocationStatus)
@@ -77,6 +78,32 @@ public interface EncounterLocation extends BackboneElement {
 	 * @generated
 	 */
 	void setStatus(EncounterLocationStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Physical Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Physical Type</em>' containment reference.
+	 * @see #setPhysicalType(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getEncounterLocation_PhysicalType()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='physicalType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getPhysicalType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.EncounterLocation#getPhysicalType <em>Physical Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Physical Type</em>' containment reference.
+	 * @see #getPhysicalType()
+	 * @generated
+	 */
+	void setPhysicalType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.

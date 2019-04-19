@@ -36,7 +36,7 @@ public interface TestScriptFixture extends BackboneElement {
 	 * @return the value of the '<em>Autocreate</em>' containment reference.
 	 * @see #setAutocreate(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptFixture_Autocreate()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='autocreate' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -62,7 +62,7 @@ public interface TestScriptFixture extends BackboneElement {
 	 * @return the value of the '<em>Autodelete</em>' containment reference.
 	 * @see #setAutodelete(org.hl7.fhir.Boolean)
 	 * @see org.hl7.fhir.FhirPackage#getTestScriptFixture_Autodelete()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='autodelete' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -35,13 +35,13 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * The kind of resource that must be the focus for this message.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(ResourceType)
+	 * @see #setCode(Code)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinitionFocus_Code()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getCode();
+	Code getCode();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinitionFocus#getCode <em>Code</em>}' containment reference.
@@ -51,7 +51,7 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(ResourceType value);
+	void setCode(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Profile</b></em>' containment reference.
@@ -61,13 +61,13 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * A profile that reflects constraints for the focal resource (and potentially for related resources).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinitionFocus_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageDefinitionFocus#getProfile <em>Profile</em>}' containment reference.
@@ -77,7 +77,7 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Reference value);
+	void setProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Min</b></em>' containment reference.
@@ -89,7 +89,7 @@ public interface MessageDefinitionFocus extends BackboneElement {
 	 * @return the value of the '<em>Min</em>' containment reference.
 	 * @see #setMin(UnsignedInt)
 	 * @see org.hl7.fhir.FhirPackage#getMessageDefinitionFocus_Min()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='min' namespace='##targetNamespace'"
 	 * @generated
 	 */

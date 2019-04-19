@@ -22,11 +22,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getOrganism <em>Organism</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getOrganismType <em>Organism Type</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getAmountQuantity <em>Amount Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getAmountRange <em>Amount Range</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getAmountString <em>Amount String</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getAmountType <em>Amount Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceReferenceInformationTarget#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceReferenceInformationTarget()
@@ -165,22 +165,6 @@ public interface SubstanceReferenceInformationTarget extends BackboneElement {
 	void setOrganismType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Todo.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceReferenceInformationTarget_Source()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getSource();
-
-	/**
 	 * Returns the value of the '<em><b>Amount Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -286,5 +270,21 @@ public interface SubstanceReferenceInformationTarget extends BackboneElement {
 	 * @generated
 	 */
 	void setAmountType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Todo.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceReferenceInformationTarget_Source()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getSource();
 
 } // SubstanceReferenceInformationTarget

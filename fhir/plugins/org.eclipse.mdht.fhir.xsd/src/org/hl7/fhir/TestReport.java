@@ -308,7 +308,7 @@ public interface TestReport extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The results of the series of operations required to clean up after the all the tests were executed (successfully or otherwise).
+	 * The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Teardown</em>' containment reference.
 	 * @see #setTeardown(TestReportTeardown)

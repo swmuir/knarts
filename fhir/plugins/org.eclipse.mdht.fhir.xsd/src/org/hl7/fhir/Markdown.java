@@ -10,8 +10,8 @@ import java.lang.String;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A string that may contain markdown syntax for optional processing by a mark down presentation engine
- * Systems are not required to have markdown support, and there is considerable variation in markdown syntax, so the text should be readable without markdown processing. The preferred markdown syntax is described here: http://daringfireball.net/projects/markdown/syntax (and tests here: http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip)
+ * A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine
+ * Systems are not required to have markdown support, so the text should be readable without markdown processing. The markdown syntax is GFM - see https://github.github.com/gfm/
  * If the element is present, it must have either a @value, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *

@@ -148,7 +148,7 @@ public interface BodyStructure extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A summary, charactarization or explanation of the body structure.
+	 * A summary, characterization or explanation of the body structure.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(org.hl7.fhir.String)

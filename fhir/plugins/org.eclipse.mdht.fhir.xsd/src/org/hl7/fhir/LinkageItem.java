@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
+ * Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
  * <!-- end-model-doc -->
  *
  * <p>

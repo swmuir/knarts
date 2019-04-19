@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getRevenue <em>Revenue</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getCategory <em>Category</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getService <em>Service</em>}</li>
+ *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getProductOrService <em>Product Or Service</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getProgramCode <em>Program Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitDetail#getQuantity <em>Quantity</em>}</li>
@@ -43,7 +43,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A service line number.
+	 * A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -69,7 +69,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of reveneu or cost center providing the product and/or service.
+	 * The type of revenue or cost center providing the product and/or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Revenue</em>' containment reference.
 	 * @see #setRevenue(CodeableConcept)
@@ -95,7 +95,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Health Care Service Type Codes  to identify the classification of service or benefits.
+	 * Code to identify the general type of benefits under which products and services are provided.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -117,30 +117,30 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	void setCategory(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Product Or Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
+	 * When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service</em>' containment reference.
-	 * @see #setService(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_Service()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='service' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #setProductOrService(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_ProductOrService()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='productOrService' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getService();
+	CodeableConcept getProductOrService();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitDetail#getService <em>Service</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitDetail#getProductOrService <em>Product Or Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service</em>' containment reference.
-	 * @see #getService()
+	 * @param value the new value of the '<em>Product Or Service</em>' containment reference.
+	 * @see #getProductOrService()
 	 * @generated
 	 */
-	void setService(CodeableConcept value);
+	void setProductOrService(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
@@ -148,7 +148,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+	 * Item typification or modifiers codes to convey additional context for the product or service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_Modifier()
@@ -164,7 +164,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+	 * Identifies the program under which this may be recovered.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Program Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_ProgramCode()
@@ -205,7 +205,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
+	 * If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Unit Price</em>' containment reference.
 	 * @see #setUnitPrice(Money)
@@ -257,7 +257,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+	 * The quantity times the unit price for an additional service or product or charge.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Net</em>' containment reference.
 	 * @see #setNet(Money)
@@ -284,7 +284,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of Unique Device Identifiers associated with this line item.
+	 * Unique Device Identifiers associated with this line item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Udi</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_Udi()
@@ -300,7 +300,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A list of note references to the notes provided below.
+	 * The numbers associated with notes below which apply to the adjudication of this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Note Number</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_NoteNumber()
@@ -316,7 +316,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The adjudications results.
+	 * The adjudication results.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Adjudication</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_Adjudication()
@@ -332,7 +332,7 @@ public interface ExplanationOfBenefitDetail extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Third tier of goods and services.
+	 * Third-tier of goods and services.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitDetail_SubDetail()

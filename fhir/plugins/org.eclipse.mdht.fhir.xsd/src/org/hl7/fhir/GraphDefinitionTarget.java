@@ -37,13 +37,13 @@ public interface GraphDefinitionTarget extends BackboneElement {
 	 * Type of resource this link refers to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(ResourceType)
+	 * @see #setType(Code)
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionTarget_Type()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	ResourceType getType();
+	Code getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinitionTarget#getType <em>Type</em>}' containment reference.
@@ -53,7 +53,7 @@ public interface GraphDefinitionTarget extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(ResourceType value);
+	void setType(Code value);
 
 	/**
 	 * Returns the value of the '<em><b>Params</b></em>' containment reference.
@@ -89,13 +89,13 @@ public interface GraphDefinitionTarget extends BackboneElement {
 	 * Profile for the target resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Uri)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getGraphDefinitionTarget_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.GraphDefinitionTarget#getProfile <em>Profile</em>}' containment reference.
@@ -105,7 +105,7 @@ public interface GraphDefinitionTarget extends BackboneElement {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Uri value);
+	void setProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Compartment</b></em>' containment reference list.

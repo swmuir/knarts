@@ -25,6 +25,7 @@ import org.hl7.fhir.Period;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getSearchParam <em>Search Param</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValueDateTime <em>Value Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValuePeriod <em>Value Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementDateFilterImpl#getValueDuration <em>Value Duration</em>}</li>
@@ -42,6 +43,16 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String path;
+
+	/**
+	 * The cached value of the '{@link #getSearchParam() <em>Search Param</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSearchParam()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String searchParam;
 
 	/**
 	 * The cached value of the '{@link #getValueDateTime() <em>Value Date Time</em>}' containment reference.
@@ -133,6 +144,49 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH, newPath, newPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getSearchParam() {
+		return searchParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSearchParam(org.hl7.fhir.String newSearchParam, NotificationChain msgs) {
+		org.hl7.fhir.String oldSearchParam = searchParam;
+		searchParam = newSearchParam;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM, oldSearchParam, newSearchParam);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSearchParam(org.hl7.fhir.String newSearchParam) {
+		if (newSearchParam != searchParam) {
+			NotificationChain msgs = null;
+			if (searchParam != null)
+				msgs = ((InternalEObject)searchParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM, null, msgs);
+			if (newSearchParam != null)
+				msgs = ((InternalEObject)newSearchParam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM, null, msgs);
+			msgs = basicSetSearchParam(newSearchParam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM, newSearchParam, newSearchParam));
 	}
 
 	/**
@@ -274,6 +328,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH:
 				return basicSetPath(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM:
+				return basicSetSearchParam(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DATE_TIME:
 				return basicSetValueDateTime(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
@@ -294,6 +350,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH:
 				return getPath();
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM:
+				return getSearchParam();
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DATE_TIME:
 				return getValueDateTime();
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:
@@ -314,6 +372,9 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM:
+				setSearchParam((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DATE_TIME:
 				setValueDateTime((DateTime)newValue);
@@ -339,6 +400,9 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH:
 				setPath((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM:
+				setSearchParam((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DATE_TIME:
 				setValueDateTime((DateTime)null);
 				return;
@@ -362,6 +426,8 @@ public class DataRequirementDateFilterImpl extends ElementImpl implements DataRe
 		switch (featureID) {
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__PATH:
 				return path != null;
+			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__SEARCH_PARAM:
+				return searchParam != null;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_DATE_TIME:
 				return valueDateTime != null;
 			case FhirPackage.DATA_REQUIREMENT_DATE_FILTER__VALUE_PERIOD:

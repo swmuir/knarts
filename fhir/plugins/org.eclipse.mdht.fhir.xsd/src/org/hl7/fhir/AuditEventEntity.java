@@ -17,8 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.AuditEventEntity#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.AuditEventEntity#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEventEntity#getWhat <em>What</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventEntity#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventEntity#getRole <em>Role</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventEntity#getLifecycle <em>Lifecycle</em>}</li>
@@ -35,56 +34,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AuditEventEntity extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Identifies a specific instance of the entity. The reference should always be version specific.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventEntity_Identifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventEntity#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>What</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies a specific instance of the entity. The reference should be version specific.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference</em>' containment reference.
-	 * @see #setReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventEntity_Reference()
+	 * @return the value of the '<em>What</em>' containment reference.
+	 * @see #setWhat(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventEntity_What()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='what' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getReference();
+	Reference getWhat();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventEntity#getReference <em>Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventEntity#getWhat <em>What</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' containment reference.
-	 * @see #getReference()
+	 * @param value the new value of the '<em>What</em>' containment reference.
+	 * @see #getWhat()
 	 * @generated
 	 */
-	void setReference(Reference value);
+	void setWhat(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.

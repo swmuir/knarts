@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.AuditEventSource#getSite <em>Site</em>}</li>
- *   <li>{@link org.hl7.fhir.AuditEventSource#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.AuditEventSource#getObserver <em>Observer</em>}</li>
  *   <li>{@link org.hl7.fhir.AuditEventSource#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -54,30 +54,30 @@ public interface AuditEventSource extends BackboneElement {
 	void setSite(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Observer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifier of the source where the event was detected.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getAuditEventSource_Identifier()
+	 * @return the value of the '<em>Observer</em>' containment reference.
+	 * @see #setObserver(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAuditEventSource_Observer()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='observer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	Reference getObserver();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AuditEventSource#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AuditEventSource#getObserver <em>Observer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * @param value the new value of the '<em>Observer</em>' containment reference.
+	 * @see #getObserver()
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	void setObserver(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.

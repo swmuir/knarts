@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of information summarized from a list of other resources.
+ * A list is a curated collection of resources.
  * <!-- end-model-doc -->
  *
  * <p>

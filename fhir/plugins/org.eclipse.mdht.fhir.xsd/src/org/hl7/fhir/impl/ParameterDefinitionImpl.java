@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.ParameterDefinition;
-import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,7 +103,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference profile;
+	protected Canonical profile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,7 +387,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProfile() {
+	public Canonical getProfile() {
 		return profile;
 	}
 
@@ -396,8 +396,8 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(Reference newProfile, NotificationChain msgs) {
-		Reference oldProfile = profile;
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PARAMETER_DEFINITION__PROFILE, oldProfile, newProfile);
@@ -411,7 +411,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(Reference newProfile) {
+	public void setProfile(Canonical newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -504,7 +504,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 				setType((Code)newValue);
 				return;
 			case FhirPackage.PARAMETER_DEFINITION__PROFILE:
-				setProfile((Reference)newValue);
+				setProfile((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -537,7 +537,7 @@ public class ParameterDefinitionImpl extends ElementImpl implements ParameterDef
 				setType((Code)null);
 				return;
 			case FhirPackage.PARAMETER_DEFINITION__PROFILE:
-				setProfile((Reference)null);
+				setProfile((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -17,12 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Code;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.GuidePageKind;
+import org.hl7.fhir.GuidePageGeneration;
 import org.hl7.fhir.ImplementationGuidePage;
-import org.hl7.fhir.ResourceType;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Reference;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,12 +31,10 @@ import org.hl7.fhir.Uri;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getNameUrl <em>Name Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getNameReference <em>Name Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getPackage <em>Package</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getGeneration <em>Generation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuidePageImpl#getPage <em>Page</em>}</li>
  * </ul>
  *
@@ -45,14 +42,24 @@ import org.hl7.fhir.Uri;
  */
 public class ImplementationGuidePageImpl extends BackboneElementImpl implements ImplementationGuidePage {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * The cached value of the '{@link #getNameUrl() <em>Name Url</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
+	 * @see #getNameUrl()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri source;
+	protected Url nameUrl;
+
+	/**
+	 * The cached value of the '{@link #getNameReference() <em>Name Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNameReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference nameReference;
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -65,44 +72,14 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	protected org.hl7.fhir.String title;
 
 	/**
-	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
+	 * The cached value of the '{@link #getGeneration() <em>Generation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKind()
+	 * @see #getGeneration()
 	 * @generated
 	 * @ordered
 	 */
-	protected GuidePageKind kind;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ResourceType> type;
-
-	/**
-	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPackage()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<org.hl7.fhir.String> package_;
-
-	/**
-	 * The cached value of the '{@link #getFormat() <em>Format</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected Code format;
+	protected GuidePageGeneration generation;
 
 	/**
 	 * The cached value of the '{@link #getPage() <em>Page</em>}' containment reference list.
@@ -138,8 +115,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getSource() {
-		return source;
+	public Url getNameUrl() {
+		return nameUrl;
 	}
 
 	/**
@@ -147,11 +124,11 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSource(Uri newSource, NotificationChain msgs) {
-		Uri oldSource = source;
-		source = newSource;
+	public NotificationChain basicSetNameUrl(Url newNameUrl, NotificationChain msgs) {
+		Url oldNameUrl = nameUrl;
+		nameUrl = newNameUrl;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL, oldNameUrl, newNameUrl);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -162,18 +139,61 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(Uri newSource) {
-		if (newSource != source) {
+	public void setNameUrl(Url newNameUrl) {
+		if (newNameUrl != nameUrl) {
 			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE, null, msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE, null, msgs);
-			msgs = basicSetSource(newSource, msgs);
+			if (nameUrl != null)
+				msgs = ((InternalEObject)nameUrl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL, null, msgs);
+			if (newNameUrl != null)
+				msgs = ((InternalEObject)newNameUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL, null, msgs);
+			msgs = basicSetNameUrl(newNameUrl, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL, newNameUrl, newNameUrl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getNameReference() {
+		return nameReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNameReference(Reference newNameReference, NotificationChain msgs) {
+		Reference oldNameReference = nameReference;
+		nameReference = newNameReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE, oldNameReference, newNameReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNameReference(Reference newNameReference) {
+		if (newNameReference != nameReference) {
+			NotificationChain msgs = null;
+			if (nameReference != null)
+				msgs = ((InternalEObject)nameReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE, null, msgs);
+			if (newNameReference != null)
+				msgs = ((InternalEObject)newNameReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE, null, msgs);
+			msgs = basicSetNameReference(newNameReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE, newNameReference, newNameReference));
 	}
 
 	/**
@@ -224,8 +244,8 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GuidePageKind getKind() {
-		return kind;
+	public GuidePageGeneration getGeneration() {
+		return generation;
 	}
 
 	/**
@@ -233,11 +253,11 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetKind(GuidePageKind newKind, NotificationChain msgs) {
-		GuidePageKind oldKind = kind;
-		kind = newKind;
+	public NotificationChain basicSetGeneration(GuidePageGeneration newGeneration, NotificationChain msgs) {
+		GuidePageGeneration oldGeneration = generation;
+		generation = newGeneration;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND, oldKind, newKind);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION, oldGeneration, newGeneration);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -248,85 +268,18 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKind(GuidePageKind newKind) {
-		if (newKind != kind) {
+	public void setGeneration(GuidePageGeneration newGeneration) {
+		if (newGeneration != generation) {
 			NotificationChain msgs = null;
-			if (kind != null)
-				msgs = ((InternalEObject)kind).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND, null, msgs);
-			if (newKind != null)
-				msgs = ((InternalEObject)newKind).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND, null, msgs);
-			msgs = basicSetKind(newKind, msgs);
+			if (generation != null)
+				msgs = ((InternalEObject)generation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION, null, msgs);
+			if (newGeneration != null)
+				msgs = ((InternalEObject)newGeneration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION, null, msgs);
+			msgs = basicSetGeneration(newGeneration, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND, newKind, newKind));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ResourceType> getType() {
-		if (type == null) {
-			type = new EObjectContainmentEList<ResourceType>(ResourceType.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE);
-		}
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<org.hl7.fhir.String> getPackage() {
-		if (package_ == null) {
-			package_ = new EObjectContainmentEList<org.hl7.fhir.String>(org.hl7.fhir.String.class, this, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE);
-		}
-		return package_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Code getFormat() {
-		return format;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFormat(Code newFormat, NotificationChain msgs) {
-		Code oldFormat = format;
-		format = newFormat;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT, oldFormat, newFormat);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFormat(Code newFormat) {
-		if (newFormat != format) {
-			NotificationChain msgs = null;
-			if (format != null)
-				msgs = ((InternalEObject)format).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT, null, msgs);
-			if (newFormat != null)
-				msgs = ((InternalEObject)newFormat).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT, null, msgs);
-			msgs = basicSetFormat(newFormat, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT, newFormat, newFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION, newGeneration, newGeneration));
 	}
 
 	/**
@@ -349,18 +302,14 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE:
-				return basicSetSource(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL:
+				return basicSetNameUrl(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE:
+				return basicSetNameReference(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TITLE:
 				return basicSetTitle(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND:
-				return basicSetKind(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
-				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
-				return ((InternalEList<?>)getPackage()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT:
-				return basicSetFormat(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION:
+				return basicSetGeneration(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE:
 				return ((InternalEList<?>)getPage()).basicRemove(otherEnd, msgs);
 		}
@@ -375,18 +324,14 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE:
-				return getSource();
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL:
+				return getNameUrl();
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE:
+				return getNameReference();
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TITLE:
 				return getTitle();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND:
-				return getKind();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
-				return getType();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
-				return getPackage();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT:
-				return getFormat();
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION:
+				return getGeneration();
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE:
 				return getPage();
 		}
@@ -402,25 +347,17 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE:
-				setSource((Uri)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL:
+				setNameUrl((Url)newValue);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE:
+				setNameReference((Reference)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND:
-				setKind((GuidePageKind)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
-				getType().clear();
-				getType().addAll((Collection<? extends ResourceType>)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
-				getPackage().clear();
-				getPackage().addAll((Collection<? extends org.hl7.fhir.String>)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT:
-				setFormat((Code)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION:
+				setGeneration((GuidePageGeneration)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE:
 				getPage().clear();
@@ -438,23 +375,17 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE:
-				setSource((Uri)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL:
+				setNameUrl((Url)null);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE:
+				setNameReference((Reference)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TITLE:
 				setTitle((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND:
-				setKind((GuidePageKind)null);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
-				getType().clear();
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
-				getPackage().clear();
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT:
-				setFormat((Code)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION:
+				setGeneration((GuidePageGeneration)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE:
 				getPage().clear();
@@ -471,18 +402,14 @@ public class ImplementationGuidePageImpl extends BackboneElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__SOURCE:
-				return source != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_URL:
+				return nameUrl != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__NAME_REFERENCE:
+				return nameReference != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TITLE:
 				return title != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__KIND:
-				return kind != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__TYPE:
-				return type != null && !type.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PACKAGE:
-				return package_ != null && !package_.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__FORMAT:
-				return format != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__GENERATION:
+				return generation != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE_PAGE__PAGE:
 				return page != null && !page.isEmpty();
 		}

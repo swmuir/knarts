@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -9,7 +10,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -17,9 +18,11 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ClaimProcedure#getSequence <em>Sequence</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimProcedure#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimProcedure#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimProcedure#getProcedureCodeableConcept <em>Procedure Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.ClaimProcedure#getProcedureReference <em>Procedure Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ClaimProcedure#getUdi <em>Udi</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getClaimProcedure()
@@ -32,7 +35,7 @@ public interface ClaimProcedure extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sequence of procedures which serves to order and provide a link.
+	 * A number to uniquely identify procedure entries.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sequence</em>' containment reference.
 	 * @see #setSequence(PositiveInt)
@@ -54,11 +57,27 @@ public interface ClaimProcedure extends BackboneElement {
 	void setSequence(PositiveInt value);
 
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * When the condition was observed or the relative ranking.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimProcedure_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getType();
+
+	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date and optionally time the procedure was performed .
+	 * Date and optionally time the procedure was performed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -132,5 +151,21 @@ public interface ClaimProcedure extends BackboneElement {
 	 * @generated
 	 */
 	void setProcedureReference(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Udi</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unique Device Identifiers associated with this line item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Udi</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getClaimProcedure_Udi()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='udi' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getUdi();
 
 } // ClaimProcedure

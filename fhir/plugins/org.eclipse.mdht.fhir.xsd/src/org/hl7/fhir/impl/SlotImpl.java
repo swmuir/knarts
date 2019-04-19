@@ -60,14 +60,14 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference.
+	 * The cached value of the '{@link #getServiceCategory() <em>Service Category</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getServiceCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept serviceCategory;
+	protected EList<CodeableConcept> serviceCategory;
 
 	/**
 	 * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' containment reference list.
@@ -195,42 +195,11 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getServiceCategory() {
+	public EList<CodeableConcept> getServiceCategory() {
+		if (serviceCategory == null) {
+			serviceCategory = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SLOT__SERVICE_CATEGORY);
+		}
 		return serviceCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetServiceCategory(CodeableConcept newServiceCategory, NotificationChain msgs) {
-		CodeableConcept oldServiceCategory = serviceCategory;
-		serviceCategory = newServiceCategory;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SLOT__SERVICE_CATEGORY, oldServiceCategory, newServiceCategory);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceCategory(CodeableConcept newServiceCategory) {
-		if (newServiceCategory != serviceCategory) {
-			NotificationChain msgs = null;
-			if (serviceCategory != null)
-				msgs = ((InternalEObject)serviceCategory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SLOT__SERVICE_CATEGORY, null, msgs);
-			if (newServiceCategory != null)
-				msgs = ((InternalEObject)newServiceCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SLOT__SERVICE_CATEGORY, null, msgs);
-			msgs = basicSetServiceCategory(newServiceCategory, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SLOT__SERVICE_CATEGORY, newServiceCategory, newServiceCategory));
 	}
 
 	/**
@@ -569,7 +538,7 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 			case FhirPackage.SLOT__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SLOT__SERVICE_CATEGORY:
-				return basicSetServiceCategory(null, msgs);
+				return ((InternalEList<?>)getServiceCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SLOT__SERVICE_TYPE:
 				return ((InternalEList<?>)getServiceType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SLOT__SPECIALTY:
@@ -640,7 +609,8 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.SLOT__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)newValue);
+				getServiceCategory().clear();
+				getServiceCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SLOT__SERVICE_TYPE:
 				getServiceType().clear();
@@ -687,7 +657,7 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 				getIdentifier().clear();
 				return;
 			case FhirPackage.SLOT__SERVICE_CATEGORY:
-				setServiceCategory((CodeableConcept)null);
+				getServiceCategory().clear();
 				return;
 			case FhirPackage.SLOT__SERVICE_TYPE:
 				getServiceType().clear();
@@ -731,7 +701,7 @@ public class SlotImpl extends DomainResourceImpl implements Slot {
 			case FhirPackage.SLOT__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.SLOT__SERVICE_CATEGORY:
-				return serviceCategory != null;
+				return serviceCategory != null && !serviceCategory.isEmpty();
 			case FhirPackage.SLOT__SERVICE_TYPE:
 				return serviceType != null && !serviceType.isEmpty();
 			case FhirPackage.SLOT__SPECIALTY:

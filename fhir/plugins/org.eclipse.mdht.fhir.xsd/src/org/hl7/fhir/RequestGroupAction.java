@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getTextEquivalent <em>Text Equivalent</em>}</li>
+ *   <li>{@link org.hl7.fhir.RequestGroupAction#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.RequestGroupAction#getCondition <em>Condition</em>}</li>
@@ -152,12 +153,38 @@ public interface RequestGroupAction extends BackboneElement {
 	void setTextEquivalent(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates how quickly the action should be addressed with respect to other actions.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(RequestPriority)
+	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Priority()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='priority' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RequestPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(RequestPriority value);
+
+	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.
+	 * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a section of a documentation template.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Code()
@@ -401,13 +428,13 @@ public interface RequestGroupAction extends BackboneElement {
 	 * The type of action to perform (create, update, remove).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(Coding)
+	 * @see #setType(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getRequestGroupAction_Type()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Coding getType();
+	CodeableConcept getType();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.RequestGroupAction#getType <em>Type</em>}' containment reference.
@@ -417,7 +444,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Coding value);
+	void setType(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Grouping Behavior</b></em>' containment reference.
@@ -476,7 +503,7 @@ public interface RequestGroupAction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Defines the requiredness behavior for the action.
+	 * Defines expectations around whether an action is required.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required Behavior</em>' containment reference.
 	 * @see #setRequiredBehavior(ActionRequiredBehavior)

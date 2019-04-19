@@ -131,14 +131,14 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	protected LocationMode mode;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept type;
+	protected EList<CodeableConcept> type;
 
 	/**
 	 * The cached value of the '{@link #getTelecom() <em>Telecom</em>}' containment reference list.
@@ -493,42 +493,11 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getType() {
+	public EList<CodeableConcept> getType() {
+		if (type == null) {
+			type = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.LOCATION__TYPE);
+		}
 		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
-		CodeableConcept oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(CodeableConcept newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.LOCATION__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.LOCATION__TYPE, newType, newType));
 	}
 
 	/**
@@ -848,7 +817,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 			case FhirPackage.LOCATION__MODE:
 				return basicSetMode(null, msgs);
 			case FhirPackage.LOCATION__TYPE:
-				return basicSetType(null, msgs);
+				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LOCATION__TELECOM:
 				return ((InternalEList<?>)getTelecom()).basicRemove(otherEnd, msgs);
 			case FhirPackage.LOCATION__ADDRESS:
@@ -950,7 +919,8 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				setMode((LocationMode)newValue);
 				return;
 			case FhirPackage.LOCATION__TYPE:
-				setType((CodeableConcept)newValue);
+				getType().clear();
+				getType().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.LOCATION__TELECOM:
 				getTelecom().clear();
@@ -1016,7 +986,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 				setMode((LocationMode)null);
 				return;
 			case FhirPackage.LOCATION__TYPE:
-				setType((CodeableConcept)null);
+				getType().clear();
 				return;
 			case FhirPackage.LOCATION__TELECOM:
 				getTelecom().clear();
@@ -1072,7 +1042,7 @@ public class LocationImpl extends DomainResourceImpl implements Location {
 			case FhirPackage.LOCATION__MODE:
 				return mode != null;
 			case FhirPackage.LOCATION__TYPE:
-				return type != null;
+				return type != null && !type.isEmpty();
 			case FhirPackage.LOCATION__TELECOM:
 				return telecom != null && !telecom.isEmpty();
 			case FhirPackage.LOCATION__ADDRESS:

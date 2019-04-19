@@ -20,6 +20,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getLabel <em>Label</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueBase64Binary <em>Value Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueCanonical <em>Value Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueCode <em>Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueDate <em>Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueDateTime <em>Value Date Time</em>}</li>
@@ -34,6 +35,8 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueUnsignedInt <em>Value Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueUri <em>Value Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueUrl <em>Value Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueUuid <em>Value Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueAddress <em>Value Address</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueAge <em>Value Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueAnnotation <em>Value Annotation</em>}</li>
@@ -55,14 +58,22 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueSampledData <em>Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueSignature <em>Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueTiming <em>Value Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueMeta <em>Value Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueContactDetail <em>Value Contact Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueContributor <em>Value Contributor</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueExpression <em>Value Expression</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueRelatedArtifact <em>Value Related Artifact</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueUsageContext <em>Value Usage Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.ElementDefinitionExample#getValueDosage <em>Value Dosage</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample()
  * @model extendedMetaData="name='ElementDefinition.Example' kind='elementOnly'"
  * @generated
  */
-public interface ElementDefinitionExample extends Element {
+public interface ElementDefinitionExample extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -142,6 +153,33 @@ public interface ElementDefinitionExample extends Element {
 	 * @generated
 	 */
 	void setValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #setValueCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getValueCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueCanonical <em>Value Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #getValueCanonical()
+	 * @generated
+	 */
+	void setValueCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Code</b></em>' containment reference.
@@ -520,6 +558,60 @@ public interface ElementDefinitionExample extends Element {
 	 * @generated
 	 */
 	void setValueUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Url</em>' containment reference.
+	 * @see #setValueUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getValueUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueUrl <em>Value Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Url</em>' containment reference.
+	 * @see #getValueUrl()
+	 * @generated
+	 */
+	void setValueUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #setValueUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getValueUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueUuid <em>Value Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #getValueUuid()
+	 * @generated
+	 */
+	void setValueUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Address</b></em>' containment reference.
@@ -1089,30 +1181,246 @@ public interface ElementDefinitionExample extends Element {
 	void setValueTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Value Contact Detail</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Meta</em>' containment reference.
-	 * @see #setValueMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueMeta()
+	 * @return the value of the '<em>Value Contact Detail</em>' containment reference.
+	 * @see #setValueContactDetail(ContactDetail)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueContactDetail()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='valueContactDetail' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getValueMeta();
+	ContactDetail getValueContactDetail();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueMeta <em>Value Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueContactDetail <em>Value Contact Detail</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Meta</em>' containment reference.
-	 * @see #getValueMeta()
+	 * @param value the new value of the '<em>Value Contact Detail</em>' containment reference.
+	 * @see #getValueContactDetail()
 	 * @generated
 	 */
-	void setValueMeta(Meta value);
+	void setValueContactDetail(ContactDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Contributor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Contributor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Contributor</em>' containment reference.
+	 * @see #setValueContributor(Contributor)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueContributor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueContributor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Contributor getValueContributor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueContributor <em>Value Contributor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Contributor</em>' containment reference.
+	 * @see #getValueContributor()
+	 * @generated
+	 */
+	void setValueContributor(Contributor value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Data Requirement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Data Requirement</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #setValueDataRequirement(DataRequirement)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueDataRequirement()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDataRequirement' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DataRequirement getValueDataRequirement();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueDataRequirement <em>Value Data Requirement</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Data Requirement</em>' containment reference.
+	 * @see #getValueDataRequirement()
+	 * @generated
+	 */
+	void setValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Expression</em>' containment reference.
+	 * @see #setValueExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueExpression <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Expression</em>' containment reference.
+	 * @see #getValueExpression()
+	 * @generated
+	 */
+	void setValueExpression(Expression value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Parameter Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Parameter Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #setValueParameterDefinition(ParameterDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueParameterDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueParameterDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	ParameterDefinition getValueParameterDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueParameterDefinition <em>Value Parameter Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Parameter Definition</em>' containment reference.
+	 * @see #getValueParameterDefinition()
+	 * @generated
+	 */
+	void setValueParameterDefinition(ParameterDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Related Artifact</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Related Artifact</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Related Artifact</em>' containment reference.
+	 * @see #setValueRelatedArtifact(RelatedArtifact)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueRelatedArtifact()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueRelatedArtifact' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	RelatedArtifact getValueRelatedArtifact();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueRelatedArtifact <em>Value Related Artifact</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Related Artifact</em>' containment reference.
+	 * @see #getValueRelatedArtifact()
+	 * @generated
+	 */
+	void setValueRelatedArtifact(RelatedArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Trigger Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Trigger Definition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #setValueTriggerDefinition(TriggerDefinition)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueTriggerDefinition()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueTriggerDefinition' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	TriggerDefinition getValueTriggerDefinition();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueTriggerDefinition <em>Value Trigger Definition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Trigger Definition</em>' containment reference.
+	 * @see #getValueTriggerDefinition()
+	 * @generated
+	 */
+	void setValueTriggerDefinition(TriggerDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Usage Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Usage Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Usage Context</em>' containment reference.
+	 * @see #setValueUsageContext(UsageContext)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueUsageContext()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUsageContext' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	UsageContext getValueUsageContext();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueUsageContext <em>Value Usage Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Usage Context</em>' containment reference.
+	 * @see #getValueUsageContext()
+	 * @generated
+	 */
+	void setValueUsageContext(UsageContext value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #setValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getElementDefinitionExample_ValueDosage()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Dosage getValueDosage();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ElementDefinitionExample#getValueDosage <em>Value Dosage</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #getValueDosage()
+	 * @generated
+	 */
+	void setValueDosage(Dosage value);
 
 } // ElementDefinitionExample

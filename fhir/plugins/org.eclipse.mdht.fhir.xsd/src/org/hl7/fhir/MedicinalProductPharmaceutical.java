@@ -21,10 +21,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getAdministrableDoseForm <em>Administrable Dose Form</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getUnitOfPresentation <em>Unit Of Presentation</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getRouteOfAdministration <em>Route Of Administration</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getIngredient <em>Ingredient</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getCharacteristics <em>Characteristics</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPharmaceutical#getRouteOfAdministration <em>Route Of Administration</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicinalProductPharmaceutical()
@@ -101,22 +101,6 @@ public interface MedicinalProductPharmaceutical extends DomainResource {
 	void setUnitOfPresentation(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Route Of Administration</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The path by which the pharmaceutical product is taken into or makes contact with the body.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Route Of Administration</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPharmaceutical_RouteOfAdministration()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='routeOfAdministration' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getRouteOfAdministration();
-
-	/**
 	 * Returns the value of the '<em><b>Ingredient</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -134,7 +118,7 @@ public interface MedicinalProductPharmaceutical extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -146,7 +130,7 @@ public interface MedicinalProductPharmaceutical extends DomainResource {
 	 *        extendedMetaData="kind='element' name='device' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<org.hl7.fhir.String> getDevice();
+	EList<Reference> getDevice();
 
 	/**
 	 * Returns the value of the '<em><b>Characteristics</b></em>' containment reference list.
@@ -163,5 +147,21 @@ public interface MedicinalProductPharmaceutical extends DomainResource {
 	 * @generated
 	 */
 	EList<MedicinalProductPharmaceuticalCharacteristics> getCharacteristics();
+
+	/**
+	 * Returns the value of the '<em><b>Route Of Administration</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MedicinalProductPharmaceuticalRouteOfAdministration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The path by which the pharmaceutical product is taken into or makes contact with the body.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Route Of Administration</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPharmaceutical_RouteOfAdministration()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='routeOfAdministration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MedicinalProductPharmaceuticalRouteOfAdministration> getRouteOfAdministration();
 
 } // MedicinalProductPharmaceutical

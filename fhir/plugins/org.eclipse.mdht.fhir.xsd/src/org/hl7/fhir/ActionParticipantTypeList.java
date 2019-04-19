@@ -48,7 +48,17 @@ public enum ActionParticipantTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RELATED_PERSON(2, "relatedPerson", "related-person");
+	RELATED_PERSON(2, "relatedPerson", "related-person"),
+
+	/**
+	 * The '<em><b>Device</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DEVICE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DEVICE(3, "device", "device");
 
 	/**
 	 * The '<em><b>Patient</b></em>' literal value.
@@ -93,6 +103,20 @@ public enum ActionParticipantTypeList implements Enumerator {
 	public static final int RELATED_PERSON_VALUE = 2;
 
 	/**
+	 * The '<em><b>Device</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Device
+	 * <!-- end-model-doc -->
+	 * @see #DEVICE
+	 * @model name="device"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DEVICE_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Action Participant Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +127,7 @@ public enum ActionParticipantTypeList implements Enumerator {
 			PATIENT,
 			PRACTITIONER,
 			RELATED_PERSON,
+			DEVICE,
 		};
 
 	/**
@@ -162,6 +187,7 @@ public enum ActionParticipantTypeList implements Enumerator {
 			case PATIENT_VALUE: return PATIENT;
 			case PRACTITIONER_VALUE: return PRACTITIONER;
 			case RELATED_PERSON_VALUE: return RELATED_PERSON;
+			case DEVICE_VALUE: return DEVICE;
 		}
 		return null;
 	}

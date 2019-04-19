@@ -10,19 +10,17 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+ * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getNameUrl <em>Name Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getNameReference <em>Name Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getTitle <em>Title</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getPackage <em>Package</em>}</li>
- *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getGeneration <em>Generation</em>}</li>
  *   <li>{@link org.hl7.fhir.ImplementationGuidePage#getPage <em>Page</em>}</li>
  * </ul>
  *
@@ -32,30 +30,58 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImplementationGuidePage extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Name Url</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The source address for the page.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Source</em>' containment reference.
-	 * @see #setSource(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Source()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Name Url</em>' containment reference.
+	 * @see #setNameUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_NameUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='nameUrl' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getSource();
+	Url getNameUrl();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getSource <em>Source</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getNameUrl <em>Name Url</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' containment reference.
-	 * @see #getSource()
+	 * @param value the new value of the '<em>Name Url</em>' containment reference.
+	 * @see #getNameUrl()
 	 * @generated
 	 */
-	void setSource(Uri value);
+	void setNameUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Name Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name Reference</em>' containment reference.
+	 * @see #setNameReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_NameReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='nameReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getNameReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getNameReference <em>Name Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name Reference</em>' containment reference.
+	 * @see #getNameReference()
+	 * @generated
+	 */
+	void setNameReference(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
@@ -84,88 +110,30 @@ public interface ImplementationGuidePage extends BackboneElement {
 	void setTitle(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Kind</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Generation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The kind of page that this is. Some pages are autogenerated (list, example), and other kinds are of interest so that tools can navigate the user to the page of interest.
+	 * A code that indicates how the page is generated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Kind</em>' containment reference.
-	 * @see #setKind(GuidePageKind)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Kind()
+	 * @return the value of the '<em>Generation</em>' containment reference.
+	 * @see #setGeneration(GuidePageGeneration)
+	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Generation()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='kind' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='generation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	GuidePageKind getKind();
+	GuidePageGeneration getGeneration();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getKind <em>Kind</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getGeneration <em>Generation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Kind</em>' containment reference.
-	 * @see #getKind()
+	 * @param value the new value of the '<em>Generation</em>' containment reference.
+	 * @see #getGeneration()
 	 * @generated
 	 */
-	void setKind(GuidePageKind value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * For constructed pages, what kind of resources to include in the list.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Type</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Type()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ResourceType> getType();
-
-	/**
-	 * Returns the value of the '<em><b>Package</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * For constructed pages, a list of packages to include in the page (or else empty for everything).
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Package</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Package()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='package' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<org.hl7.fhir.String> getPackage();
-
-	/**
-	 * Returns the value of the '<em><b>Format</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The format of the page.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Format</em>' containment reference.
-	 * @see #setFormat(Code)
-	 * @see org.hl7.fhir.FhirPackage#getImplementationGuidePage_Format()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='format' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Code getFormat();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImplementationGuidePage#getFormat <em>Format</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Format</em>' containment reference.
-	 * @see #getFormat()
-	 * @generated
-	 */
-	void setFormat(Code value);
+	void setGeneration(GuidePageGeneration value);
 
 	/**
 	 * Returns the value of the '<em><b>Page</b></em>' containment reference list.

@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource provides payment details and claim references supporting a bulk payment.
+ * This resource provides the details including amount of a payment and allocates the payment items being paid.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -30,7 +30,7 @@ public interface PaymentReconciliationProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The note purpose: Print/Display.
+	 * The business purpose of the note text.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(NoteType)
@@ -56,7 +56,7 @@ public interface PaymentReconciliationProcessNote extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The note text.
+	 * The explanation or description associated with the processing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
 	 * @see #setText(org.hl7.fhir.String)

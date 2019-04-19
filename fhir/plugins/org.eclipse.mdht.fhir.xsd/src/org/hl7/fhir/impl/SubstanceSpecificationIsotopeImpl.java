@@ -25,11 +25,10 @@ import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getNuclideId <em>Nuclide Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getNuclideName <em>Nuclide Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getSubstitutionType <em>Substitution Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getNuclideHalfLife <em>Nuclide Half Life</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getSubstitution <em>Substitution</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getHalfLife <em>Half Life</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationIsotopeImpl#getMolecularWeight <em>Molecular Weight</em>}</li>
  * </ul>
  *
@@ -37,54 +36,44 @@ import org.hl7.fhir.SubstanceSpecificationMolecularWeight;
  */
 public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl implements SubstanceSpecificationIsotope {
 	/**
-	 * The cached value of the '{@link #getNuclideId() <em>Nuclide Id</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNuclideId()
+	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier nuclideId;
+	protected Identifier identifier;
 
 	/**
-	 * The cached value of the '{@link #getNuclideName() <em>Nuclide Name</em>}' containment reference.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNuclideName()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept nuclideName;
+	protected CodeableConcept name;
 
 	/**
-	 * The cached value of the '{@link #getSubstitutionType() <em>Substitution Type</em>}' containment reference.
+	 * The cached value of the '{@link #getSubstitution() <em>Substitution</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubstitutionType()
+	 * @see #getSubstitution()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept substitutionType;
+	protected CodeableConcept substitution;
 
 	/**
-	 * The cached value of the '{@link #getNuclideHalfLife() <em>Nuclide Half Life</em>}' containment reference.
+	 * The cached value of the '{@link #getHalfLife() <em>Half Life</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNuclideHalfLife()
+	 * @see #getHalfLife()
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity nuclideHalfLife;
-
-	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAmount()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String amount;
+	protected Quantity halfLife;
 
 	/**
 	 * The cached value of the '{@link #getMolecularWeight() <em>Molecular Weight</em>}' containment reference.
@@ -120,8 +109,8 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getNuclideId() {
-		return nuclideId;
+	public Identifier getIdentifier() {
+		return identifier;
 	}
 
 	/**
@@ -129,11 +118,11 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNuclideId(Identifier newNuclideId, NotificationChain msgs) {
-		Identifier oldNuclideId = nuclideId;
-		nuclideId = newNuclideId;
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID, oldNuclideId, newNuclideId);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER, oldIdentifier, newIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -144,18 +133,18 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNuclideId(Identifier newNuclideId) {
-		if (newNuclideId != nuclideId) {
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
 			NotificationChain msgs = null;
-			if (nuclideId != null)
-				msgs = ((InternalEObject)nuclideId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID, null, msgs);
-			if (newNuclideId != null)
-				msgs = ((InternalEObject)newNuclideId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID, null, msgs);
-			msgs = basicSetNuclideId(newNuclideId, msgs);
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID, newNuclideId, newNuclideId));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -163,8 +152,8 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getNuclideName() {
-		return nuclideName;
+	public CodeableConcept getName() {
+		return name;
 	}
 
 	/**
@@ -172,11 +161,11 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNuclideName(CodeableConcept newNuclideName, NotificationChain msgs) {
-		CodeableConcept oldNuclideName = nuclideName;
-		nuclideName = newNuclideName;
+	public NotificationChain basicSetName(CodeableConcept newName, NotificationChain msgs) {
+		CodeableConcept oldName = name;
+		name = newName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME, oldNuclideName, newNuclideName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME, oldName, newName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -187,18 +176,18 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNuclideName(CodeableConcept newNuclideName) {
-		if (newNuclideName != nuclideName) {
+	public void setName(CodeableConcept newName) {
+		if (newName != name) {
 			NotificationChain msgs = null;
-			if (nuclideName != null)
-				msgs = ((InternalEObject)nuclideName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME, null, msgs);
-			if (newNuclideName != null)
-				msgs = ((InternalEObject)newNuclideName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME, null, msgs);
-			msgs = basicSetNuclideName(newNuclideName, msgs);
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME, newNuclideName, newNuclideName));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME, newName, newName));
 	}
 
 	/**
@@ -206,8 +195,8 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getSubstitutionType() {
-		return substitutionType;
+	public CodeableConcept getSubstitution() {
+		return substitution;
 	}
 
 	/**
@@ -215,11 +204,11 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSubstitutionType(CodeableConcept newSubstitutionType, NotificationChain msgs) {
-		CodeableConcept oldSubstitutionType = substitutionType;
-		substitutionType = newSubstitutionType;
+	public NotificationChain basicSetSubstitution(CodeableConcept newSubstitution, NotificationChain msgs) {
+		CodeableConcept oldSubstitution = substitution;
+		substitution = newSubstitution;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE, oldSubstitutionType, newSubstitutionType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION, oldSubstitution, newSubstitution);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -230,18 +219,18 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubstitutionType(CodeableConcept newSubstitutionType) {
-		if (newSubstitutionType != substitutionType) {
+	public void setSubstitution(CodeableConcept newSubstitution) {
+		if (newSubstitution != substitution) {
 			NotificationChain msgs = null;
-			if (substitutionType != null)
-				msgs = ((InternalEObject)substitutionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE, null, msgs);
-			if (newSubstitutionType != null)
-				msgs = ((InternalEObject)newSubstitutionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE, null, msgs);
-			msgs = basicSetSubstitutionType(newSubstitutionType, msgs);
+			if (substitution != null)
+				msgs = ((InternalEObject)substitution).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION, null, msgs);
+			if (newSubstitution != null)
+				msgs = ((InternalEObject)newSubstitution).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION, null, msgs);
+			msgs = basicSetSubstitution(newSubstitution, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE, newSubstitutionType, newSubstitutionType));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION, newSubstitution, newSubstitution));
 	}
 
 	/**
@@ -249,8 +238,8 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity getNuclideHalfLife() {
-		return nuclideHalfLife;
+	public Quantity getHalfLife() {
+		return halfLife;
 	}
 
 	/**
@@ -258,11 +247,11 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNuclideHalfLife(Quantity newNuclideHalfLife, NotificationChain msgs) {
-		Quantity oldNuclideHalfLife = nuclideHalfLife;
-		nuclideHalfLife = newNuclideHalfLife;
+	public NotificationChain basicSetHalfLife(Quantity newHalfLife, NotificationChain msgs) {
+		Quantity oldHalfLife = halfLife;
+		halfLife = newHalfLife;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE, oldNuclideHalfLife, newNuclideHalfLife);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE, oldHalfLife, newHalfLife);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -273,61 +262,18 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNuclideHalfLife(Quantity newNuclideHalfLife) {
-		if (newNuclideHalfLife != nuclideHalfLife) {
+	public void setHalfLife(Quantity newHalfLife) {
+		if (newHalfLife != halfLife) {
 			NotificationChain msgs = null;
-			if (nuclideHalfLife != null)
-				msgs = ((InternalEObject)nuclideHalfLife).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE, null, msgs);
-			if (newNuclideHalfLife != null)
-				msgs = ((InternalEObject)newNuclideHalfLife).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE, null, msgs);
-			msgs = basicSetNuclideHalfLife(newNuclideHalfLife, msgs);
+			if (halfLife != null)
+				msgs = ((InternalEObject)halfLife).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE, null, msgs);
+			if (newHalfLife != null)
+				msgs = ((InternalEObject)newHalfLife).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE, null, msgs);
+			msgs = basicSetHalfLife(newHalfLife, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE, newNuclideHalfLife, newNuclideHalfLife));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getAmount() {
-		return amount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAmount(org.hl7.fhir.String newAmount, NotificationChain msgs) {
-		org.hl7.fhir.String oldAmount = amount;
-		amount = newAmount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT, oldAmount, newAmount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAmount(org.hl7.fhir.String newAmount) {
-		if (newAmount != amount) {
-			NotificationChain msgs = null;
-			if (amount != null)
-				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT, null, msgs);
-			if (newAmount != null)
-				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT, null, msgs);
-			msgs = basicSetAmount(newAmount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT, newAmount, newAmount));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE, newHalfLife, newHalfLife));
 	}
 
 	/**
@@ -381,16 +327,14 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID:
-				return basicSetNuclideId(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME:
-				return basicSetNuclideName(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE:
-				return basicSetSubstitutionType(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE:
-				return basicSetNuclideHalfLife(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT:
-				return basicSetAmount(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME:
+				return basicSetName(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION:
+				return basicSetSubstitution(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE:
+				return basicSetHalfLife(null, msgs);
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__MOLECULAR_WEIGHT:
 				return basicSetMolecularWeight(null, msgs);
 		}
@@ -405,16 +349,14 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID:
-				return getNuclideId();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME:
-				return getNuclideName();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE:
-				return getSubstitutionType();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE:
-				return getNuclideHalfLife();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT:
-				return getAmount();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER:
+				return getIdentifier();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME:
+				return getName();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION:
+				return getSubstitution();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE:
+				return getHalfLife();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__MOLECULAR_WEIGHT:
 				return getMolecularWeight();
 		}
@@ -429,20 +371,17 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID:
-				setNuclideId((Identifier)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME:
-				setNuclideName((CodeableConcept)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME:
+				setName((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE:
-				setSubstitutionType((CodeableConcept)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION:
+				setSubstitution((CodeableConcept)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE:
-				setNuclideHalfLife((Quantity)newValue);
-				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT:
-				setAmount((org.hl7.fhir.String)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE:
+				setHalfLife((Quantity)newValue);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__MOLECULAR_WEIGHT:
 				setMolecularWeight((SubstanceSpecificationMolecularWeight)newValue);
@@ -459,20 +398,17 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID:
-				setNuclideId((Identifier)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER:
+				setIdentifier((Identifier)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME:
-				setNuclideName((CodeableConcept)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME:
+				setName((CodeableConcept)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE:
-				setSubstitutionType((CodeableConcept)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION:
+				setSubstitution((CodeableConcept)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE:
-				setNuclideHalfLife((Quantity)null);
-				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT:
-				setAmount((org.hl7.fhir.String)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE:
+				setHalfLife((Quantity)null);
 				return;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__MOLECULAR_WEIGHT:
 				setMolecularWeight((SubstanceSpecificationMolecularWeight)null);
@@ -489,16 +425,14 @@ public class SubstanceSpecificationIsotopeImpl extends BackboneElementImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_ID:
-				return nuclideId != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_NAME:
-				return nuclideName != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION_TYPE:
-				return substitutionType != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NUCLIDE_HALF_LIFE:
-				return nuclideHalfLife != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__AMOUNT:
-				return amount != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__IDENTIFIER:
+				return identifier != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__NAME:
+				return name != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__SUBSTITUTION:
+				return substitution != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__HALF_LIFE:
+				return halfLife != null;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_ISOTOPE__MOLECULAR_WEIGHT:
 				return molecularWeight != null;
 		}

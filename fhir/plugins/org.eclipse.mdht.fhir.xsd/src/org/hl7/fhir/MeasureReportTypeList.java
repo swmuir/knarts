@@ -48,7 +48,17 @@ public enum MeasureReportTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUMMARY(2, "summary", "summary");
+	SUMMARY(2, "summary", "summary"),
+
+	/**
+	 * The '<em><b>Data Collection</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATA_COLLECTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATA_COLLECTION(3, "dataCollection", "data-collection");
 
 	/**
 	 * The '<em><b>Individual</b></em>' literal value.
@@ -93,6 +103,20 @@ public enum MeasureReportTypeList implements Enumerator {
 	public static final int SUMMARY_VALUE = 2;
 
 	/**
+	 * The '<em><b>Data Collection</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Data Collection
+	 * <!-- end-model-doc -->
+	 * @see #DATA_COLLECTION
+	 * @model name="dataCollection" literal="data-collection"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATA_COLLECTION_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Measure Report Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +127,7 @@ public enum MeasureReportTypeList implements Enumerator {
 			INDIVIDUAL,
 			SUBJECT_LIST,
 			SUMMARY,
+			DATA_COLLECTION,
 		};
 
 	/**
@@ -162,6 +187,7 @@ public enum MeasureReportTypeList implements Enumerator {
 			case INDIVIDUAL_VALUE: return INDIVIDUAL;
 			case SUBJECT_LIST_VALUE: return SUBJECT_LIST;
 			case SUMMARY_VALUE: return SUMMARY;
+			case DATA_COLLECTION_VALUE: return DATA_COLLECTION;
 		}
 		return null;
 	}

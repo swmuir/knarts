@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.MeasureReportComponent;
 import org.hl7.fhir.MeasureReportPopulation1;
 import org.hl7.fhir.MeasureReportStratum;
 import org.hl7.fhir.Quantity;
@@ -32,6 +33,7 @@ import org.hl7.fhir.Quantity;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportStratumImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportStratumImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportStratumImpl#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportStratumImpl#getMeasureScore <em>Measure Score</em>}</li>
  * </ul>
@@ -48,6 +50,16 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * @ordered
 	 */
 	protected CodeableConcept value;
+
+	/**
+	 * The cached value of the '{@link #getComponent() <em>Component</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponent()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MeasureReportComponent> component;
 
 	/**
 	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' containment reference list.
@@ -136,6 +148,18 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MeasureReportComponent> getComponent() {
+		if (component == null) {
+			component = new EObjectContainmentEList<MeasureReportComponent>(MeasureReportComponent.class, this, FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT);
+		}
+		return component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MeasureReportPopulation1> getPopulation() {
 		if (population == null) {
 			population = new EObjectContainmentEList<MeasureReportPopulation1>(MeasureReportPopulation1.class, this, FhirPackage.MEASURE_REPORT_STRATUM__POPULATION);
@@ -196,6 +220,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
 				return basicSetValue(null, msgs);
+			case FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT:
+				return ((InternalEList<?>)getComponent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				return ((InternalEList<?>)getPopulation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE:
@@ -214,6 +240,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
 				return getValue();
+			case FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT:
+				return getComponent();
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				return getPopulation();
 			case FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE:
@@ -233,6 +261,10 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
 				setValue((CodeableConcept)newValue);
+				return;
+			case FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT:
+				getComponent().clear();
+				getComponent().addAll((Collection<? extends MeasureReportComponent>)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				getPopulation().clear();
@@ -256,6 +288,9 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
 				setValue((CodeableConcept)null);
 				return;
+			case FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT:
+				getComponent().clear();
+				return;
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				getPopulation().clear();
 				return;
@@ -276,6 +311,8 @@ public class MeasureReportStratumImpl extends BackboneElementImpl implements Mea
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT_STRATUM__VALUE:
 				return value != null;
+			case FhirPackage.MEASURE_REPORT_STRATUM__COMPONENT:
+				return component != null && !component.isEmpty();
 			case FhirPackage.MEASURE_REPORT_STRATUM__POPULATION:
 				return population != null && !population.isEmpty();
 			case FhirPackage.MEASURE_REPORT_STRATUM__MEASURE_SCORE:

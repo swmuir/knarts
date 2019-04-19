@@ -16,7 +16,7 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.UnsignedInt;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri url;
+	protected Url url;
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
@@ -272,7 +272,7 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUrl() {
+	public Url getUrl() {
 		return url;
 	}
 
@@ -281,8 +281,8 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
-		Uri oldUrl = url;
+	public NotificationChain basicSetUrl(Url newUrl, NotificationChain msgs) {
+		Url oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ATTACHMENT__URL, oldUrl, newUrl);
@@ -296,7 +296,7 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUrl(Uri newUrl) {
+	public void setUrl(Url newUrl) {
 		if (newUrl != url) {
 			NotificationChain msgs = null;
 			if (url != null)
@@ -556,7 +556,7 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 				setData((Base64Binary)newValue);
 				return;
 			case FhirPackage.ATTACHMENT__URL:
-				setUrl((Uri)newValue);
+				setUrl((Url)newValue);
 				return;
 			case FhirPackage.ATTACHMENT__SIZE:
 				setSize((UnsignedInt)newValue);
@@ -592,7 +592,7 @@ public class AttachmentImpl extends ElementImpl implements Attachment {
 				setData((Base64Binary)null);
 				return;
 			case FhirPackage.ATTACHMENT__URL:
-				setUrl((Uri)null);
+				setUrl((Url)null);
 				return;
 			case FhirPackage.ATTACHMENT__SIZE:
 				setSize((UnsignedInt)null);

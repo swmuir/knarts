@@ -30,9 +30,9 @@ public interface AccountCoverage extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The party(s) that are responsible for payment (or part of) of charges applied to this account (including self-pay).
+	 * The party(s) that contribute to payment (or part of) of the charges applied to this account (including self-pay).
 	 * 
-	 * A coverage may only be resposible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing.
+	 * A coverage may only be responsible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Coverage</em>' containment reference.
 	 * @see #setCoverage(Reference)

@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.CapabilityStatementCertificate;
 import org.hl7.fhir.CapabilityStatementSecurity;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +33,6 @@ import org.hl7.fhir.FhirPackage;
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementSecurityImpl#getCors <em>Cors</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementSecurityImpl#getService <em>Service</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementSecurityImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CapabilityStatementSecurityImpl#getCertificate <em>Certificate</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,17 +66,7 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String description;
-
-	/**
-	 * The cached value of the '{@link #getCertificate() <em>Certificate</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCertificate()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CapabilityStatementCertificate> certificate;
+	protected Markdown description;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +147,7 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDescription() {
+	public Markdown getDescription() {
 		return description;
 	}
 
@@ -167,8 +156,8 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDescription(org.hl7.fhir.String newDescription, NotificationChain msgs) {
-		org.hl7.fhir.String oldDescription = description;
+	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
+		Markdown oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION, oldDescription, newDescription);
@@ -182,7 +171,7 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(org.hl7.fhir.String newDescription) {
+	public void setDescription(Markdown newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
 			if (description != null)
@@ -201,18 +190,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CapabilityStatementCertificate> getCertificate() {
-		if (certificate == null) {
-			certificate = new EObjectContainmentEList<CapabilityStatementCertificate>(CapabilityStatementCertificate.class, this, FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE);
-		}
-		return certificate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -222,8 +199,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 				return ((InternalEList<?>)getService()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION:
 				return basicSetDescription(null, msgs);
-			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE:
-				return ((InternalEList<?>)getCertificate()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -242,8 +217,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 				return getService();
 			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION:
 				return getDescription();
-			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE:
-				return getCertificate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,11 +238,7 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 				getService().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE:
-				getCertificate().clear();
-				getCertificate().addAll((Collection<? extends CapabilityStatementCertificate>)newValue);
+				setDescription((Markdown)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,10 +259,7 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 				getService().clear();
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION:
-				setDescription((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE:
-				getCertificate().clear();
+				setDescription((Markdown)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -313,8 +279,6 @@ public class CapabilityStatementSecurityImpl extends BackboneElementImpl impleme
 				return service != null && !service.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__DESCRIPTION:
 				return description != null;
-			case FhirPackage.CAPABILITY_STATEMENT_SECURITY__CERTIFICATE:
-				return certificate != null && !certificate.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

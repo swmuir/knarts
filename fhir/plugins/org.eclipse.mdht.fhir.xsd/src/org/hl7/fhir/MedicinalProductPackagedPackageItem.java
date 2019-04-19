@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getMaterial <em>Material</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getAlternateMaterial <em>Alternate Material</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getManufacturer <em>Manufacturer</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getDevice <em>Device</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getManufacturedItem <em>Manufactured Item</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getOtherCharacteristics <em>Other Characteristics</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getPackageItem <em>Package Item</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getPhysicalCharacteristics <em>Physical Characteristics</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getOtherCharacteristics <em>Other Characteristics</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getShelfLifeStorage <em>Shelf Life Storage</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductPackagedPackageItem#getManufacturer <em>Manufacturer</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackagedPackageItem()
@@ -137,22 +137,6 @@ public interface MedicinalProductPackagedPackageItem extends BackboneElement {
 	EList<CodeableConcept> getAlternateMaterial();
 
 	/**
-	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Manufacturer of this Package Item.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Manufacturer</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackagedPackageItem_Manufacturer()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='manufacturer' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getManufacturer();
-
-	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
@@ -170,7 +154,7 @@ public interface MedicinalProductPackagedPackageItem extends BackboneElement {
 
 	/**
 	 * Returns the value of the '<em><b>Manufactured Item</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MedicinalProductPackagedManufacturedItem}.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -182,23 +166,7 @@ public interface MedicinalProductPackagedPackageItem extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='manufacturedItem' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<MedicinalProductPackagedManufacturedItem> getManufacturedItem();
-
-	/**
-	 * Returns the value of the '<em><b>Other Characteristics</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Other codeable characteristics.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Other Characteristics</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackagedPackageItem_OtherCharacteristics()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='otherCharacteristics' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getOtherCharacteristics();
+	EList<Reference> getManufacturedItem();
 
 	/**
 	 * Returns the value of the '<em><b>Package Item</b></em>' containment reference list.
@@ -243,6 +211,22 @@ public interface MedicinalProductPackagedPackageItem extends BackboneElement {
 	void setPhysicalCharacteristics(ProdCharacteristic value);
 
 	/**
+	 * Returns the value of the '<em><b>Other Characteristics</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Other codeable characteristics.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Other Characteristics</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackagedPackageItem_OtherCharacteristics()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='otherCharacteristics' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<CodeableConcept> getOtherCharacteristics();
+
+	/**
 	 * Returns the value of the '<em><b>Shelf Life Storage</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.ProductShelfLife}.
 	 * <!-- begin-user-doc -->
@@ -257,5 +241,21 @@ public interface MedicinalProductPackagedPackageItem extends BackboneElement {
 	 * @generated
 	 */
 	EList<ProductShelfLife> getShelfLifeStorage();
+
+	/**
+	 * Returns the value of the '<em><b>Manufacturer</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Manufacturer of this Package Item.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Manufacturer</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductPackagedPackageItem_Manufacturer()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='manufacturer' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getManufacturer();
 
 } // MedicinalProductPackagedPackageItem

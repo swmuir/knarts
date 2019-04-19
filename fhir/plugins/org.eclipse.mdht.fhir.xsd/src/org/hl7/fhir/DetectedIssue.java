@@ -20,12 +20,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getStatus <em>Status</em>}</li>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getPatient <em>Patient</em>}</li>
- *   <li>{@link org.hl7.fhir.DetectedIssue#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getIdentifiedDateTime <em>Identified Date Time</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getIdentifiedPeriod <em>Identified Period</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getImplicated <em>Implicated</em>}</li>
+ *   <li>{@link org.hl7.fhir.DetectedIssue#getEvidence <em>Evidence</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getDetail <em>Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getReference <em>Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.DetectedIssue#getMitigation <em>Mitigation</em>}</li>
@@ -37,30 +39,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DetectedIssue extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Business identifier associated with the detected issue record.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getIdentifier <em>Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(Identifier value);
+	EList<Identifier> getIdentifier();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -89,30 +81,30 @@ public interface DetectedIssue extends DomainResource {
 	void setStatus(ObservationStatus value);
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifies the general type of issue identified.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference.
-	 * @see #setCategory(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Category()
+	 * @return the value of the '<em>Code</em>' containment reference.
+	 * @see #setCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Code()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='category' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getCategory();
+	CodeableConcept getCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getCategory <em>Category</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getCode <em>Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' containment reference.
-	 * @see #getCategory()
+	 * @param value the new value of the '<em>Code</em>' containment reference.
+	 * @see #getCode()
 	 * @generated
 	 */
-	void setCategory(CodeableConcept value);
+	void setCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Severity</b></em>' containment reference.
@@ -167,30 +159,58 @@ public interface DetectedIssue extends DomainResource {
 	void setPatient(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identified Date Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Identified Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The date or date-time when the detected issue was initially identified.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Date()
+	 * @return the value of the '<em>Identified Date Time</em>' containment reference.
+	 * @see #setIdentifiedDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_IdentifiedDateTime()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifiedDateTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getDate();
+	DateTime getIdentifiedDateTime();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getDate <em>Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getIdentifiedDateTime <em>Identified Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
+	 * @param value the new value of the '<em>Identified Date Time</em>' containment reference.
+	 * @see #getIdentifiedDateTime()
 	 * @generated
 	 */
-	void setDate(DateTime value);
+	void setIdentifiedDateTime(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Identified Period</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Identified Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Identified Period</em>' containment reference.
+	 * @see #setIdentifiedPeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_IdentifiedPeriod()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='identifiedPeriod' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Period getIdentifiedPeriod();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.DetectedIssue#getIdentifiedPeriod <em>Identified Period</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identified Period</em>' containment reference.
+	 * @see #getIdentifiedPeriod()
+	 * @generated
+	 */
+	void setIdentifiedPeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Author</b></em>' containment reference.
@@ -233,6 +253,22 @@ public interface DetectedIssue extends DomainResource {
 	 * @generated
 	 */
 	EList<Reference> getImplicated();
+
+	/**
+	 * Returns the value of the '<em><b>Evidence</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.DetectedIssueEvidence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Supporting evidence or manifestations that provide the basis for identifying the detected issue such as a GuidanceResponse or MeasureReport.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Evidence</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Evidence()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='evidence' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<DetectedIssueEvidence> getEvidence();
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference.
@@ -292,7 +328,7 @@ public interface DetectedIssue extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
+	 * Indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Mitigation</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getDetectedIssue_Mitigation()

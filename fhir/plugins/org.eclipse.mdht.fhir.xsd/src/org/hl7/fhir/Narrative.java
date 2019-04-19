@@ -10,7 +10,7 @@ import org.w3._1999.xhtml.DivType;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A human-readable formatted text, including images.
+ * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
  * If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions
  * <!-- end-model-doc -->
  *

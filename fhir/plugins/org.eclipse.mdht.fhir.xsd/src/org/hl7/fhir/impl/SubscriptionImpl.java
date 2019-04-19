@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
@@ -40,7 +39,6 @@ import org.hl7.fhir.SubscriptionStatus;
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getError <em>Error</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getChannel <em>Channel</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubscriptionImpl#getTag <em>Tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,16 +113,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * @ordered
 	 */
 	protected SubscriptionChannel channel;
-
-	/**
-	 * The cached value of the '{@link #getTag() <em>Tag</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTag()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Coding> tag;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -420,18 +408,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Coding> getTag() {
-		if (tag == null) {
-			tag = new EObjectContainmentEList<Coding>(Coding.class, this, FhirPackage.SUBSCRIPTION__TAG);
-		}
-		return tag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -449,8 +425,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 				return basicSetError(null, msgs);
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return basicSetChannel(null, msgs);
-			case FhirPackage.SUBSCRIPTION__TAG:
-				return ((InternalEList<?>)getTag()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -477,8 +451,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 				return getError();
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return getChannel();
-			case FhirPackage.SUBSCRIPTION__TAG:
-				return getTag();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -514,10 +486,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				setChannel((SubscriptionChannel)newValue);
 				return;
-			case FhirPackage.SUBSCRIPTION__TAG:
-				getTag().clear();
-				getTag().addAll((Collection<? extends Coding>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -551,9 +519,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				setChannel((SubscriptionChannel)null);
 				return;
-			case FhirPackage.SUBSCRIPTION__TAG:
-				getTag().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -580,8 +545,6 @@ public class SubscriptionImpl extends DomainResourceImpl implements Subscription
 				return error != null;
 			case FhirPackage.SUBSCRIPTION__CHANNEL:
 				return channel != null;
-			case FhirPackage.SUBSCRIPTION__TAG:
-				return tag != null && !tag.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

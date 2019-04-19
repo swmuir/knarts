@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
-import org.hl7.fhir.MedicinalProductAuthorizationApplication;
 import org.hl7.fhir.MedicinalProductAuthorizationProcedure;
 import org.hl7.fhir.Period;
 
@@ -32,9 +32,10 @@ import org.hl7.fhir.Period;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getNumber <em>Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getDatePeriod <em>Date Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getDateDateTime <em>Date Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductAuthorizationProcedureImpl#getApplication <em>Application</em>}</li>
  * </ul>
  *
@@ -42,14 +43,14 @@ import org.hl7.fhir.Period;
  */
 public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementImpl implements MedicinalProductAuthorizationProcedure {
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier number;
+	protected Identifier identifier;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -62,14 +63,24 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	protected CodeableConcept type;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
+	 * The cached value of the '{@link #getDatePeriod() <em>Date Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDate()
+	 * @see #getDatePeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected Period date;
+	protected Period datePeriod;
+
+	/**
+	 * The cached value of the '{@link #getDateDateTime() <em>Date Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateDateTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected DateTime dateDateTime;
 
 	/**
 	 * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference list.
@@ -79,7 +90,7 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MedicinalProductAuthorizationApplication> application;
+	protected EList<MedicinalProductAuthorizationProcedure> application;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,8 +116,8 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getNumber() {
-		return number;
+	public Identifier getIdentifier() {
+		return identifier;
 	}
 
 	/**
@@ -114,11 +125,11 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNumber(Identifier newNumber, NotificationChain msgs) {
-		Identifier oldNumber = number;
-		number = newNumber;
+	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
+		Identifier oldIdentifier = identifier;
+		identifier = newIdentifier;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER, oldNumber, newNumber);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER, oldIdentifier, newIdentifier);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -129,18 +140,18 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumber(Identifier newNumber) {
-		if (newNumber != number) {
+	public void setIdentifier(Identifier newIdentifier) {
+		if (newIdentifier != identifier) {
 			NotificationChain msgs = null;
-			if (number != null)
-				msgs = ((InternalEObject)number).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER, null, msgs);
-			if (newNumber != null)
-				msgs = ((InternalEObject)newNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER, null, msgs);
-			msgs = basicSetNumber(newNumber, msgs);
+			if (identifier != null)
+				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER, null, msgs);
+			if (newIdentifier != null)
+				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER, null, msgs);
+			msgs = basicSetIdentifier(newIdentifier, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER, newNumber, newNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -191,8 +202,8 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Period getDate() {
-		return date;
+	public Period getDatePeriod() {
+		return datePeriod;
 	}
 
 	/**
@@ -200,11 +211,11 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDate(Period newDate, NotificationChain msgs) {
-		Period oldDate = date;
-		date = newDate;
+	public NotificationChain basicSetDatePeriod(Period newDatePeriod, NotificationChain msgs) {
+		Period oldDatePeriod = datePeriod;
+		datePeriod = newDatePeriod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE, oldDate, newDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD, oldDatePeriod, newDatePeriod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -215,18 +226,18 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDate(Period newDate) {
-		if (newDate != date) {
+	public void setDatePeriod(Period newDatePeriod) {
+		if (newDatePeriod != datePeriod) {
 			NotificationChain msgs = null;
-			if (date != null)
-				msgs = ((InternalEObject)date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE, null, msgs);
-			if (newDate != null)
-				msgs = ((InternalEObject)newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE, null, msgs);
-			msgs = basicSetDate(newDate, msgs);
+			if (datePeriod != null)
+				msgs = ((InternalEObject)datePeriod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD, null, msgs);
+			if (newDatePeriod != null)
+				msgs = ((InternalEObject)newDatePeriod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD, null, msgs);
+			msgs = basicSetDatePeriod(newDatePeriod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE, newDate, newDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD, newDatePeriod, newDatePeriod));
 	}
 
 	/**
@@ -234,9 +245,52 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MedicinalProductAuthorizationApplication> getApplication() {
+	public DateTime getDateDateTime() {
+		return dateDateTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDateDateTime(DateTime newDateDateTime, NotificationChain msgs) {
+		DateTime oldDateDateTime = dateDateTime;
+		dateDateTime = newDateDateTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME, oldDateDateTime, newDateDateTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDateDateTime(DateTime newDateDateTime) {
+		if (newDateDateTime != dateDateTime) {
+			NotificationChain msgs = null;
+			if (dateDateTime != null)
+				msgs = ((InternalEObject)dateDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME, null, msgs);
+			if (newDateDateTime != null)
+				msgs = ((InternalEObject)newDateDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME, null, msgs);
+			msgs = basicSetDateDateTime(newDateDateTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME, newDateDateTime, newDateDateTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<MedicinalProductAuthorizationProcedure> getApplication() {
 		if (application == null) {
-			application = new EObjectContainmentEList<MedicinalProductAuthorizationApplication>(MedicinalProductAuthorizationApplication.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION);
+			application = new EObjectContainmentEList<MedicinalProductAuthorizationProcedure>(MedicinalProductAuthorizationProcedure.class, this, FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION);
 		}
 		return application;
 	}
@@ -249,12 +303,14 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER:
-				return basicSetNumber(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER:
+				return basicSetIdentifier(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__TYPE:
 				return basicSetType(null, msgs);
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE:
-				return basicSetDate(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD:
+				return basicSetDatePeriod(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME:
+				return basicSetDateDateTime(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION:
 				return ((InternalEList<?>)getApplication()).basicRemove(otherEnd, msgs);
 		}
@@ -269,12 +325,14 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER:
-				return getNumber();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER:
+				return getIdentifier();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__TYPE:
 				return getType();
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE:
-				return getDate();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD:
+				return getDatePeriod();
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME:
+				return getDateDateTime();
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION:
 				return getApplication();
 		}
@@ -290,18 +348,21 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER:
-				setNumber((Identifier)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER:
+				setIdentifier((Identifier)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE:
-				setDate((Period)newValue);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD:
+				setDatePeriod((Period)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME:
+				setDateDateTime((DateTime)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION:
 				getApplication().clear();
-				getApplication().addAll((Collection<? extends MedicinalProductAuthorizationApplication>)newValue);
+				getApplication().addAll((Collection<? extends MedicinalProductAuthorizationProcedure>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,14 +376,17 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER:
-				setNumber((Identifier)null);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER:
+				setIdentifier((Identifier)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__TYPE:
 				setType((CodeableConcept)null);
 				return;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE:
-				setDate((Period)null);
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD:
+				setDatePeriod((Period)null);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME:
+				setDateDateTime((DateTime)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION:
 				getApplication().clear();
@@ -339,12 +403,14 @@ public class MedicinalProductAuthorizationProcedureImpl extends BackboneElementI
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__NUMBER:
-				return number != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__IDENTIFIER:
+				return identifier != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__TYPE:
 				return type != null;
-			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE:
-				return date != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_PERIOD:
+				return datePeriod != null;
+			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__DATE_DATE_TIME:
+				return dateDateTime != null;
 			case FhirPackage.MEDICINAL_PRODUCT_AUTHORIZATION_PROCEDURE__APPLICATION:
 				return application != null && !application.isEmpty();
 		}

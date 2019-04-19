@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Task#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getInstantiatesUri <em>Instantiates Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.Task#getInstantiatesReference <em>Instantiates Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getGroupIdentifier <em>Group Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getPartOf <em>Part Of</em>}</li>
@@ -33,15 +33,17 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Task#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getFocus <em>Focus</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getFor <em>For</em>}</li>
- *   <li>{@link org.hl7.fhir.Task#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getExecutionPeriod <em>Execution Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getAuthoredOn <em>Authored On</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getLastModified <em>Last Modified</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getOwner <em>Owner</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getReasonReference <em>Reason Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Task#getInsurance <em>Insurance</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getNote <em>Note</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getRelevantHistory <em>Relevant History</em>}</li>
  *   <li>{@link org.hl7.fhir.Task#getRestriction <em>Restriction</em>}</li>
@@ -71,13 +73,38 @@ public interface Task extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference.
+	 * @see #setInstantiatesCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getTask_InstantiatesCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getInstantiatesCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getInstantiatesCanonical <em>Instantiates Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Instantiates Canonical</em>' containment reference.
+	 * @see #getInstantiatesCanonical()
+	 * @generated
+	 */
+	void setInstantiatesCanonical(Canonical value);
+
+	/**
 	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Instantiates Uri</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instantiates Uri</em>' containment reference.
 	 * @see #setInstantiatesUri(Uri)
 	 * @see org.hl7.fhir.FhirPackage#getTask_InstantiatesUri()
@@ -98,39 +125,12 @@ public interface Task extends DomainResource {
 	void setInstantiatesUri(Uri value);
 
 	/**
-	 * Returns the value of the '<em><b>Instantiates Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Instantiates Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Instantiates Reference</em>' containment reference.
-	 * @see #setInstantiatesReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTask_InstantiatesReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='instantiatesReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getInstantiatesReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Task#getInstantiatesReference <em>Instantiates Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Instantiates Reference</em>' containment reference.
-	 * @see #getInstantiatesReference()
-	 * @generated
-	 */
-	void setInstantiatesReference(Reference value);
-
-	/**
 	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
+	 * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Based On</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTask_BasedOn()
@@ -265,16 +265,16 @@ public interface Task extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the "level" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
+	 * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Intent</em>' containment reference.
-	 * @see #setIntent(RequestIntent)
+	 * @see #setIntent(TaskIntent)
 	 * @see org.hl7.fhir.FhirPackage#getTask_Intent()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='intent' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	RequestIntent getIntent();
+	TaskIntent getIntent();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Task#getIntent <em>Intent</em>}' containment reference.
@@ -284,7 +284,7 @@ public interface Task extends DomainResource {
 	 * @see #getIntent()
 	 * @generated
 	 */
-	void setIntent(RequestIntent value);
+	void setIntent(TaskIntent value);
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
@@ -417,30 +417,30 @@ public interface Task extends DomainResource {
 	void setFor(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTask_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTask_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Task#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Execution Period</b></em>' containment reference.
@@ -552,7 +552,7 @@ public interface Task extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The type of participant that can execute the task.
+	 * The kind of participant that should perform the task.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Performer Type</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTask_PerformerType()
@@ -587,6 +587,32 @@ public interface Task extends DomainResource {
 	 * @generated
 	 */
 	void setOwner(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Principal physical location where the this task is performed.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Location</em>' containment reference.
+	 * @see #setLocation(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getTask_Location()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='location' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getLocation();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Task#getLocation <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' containment reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference.
@@ -641,6 +667,22 @@ public interface Task extends DomainResource {
 	void setReasonReference(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Insurance</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Insurance</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTask_Insurance()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='insurance' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getInsurance();
+
+	/**
 	 * Returns the value of the '<em><b>Note</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Annotation}.
 	 * <!-- begin-user-doc -->
@@ -677,7 +719,7 @@ public interface Task extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If the Task.focus is a request resource and the task is seeking fulfillment (i.e is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
+	 * If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Restriction</em>' containment reference.
 	 * @see #setRestriction(TaskRestriction)

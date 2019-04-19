@@ -92,7 +92,7 @@ public interface Address extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A full text representation of the address.
+	 * Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Text</em>' containment reference.
 	 * @see #setText(org.hl7.fhir.String)
@@ -134,7 +134,7 @@ public interface Address extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the city, town, village or other community or delivery center.
+	 * The name of the city, town, suburb, village or other community or delivery center.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>City</em>' containment reference.
 	 * @see #setCity(org.hl7.fhir.String)
@@ -186,7 +186,7 @@ public interface Address extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
+	 * Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>State</em>' containment reference.
 	 * @see #setState(org.hl7.fhir.String)

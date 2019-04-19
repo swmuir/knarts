@@ -140,13 +140,13 @@ public interface MessageHeaderSource extends BackboneElement {
 	 * Identifies the routing target to send acknowledgements to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Endpoint</em>' containment reference.
-	 * @see #setEndpoint(Uri)
+	 * @see #setEndpoint(Url)
 	 * @see org.hl7.fhir.FhirPackage#getMessageHeaderSource_Endpoint()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='endpoint' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getEndpoint();
+	Url getEndpoint();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MessageHeaderSource#getEndpoint <em>Endpoint</em>}' containment reference.
@@ -156,6 +156,6 @@ public interface MessageHeaderSource extends BackboneElement {
 	 * @see #getEndpoint()
 	 * @generated
 	 */
-	void setEndpoint(Uri value);
+	void setEndpoint(Url value);
 
 } // MessageHeaderSource

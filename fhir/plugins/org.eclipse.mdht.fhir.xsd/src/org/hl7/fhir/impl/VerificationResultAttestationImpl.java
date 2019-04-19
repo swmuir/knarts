@@ -14,6 +14,7 @@ import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.Signature;
 import org.hl7.fhir.VerificationResultAttestation;
 
 /**
@@ -24,46 +25,48 @@ import org.hl7.fhir.VerificationResultAttestation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getSource <em>Source</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getWho <em>Who</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getCommunicationMethod <em>Communication Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getSourceIdentityCertificate <em>Source Identity Certificate</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getProxyIdentityCertificate <em>Proxy Identity Certificate</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getProxySignature <em>Proxy Signature</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.VerificationResultAttestationImpl#getSourceSignature <em>Source Signature</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class VerificationResultAttestationImpl extends BackboneElementImpl implements VerificationResultAttestation {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * The cached value of the '{@link #getWho() <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
+	 * @see #getWho()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference source;
+	protected Reference who;
 
 	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getOnBehalfOf() <em>On Behalf Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
+	 * @see #getOnBehalfOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference organization;
+	protected Reference onBehalfOf;
 
 	/**
-	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
+	 * The cached value of the '{@link #getCommunicationMethod() <em>Communication Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMethod()
+	 * @see #getCommunicationMethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept method;
+	protected CodeableConcept communicationMethod;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -96,6 +99,26 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	protected org.hl7.fhir.String proxyIdentityCertificate;
 
 	/**
+	 * The cached value of the '{@link #getProxySignature() <em>Proxy Signature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProxySignature()
+	 * @generated
+	 * @ordered
+	 */
+	protected Signature proxySignature;
+
+	/**
+	 * The cached value of the '{@link #getSourceSignature() <em>Source Signature</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceSignature()
+	 * @generated
+	 * @ordered
+	 */
+	protected Signature sourceSignature;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -119,8 +142,8 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getSource() {
-		return source;
+	public Reference getWho() {
+		return who;
 	}
 
 	/**
@@ -128,11 +151,11 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSource(Reference newSource, NotificationChain msgs) {
-		Reference oldSource = source;
-		source = newSource;
+	public NotificationChain basicSetWho(Reference newWho, NotificationChain msgs) {
+		Reference oldWho = who;
+		who = newWho;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO, oldWho, newWho);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -143,18 +166,18 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(Reference newSource) {
-		if (newSource != source) {
+	public void setWho(Reference newWho) {
+		if (newWho != who) {
 			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE, null, msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE, null, msgs);
-			msgs = basicSetSource(newSource, msgs);
+			if (who != null)
+				msgs = ((InternalEObject)who).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO, null, msgs);
+			if (newWho != null)
+				msgs = ((InternalEObject)newWho).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO, null, msgs);
+			msgs = basicSetWho(newWho, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO, newWho, newWho));
 	}
 
 	/**
@@ -162,8 +185,8 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
+	public Reference getOnBehalfOf() {
+		return onBehalfOf;
 	}
 
 	/**
@@ -171,11 +194,11 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
+	public NotificationChain basicSetOnBehalfOf(Reference newOnBehalfOf, NotificationChain msgs) {
+		Reference oldOnBehalfOf = onBehalfOf;
+		onBehalfOf = newOnBehalfOf;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION, oldOrganization, newOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF, oldOnBehalfOf, newOnBehalfOf);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -186,18 +209,18 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
+	public void setOnBehalfOf(Reference newOnBehalfOf) {
+		if (newOnBehalfOf != onBehalfOf) {
 			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
+			if (onBehalfOf != null)
+				msgs = ((InternalEObject)onBehalfOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF, null, msgs);
+			if (newOnBehalfOf != null)
+				msgs = ((InternalEObject)newOnBehalfOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF, null, msgs);
+			msgs = basicSetOnBehalfOf(newOnBehalfOf, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION, newOrganization, newOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF, newOnBehalfOf, newOnBehalfOf));
 	}
 
 	/**
@@ -205,8 +228,8 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getMethod() {
-		return method;
+	public CodeableConcept getCommunicationMethod() {
+		return communicationMethod;
 	}
 
 	/**
@@ -214,11 +237,11 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMethod(CodeableConcept newMethod, NotificationChain msgs) {
-		CodeableConcept oldMethod = method;
-		method = newMethod;
+	public NotificationChain basicSetCommunicationMethod(CodeableConcept newCommunicationMethod, NotificationChain msgs) {
+		CodeableConcept oldCommunicationMethod = communicationMethod;
+		communicationMethod = newCommunicationMethod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD, oldMethod, newMethod);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD, oldCommunicationMethod, newCommunicationMethod);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -229,18 +252,18 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMethod(CodeableConcept newMethod) {
-		if (newMethod != method) {
+	public void setCommunicationMethod(CodeableConcept newCommunicationMethod) {
+		if (newCommunicationMethod != communicationMethod) {
 			NotificationChain msgs = null;
-			if (method != null)
-				msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD, null, msgs);
-			if (newMethod != null)
-				msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD, null, msgs);
-			msgs = basicSetMethod(newMethod, msgs);
+			if (communicationMethod != null)
+				msgs = ((InternalEObject)communicationMethod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD, null, msgs);
+			if (newCommunicationMethod != null)
+				msgs = ((InternalEObject)newCommunicationMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD, null, msgs);
+			msgs = basicSetCommunicationMethod(newCommunicationMethod, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD, newMethod, newMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD, newCommunicationMethod, newCommunicationMethod));
 	}
 
 	/**
@@ -377,21 +400,111 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Signature getProxySignature() {
+		return proxySignature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProxySignature(Signature newProxySignature, NotificationChain msgs) {
+		Signature oldProxySignature = proxySignature;
+		proxySignature = newProxySignature;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE, oldProxySignature, newProxySignature);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProxySignature(Signature newProxySignature) {
+		if (newProxySignature != proxySignature) {
+			NotificationChain msgs = null;
+			if (proxySignature != null)
+				msgs = ((InternalEObject)proxySignature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE, null, msgs);
+			if (newProxySignature != null)
+				msgs = ((InternalEObject)newProxySignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE, null, msgs);
+			msgs = basicSetProxySignature(newProxySignature, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE, newProxySignature, newProxySignature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Signature getSourceSignature() {
+		return sourceSignature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceSignature(Signature newSourceSignature, NotificationChain msgs) {
+		Signature oldSourceSignature = sourceSignature;
+		sourceSignature = newSourceSignature;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE, oldSourceSignature, newSourceSignature);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceSignature(Signature newSourceSignature) {
+		if (newSourceSignature != sourceSignature) {
+			NotificationChain msgs = null;
+			if (sourceSignature != null)
+				msgs = ((InternalEObject)sourceSignature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE, null, msgs);
+			if (newSourceSignature != null)
+				msgs = ((InternalEObject)newSourceSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE, null, msgs);
+			msgs = basicSetSourceSignature(newSourceSignature, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE, newSourceSignature, newSourceSignature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE:
-				return basicSetSource(null, msgs);
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD:
-				return basicSetMethod(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO:
+				return basicSetWho(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF:
+				return basicSetOnBehalfOf(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD:
+				return basicSetCommunicationMethod(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__DATE:
 				return basicSetDate(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_IDENTITY_CERTIFICATE:
 				return basicSetSourceIdentityCertificate(null, msgs);
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_IDENTITY_CERTIFICATE:
 				return basicSetProxyIdentityCertificate(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE:
+				return basicSetProxySignature(null, msgs);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE:
+				return basicSetSourceSignature(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -404,18 +517,22 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE:
-				return getSource();
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION:
-				return getOrganization();
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD:
-				return getMethod();
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO:
+				return getWho();
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF:
+				return getOnBehalfOf();
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD:
+				return getCommunicationMethod();
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__DATE:
 				return getDate();
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_IDENTITY_CERTIFICATE:
 				return getSourceIdentityCertificate();
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_IDENTITY_CERTIFICATE:
 				return getProxyIdentityCertificate();
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE:
+				return getProxySignature();
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE:
+				return getSourceSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -428,14 +545,14 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE:
-				setSource((Reference)newValue);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO:
+				setWho((Reference)newValue);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION:
-				setOrganization((Reference)newValue);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)newValue);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD:
-				setMethod((CodeableConcept)newValue);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD:
+				setCommunicationMethod((CodeableConcept)newValue);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__DATE:
 				setDate((Date)newValue);
@@ -445,6 +562,12 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 				return;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_IDENTITY_CERTIFICATE:
 				setProxyIdentityCertificate((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE:
+				setProxySignature((Signature)newValue);
+				return;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE:
+				setSourceSignature((Signature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -458,14 +581,14 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE:
-				setSource((Reference)null);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO:
+				setWho((Reference)null);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION:
-				setOrganization((Reference)null);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)null);
 				return;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD:
-				setMethod((CodeableConcept)null);
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD:
+				setCommunicationMethod((CodeableConcept)null);
 				return;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__DATE:
 				setDate((Date)null);
@@ -475,6 +598,12 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 				return;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_IDENTITY_CERTIFICATE:
 				setProxyIdentityCertificate((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE:
+				setProxySignature((Signature)null);
+				return;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE:
+				setSourceSignature((Signature)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -488,18 +617,22 @@ public class VerificationResultAttestationImpl extends BackboneElementImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE:
-				return source != null;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ORGANIZATION:
-				return organization != null;
-			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__METHOD:
-				return method != null;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__WHO:
+				return who != null;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__ON_BEHALF_OF:
+				return onBehalfOf != null;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__COMMUNICATION_METHOD:
+				return communicationMethod != null;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__DATE:
 				return date != null;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_IDENTITY_CERTIFICATE:
 				return sourceIdentityCertificate != null;
 			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_IDENTITY_CERTIFICATE:
 				return proxyIdentityCertificate != null;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__PROXY_SIGNATURE:
+				return proxySignature != null;
+			case FhirPackage.VERIFICATION_RESULT_ATTESTATION__SOURCE_SIGNATURE:
+				return sourceSignature != null;
 		}
 		return super.eIsSet(featureID);
 	}

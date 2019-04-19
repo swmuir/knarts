@@ -26,12 +26,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getCriticality <em>Criticality</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnsetDateTime <em>Onset Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnsetPeriod <em>Onset Period</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getOnsetString <em>Onset String</em>}</li>
- *   <li>{@link org.hl7.fhir.AllergyIntolerance#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecordedDate <em>Recorded Date</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.AllergyIntolerance#getLastOccurrence <em>Last Occurrence</em>}</li>
@@ -50,7 +51,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+	 * Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_Identifier()
@@ -68,13 +69,13 @@ public interface AllergyIntolerance extends DomainResource {
 	 * The clinical status of the allergy or intolerance.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Clinical Status</em>' containment reference.
-	 * @see #setClinicalStatus(AllergyIntoleranceClinicalStatus)
+	 * @see #setClinicalStatus(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_ClinicalStatus()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='clinicalStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AllergyIntoleranceClinicalStatus getClinicalStatus();
+	CodeableConcept getClinicalStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getClinicalStatus <em>Clinical Status</em>}' containment reference.
@@ -84,7 +85,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 * @see #getClinicalStatus()
 	 * @generated
 	 */
-	void setClinicalStatus(AllergyIntoleranceClinicalStatus value);
+	void setClinicalStatus(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Verification Status</b></em>' containment reference.
@@ -94,13 +95,13 @@ public interface AllergyIntolerance extends DomainResource {
 	 * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Verification Status</em>' containment reference.
-	 * @see #setVerificationStatus(AllergyIntoleranceVerificationStatus)
+	 * @see #setVerificationStatus(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_VerificationStatus()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='verificationStatus' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	AllergyIntoleranceVerificationStatus getVerificationStatus();
+	CodeableConcept getVerificationStatus();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getVerificationStatus <em>Verification Status</em>}' containment reference.
@@ -110,7 +111,7 @@ public interface AllergyIntolerance extends DomainResource {
 	 * @see #getVerificationStatus()
 	 * @generated
 	 */
-	void setVerificationStatus(AllergyIntoleranceVerificationStatus value);
+	void setVerificationStatus(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -231,6 +232,32 @@ public interface AllergyIntolerance extends DomainResource {
 	 * @generated
 	 */
 	void setPatient(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The encounter when the allergy or intolerance was asserted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEncounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Onset Date Time</b></em>' containment reference.
@@ -368,30 +395,30 @@ public interface AllergyIntolerance extends DomainResource {
 	void setOnsetString(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Asserted Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Recorded Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.
+	 * The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Asserted Date</em>' containment reference.
-	 * @see #setAssertedDate(DateTime)
-	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_AssertedDate()
+	 * @return the value of the '<em>Recorded Date</em>' containment reference.
+	 * @see #setRecordedDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getAllergyIntolerance_RecordedDate()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='assertedDate' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='recordedDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	DateTime getAssertedDate();
+	DateTime getRecordedDate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getAssertedDate <em>Asserted Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.AllergyIntolerance#getRecordedDate <em>Recorded Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Asserted Date</em>' containment reference.
-	 * @see #getAssertedDate()
+	 * @param value the new value of the '<em>Recorded Date</em>' containment reference.
+	 * @see #getRecordedDate()
 	 * @generated
 	 */
-	void setAssertedDate(DateTime value);
+	void setRecordedDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Recorder</b></em>' containment reference.

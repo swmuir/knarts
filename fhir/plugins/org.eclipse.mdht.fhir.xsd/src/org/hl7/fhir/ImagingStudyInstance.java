@@ -17,8 +17,8 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ImagingStudyInstance#getUid <em>Uid</em>}</li>
- *   <li>{@link org.hl7.fhir.ImagingStudyInstance#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudyInstance#getSopClass <em>Sop Class</em>}</li>
+ *   <li>{@link org.hl7.fhir.ImagingStudyInstance#getNumber <em>Number</em>}</li>
  *   <li>{@link org.hl7.fhir.ImagingStudyInstance#getTitle <em>Title</em>}</li>
  * </ul>
  *
@@ -32,16 +32,16 @@ public interface ImagingStudyInstance extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Formal identifier for this image or other content.
+	 * The DICOM SOP Instance UID for this image or other DICOM content.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Uid</em>' containment reference.
-	 * @see #setUid(Oid)
+	 * @see #setUid(Id)
 	 * @see org.hl7.fhir.FhirPackage#getImagingStudyInstance_Uid()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='uid' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Oid getUid();
+	Id getUid();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudyInstance#getUid <em>Uid</em>}' containment reference.
@@ -51,7 +51,33 @@ public interface ImagingStudyInstance extends BackboneElement {
 	 * @see #getUid()
 	 * @generated
 	 */
-	void setUid(Oid value);
+	void setUid(Id value);
+
+	/**
+	 * Returns the value of the '<em><b>Sop Class</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * DICOM instance  type.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sop Class</em>' containment reference.
+	 * @see #setSopClass(Coding)
+	 * @see org.hl7.fhir.FhirPackage#getImagingStudyInstance_SopClass()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='sopClass' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Coding getSopClass();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudyInstance#getSopClass <em>Sop Class</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sop Class</em>' containment reference.
+	 * @see #getSopClass()
+	 * @generated
+	 */
+	void setSopClass(Coding value);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
@@ -78,32 +104,6 @@ public interface ImagingStudyInstance extends BackboneElement {
 	 * @generated
 	 */
 	void setNumber(UnsignedInt value);
-
-	/**
-	 * Returns the value of the '<em><b>Sop Class</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * DICOM instance  type.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Sop Class</em>' containment reference.
-	 * @see #setSopClass(Oid)
-	 * @see org.hl7.fhir.FhirPackage#getImagingStudyInstance_SopClass()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='sopClass' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Oid getSopClass();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ImagingStudyInstance#getSopClass <em>Sop Class</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sop Class</em>' containment reference.
-	 * @see #getSopClass()
-	 * @generated
-	 */
-	void setSopClass(Oid value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' containment reference.

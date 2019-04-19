@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Code;
 import org.hl7.fhir.Coding;
-import org.hl7.fhir.FHIRDefinedType;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.TestScriptOperation;
 import org.hl7.fhir.TestScriptRequestHeader;
+import org.hl7.fhir.TestScriptRequestMethodCode;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +41,7 @@ import org.hl7.fhir.TestScriptRequestHeader;
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getEncodeRequestUrl <em>Encode Request Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getParams <em>Params</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.TestScriptOperationImpl#getRequestHeader <em>Request Header</em>}</li>
@@ -72,7 +73,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * @generated
 	 * @ordered
 	 */
-	protected FHIRDefinedType resource;
+	protected Code resource;
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
@@ -133,6 +134,16 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean encodeRequestUrl;
+
+	/**
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected TestScriptRequestMethodCode method;
 
 	/**
 	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
@@ -281,7 +292,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FHIRDefinedType getResource() {
+	public Code getResource() {
 		return resource;
 	}
 
@@ -290,8 +301,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetResource(FHIRDefinedType newResource, NotificationChain msgs) {
-		FHIRDefinedType oldResource = resource;
+	public NotificationChain basicSetResource(Code newResource, NotificationChain msgs) {
+		Code oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE, oldResource, newResource);
@@ -305,7 +316,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResource(FHIRDefinedType newResource) {
+	public void setResource(Code newResource) {
 		if (newResource != resource) {
 			NotificationChain msgs = null;
 			if (resource != null)
@@ -575,6 +586,49 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL, newEncodeRequestUrl, newEncodeRequestUrl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestScriptRequestMethodCode getMethod() {
+		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMethod(TestScriptRequestMethodCode newMethod, NotificationChain msgs) {
+		TestScriptRequestMethodCode oldMethod = method;
+		method = newMethod;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__METHOD, oldMethod, newMethod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMethod(TestScriptRequestMethodCode newMethod) {
+		if (newMethod != method) {
+			NotificationChain msgs = null;
+			if (method != null)
+				msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_OPERATION__METHOD, null, msgs);
+			if (newMethod != null)
+				msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TEST_SCRIPT_OPERATION__METHOD, null, msgs);
+			msgs = basicSetMethod(newMethod, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TEST_SCRIPT_OPERATION__METHOD, newMethod, newMethod));
 	}
 
 	/**
@@ -914,6 +968,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return basicSetDestination(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL:
 				return basicSetEncodeRequestUrl(null, msgs);
+			case FhirPackage.TEST_SCRIPT_OPERATION__METHOD:
+				return basicSetMethod(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__ORIGIN:
 				return basicSetOrigin(null, msgs);
 			case FhirPackage.TEST_SCRIPT_OPERATION__PARAMS:
@@ -958,6 +1014,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return getDestination();
 			case FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL:
 				return getEncodeRequestUrl();
+			case FhirPackage.TEST_SCRIPT_OPERATION__METHOD:
+				return getMethod();
 			case FhirPackage.TEST_SCRIPT_OPERATION__ORIGIN:
 				return getOrigin();
 			case FhirPackage.TEST_SCRIPT_OPERATION__PARAMS:
@@ -991,7 +1049,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				setType((Coding)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE:
-				setResource((FHIRDefinedType)newValue);
+				setResource((Code)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__LABEL:
 				setLabel((org.hl7.fhir.String)newValue);
@@ -1010,6 +1068,9 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL:
 				setEncodeRequestUrl((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.TEST_SCRIPT_OPERATION__METHOD:
+				setMethod((TestScriptRequestMethodCode)newValue);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ORIGIN:
 				setOrigin((org.hl7.fhir.Integer)newValue);
@@ -1052,7 +1113,7 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				setType((Coding)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__RESOURCE:
-				setResource((FHIRDefinedType)null);
+				setResource((Code)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__LABEL:
 				setLabel((org.hl7.fhir.String)null);
@@ -1071,6 +1132,9 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL:
 				setEncodeRequestUrl((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.TEST_SCRIPT_OPERATION__METHOD:
+				setMethod((TestScriptRequestMethodCode)null);
 				return;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ORIGIN:
 				setOrigin((org.hl7.fhir.Integer)null);
@@ -1124,6 +1188,8 @@ public class TestScriptOperationImpl extends BackboneElementImpl implements Test
 				return destination != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ENCODE_REQUEST_URL:
 				return encodeRequestUrl != null;
+			case FhirPackage.TEST_SCRIPT_OPERATION__METHOD:
+				return method != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__ORIGIN:
 				return origin != null;
 			case FhirPackage.TEST_SCRIPT_OPERATION__PARAMS:

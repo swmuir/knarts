@@ -29,6 +29,7 @@ import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedPerson;
+import org.hl7.fhir.RelatedPersonCommunication;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +50,7 @@ import org.hl7.fhir.RelatedPerson;
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getPhoto <em>Photo</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.RelatedPersonImpl#getCommunication <em>Communication</em>}</li>
  * </ul>
  *
  * @generated
@@ -163,6 +165,16 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * @ordered
 	 */
 	protected Period period;
+
+	/**
+	 * The cached value of the '{@link #getCommunication() <em>Communication</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommunication()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RelatedPersonCommunication> communication;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -475,6 +487,18 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RelatedPersonCommunication> getCommunication() {
+		if (communication == null) {
+			communication = new EObjectContainmentEList<RelatedPersonCommunication>(RelatedPersonCommunication.class, this, FhirPackage.RELATED_PERSON__COMMUNICATION);
+		}
+		return communication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -500,6 +524,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				return ((InternalEList<?>)getPhoto()).basicRemove(otherEnd, msgs);
 			case FhirPackage.RELATED_PERSON__PERIOD:
 				return basicSetPeriod(null, msgs);
+			case FhirPackage.RELATED_PERSON__COMMUNICATION:
+				return ((InternalEList<?>)getCommunication()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -534,6 +560,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				return getPhoto();
 			case FhirPackage.RELATED_PERSON__PERIOD:
 				return getPeriod();
+			case FhirPackage.RELATED_PERSON__COMMUNICATION:
+				return getCommunication();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -586,6 +614,10 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 			case FhirPackage.RELATED_PERSON__PERIOD:
 				setPeriod((Period)newValue);
 				return;
+			case FhirPackage.RELATED_PERSON__COMMUNICATION:
+				getCommunication().clear();
+				getCommunication().addAll((Collection<? extends RelatedPersonCommunication>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -631,6 +663,9 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 			case FhirPackage.RELATED_PERSON__PERIOD:
 				setPeriod((Period)null);
 				return;
+			case FhirPackage.RELATED_PERSON__COMMUNICATION:
+				getCommunication().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -665,6 +700,8 @@ public class RelatedPersonImpl extends DomainResourceImpl implements RelatedPers
 				return photo != null && !photo.isEmpty();
 			case FhirPackage.RELATED_PERSON__PERIOD:
 				return period != null;
+			case FhirPackage.RELATED_PERSON__COMMUNICATION:
+				return communication != null && !communication.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

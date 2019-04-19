@@ -48,7 +48,27 @@ public enum AccountStatusList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTERED_IN_ERROR(2, "enteredInError", "entered-in-error");
+	ENTERED_IN_ERROR(2, "enteredInError", "entered-in-error"),
+
+	/**
+	 * The '<em><b>On Hold</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ON_HOLD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ON_HOLD(3, "onHold", "on-hold"),
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(4, "unknown", "unknown");
 
 	/**
 	 * The '<em><b>Active</b></em>' literal value.
@@ -93,6 +113,34 @@ public enum AccountStatusList implements Enumerator {
 	public static final int ENTERED_IN_ERROR_VALUE = 2;
 
 	/**
+	 * The '<em><b>On Hold</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * On Hold
+	 * <!-- end-model-doc -->
+	 * @see #ON_HOLD
+	 * @model name="onHold" literal="on-hold"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ON_HOLD_VALUE = 3;
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Unknown
+	 * <!-- end-model-doc -->
+	 * @see #UNKNOWN
+	 * @model name="unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Account Status List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +151,8 @@ public enum AccountStatusList implements Enumerator {
 			ACTIVE,
 			INACTIVE,
 			ENTERED_IN_ERROR,
+			ON_HOLD,
+			UNKNOWN,
 		};
 
 	/**
@@ -162,6 +212,8 @@ public enum AccountStatusList implements Enumerator {
 			case ACTIVE_VALUE: return ACTIVE;
 			case INACTIVE_VALUE: return INACTIVE;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
+			case ON_HOLD_VALUE: return ON_HOLD;
+			case UNKNOWN_VALUE: return UNKNOWN;
 		}
 		return null;
 	}

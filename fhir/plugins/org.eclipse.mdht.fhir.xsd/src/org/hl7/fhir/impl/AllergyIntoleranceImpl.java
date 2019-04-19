@@ -20,11 +20,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.Age;
 import org.hl7.fhir.AllergyIntolerance;
 import org.hl7.fhir.AllergyIntoleranceCategory;
-import org.hl7.fhir.AllergyIntoleranceClinicalStatus;
 import org.hl7.fhir.AllergyIntoleranceCriticality;
 import org.hl7.fhir.AllergyIntoleranceReaction;
 import org.hl7.fhir.AllergyIntoleranceType;
-import org.hl7.fhir.AllergyIntoleranceVerificationStatus;
 import org.hl7.fhir.Annotation;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
@@ -50,12 +48,13 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getCriticality <em>Criticality</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getPatient <em>Patient</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getOnsetDateTime <em>Onset Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getOnsetPeriod <em>Onset Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getOnsetString <em>Onset String</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getAssertedDate <em>Asserted Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getRecordedDate <em>Recorded Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getRecorder <em>Recorder</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.AllergyIntoleranceImpl#getLastOccurrence <em>Last Occurrence</em>}</li>
@@ -84,7 +83,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * @generated
 	 * @ordered
 	 */
-	protected AllergyIntoleranceClinicalStatus clinicalStatus;
+	protected CodeableConcept clinicalStatus;
 
 	/**
 	 * The cached value of the '{@link #getVerificationStatus() <em>Verification Status</em>}' containment reference.
@@ -94,7 +93,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * @generated
 	 * @ordered
 	 */
-	protected AllergyIntoleranceVerificationStatus verificationStatus;
+	protected CodeableConcept verificationStatus;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -147,6 +146,16 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	protected Reference patient;
 
 	/**
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEncounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference encounter;
+
+	/**
 	 * The cached value of the '{@link #getOnsetDateTime() <em>Onset Date Time</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,14 +206,14 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	protected org.hl7.fhir.String onsetString;
 
 	/**
-	 * The cached value of the '{@link #getAssertedDate() <em>Asserted Date</em>}' containment reference.
+	 * The cached value of the '{@link #getRecordedDate() <em>Recorded Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssertedDate()
+	 * @see #getRecordedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected DateTime assertedDate;
+	protected DateTime recordedDate;
 
 	/**
 	 * The cached value of the '{@link #getRecorder() <em>Recorder</em>}' containment reference.
@@ -292,7 +301,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllergyIntoleranceClinicalStatus getClinicalStatus() {
+	public CodeableConcept getClinicalStatus() {
 		return clinicalStatus;
 	}
 
@@ -301,8 +310,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClinicalStatus(AllergyIntoleranceClinicalStatus newClinicalStatus, NotificationChain msgs) {
-		AllergyIntoleranceClinicalStatus oldClinicalStatus = clinicalStatus;
+	public NotificationChain basicSetClinicalStatus(CodeableConcept newClinicalStatus, NotificationChain msgs) {
+		CodeableConcept oldClinicalStatus = clinicalStatus;
 		clinicalStatus = newClinicalStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__CLINICAL_STATUS, oldClinicalStatus, newClinicalStatus);
@@ -316,7 +325,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClinicalStatus(AllergyIntoleranceClinicalStatus newClinicalStatus) {
+	public void setClinicalStatus(CodeableConcept newClinicalStatus) {
 		if (newClinicalStatus != clinicalStatus) {
 			NotificationChain msgs = null;
 			if (clinicalStatus != null)
@@ -335,7 +344,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllergyIntoleranceVerificationStatus getVerificationStatus() {
+	public CodeableConcept getVerificationStatus() {
 		return verificationStatus;
 	}
 
@@ -344,8 +353,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVerificationStatus(AllergyIntoleranceVerificationStatus newVerificationStatus, NotificationChain msgs) {
-		AllergyIntoleranceVerificationStatus oldVerificationStatus = verificationStatus;
+	public NotificationChain basicSetVerificationStatus(CodeableConcept newVerificationStatus, NotificationChain msgs) {
+		CodeableConcept oldVerificationStatus = verificationStatus;
 		verificationStatus = newVerificationStatus;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__VERIFICATION_STATUS, oldVerificationStatus, newVerificationStatus);
@@ -359,7 +368,7 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVerificationStatus(AllergyIntoleranceVerificationStatus newVerificationStatus) {
+	public void setVerificationStatus(CodeableConcept newVerificationStatus) {
 		if (newVerificationStatus != verificationStatus) {
 			NotificationChain msgs = null;
 			if (verificationStatus != null)
@@ -555,6 +564,49 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__PATIENT, newPatient, newPatient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getEncounter() {
+		return encounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER, oldEncounter, newEncounter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
+			NotificationChain msgs = null;
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -777,8 +829,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DateTime getAssertedDate() {
-		return assertedDate;
+	public DateTime getRecordedDate() {
+		return recordedDate;
 	}
 
 	/**
@@ -786,11 +838,11 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAssertedDate(DateTime newAssertedDate, NotificationChain msgs) {
-		DateTime oldAssertedDate = assertedDate;
-		assertedDate = newAssertedDate;
+	public NotificationChain basicSetRecordedDate(DateTime newRecordedDate, NotificationChain msgs) {
+		DateTime oldRecordedDate = recordedDate;
+		recordedDate = newRecordedDate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE, oldAssertedDate, newAssertedDate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE, oldRecordedDate, newRecordedDate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -801,18 +853,18 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAssertedDate(DateTime newAssertedDate) {
-		if (newAssertedDate != assertedDate) {
+	public void setRecordedDate(DateTime newRecordedDate) {
+		if (newRecordedDate != recordedDate) {
 			NotificationChain msgs = null;
-			if (assertedDate != null)
-				msgs = ((InternalEObject)assertedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE, null, msgs);
-			if (newAssertedDate != null)
-				msgs = ((InternalEObject)newAssertedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE, null, msgs);
-			msgs = basicSetAssertedDate(newAssertedDate, msgs);
+			if (recordedDate != null)
+				msgs = ((InternalEObject)recordedDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE, null, msgs);
+			if (newRecordedDate != null)
+				msgs = ((InternalEObject)newRecordedDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE, null, msgs);
+			msgs = basicSetRecordedDate(newRecordedDate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE, newAssertedDate, newAssertedDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE, newRecordedDate, newRecordedDate));
 	}
 
 	/**
@@ -992,6 +1044,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return basicSetCode(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__PATIENT:
 				return basicSetPatient(null, msgs);
+			case FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_DATE_TIME:
 				return basicSetOnsetDateTime(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_AGE:
@@ -1002,8 +1056,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return basicSetOnsetRange(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_STRING:
 				return basicSetOnsetString(null, msgs);
-			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE:
-				return basicSetAssertedDate(null, msgs);
+			case FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE:
+				return basicSetRecordedDate(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__RECORDER:
 				return basicSetRecorder(null, msgs);
 			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTER:
@@ -1042,6 +1096,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return getCode();
 			case FhirPackage.ALLERGY_INTOLERANCE__PATIENT:
 				return getPatient();
+			case FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_DATE_TIME:
 				return getOnsetDateTime();
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_AGE:
@@ -1052,8 +1108,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return getOnsetRange();
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_STRING:
 				return getOnsetString();
-			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE:
-				return getAssertedDate();
+			case FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE:
+				return getRecordedDate();
 			case FhirPackage.ALLERGY_INTOLERANCE__RECORDER:
 				return getRecorder();
 			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTER:
@@ -1082,10 +1138,10 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__CLINICAL_STATUS:
-				setClinicalStatus((AllergyIntoleranceClinicalStatus)newValue);
+				setClinicalStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__VERIFICATION_STATUS:
-				setVerificationStatus((AllergyIntoleranceVerificationStatus)newValue);
+				setVerificationStatus((CodeableConcept)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__TYPE:
 				setType((AllergyIntoleranceType)newValue);
@@ -1103,6 +1159,9 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 			case FhirPackage.ALLERGY_INTOLERANCE__PATIENT:
 				setPatient((Reference)newValue);
 				return;
+			case FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER:
+				setEncounter((Reference)newValue);
+				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_DATE_TIME:
 				setOnsetDateTime((DateTime)newValue);
 				return;
@@ -1118,8 +1177,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_STRING:
 				setOnsetString((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE:
-				setAssertedDate((DateTime)newValue);
+			case FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE:
+				setRecordedDate((DateTime)newValue);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__RECORDER:
 				setRecorder((Reference)newValue);
@@ -1154,10 +1213,10 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				getIdentifier().clear();
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__CLINICAL_STATUS:
-				setClinicalStatus((AllergyIntoleranceClinicalStatus)null);
+				setClinicalStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__VERIFICATION_STATUS:
-				setVerificationStatus((AllergyIntoleranceVerificationStatus)null);
+				setVerificationStatus((CodeableConcept)null);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__TYPE:
 				setType((AllergyIntoleranceType)null);
@@ -1174,6 +1233,9 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 			case FhirPackage.ALLERGY_INTOLERANCE__PATIENT:
 				setPatient((Reference)null);
 				return;
+			case FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER:
+				setEncounter((Reference)null);
+				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_DATE_TIME:
 				setOnsetDateTime((DateTime)null);
 				return;
@@ -1189,8 +1251,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_STRING:
 				setOnsetString((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE:
-				setAssertedDate((DateTime)null);
+			case FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE:
+				setRecordedDate((DateTime)null);
 				return;
 			case FhirPackage.ALLERGY_INTOLERANCE__RECORDER:
 				setRecorder((Reference)null);
@@ -1235,6 +1297,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return code != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__PATIENT:
 				return patient != null;
+			case FhirPackage.ALLERGY_INTOLERANCE__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_DATE_TIME:
 				return onsetDateTime != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_AGE:
@@ -1245,8 +1309,8 @@ public class AllergyIntoleranceImpl extends DomainResourceImpl implements Allerg
 				return onsetRange != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__ONSET_STRING:
 				return onsetString != null;
-			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTED_DATE:
-				return assertedDate != null;
+			case FhirPackage.ALLERGY_INTOLERANCE__RECORDED_DATE:
+				return recordedDate != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__RECORDER:
 				return recorder != null;
 			case FhirPackage.ALLERGY_INTOLERANCE__ASSERTER:

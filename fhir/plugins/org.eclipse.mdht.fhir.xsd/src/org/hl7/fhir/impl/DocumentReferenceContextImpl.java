@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DocumentReferenceContext;
-import org.hl7.fhir.DocumentReferenceRelated;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
@@ -45,14 +44,14 @@ import org.hl7.fhir.Reference;
  */
 public class DocumentReferenceContextImpl extends BackboneElementImpl implements DocumentReferenceContext {
 	/**
-	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference encounter;
+	protected EList<Reference> encounter;
 
 	/**
 	 * The cached value of the '{@link #getEvent() <em>Event</em>}' containment reference list.
@@ -112,7 +111,7 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocumentReferenceRelated> related;
+	protected EList<Reference> related;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,42 +137,11 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEncounter() {
+	public EList<Reference> getEncounter() {
+		if (encounter == null) {
+			encounter = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER);
+		}
 		return encounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
-		Reference oldEncounter = encounter;
-		encounter = newEncounter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER, oldEncounter, newEncounter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncounter(Reference newEncounter) {
-		if (newEncounter != encounter) {
-			NotificationChain msgs = null;
-			if (encounter != null)
-				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER, null, msgs);
-			if (newEncounter != null)
-				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER, null, msgs);
-			msgs = basicSetEncounter(newEncounter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -365,9 +333,9 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocumentReferenceRelated> getRelated() {
+	public EList<Reference> getRelated() {
 		if (related == null) {
-			related = new EObjectContainmentEList<DocumentReferenceRelated>(DocumentReferenceRelated.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__RELATED);
+			related = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.DOCUMENT_REFERENCE_CONTEXT__RELATED);
 		}
 		return related;
 	}
@@ -381,7 +349,7 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER:
-				return basicSetEncounter(null, msgs);
+				return ((InternalEList<?>)getEncounter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__EVENT:
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__PERIOD:
@@ -434,7 +402,8 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER:
-				setEncounter((Reference)newValue);
+				getEncounter().clear();
+				getEncounter().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__EVENT:
 				getEvent().clear();
@@ -454,7 +423,7 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__RELATED:
 				getRelated().clear();
-				getRelated().addAll((Collection<? extends DocumentReferenceRelated>)newValue);
+				getRelated().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -469,7 +438,7 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER:
-				setEncounter((Reference)null);
+				getEncounter().clear();
 				return;
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__EVENT:
 				getEvent().clear();
@@ -502,7 +471,7 @@ public class DocumentReferenceContextImpl extends BackboneElementImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__ENCOUNTER:
-				return encounter != null;
+				return encounter != null && !encounter.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__EVENT:
 				return event != null && !event.isEmpty();
 			case FhirPackage.DOCUMENT_REFERENCE_CONTEXT__PERIOD:

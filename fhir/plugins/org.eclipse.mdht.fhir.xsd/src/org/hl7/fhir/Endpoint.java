@@ -135,7 +135,7 @@ public interface Endpoint extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data).
+	 * The organization that manages this endpoint (even if technically another organization is hosting this in the cloud, it is the organization associated with the data).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Managing Organization</em>' containment reference.
 	 * @see #setManagingOrganization(Reference)
@@ -238,13 +238,13 @@ public interface Endpoint extends DomainResource {
 	 * The uri that describes the actual end-point to connect to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Address</em>' containment reference.
-	 * @see #setAddress(Uri)
+	 * @see #setAddress(Url)
 	 * @see org.hl7.fhir.FhirPackage#getEndpoint_Address()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='address' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getAddress();
+	Url getAddress();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Endpoint#getAddress <em>Address</em>}' containment reference.
@@ -254,7 +254,7 @@ public interface Endpoint extends DomainResource {
 	 * @see #getAddress()
 	 * @generated
 	 */
-	void setAddress(Uri value);
+	void setAddress(Url value);
 
 	/**
 	 * Returns the value of the '<em><b>Header</b></em>' containment reference list.

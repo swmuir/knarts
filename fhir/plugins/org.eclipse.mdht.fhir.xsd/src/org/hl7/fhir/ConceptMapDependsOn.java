@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
+ * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,7 +18,7 @@ package org.hl7.fhir;
  * <ul>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getProperty <em>Property</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}</li>
- *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getValue <em>Value</em>}</li>
  *   <li>{@link org.hl7.fhir.ConceptMapDependsOn#getDisplay <em>Display</em>}</li>
  * </ul>
  *
@@ -32,7 +32,7 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property.
+	 * A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somewhere that is labeled to correspond with a code system property.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference.
 	 * @see #setProperty(Uri)
@@ -61,13 +61,13 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>System</em>' containment reference.
-	 * @see #setSystem(Uri)
+	 * @see #setSystem(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_System()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='system' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getSystem();
+	Canonical getSystem();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getSystem <em>System</em>}' containment reference.
@@ -77,33 +77,33 @@ public interface ConceptMapDependsOn extends BackboneElement {
 	 * @see #getSystem()
 	 * @generated
 	 */
-	void setSystem(Uri value);
+	void setSystem(Canonical value);
 
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
+	 * Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Code</em>' containment reference.
-	 * @see #setCode(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_Code()
+	 * @return the value of the '<em>Value</em>' containment reference.
+	 * @see #setValue(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getConceptMapDependsOn_Value()
 	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='code' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCode();
+	org.hl7.fhir.String getValue();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getCode <em>Code</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ConceptMapDependsOn#getValue <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' containment reference.
-	 * @see #getCode()
+	 * @param value the new value of the '<em>Value</em>' containment reference.
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setCode(org.hl7.fhir.String value);
+	void setValue(org.hl7.fhir.String value);
 
 	/**
 	 * Returns the value of the '<em><b>Display</b></em>' containment reference.

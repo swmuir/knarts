@@ -93,7 +93,7 @@ public enum FamilyHistoryStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Entered in error
+	 * Entered in Error
 	 * <!-- end-model-doc -->
 	 * @see #ENTERED_IN_ERROR
 	 * @model name="enteredInError" literal="entered-in-error"
@@ -107,7 +107,7 @@ public enum FamilyHistoryStatusList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Health unknown
+	 * Health Unknown
 	 * <!-- end-model-doc -->
 	 * @see #HEALTH_UNKNOWN
 	 * @model name="healthUnknown" literal="health-unknown"

@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getOutcome <em>Outcome</em>}</li>
+ *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getContributedToDeath <em>Contributed To Death</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getOnsetAge <em>Onset Age</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getOnsetRange <em>Onset Range</em>}</li>
  *   <li>{@link org.hl7.fhir.FamilyMemberHistoryCondition#getOnsetPeriod <em>Onset Period</em>}</li>
@@ -62,7 +63,7 @@ public interface FamilyMemberHistoryCondition extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
+	 * Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
 	 * @see #setOutcome(CodeableConcept)
@@ -82,6 +83,32 @@ public interface FamilyMemberHistoryCondition extends BackboneElement {
 	 * @generated
 	 */
 	void setOutcome(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Contributed To Death</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This condition contributed to the cause of death of the related person. If contributedToDeath is not populated, then it is unknown.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Contributed To Death</em>' containment reference.
+	 * @see #setContributedToDeath(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getFamilyMemberHistoryCondition_ContributedToDeath()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='contributedToDeath' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getContributedToDeath();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.FamilyMemberHistoryCondition#getContributedToDeath <em>Contributed To Death</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contributed To Death</em>' containment reference.
+	 * @see #getContributedToDeath()
+	 * @generated
+	 */
+	void setContributedToDeath(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Onset Age</b></em>' containment reference.

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
@@ -28,7 +29,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.Reference;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -44,7 +44,6 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getDate <em>Date</em>}</li>
@@ -53,7 +52,6 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ExampleScenarioImpl#getInstance <em>Instance</em>}</li>
@@ -103,16 +101,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String name;
-
-	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String title;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -195,16 +183,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	protected Markdown copyright;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected Markdown description;
-
-	/**
 	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,14 +213,14 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	protected EList<ExampleScenarioInstance> instance;
 
 	/**
-	 * The cached value of the '{@link #getProcess() <em>Process</em>}' containment reference.
+	 * The cached value of the '{@link #getProcess() <em>Process</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProcess()
 	 * @generated
 	 * @ordered
 	 */
-	protected ExampleScenarioProcess process;
+	protected EList<ExampleScenarioProcess> process;
 
 	/**
 	 * The cached value of the '{@link #getWorkflow() <em>Workflow</em>}' containment reference list.
@@ -252,7 +230,7 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> workflow;
+	protected EList<Canonical> workflow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -412,49 +390,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__NAME, newName, newName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getTitle() {
-		return title;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
-		org.hl7.fhir.String oldTitle = title;
-		title = newTitle;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__TITLE, oldTitle, newTitle);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTitle(org.hl7.fhir.String newTitle) {
-		if (newTitle != title) {
-			NotificationChain msgs = null;
-			if (title != null)
-				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__TITLE, null, msgs);
-			if (newTitle != null)
-				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__TITLE, null, msgs);
-			msgs = basicSetTitle(newTitle, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__TITLE, newTitle, newTitle));
 	}
 
 	/**
@@ -713,49 +648,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Markdown getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDescription(Markdown newDescription, NotificationChain msgs) {
-		Markdown oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(Markdown newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION, newDescription, newDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Markdown getPurpose() {
 		return purpose;
 	}
@@ -823,7 +715,10 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExampleScenarioProcess getProcess() {
+	public EList<ExampleScenarioProcess> getProcess() {
+		if (process == null) {
+			process = new EObjectContainmentEList<ExampleScenarioProcess>(ExampleScenarioProcess.class, this, FhirPackage.EXAMPLE_SCENARIO__PROCESS);
+		}
 		return process;
 	}
 
@@ -832,43 +727,9 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProcess(ExampleScenarioProcess newProcess, NotificationChain msgs) {
-		ExampleScenarioProcess oldProcess = process;
-		process = newProcess;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__PROCESS, oldProcess, newProcess);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProcess(ExampleScenarioProcess newProcess) {
-		if (newProcess != process) {
-			NotificationChain msgs = null;
-			if (process != null)
-				msgs = ((InternalEObject)process).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__PROCESS, null, msgs);
-			if (newProcess != null)
-				msgs = ((InternalEObject)newProcess).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.EXAMPLE_SCENARIO__PROCESS, null, msgs);
-			msgs = basicSetProcess(newProcess, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.EXAMPLE_SCENARIO__PROCESS, newProcess, newProcess));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Reference> getWorkflow() {
+	public EList<Canonical> getWorkflow() {
 		if (workflow == null) {
-			workflow = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.EXAMPLE_SCENARIO__WORKFLOW);
+			workflow = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.EXAMPLE_SCENARIO__WORKFLOW);
 		}
 		return workflow;
 	}
@@ -889,8 +750,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return basicSetVersion(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__NAME:
 				return basicSetName(null, msgs);
-			case FhirPackage.EXAMPLE_SCENARIO__TITLE:
-				return basicSetTitle(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__EXPERIMENTAL:
@@ -907,8 +766,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
-			case FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION:
-				return basicSetDescription(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__PURPOSE:
 				return basicSetPurpose(null, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__ACTOR:
@@ -916,7 +773,7 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__INSTANCE:
 				return ((InternalEList<?>)getInstance()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__PROCESS:
-				return basicSetProcess(null, msgs);
+				return ((InternalEList<?>)getProcess()).basicRemove(otherEnd, msgs);
 			case FhirPackage.EXAMPLE_SCENARIO__WORKFLOW:
 				return ((InternalEList<?>)getWorkflow()).basicRemove(otherEnd, msgs);
 		}
@@ -939,8 +796,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return getVersion();
 			case FhirPackage.EXAMPLE_SCENARIO__NAME:
 				return getName();
-			case FhirPackage.EXAMPLE_SCENARIO__TITLE:
-				return getTitle();
 			case FhirPackage.EXAMPLE_SCENARIO__STATUS:
 				return getStatus();
 			case FhirPackage.EXAMPLE_SCENARIO__EXPERIMENTAL:
@@ -957,8 +812,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return getJurisdiction();
 			case FhirPackage.EXAMPLE_SCENARIO__COPYRIGHT:
 				return getCopyright();
-			case FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION:
-				return getDescription();
 			case FhirPackage.EXAMPLE_SCENARIO__PURPOSE:
 				return getPurpose();
 			case FhirPackage.EXAMPLE_SCENARIO__ACTOR:
@@ -995,9 +848,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__NAME:
 				setName((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.EXAMPLE_SCENARIO__TITLE:
-				setTitle((org.hl7.fhir.String)newValue);
-				return;
 			case FhirPackage.EXAMPLE_SCENARIO__STATUS:
 				setStatus((PublicationStatus)newValue);
 				return;
@@ -1025,9 +875,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__COPYRIGHT:
 				setCopyright((Markdown)newValue);
 				return;
-			case FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION:
-				setDescription((Markdown)newValue);
-				return;
 			case FhirPackage.EXAMPLE_SCENARIO__PURPOSE:
 				setPurpose((Markdown)newValue);
 				return;
@@ -1040,11 +887,12 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				getInstance().addAll((Collection<? extends ExampleScenarioInstance>)newValue);
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO__PROCESS:
-				setProcess((ExampleScenarioProcess)newValue);
+				getProcess().clear();
+				getProcess().addAll((Collection<? extends ExampleScenarioProcess>)newValue);
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO__WORKFLOW:
 				getWorkflow().clear();
-				getWorkflow().addAll((Collection<? extends Reference>)newValue);
+				getWorkflow().addAll((Collection<? extends Canonical>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1070,9 +918,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__NAME:
 				setName((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.EXAMPLE_SCENARIO__TITLE:
-				setTitle((org.hl7.fhir.String)null);
-				return;
 			case FhirPackage.EXAMPLE_SCENARIO__STATUS:
 				setStatus((PublicationStatus)null);
 				return;
@@ -1097,9 +942,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__COPYRIGHT:
 				setCopyright((Markdown)null);
 				return;
-			case FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION:
-				setDescription((Markdown)null);
-				return;
 			case FhirPackage.EXAMPLE_SCENARIO__PURPOSE:
 				setPurpose((Markdown)null);
 				return;
@@ -1110,7 +952,7 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				getInstance().clear();
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO__PROCESS:
-				setProcess((ExampleScenarioProcess)null);
+				getProcess().clear();
 				return;
 			case FhirPackage.EXAMPLE_SCENARIO__WORKFLOW:
 				getWorkflow().clear();
@@ -1135,8 +977,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return version != null;
 			case FhirPackage.EXAMPLE_SCENARIO__NAME:
 				return name != null;
-			case FhirPackage.EXAMPLE_SCENARIO__TITLE:
-				return title != null;
 			case FhirPackage.EXAMPLE_SCENARIO__STATUS:
 				return status != null;
 			case FhirPackage.EXAMPLE_SCENARIO__EXPERIMENTAL:
@@ -1153,8 +993,6 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.EXAMPLE_SCENARIO__COPYRIGHT:
 				return copyright != null;
-			case FhirPackage.EXAMPLE_SCENARIO__DESCRIPTION:
-				return description != null;
 			case FhirPackage.EXAMPLE_SCENARIO__PURPOSE:
 				return purpose != null;
 			case FhirPackage.EXAMPLE_SCENARIO__ACTOR:
@@ -1162,7 +1000,7 @@ public class ExampleScenarioImpl extends DomainResourceImpl implements ExampleSc
 			case FhirPackage.EXAMPLE_SCENARIO__INSTANCE:
 				return instance != null && !instance.isEmpty();
 			case FhirPackage.EXAMPLE_SCENARIO__PROCESS:
-				return process != null;
+				return process != null && !process.isEmpty();
 			case FhirPackage.EXAMPLE_SCENARIO__WORKFLOW:
 				return workflow != null && !workflow.isEmpty();
 		}

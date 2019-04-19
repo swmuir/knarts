@@ -7,10 +7,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
 
@@ -255,7 +252,7 @@ public class XhtmlValidator extends EObjectValidator {
 			case XhtmlPackage.COORDS:
 				return validateCoords((String)value, diagnostics, context);
 			case XhtmlPackage.DATETIME:
-				return validateDatetime((XMLGregorianCalendar)value, diagnostics, context);
+				return validateDatetime(value, diagnostics, context);
 			case XhtmlPackage.DIR_TYPE_OBJECT:
 				return validateDirTypeObject((DirType)value, diagnostics, context);
 			case XhtmlPackage.DIR_TYPE_OBJECT1:
@@ -1048,7 +1045,7 @@ public class XhtmlValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDatetime(XMLGregorianCalendar datetime, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDatetime(Object datetime, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -1394,20 +1391,6 @@ public class XhtmlValidator extends EObjectValidator {
 	 */
 	public boolean validateValignTypeObject(ValignType valignTypeObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
-	}
-
-	/**
-	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		// TODO
-		// Specialize this to return a resource locator for messages specific to this validator.
-		// Ensure that you remove @generated or mark it @generated NOT
-		return super.getResourceLocator();
 	}
 
 } //XhtmlValidator

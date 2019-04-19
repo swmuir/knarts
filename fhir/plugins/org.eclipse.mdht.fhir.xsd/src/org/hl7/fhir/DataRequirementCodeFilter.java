@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getPath <em>Path</em>}</li>
- *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSetUri <em>Value Set Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSetReference <em>Value Set Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getSearchParam <em>Search Param</em>}</li>
+ *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSet <em>Value Set</em>}</li>
  *   <li>{@link org.hl7.fhir.DataRequirementCodeFilter#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -34,12 +34,12 @@ public interface DataRequirementCodeFilter extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.
+	 * The code-valued attribute of the filter. The specified path SHALL be a FHIRPath resolveable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Path</em>' containment reference.
 	 * @see #setPath(org.hl7.fhir.String)
 	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_Path()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -56,58 +56,56 @@ public interface DataRequirementCodeFilter extends Element {
 	void setPath(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set Uri</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Search Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Set Uri</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Set Uri</em>' containment reference.
-	 * @see #setValueSetUri(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_ValueSetUri()
+	 * <!-- begin-model-doc -->
+	 * A token parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type code, Coding, or CodeableConcept.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Search Param</em>' containment reference.
+	 * @see #setSearchParam(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_SearchParam()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueSetUri' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='searchParam' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getValueSetUri();
+	org.hl7.fhir.String getSearchParam();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSetUri <em>Value Set Uri</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementCodeFilter#getSearchParam <em>Search Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Set Uri</em>' containment reference.
-	 * @see #getValueSetUri()
+	 * @param value the new value of the '<em>Search Param</em>' containment reference.
+	 * @see #getSearchParam()
 	 * @generated
 	 */
-	void setValueSetUri(Uri value);
+	void setSearchParam(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Set Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value Set</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Set Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Set Reference</em>' containment reference.
-	 * @see #setValueSetReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_ValueSetReference()
+	 * <!-- begin-model-doc -->
+	 * The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value Set</em>' containment reference.
+	 * @see #setValueSet(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getDataRequirementCodeFilter_ValueSet()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueSetReference' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='valueSet' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getValueSetReference();
+	Canonical getValueSet();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSetReference <em>Value Set Reference</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.DataRequirementCodeFilter#getValueSet <em>Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Set Reference</em>' containment reference.
-	 * @see #getValueSetReference()
+	 * @param value the new value of the '<em>Value Set</em>' containment reference.
+	 * @see #getValueSet()
 	 * @generated
 	 */
-	void setValueSetReference(Reference value);
+	void setValueSet(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference list.

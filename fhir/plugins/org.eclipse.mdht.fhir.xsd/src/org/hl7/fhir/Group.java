@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
+ * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Group#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.Group#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Group#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.Group#getManagingEntity <em>Managing Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.Group#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link org.hl7.fhir.Group#getMember <em>Member</em>}</li>
  * </ul>
@@ -207,12 +208,38 @@ public interface Group extends DomainResource {
 	void setQuantity(UnsignedInt value);
 
 	/**
+	 * Returns the value of the '<em><b>Managing Entity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Entity responsible for defining and maintaining Group characteristics and/or registered members.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Managing Entity</em>' containment reference.
+	 * @see #setManagingEntity(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getGroup_ManagingEntity()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='managingEntity' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getManagingEntity();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Group#getManagingEntity <em>Managing Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Managing Entity</em>' containment reference.
+	 * @see #getManagingEntity()
+	 * @generated
+	 */
+	void setManagingEntity(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Characteristic</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.GroupCharacteristic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the traits shared by members of the group.
+	 * Identifies traits whose presence r absence is shared by members of the group.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Characteristic</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getGroup_Characteristic()

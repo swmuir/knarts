@@ -2,8 +2,6 @@
  */
 package org.hl7.fhir.impl;
 
-import java.math.BigDecimal;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +33,7 @@ public class DecimalImpl extends ElementImpl implements Decimal {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigDecimal VALUE_EDEFAULT = null;
+	protected static final Object VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,7 +43,7 @@ public class DecimalImpl extends ElementImpl implements Decimal {
 	 * @generated
 	 * @ordered
 	 */
-	protected BigDecimal value = VALUE_EDEFAULT;
+	protected Object value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,7 +69,7 @@ public class DecimalImpl extends ElementImpl implements Decimal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigDecimal getValue() {
+	public Object getValue() {
 		return value;
 	}
 
@@ -80,8 +78,8 @@ public class DecimalImpl extends ElementImpl implements Decimal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(BigDecimal newValue) {
-		BigDecimal oldValue = value;
+	public void setValue(Object newValue) {
+		Object oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DECIMAL__VALUE, oldValue, value));
@@ -110,7 +108,7 @@ public class DecimalImpl extends ElementImpl implements Decimal {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.DECIMAL__VALUE:
-				setValue((BigDecimal)newValue);
+				setValue(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -41,7 +41,7 @@ public interface RiskAssessmentPrediction extends BackboneElement {
 	 * @return the value of the '<em>Outcome</em>' containment reference.
 	 * @see #setOutcome(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getRiskAssessmentPrediction_Outcome()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outcome' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -116,7 +116,7 @@ public interface RiskAssessmentPrediction extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).
+	 * Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Qualitative Risk</em>' containment reference.
 	 * @see #setQualitativeRisk(CodeableConcept)

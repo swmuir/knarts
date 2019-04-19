@@ -24,7 +24,6 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Instant;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Signature;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,13 +35,11 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhen <em>When</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhoUri <em>Who Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWhoReference <em>Who Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfUri <em>On Behalf Of Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getWho <em>Who</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getOnBehalfOf <em>On Behalf Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getTargetFormat <em>Target Format</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getSigFormat <em>Sig Format</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getBlob <em>Blob</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SignatureImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,44 +66,24 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	protected Instant when;
 
 	/**
-	 * The cached value of the '{@link #getWhoUri() <em>Who Uri</em>}' containment reference.
+	 * The cached value of the '{@link #getWho() <em>Who</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWhoUri()
+	 * @see #getWho()
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri whoUri;
+	protected Reference who;
 
 	/**
-	 * The cached value of the '{@link #getWhoReference() <em>Who Reference</em>}' containment reference.
+	 * The cached value of the '{@link #getOnBehalfOf() <em>On Behalf Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWhoReference()
+	 * @see #getOnBehalfOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference whoReference;
-
-	/**
-	 * The cached value of the '{@link #getOnBehalfOfUri() <em>On Behalf Of Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnBehalfOfUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected Uri onBehalfOfUri;
-
-	/**
-	 * The cached value of the '{@link #getOnBehalfOfReference() <em>On Behalf Of Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnBehalfOfReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference onBehalfOfReference;
+	protected Reference onBehalfOf;
 
 	/**
 	 * The cached value of the '{@link #getTargetFormat() <em>Target Format</em>}' containment reference.
@@ -129,14 +106,14 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	protected Code sigFormat;
 
 	/**
-	 * The cached value of the '{@link #getBlob() <em>Blob</em>}' containment reference.
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBlob()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected Base64Binary blob;
+	protected Base64Binary data;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,8 +194,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getWhoUri() {
-		return whoUri;
+	public Reference getWho() {
+		return who;
 	}
 
 	/**
@@ -226,11 +203,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWhoUri(Uri newWhoUri, NotificationChain msgs) {
-		Uri oldWhoUri = whoUri;
-		whoUri = newWhoUri;
+	public NotificationChain basicSetWho(Reference newWho, NotificationChain msgs) {
+		Reference oldWho = who;
+		who = newWho;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO_URI, oldWhoUri, newWhoUri);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO, oldWho, newWho);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -241,18 +218,18 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWhoUri(Uri newWhoUri) {
-		if (newWhoUri != whoUri) {
+	public void setWho(Reference newWho) {
+		if (newWho != who) {
 			NotificationChain msgs = null;
-			if (whoUri != null)
-				msgs = ((InternalEObject)whoUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO_URI, null, msgs);
-			if (newWhoUri != null)
-				msgs = ((InternalEObject)newWhoUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO_URI, null, msgs);
-			msgs = basicSetWhoUri(newWhoUri, msgs);
+			if (who != null)
+				msgs = ((InternalEObject)who).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO, null, msgs);
+			if (newWho != null)
+				msgs = ((InternalEObject)newWho).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO, null, msgs);
+			msgs = basicSetWho(newWho, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO_URI, newWhoUri, newWhoUri));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO, newWho, newWho));
 	}
 
 	/**
@@ -260,8 +237,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getWhoReference() {
-		return whoReference;
+	public Reference getOnBehalfOf() {
+		return onBehalfOf;
 	}
 
 	/**
@@ -269,11 +246,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetWhoReference(Reference newWhoReference, NotificationChain msgs) {
-		Reference oldWhoReference = whoReference;
-		whoReference = newWhoReference;
+	public NotificationChain basicSetOnBehalfOf(Reference newOnBehalfOf, NotificationChain msgs) {
+		Reference oldOnBehalfOf = onBehalfOf;
+		onBehalfOf = newOnBehalfOf;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO_REFERENCE, oldWhoReference, newWhoReference);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF, oldOnBehalfOf, newOnBehalfOf);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -284,104 +261,18 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWhoReference(Reference newWhoReference) {
-		if (newWhoReference != whoReference) {
+	public void setOnBehalfOf(Reference newOnBehalfOf) {
+		if (newOnBehalfOf != onBehalfOf) {
 			NotificationChain msgs = null;
-			if (whoReference != null)
-				msgs = ((InternalEObject)whoReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO_REFERENCE, null, msgs);
-			if (newWhoReference != null)
-				msgs = ((InternalEObject)newWhoReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__WHO_REFERENCE, null, msgs);
-			msgs = basicSetWhoReference(newWhoReference, msgs);
+			if (onBehalfOf != null)
+				msgs = ((InternalEObject)onBehalfOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF, null, msgs);
+			if (newOnBehalfOf != null)
+				msgs = ((InternalEObject)newOnBehalfOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF, null, msgs);
+			msgs = basicSetOnBehalfOf(newOnBehalfOf, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__WHO_REFERENCE, newWhoReference, newWhoReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Uri getOnBehalfOfUri() {
-		return onBehalfOfUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnBehalfOfUri(Uri newOnBehalfOfUri, NotificationChain msgs) {
-		Uri oldOnBehalfOfUri = onBehalfOfUri;
-		onBehalfOfUri = newOnBehalfOfUri;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, oldOnBehalfOfUri, newOnBehalfOfUri);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnBehalfOfUri(Uri newOnBehalfOfUri) {
-		if (newOnBehalfOfUri != onBehalfOfUri) {
-			NotificationChain msgs = null;
-			if (onBehalfOfUri != null)
-				msgs = ((InternalEObject)onBehalfOfUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, null, msgs);
-			if (newOnBehalfOfUri != null)
-				msgs = ((InternalEObject)newOnBehalfOfUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, null, msgs);
-			msgs = basicSetOnBehalfOfUri(newOnBehalfOfUri, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_URI, newOnBehalfOfUri, newOnBehalfOfUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getOnBehalfOfReference() {
-		return onBehalfOfReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnBehalfOfReference(Reference newOnBehalfOfReference, NotificationChain msgs) {
-		Reference oldOnBehalfOfReference = onBehalfOfReference;
-		onBehalfOfReference = newOnBehalfOfReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, oldOnBehalfOfReference, newOnBehalfOfReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnBehalfOfReference(Reference newOnBehalfOfReference) {
-		if (newOnBehalfOfReference != onBehalfOfReference) {
-			NotificationChain msgs = null;
-			if (onBehalfOfReference != null)
-				msgs = ((InternalEObject)onBehalfOfReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, null, msgs);
-			if (newOnBehalfOfReference != null)
-				msgs = ((InternalEObject)newOnBehalfOfReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, null, msgs);
-			msgs = basicSetOnBehalfOfReference(newOnBehalfOfReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE, newOnBehalfOfReference, newOnBehalfOfReference));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__ON_BEHALF_OF, newOnBehalfOf, newOnBehalfOf));
 	}
 
 	/**
@@ -475,8 +366,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Base64Binary getBlob() {
-		return blob;
+	public Base64Binary getData() {
+		return data;
 	}
 
 	/**
@@ -484,11 +375,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBlob(Base64Binary newBlob, NotificationChain msgs) {
-		Base64Binary oldBlob = blob;
-		blob = newBlob;
+	public NotificationChain basicSetData(Base64Binary newData, NotificationChain msgs) {
+		Base64Binary oldData = data;
+		data = newData;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__BLOB, oldBlob, newBlob);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__DATA, oldData, newData);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -499,18 +390,18 @@ public class SignatureImpl extends ElementImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBlob(Base64Binary newBlob) {
-		if (newBlob != blob) {
+	public void setData(Base64Binary newData) {
+		if (newData != data) {
 			NotificationChain msgs = null;
-			if (blob != null)
-				msgs = ((InternalEObject)blob).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__BLOB, null, msgs);
-			if (newBlob != null)
-				msgs = ((InternalEObject)newBlob).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__BLOB, null, msgs);
-			msgs = basicSetBlob(newBlob, msgs);
+			if (data != null)
+				msgs = ((InternalEObject)data).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__DATA, null, msgs);
+			if (newData != null)
+				msgs = ((InternalEObject)newData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SIGNATURE__DATA, null, msgs);
+			msgs = basicSetData(newData, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__BLOB, newBlob, newBlob));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SIGNATURE__DATA, newData, newData));
 	}
 
 	/**
@@ -525,20 +416,16 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SIGNATURE__WHEN:
 				return basicSetWhen(null, msgs);
-			case FhirPackage.SIGNATURE__WHO_URI:
-				return basicSetWhoUri(null, msgs);
-			case FhirPackage.SIGNATURE__WHO_REFERENCE:
-				return basicSetWhoReference(null, msgs);
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
-				return basicSetOnBehalfOfUri(null, msgs);
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
-				return basicSetOnBehalfOfReference(null, msgs);
+			case FhirPackage.SIGNATURE__WHO:
+				return basicSetWho(null, msgs);
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF:
+				return basicSetOnBehalfOf(null, msgs);
 			case FhirPackage.SIGNATURE__TARGET_FORMAT:
 				return basicSetTargetFormat(null, msgs);
 			case FhirPackage.SIGNATURE__SIG_FORMAT:
 				return basicSetSigFormat(null, msgs);
-			case FhirPackage.SIGNATURE__BLOB:
-				return basicSetBlob(null, msgs);
+			case FhirPackage.SIGNATURE__DATA:
+				return basicSetData(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -555,20 +442,16 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return getType();
 			case FhirPackage.SIGNATURE__WHEN:
 				return getWhen();
-			case FhirPackage.SIGNATURE__WHO_URI:
-				return getWhoUri();
-			case FhirPackage.SIGNATURE__WHO_REFERENCE:
-				return getWhoReference();
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
-				return getOnBehalfOfUri();
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
-				return getOnBehalfOfReference();
+			case FhirPackage.SIGNATURE__WHO:
+				return getWho();
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF:
+				return getOnBehalfOf();
 			case FhirPackage.SIGNATURE__TARGET_FORMAT:
 				return getTargetFormat();
 			case FhirPackage.SIGNATURE__SIG_FORMAT:
 				return getSigFormat();
-			case FhirPackage.SIGNATURE__BLOB:
-				return getBlob();
+			case FhirPackage.SIGNATURE__DATA:
+				return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -589,17 +472,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__WHEN:
 				setWhen((Instant)newValue);
 				return;
-			case FhirPackage.SIGNATURE__WHO_URI:
-				setWhoUri((Uri)newValue);
+			case FhirPackage.SIGNATURE__WHO:
+				setWho((Reference)newValue);
 				return;
-			case FhirPackage.SIGNATURE__WHO_REFERENCE:
-				setWhoReference((Reference)newValue);
-				return;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
-				setOnBehalfOfUri((Uri)newValue);
-				return;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
-				setOnBehalfOfReference((Reference)newValue);
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)newValue);
 				return;
 			case FhirPackage.SIGNATURE__TARGET_FORMAT:
 				setTargetFormat((Code)newValue);
@@ -607,8 +484,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__SIG_FORMAT:
 				setSigFormat((Code)newValue);
 				return;
-			case FhirPackage.SIGNATURE__BLOB:
-				setBlob((Base64Binary)newValue);
+			case FhirPackage.SIGNATURE__DATA:
+				setData((Base64Binary)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -628,17 +505,11 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__WHEN:
 				setWhen((Instant)null);
 				return;
-			case FhirPackage.SIGNATURE__WHO_URI:
-				setWhoUri((Uri)null);
+			case FhirPackage.SIGNATURE__WHO:
+				setWho((Reference)null);
 				return;
-			case FhirPackage.SIGNATURE__WHO_REFERENCE:
-				setWhoReference((Reference)null);
-				return;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
-				setOnBehalfOfUri((Uri)null);
-				return;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
-				setOnBehalfOfReference((Reference)null);
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF:
+				setOnBehalfOf((Reference)null);
 				return;
 			case FhirPackage.SIGNATURE__TARGET_FORMAT:
 				setTargetFormat((Code)null);
@@ -646,8 +517,8 @@ public class SignatureImpl extends ElementImpl implements Signature {
 			case FhirPackage.SIGNATURE__SIG_FORMAT:
 				setSigFormat((Code)null);
 				return;
-			case FhirPackage.SIGNATURE__BLOB:
-				setBlob((Base64Binary)null);
+			case FhirPackage.SIGNATURE__DATA:
+				setData((Base64Binary)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -665,20 +536,16 @@ public class SignatureImpl extends ElementImpl implements Signature {
 				return type != null && !type.isEmpty();
 			case FhirPackage.SIGNATURE__WHEN:
 				return when != null;
-			case FhirPackage.SIGNATURE__WHO_URI:
-				return whoUri != null;
-			case FhirPackage.SIGNATURE__WHO_REFERENCE:
-				return whoReference != null;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_URI:
-				return onBehalfOfUri != null;
-			case FhirPackage.SIGNATURE__ON_BEHALF_OF_REFERENCE:
-				return onBehalfOfReference != null;
+			case FhirPackage.SIGNATURE__WHO:
+				return who != null;
+			case FhirPackage.SIGNATURE__ON_BEHALF_OF:
+				return onBehalfOf != null;
 			case FhirPackage.SIGNATURE__TARGET_FORMAT:
 				return targetFormat != null;
 			case FhirPackage.SIGNATURE__SIG_FORMAT:
 				return sigFormat != null;
-			case FhirPackage.SIGNATURE__BLOB:
-				return blob != null;
+			case FhirPackage.SIGNATURE__DATA:
+				return data != null;
 		}
 		return super.eIsSet(featureID);
 	}

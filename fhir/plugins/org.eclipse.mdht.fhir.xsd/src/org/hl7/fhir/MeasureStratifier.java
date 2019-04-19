@@ -2,6 +2,7 @@
  */
 package org.hl7.fhir;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.MeasureStratifier#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureStratifier#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureStratifier#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureStratifier#getPath <em>Path</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureStratifier#getComponent <em>Component</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMeasureStratifier()
@@ -84,16 +85,16 @@ public interface MeasureStratifier extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
+	 * An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Criteria</em>' containment reference.
-	 * @see #setCriteria(org.hl7.fhir.String)
+	 * @see #setCriteria(Expression)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureStratifier_Criteria()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='criteria' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCriteria();
+	Expression getCriteria();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureStratifier#getCriteria <em>Criteria</em>}' containment reference.
@@ -103,32 +104,22 @@ public interface MeasureStratifier extends BackboneElement {
 	 * @see #getCriteria()
 	 * @generated
 	 */
-	void setCriteria(org.hl7.fhir.String value);
+	void setCriteria(Expression value);
 
 	/**
-	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MeasureComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The path to an element that defines the stratifier, specified as a valid FHIR resource path.
+	 * A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Path</em>' containment reference.
-	 * @see #setPath(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureStratifier_Path()
+	 * @return the value of the '<em>Component</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMeasureStratifier_Component()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getPath();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureStratifier#getPath <em>Path</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path</em>' containment reference.
-	 * @see #getPath()
-	 * @generated
-	 */
-	void setPath(org.hl7.fhir.String value);
+	EList<MeasureComponent> getComponent();
 
 } // MeasureStratifier

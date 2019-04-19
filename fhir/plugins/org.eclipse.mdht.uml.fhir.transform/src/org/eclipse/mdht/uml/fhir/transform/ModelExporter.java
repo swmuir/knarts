@@ -47,33 +47,54 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.hl7.fhir.BindingStrength;
 import org.hl7.fhir.BindingStrengthList;
+import org.hl7.fhir.Boolean;
+import org.hl7.fhir.Canonical;
+import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
+import org.hl7.fhir.Coding;
 import org.hl7.fhir.ConstraintSeverity;
 import org.hl7.fhir.ConstraintSeverityList;
+import org.hl7.fhir.ContactDetail;
+import org.hl7.fhir.ContactPoint;
+import org.hl7.fhir.ContactPointSystem;
+import org.hl7.fhir.ContactPointSystemList;
+import org.hl7.fhir.ContactPointUse;
+import org.hl7.fhir.ContactPointUseList;
 import org.hl7.fhir.ElementDefinition;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.ElementDefinitionDiscriminator;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
-import org.hl7.fhir.ExtensionContext;
-import org.hl7.fhir.ExtensionContextList;
+import org.hl7.fhir.ExtensionContextType;
+import org.hl7.fhir.ExtensionContextTypeList;
+import org.hl7.fhir.FHIRVersion;
+import org.hl7.fhir.FHIRVersionList;
 import org.hl7.fhir.FhirFactory;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.Markdown;
+import org.hl7.fhir.Narrative;
+import org.hl7.fhir.NarrativeStatus;
+import org.hl7.fhir.NarrativeStatusList;
 import org.hl7.fhir.PublicationStatus;
 import org.hl7.fhir.PublicationStatusList;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.SlicingRules;
 import org.hl7.fhir.SlicingRulesList;
 import org.hl7.fhir.StructureDefinition;
+import org.hl7.fhir.StructureDefinitionContext;
 import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
 import org.hl7.fhir.StructureDefinitionKindList;
+import org.hl7.fhir.StructureDefinitionMapping;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeDerivationRuleList;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+import org.w3._1999.xhtml.DivType;
+import org.w3._1999.xhtml.TableType;
+import org.w3._1999.xhtml.XhtmlFactory;
 
 public class ModelExporter implements ModelConstants {
 
@@ -112,10 +133,78 @@ public class ModelExporter implements ModelConstants {
 		}
 		
 		structureDef.setId(createFhirId(id));
+		Narrative narrative = FhirFactory.eINSTANCE.createNarrative();
+		
+		NarrativeStatus narrativeStatus = FhirFactory.eINSTANCE.createNarrativeStatus();
+		narrativeStatus.setValue(NarrativeStatusList.GENERATED);
+		narrative.setStatus(narrativeStatus);
+		
+		DivType div = XhtmlFactory.eINSTANCE.createDivType();
+		
+		TableType tt = XhtmlFactory.eINSTANCE.createTableType();
+		tt.setTitle("need to change type to be like structure text in cda");
+		
+		div.getTable().add(tt);
+		
+		
+		narrative.setDiv(div);
+		
+//		narrative.
+		structureDef.setText(narrative);
 		structureDef.setUrl(createFhirUri(uri));
 		structureDef.setStatus(resourceStatus);
+		
+		Boolean exper = FhirFactory.eINSTANCE.createBoolean();
+		exper.setValue(false);
+		structureDef.setExperimental(exper);
 		structureDef.setDate(createFhirDateTimeNow());
 		structureDef.setPublisher(createFhirString(publisher));
+		
+		ContactDetail contactDetail = FhirFactory.eINSTANCE.createContactDetail();
+		ContactPoint contactPoint = FhirFactory.eINSTANCE.createContactPoint();
+		ContactPointUse use = FhirFactory.eINSTANCE.createContactPointUse();;
+		 
+		use.setValue(ContactPointUseList.WORK);
+		contactPoint.setUse(use);
+		contactPoint.setValue(createFhirString("URL"));
+		ContactPointSystem cps = FhirFactory.eINSTANCE.createContactPointSystem();
+ 
+		cps.setValue(ContactPointSystemList.URL);
+		contactPoint.setSystem(cps);
+		contactDetail.getTelecom().add(contactPoint );
+		
+		
+		structureDef.getContact().add(contactDetail);
+		
+		/*
+		 * <coding>
+			<system value="urn:iso:std:iso:3166"></system>
+			<code value="US"></code>
+			<display value="United States of America"></display>
+		</coding>
+		 */
+		CodeableConcept cc = FhirFactory.eINSTANCE.createCodeableConcept();
+		Coding coding = FhirFactory.eINSTANCE.createCoding();
+		Code code = FhirFactory.eINSTANCE.createCode();
+		code.setValue("US");
+		
+		coding.setCode(code);
+		 
+		coding.setDisplay(createFhirString("United States of America"));
+		coding.setSystem(createFhirUri("urn:iso:std:iso:3166"));
+		
+		cc.getCoding().add(coding);
+		
+		structureDef.getJurisdiction().add(cc);
+		
+		
+		FHIRVersion version = FhirFactory.eINSTANCE.createFHIRVersion();
+		 
+		version.setValue(FHIRVersionList._400);
+		structureDef.setFhirVersion(version);
+		
+		StructureDefinitionMapping sdm  = FhirFactory.eINSTANCE.createStructureDefinitionMapping();
+		structureDef.getMapping().add(sdm);
 
 		if (structureDefStereotype.getName() != null) {
 			structureDef.setName(createFhirString(structureDefStereotype.getName()));
@@ -127,7 +216,10 @@ public class ModelExporter implements ModelConstants {
 		for (Classifier parent : umlClass.getGenerals()) {
 			Uri baseUri = getStructureDefinitionUri(parent);
 			if (baseUri != null) {
-				structureDef.setBaseDefinition(baseUri);
+				Canonical canonical = FhirFactory.eINSTANCE.createCanonical();
+				canonical.setValue(baseUri.toString());
+				structureDef.setBaseDefinition(canonical);
+			 
 				break;
 				// TODO throw error if > 1 generalization
 			}
@@ -138,7 +230,11 @@ public class ModelExporter implements ModelConstants {
 		//		Exclude self from search for core base type?
 		Classifier baseType = getCoreBaseType(umlClass);
 		if (!umlClass.equals(baseType)) {
-			structureDef.setType(createFhirCode(baseType.getName()));
+Uri foo = FhirFactory.eINSTANCE.createUri();
+foo.setValue(baseType.getName());
+			//			structureDef.sett
+			//createFhirCode(baseType.getName())
+			structureDef.setType(foo);
 		}
 		
 		// Set 'kind'
@@ -173,13 +269,25 @@ public class ModelExporter implements ModelConstants {
 		// Add 'contextType' and 'context'
 		if (modelIndexer.isExtension(umlClass)) {
 			if (structureDefStereotype.getContextType() != null) {
-				ExtensionContext contextType = FhirFactory.eINSTANCE.createExtensionContext();
-				contextType.setValue(ExtensionContextList.get(structureDefStereotype.getContextType()));
-				structureDef.setContextType(contextType);
+Object contextType;
+				StructureDefinitionContext foobar = FhirFactory.eINSTANCE.createStructureDefinitionContext();
+				ExtensionContextType barfoo = FhirFactory.eINSTANCE.createExtensionContextType();
+				ExtensionContextTypeList foofoo;
+				barfoo.setValue(ExtensionContextTypeList.get(structureDefStereotype.getContextType()));
+				foobar.setType(barfoo);
+			
+				for (String context : structureDefStereotype.getContexts()) {
+					foobar.setExpression(createFhirString(context));
+				}
+				
+				
+				//				ExtensionContext contextType = FhirFactory.eINSTANCE.createExtensionContext();
+//				contextType.setValue(ExtensionContextList.get(structureDefStereotype.getContextType()));
+				structureDef.getContext().add(foobar );
 			}
-			for (String context : structureDefStereotype.getContexts()) {
-				structureDef.getContext().add(createFhirString(context));
-			}
+//			for (String context : structureDefStereotype.getContexts()) {
+//				structureDef.getContext().add(createFhirString(context));
+//			}
 			
 			//TODO can I infer contextType and/or context from model structure, if not defined in stereotype?
 		}
@@ -192,6 +300,9 @@ public class ModelExporter implements ModelConstants {
 		if (requirements != null) {
 			structureDef.setPurpose(createMarkdown(requirements));
 		}
+		
+		
+		FhirFactory.eINSTANCE.createStructureDefinitionSnapshot();
 		
 		// Add differential ElementDefinitions
 		StructureDefinitionDifferential differential = FhirFactory.eINSTANCE.createStructureDefinitionDifferential();
@@ -506,7 +617,9 @@ public class ModelExporter implements ModelConstants {
 			org.eclipse.mdht.uml.fhir.StructureDefinition structureDefStereotype = FhirModelUtil.getStructureDefinition(type);
 			if (structureDefStereotype != null) {
 				//TODO if target is a reference, setTargetProfile()
-				elementDefType.setProfile(createFhirUri(structureDefStereotype.getUri()));
+				
+			 
+				elementDefType.setCode(createFhirUri(structureDefStereotype.getUri()));
 			}
 		}
 		return elementDefType;
@@ -601,13 +714,19 @@ public class ModelExporter implements ModelConstants {
 			}
 			
 			if (bindingStereotype.getValueSetReference() != null) {
-				Reference reference = FhirFactory.eINSTANCE.createReference();
-				reference.setReference(createFhirString(bindingStereotype.getValueSetReference().getUri()));
-				binding.setValueSetReference(reference);
+Canonical canonical = FhirFactory.eINSTANCE.createCanonical();
+canonical.setValue(bindingStereotype.getValueSetReference().getUri());
+				//				Reference reference = FhirFactory.eINSTANCE.createReference();
+//				reference.setReference(createFhirString(bindingStereotype.getValueSetReference().getUri()));
+				binding.setValueSet(canonical);
 			}
 			
 			if (bindingStereotype.getValueSetUri() != null) {
-				binding.setValueSetUri(createFhirUri(bindingStereotype.getValueSetUri()));
+				
+				Canonical canonical = FhirFactory.eINSTANCE.createCanonical();
+				canonical.setValue(bindingStereotype.getValueSetUri());
+
+				binding.setValueSet(canonical);
 			}
 
 			if (bindingStereotype.getDescription() != null) {

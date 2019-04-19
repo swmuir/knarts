@@ -37,7 +37,6 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getInsurer <em>Insurer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getProvider <em>Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getCandidate <em>Candidate</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentRequestImpl#getCoverage <em>Coverage</em>}</li>
  * </ul>
@@ -94,16 +93,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * @ordered
 	 */
 	protected Reference provider;
-
-	/**
-	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOrganization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference organization;
 
 	/**
 	 * The cached value of the '{@link #getCandidate() <em>Candidate</em>}' containment reference.
@@ -333,49 +322,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOrganization() {
-		return organization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOrganization(Reference newOrganization, NotificationChain msgs) {
-		Reference oldOrganization = organization;
-		organization = newOrganization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION, oldOrganization, newOrganization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOrganization(Reference newOrganization) {
-		if (newOrganization != organization) {
-			NotificationChain msgs = null;
-			if (organization != null)
-				msgs = ((InternalEObject)organization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION, null, msgs);
-			if (newOrganization != null)
-				msgs = ((InternalEObject)newOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION, null, msgs);
-			msgs = basicSetOrganization(newOrganization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION, newOrganization, newOrganization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Reference getCandidate() {
 		return candidate;
 	}
@@ -475,8 +421,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return basicSetInsurer(null, msgs);
 			case FhirPackage.ENROLLMENT_REQUEST__PROVIDER:
 				return basicSetProvider(null, msgs);
-			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
-				return basicSetOrganization(null, msgs);
 			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
 				return basicSetCandidate(null, msgs);
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
@@ -503,8 +447,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return getInsurer();
 			case FhirPackage.ENROLLMENT_REQUEST__PROVIDER:
 				return getProvider();
-			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
-				return getOrganization();
 			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
 				return getCandidate();
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:
@@ -537,9 +479,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__PROVIDER:
 				setProvider((Reference)newValue);
-				return;
-			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
-				setOrganization((Reference)newValue);
 				return;
 			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
 				setCandidate((Reference)newValue);
@@ -574,9 +513,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 			case FhirPackage.ENROLLMENT_REQUEST__PROVIDER:
 				setProvider((Reference)null);
 				return;
-			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
-				setOrganization((Reference)null);
-				return;
 			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
 				setCandidate((Reference)null);
 				return;
@@ -605,8 +541,6 @@ public class EnrollmentRequestImpl extends DomainResourceImpl implements Enrollm
 				return insurer != null;
 			case FhirPackage.ENROLLMENT_REQUEST__PROVIDER:
 				return provider != null;
-			case FhirPackage.ENROLLMENT_REQUEST__ORGANIZATION:
-				return organization != null;
 			case FhirPackage.ENROLLMENT_REQUEST__CANDIDATE:
 				return candidate != null;
 			case FhirPackage.ENROLLMENT_REQUEST__COVERAGE:

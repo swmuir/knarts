@@ -22,7 +22,8 @@ import org.hl7.fhir.MedicationRequestSubstitution;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.impl.MedicationRequestSubstitutionImpl#getAllowed <em>Allowed</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestSubstitutionImpl#getAllowedBoolean <em>Allowed Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicationRequestSubstitutionImpl#getAllowedCodeableConcept <em>Allowed Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicationRequestSubstitutionImpl#getReason <em>Reason</em>}</li>
  * </ul>
  *
@@ -30,14 +31,24 @@ import org.hl7.fhir.MedicationRequestSubstitution;
  */
 public class MedicationRequestSubstitutionImpl extends BackboneElementImpl implements MedicationRequestSubstitution {
 	/**
-	 * The cached value of the '{@link #getAllowed() <em>Allowed</em>}' containment reference.
+	 * The cached value of the '{@link #getAllowedBoolean() <em>Allowed Boolean</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAllowed()
+	 * @see #getAllowedBoolean()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean allowed;
+	protected org.hl7.fhir.Boolean allowedBoolean;
+
+	/**
+	 * The cached value of the '{@link #getAllowedCodeableConcept() <em>Allowed Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllowedCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept allowedCodeableConcept;
 
 	/**
 	 * The cached value of the '{@link #getReason() <em>Reason</em>}' containment reference.
@@ -73,8 +84,8 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getAllowed() {
-		return allowed;
+	public org.hl7.fhir.Boolean getAllowedBoolean() {
+		return allowedBoolean;
 	}
 
 	/**
@@ -82,11 +93,11 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAllowed(org.hl7.fhir.Boolean newAllowed, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldAllowed = allowed;
-		allowed = newAllowed;
+	public NotificationChain basicSetAllowedBoolean(org.hl7.fhir.Boolean newAllowedBoolean, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldAllowedBoolean = allowedBoolean;
+		allowedBoolean = newAllowedBoolean;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED, oldAllowed, newAllowed);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN, oldAllowedBoolean, newAllowedBoolean);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -97,18 +108,61 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAllowed(org.hl7.fhir.Boolean newAllowed) {
-		if (newAllowed != allowed) {
+	public void setAllowedBoolean(org.hl7.fhir.Boolean newAllowedBoolean) {
+		if (newAllowedBoolean != allowedBoolean) {
 			NotificationChain msgs = null;
-			if (allowed != null)
-				msgs = ((InternalEObject)allowed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED, null, msgs);
-			if (newAllowed != null)
-				msgs = ((InternalEObject)newAllowed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED, null, msgs);
-			msgs = basicSetAllowed(newAllowed, msgs);
+			if (allowedBoolean != null)
+				msgs = ((InternalEObject)allowedBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN, null, msgs);
+			if (newAllowedBoolean != null)
+				msgs = ((InternalEObject)newAllowedBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN, null, msgs);
+			msgs = basicSetAllowedBoolean(newAllowedBoolean, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED, newAllowed, newAllowed));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN, newAllowedBoolean, newAllowedBoolean));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getAllowedCodeableConcept() {
+		return allowedCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAllowedCodeableConcept(CodeableConcept newAllowedCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldAllowedCodeableConcept = allowedCodeableConcept;
+		allowedCodeableConcept = newAllowedCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT, oldAllowedCodeableConcept, newAllowedCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAllowedCodeableConcept(CodeableConcept newAllowedCodeableConcept) {
+		if (newAllowedCodeableConcept != allowedCodeableConcept) {
+			NotificationChain msgs = null;
+			if (allowedCodeableConcept != null)
+				msgs = ((InternalEObject)allowedCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT, null, msgs);
+			if (newAllowedCodeableConcept != null)
+				msgs = ((InternalEObject)newAllowedCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetAllowedCodeableConcept(newAllowedCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT, newAllowedCodeableConcept, newAllowedCodeableConcept));
 	}
 
 	/**
@@ -162,8 +216,10 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED:
-				return basicSetAllowed(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN:
+				return basicSetAllowedBoolean(null, msgs);
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT:
+				return basicSetAllowedCodeableConcept(null, msgs);
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__REASON:
 				return basicSetReason(null, msgs);
 		}
@@ -178,8 +234,10 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED:
-				return getAllowed();
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN:
+				return getAllowedBoolean();
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT:
+				return getAllowedCodeableConcept();
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__REASON:
 				return getReason();
 		}
@@ -194,8 +252,11 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED:
-				setAllowed((org.hl7.fhir.Boolean)newValue);
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN:
+				setAllowedBoolean((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT:
+				setAllowedCodeableConcept((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__REASON:
 				setReason((CodeableConcept)newValue);
@@ -212,8 +273,11 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED:
-				setAllowed((org.hl7.fhir.Boolean)null);
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN:
+				setAllowedBoolean((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT:
+				setAllowedCodeableConcept((CodeableConcept)null);
 				return;
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__REASON:
 				setReason((CodeableConcept)null);
@@ -230,8 +294,10 @@ public class MedicationRequestSubstitutionImpl extends BackboneElementImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED:
-				return allowed != null;
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_BOOLEAN:
+				return allowedBoolean != null;
+			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__ALLOWED_CODEABLE_CONCEPT:
+				return allowedCodeableConcept != null;
 			case FhirPackage.MEDICATION_REQUEST_SUBSTITUTION__REASON:
 				return reason != null;
 		}

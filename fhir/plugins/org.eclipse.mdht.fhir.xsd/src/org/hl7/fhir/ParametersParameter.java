@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
+ * This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ParametersParameter#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueBase64Binary <em>Value Base64 Binary</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueBoolean <em>Value Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueCanonical <em>Value Canonical</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueCode <em>Value Code</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDate <em>Value Date</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDateTime <em>Value Date Time</em>}</li>
@@ -34,6 +35,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueTime <em>Value Time</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueUnsignedInt <em>Value Unsigned Int</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueUri <em>Value Uri</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueUrl <em>Value Url</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueUuid <em>Value Uuid</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueAddress <em>Value Address</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueAge <em>Value Age</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueAnnotation <em>Value Annotation</em>}</li>
@@ -55,15 +58,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueSampledData <em>Value Sampled Data</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueSignature <em>Value Signature</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueTiming <em>Value Timing</em>}</li>
- *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDosage <em>Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueContactDetail <em>Value Contact Detail</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueContributor <em>Value Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDataRequirement <em>Value Data Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueParameterDefinition <em>Value Parameter Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueRelatedArtifact <em>Value Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueTriggerDefinition <em>Value Trigger Definition</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getValueUsageContext <em>Value Usage Context</em>}</li>
- *   <li>{@link org.hl7.fhir.ParametersParameter#getValueMeta <em>Value Meta</em>}</li>
+ *   <li>{@link org.hl7.fhir.ParametersParameter#getValueDosage <em>Value Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ParametersParameter#getPart <em>Part</em>}</li>
  * </ul>
@@ -152,6 +155,33 @@ public interface ParametersParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Canonical</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Canonical</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #setValueCanonical(Canonical)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueCanonical()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueCanonical' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Canonical getValueCanonical();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueCanonical <em>Value Canonical</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Canonical</em>' containment reference.
+	 * @see #getValueCanonical()
+	 * @generated
+	 */
+	void setValueCanonical(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Code</b></em>' containment reference.
@@ -530,6 +560,60 @@ public interface ParametersParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueUri(Uri value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Url</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Url</em>' containment reference.
+	 * @see #setValueUrl(Url)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueUrl()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUrl' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Url getValueUrl();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueUrl <em>Value Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Url</em>' containment reference.
+	 * @see #getValueUrl()
+	 * @generated
+	 */
+	void setValueUrl(Url value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Uuid</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Uuid</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #setValueUuid(Uuid)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueUuid()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueUuid' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uuid getValueUuid();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueUuid <em>Value Uuid</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Uuid</em>' containment reference.
+	 * @see #getValueUuid()
+	 * @generated
+	 */
+	void setValueUuid(Uuid value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Address</b></em>' containment reference.
@@ -1099,33 +1183,6 @@ public interface ParametersParameter extends BackboneElement {
 	void setValueTiming(Timing value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Dosage</em>' containment reference.
-	 * @see #setValueDosage(Dosage)
-	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueDosage()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Dosage getValueDosage();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueDosage <em>Value Dosage</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
-	 * @see #getValueDosage()
-	 * @generated
-	 */
-	void setValueDosage(Dosage value);
-
-	/**
 	 * Returns the value of the '<em><b>Value Contact Detail</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1205,6 +1262,33 @@ public interface ParametersParameter extends BackboneElement {
 	 * @generated
 	 */
 	void setValueDataRequirement(DataRequirement value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Expression</em>' containment reference.
+	 * @see #setValueExpression(Expression)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueExpression()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='valueExpression' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Expression getValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueExpression <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Expression</em>' containment reference.
+	 * @see #getValueExpression()
+	 * @generated
+	 */
+	void setValueExpression(Expression value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Parameter Definition</b></em>' containment reference.
@@ -1315,31 +1399,31 @@ public interface ParametersParameter extends BackboneElement {
 	void setValueUsageContext(UsageContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Meta</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Value Dosage</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Meta</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Value Dosage</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Meta</em>' containment reference.
-	 * @see #setValueMeta(Meta)
-	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueMeta()
+	 * @return the value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #setValueDosage(Dosage)
+	 * @see org.hl7.fhir.FhirPackage#getParametersParameter_ValueDosage()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='valueMeta' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='valueDosage' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Meta getValueMeta();
+	Dosage getValueDosage();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueMeta <em>Value Meta</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ParametersParameter#getValueDosage <em>Value Dosage</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Meta</em>' containment reference.
-	 * @see #getValueMeta()
+	 * @param value the new value of the '<em>Value Dosage</em>' containment reference.
+	 * @see #getValueDosage()
 	 * @generated
 	 */
-	void setValueMeta(Meta value);
+	void setValueDosage(Dosage value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.

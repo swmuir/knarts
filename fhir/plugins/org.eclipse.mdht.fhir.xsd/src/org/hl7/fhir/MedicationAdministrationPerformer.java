@@ -30,7 +30,7 @@ public interface MedicationAdministrationPerformer extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Distinguishes the type of performer in the administration.
+	 * Distinguishes the type of involvement of the performer in the medication administration.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Function</em>' containment reference.
 	 * @see #setFunction(CodeableConcept)
@@ -56,7 +56,7 @@ public interface MedicationAdministrationPerformer extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The device, practitioner, etc. who performed the action.
+	 * Indicates who or what performed the medication administration.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actor</em>' containment reference.
 	 * @see #setActor(Reference)

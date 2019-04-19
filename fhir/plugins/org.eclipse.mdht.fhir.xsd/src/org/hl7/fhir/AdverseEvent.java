@@ -23,15 +23,17 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.AdverseEvent#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getEvent <em>Event</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSubject <em>Subject</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getDetected <em>Detected</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getRecordedDate <em>Recorded Date</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getResultingCondition <em>Resulting Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSeriousness <em>Seriousness</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getRecorder <em>Recorder</em>}</li>
- *   <li>{@link org.hl7.fhir.AdverseEvent#getEventParticipant <em>Event Participant</em>}</li>
- *   <li>{@link org.hl7.fhir.AdverseEvent#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.AdverseEvent#getContributor <em>Contributor</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSuspectEntity <em>Suspect Entity</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getSubjectMedicalHistory <em>Subject Medical History</em>}</li>
  *   <li>{@link org.hl7.fhir.AdverseEvent#getReferenceDocument <em>Reference Document</em>}</li>
@@ -48,7 +50,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+	 * Business identifiers assigned to this adverse event by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference.
 	 * @see #setIdentifier(Identifier)
@@ -142,12 +144,12 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
+	 * This subject or group impacted by the event.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Subject</em>' containment reference.
 	 * @see #setSubject(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Subject()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -162,6 +164,32 @@ public interface AdverseEvent extends DomainResource {
 	 * @generated
 	 */
 	void setSubject(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Encounter during which AdverseEvent was created or to which the creation of this record is tightly associated.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Encounter()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getEncounter();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getEncounter <em>Encounter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
+	 * @generated
+	 */
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
@@ -188,6 +216,58 @@ public interface AdverseEvent extends DomainResource {
 	 * @generated
 	 */
 	void setDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Detected</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Estimated or actual date the AdverseEvent began, in the opinion of the reporter.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Detected</em>' containment reference.
+	 * @see #setDetected(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Detected()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detected' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDetected();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getDetected <em>Detected</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detected</em>' containment reference.
+	 * @see #getDetected()
+	 * @generated
+	 */
+	void setDetected(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Recorded Date</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The date on which the existence of the AdverseEvent was first recorded.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Recorded Date</em>' containment reference.
+	 * @see #setRecordedDate(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_RecordedDate()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='recordedDate' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getRecordedDate();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getRecordedDate <em>Recorded Date</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recorded Date</em>' containment reference.
+	 * @see #getRecordedDate()
+	 * @generated
+	 */
+	void setRecordedDate(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Resulting Condition</b></em>' containment reference list.
@@ -262,7 +342,7 @@ public interface AdverseEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash might not be serious, but a mild heart problem is.
+	 * Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.seriousness - a severe rash might not be serious, but a mild heart problem is.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Severity</em>' containment reference.
 	 * @see #setSeverity(CodeableConcept)
@@ -336,56 +416,20 @@ public interface AdverseEvent extends DomainResource {
 	void setRecorder(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Event Participant</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Contributor</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Parties that may or should contribute or have contributed information to the Act. Such information includes information leading to the decision to perform the Act and how to perform the Act (e.g. consultant), information that the Act itself seeks to reveal (e.g. informant of clinical history), or information about what Act was performed (e.g. informant witness).
+	 * Parties that may or should contribute or have contributed information to the adverse event, which can consist of one or more activities.  Such information includes information leading to the decision to perform the activity and how to perform the activity (e.g. consultant), information that the activity itself seeks to reveal (e.g. informant of clinical history), or information about what activity was performed (e.g. informant witness).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Event Participant</em>' containment reference.
-	 * @see #setEventParticipant(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_EventParticipant()
+	 * @return the value of the '<em>Contributor</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Contributor()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='eventParticipant' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='contributor' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getEventParticipant();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getEventParticipant <em>Event Participant</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event Participant</em>' containment reference.
-	 * @see #getEventParticipant()
-	 * @generated
-	 */
-	void setEventParticipant(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Describes the adverse event in text.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' containment reference.
-	 * @see #setDescription(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getAdverseEvent_Description()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.AdverseEvent#getDescription <em>Description</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' containment reference.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(org.hl7.fhir.String value);
+	EList<Reference> getContributor();
 
 	/**
 	 * Returns the value of the '<em><b>Suspect Entity</b></em>' containment reference list.

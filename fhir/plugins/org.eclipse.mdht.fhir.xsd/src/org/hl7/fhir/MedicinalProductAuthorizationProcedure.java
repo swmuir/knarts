@@ -17,9 +17,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getNumber <em>Number</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDate <em>Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDatePeriod <em>Date Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDateDateTime <em>Date Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getApplication <em>Application</em>}</li>
  * </ul>
  *
@@ -29,30 +30,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MedicinalProductAuthorizationProcedure extends BackboneElement {
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Identifier for this procedure.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Number</em>' containment reference.
-	 * @see #setNumber(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorizationProcedure_Number()
+	 * @return the value of the '<em>Identifier</em>' containment reference.
+	 * @see #setIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorizationProcedure_Identifier()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='number' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getNumber();
+	Identifier getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getNumber <em>Number</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getIdentifier <em>Identifier</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' containment reference.
-	 * @see #getNumber()
+	 * @param value the new value of the '<em>Identifier</em>' containment reference.
+	 * @see #getIdentifier()
 	 * @generated
 	 */
-	void setNumber(Identifier value);
+	void setIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -81,34 +82,62 @@ public interface MedicinalProductAuthorizationProcedure extends BackboneElement 
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Date Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Date Period</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Date of procedure.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Date</em>' containment reference.
-	 * @see #setDate(Period)
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorizationProcedure_Date()
+	 * @return the value of the '<em>Date Period</em>' containment reference.
+	 * @see #setDatePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorizationProcedure_DatePeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='date' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='datePeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getDate();
+	Period getDatePeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDate <em>Date</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDatePeriod <em>Date Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' containment reference.
-	 * @see #getDate()
+	 * @param value the new value of the '<em>Date Period</em>' containment reference.
+	 * @see #getDatePeriod()
 	 * @generated
 	 */
-	void setDate(Period value);
+	void setDatePeriod(Period value);
+
+	/**
+	 * Returns the value of the '<em><b>Date Date Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Date Date Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Date Date Time</em>' containment reference.
+	 * @see #setDateDateTime(DateTime)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorizationProcedure_DateDateTime()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='dateDateTime' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	DateTime getDateDateTime();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorizationProcedure#getDateDateTime <em>Date Date Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date Date Time</em>' containment reference.
+	 * @see #getDateDateTime()
+	 * @generated
+	 */
+	void setDateDateTime(DateTime value);
 
 	/**
 	 * Returns the value of the '<em><b>Application</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MedicinalProductAuthorizationApplication}.
+	 * The list contents are of type {@link org.hl7.fhir.MedicinalProductAuthorizationProcedure}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -120,6 +149,6 @@ public interface MedicinalProductAuthorizationProcedure extends BackboneElement 
 	 *        extendedMetaData="kind='element' name='application' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<MedicinalProductAuthorizationApplication> getApplication();
+	EList<MedicinalProductAuthorizationProcedure> getApplication();
 
 } // MedicinalProductAuthorizationProcedure

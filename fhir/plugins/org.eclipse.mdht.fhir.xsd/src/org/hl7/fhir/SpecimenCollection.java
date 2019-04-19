@@ -19,9 +19,12 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollector <em>Collector</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollectedDateTime <em>Collected Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getCollectedPeriod <em>Collected Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenCollection#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getMethod <em>Method</em>}</li>
  *   <li>{@link org.hl7.fhir.SpecimenCollection#getBodySite <em>Body Site</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenCollection#getFastingStatusCodeableConcept <em>Fasting Status Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.SpecimenCollection#getFastingStatusDuration <em>Fasting Status Duration</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSpecimenCollection()
@@ -110,6 +113,32 @@ public interface SpecimenCollection extends BackboneElement {
 	void setCollectedPeriod(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Duration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The span of time over which the collection of a specimen occurred.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Duration</em>' containment reference.
+	 * @see #setDuration(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_Duration()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='duration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Duration getDuration();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getDuration <em>Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duration</em>' containment reference.
+	 * @see #getDuration()
+	 * @generated
+	 */
+	void setDuration(Duration value);
+
+	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,5 +215,59 @@ public interface SpecimenCollection extends BackboneElement {
 	 * @generated
 	 */
 	void setBodySite(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Fasting Status Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fasting Status Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fasting Status Codeable Concept</em>' containment reference.
+	 * @see #setFastingStatusCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_FastingStatusCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fastingStatusCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getFastingStatusCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getFastingStatusCodeableConcept <em>Fasting Status Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fasting Status Codeable Concept</em>' containment reference.
+	 * @see #getFastingStatusCodeableConcept()
+	 * @generated
+	 */
+	void setFastingStatusCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Fasting Status Duration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fasting Status Duration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fasting Status Duration</em>' containment reference.
+	 * @see #setFastingStatusDuration(Duration)
+	 * @see org.hl7.fhir.FhirPackage#getSpecimenCollection_FastingStatusDuration()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='fastingStatusDuration' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Duration getFastingStatusDuration();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.SpecimenCollection#getFastingStatusDuration <em>Fasting Status Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fasting Status Duration</em>' containment reference.
+	 * @see #getFastingStatusDuration()
+	 * @generated
+	 */
+	void setFastingStatusDuration(Duration value);
 
 } // SpecimenCollection

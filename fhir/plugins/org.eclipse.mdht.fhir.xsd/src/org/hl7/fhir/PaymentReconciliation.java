@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This resource provides payment details and claim references supporting a bulk payment.
+ * This resource provides the details including amount of a payment and allocates the payment items being paid.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -22,15 +22,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getPaymentIssuer <em>Payment Issuer</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getRequest <em>Request</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getRequestor <em>Requestor</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getOutcome <em>Outcome</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getDisposition <em>Disposition</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getRequestOrganization <em>Request Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getPaymentDate <em>Payment Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getPaymentAmount <em>Payment Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getPaymentIdentifier <em>Payment Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getDetail <em>Detail</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getForm <em>Form</em>}</li>
- *   <li>{@link org.hl7.fhir.PaymentReconciliation#getTotal <em>Total</em>}</li>
+ *   <li>{@link org.hl7.fhir.PaymentReconciliation#getFormCode <em>Form Code</em>}</li>
  *   <li>{@link org.hl7.fhir.PaymentReconciliation#getProcessNote <em>Process Note</em>}</li>
  * </ul>
  *
@@ -45,7 +46,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Response business identifier.
+	 * A unique identifier assigned to this payment reconciliation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Identifier()
@@ -65,7 +66,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(FinancialResourceStatusCodes)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -112,12 +113,12 @@ public interface PaymentReconciliation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date when the enclosed suite of services were performed or completed.
+	 * The date when the resource was created.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Created</em>' containment reference.
 	 * @see #setCreated(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Created()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='created' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -134,30 +135,30 @@ public interface PaymentReconciliation extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payment Issuer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The Insurer who produced this adjudicated response.
+	 * The party who generated the payment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Organization</em>' containment reference.
-	 * @see #setOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Organization()
+	 * @return the value of the '<em>Payment Issuer</em>' containment reference.
+	 * @see #setPaymentIssuer(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_PaymentIssuer()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='organization' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='paymentIssuer' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOrganization();
+	Reference getPaymentIssuer();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getOrganization <em>Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getPaymentIssuer <em>Payment Issuer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' containment reference.
-	 * @see #getOrganization()
+	 * @param value the new value of the '<em>Payment Issuer</em>' containment reference.
+	 * @see #getPaymentIssuer()
 	 * @generated
 	 */
-	void setOrganization(Reference value);
+	void setPaymentIssuer(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Request</b></em>' containment reference.
@@ -186,11 +187,37 @@ public interface PaymentReconciliation extends DomainResource {
 	void setRequest(Reference value);
 
 	/**
+	 * Returns the value of the '<em><b>Requestor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The practitioner who is responsible for the services rendered to the patient.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Requestor</em>' containment reference.
+	 * @see #setRequestor(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Requestor()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='requestor' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getRequestor();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getRequestor <em>Requestor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Requestor</em>' containment reference.
+	 * @see #getRequestor()
+	 * @generated
+	 */
+	void setRequestor(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Outcome</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Transaction status: error, complete.
+	 * The outcome of a request for a reconciliation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Outcome</em>' containment reference.
 	 * @see #setOutcome(RemittanceOutcome)
@@ -216,7 +243,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A description of the status of the adjudication.
+	 * A human readable description of the status of the request for the reconciliation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Disposition</em>' containment reference.
 	 * @see #setDisposition(org.hl7.fhir.String)
@@ -238,56 +265,82 @@ public interface PaymentReconciliation extends DomainResource {
 	void setDisposition(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Request Provider</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payment Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The practitioner who is responsible for the services rendered to the patient.
+	 * The date of payment as indicated on the financial instrument.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request Provider</em>' containment reference.
-	 * @see #setRequestProvider(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_RequestProvider()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestProvider' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Payment Date</em>' containment reference.
+	 * @see #setPaymentDate(Date)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_PaymentDate()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='paymentDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequestProvider();
+	Date getPaymentDate();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getRequestProvider <em>Request Provider</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getPaymentDate <em>Payment Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Provider</em>' containment reference.
-	 * @see #getRequestProvider()
+	 * @param value the new value of the '<em>Payment Date</em>' containment reference.
+	 * @see #getPaymentDate()
 	 * @generated
 	 */
-	void setRequestProvider(Reference value);
+	void setPaymentDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Request Organization</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Payment Amount</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization which is responsible for the services rendered to the patient.
+	 * Total payment amount as indicated on the financial instrument.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Request Organization</em>' containment reference.
-	 * @see #setRequestOrganization(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_RequestOrganization()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='requestOrganization' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Payment Amount</em>' containment reference.
+	 * @see #setPaymentAmount(Money)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_PaymentAmount()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='paymentAmount' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getRequestOrganization();
+	Money getPaymentAmount();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getRequestOrganization <em>Request Organization</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getPaymentAmount <em>Payment Amount</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Organization</em>' containment reference.
-	 * @see #getRequestOrganization()
+	 * @param value the new value of the '<em>Payment Amount</em>' containment reference.
+	 * @see #getPaymentAmount()
 	 * @generated
 	 */
-	void setRequestOrganization(Reference value);
+	void setPaymentAmount(Money value);
+
+	/**
+	 * Returns the value of the '<em><b>Payment Identifier</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Issuer's unique identifier for the payment instrument.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Payment Identifier</em>' containment reference.
+	 * @see #setPaymentIdentifier(Identifier)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_PaymentIdentifier()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='paymentIdentifier' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Identifier getPaymentIdentifier();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getPaymentIdentifier <em>Payment Identifier</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payment Identifier</em>' containment reference.
+	 * @see #getPaymentIdentifier()
+	 * @generated
+	 */
+	void setPaymentIdentifier(Identifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Detail</b></em>' containment reference list.
@@ -295,7 +348,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * List of individual settlement amounts and the corresponding transaction.
+	 * Distribution of the payment amount for a previously acknowledged payable.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Detail</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Detail()
@@ -306,56 +359,30 @@ public interface PaymentReconciliation extends DomainResource {
 	EList<PaymentReconciliationDetail> getDetail();
 
 	/**
-	 * Returns the value of the '<em><b>Form</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Form Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The form to be used for printing the content.
+	 * A code for the form to be used for printing the content.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Form</em>' containment reference.
-	 * @see #setForm(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Form()
+	 * @return the value of the '<em>Form Code</em>' containment reference.
+	 * @see #setFormCode(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_FormCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='form' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='formCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getForm();
+	CodeableConcept getFormCode();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getForm <em>Form</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getFormCode <em>Form Code</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Form</em>' containment reference.
-	 * @see #getForm()
+	 * @param value the new value of the '<em>Form Code</em>' containment reference.
+	 * @see #getFormCode()
 	 * @generated
 	 */
-	void setForm(CodeableConcept value);
-
-	/**
-	 * Returns the value of the '<em><b>Total</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Total payment amount.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Total</em>' containment reference.
-	 * @see #setTotal(Money)
-	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_Total()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='total' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Money getTotal();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.PaymentReconciliation#getTotal <em>Total</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Total</em>' containment reference.
-	 * @see #getTotal()
-	 * @generated
-	 */
-	void setTotal(Money value);
+	void setFormCode(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Process Note</b></em>' containment reference list.
@@ -363,7 +390,7 @@ public interface PaymentReconciliation extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Suite of notes.
+	 * A note that describes or explains the processing in a human readable form.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Process Note</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getPaymentReconciliation_ProcessNote()

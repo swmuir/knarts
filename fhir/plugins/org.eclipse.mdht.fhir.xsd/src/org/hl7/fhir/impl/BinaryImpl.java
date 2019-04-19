@@ -26,7 +26,7 @@ import org.hl7.fhir.Reference;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getContentType <em>Content Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getSecurityContext <em>Security Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.BinaryImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,14 +53,14 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	protected Reference securityContext;
 
 	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContent()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected Base64Binary content;
+	protected Base64Binary data;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,8 +172,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Base64Binary getContent() {
-		return content;
+	public Base64Binary getData() {
+		return data;
 	}
 
 	/**
@@ -181,11 +181,11 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContent(Base64Binary newContent, NotificationChain msgs) {
-		Base64Binary oldContent = content;
-		content = newContent;
+	public NotificationChain basicSetData(Base64Binary newData, NotificationChain msgs) {
+		Base64Binary oldData = data;
+		data = newData;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__CONTENT, oldContent, newContent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__DATA, oldData, newData);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -196,18 +196,18 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContent(Base64Binary newContent) {
-		if (newContent != content) {
+	public void setData(Base64Binary newData) {
+		if (newData != data) {
 			NotificationChain msgs = null;
-			if (content != null)
-				msgs = ((InternalEObject)content).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__CONTENT, null, msgs);
-			if (newContent != null)
-				msgs = ((InternalEObject)newContent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__CONTENT, null, msgs);
-			msgs = basicSetContent(newContent, msgs);
+			if (data != null)
+				msgs = ((InternalEObject)data).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__DATA, null, msgs);
+			if (newData != null)
+				msgs = ((InternalEObject)newData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.BINARY__DATA, null, msgs);
+			msgs = basicSetData(newData, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__CONTENT, newContent, newContent));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.BINARY__DATA, newData, newData));
 	}
 
 	/**
@@ -222,8 +222,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 				return basicSetContentType(null, msgs);
 			case FhirPackage.BINARY__SECURITY_CONTEXT:
 				return basicSetSecurityContext(null, msgs);
-			case FhirPackage.BINARY__CONTENT:
-				return basicSetContent(null, msgs);
+			case FhirPackage.BINARY__DATA:
+				return basicSetData(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -240,8 +240,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 				return getContentType();
 			case FhirPackage.BINARY__SECURITY_CONTEXT:
 				return getSecurityContext();
-			case FhirPackage.BINARY__CONTENT:
-				return getContent();
+			case FhirPackage.BINARY__DATA:
+				return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,8 +260,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 			case FhirPackage.BINARY__SECURITY_CONTEXT:
 				setSecurityContext((Reference)newValue);
 				return;
-			case FhirPackage.BINARY__CONTENT:
-				setContent((Base64Binary)newValue);
+			case FhirPackage.BINARY__DATA:
+				setData((Base64Binary)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,8 +281,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 			case FhirPackage.BINARY__SECURITY_CONTEXT:
 				setSecurityContext((Reference)null);
 				return;
-			case FhirPackage.BINARY__CONTENT:
-				setContent((Base64Binary)null);
+			case FhirPackage.BINARY__DATA:
+				setData((Base64Binary)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,8 +300,8 @@ public class BinaryImpl extends ResourceImpl implements Binary {
 				return contentType != null;
 			case FhirPackage.BINARY__SECURITY_CONTEXT:
 				return securityContext != null;
-			case FhirPackage.BINARY__CONTENT:
-				return content != null;
+			case FhirPackage.BINARY__DATA:
+				return data != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -19,10 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.hl7.fhir.ProvenanceAgent#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ProvenanceAgent#getRole <em>Role</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWhoIdentifier <em>Who Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWhoReference <em>Who Reference</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfIdentifier <em>On Behalf Of Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfReference <em>On Behalf Of Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceAgent#getWho <em>Who</em>}</li>
+ *   <li>{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOf <em>On Behalf Of</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getProvenanceAgent()
@@ -73,111 +71,55 @@ public interface ProvenanceAgent extends BackboneElement {
 	EList<CodeableConcept> getRole();
 
 	/**
-	 * Returns the value of the '<em><b>Who Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Who</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Who Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Who Identifier</em>' containment reference.
-	 * @see #setWhoIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_WhoIdentifier()
+	 * <!-- begin-model-doc -->
+	 * The individual, device or organization that participated in the event.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Who</em>' containment reference.
+	 * @see #setWho(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_Who()
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='who' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getWho();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getWho <em>Who</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Who</em>' containment reference.
+	 * @see #getWho()
+	 * @generated
+	 */
+	void setWho(Reference value);
+
+	/**
+	 * Returns the value of the '<em><b>On Behalf Of</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The individual, device, or organization for whom the change was made.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #setOnBehalfOf(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_OnBehalfOf()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='whoIdentifier' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='onBehalfOf' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getWhoIdentifier();
+	Reference getOnBehalfOf();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getWhoIdentifier <em>Who Identifier</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOf <em>On Behalf Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Who Identifier</em>' containment reference.
-	 * @see #getWhoIdentifier()
+	 * @param value the new value of the '<em>On Behalf Of</em>' containment reference.
+	 * @see #getOnBehalfOf()
 	 * @generated
 	 */
-	void setWhoIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Who Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Who Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Who Reference</em>' containment reference.
-	 * @see #setWhoReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_WhoReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='whoReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getWhoReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getWhoReference <em>Who Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Who Reference</em>' containment reference.
-	 * @see #getWhoReference()
-	 * @generated
-	 */
-	void setWhoReference(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>On Behalf Of Identifier</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>On Behalf Of Identifier</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Behalf Of Identifier</em>' containment reference.
-	 * @see #setOnBehalfOfIdentifier(Identifier)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_OnBehalfOfIdentifier()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onBehalfOfIdentifier' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Identifier getOnBehalfOfIdentifier();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfIdentifier <em>On Behalf Of Identifier</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Behalf Of Identifier</em>' containment reference.
-	 * @see #getOnBehalfOfIdentifier()
-	 * @generated
-	 */
-	void setOnBehalfOfIdentifier(Identifier value);
-
-	/**
-	 * Returns the value of the '<em><b>On Behalf Of Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>On Behalf Of Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Behalf Of Reference</em>' containment reference.
-	 * @see #setOnBehalfOfReference(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getProvenanceAgent_OnBehalfOfReference()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='onBehalfOfReference' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Reference getOnBehalfOfReference();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ProvenanceAgent#getOnBehalfOfReference <em>On Behalf Of Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Behalf Of Reference</em>' containment reference.
-	 * @see #getOnBehalfOfReference()
-	 * @generated
-	 */
-	void setOnBehalfOfReference(Reference value);
+	void setOnBehalfOf(Reference value);
 
 } // ProvenanceAgent

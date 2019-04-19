@@ -28,12 +28,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Encounter#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getEpisodeOfCare <em>Episode Of Care</em>}</li>
- *   <li>{@link org.hl7.fhir.Encounter#getIncomingReferral <em>Incoming Referral</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getAppointment <em>Appointment</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getLength <em>Length</em>}</li>
- *   <li>{@link org.hl7.fhir.Encounter#getReason <em>Reason</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getReasonCode <em>Reason Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.Encounter#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getDiagnosis <em>Diagnosis</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getAccount <em>Account</em>}</li>
  *   <li>{@link org.hl7.fhir.Encounter#getHospitalization <em>Hospitalization</em>}</li>
@@ -110,12 +111,12 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * inpatient | outpatient | ambulatory | emergency +.
+	 * Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class</em>' containment reference.
 	 * @see #setClass(Coding)
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_Class()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='class' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -137,9 +138,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The class history permits the tracking of the encounters transitions without needing to go  through the resource history.
-	 * 
-	 * This would be used for a case where an admission starts of as an emergency encounter, then transisions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kindof discharge from emergency to inpatient.
+	 * The class history permits the tracking of the encounters transitions without needing to go  through the resource history.  This would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Class History</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_ClassHistory()
@@ -249,7 +248,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).
+	 * Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Episode Of Care</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_EpisodeOfCare()
@@ -260,20 +259,20 @@ public interface Encounter extends DomainResource {
 	EList<Reference> getEpisodeOfCare();
 
 	/**
-	 * Returns the value of the '<em><b>Incoming Referral</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Based On</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The referral request this encounter satisfies (incoming referral).
+	 * The request this encounter satisfies (e.g. incoming referral or procedure request).
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Incoming Referral</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounter_IncomingReferral()
+	 * @return the value of the '<em>Based On</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_BasedOn()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='incomingReferral' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='basedOn' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getIncomingReferral();
+	EList<Reference> getBasedOn();
 
 	/**
 	 * Returns the value of the '<em><b>Participant</b></em>' containment reference list.
@@ -281,7 +280,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The list of people responsible for providing the service.
+	 * The list of people responsible for providing the service.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Participant</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_Participant()
@@ -292,30 +291,20 @@ public interface Encounter extends DomainResource {
 	EList<EncounterParticipant> getParticipant();
 
 	/**
-	 * Returns the value of the '<em><b>Appointment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Appointment</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The appointment that scheduled this encounter.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Appointment</em>' containment reference.
-	 * @see #setAppointment(Reference)
+	 * @return the value of the '<em>Appointment</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getEncounter_Appointment()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='appointment' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getAppointment();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Encounter#getAppointment <em>Appointment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Appointment</em>' containment reference.
-	 * @see #getAppointment()
-	 * @generated
-	 */
-	void setAppointment(Reference value);
+	EList<Reference> getAppointment();
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
@@ -370,20 +359,36 @@ public interface Encounter extends DomainResource {
 	void setLength(Duration value);
 
 	/**
-	 * Returns the value of the '<em><b>Reason</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Reason Code</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getEncounter_Reason()
+	 * @return the value of the '<em>Reason Code</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_ReasonCode()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='reason' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='reasonCode' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getReason();
+	EList<CodeableConcept> getReasonCode();
+
+	/**
+	 * Returns the value of the '<em><b>Reason Reference</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Reason Reference</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getEncounter_ReasonReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='reasonReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Reference> getReasonReference();
 
 	/**
 	 * Returns the value of the '<em><b>Diagnosis</b></em>' containment reference list.
@@ -464,9 +469,7 @@ public interface Encounter extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.
-	 * 
-	 * Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
+	 * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service Provider</em>' containment reference.
 	 * @see #setServiceProvider(Reference)

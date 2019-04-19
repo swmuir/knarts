@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,8 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getHierarchical <em>Hierarchical</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getPaging <em>Paging</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getIncomplete <em>Incomplete</em>}</li>
- *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getDefinition <em>Definition</em>}</li>
- *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getTextFilter <em>Text Filter</em>}</li>
  * </ul>
  *
@@ -109,46 +108,20 @@ public interface TerminologyCapabilitiesExpansion extends BackboneElement {
 	void setIncomplete(org.hl7.fhir.Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.TerminologyCapabilitiesParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Supported fields on ExpansionProfile.
+	 * Supported expansion parameter.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesExpansion_Definition()
+	 * @return the value of the '<em>Parameter</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesExpansion_Parameter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='parameter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinition();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.TerminologyCapabilitiesExpansion#getDefinition <em>Definition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' containment reference.
-	 * @see #getDefinition()
-	 * @generated
-	 */
-	void setDefinition(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Profile</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Supported expansion profiles.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Profile</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getTerminologyCapabilitiesExpansion_Profile()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<Reference> getProfile();
+	EList<TerminologyCapabilitiesParameter> getParameter();
 
 	/**
 	 * Returns the value of the '<em><b>Text Filter</b></em>' containment reference.

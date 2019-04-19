@@ -41,7 +41,6 @@ import org.hl7.fhir.RemittanceOutcome;
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getRequestProvider <em>Request Provider</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.EnrollmentResponseImpl#getRequestOrganization <em>Request Organization</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,16 +125,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * @ordered
 	 */
 	protected Reference requestProvider;
-
-	/**
-	 * The cached value of the '{@link #getRequestOrganization() <em>Request Organization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequestOrganization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference requestOrganization;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -474,49 +463,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getRequestOrganization() {
-		return requestOrganization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRequestOrganization(Reference newRequestOrganization, NotificationChain msgs) {
-		Reference oldRequestOrganization = requestOrganization;
-		requestOrganization = newRequestOrganization;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION, oldRequestOrganization, newRequestOrganization);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequestOrganization(Reference newRequestOrganization) {
-		if (newRequestOrganization != requestOrganization) {
-			NotificationChain msgs = null;
-			if (requestOrganization != null)
-				msgs = ((InternalEObject)requestOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
-			if (newRequestOrganization != null)
-				msgs = ((InternalEObject)newRequestOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION, null, msgs);
-			msgs = basicSetRequestOrganization(newRequestOrganization, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION, newRequestOrganization, newRequestOrganization));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -536,8 +482,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				return basicSetOrganization(null, msgs);
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_PROVIDER:
 				return basicSetRequestProvider(null, msgs);
-			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION:
-				return basicSetRequestOrganization(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -566,8 +510,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				return getOrganization();
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_PROVIDER:
 				return getRequestProvider();
-			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION:
-				return getRequestOrganization();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -606,9 +548,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_PROVIDER:
 				setRequestProvider((Reference)newValue);
 				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -645,9 +584,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_PROVIDER:
 				setRequestProvider((Reference)null);
 				return;
-			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION:
-				setRequestOrganization((Reference)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -676,8 +612,6 @@ public class EnrollmentResponseImpl extends DomainResourceImpl implements Enroll
 				return organization != null;
 			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_PROVIDER:
 				return requestProvider != null;
-			case FhirPackage.ENROLLMENT_RESPONSE__REQUEST_ORGANIZATION:
-				return requestOrganization != null;
 		}
 		return super.eIsSet(featureID);
 	}

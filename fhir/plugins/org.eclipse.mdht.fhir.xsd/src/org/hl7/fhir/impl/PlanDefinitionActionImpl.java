@@ -23,8 +23,8 @@ import org.hl7.fhir.ActionPrecheckBehavior;
 import org.hl7.fhir.ActionRequiredBehavior;
 import org.hl7.fhir.ActionSelectionBehavior;
 import org.hl7.fhir.Age;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.Coding;
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Duration;
@@ -39,8 +39,10 @@ import org.hl7.fhir.PlanDefinitionRelatedAction;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
+import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
+import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,11 +56,14 @@ import org.hl7.fhir.TriggerDefinition;
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTextEquivalent <em>Text Equivalent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getReason <em>Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getGoalId <em>Goal Id</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTriggerDefinition <em>Trigger Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getSubjectCodeableConcept <em>Subject Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getSubjectReference <em>Subject Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getOutput <em>Output</em>}</li>
@@ -76,7 +81,8 @@ import org.hl7.fhir.TriggerDefinition;
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getRequiredBehavior <em>Required Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getPrecheckBehavior <em>Precheck Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getCardinalityBehavior <em>Cardinality Behavior</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDefinitionCanonical <em>Definition Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDefinitionUri <em>Definition Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getDynamicValue <em>Dynamic Value</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.PlanDefinitionActionImpl#getAction <em>Action</em>}</li>
@@ -126,6 +132,16 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	protected org.hl7.fhir.String textEquivalent;
 
 	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestPriority priority;
+
+	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,14 +182,34 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	protected EList<Id> goalId;
 
 	/**
-	 * The cached value of the '{@link #getTriggerDefinition() <em>Trigger Definition</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubjectCodeableConcept() <em>Subject Codeable Concept</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTriggerDefinition()
+	 * @see #getSubjectCodeableConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TriggerDefinition> triggerDefinition;
+	protected CodeableConcept subjectCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getSubjectReference() <em>Subject Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subjectReference;
+
+	/**
+	 * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTrigger()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TriggerDefinition> trigger;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
@@ -293,7 +329,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getGroupingBehavior() <em>Grouping Behavior</em>}' containment reference.
@@ -346,14 +382,24 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	protected ActionCardinalityBehavior cardinalityBehavior;
 
 	/**
-	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
+	 * The cached value of the '{@link #getDefinitionCanonical() <em>Definition Canonical</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefinition()
+	 * @see #getDefinitionCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference definition;
+	protected Canonical definitionCanonical;
+
+	/**
+	 * The cached value of the '{@link #getDefinitionUri() <em>Definition Uri</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinitionUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected Uri definitionUri;
 
 	/**
 	 * The cached value of the '{@link #getTransform() <em>Transform</em>}' containment reference.
@@ -363,7 +409,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference transform;
+	protected Canonical transform;
 
 	/**
 	 * The cached value of the '{@link #getDynamicValue() <em>Dynamic Value</em>}' containment reference list.
@@ -581,6 +627,49 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RequestPriority getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(RequestPriority newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<CodeableConcept> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.PLAN_DEFINITION_ACTION__CODE);
@@ -629,11 +718,97 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TriggerDefinition> getTriggerDefinition() {
-		if (triggerDefinition == null) {
-			triggerDefinition = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION);
+	public CodeableConcept getSubjectCodeableConcept() {
+		return subjectCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldSubjectCodeableConcept = subjectCodeableConcept;
+		subjectCodeableConcept = newSubjectCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT, oldSubjectCodeableConcept, newSubjectCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return triggerDefinition;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept) {
+		if (newSubjectCodeableConcept != subjectCodeableConcept) {
+			NotificationChain msgs = null;
+			if (subjectCodeableConcept != null)
+				msgs = ((InternalEObject)subjectCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			if (newSubjectCodeableConcept != null)
+				msgs = ((InternalEObject)newSubjectCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetSubjectCodeableConcept(newSubjectCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT, newSubjectCodeableConcept, newSubjectCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSubjectReference() {
+		return subjectReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectReference(Reference newSubjectReference, NotificationChain msgs) {
+		Reference oldSubjectReference = subjectReference;
+		subjectReference = newSubjectReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE, oldSubjectReference, newSubjectReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectReference(Reference newSubjectReference) {
+		if (newSubjectReference != subjectReference) {
+			NotificationChain msgs = null;
+			if (subjectReference != null)
+				msgs = ((InternalEObject)subjectReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE, null, msgs);
+			if (newSubjectReference != null)
+				msgs = ((InternalEObject)newSubjectReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE, null, msgs);
+			msgs = basicSetSubjectReference(newSubjectReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE, newSubjectReference, newSubjectReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TriggerDefinition> getTrigger() {
+		if (trigger == null) {
+			trigger = new EObjectContainmentEList<TriggerDefinition>(TriggerDefinition.class, this, FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER);
+		}
+		return trigger;
 	}
 
 	/**
@@ -959,7 +1134,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -968,8 +1143,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__TYPE, oldType, newType);
@@ -983,7 +1158,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -1217,8 +1392,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getDefinition() {
-		return definition;
+	public Canonical getDefinitionCanonical() {
+		return definitionCanonical;
 	}
 
 	/**
@@ -1226,11 +1401,11 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefinition(Reference newDefinition, NotificationChain msgs) {
-		Reference oldDefinition = definition;
-		definition = newDefinition;
+	public NotificationChain basicSetDefinitionCanonical(Canonical newDefinitionCanonical, NotificationChain msgs) {
+		Canonical oldDefinitionCanonical = definitionCanonical;
+		definitionCanonical = newDefinitionCanonical;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION, oldDefinition, newDefinition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL, oldDefinitionCanonical, newDefinitionCanonical);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1241,18 +1416,18 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(Reference newDefinition) {
-		if (newDefinition != definition) {
+	public void setDefinitionCanonical(Canonical newDefinitionCanonical) {
+		if (newDefinitionCanonical != definitionCanonical) {
 			NotificationChain msgs = null;
-			if (definition != null)
-				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION, null, msgs);
-			if (newDefinition != null)
-				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION, null, msgs);
-			msgs = basicSetDefinition(newDefinition, msgs);
+			if (definitionCanonical != null)
+				msgs = ((InternalEObject)definitionCanonical).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL, null, msgs);
+			if (newDefinitionCanonical != null)
+				msgs = ((InternalEObject)newDefinitionCanonical).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL, null, msgs);
+			msgs = basicSetDefinitionCanonical(newDefinitionCanonical, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION, newDefinition, newDefinition));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL, newDefinitionCanonical, newDefinitionCanonical));
 	}
 
 	/**
@@ -1260,7 +1435,50 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getTransform() {
+	public Uri getDefinitionUri() {
+		return definitionUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefinitionUri(Uri newDefinitionUri, NotificationChain msgs) {
+		Uri oldDefinitionUri = definitionUri;
+		definitionUri = newDefinitionUri;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI, oldDefinitionUri, newDefinitionUri);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinitionUri(Uri newDefinitionUri) {
+		if (newDefinitionUri != definitionUri) {
+			NotificationChain msgs = null;
+			if (definitionUri != null)
+				msgs = ((InternalEObject)definitionUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI, null, msgs);
+			if (newDefinitionUri != null)
+				msgs = ((InternalEObject)newDefinitionUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI, null, msgs);
+			msgs = basicSetDefinitionUri(newDefinitionUri, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI, newDefinitionUri, newDefinitionUri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Canonical getTransform() {
 		return transform;
 	}
 
@@ -1269,8 +1487,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransform(Reference newTransform, NotificationChain msgs) {
-		Reference oldTransform = transform;
+	public NotificationChain basicSetTransform(Canonical newTransform, NotificationChain msgs) {
+		Canonical oldTransform = transform;
 		transform = newTransform;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM, oldTransform, newTransform);
@@ -1284,7 +1502,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransform(Reference newTransform) {
+	public void setTransform(Canonical newTransform) {
 		if (newTransform != transform) {
 			NotificationChain msgs = null;
 			if (transform != null)
@@ -1338,6 +1556,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return basicSetDescription(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TEXT_EQUIVALENT:
 				return basicSetTextEquivalent(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY:
+				return basicSetPriority(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__CODE:
 				return ((InternalEList<?>)getCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__REASON:
@@ -1346,8 +1566,12 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID:
 				return ((InternalEList<?>)getGoalId()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION:
-				return ((InternalEList<?>)getTriggerDefinition()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT:
+				return basicSetSubjectCodeableConcept(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE:
+				return basicSetSubjectReference(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER:
+				return ((InternalEList<?>)getTrigger()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__CONDITION:
 				return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__INPUT:
@@ -1382,8 +1606,10 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return basicSetPrecheckBehavior(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__CARDINALITY_BEHAVIOR:
 				return basicSetCardinalityBehavior(null, msgs);
-			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION:
-				return basicSetDefinition(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL:
+				return basicSetDefinitionCanonical(null, msgs);
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI:
+				return basicSetDefinitionUri(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM:
 				return basicSetTransform(null, msgs);
 			case FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE:
@@ -1410,6 +1636,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return getDescription();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TEXT_EQUIVALENT:
 				return getTextEquivalent();
+			case FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY:
+				return getPriority();
 			case FhirPackage.PLAN_DEFINITION_ACTION__CODE:
 				return getCode();
 			case FhirPackage.PLAN_DEFINITION_ACTION__REASON:
@@ -1418,8 +1646,12 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return getDocumentation();
 			case FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID:
 				return getGoalId();
-			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION:
-				return getTriggerDefinition();
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT:
+				return getSubjectCodeableConcept();
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE:
+				return getSubjectReference();
+			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER:
+				return getTrigger();
 			case FhirPackage.PLAN_DEFINITION_ACTION__CONDITION:
 				return getCondition();
 			case FhirPackage.PLAN_DEFINITION_ACTION__INPUT:
@@ -1454,8 +1686,10 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return getPrecheckBehavior();
 			case FhirPackage.PLAN_DEFINITION_ACTION__CARDINALITY_BEHAVIOR:
 				return getCardinalityBehavior();
-			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION:
-				return getDefinition();
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL:
+				return getDefinitionCanonical();
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI:
+				return getDefinitionUri();
 			case FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM:
 				return getTransform();
 			case FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE:
@@ -1487,6 +1721,9 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 			case FhirPackage.PLAN_DEFINITION_ACTION__TEXT_EQUIVALENT:
 				setTextEquivalent((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY:
+				setPriority((RequestPriority)newValue);
+				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CODE:
 				getCode().clear();
 				getCode().addAll((Collection<? extends CodeableConcept>)newValue);
@@ -1503,9 +1740,15 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				getGoalId().clear();
 				getGoalId().addAll((Collection<? extends Id>)newValue);
 				return;
-			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION:
-				getTriggerDefinition().clear();
-				getTriggerDefinition().addAll((Collection<? extends TriggerDefinition>)newValue);
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)newValue);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER:
+				getTrigger().clear();
+				getTrigger().addAll((Collection<? extends TriggerDefinition>)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CONDITION:
 				getCondition().clear();
@@ -1546,7 +1789,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				getParticipant().addAll((Collection<? extends PlanDefinitionParticipant>)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__GROUPING_BEHAVIOR:
 				setGroupingBehavior((ActionGroupingBehavior)newValue);
@@ -1563,11 +1806,14 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 			case FhirPackage.PLAN_DEFINITION_ACTION__CARDINALITY_BEHAVIOR:
 				setCardinalityBehavior((ActionCardinalityBehavior)newValue);
 				return;
-			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION:
-				setDefinition((Reference)newValue);
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL:
+				setDefinitionCanonical((Canonical)newValue);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI:
+				setDefinitionUri((Uri)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM:
-				setTransform((Reference)newValue);
+				setTransform((Canonical)newValue);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE:
 				getDynamicValue().clear();
@@ -1601,6 +1847,9 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 			case FhirPackage.PLAN_DEFINITION_ACTION__TEXT_EQUIVALENT:
 				setTextEquivalent((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY:
+				setPriority((RequestPriority)null);
+				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CODE:
 				getCode().clear();
 				return;
@@ -1613,8 +1862,14 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 			case FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID:
 				getGoalId().clear();
 				return;
-			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION:
-				getTriggerDefinition().clear();
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)null);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER:
+				getTrigger().clear();
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CONDITION:
 				getCondition().clear();
@@ -1650,7 +1905,7 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				getParticipant().clear();
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__GROUPING_BEHAVIOR:
 				setGroupingBehavior((ActionGroupingBehavior)null);
@@ -1667,11 +1922,14 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 			case FhirPackage.PLAN_DEFINITION_ACTION__CARDINALITY_BEHAVIOR:
 				setCardinalityBehavior((ActionCardinalityBehavior)null);
 				return;
-			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION:
-				setDefinition((Reference)null);
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL:
+				setDefinitionCanonical((Canonical)null);
+				return;
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI:
+				setDefinitionUri((Uri)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM:
-				setTransform((Reference)null);
+				setTransform((Canonical)null);
 				return;
 			case FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE:
 				getDynamicValue().clear();
@@ -1699,6 +1957,8 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return description != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TEXT_EQUIVALENT:
 				return textEquivalent != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__PRIORITY:
+				return priority != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CODE:
 				return code != null && !code.isEmpty();
 			case FhirPackage.PLAN_DEFINITION_ACTION__REASON:
@@ -1707,8 +1967,12 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return documentation != null && !documentation.isEmpty();
 			case FhirPackage.PLAN_DEFINITION_ACTION__GOAL_ID:
 				return goalId != null && !goalId.isEmpty();
-			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER_DEFINITION:
-				return triggerDefinition != null && !triggerDefinition.isEmpty();
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_CODEABLE_CONCEPT:
+				return subjectCodeableConcept != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__SUBJECT_REFERENCE:
+				return subjectReference != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__TRIGGER:
+				return trigger != null && !trigger.isEmpty();
 			case FhirPackage.PLAN_DEFINITION_ACTION__CONDITION:
 				return condition != null && !condition.isEmpty();
 			case FhirPackage.PLAN_DEFINITION_ACTION__INPUT:
@@ -1743,8 +2007,10 @@ public class PlanDefinitionActionImpl extends BackboneElementImpl implements Pla
 				return precheckBehavior != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__CARDINALITY_BEHAVIOR:
 				return cardinalityBehavior != null;
-			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION:
-				return definition != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_CANONICAL:
+				return definitionCanonical != null;
+			case FhirPackage.PLAN_DEFINITION_ACTION__DEFINITION_URI:
+				return definitionUri != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__TRANSFORM:
 				return transform != null;
 			case FhirPackage.PLAN_DEFINITION_ACTION__DYNAMIC_VALUE:

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementInteraction1;
 import org.hl7.fhir.CapabilityStatementOperation;
 import org.hl7.fhir.CapabilityStatementResource;
@@ -24,8 +25,8 @@ import org.hl7.fhir.CapabilityStatementRest;
 import org.hl7.fhir.CapabilityStatementSearchParam;
 import org.hl7.fhir.CapabilityStatementSecurity;
 import org.hl7.fhir.FhirPackage;
+import org.hl7.fhir.Markdown;
 import org.hl7.fhir.RestfulCapabilityMode;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +67,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String documentation;
+	protected Markdown documentation;
 
 	/**
 	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference.
@@ -126,7 +127,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> compartment;
+	protected EList<Canonical> compartment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,7 +196,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDocumentation() {
+	public Markdown getDocumentation() {
 		return documentation;
 	}
 
@@ -204,8 +205,8 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocumentation(org.hl7.fhir.String newDocumentation, NotificationChain msgs) {
-		org.hl7.fhir.String oldDocumentation = documentation;
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_REST__DOCUMENTATION, oldDocumentation, newDocumentation);
@@ -219,7 +220,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocumentation(org.hl7.fhir.String newDocumentation) {
+	public void setDocumentation(Markdown newDocumentation) {
 		if (newDocumentation != documentation) {
 			NotificationChain msgs = null;
 			if (documentation != null)
@@ -329,9 +330,9 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getCompartment() {
+	public EList<Canonical> getCompartment() {
 		if (compartment == null) {
-			compartment = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__COMPARTMENT);
+			compartment = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CAPABILITY_STATEMENT_REST__COMPARTMENT);
 		}
 		return compartment;
 	}
@@ -405,7 +406,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 				setMode((RestfulCapabilityMode)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_REST__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)newValue);
+				setDocumentation((Markdown)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_REST__SECURITY:
 				setSecurity((CapabilityStatementSecurity)newValue);
@@ -428,7 +429,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_REST__COMPARTMENT:
 				getCompartment().clear();
-				getCompartment().addAll((Collection<? extends Uri>)newValue);
+				getCompartment().addAll((Collection<? extends Canonical>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -446,7 +447,7 @@ public class CapabilityStatementRestImpl extends BackboneElementImpl implements 
 				setMode((RestfulCapabilityMode)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_REST__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)null);
+				setDocumentation((Markdown)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_REST__SECURITY:
 				setSecurity((CapabilityStatementSecurity)null);

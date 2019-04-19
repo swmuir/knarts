@@ -135,7 +135,7 @@ public interface AuditEvent extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The time when the event occurred on the source.
+	 * The time when the event was recorded.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Recorded</em>' containment reference.
 	 * @see #setRecorded(Instant)

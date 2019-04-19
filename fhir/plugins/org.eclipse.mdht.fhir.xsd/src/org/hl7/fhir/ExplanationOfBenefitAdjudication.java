@@ -32,7 +32,7 @@ public interface ExplanationOfBenefitAdjudication extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+	 * A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Category</em>' containment reference.
 	 * @see #setCategory(CodeableConcept)
@@ -58,7 +58,7 @@ public interface ExplanationOfBenefitAdjudication extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Adjudication reason such as limit reached.
+	 * A code supporting the understanding of the adjudication result and explaining variance from expected amount.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reason</em>' containment reference.
 	 * @see #setReason(CodeableConcept)
@@ -84,7 +84,7 @@ public interface ExplanationOfBenefitAdjudication extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Monitory amount associated with the code.
+	 * Monetary amount associated with the category.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Amount</em>' containment reference.
 	 * @see #setAmount(Money)
@@ -110,7 +110,7 @@ public interface ExplanationOfBenefitAdjudication extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+	 * A non-monetary value associated with the category. Mutually exclusive to the amount element above.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Decimal)

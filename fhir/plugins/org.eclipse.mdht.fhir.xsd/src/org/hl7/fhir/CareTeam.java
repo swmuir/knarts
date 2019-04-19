@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CareTeam#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.CareTeam#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.CareTeam#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getParticipant <em>Participant</em>}</li>
  *   <li>{@link org.hl7.fhir.CareTeam#getReasonCode <em>Reason Code</em>}</li>
@@ -44,7 +44,7 @@ public interface CareTeam extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+	 * Business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Identifier()
@@ -149,30 +149,30 @@ public interface CareTeam extends DomainResource {
 	void setSubject(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Encounter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The encounter or episode of care that establishes the context for this care team.
+	 * The Encounter during which this CareTeam was created or to which the creation of this record is tightly associated.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Context</em>' containment reference.
-	 * @see #setContext(Reference)
-	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Context()
+	 * @return the value of the '<em>Encounter</em>' containment reference.
+	 * @see #setEncounter(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getCareTeam_Encounter()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='context' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='encounter' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getContext();
+	Reference getEncounter();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CareTeam#getContext <em>Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CareTeam#getEncounter <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' containment reference.
-	 * @see #getContext()
+	 * @param value the new value of the '<em>Encounter</em>' containment reference.
+	 * @see #getEncounter()
 	 * @generated
 	 */
-	void setContext(Reference value);
+	void setEncounter(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' containment reference.

@@ -2,22 +2,29 @@
  */
 package org.hl7.fhir.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.Expression;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.TriggerDefinition;
-import org.hl7.fhir.TriggerDefinitionCondition;
 import org.hl7.fhir.TriggerType;
 
 /**
@@ -102,14 +109,14 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	protected DateTime timingDateTime;
 
 	/**
-	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference.
+	 * The cached value of the '{@link #getData() <em>Data</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected DataRequirement data;
+	protected EList<DataRequirement> data;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -119,7 +126,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * @generated
 	 * @ordered
 	 */
-	protected TriggerDefinitionCondition condition;
+	protected Expression condition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -403,7 +410,10 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataRequirement getData() {
+	public EList<DataRequirement> getData() {
+		if (data == null) {
+			data = new EObjectContainmentEList<DataRequirement>(DataRequirement.class, this, FhirPackage.TRIGGER_DEFINITION__DATA);
+		}
 		return data;
 	}
 
@@ -412,41 +422,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetData(DataRequirement newData, NotificationChain msgs) {
-		DataRequirement oldData = data;
-		data = newData;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__DATA, oldData, newData);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setData(DataRequirement newData) {
-		if (newData != data) {
-			NotificationChain msgs = null;
-			if (data != null)
-				msgs = ((InternalEObject)data).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__DATA, null, msgs);
-			if (newData != null)
-				msgs = ((InternalEObject)newData).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.TRIGGER_DEFINITION__DATA, null, msgs);
-			msgs = basicSetData(newData, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__DATA, newData, newData));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TriggerDefinitionCondition getCondition() {
+	public Expression getCondition() {
 		return condition;
 	}
 
@@ -455,8 +431,8 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCondition(TriggerDefinitionCondition newCondition, NotificationChain msgs) {
-		TriggerDefinitionCondition oldCondition = condition;
+	public NotificationChain basicSetCondition(Expression newCondition, NotificationChain msgs) {
+		Expression oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.TRIGGER_DEFINITION__CONDITION, oldCondition, newCondition);
@@ -470,7 +446,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCondition(TriggerDefinitionCondition newCondition) {
+	public void setCondition(Expression newCondition) {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
@@ -505,7 +481,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
 				return basicSetTimingDateTime(null, msgs);
 			case FhirPackage.TRIGGER_DEFINITION__DATA:
-				return basicSetData(null, msgs);
+				return ((InternalEList<?>)getData()).basicRemove(otherEnd, msgs);
 			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
 				return basicSetCondition(null, msgs);
 		}
@@ -545,6 +521,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -567,10 +544,11 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 				setTimingDateTime((DateTime)newValue);
 				return;
 			case FhirPackage.TRIGGER_DEFINITION__DATA:
-				setData((DataRequirement)newValue);
+				getData().clear();
+				getData().addAll((Collection<? extends DataRequirement>)newValue);
 				return;
 			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
-				setCondition((TriggerDefinitionCondition)newValue);
+				setCondition((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -603,10 +581,10 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 				setTimingDateTime((DateTime)null);
 				return;
 			case FhirPackage.TRIGGER_DEFINITION__DATA:
-				setData((DataRequirement)null);
+				getData().clear();
 				return;
 			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
-				setCondition((TriggerDefinitionCondition)null);
+				setCondition((Expression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -633,7 +611,7 @@ public class TriggerDefinitionImpl extends ElementImpl implements TriggerDefinit
 			case FhirPackage.TRIGGER_DEFINITION__TIMING_DATE_TIME:
 				return timingDateTime != null;
 			case FhirPackage.TRIGGER_DEFINITION__DATA:
-				return data != null;
+				return data != null && !data.isEmpty();
 			case FhirPackage.TRIGGER_DEFINITION__CONDITION:
 				return condition != null;
 		}

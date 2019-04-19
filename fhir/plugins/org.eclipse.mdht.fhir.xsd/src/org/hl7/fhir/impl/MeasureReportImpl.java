@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
@@ -41,24 +43,25 @@ import org.hl7.fhir.Reference;
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getMeasure <em>Measure</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getDate <em>Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getReportingOrganization <em>Reporting Organization</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getReporter <em>Reporter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getImprovementNotation <em>Improvement Notation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getGroup <em>Group</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getEvaluatedResources <em>Evaluated Resources</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MeasureReportImpl#getEvaluatedResource <em>Evaluated Resource</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MeasureReportImpl extends DomainResourceImpl implements MeasureReport {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Identifier identifier;
+	protected EList<Identifier> identifier;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -88,7 +91,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference measure;
+	protected Canonical measure;
 
 	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
@@ -111,14 +114,14 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	protected DateTime date;
 
 	/**
-	 * The cached value of the '{@link #getReportingOrganization() <em>Reporting Organization</em>}' containment reference.
+	 * The cached value of the '{@link #getReporter() <em>Reporter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReportingOrganization()
+	 * @see #getReporter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference reportingOrganization;
+	protected Reference reporter;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' containment reference.
@@ -131,6 +134,16 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	protected Period period;
 
 	/**
+	 * The cached value of the '{@link #getImprovementNotation() <em>Improvement Notation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImprovementNotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept improvementNotation;
+
+	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,14 +154,14 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	protected EList<MeasureReportGroup> group;
 
 	/**
-	 * The cached value of the '{@link #getEvaluatedResources() <em>Evaluated Resources</em>}' containment reference.
+	 * The cached value of the '{@link #getEvaluatedResource() <em>Evaluated Resource</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEvaluatedResources()
+	 * @see #getEvaluatedResource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference evaluatedResources;
+	protected EList<Reference> evaluatedResource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,42 +187,11 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identifier getIdentifier() {
+	public EList<Identifier> getIdentifier() {
+		if (identifier == null) {
+			identifier = new EObjectContainmentEList<Identifier>(Identifier.class, this, FhirPackage.MEASURE_REPORT__IDENTIFIER);
+		}
 		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIdentifier(Identifier newIdentifier, NotificationChain msgs) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__IDENTIFIER, oldIdentifier, newIdentifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(Identifier newIdentifier) {
-		if (newIdentifier != identifier) {
-			NotificationChain msgs = null;
-			if (identifier != null)
-				msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__IDENTIFIER, null, msgs);
-			if (newIdentifier != null)
-				msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__IDENTIFIER, null, msgs);
-			msgs = basicSetIdentifier(newIdentifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__IDENTIFIER, newIdentifier, newIdentifier));
 	}
 
 	/**
@@ -303,7 +285,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getMeasure() {
+	public Canonical getMeasure() {
 		return measure;
 	}
 
@@ -312,8 +294,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMeasure(Reference newMeasure, NotificationChain msgs) {
-		Reference oldMeasure = measure;
+	public NotificationChain basicSetMeasure(Canonical newMeasure, NotificationChain msgs) {
+		Canonical oldMeasure = measure;
 		measure = newMeasure;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__MEASURE, oldMeasure, newMeasure);
@@ -327,7 +309,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMeasure(Reference newMeasure) {
+	public void setMeasure(Canonical newMeasure) {
 		if (newMeasure != measure) {
 			NotificationChain msgs = null;
 			if (measure != null)
@@ -432,8 +414,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getReportingOrganization() {
-		return reportingOrganization;
+	public Reference getReporter() {
+		return reporter;
 	}
 
 	/**
@@ -441,11 +423,11 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReportingOrganization(Reference newReportingOrganization, NotificationChain msgs) {
-		Reference oldReportingOrganization = reportingOrganization;
-		reportingOrganization = newReportingOrganization;
+	public NotificationChain basicSetReporter(Reference newReporter, NotificationChain msgs) {
+		Reference oldReporter = reporter;
+		reporter = newReporter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION, oldReportingOrganization, newReportingOrganization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__REPORTER, oldReporter, newReporter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -456,18 +438,18 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReportingOrganization(Reference newReportingOrganization) {
-		if (newReportingOrganization != reportingOrganization) {
+	public void setReporter(Reference newReporter) {
+		if (newReporter != reporter) {
 			NotificationChain msgs = null;
-			if (reportingOrganization != null)
-				msgs = ((InternalEObject)reportingOrganization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION, null, msgs);
-			if (newReportingOrganization != null)
-				msgs = ((InternalEObject)newReportingOrganization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION, null, msgs);
-			msgs = basicSetReportingOrganization(newReportingOrganization, msgs);
+			if (reporter != null)
+				msgs = ((InternalEObject)reporter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__REPORTER, null, msgs);
+			if (newReporter != null)
+				msgs = ((InternalEObject)newReporter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__REPORTER, null, msgs);
+			msgs = basicSetReporter(newReporter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION, newReportingOrganization, newReportingOrganization));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__REPORTER, newReporter, newReporter));
 	}
 
 	/**
@@ -518,6 +500,49 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getImprovementNotation() {
+		return improvementNotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetImprovementNotation(CodeableConcept newImprovementNotation, NotificationChain msgs) {
+		CodeableConcept oldImprovementNotation = improvementNotation;
+		improvementNotation = newImprovementNotation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION, oldImprovementNotation, newImprovementNotation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImprovementNotation(CodeableConcept newImprovementNotation) {
+		if (newImprovementNotation != improvementNotation) {
+			NotificationChain msgs = null;
+			if (improvementNotation != null)
+				msgs = ((InternalEObject)improvementNotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION, null, msgs);
+			if (newImprovementNotation != null)
+				msgs = ((InternalEObject)newImprovementNotation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION, null, msgs);
+			msgs = basicSetImprovementNotation(newImprovementNotation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION, newImprovementNotation, newImprovementNotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MeasureReportGroup> getGroup() {
 		if (group == null) {
 			group = new EObjectContainmentEList<MeasureReportGroup>(MeasureReportGroup.class, this, FhirPackage.MEASURE_REPORT__GROUP);
@@ -530,42 +555,11 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getEvaluatedResources() {
-		return evaluatedResources;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEvaluatedResources(Reference newEvaluatedResources, NotificationChain msgs) {
-		Reference oldEvaluatedResources = evaluatedResources;
-		evaluatedResources = newEvaluatedResources;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES, oldEvaluatedResources, newEvaluatedResources);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Reference> getEvaluatedResource() {
+		if (evaluatedResource == null) {
+			evaluatedResource = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEvaluatedResources(Reference newEvaluatedResources) {
-		if (newEvaluatedResources != evaluatedResources) {
-			NotificationChain msgs = null;
-			if (evaluatedResources != null)
-				msgs = ((InternalEObject)evaluatedResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES, null, msgs);
-			if (newEvaluatedResources != null)
-				msgs = ((InternalEObject)newEvaluatedResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES, null, msgs);
-			msgs = basicSetEvaluatedResources(newEvaluatedResources, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES, newEvaluatedResources, newEvaluatedResources));
+		return evaluatedResource;
 	}
 
 	/**
@@ -577,7 +571,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT__IDENTIFIER:
-				return basicSetIdentifier(null, msgs);
+				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
 			case FhirPackage.MEASURE_REPORT__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.MEASURE_REPORT__TYPE:
@@ -588,14 +582,16 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return basicSetSubject(null, msgs);
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return basicSetDate(null, msgs);
-			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
-				return basicSetReportingOrganization(null, msgs);
+			case FhirPackage.MEASURE_REPORT__REPORTER:
+				return basicSetReporter(null, msgs);
 			case FhirPackage.MEASURE_REPORT__PERIOD:
 				return basicSetPeriod(null, msgs);
+			case FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION:
+				return basicSetImprovementNotation(null, msgs);
 			case FhirPackage.MEASURE_REPORT__GROUP:
 				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
-			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES:
-				return basicSetEvaluatedResources(null, msgs);
+			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE:
+				return ((InternalEList<?>)getEvaluatedResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -620,14 +616,16 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return getSubject();
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return getDate();
-			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
-				return getReportingOrganization();
+			case FhirPackage.MEASURE_REPORT__REPORTER:
+				return getReporter();
 			case FhirPackage.MEASURE_REPORT__PERIOD:
 				return getPeriod();
+			case FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION:
+				return getImprovementNotation();
 			case FhirPackage.MEASURE_REPORT__GROUP:
 				return getGroup();
-			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES:
-				return getEvaluatedResources();
+			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE:
+				return getEvaluatedResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,7 +640,8 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
+				getIdentifier().clear();
+				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__STATUS:
 				setStatus((MeasureReportStatus)newValue);
@@ -651,7 +650,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				setType((MeasureReportType)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__MEASURE:
-				setMeasure((Reference)newValue);
+				setMeasure((Canonical)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__SUBJECT:
 				setSubject((Reference)newValue);
@@ -659,18 +658,22 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 			case FhirPackage.MEASURE_REPORT__DATE:
 				setDate((DateTime)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
-				setReportingOrganization((Reference)newValue);
+			case FhirPackage.MEASURE_REPORT__REPORTER:
+				setReporter((Reference)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__PERIOD:
 				setPeriod((Period)newValue);
+				return;
+			case FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION:
+				setImprovementNotation((CodeableConcept)newValue);
 				return;
 			case FhirPackage.MEASURE_REPORT__GROUP:
 				getGroup().clear();
 				getGroup().addAll((Collection<? extends MeasureReportGroup>)newValue);
 				return;
-			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES:
-				setEvaluatedResources((Reference)newValue);
+			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE:
+				getEvaluatedResource().clear();
+				getEvaluatedResource().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -685,7 +688,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT__IDENTIFIER:
-				setIdentifier((Identifier)null);
+				getIdentifier().clear();
 				return;
 			case FhirPackage.MEASURE_REPORT__STATUS:
 				setStatus((MeasureReportStatus)null);
@@ -694,7 +697,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				setType((MeasureReportType)null);
 				return;
 			case FhirPackage.MEASURE_REPORT__MEASURE:
-				setMeasure((Reference)null);
+				setMeasure((Canonical)null);
 				return;
 			case FhirPackage.MEASURE_REPORT__SUBJECT:
 				setSubject((Reference)null);
@@ -702,17 +705,20 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 			case FhirPackage.MEASURE_REPORT__DATE:
 				setDate((DateTime)null);
 				return;
-			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
-				setReportingOrganization((Reference)null);
+			case FhirPackage.MEASURE_REPORT__REPORTER:
+				setReporter((Reference)null);
 				return;
 			case FhirPackage.MEASURE_REPORT__PERIOD:
 				setPeriod((Period)null);
 				return;
+			case FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION:
+				setImprovementNotation((CodeableConcept)null);
+				return;
 			case FhirPackage.MEASURE_REPORT__GROUP:
 				getGroup().clear();
 				return;
-			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES:
-				setEvaluatedResources((Reference)null);
+			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE:
+				getEvaluatedResource().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -727,7 +733,7 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FhirPackage.MEASURE_REPORT__IDENTIFIER:
-				return identifier != null;
+				return identifier != null && !identifier.isEmpty();
 			case FhirPackage.MEASURE_REPORT__STATUS:
 				return status != null;
 			case FhirPackage.MEASURE_REPORT__TYPE:
@@ -738,14 +744,16 @@ public class MeasureReportImpl extends DomainResourceImpl implements MeasureRepo
 				return subject != null;
 			case FhirPackage.MEASURE_REPORT__DATE:
 				return date != null;
-			case FhirPackage.MEASURE_REPORT__REPORTING_ORGANIZATION:
-				return reportingOrganization != null;
+			case FhirPackage.MEASURE_REPORT__REPORTER:
+				return reporter != null;
 			case FhirPackage.MEASURE_REPORT__PERIOD:
 				return period != null;
+			case FhirPackage.MEASURE_REPORT__IMPROVEMENT_NOTATION:
+				return improvementNotation != null;
 			case FhirPackage.MEASURE_REPORT__GROUP:
 				return group != null && !group.isEmpty();
-			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCES:
-				return evaluatedResources != null;
+			case FhirPackage.MEASURE_REPORT__EVALUATED_RESOURCE:
+				return evaluatedResource != null && !evaluatedResource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

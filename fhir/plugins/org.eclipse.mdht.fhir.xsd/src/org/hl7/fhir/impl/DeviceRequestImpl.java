@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.DeviceRequest;
@@ -26,6 +27,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
 import org.hl7.fhir.Reference;
+import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
 import org.hl7.fhir.RequestStatus;
 import org.hl7.fhir.Timing;
@@ -40,7 +42,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getPriorRequest <em>Prior Request</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getGroupIdentifier <em>Group Identifier</em>}</li>
@@ -51,7 +54,7 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getCodeCodeableConcept <em>Code Codeable Concept</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DeviceRequestImpl#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
@@ -81,14 +84,24 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -138,7 +151,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * @generated
 	 * @ordered
 	 */
-	protected CodeableConcept intent;
+	protected RequestIntent intent;
 
 	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
@@ -191,14 +204,14 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
@@ -366,11 +379,23 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
-		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DEVICE_REQUEST__INSTANTIATES);
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL);
 		}
-		return instantiates;
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
 	}
 
 	/**
@@ -488,7 +513,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeableConcept getIntent() {
+	public RequestIntent getIntent() {
 		return intent;
 	}
 
@@ -497,8 +522,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIntent(CodeableConcept newIntent, NotificationChain msgs) {
-		CodeableConcept oldIntent = intent;
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
 		intent = newIntent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__INTENT, oldIntent, newIntent);
@@ -512,7 +537,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntent(CodeableConcept newIntent) {
+	public void setIntent(RequestIntent newIntent) {
 		if (newIntent != intent) {
 			NotificationChain msgs = null;
 			if (intent != null)
@@ -715,8 +740,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -724,11 +749,11 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -739,18 +764,18 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_REQUEST__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_REQUEST__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_REQUEST__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DEVICE_REQUEST__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DEVICE_REQUEST__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -1136,8 +1161,10 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
-				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1158,8 +1185,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.DEVICE_REQUEST__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.DEVICE_REQUEST__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return basicSetOccurrenceDateTime(null, msgs);
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_PERIOD:
@@ -1200,8 +1227,10 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1222,8 +1251,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return getParameter();
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return getSubject();
-			case FhirPackage.DEVICE_REQUEST__CONTEXT:
-				return getContext();
+			case FhirPackage.DEVICE_REQUEST__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return getOccurrenceDateTime();
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_PERIOD:
@@ -1267,9 +1296,13 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
-				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1286,7 +1319,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				setStatus((RequestStatus)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__INTENT:
-				setIntent((CodeableConcept)newValue);
+				setIntent((RequestIntent)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__PRIORITY:
 				setPriority((RequestPriority)newValue);
@@ -1304,8 +1337,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.DEVICE_REQUEST__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.DEVICE_REQUEST__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)newValue);
@@ -1367,8 +1400,11 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
-				getInstantiates().clear();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1383,7 +1419,7 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				setStatus((RequestStatus)null);
 				return;
 			case FhirPackage.DEVICE_REQUEST__INTENT:
-				setIntent((CodeableConcept)null);
+				setIntent((RequestIntent)null);
 				return;
 			case FhirPackage.DEVICE_REQUEST__PRIORITY:
 				setPriority((RequestPriority)null);
@@ -1400,8 +1436,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.DEVICE_REQUEST__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.DEVICE_REQUEST__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)null);
@@ -1456,8 +1492,10 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 		switch (featureID) {
 			case FhirPackage.DEVICE_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.DEVICE_REQUEST__INSTANTIATES:
-				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.DEVICE_REQUEST__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__PRIOR_REQUEST:
@@ -1478,8 +1516,8 @@ public class DeviceRequestImpl extends DomainResourceImpl implements DeviceReque
 				return parameter != null && !parameter.isEmpty();
 			case FhirPackage.DEVICE_REQUEST__SUBJECT:
 				return subject != null;
-			case FhirPackage.DEVICE_REQUEST__CONTEXT:
-				return context != null;
+			case FhirPackage.DEVICE_REQUEST__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return occurrenceDateTime != null;
 			case FhirPackage.DEVICE_REQUEST__OCCURRENCE_PERIOD:

@@ -18,14 +18,15 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getKind <em>Kind</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlanDetail#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getGoal <em>Goal</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getStatusReason <em>Status Reason</em>}</li>
- *   <li>{@link org.hl7.fhir.CarePlanDetail#getProhibited <em>Prohibited</em>}</li>
+ *   <li>{@link org.hl7.fhir.CarePlanDetail#getDoNotPerform <em>Do Not Perform</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getScheduledTiming <em>Scheduled Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getScheduledPeriod <em>Scheduled Period</em>}</li>
  *   <li>{@link org.hl7.fhir.CarePlanDetail#getScheduledString <em>Scheduled String</em>}</li>
@@ -70,37 +71,43 @@ public interface CarePlanDetail extends BackboneElement {
 	void setKind(CarePlanActivityKind value);
 
 	/**
-	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Instantiates Canonical</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
+	 * The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Instantiates</em>' containment reference.
-	 * @see #setInstantiates(Uri)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Instantiates()
+	 * @return the value of the '<em>Instantiates Canonical</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_InstantiatesCanonical()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='instantiatesCanonical' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getInstantiates();
+	EList<Canonical> getInstantiatesCanonical();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getInstantiates <em>Instantiates</em>}' containment reference.
+	 * Returns the value of the '<em><b>Instantiates Uri</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Uri}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Instantiates</em>' containment reference.
-	 * @see #getInstantiates()
+	 * <!-- begin-model-doc -->
+	 * The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Instantiates Uri</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_InstantiatesUri()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='instantiatesUri' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setInstantiates(Uri value);
+	EList<Uri> getInstantiatesUri();
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.
+	 * Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Code</em>' containment reference.
 	 * @see #setCode(CodeableConcept)
@@ -203,13 +210,13 @@ public interface CarePlanDetail extends BackboneElement {
 	 * Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Status Reason</em>' containment reference.
-	 * @see #setStatusReason(org.hl7.fhir.String)
+	 * @see #setStatusReason(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_StatusReason()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='statusReason' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getStatusReason();
+	CodeableConcept getStatusReason();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getStatusReason <em>Status Reason</em>}' containment reference.
@@ -219,33 +226,33 @@ public interface CarePlanDetail extends BackboneElement {
 	 * @see #getStatusReason()
 	 * @generated
 	 */
-	void setStatusReason(org.hl7.fhir.String value);
+	void setStatusReason(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Prohibited</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Do Not Perform</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.
+	 * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Prohibited</em>' containment reference.
-	 * @see #setProhibited(org.hl7.fhir.Boolean)
-	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_Prohibited()
+	 * @return the value of the '<em>Do Not Perform</em>' containment reference.
+	 * @see #setDoNotPerform(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getCarePlanDetail_DoNotPerform()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='prohibited' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='doNotPerform' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.Boolean getProhibited();
+	org.hl7.fhir.Boolean getDoNotPerform();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getProhibited <em>Prohibited</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.CarePlanDetail#getDoNotPerform <em>Do Not Perform</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prohibited</em>' containment reference.
-	 * @see #getProhibited()
+	 * @param value the new value of the '<em>Do Not Perform</em>' containment reference.
+	 * @see #getDoNotPerform()
 	 * @generated
 	 */
-	void setProhibited(org.hl7.fhir.Boolean value);
+	void setDoNotPerform(org.hl7.fhir.Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Scheduled Timing</b></em>' containment reference.

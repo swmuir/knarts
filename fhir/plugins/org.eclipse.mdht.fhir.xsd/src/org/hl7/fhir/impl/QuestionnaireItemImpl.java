@@ -17,19 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.hl7.fhir.Attachment;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Coding;
-import org.hl7.fhir.Date;
-import org.hl7.fhir.DateTime;
-import org.hl7.fhir.Decimal;
+import org.hl7.fhir.EnableWhenBehavior;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Quantity;
+import org.hl7.fhir.QuestionnaireAnswerOption;
 import org.hl7.fhir.QuestionnaireEnableWhen;
+import org.hl7.fhir.QuestionnaireInitial;
 import org.hl7.fhir.QuestionnaireItem;
 import org.hl7.fhir.QuestionnaireItemType;
-import org.hl7.fhir.QuestionnaireOption;
-import org.hl7.fhir.Reference;
-import org.hl7.fhir.Time;
 import org.hl7.fhir.Uri;
 
 /**
@@ -47,24 +43,14 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getEnableWhen <em>Enable When</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getEnableBehavior <em>Enable Behavior</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getRepeats <em>Repeats</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getReadOnly <em>Read Only</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getMaxLength <em>Max Length</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getOption <em>Option</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialBoolean <em>Initial Boolean</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialDecimal <em>Initial Decimal</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialInteger <em>Initial Integer</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialDate <em>Initial Date</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialDateTime <em>Initial Date Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialTime <em>Initial Time</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialString <em>Initial String</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialUri <em>Initial Uri</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialAttachment <em>Initial Attachment</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialCoding <em>Initial Coding</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialQuantity <em>Initial Quantity</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitialReference <em>Initial Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getAnswerValueSet <em>Answer Value Set</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getAnswerOption <em>Answer Option</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getInitial <em>Initial</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.QuestionnaireItemImpl#getItem <em>Item</em>}</li>
  * </ul>
  *
@@ -142,6 +128,16 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	protected EList<QuestionnaireEnableWhen> enableWhen;
 
 	/**
+	 * The cached value of the '{@link #getEnableBehavior() <em>Enable Behavior</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnableBehavior()
+	 * @generated
+	 * @ordered
+	 */
+	protected EnableWhenBehavior enableBehavior;
+
+	/**
 	 * The cached value of the '{@link #getRequired() <em>Required</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,144 +178,34 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	protected org.hl7.fhir.Integer maxLength;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
+	 * The cached value of the '{@link #getAnswerValueSet() <em>Answer Value Set</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOptions()
+	 * @see #getAnswerValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference options;
+	protected Canonical answerValueSet;
 
 	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' containment reference list.
+	 * The cached value of the '{@link #getAnswerOption() <em>Answer Option</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOption()
+	 * @see #getAnswerOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QuestionnaireOption> option;
+	protected EList<QuestionnaireAnswerOption> answerOption;
 
 	/**
-	 * The cached value of the '{@link #getInitialBoolean() <em>Initial Boolean</em>}' containment reference.
+	 * The cached value of the '{@link #getInitial() <em>Initial</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInitialBoolean()
+	 * @see #getInitial()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.Boolean initialBoolean;
-
-	/**
-	 * The cached value of the '{@link #getInitialDecimal() <em>Initial Decimal</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialDecimal()
-	 * @generated
-	 * @ordered
-	 */
-	protected Decimal initialDecimal;
-
-	/**
-	 * The cached value of the '{@link #getInitialInteger() <em>Initial Integer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialInteger()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.Integer initialInteger;
-
-	/**
-	 * The cached value of the '{@link #getInitialDate() <em>Initial Date</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date initialDate;
-
-	/**
-	 * The cached value of the '{@link #getInitialDateTime() <em>Initial Date Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialDateTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected DateTime initialDateTime;
-
-	/**
-	 * The cached value of the '{@link #getInitialTime() <em>Initial Time</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected Time initialTime;
-
-	/**
-	 * The cached value of the '{@link #getInitialString() <em>Initial String</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialString()
-	 * @generated
-	 * @ordered
-	 */
-	protected org.hl7.fhir.String initialString;
-
-	/**
-	 * The cached value of the '{@link #getInitialUri() <em>Initial Uri</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected Uri initialUri;
-
-	/**
-	 * The cached value of the '{@link #getInitialAttachment() <em>Initial Attachment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialAttachment()
-	 * @generated
-	 * @ordered
-	 */
-	protected Attachment initialAttachment;
-
-	/**
-	 * The cached value of the '{@link #getInitialCoding() <em>Initial Coding</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialCoding()
-	 * @generated
-	 * @ordered
-	 */
-	protected Coding initialCoding;
-
-	/**
-	 * The cached value of the '{@link #getInitialQuantity() <em>Initial Quantity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialQuantity()
-	 * @generated
-	 * @ordered
-	 */
-	protected Quantity initialQuantity;
-
-	/**
-	 * The cached value of the '{@link #getInitialReference() <em>Initial Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Reference initialReference;
+	protected EList<QuestionnaireInitial> initial;
 
 	/**
 	 * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference list.
@@ -594,6 +480,49 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EnableWhenBehavior getEnableBehavior() {
+		return enableBehavior;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEnableBehavior(EnableWhenBehavior newEnableBehavior, NotificationChain msgs) {
+		EnableWhenBehavior oldEnableBehavior = enableBehavior;
+		enableBehavior = newEnableBehavior;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR, oldEnableBehavior, newEnableBehavior);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnableBehavior(EnableWhenBehavior newEnableBehavior) {
+		if (newEnableBehavior != enableBehavior) {
+			NotificationChain msgs = null;
+			if (enableBehavior != null)
+				msgs = ((InternalEObject)enableBehavior).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR, null, msgs);
+			if (newEnableBehavior != null)
+				msgs = ((InternalEObject)newEnableBehavior).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR, null, msgs);
+			msgs = basicSetEnableBehavior(newEnableBehavior, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR, newEnableBehavior, newEnableBehavior));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public org.hl7.fhir.Boolean getRequired() {
 		return required;
 	}
@@ -766,8 +695,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getOptions() {
-		return options;
+	public Canonical getAnswerValueSet() {
+		return answerValueSet;
 	}
 
 	/**
@@ -775,11 +704,11 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOptions(Reference newOptions, NotificationChain msgs) {
-		Reference oldOptions = options;
-		options = newOptions;
+	public NotificationChain basicSetAnswerValueSet(Canonical newAnswerValueSet, NotificationChain msgs) {
+		Canonical oldAnswerValueSet = answerValueSet;
+		answerValueSet = newAnswerValueSet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS, oldOptions, newOptions);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET, oldAnswerValueSet, newAnswerValueSet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -790,18 +719,18 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptions(Reference newOptions) {
-		if (newOptions != options) {
+	public void setAnswerValueSet(Canonical newAnswerValueSet) {
+		if (newAnswerValueSet != answerValueSet) {
 			NotificationChain msgs = null;
-			if (options != null)
-				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS, null, msgs);
-			if (newOptions != null)
-				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS, null, msgs);
-			msgs = basicSetOptions(newOptions, msgs);
+			if (answerValueSet != null)
+				msgs = ((InternalEObject)answerValueSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET, null, msgs);
+			if (newAnswerValueSet != null)
+				msgs = ((InternalEObject)newAnswerValueSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET, null, msgs);
+			msgs = basicSetAnswerValueSet(newAnswerValueSet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS, newOptions, newOptions));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET, newAnswerValueSet, newAnswerValueSet));
 	}
 
 	/**
@@ -809,11 +738,11 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<QuestionnaireOption> getOption() {
-		if (option == null) {
-			option = new EObjectContainmentEList<QuestionnaireOption>(QuestionnaireOption.class, this, FhirPackage.QUESTIONNAIRE_ITEM__OPTION);
+	public EList<QuestionnaireAnswerOption> getAnswerOption() {
+		if (answerOption == null) {
+			answerOption = new EObjectContainmentEList<QuestionnaireAnswerOption>(QuestionnaireAnswerOption.class, this, FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION);
 		}
-		return option;
+		return answerOption;
 	}
 
 	/**
@@ -821,515 +750,11 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.Boolean getInitialBoolean() {
-		return initialBoolean;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialBoolean(org.hl7.fhir.Boolean newInitialBoolean, NotificationChain msgs) {
-		org.hl7.fhir.Boolean oldInitialBoolean = initialBoolean;
-		initialBoolean = newInitialBoolean;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN, oldInitialBoolean, newInitialBoolean);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<QuestionnaireInitial> getInitial() {
+		if (initial == null) {
+			initial = new EObjectContainmentEList<QuestionnaireInitial>(QuestionnaireInitial.class, this, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialBoolean(org.hl7.fhir.Boolean newInitialBoolean) {
-		if (newInitialBoolean != initialBoolean) {
-			NotificationChain msgs = null;
-			if (initialBoolean != null)
-				msgs = ((InternalEObject)initialBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN, null, msgs);
-			if (newInitialBoolean != null)
-				msgs = ((InternalEObject)newInitialBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN, null, msgs);
-			msgs = basicSetInitialBoolean(newInitialBoolean, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN, newInitialBoolean, newInitialBoolean));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Decimal getInitialDecimal() {
-		return initialDecimal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialDecimal(Decimal newInitialDecimal, NotificationChain msgs) {
-		Decimal oldInitialDecimal = initialDecimal;
-		initialDecimal = newInitialDecimal;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL, oldInitialDecimal, newInitialDecimal);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialDecimal(Decimal newInitialDecimal) {
-		if (newInitialDecimal != initialDecimal) {
-			NotificationChain msgs = null;
-			if (initialDecimal != null)
-				msgs = ((InternalEObject)initialDecimal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL, null, msgs);
-			if (newInitialDecimal != null)
-				msgs = ((InternalEObject)newInitialDecimal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL, null, msgs);
-			msgs = basicSetInitialDecimal(newInitialDecimal, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL, newInitialDecimal, newInitialDecimal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.Integer getInitialInteger() {
-		return initialInteger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialInteger(org.hl7.fhir.Integer newInitialInteger, NotificationChain msgs) {
-		org.hl7.fhir.Integer oldInitialInteger = initialInteger;
-		initialInteger = newInitialInteger;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER, oldInitialInteger, newInitialInteger);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialInteger(org.hl7.fhir.Integer newInitialInteger) {
-		if (newInitialInteger != initialInteger) {
-			NotificationChain msgs = null;
-			if (initialInteger != null)
-				msgs = ((InternalEObject)initialInteger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER, null, msgs);
-			if (newInitialInteger != null)
-				msgs = ((InternalEObject)newInitialInteger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER, null, msgs);
-			msgs = basicSetInitialInteger(newInitialInteger, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER, newInitialInteger, newInitialInteger));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getInitialDate() {
-		return initialDate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialDate(Date newInitialDate, NotificationChain msgs) {
-		Date oldInitialDate = initialDate;
-		initialDate = newInitialDate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE, oldInitialDate, newInitialDate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialDate(Date newInitialDate) {
-		if (newInitialDate != initialDate) {
-			NotificationChain msgs = null;
-			if (initialDate != null)
-				msgs = ((InternalEObject)initialDate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE, null, msgs);
-			if (newInitialDate != null)
-				msgs = ((InternalEObject)newInitialDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE, null, msgs);
-			msgs = basicSetInitialDate(newInitialDate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE, newInitialDate, newInitialDate));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DateTime getInitialDateTime() {
-		return initialDateTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialDateTime(DateTime newInitialDateTime, NotificationChain msgs) {
-		DateTime oldInitialDateTime = initialDateTime;
-		initialDateTime = newInitialDateTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME, oldInitialDateTime, newInitialDateTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialDateTime(DateTime newInitialDateTime) {
-		if (newInitialDateTime != initialDateTime) {
-			NotificationChain msgs = null;
-			if (initialDateTime != null)
-				msgs = ((InternalEObject)initialDateTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME, null, msgs);
-			if (newInitialDateTime != null)
-				msgs = ((InternalEObject)newInitialDateTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME, null, msgs);
-			msgs = basicSetInitialDateTime(newInitialDateTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME, newInitialDateTime, newInitialDateTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Time getInitialTime() {
-		return initialTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialTime(Time newInitialTime, NotificationChain msgs) {
-		Time oldInitialTime = initialTime;
-		initialTime = newInitialTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME, oldInitialTime, newInitialTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialTime(Time newInitialTime) {
-		if (newInitialTime != initialTime) {
-			NotificationChain msgs = null;
-			if (initialTime != null)
-				msgs = ((InternalEObject)initialTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME, null, msgs);
-			if (newInitialTime != null)
-				msgs = ((InternalEObject)newInitialTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME, null, msgs);
-			msgs = basicSetInitialTime(newInitialTime, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME, newInitialTime, newInitialTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public org.hl7.fhir.String getInitialString() {
-		return initialString;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialString(org.hl7.fhir.String newInitialString, NotificationChain msgs) {
-		org.hl7.fhir.String oldInitialString = initialString;
-		initialString = newInitialString;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING, oldInitialString, newInitialString);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialString(org.hl7.fhir.String newInitialString) {
-		if (newInitialString != initialString) {
-			NotificationChain msgs = null;
-			if (initialString != null)
-				msgs = ((InternalEObject)initialString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING, null, msgs);
-			if (newInitialString != null)
-				msgs = ((InternalEObject)newInitialString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING, null, msgs);
-			msgs = basicSetInitialString(newInitialString, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING, newInitialString, newInitialString));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Uri getInitialUri() {
-		return initialUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialUri(Uri newInitialUri, NotificationChain msgs) {
-		Uri oldInitialUri = initialUri;
-		initialUri = newInitialUri;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI, oldInitialUri, newInitialUri);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialUri(Uri newInitialUri) {
-		if (newInitialUri != initialUri) {
-			NotificationChain msgs = null;
-			if (initialUri != null)
-				msgs = ((InternalEObject)initialUri).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI, null, msgs);
-			if (newInitialUri != null)
-				msgs = ((InternalEObject)newInitialUri).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI, null, msgs);
-			msgs = basicSetInitialUri(newInitialUri, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI, newInitialUri, newInitialUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Attachment getInitialAttachment() {
-		return initialAttachment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialAttachment(Attachment newInitialAttachment, NotificationChain msgs) {
-		Attachment oldInitialAttachment = initialAttachment;
-		initialAttachment = newInitialAttachment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT, oldInitialAttachment, newInitialAttachment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialAttachment(Attachment newInitialAttachment) {
-		if (newInitialAttachment != initialAttachment) {
-			NotificationChain msgs = null;
-			if (initialAttachment != null)
-				msgs = ((InternalEObject)initialAttachment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT, null, msgs);
-			if (newInitialAttachment != null)
-				msgs = ((InternalEObject)newInitialAttachment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT, null, msgs);
-			msgs = basicSetInitialAttachment(newInitialAttachment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT, newInitialAttachment, newInitialAttachment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Coding getInitialCoding() {
-		return initialCoding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialCoding(Coding newInitialCoding, NotificationChain msgs) {
-		Coding oldInitialCoding = initialCoding;
-		initialCoding = newInitialCoding;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING, oldInitialCoding, newInitialCoding);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialCoding(Coding newInitialCoding) {
-		if (newInitialCoding != initialCoding) {
-			NotificationChain msgs = null;
-			if (initialCoding != null)
-				msgs = ((InternalEObject)initialCoding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING, null, msgs);
-			if (newInitialCoding != null)
-				msgs = ((InternalEObject)newInitialCoding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING, null, msgs);
-			msgs = basicSetInitialCoding(newInitialCoding, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING, newInitialCoding, newInitialCoding));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Quantity getInitialQuantity() {
-		return initialQuantity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialQuantity(Quantity newInitialQuantity, NotificationChain msgs) {
-		Quantity oldInitialQuantity = initialQuantity;
-		initialQuantity = newInitialQuantity;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY, oldInitialQuantity, newInitialQuantity);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialQuantity(Quantity newInitialQuantity) {
-		if (newInitialQuantity != initialQuantity) {
-			NotificationChain msgs = null;
-			if (initialQuantity != null)
-				msgs = ((InternalEObject)initialQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY, null, msgs);
-			if (newInitialQuantity != null)
-				msgs = ((InternalEObject)newInitialQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY, null, msgs);
-			msgs = basicSetInitialQuantity(newInitialQuantity, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY, newInitialQuantity, newInitialQuantity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference getInitialReference() {
-		return initialReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInitialReference(Reference newInitialReference, NotificationChain msgs) {
-		Reference oldInitialReference = initialReference;
-		initialReference = newInitialReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE, oldInitialReference, newInitialReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialReference(Reference newInitialReference) {
-		if (newInitialReference != initialReference) {
-			NotificationChain msgs = null;
-			if (initialReference != null)
-				msgs = ((InternalEObject)initialReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE, null, msgs);
-			if (newInitialReference != null)
-				msgs = ((InternalEObject)newInitialReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE, null, msgs);
-			msgs = basicSetInitialReference(newInitialReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE, newInitialReference, newInitialReference));
+		return initial;
 	}
 
 	/**
@@ -1366,6 +791,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return basicSetType(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_WHEN:
 				return ((InternalEList<?>)getEnableWhen()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR:
+				return basicSetEnableBehavior(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__REQUIRED:
 				return basicSetRequired(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__REPEATS:
@@ -1374,34 +801,12 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return basicSetReadOnly(null, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__MAX_LENGTH:
 				return basicSetMaxLength(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS:
-				return basicSetOptions(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTION:
-				return ((InternalEList<?>)getOption()).basicRemove(otherEnd, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN:
-				return basicSetInitialBoolean(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL:
-				return basicSetInitialDecimal(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER:
-				return basicSetInitialInteger(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE:
-				return basicSetInitialDate(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
-				return basicSetInitialDateTime(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
-				return basicSetInitialTime(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
-				return basicSetInitialString(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI:
-				return basicSetInitialUri(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT:
-				return basicSetInitialAttachment(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING:
-				return basicSetInitialCoding(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY:
-				return basicSetInitialQuantity(null, msgs);
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE:
-				return basicSetInitialReference(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET:
+				return basicSetAnswerValueSet(null, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION:
+				return ((InternalEList<?>)getAnswerOption()).basicRemove(otherEnd, msgs);
+			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL:
+				return ((InternalEList<?>)getInitial()).basicRemove(otherEnd, msgs);
 			case FhirPackage.QUESTIONNAIRE_ITEM__ITEM:
 				return ((InternalEList<?>)getItem()).basicRemove(otherEnd, msgs);
 		}
@@ -1430,6 +835,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return getType();
 			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_WHEN:
 				return getEnableWhen();
+			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR:
+				return getEnableBehavior();
 			case FhirPackage.QUESTIONNAIRE_ITEM__REQUIRED:
 				return getRequired();
 			case FhirPackage.QUESTIONNAIRE_ITEM__REPEATS:
@@ -1438,34 +845,12 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return getReadOnly();
 			case FhirPackage.QUESTIONNAIRE_ITEM__MAX_LENGTH:
 				return getMaxLength();
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS:
-				return getOptions();
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTION:
-				return getOption();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN:
-				return getInitialBoolean();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL:
-				return getInitialDecimal();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER:
-				return getInitialInteger();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE:
-				return getInitialDate();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
-				return getInitialDateTime();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
-				return getInitialTime();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
-				return getInitialString();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI:
-				return getInitialUri();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT:
-				return getInitialAttachment();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING:
-				return getInitialCoding();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY:
-				return getInitialQuantity();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE:
-				return getInitialReference();
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET:
+				return getAnswerValueSet();
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION:
+				return getAnswerOption();
+			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL:
+				return getInitial();
 			case FhirPackage.QUESTIONNAIRE_ITEM__ITEM:
 				return getItem();
 		}
@@ -1504,6 +889,9 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				getEnableWhen().clear();
 				getEnableWhen().addAll((Collection<? extends QuestionnaireEnableWhen>)newValue);
 				return;
+			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR:
+				setEnableBehavior((EnableWhenBehavior)newValue);
+				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__REQUIRED:
 				setRequired((org.hl7.fhir.Boolean)newValue);
 				return;
@@ -1516,48 +904,16 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__MAX_LENGTH:
 				setMaxLength((org.hl7.fhir.Integer)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS:
-				setOptions((Reference)newValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET:
+				setAnswerValueSet((Canonical)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTION:
-				getOption().clear();
-				getOption().addAll((Collection<? extends QuestionnaireOption>)newValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION:
+				getAnswerOption().clear();
+				getAnswerOption().addAll((Collection<? extends QuestionnaireAnswerOption>)newValue);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN:
-				setInitialBoolean((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL:
-				setInitialDecimal((Decimal)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER:
-				setInitialInteger((org.hl7.fhir.Integer)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE:
-				setInitialDate((Date)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
-				setInitialDateTime((DateTime)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
-				setInitialTime((Time)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
-				setInitialString((org.hl7.fhir.String)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI:
-				setInitialUri((Uri)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT:
-				setInitialAttachment((Attachment)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING:
-				setInitialCoding((Coding)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY:
-				setInitialQuantity((Quantity)newValue);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE:
-				setInitialReference((Reference)newValue);
+			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL:
+				getInitial().clear();
+				getInitial().addAll((Collection<? extends QuestionnaireInitial>)newValue);
 				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__ITEM:
 				getItem().clear();
@@ -1596,6 +952,9 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_WHEN:
 				getEnableWhen().clear();
 				return;
+			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR:
+				setEnableBehavior((EnableWhenBehavior)null);
+				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__REQUIRED:
 				setRequired((org.hl7.fhir.Boolean)null);
 				return;
@@ -1608,47 +967,14 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 			case FhirPackage.QUESTIONNAIRE_ITEM__MAX_LENGTH:
 				setMaxLength((org.hl7.fhir.Integer)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS:
-				setOptions((Reference)null);
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET:
+				setAnswerValueSet((Canonical)null);
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTION:
-				getOption().clear();
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION:
+				getAnswerOption().clear();
 				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN:
-				setInitialBoolean((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL:
-				setInitialDecimal((Decimal)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER:
-				setInitialInteger((org.hl7.fhir.Integer)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE:
-				setInitialDate((Date)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
-				setInitialDateTime((DateTime)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
-				setInitialTime((Time)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
-				setInitialString((org.hl7.fhir.String)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI:
-				setInitialUri((Uri)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT:
-				setInitialAttachment((Attachment)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING:
-				setInitialCoding((Coding)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY:
-				setInitialQuantity((Quantity)null);
-				return;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE:
-				setInitialReference((Reference)null);
+			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL:
+				getInitial().clear();
 				return;
 			case FhirPackage.QUESTIONNAIRE_ITEM__ITEM:
 				getItem().clear();
@@ -1679,6 +1005,8 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return type != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_WHEN:
 				return enableWhen != null && !enableWhen.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_ITEM__ENABLE_BEHAVIOR:
+				return enableBehavior != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__REQUIRED:
 				return required != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__REPEATS:
@@ -1687,34 +1015,12 @@ public class QuestionnaireItemImpl extends BackboneElementImpl implements Questi
 				return readOnly != null;
 			case FhirPackage.QUESTIONNAIRE_ITEM__MAX_LENGTH:
 				return maxLength != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTIONS:
-				return options != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__OPTION:
-				return option != null && !option.isEmpty();
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_BOOLEAN:
-				return initialBoolean != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DECIMAL:
-				return initialDecimal != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_INTEGER:
-				return initialInteger != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE:
-				return initialDate != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_DATE_TIME:
-				return initialDateTime != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_TIME:
-				return initialTime != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_STRING:
-				return initialString != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_URI:
-				return initialUri != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_ATTACHMENT:
-				return initialAttachment != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_CODING:
-				return initialCoding != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_QUANTITY:
-				return initialQuantity != null;
-			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL_REFERENCE:
-				return initialReference != null;
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_VALUE_SET:
+				return answerValueSet != null;
+			case FhirPackage.QUESTIONNAIRE_ITEM__ANSWER_OPTION:
+				return answerOption != null && !answerOption.isEmpty();
+			case FhirPackage.QUESTIONNAIRE_ITEM__INITIAL:
+				return initial != null && !initial.isEmpty();
 			case FhirPackage.QUESTIONNAIRE_ITEM__ITEM:
 				return item != null && !item.isEmpty();
 		}

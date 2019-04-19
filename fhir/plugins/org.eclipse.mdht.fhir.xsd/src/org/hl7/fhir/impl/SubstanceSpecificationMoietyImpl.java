@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
+import org.hl7.fhir.Quantity;
 import org.hl7.fhir.SubstanceSpecificationMoiety;
 
 /**
@@ -29,7 +30,8 @@ import org.hl7.fhir.SubstanceSpecificationMoiety;
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getStereochemistry <em>Stereochemistry</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getOpticalActivity <em>Optical Activity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getMolecularFormula <em>Molecular Formula</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getAmount <em>Amount</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getAmountQuantity <em>Amount Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.SubstanceSpecificationMoietyImpl#getAmountString <em>Amount String</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,14 +98,24 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 	protected org.hl7.fhir.String molecularFormula;
 
 	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
+	 * The cached value of the '{@link #getAmountQuantity() <em>Amount Quantity</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAmount()
+	 * @see #getAmountQuantity()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String amount;
+	protected Quantity amountQuantity;
+
+	/**
+	 * The cached value of the '{@link #getAmountString() <em>Amount String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAmountString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String amountString;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,8 +399,8 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getAmount() {
-		return amount;
+	public Quantity getAmountQuantity() {
+		return amountQuantity;
 	}
 
 	/**
@@ -396,11 +408,11 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAmount(org.hl7.fhir.String newAmount, NotificationChain msgs) {
-		org.hl7.fhir.String oldAmount = amount;
-		amount = newAmount;
+	public NotificationChain basicSetAmountQuantity(Quantity newAmountQuantity, NotificationChain msgs) {
+		Quantity oldAmountQuantity = amountQuantity;
+		amountQuantity = newAmountQuantity;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT, oldAmount, newAmount);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY, oldAmountQuantity, newAmountQuantity);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -411,18 +423,61 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(org.hl7.fhir.String newAmount) {
-		if (newAmount != amount) {
+	public void setAmountQuantity(Quantity newAmountQuantity) {
+		if (newAmountQuantity != amountQuantity) {
 			NotificationChain msgs = null;
-			if (amount != null)
-				msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT, null, msgs);
-			if (newAmount != null)
-				msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT, null, msgs);
-			msgs = basicSetAmount(newAmount, msgs);
+			if (amountQuantity != null)
+				msgs = ((InternalEObject)amountQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY, null, msgs);
+			if (newAmountQuantity != null)
+				msgs = ((InternalEObject)newAmountQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY, null, msgs);
+			msgs = basicSetAmountQuantity(newAmountQuantity, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT, newAmount, newAmount));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY, newAmountQuantity, newAmountQuantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getAmountString() {
+		return amountString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAmountString(org.hl7.fhir.String newAmountString, NotificationChain msgs) {
+		org.hl7.fhir.String oldAmountString = amountString;
+		amountString = newAmountString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING, oldAmountString, newAmountString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAmountString(org.hl7.fhir.String newAmountString) {
+		if (newAmountString != amountString) {
+			NotificationChain msgs = null;
+			if (amountString != null)
+				msgs = ((InternalEObject)amountString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING, null, msgs);
+			if (newAmountString != null)
+				msgs = ((InternalEObject)newAmountString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING, null, msgs);
+			msgs = basicSetAmountString(newAmountString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING, newAmountString, newAmountString));
 	}
 
 	/**
@@ -445,8 +500,10 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 				return basicSetOpticalActivity(null, msgs);
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__MOLECULAR_FORMULA:
 				return basicSetMolecularFormula(null, msgs);
-			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT:
-				return basicSetAmount(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY:
+				return basicSetAmountQuantity(null, msgs);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING:
+				return basicSetAmountString(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -471,8 +528,10 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 				return getOpticalActivity();
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__MOLECULAR_FORMULA:
 				return getMolecularFormula();
-			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT:
-				return getAmount();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY:
+				return getAmountQuantity();
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING:
+				return getAmountString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -503,8 +562,11 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__MOLECULAR_FORMULA:
 				setMolecularFormula((org.hl7.fhir.String)newValue);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT:
-				setAmount((org.hl7.fhir.String)newValue);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY:
+				setAmountQuantity((Quantity)newValue);
+				return;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING:
+				setAmountString((org.hl7.fhir.String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -536,8 +598,11 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__MOLECULAR_FORMULA:
 				setMolecularFormula((org.hl7.fhir.String)null);
 				return;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT:
-				setAmount((org.hl7.fhir.String)null);
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY:
+				setAmountQuantity((Quantity)null);
+				return;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING:
+				setAmountString((org.hl7.fhir.String)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -563,8 +628,10 @@ public class SubstanceSpecificationMoietyImpl extends BackboneElementImpl implem
 				return opticalActivity != null;
 			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__MOLECULAR_FORMULA:
 				return molecularFormula != null;
-			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT:
-				return amount != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_QUANTITY:
+				return amountQuantity != null;
+			case FhirPackage.SUBSTANCE_SPECIFICATION_MOIETY__AMOUNT_STRING:
+				return amountString != null;
 		}
 		return super.eIsSet(featureID);
 	}

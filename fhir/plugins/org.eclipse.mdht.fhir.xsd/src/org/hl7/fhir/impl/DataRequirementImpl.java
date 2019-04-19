@@ -17,12 +17,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.Code;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DataRequirement;
 import org.hl7.fhir.DataRequirementCodeFilter;
 import org.hl7.fhir.DataRequirementDateFilter;
+import org.hl7.fhir.DataRequirementSort;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.PositiveInt;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,9 +38,13 @@ import org.hl7.fhir.Uri;
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getProfile <em>Profile</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getSubjectCodeableConcept <em>Subject Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getSubjectReference <em>Subject Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getMustSupport <em>Must Support</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getCodeFilter <em>Code Filter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getDateFilter <em>Date Filter</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getLimit <em>Limit</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.DataRequirementImpl#getSort <em>Sort</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,7 +68,27 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> profile;
+	protected EList<Canonical> profile;
+
+	/**
+	 * The cached value of the '{@link #getSubjectCodeableConcept() <em>Subject Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept subjectCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getSubjectReference() <em>Subject Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subjectReference;
 
 	/**
 	 * The cached value of the '{@link #getMustSupport() <em>Must Support</em>}' containment reference list.
@@ -91,6 +119,26 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * @ordered
 	 */
 	protected EList<DataRequirementDateFilter> dateFilter;
+
+	/**
+	 * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected PositiveInt limit;
+
+	/**
+	 * The cached value of the '{@link #getSort() <em>Sort</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSort()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataRequirementSort> sort;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,11 +207,97 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getProfile() {
+	public EList<Canonical> getProfile() {
 		if (profile == null) {
-			profile = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.DATA_REQUIREMENT__PROFILE);
+			profile = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.DATA_REQUIREMENT__PROFILE);
 		}
 		return profile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getSubjectCodeableConcept() {
+		return subjectCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldSubjectCodeableConcept = subjectCodeableConcept;
+		subjectCodeableConcept = newSubjectCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT, oldSubjectCodeableConcept, newSubjectCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept) {
+		if (newSubjectCodeableConcept != subjectCodeableConcept) {
+			NotificationChain msgs = null;
+			if (subjectCodeableConcept != null)
+				msgs = ((InternalEObject)subjectCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			if (newSubjectCodeableConcept != null)
+				msgs = ((InternalEObject)newSubjectCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetSubjectCodeableConcept(newSubjectCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT, newSubjectCodeableConcept, newSubjectCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSubjectReference() {
+		return subjectReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectReference(Reference newSubjectReference, NotificationChain msgs) {
+		Reference oldSubjectReference = subjectReference;
+		subjectReference = newSubjectReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE, oldSubjectReference, newSubjectReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectReference(Reference newSubjectReference) {
+		if (newSubjectReference != subjectReference) {
+			NotificationChain msgs = null;
+			if (subjectReference != null)
+				msgs = ((InternalEObject)subjectReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE, null, msgs);
+			if (newSubjectReference != null)
+				msgs = ((InternalEObject)newSubjectReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE, null, msgs);
+			msgs = basicSetSubjectReference(newSubjectReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE, newSubjectReference, newSubjectReference));
 	}
 
 	/**
@@ -207,6 +341,61 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PositiveInt getLimit() {
+		return limit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLimit(PositiveInt newLimit, NotificationChain msgs) {
+		PositiveInt oldLimit = limit;
+		limit = newLimit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__LIMIT, oldLimit, newLimit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLimit(PositiveInt newLimit) {
+		if (newLimit != limit) {
+			NotificationChain msgs = null;
+			if (limit != null)
+				msgs = ((InternalEObject)limit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__LIMIT, null, msgs);
+			if (newLimit != null)
+				msgs = ((InternalEObject)newLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.DATA_REQUIREMENT__LIMIT, null, msgs);
+			msgs = basicSetLimit(newLimit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.DATA_REQUIREMENT__LIMIT, newLimit, newLimit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataRequirementSort> getSort() {
+		if (sort == null) {
+			sort = new EObjectContainmentEList<DataRequirementSort>(DataRequirementSort.class, this, FhirPackage.DATA_REQUIREMENT__SORT);
+		}
+		return sort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -214,12 +403,20 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				return basicSetType(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
 				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT:
+				return basicSetSubjectCodeableConcept(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE:
+				return basicSetSubjectReference(null, msgs);
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				return ((InternalEList<?>)getMustSupport()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_REQUIREMENT__CODE_FILTER:
 				return ((InternalEList<?>)getCodeFilter()).basicRemove(otherEnd, msgs);
 			case FhirPackage.DATA_REQUIREMENT__DATE_FILTER:
 				return ((InternalEList<?>)getDateFilter()).basicRemove(otherEnd, msgs);
+			case FhirPackage.DATA_REQUIREMENT__LIMIT:
+				return basicSetLimit(null, msgs);
+			case FhirPackage.DATA_REQUIREMENT__SORT:
+				return ((InternalEList<?>)getSort()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -236,12 +433,20 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				return getType();
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
 				return getProfile();
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT:
+				return getSubjectCodeableConcept();
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE:
+				return getSubjectReference();
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				return getMustSupport();
 			case FhirPackage.DATA_REQUIREMENT__CODE_FILTER:
 				return getCodeFilter();
 			case FhirPackage.DATA_REQUIREMENT__DATE_FILTER:
 				return getDateFilter();
+			case FhirPackage.DATA_REQUIREMENT__LIMIT:
+				return getLimit();
+			case FhirPackage.DATA_REQUIREMENT__SORT:
+				return getSort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,7 +465,13 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				return;
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
 				getProfile().clear();
-				getProfile().addAll((Collection<? extends Uri>)newValue);
+				getProfile().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)newValue);
 				return;
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				getMustSupport().clear();
@@ -273,6 +484,13 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 			case FhirPackage.DATA_REQUIREMENT__DATE_FILTER:
 				getDateFilter().clear();
 				getDateFilter().addAll((Collection<? extends DataRequirementDateFilter>)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__LIMIT:
+				setLimit((PositiveInt)newValue);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__SORT:
+				getSort().clear();
+				getSort().addAll((Collection<? extends DataRequirementSort>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,6 +510,12 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
 				getProfile().clear();
 				return;
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)null);
+				return;
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				getMustSupport().clear();
 				return;
@@ -300,6 +524,12 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				return;
 			case FhirPackage.DATA_REQUIREMENT__DATE_FILTER:
 				getDateFilter().clear();
+				return;
+			case FhirPackage.DATA_REQUIREMENT__LIMIT:
+				setLimit((PositiveInt)null);
+				return;
+			case FhirPackage.DATA_REQUIREMENT__SORT:
+				getSort().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -317,12 +547,20 @@ public class DataRequirementImpl extends ElementImpl implements DataRequirement 
 				return type != null;
 			case FhirPackage.DATA_REQUIREMENT__PROFILE:
 				return profile != null && !profile.isEmpty();
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_CODEABLE_CONCEPT:
+				return subjectCodeableConcept != null;
+			case FhirPackage.DATA_REQUIREMENT__SUBJECT_REFERENCE:
+				return subjectReference != null;
 			case FhirPackage.DATA_REQUIREMENT__MUST_SUPPORT:
 				return mustSupport != null && !mustSupport.isEmpty();
 			case FhirPackage.DATA_REQUIREMENT__CODE_FILTER:
 				return codeFilter != null && !codeFilter.isEmpty();
 			case FhirPackage.DATA_REQUIREMENT__DATE_FILTER:
 				return dateFilter != null && !dateFilter.isEmpty();
+			case FhirPackage.DATA_REQUIREMENT__LIMIT:
+				return limit != null;
+			case FhirPackage.DATA_REQUIREMENT__SORT:
+				return sort != null && !sort.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

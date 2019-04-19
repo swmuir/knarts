@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.hl7.fhir.ContactPoint;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.MessageHeaderSource;
-import org.hl7.fhir.Uri;
+import org.hl7.fhir.Url;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri endpoint;
+	protected Url endpoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,7 +279,7 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getEndpoint() {
+	public Url getEndpoint() {
 		return endpoint;
 	}
 
@@ -288,8 +288,8 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEndpoint(Uri newEndpoint, NotificationChain msgs) {
-		Uri oldEndpoint = endpoint;
+	public NotificationChain basicSetEndpoint(Url newEndpoint, NotificationChain msgs) {
+		Url oldEndpoint = endpoint;
 		endpoint = newEndpoint;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MESSAGE_HEADER_SOURCE__ENDPOINT, oldEndpoint, newEndpoint);
@@ -303,7 +303,7 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndpoint(Uri newEndpoint) {
+	public void setEndpoint(Url newEndpoint) {
 		if (newEndpoint != endpoint) {
 			NotificationChain msgs = null;
 			if (endpoint != null)
@@ -382,7 +382,7 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 				setContact((ContactPoint)newValue);
 				return;
 			case FhirPackage.MESSAGE_HEADER_SOURCE__ENDPOINT:
-				setEndpoint((Uri)newValue);
+				setEndpoint((Url)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -409,7 +409,7 @@ public class MessageHeaderSourceImpl extends BackboneElementImpl implements Mess
 				setContact((ContactPoint)null);
 				return;
 			case FhirPackage.MESSAGE_HEADER_SOURCE__ENDPOINT:
-				setEndpoint((Uri)null);
+				setEndpoint((Url)null);
 				return;
 		}
 		super.eUnset(featureID);

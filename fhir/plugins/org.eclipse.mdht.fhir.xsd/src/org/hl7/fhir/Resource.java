@@ -85,7 +85,7 @@ public interface Resource extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
+	 * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Implicit Rules</em>' containment reference.
 	 * @see #setImplicitRules(Uri)

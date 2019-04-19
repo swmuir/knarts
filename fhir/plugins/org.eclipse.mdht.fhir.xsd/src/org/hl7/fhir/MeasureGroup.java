@@ -102,7 +102,7 @@ public interface MeasureGroup extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path.
+	 * The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Stratifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMeasureGroup_Stratifier()

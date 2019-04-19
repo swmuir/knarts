@@ -18,11 +18,15 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.Quantity;
+import org.hl7.fhir.Range;
+import org.hl7.fhir.Ratio;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RequestIntent;
 import org.hl7.fhir.RequestPriority;
@@ -40,19 +44,23 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getReplaces <em>Replaces</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getRequisition <em>Requisition</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getIntent <em>Intent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getDoNotPerform <em>Do Not Perform</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getOrderDetail <em>Order Detail</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getQuantityQuantity <em>Quantity Quantity</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getQuantityRatio <em>Quantity Ratio</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getQuantityRange <em>Quantity Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getOccurrenceDateTime <em>Occurrence Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getOccurrencePeriod <em>Occurrence Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getOccurrenceTiming <em>Occurrence Timing</em>}</li>
@@ -62,6 +70,8 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getRequester <em>Requester</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getPerformerType <em>Performer Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getPerformer <em>Performer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getLocationCode <em>Location Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getLocationReference <em>Location Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getReasonCode <em>Reason Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getReasonReference <em>Reason Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ServiceRequestImpl#getInsurance <em>Insurance</em>}</li>
@@ -87,14 +97,24 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -147,6 +167,16 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	protected RequestIntent intent;
 
 	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> category;
+
+	/**
 	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,16 +195,6 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean doNotPerform;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> category;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -197,6 +217,36 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	protected EList<CodeableConcept> orderDetail;
 
 	/**
+	 * The cached value of the '{@link #getQuantityQuantity() <em>Quantity Quantity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantityQuantity()
+	 * @generated
+	 * @ordered
+	 */
+	protected Quantity quantityQuantity;
+
+	/**
+	 * The cached value of the '{@link #getQuantityRatio() <em>Quantity Ratio</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantityRatio()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ratio quantityRatio;
+
+	/**
+	 * The cached value of the '{@link #getQuantityRange() <em>Quantity Range</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantityRange()
+	 * @generated
+	 * @ordered
+	 */
+	protected Range quantityRange;
+
+	/**
 	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,14 +257,14 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getOccurrenceDateTime() <em>Occurrence Date Time</em>}' containment reference.
@@ -297,14 +347,34 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	protected CodeableConcept performerType;
 
 	/**
-	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference.
+	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPerformer()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference performer;
+	protected EList<Reference> performer;
+
+	/**
+	 * The cached value of the '{@link #getLocationCode() <em>Location Code</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> locationCode;
+
+	/**
+	 * The cached value of the '{@link #getLocationReference() <em>Location Reference</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> locationReference;
 
 	/**
 	 * The cached value of the '{@link #getReasonCode() <em>Reason Code</em>}' containment reference list.
@@ -432,11 +502,23 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
-		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.SERVICE_REQUEST__INSTANTIATES);
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL);
 		}
-		return instantiates;
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
 	}
 
 	/**
@@ -597,6 +679,18 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CodeableConcept> getCategory() {
+		if (category == null) {
+			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SERVICE_REQUEST__CATEGORY);
+		}
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RequestPriority getPriority() {
 		return priority;
 	}
@@ -683,18 +777,6 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CodeableConcept> getCategory() {
-		if (category == null) {
-			category = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SERVICE_REQUEST__CATEGORY);
-		}
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CodeableConcept getCode() {
 		return code;
 	}
@@ -750,6 +832,135 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Quantity getQuantityQuantity() {
+		return quantityQuantity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantityQuantity(Quantity newQuantityQuantity, NotificationChain msgs) {
+		Quantity oldQuantityQuantity = quantityQuantity;
+		quantityQuantity = newQuantityQuantity;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY, oldQuantityQuantity, newQuantityQuantity);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantityQuantity(Quantity newQuantityQuantity) {
+		if (newQuantityQuantity != quantityQuantity) {
+			NotificationChain msgs = null;
+			if (quantityQuantity != null)
+				msgs = ((InternalEObject)quantityQuantity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY, null, msgs);
+			if (newQuantityQuantity != null)
+				msgs = ((InternalEObject)newQuantityQuantity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY, null, msgs);
+			msgs = basicSetQuantityQuantity(newQuantityQuantity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY, newQuantityQuantity, newQuantityQuantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ratio getQuantityRatio() {
+		return quantityRatio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantityRatio(Ratio newQuantityRatio, NotificationChain msgs) {
+		Ratio oldQuantityRatio = quantityRatio;
+		quantityRatio = newQuantityRatio;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO, oldQuantityRatio, newQuantityRatio);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantityRatio(Ratio newQuantityRatio) {
+		if (newQuantityRatio != quantityRatio) {
+			NotificationChain msgs = null;
+			if (quantityRatio != null)
+				msgs = ((InternalEObject)quantityRatio).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO, null, msgs);
+			if (newQuantityRatio != null)
+				msgs = ((InternalEObject)newQuantityRatio).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO, null, msgs);
+			msgs = basicSetQuantityRatio(newQuantityRatio, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO, newQuantityRatio, newQuantityRatio));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Range getQuantityRange() {
+		return quantityRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantityRange(Range newQuantityRange, NotificationChain msgs) {
+		Range oldQuantityRange = quantityRange;
+		quantityRange = newQuantityRange;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE, oldQuantityRange, newQuantityRange);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantityRange(Range newQuantityRange) {
+		if (newQuantityRange != quantityRange) {
+			NotificationChain msgs = null;
+			if (quantityRange != null)
+				msgs = ((InternalEObject)quantityRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE, null, msgs);
+			if (newQuantityRange != null)
+				msgs = ((InternalEObject)newQuantityRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE, null, msgs);
+			msgs = basicSetQuantityRange(newQuantityRange, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE, newQuantityRange, newQuantityRange));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Reference getSubject() {
 		return subject;
 	}
@@ -793,8 +1004,8 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -802,11 +1013,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -817,18 +1028,18 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -1180,7 +1391,10 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getPerformer() {
+	public EList<Reference> getPerformer() {
+		if (performer == null) {
+			performer = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SERVICE_REQUEST__PERFORMER);
+		}
 		return performer;
 	}
 
@@ -1189,14 +1403,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPerformer(Reference newPerformer, NotificationChain msgs) {
-		Reference oldPerformer = performer;
-		performer = newPerformer;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__PERFORMER, oldPerformer, newPerformer);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<CodeableConcept> getLocationCode() {
+		if (locationCode == null) {
+			locationCode = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.SERVICE_REQUEST__LOCATION_CODE);
 		}
-		return msgs;
+		return locationCode;
 	}
 
 	/**
@@ -1204,18 +1415,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPerformer(Reference newPerformer) {
-		if (newPerformer != performer) {
-			NotificationChain msgs = null;
-			if (performer != null)
-				msgs = ((InternalEObject)performer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__PERFORMER, null, msgs);
-			if (newPerformer != null)
-				msgs = ((InternalEObject)newPerformer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.SERVICE_REQUEST__PERFORMER, null, msgs);
-			msgs = basicSetPerformer(newPerformer, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<Reference> getLocationReference() {
+		if (locationReference == null) {
+			locationReference = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SERVICE_REQUEST__PERFORMER, newPerformer, newPerformer));
+		return locationReference;
 	}
 
 	/**
@@ -1367,8 +1571,10 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 		switch (featureID) {
 			case FhirPackage.SERVICE_REQUEST__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.SERVICE_REQUEST__INSTANTIATES:
-				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__REPLACES:
@@ -1379,20 +1585,26 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				return basicSetStatus(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__INTENT:
 				return basicSetIntent(null, msgs);
+			case FhirPackage.SERVICE_REQUEST__CATEGORY:
+				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__PRIORITY:
 				return basicSetPriority(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__DO_NOT_PERFORM:
 				return basicSetDoNotPerform(null, msgs);
-			case FhirPackage.SERVICE_REQUEST__CATEGORY:
-				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__CODE:
 				return basicSetCode(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__ORDER_DETAIL:
 				return ((InternalEList<?>)getOrderDetail()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY:
+				return basicSetQuantityQuantity(null, msgs);
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO:
+				return basicSetQuantityRatio(null, msgs);
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE:
+				return basicSetQuantityRange(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.SERVICE_REQUEST__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.SERVICE_REQUEST__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return basicSetOccurrenceDateTime(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_PERIOD:
@@ -1410,7 +1622,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__PERFORMER_TYPE:
 				return basicSetPerformerType(null, msgs);
 			case FhirPackage.SERVICE_REQUEST__PERFORMER:
-				return basicSetPerformer(null, msgs);
+				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SERVICE_REQUEST__LOCATION_CODE:
+				return ((InternalEList<?>)getLocationCode()).basicRemove(otherEnd, msgs);
+			case FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE:
+				return ((InternalEList<?>)getLocationReference()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__REASON_CODE:
 				return ((InternalEList<?>)getReasonCode()).basicRemove(otherEnd, msgs);
 			case FhirPackage.SERVICE_REQUEST__REASON_REFERENCE:
@@ -1443,8 +1659,10 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 		switch (featureID) {
 			case FhirPackage.SERVICE_REQUEST__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.SERVICE_REQUEST__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.SERVICE_REQUEST__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.SERVICE_REQUEST__REPLACES:
@@ -1455,20 +1673,26 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				return getStatus();
 			case FhirPackage.SERVICE_REQUEST__INTENT:
 				return getIntent();
+			case FhirPackage.SERVICE_REQUEST__CATEGORY:
+				return getCategory();
 			case FhirPackage.SERVICE_REQUEST__PRIORITY:
 				return getPriority();
 			case FhirPackage.SERVICE_REQUEST__DO_NOT_PERFORM:
 				return getDoNotPerform();
-			case FhirPackage.SERVICE_REQUEST__CATEGORY:
-				return getCategory();
 			case FhirPackage.SERVICE_REQUEST__CODE:
 				return getCode();
 			case FhirPackage.SERVICE_REQUEST__ORDER_DETAIL:
 				return getOrderDetail();
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY:
+				return getQuantityQuantity();
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO:
+				return getQuantityRatio();
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE:
+				return getQuantityRange();
 			case FhirPackage.SERVICE_REQUEST__SUBJECT:
 				return getSubject();
-			case FhirPackage.SERVICE_REQUEST__CONTEXT:
-				return getContext();
+			case FhirPackage.SERVICE_REQUEST__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return getOccurrenceDateTime();
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_PERIOD:
@@ -1487,6 +1711,10 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				return getPerformerType();
 			case FhirPackage.SERVICE_REQUEST__PERFORMER:
 				return getPerformer();
+			case FhirPackage.SERVICE_REQUEST__LOCATION_CODE:
+				return getLocationCode();
+			case FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE:
+				return getLocationReference();
 			case FhirPackage.SERVICE_REQUEST__REASON_CODE:
 				return getReasonCode();
 			case FhirPackage.SERVICE_REQUEST__REASON_REFERENCE:
@@ -1522,9 +1750,13 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.SERVICE_REQUEST__INSTANTIATES:
-				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1543,15 +1775,15 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__INTENT:
 				setIntent((RequestIntent)newValue);
 				return;
+			case FhirPackage.SERVICE_REQUEST__CATEGORY:
+				getCategory().clear();
+				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
 			case FhirPackage.SERVICE_REQUEST__PRIORITY:
 				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)newValue);
-				return;
-			case FhirPackage.SERVICE_REQUEST__CATEGORY:
-				getCategory().clear();
-				getCategory().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__CODE:
 				setCode((CodeableConcept)newValue);
@@ -1560,11 +1792,20 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				getOrderDetail().clear();
 				getOrderDetail().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY:
+				setQuantityQuantity((Quantity)newValue);
+				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO:
+				setQuantityRatio((Ratio)newValue);
+				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE:
+				setQuantityRange((Range)newValue);
+				return;
 			case FhirPackage.SERVICE_REQUEST__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.SERVICE_REQUEST__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.SERVICE_REQUEST__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)newValue);
@@ -1591,7 +1832,16 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				setPerformerType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__PERFORMER:
-				setPerformer((Reference)newValue);
+				getPerformer().clear();
+				getPerformer().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.SERVICE_REQUEST__LOCATION_CODE:
+				getLocationCode().clear();
+				getLocationCode().addAll((Collection<? extends CodeableConcept>)newValue);
+				return;
+			case FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE:
+				getLocationReference().clear();
+				getLocationReference().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case FhirPackage.SERVICE_REQUEST__REASON_CODE:
 				getReasonCode().clear();
@@ -1643,8 +1893,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.SERVICE_REQUEST__INSTANTIATES:
-				getInstantiates().clear();
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.SERVICE_REQUEST__BASED_ON:
 				getBasedOn().clear();
@@ -1661,14 +1914,14 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__INTENT:
 				setIntent((RequestIntent)null);
 				return;
+			case FhirPackage.SERVICE_REQUEST__CATEGORY:
+				getCategory().clear();
+				return;
 			case FhirPackage.SERVICE_REQUEST__PRIORITY:
 				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.SERVICE_REQUEST__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)null);
-				return;
-			case FhirPackage.SERVICE_REQUEST__CATEGORY:
-				getCategory().clear();
 				return;
 			case FhirPackage.SERVICE_REQUEST__CODE:
 				setCode((CodeableConcept)null);
@@ -1676,11 +1929,20 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__ORDER_DETAIL:
 				getOrderDetail().clear();
 				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY:
+				setQuantityQuantity((Quantity)null);
+				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO:
+				setQuantityRatio((Ratio)null);
+				return;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE:
+				setQuantityRange((Range)null);
+				return;
 			case FhirPackage.SERVICE_REQUEST__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.SERVICE_REQUEST__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.SERVICE_REQUEST__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				setOccurrenceDateTime((DateTime)null);
@@ -1707,7 +1969,13 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				setPerformerType((CodeableConcept)null);
 				return;
 			case FhirPackage.SERVICE_REQUEST__PERFORMER:
-				setPerformer((Reference)null);
+				getPerformer().clear();
+				return;
+			case FhirPackage.SERVICE_REQUEST__LOCATION_CODE:
+				getLocationCode().clear();
+				return;
+			case FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE:
+				getLocationReference().clear();
 				return;
 			case FhirPackage.SERVICE_REQUEST__REASON_CODE:
 				getReasonCode().clear();
@@ -1750,8 +2018,10 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 		switch (featureID) {
 			case FhirPackage.SERVICE_REQUEST__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.SERVICE_REQUEST__INSTANTIATES:
-				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.SERVICE_REQUEST__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__REPLACES:
@@ -1762,20 +2032,26 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 				return status != null;
 			case FhirPackage.SERVICE_REQUEST__INTENT:
 				return intent != null;
+			case FhirPackage.SERVICE_REQUEST__CATEGORY:
+				return category != null && !category.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__PRIORITY:
 				return priority != null;
 			case FhirPackage.SERVICE_REQUEST__DO_NOT_PERFORM:
 				return doNotPerform != null;
-			case FhirPackage.SERVICE_REQUEST__CATEGORY:
-				return category != null && !category.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__CODE:
 				return code != null;
 			case FhirPackage.SERVICE_REQUEST__ORDER_DETAIL:
 				return orderDetail != null && !orderDetail.isEmpty();
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_QUANTITY:
+				return quantityQuantity != null;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RATIO:
+				return quantityRatio != null;
+			case FhirPackage.SERVICE_REQUEST__QUANTITY_RANGE:
+				return quantityRange != null;
 			case FhirPackage.SERVICE_REQUEST__SUBJECT:
 				return subject != null;
-			case FhirPackage.SERVICE_REQUEST__CONTEXT:
-				return context != null;
+			case FhirPackage.SERVICE_REQUEST__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_DATE_TIME:
 				return occurrenceDateTime != null;
 			case FhirPackage.SERVICE_REQUEST__OCCURRENCE_PERIOD:
@@ -1793,7 +2069,11 @@ public class ServiceRequestImpl extends DomainResourceImpl implements ServiceReq
 			case FhirPackage.SERVICE_REQUEST__PERFORMER_TYPE:
 				return performerType != null;
 			case FhirPackage.SERVICE_REQUEST__PERFORMER:
-				return performer != null;
+				return performer != null && !performer.isEmpty();
+			case FhirPackage.SERVICE_REQUEST__LOCATION_CODE:
+				return locationCode != null && !locationCode.isEmpty();
+			case FhirPackage.SERVICE_REQUEST__LOCATION_REFERENCE:
+				return locationReference != null && !locationReference.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__REASON_CODE:
 				return reasonCode != null && !reasonCode.isEmpty();
 			case FhirPackage.SERVICE_REQUEST__REASON_REFERENCE:

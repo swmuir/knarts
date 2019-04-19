@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.DocumentManifest#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getCreated <em>Created</em>}</li>
- *   <li>{@link org.hl7.fhir.DocumentManifest#getAgent <em>Agent</em>}</li>
+ *   <li>{@link org.hl7.fhir.DocumentManifest#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getRecipient <em>Recipient</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getSource <em>Source</em>}</li>
  *   <li>{@link org.hl7.fhir.DocumentManifest#getDescription <em>Description</em>}</li>
@@ -110,7 +110,7 @@ public interface DocumentManifest extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
+	 * The code specifying the type of clinical activity that resulted in placing the associated content into the DocumentManifest.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -184,20 +184,20 @@ public interface DocumentManifest extends DomainResource {
 	void setCreated(DateTime value);
 
 	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.DocumentManifestAgent}.
+	 * Returns the value of the '<em><b>Author</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An actor taking an active role in the manifest.
+	 * Identifies who is the author of the manifest. Manifest author is not necessarly the author of the references included.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Agent()
+	 * @return the value of the '<em>Author</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getDocumentManifest_Author()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='author' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<DocumentManifestAgent> getAgent();
+	EList<Reference> getAuthor();
 
 	/**
 	 * Returns the value of the '<em><b>Recipient</b></em>' containment reference list.

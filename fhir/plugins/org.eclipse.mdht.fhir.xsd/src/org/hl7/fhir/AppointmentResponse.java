@@ -148,7 +148,7 @@ public interface AppointmentResponse extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A Person, Location/HealthcareService or Device that is participating in the appointment.
+	 * A Person, Location, HealthcareService, or Device that is participating in the appointment.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Actor</em>' containment reference.
 	 * @see #setActor(Reference)

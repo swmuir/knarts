@@ -27,7 +27,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Dec 20, 2017 15:52+1100 for FHIR v3.2.0 
+  Generated on Thu, Dec 27, 2018 22:37+1100 for FHIR v4.0.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -64,14 +64,14 @@
               <xs:documentation xml:lang="en">A larger event of which this particular event is a component or step.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="status" minOccurs="1" maxOccurs="1" type="MediaStatus">
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="EventStatus">
             <xs:annotation>
               <xs:documentation xml:lang="en">The current state of the {{title}}.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="category" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.</xs:documentation>
+              <xs:documentation xml:lang="en">A code that classifies whether the media is an image, video or audio recording or some other media category.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="modality" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -89,9 +89,9 @@
               <xs:documentation xml:lang="en">Who/What this Media is a record of.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="context" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="encounter" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The encounter or episode of care that establishes the context for this media.</xs:documentation>
+              <xs:documentation xml:lang="en">The encounter that establishes the context for this media.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1" >
@@ -162,61 +162,6 @@
            </xs:annotation>
           </xs:element>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="MediaStatus-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="preparation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Preparation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="in-progress">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">In Progress</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="not-done">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Not Done</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="suspended">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Suspended</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="aborted">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Aborted</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="completed">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Completed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="entered-in-error">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Entered in Error</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="unknown">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Unknown</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="MediaStatus">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">Codes identifying the stage lifecycle stage of a event</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="MediaStatus-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

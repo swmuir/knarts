@@ -55,7 +55,7 @@ public enum LinkageTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Source of truth
+	 * Source of Truth
 	 * <!-- end-model-doc -->
 	 * @see #SOURCE
 	 * @model name="source"
@@ -69,7 +69,7 @@ public enum LinkageTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Alternate record
+	 * Alternate Record
 	 * <!-- end-model-doc -->
 	 * @see #ALTERNATE
 	 * @model name="alternate"
@@ -83,7 +83,7 @@ public enum LinkageTypeList implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Historical/obsolete record
+	 * Historical/Obsolete Record
 	 * <!-- end-model-doc -->
 	 * @see #HISTORICAL
 	 * @model name="historical"

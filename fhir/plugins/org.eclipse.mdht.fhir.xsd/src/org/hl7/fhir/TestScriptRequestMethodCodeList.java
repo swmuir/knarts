@@ -78,7 +78,17 @@ public enum TestScriptRequestMethodCodeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PUT(5, "put", "put");
+	PUT(5, "put", "put"),
+
+	/**
+	 * The '<em><b>Head</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #HEAD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	HEAD(6, "head", "head");
 
 	/**
 	 * The '<em><b>Delete</b></em>' literal value.
@@ -165,6 +175,20 @@ public enum TestScriptRequestMethodCodeList implements Enumerator {
 	public static final int PUT_VALUE = 5;
 
 	/**
+	 * The '<em><b>Head</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * HEAD
+	 * <!-- end-model-doc -->
+	 * @see #HEAD
+	 * @model name="head"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HEAD_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Test Script Request Method Code List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +202,7 @@ public enum TestScriptRequestMethodCodeList implements Enumerator {
 			PATCH,
 			POST,
 			PUT,
+			HEAD,
 		};
 
 	/**
@@ -240,6 +265,7 @@ public enum TestScriptRequestMethodCodeList implements Enumerator {
 			case PATCH_VALUE: return PATCH;
 			case POST_VALUE: return POST;
 			case PUT_VALUE: return PUT;
+			case HEAD_VALUE: return HEAD;
 		}
 		return null;
 	}

@@ -10,10 +10,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatementDocument;
 import org.hl7.fhir.DocumentMode;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Reference;
+import org.hl7.fhir.Markdown;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +50,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected org.hl7.fhir.String documentation;
+	protected Markdown documentation;
 
 	/**
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
@@ -59,7 +60,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference profile;
+	protected Canonical profile;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +129,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.hl7.fhir.String getDocumentation() {
+	public Markdown getDocumentation() {
 		return documentation;
 	}
 
@@ -137,8 +138,8 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocumentation(org.hl7.fhir.String newDocumentation, NotificationChain msgs) {
-		org.hl7.fhir.String oldDocumentation = documentation;
+	public NotificationChain basicSetDocumentation(Markdown newDocumentation, NotificationChain msgs) {
+		Markdown oldDocumentation = documentation;
 		documentation = newDocumentation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__DOCUMENTATION, oldDocumentation, newDocumentation);
@@ -152,7 +153,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDocumentation(org.hl7.fhir.String newDocumentation) {
+	public void setDocumentation(Markdown newDocumentation) {
 		if (newDocumentation != documentation) {
 			NotificationChain msgs = null;
 			if (documentation != null)
@@ -171,7 +172,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getProfile() {
+	public Canonical getProfile() {
 		return profile;
 	}
 
@@ -180,8 +181,8 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProfile(Reference newProfile, NotificationChain msgs) {
-		Reference oldProfile = profile;
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
 		profile = newProfile;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__PROFILE, oldProfile, newProfile);
@@ -195,7 +196,7 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProfile(Reference newProfile) {
+	public void setProfile(Canonical newProfile) {
 		if (newProfile != profile) {
 			NotificationChain msgs = null;
 			if (profile != null)
@@ -257,10 +258,10 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 				setMode((DocumentMode)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)newValue);
+				setDocumentation((Markdown)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__PROFILE:
-				setProfile((Reference)newValue);
+				setProfile((Canonical)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,10 +279,10 @@ public class CapabilityStatementDocumentImpl extends BackboneElementImpl impleme
 				setMode((DocumentMode)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__DOCUMENTATION:
-				setDocumentation((org.hl7.fhir.String)null);
+				setDocumentation((Markdown)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT_DOCUMENT__PROFILE:
-				setProfile((Reference)null);
+				setProfile((Canonical)null);
 				return;
 		}
 		super.eUnset(featureID);

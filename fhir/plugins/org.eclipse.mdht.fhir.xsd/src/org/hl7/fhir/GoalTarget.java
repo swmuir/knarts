@@ -20,6 +20,10 @@ package org.hl7.fhir;
  *   <li>{@link org.hl7.fhir.GoalTarget#getDetailQuantity <em>Detail Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.GoalTarget#getDetailRange <em>Detail Range</em>}</li>
  *   <li>{@link org.hl7.fhir.GoalTarget#getDetailCodeableConcept <em>Detail Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.GoalTarget#getDetailString <em>Detail String</em>}</li>
+ *   <li>{@link org.hl7.fhir.GoalTarget#getDetailBoolean <em>Detail Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.GoalTarget#getDetailInteger <em>Detail Integer</em>}</li>
+ *   <li>{@link org.hl7.fhir.GoalTarget#getDetailRatio <em>Detail Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.GoalTarget#getDueDate <em>Due Date</em>}</li>
  *   <li>{@link org.hl7.fhir.GoalTarget#getDueDuration <em>Due Duration</em>}</li>
  * </ul>
@@ -135,6 +139,114 @@ public interface GoalTarget extends BackboneElement {
 	 * @generated
 	 */
 	void setDetailCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Detail String</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Detail String</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Detail String</em>' containment reference.
+	 * @see #setDetailString(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getGoalTarget_DetailString()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detailString' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getDetailString();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GoalTarget#getDetailString <em>Detail String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detail String</em>' containment reference.
+	 * @see #getDetailString()
+	 * @generated
+	 */
+	void setDetailString(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Detail Boolean</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Detail Boolean</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Detail Boolean</em>' containment reference.
+	 * @see #setDetailBoolean(org.hl7.fhir.Boolean)
+	 * @see org.hl7.fhir.FhirPackage#getGoalTarget_DetailBoolean()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detailBoolean' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Boolean getDetailBoolean();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GoalTarget#getDetailBoolean <em>Detail Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detail Boolean</em>' containment reference.
+	 * @see #getDetailBoolean()
+	 * @generated
+	 */
+	void setDetailBoolean(org.hl7.fhir.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Detail Integer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Detail Integer</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Detail Integer</em>' containment reference.
+	 * @see #setDetailInteger(org.hl7.fhir.Integer)
+	 * @see org.hl7.fhir.FhirPackage#getGoalTarget_DetailInteger()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detailInteger' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.Integer getDetailInteger();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GoalTarget#getDetailInteger <em>Detail Integer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detail Integer</em>' containment reference.
+	 * @see #getDetailInteger()
+	 * @generated
+	 */
+	void setDetailInteger(org.hl7.fhir.Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Detail Ratio</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Detail Ratio</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Detail Ratio</em>' containment reference.
+	 * @see #setDetailRatio(Ratio)
+	 * @see org.hl7.fhir.FhirPackage#getGoalTarget_DetailRatio()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='detailRatio' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Ratio getDetailRatio();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.GoalTarget#getDetailRatio <em>Detail Ratio</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Detail Ratio</em>' containment reference.
+	 * @see #getDetailRatio()
+	 * @generated
+	 */
+	void setDetailRatio(Ratio value);
 
 	/**
 	 * Returns the value of the '<em><b>Due Date</b></em>' containment reference.

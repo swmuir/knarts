@@ -2,7 +2,6 @@
  */
 package org.hl7.fhir;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,13 +34,13 @@ public interface Time extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(XMLGregorianCalendar)
+	 * @see #setValue(Object)
 	 * @see org.hl7.fhir.FhirPackage#getTime_Value()
 	 * @model dataType="org.hl7.fhir.TimePrimitive"
 	 *        extendedMetaData="kind='attribute' name='value'"
 	 * @generated
 	 */
-	XMLGregorianCalendar getValue();
+	Object getValue();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Time#getValue <em>Value</em>}' attribute.
@@ -51,6 +50,6 @@ public interface Time extends Element {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(XMLGregorianCalendar value);
+	void setValue(Object value);
 
 } // Time

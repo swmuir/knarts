@@ -195,13 +195,13 @@ public interface ParameterDefinition extends Element {
 	 * If specified, this indicates a profile that the input data must conform to, or that the output data will conform to.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Profile</em>' containment reference.
-	 * @see #setProfile(Reference)
+	 * @see #setProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getParameterDefinition_Profile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='profile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getProfile();
+	Canonical getProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.ParameterDefinition#getProfile <em>Profile</em>}' containment reference.
@@ -211,6 +211,6 @@ public interface ParameterDefinition extends Element {
 	 * @see #getProfile()
 	 * @generated
 	 */
-	void setProfile(Reference value);
+	void setProfile(Canonical value);
 
 } // ParameterDefinition

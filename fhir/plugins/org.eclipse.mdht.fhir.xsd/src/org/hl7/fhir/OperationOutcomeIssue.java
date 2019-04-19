@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A collection of error, warning or information messages that result from a system action.
+ * A collection of error, warning, or information messages that result from a system action.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -87,7 +87,7 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional details about the error. This may be a text description of the error, or a system code that identifies the error.
+	 * Additional details about the error. This may be a text description of the error or a system code that identifies the error.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Details</em>' containment reference.
 	 * @see #setDetails(CodeableConcept)
@@ -113,7 +113,7 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
+	 * Additional diagnostic information about the issue.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Diagnostics</em>' containment reference.
 	 * @see #setDiagnostics(org.hl7.fhir.String)
@@ -140,7 +140,9 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be "http." + the parameter name.
+	 * This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. 
+	 * 
+	 * For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be "http." + the parameter name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationOutcomeIssue_Location()
@@ -156,7 +158,7 @@ public interface OperationOutcomeIssue extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A simple FHIRPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+	 * A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationOutcomeIssue_Expression()

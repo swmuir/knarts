@@ -23,8 +23,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getMolecularFormulaByMoiety <em>Molecular Formula By Moiety</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getIsotope <em>Isotope</em>}</li>
  *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getMolecularWeight <em>Molecular Weight</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getReferenceSource <em>Reference Source</em>}</li>
- *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getStructuralRepresentation <em>Structural Representation</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getSource <em>Source</em>}</li>
+ *   <li>{@link org.hl7.fhir.SubstanceSpecificationStructure#getRepresentation <em>Representation</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationStructure()
@@ -115,7 +115,7 @@ public interface SubstanceSpecificationStructure extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical. and each moiety separated by a dot.
+	 * Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical, each moiety separated by a dot.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Molecular Formula By Moiety</em>' containment reference.
 	 * @see #setMolecularFormulaByMoiety(org.hl7.fhir.String)
@@ -179,35 +179,35 @@ public interface SubstanceSpecificationStructure extends BackboneElement {
 	void setMolecularWeight(SubstanceSpecificationMolecularWeight value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference Source</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference list.
 	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Supporting literature.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Reference Source</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationStructure_ReferenceSource()
+	 * @return the value of the '<em>Source</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationStructure_Source()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='referenceSource' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getReferenceSource();
+	EList<Reference> getSource();
 
 	/**
-	 * Returns the value of the '<em><b>Structural Representation</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationStructuralRepresentation}.
+	 * Returns the value of the '<em><b>Representation</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.SubstanceSpecificationRepresentation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Molectular structural representation.
+	 * Molecular structural representation.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Structural Representation</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationStructure_StructuralRepresentation()
+	 * @return the value of the '<em>Representation</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getSubstanceSpecificationStructure_Representation()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='structuralRepresentation' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='representation' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<SubstanceSpecificationStructuralRepresentation> getStructuralRepresentation();
+	EList<SubstanceSpecificationRepresentation> getRepresentation();
 
 } // SubstanceSpecificationStructure

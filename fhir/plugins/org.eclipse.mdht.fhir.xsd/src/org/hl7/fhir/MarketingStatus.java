@@ -28,7 +28,7 @@ package org.hl7.fhir;
  * @model extendedMetaData="name='MarketingStatus' kind='elementOnly'"
  * @generated
  */
-public interface MarketingStatus extends Element {
+public interface MarketingStatus extends BackboneElement {
 	/**
 	 * Returns the value of the '<em><b>Country</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

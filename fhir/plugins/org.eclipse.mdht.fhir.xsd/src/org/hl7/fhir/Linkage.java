@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
+ * Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -59,7 +59,7 @@ public interface Linkage extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the user or organization responsible for asserting the linkages and who establishes the context for evaluating the nature of each linkage.
+	 * Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Author</em>' containment reference.
 	 * @see #setAuthor(Reference)
@@ -86,7 +86,7 @@ public interface Linkage extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies one of the records that is considered to refer to the same real-world occurrence as well as how the items hould be evaluated within the collection of linked items.
+	 * Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Item</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getLinkage_Item()

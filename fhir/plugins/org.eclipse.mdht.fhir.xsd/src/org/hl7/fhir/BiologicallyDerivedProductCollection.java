@@ -33,7 +33,7 @@ public interface BiologicallyDerivedProductCollection extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * HealthCare Professional performing collection.
+	 * Healthcare professional who is performing the collection.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Collector</em>' containment reference.
 	 * @see #setCollector(Reference)
@@ -59,7 +59,7 @@ public interface BiologicallyDerivedProductCollection extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Person or entity providing product.
+	 * The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(Reference)

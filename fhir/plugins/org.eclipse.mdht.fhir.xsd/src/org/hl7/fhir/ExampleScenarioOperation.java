@@ -38,7 +38,7 @@ public interface ExampleScenarioOperation extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The sequential number of the interaction.
+	 * The sequential number of the interaction, e.g. 1.2.5.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Number</em>' containment reference.
 	 * @see #setNumber(org.hl7.fhir.String)

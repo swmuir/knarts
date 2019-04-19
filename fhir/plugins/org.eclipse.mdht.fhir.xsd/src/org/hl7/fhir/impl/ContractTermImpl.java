@@ -18,14 +18,16 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.CodeableConcept;
-import org.hl7.fhir.ContractAgent;
+import org.hl7.fhir.ContractAction;
 import org.hl7.fhir.ContractAsset;
 import org.hl7.fhir.ContractOffer;
+import org.hl7.fhir.ContractSecurityLabel;
 import org.hl7.fhir.ContractTerm;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Identifier;
 import org.hl7.fhir.Period;
+import org.hl7.fhir.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,13 +40,15 @@ import org.hl7.fhir.Period;
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getApplies <em>Applies</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getTopicCodeableConcept <em>Topic Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getTopicReference <em>Topic Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getSubType <em>Sub Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getSecurityLabel <em>Security Label</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getOffer <em>Offer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getAsset <em>Asset</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getAction <em>Action</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getActionReason <em>Action Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ContractTermImpl#getGroup <em>Group</em>}</li>
  * </ul>
  *
@@ -82,6 +86,26 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	protected Period applies;
 
 	/**
+	 * The cached value of the '{@link #getTopicCodeableConcept() <em>Topic Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTopicCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept topicCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getTopicReference() <em>Topic Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTopicReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference topicReference;
+
+	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +124,26 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * @ordered
 	 */
 	protected CodeableConcept subType;
+
+	/**
+	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String text;
+
+	/**
+	 * The cached value of the '{@link #getSecurityLabel() <em>Security Label</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContractSecurityLabel> securityLabel;
 
 	/**
 	 * The cached value of the '{@link #getOffer() <em>Offer</em>}' containment reference.
@@ -122,16 +166,6 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	protected EList<ContractAsset> asset;
 
 	/**
-	 * The cached value of the '{@link #getAgent() <em>Agent</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAgent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ContractAgent> agent;
-
-	/**
 	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,17 +173,7 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CodeableConcept> action;
-
-	/**
-	 * The cached value of the '{@link #getActionReason() <em>Action Reason</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActionReason()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> actionReason;
+	protected EList<ContractAction> action;
 
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
@@ -314,6 +338,92 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CodeableConcept getTopicCodeableConcept() {
+		return topicCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTopicCodeableConcept(CodeableConcept newTopicCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldTopicCodeableConcept = topicCodeableConcept;
+		topicCodeableConcept = newTopicCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT, oldTopicCodeableConcept, newTopicCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopicCodeableConcept(CodeableConcept newTopicCodeableConcept) {
+		if (newTopicCodeableConcept != topicCodeableConcept) {
+			NotificationChain msgs = null;
+			if (topicCodeableConcept != null)
+				msgs = ((InternalEObject)topicCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT, null, msgs);
+			if (newTopicCodeableConcept != null)
+				msgs = ((InternalEObject)newTopicCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetTopicCodeableConcept(newTopicCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT, newTopicCodeableConcept, newTopicCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getTopicReference() {
+		return topicReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTopicReference(Reference newTopicReference, NotificationChain msgs) {
+		Reference oldTopicReference = topicReference;
+		topicReference = newTopicReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE, oldTopicReference, newTopicReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopicReference(Reference newTopicReference) {
+		if (newTopicReference != topicReference) {
+			NotificationChain msgs = null;
+			if (topicReference != null)
+				msgs = ((InternalEObject)topicReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE, null, msgs);
+			if (newTopicReference != null)
+				msgs = ((InternalEObject)newTopicReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE, null, msgs);
+			msgs = basicSetTopicReference(newTopicReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE, newTopicReference, newTopicReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CodeableConcept getType() {
 		return type;
 	}
@@ -400,6 +510,61 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getText() {
+		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetText(org.hl7.fhir.String newText, NotificationChain msgs) {
+		org.hl7.fhir.String oldText = text;
+		text = newText;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TEXT, oldText, newText);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setText(org.hl7.fhir.String newText) {
+		if (newText != text) {
+			NotificationChain msgs = null;
+			if (text != null)
+				msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TEXT, null, msgs);
+			if (newText != null)
+				msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CONTRACT_TERM__TEXT, null, msgs);
+			msgs = basicSetText(newText, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CONTRACT_TERM__TEXT, newText, newText));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ContractSecurityLabel> getSecurityLabel() {
+		if (securityLabel == null) {
+			securityLabel = new EObjectContainmentEList<ContractSecurityLabel>(ContractSecurityLabel.class, this, FhirPackage.CONTRACT_TERM__SECURITY_LABEL);
+		}
+		return securityLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ContractOffer getOffer() {
 		return offer;
 	}
@@ -455,35 +620,11 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ContractAgent> getAgent() {
-		if (agent == null) {
-			agent = new EObjectContainmentEList<ContractAgent>(ContractAgent.class, this, FhirPackage.CONTRACT_TERM__AGENT);
-		}
-		return agent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getAction() {
+	public EList<ContractAction> getAction() {
 		if (action == null) {
-			action = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_TERM__ACTION);
+			action = new EObjectContainmentEList<ContractAction>(ContractAction.class, this, FhirPackage.CONTRACT_TERM__ACTION);
 		}
 		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getActionReason() {
-		if (actionReason == null) {
-			actionReason = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.CONTRACT_TERM__ACTION_REASON);
-		}
-		return actionReason;
 	}
 
 	/**
@@ -512,20 +653,24 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return basicSetIssued(null, msgs);
 			case FhirPackage.CONTRACT_TERM__APPLIES:
 				return basicSetApplies(null, msgs);
+			case FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT:
+				return basicSetTopicCodeableConcept(null, msgs);
+			case FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE:
+				return basicSetTopicReference(null, msgs);
 			case FhirPackage.CONTRACT_TERM__TYPE:
 				return basicSetType(null, msgs);
 			case FhirPackage.CONTRACT_TERM__SUB_TYPE:
 				return basicSetSubType(null, msgs);
+			case FhirPackage.CONTRACT_TERM__TEXT:
+				return basicSetText(null, msgs);
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return ((InternalEList<?>)getSecurityLabel()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__OFFER:
 				return basicSetOffer(null, msgs);
 			case FhirPackage.CONTRACT_TERM__ASSET:
 				return ((InternalEList<?>)getAsset()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONTRACT_TERM__AGENT:
-				return ((InternalEList<?>)getAgent()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__ACTION:
 				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
-			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
-				return ((InternalEList<?>)getActionReason()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CONTRACT_TERM__GROUP:
 				return ((InternalEList<?>)getGroup()).basicRemove(otherEnd, msgs);
 		}
@@ -546,20 +691,24 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return getIssued();
 			case FhirPackage.CONTRACT_TERM__APPLIES:
 				return getApplies();
+			case FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT:
+				return getTopicCodeableConcept();
+			case FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE:
+				return getTopicReference();
 			case FhirPackage.CONTRACT_TERM__TYPE:
 				return getType();
 			case FhirPackage.CONTRACT_TERM__SUB_TYPE:
 				return getSubType();
+			case FhirPackage.CONTRACT_TERM__TEXT:
+				return getText();
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return getSecurityLabel();
 			case FhirPackage.CONTRACT_TERM__OFFER:
 				return getOffer();
 			case FhirPackage.CONTRACT_TERM__ASSET:
 				return getAsset();
-			case FhirPackage.CONTRACT_TERM__AGENT:
-				return getAgent();
 			case FhirPackage.CONTRACT_TERM__ACTION:
 				return getAction();
-			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
-				return getActionReason();
 			case FhirPackage.CONTRACT_TERM__GROUP:
 				return getGroup();
 		}
@@ -584,11 +733,24 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 			case FhirPackage.CONTRACT_TERM__APPLIES:
 				setApplies((Period)newValue);
 				return;
+			case FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT:
+				setTopicCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE:
+				setTopicReference((Reference)newValue);
+				return;
 			case FhirPackage.CONTRACT_TERM__TYPE:
 				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.CONTRACT_TERM__SUB_TYPE:
 				setSubType((CodeableConcept)newValue);
+				return;
+			case FhirPackage.CONTRACT_TERM__TEXT:
+				setText((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				getSecurityLabel().clear();
+				getSecurityLabel().addAll((Collection<? extends ContractSecurityLabel>)newValue);
 				return;
 			case FhirPackage.CONTRACT_TERM__OFFER:
 				setOffer((ContractOffer)newValue);
@@ -597,17 +759,9 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				getAsset().clear();
 				getAsset().addAll((Collection<? extends ContractAsset>)newValue);
 				return;
-			case FhirPackage.CONTRACT_TERM__AGENT:
-				getAgent().clear();
-				getAgent().addAll((Collection<? extends ContractAgent>)newValue);
-				return;
 			case FhirPackage.CONTRACT_TERM__ACTION:
 				getAction().clear();
-				getAction().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
-			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
-				getActionReason().clear();
-				getActionReason().addAll((Collection<? extends CodeableConcept>)newValue);
+				getAction().addAll((Collection<? extends ContractAction>)newValue);
 				return;
 			case FhirPackage.CONTRACT_TERM__GROUP:
 				getGroup().clear();
@@ -634,11 +788,23 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 			case FhirPackage.CONTRACT_TERM__APPLIES:
 				setApplies((Period)null);
 				return;
+			case FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT:
+				setTopicCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE:
+				setTopicReference((Reference)null);
+				return;
 			case FhirPackage.CONTRACT_TERM__TYPE:
 				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.CONTRACT_TERM__SUB_TYPE:
 				setSubType((CodeableConcept)null);
+				return;
+			case FhirPackage.CONTRACT_TERM__TEXT:
+				setText((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				getSecurityLabel().clear();
 				return;
 			case FhirPackage.CONTRACT_TERM__OFFER:
 				setOffer((ContractOffer)null);
@@ -646,14 +812,8 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 			case FhirPackage.CONTRACT_TERM__ASSET:
 				getAsset().clear();
 				return;
-			case FhirPackage.CONTRACT_TERM__AGENT:
-				getAgent().clear();
-				return;
 			case FhirPackage.CONTRACT_TERM__ACTION:
 				getAction().clear();
-				return;
-			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
-				getActionReason().clear();
 				return;
 			case FhirPackage.CONTRACT_TERM__GROUP:
 				getGroup().clear();
@@ -676,20 +836,24 @@ public class ContractTermImpl extends BackboneElementImpl implements ContractTer
 				return issued != null;
 			case FhirPackage.CONTRACT_TERM__APPLIES:
 				return applies != null;
+			case FhirPackage.CONTRACT_TERM__TOPIC_CODEABLE_CONCEPT:
+				return topicCodeableConcept != null;
+			case FhirPackage.CONTRACT_TERM__TOPIC_REFERENCE:
+				return topicReference != null;
 			case FhirPackage.CONTRACT_TERM__TYPE:
 				return type != null;
 			case FhirPackage.CONTRACT_TERM__SUB_TYPE:
 				return subType != null;
+			case FhirPackage.CONTRACT_TERM__TEXT:
+				return text != null;
+			case FhirPackage.CONTRACT_TERM__SECURITY_LABEL:
+				return securityLabel != null && !securityLabel.isEmpty();
 			case FhirPackage.CONTRACT_TERM__OFFER:
 				return offer != null;
 			case FhirPackage.CONTRACT_TERM__ASSET:
 				return asset != null && !asset.isEmpty();
-			case FhirPackage.CONTRACT_TERM__AGENT:
-				return agent != null && !agent.isEmpty();
 			case FhirPackage.CONTRACT_TERM__ACTION:
 				return action != null && !action.isEmpty();
-			case FhirPackage.CONTRACT_TERM__ACTION_REASON:
-				return actionReason != null && !actionReason.isEmpty();
 			case FhirPackage.CONTRACT_TERM__GROUP:
 				return group != null && !group.isEmpty();
 		}

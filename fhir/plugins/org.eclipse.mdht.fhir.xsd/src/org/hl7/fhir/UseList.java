@@ -21,100 +21,76 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum UseList implements Enumerator {
 	/**
-	 * The '<em><b>Complete</b></em>' literal object.
+	 * The '<em><b>Claim</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPLETE_VALUE
+	 * @see #CLAIM_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETE(0, "complete", "complete"),
+	CLAIM(0, "claim", "claim"),
 
 	/**
-	 * The '<em><b>Proposed</b></em>' literal object.
+	 * The '<em><b>Preauthorization</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PROPOSED_VALUE
+	 * @see #PREAUTHORIZATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PROPOSED(1, "proposed", "proposed"),
+	PREAUTHORIZATION(1, "preauthorization", "preauthorization"),
 
 	/**
-	 * The '<em><b>Exploratory</b></em>' literal object.
+	 * The '<em><b>Predetermination</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EXPLORATORY_VALUE
+	 * @see #PREDETERMINATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EXPLORATORY(2, "exploratory", "exploratory"),
+	PREDETERMINATION(2, "predetermination", "predetermination");
 
 	/**
-	 * The '<em><b>Other</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #OTHER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	OTHER(3, "other", "other");
-
-	/**
-	 * The '<em><b>Complete</b></em>' literal value.
+	 * The '<em><b>Claim</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Complete
+	 * Claim
 	 * <!-- end-model-doc -->
-	 * @see #COMPLETE
-	 * @model name="complete"
+	 * @see #CLAIM
+	 * @model name="claim"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETE_VALUE = 0;
+	public static final int CLAIM_VALUE = 0;
 
 	/**
-	 * The '<em><b>Proposed</b></em>' literal value.
+	 * The '<em><b>Preauthorization</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Proposed
+	 * Preauthorization
 	 * <!-- end-model-doc -->
-	 * @see #PROPOSED
-	 * @model name="proposed"
+	 * @see #PREAUTHORIZATION
+	 * @model name="preauthorization"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROPOSED_VALUE = 1;
+	public static final int PREAUTHORIZATION_VALUE = 1;
 
 	/**
-	 * The '<em><b>Exploratory</b></em>' literal value.
+	 * The '<em><b>Predetermination</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Exploratory
+	 * Predetermination
 	 * <!-- end-model-doc -->
-	 * @see #EXPLORATORY
-	 * @model name="exploratory"
+	 * @see #PREDETERMINATION
+	 * @model name="predetermination"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EXPLORATORY_VALUE = 2;
-
-	/**
-	 * The '<em><b>Other</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Other
-	 * <!-- end-model-doc -->
-	 * @see #OTHER
-	 * @model name="other"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int OTHER_VALUE = 3;
+	public static final int PREDETERMINATION_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Use List</b></em>' enumerators.
@@ -124,10 +100,9 @@ public enum UseList implements Enumerator {
 	 */
 	private static final UseList[] VALUES_ARRAY =
 		new UseList[] {
-			COMPLETE,
-			PROPOSED,
-			EXPLORATORY,
-			OTHER,
+			CLAIM,
+			PREAUTHORIZATION,
+			PREDETERMINATION,
 		};
 
 	/**
@@ -184,10 +159,9 @@ public enum UseList implements Enumerator {
 	 */
 	public static UseList get(int value) {
 		switch (value) {
-			case COMPLETE_VALUE: return COMPLETE;
-			case PROPOSED_VALUE: return PROPOSED;
-			case EXPLORATORY_VALUE: return EXPLORATORY;
-			case OTHER_VALUE: return OTHER;
+			case CLAIM_VALUE: return CLAIM;
+			case PREAUTHORIZATION_VALUE: return PREAUTHORIZATION;
+			case PREDETERMINATION_VALUE: return PREDETERMINATION;
 		}
 		return null;
 	}

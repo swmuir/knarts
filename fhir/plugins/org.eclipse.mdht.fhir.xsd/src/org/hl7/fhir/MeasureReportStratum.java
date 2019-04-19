@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The MeasureReport resource contains the results of evaluating a measure.
+ * The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MeasureReportStratum#getValue <em>Value</em>}</li>
+ *   <li>{@link org.hl7.fhir.MeasureReportStratum#getComponent <em>Component</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportStratum#getPopulation <em>Population</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureReportStratum#getMeasureScore <em>Measure Score</em>}</li>
  * </ul>
@@ -37,7 +38,7 @@ public interface MeasureReportStratum extends BackboneElement {
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratum_Value()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -52,6 +53,22 @@ public interface MeasureReportStratum extends BackboneElement {
 	 * @generated
 	 */
 	void setValue(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.MeasureReportComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A stratifier component value.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Component</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMeasureReportStratum_Component()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='component' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<MeasureReportComponent> getComponent();
 
 	/**
 	 * Returns the value of the '<em><b>Population</b></em>' containment reference list.

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.hl7.fhir.Coding;
+import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.CoverageClass;
 import org.hl7.fhir.FhirPackage;
 
@@ -38,7 +38,7 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	 * @generated
 	 * @ordered
 	 */
-	protected Coding type;
+	protected CodeableConcept type;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -84,7 +84,7 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Coding getType() {
+	public CodeableConcept getType() {
 		return type;
 	}
 
@@ -93,8 +93,8 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(Coding newType, NotificationChain msgs) {
-		Coding oldType = type;
+	public NotificationChain basicSetType(CodeableConcept newType, NotificationChain msgs) {
+		CodeableConcept oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.COVERAGE_CLASS__TYPE, oldType, newType);
@@ -108,7 +108,7 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Coding newType) {
+	public void setType(CodeableConcept newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -253,7 +253,7 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.COVERAGE_CLASS__TYPE:
-				setType((Coding)newValue);
+				setType((CodeableConcept)newValue);
 				return;
 			case FhirPackage.COVERAGE_CLASS__VALUE:
 				setValue((org.hl7.fhir.String)newValue);
@@ -274,7 +274,7 @@ public class CoverageClassImpl extends BackboneElementImpl implements CoverageCl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.COVERAGE_CLASS__TYPE:
-				setType((Coding)null);
+				setType((CodeableConcept)null);
 				return;
 			case FhirPackage.COVERAGE_CLASS__VALUE:
 				setValue((org.hl7.fhir.String)null);

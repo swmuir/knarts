@@ -39,8 +39,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.TestScript#getFixture <em>Fixture</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScript#getRule <em>Rule</em>}</li>
- *   <li>{@link org.hl7.fhir.TestScript#getRuleset <em>Ruleset</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getTest <em>Test</em>}</li>
  *   <li>{@link org.hl7.fhir.TestScript#getTeardown <em>Teardown</em>}</li>
@@ -56,7 +54,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this test script is (or will be) published.
+	 * An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -212,7 +210,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -238,7 +236,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the test script was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes.
+	 * The date  (and optionally time) when the test script was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -264,7 +262,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the test script.
+	 * The name of the organization or individual that published the test script.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -333,7 +331,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate test script instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test script instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getTestScript_UseContext()
@@ -364,7 +362,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this test script is needed and why it has been designed as it has.
+	 * Explanation of why this test script is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -518,38 +516,6 @@ public interface TestScript extends DomainResource {
 	EList<TestScriptVariable> getVariable();
 
 	/**
-	 * Returns the value of the '<em><b>Rule</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.TestScriptRule}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Assert rule to be used in one or more asserts within the test script.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Rule</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getTestScript_Rule()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<TestScriptRule> getRule();
-
-	/**
-	 * Returns the value of the '<em><b>Ruleset</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.TestScriptRuleset}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ruleset</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getTestScript_Ruleset()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='ruleset' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<TestScriptRuleset> getRuleset();
-
-	/**
 	 * Returns the value of the '<em><b>Setup</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,7 +562,7 @@ public interface TestScript extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
+	 * A series of operations required to clean up after all the tests are executed (successfully or otherwise).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Teardown</em>' containment reference.
 	 * @see #setTeardown(TestScriptTeardown)

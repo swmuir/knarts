@@ -32,7 +32,9 @@ import org.hl7.fhir.Ratio;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getPresentation <em>Presentation</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getPresentationLowLimit <em>Presentation Low Limit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getConcentration <em>Concentration</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getConcentrationLowLimit <em>Concentration Low Limit</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getMeasurementPoint <em>Measurement Point</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getCountry <em>Country</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.MedicinalProductIngredientStrengthImpl#getReferenceStrength <em>Reference Strength</em>}</li>
@@ -52,6 +54,16 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 	protected Ratio presentation;
 
 	/**
+	 * The cached value of the '{@link #getPresentationLowLimit() <em>Presentation Low Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPresentationLowLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ratio presentationLowLimit;
+
+	/**
 	 * The cached value of the '{@link #getConcentration() <em>Concentration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,6 +72,16 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 	 * @ordered
 	 */
 	protected Ratio concentration;
+
+	/**
+	 * The cached value of the '{@link #getConcentrationLowLimit() <em>Concentration Low Limit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcentrationLowLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ratio concentrationLowLimit;
 
 	/**
 	 * The cached value of the '{@link #getMeasurementPoint() <em>Measurement Point</em>}' containment reference.
@@ -158,6 +180,49 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Ratio getPresentationLowLimit() {
+		return presentationLowLimit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPresentationLowLimit(Ratio newPresentationLowLimit, NotificationChain msgs) {
+		Ratio oldPresentationLowLimit = presentationLowLimit;
+		presentationLowLimit = newPresentationLowLimit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT, oldPresentationLowLimit, newPresentationLowLimit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPresentationLowLimit(Ratio newPresentationLowLimit) {
+		if (newPresentationLowLimit != presentationLowLimit) {
+			NotificationChain msgs = null;
+			if (presentationLowLimit != null)
+				msgs = ((InternalEObject)presentationLowLimit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT, null, msgs);
+			if (newPresentationLowLimit != null)
+				msgs = ((InternalEObject)newPresentationLowLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT, null, msgs);
+			msgs = basicSetPresentationLowLimit(newPresentationLowLimit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT, newPresentationLowLimit, newPresentationLowLimit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Ratio getConcentration() {
 		return concentration;
 	}
@@ -194,6 +259,49 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION, newConcentration, newConcentration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ratio getConcentrationLowLimit() {
+		return concentrationLowLimit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConcentrationLowLimit(Ratio newConcentrationLowLimit, NotificationChain msgs) {
+		Ratio oldConcentrationLowLimit = concentrationLowLimit;
+		concentrationLowLimit = newConcentrationLowLimit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT, oldConcentrationLowLimit, newConcentrationLowLimit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConcentrationLowLimit(Ratio newConcentrationLowLimit) {
+		if (newConcentrationLowLimit != concentrationLowLimit) {
+			NotificationChain msgs = null;
+			if (concentrationLowLimit != null)
+				msgs = ((InternalEObject)concentrationLowLimit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT, null, msgs);
+			if (newConcentrationLowLimit != null)
+				msgs = ((InternalEObject)newConcentrationLowLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT, null, msgs);
+			msgs = basicSetConcentrationLowLimit(newConcentrationLowLimit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT, newConcentrationLowLimit, newConcentrationLowLimit));
 	}
 
 	/**
@@ -273,8 +381,12 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION:
 				return basicSetPresentation(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT:
+				return basicSetPresentationLowLimit(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION:
 				return basicSetConcentration(null, msgs);
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT:
+				return basicSetConcentrationLowLimit(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__MEASUREMENT_POINT:
 				return basicSetMeasurementPoint(null, msgs);
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__COUNTRY:
@@ -295,8 +407,12 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION:
 				return getPresentation();
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT:
+				return getPresentationLowLimit();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION:
 				return getConcentration();
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT:
+				return getConcentrationLowLimit();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__MEASUREMENT_POINT:
 				return getMeasurementPoint();
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__COUNTRY:
@@ -319,8 +435,14 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION:
 				setPresentation((Ratio)newValue);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT:
+				setPresentationLowLimit((Ratio)newValue);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION:
 				setConcentration((Ratio)newValue);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT:
+				setConcentrationLowLimit((Ratio)newValue);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__MEASUREMENT_POINT:
 				setMeasurementPoint((org.hl7.fhir.String)newValue);
@@ -348,8 +470,14 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION:
 				setPresentation((Ratio)null);
 				return;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT:
+				setPresentationLowLimit((Ratio)null);
+				return;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION:
 				setConcentration((Ratio)null);
+				return;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT:
+				setConcentrationLowLimit((Ratio)null);
 				return;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__MEASUREMENT_POINT:
 				setMeasurementPoint((org.hl7.fhir.String)null);
@@ -374,8 +502,12 @@ public class MedicinalProductIngredientStrengthImpl extends BackboneElementImpl 
 		switch (featureID) {
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION:
 				return presentation != null;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__PRESENTATION_LOW_LIMIT:
+				return presentationLowLimit != null;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION:
 				return concentration != null;
+			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__CONCENTRATION_LOW_LIMIT:
+				return concentrationLowLimit != null;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__MEASUREMENT_POINT:
 				return measurementPoint != null;
 			case FhirPackage.MEDICINAL_PRODUCT_INGREDIENT_STRENGTH__COUNTRY:

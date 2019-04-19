@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.OperationDefinition#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.OperationDefinition#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.OperationDefinition#getExperimental <em>Experimental</em>}</li>
@@ -55,7 +56,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this operation definition is (or will be) published.
+	 * An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -129,6 +130,32 @@ public interface OperationDefinition extends DomainResource {
 	void setName(org.hl7.fhir.String value);
 
 	/**
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A short, descriptive, user-friendly title for the operation definition.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Title</em>' containment reference.
+	 * @see #setTitle(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Title()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='title' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getTitle();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getTitle <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' containment reference.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(org.hl7.fhir.String value);
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +212,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -211,7 +238,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the operation definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.
+	 * The date  (and optionally time) when the operation definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -237,7 +264,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the operation definition.
+	 * The name of the organization or individual that published the operation definition.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -306,7 +333,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_UseContext()
@@ -337,7 +364,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this operation definition is needed and why it has been designed as it has.
+	 * Explanation of why this operation definition is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -363,7 +390,7 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+	 * Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Affects State</em>' containment reference.
 	 * @see #setAffectsState(org.hl7.fhir.Boolean)
@@ -444,13 +471,13 @@ public interface OperationDefinition extends DomainResource {
 	 * Indicates that this operation definition is a constraining profile on the base.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Base</em>' containment reference.
-	 * @see #setBase(Reference)
+	 * @see #setBase(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_Base()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='base' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getBase();
+	Canonical getBase();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getBase <em>Base</em>}' containment reference.
@@ -460,11 +487,11 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getBase()
 	 * @generated
 	 */
-	void setBase(Reference value);
+	void setBase(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ResourceType}.
+	 * The list contents are of type {@link org.hl7.fhir.Code}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -476,7 +503,7 @@ public interface OperationDefinition extends DomainResource {
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<ResourceType> getResource();
+	EList<Code> getResource();
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
@@ -561,16 +588,16 @@ public interface OperationDefinition extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional validation information for the in parameters. The profile is a constraint on the parameters resource.
+	 * Additional validation information for the in parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource as a whole.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Input Profile</em>' containment reference.
-	 * @see #setInputProfile(Reference)
+	 * @see #setInputProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_InputProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='inputProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getInputProfile();
+	Canonical getInputProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getInputProfile <em>Input Profile</em>}' containment reference.
@@ -580,23 +607,23 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getInputProfile()
 	 * @generated
 	 */
-	void setInputProfile(Reference value);
+	void setInputProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Output Profile</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Additional validation information for the out parameters. The profile is a constraint on the parameters resource.
+	 * Additional validation information for the out parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Output Profile</em>' containment reference.
-	 * @see #setOutputProfile(Reference)
+	 * @see #setOutputProfile(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getOperationDefinition_OutputProfile()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='outputProfile' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getOutputProfile();
+	Canonical getOutputProfile();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.OperationDefinition#getOutputProfile <em>Output Profile</em>}' containment reference.
@@ -606,7 +633,7 @@ public interface OperationDefinition extends DomainResource {
 	 * @see #getOutputProfile()
 	 * @generated
 	 */
-	void setOutputProfile(Reference value);
+	void setOutputProfile(Canonical value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' containment reference list.

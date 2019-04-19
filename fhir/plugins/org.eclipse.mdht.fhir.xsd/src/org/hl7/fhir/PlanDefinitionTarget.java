@@ -33,7 +33,7 @@ public interface PlanDefinitionTarget extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The parameter whose value is to be tracked, e.g. body weigth, blood pressure, or hemoglobin A1c level.
+	 * The parameter whose value is to be tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Measure</em>' containment reference.
 	 * @see #setMeasure(CodeableConcept)

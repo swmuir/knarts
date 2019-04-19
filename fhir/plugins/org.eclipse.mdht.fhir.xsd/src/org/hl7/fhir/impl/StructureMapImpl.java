@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
@@ -229,7 +230,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> import_;
+	protected EList<Canonical> import_;
 
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference list.
@@ -798,9 +799,9 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getImport() {
+	public EList<Canonical> getImport() {
 		if (import_ == null) {
-			import_ = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.STRUCTURE_MAP__IMPORT);
+			import_ = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.STRUCTURE_MAP__IMPORT);
 		}
 		return import_;
 	}
@@ -977,7 +978,7 @@ public class StructureMapImpl extends DomainResourceImpl implements StructureMap
 				return;
 			case FhirPackage.STRUCTURE_MAP__IMPORT:
 				getImport().clear();
-				getImport().addAll((Collection<? extends Uri>)newValue);
+				getImport().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP__GROUP:
 				getGroup().clear();

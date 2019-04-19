@@ -46,7 +46,7 @@ import org.hl7.fhir.Quantity;
  *
  * @generated
  */
-public class ProdCharacteristicImpl extends ElementImpl implements ProdCharacteristic {
+public class ProdCharacteristicImpl extends BackboneElementImpl implements ProdCharacteristic {
 	/**
 	 * The cached value of the '{@link #getHeight() <em>Height</em>}' containment reference.
 	 * <!-- begin-user-doc -->

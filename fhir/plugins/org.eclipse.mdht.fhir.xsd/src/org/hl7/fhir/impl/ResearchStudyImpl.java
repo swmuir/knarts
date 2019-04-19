@@ -166,7 +166,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> condition;
+	protected EList<CodeableConcept> condition;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
@@ -564,9 +564,9 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getCondition() {
+	public EList<CodeableConcept> getCondition() {
 		if (condition == null) {
-			condition = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.RESEARCH_STUDY__CONDITION);
+			condition = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.RESEARCH_STUDY__CONDITION);
 		}
 		return condition;
 	}
@@ -1057,7 +1057,7 @@ public class ResearchStudyImpl extends DomainResourceImpl implements ResearchStu
 				return;
 			case FhirPackage.RESEARCH_STUDY__CONDITION:
 				getCondition().clear();
-				getCondition().addAll((Collection<? extends Reference>)newValue);
+				getCondition().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.RESEARCH_STUDY__CONTACT:
 				getContact().clear();

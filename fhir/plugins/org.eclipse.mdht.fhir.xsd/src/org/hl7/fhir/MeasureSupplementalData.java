@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getDescription <em>Description</em>}</li>
  *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link org.hl7.fhir.MeasureSupplementalData#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData()
@@ -102,16 +101,16 @@ public interface MeasureSupplementalData extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.
+	 * The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Criteria</em>' containment reference.
-	 * @see #setCriteria(org.hl7.fhir.String)
+	 * @see #setCriteria(Expression)
 	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Criteria()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='criteria' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	org.hl7.fhir.String getCriteria();
+	Expression getCriteria();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.MeasureSupplementalData#getCriteria <em>Criteria</em>}' containment reference.
@@ -121,32 +120,6 @@ public interface MeasureSupplementalData extends BackboneElement {
 	 * @see #getCriteria()
 	 * @generated
 	 */
-	void setCriteria(org.hl7.fhir.String value);
-
-	/**
-	 * Returns the value of the '<em><b>Path</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Path</em>' containment reference.
-	 * @see #setPath(org.hl7.fhir.String)
-	 * @see org.hl7.fhir.FhirPackage#getMeasureSupplementalData_Path()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='path' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	org.hl7.fhir.String getPath();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MeasureSupplementalData#getPath <em>Path</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path</em>' containment reference.
-	 * @see #getPath()
-	 * @generated
-	 */
-	void setPath(org.hl7.fhir.String value);
+	void setCriteria(Expression value);
 
 } // MeasureSupplementalData

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CapabilityStatement;
 import org.hl7.fhir.CapabilityStatementDocument;
 import org.hl7.fhir.CapabilityStatementImplementation;
@@ -28,11 +29,10 @@ import org.hl7.fhir.Code;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.FHIRVersion;
 import org.hl7.fhir.FhirPackage;
-import org.hl7.fhir.Id;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
-import org.hl7.fhir.UnknownContentCode;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -60,10 +60,10 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getSoftware <em>Software</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getFhirVersion <em>Fhir Version</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getAcceptUnknown <em>Accept Unknown</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getPatchFormat <em>Patch Format</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.CapabilityStatementImpl#getImplementationGuide <em>Implementation Guide</em>}</li>
@@ -233,7 +233,17 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiates;
+
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Canonical> imports;
 
 	/**
 	 * The cached value of the '{@link #getSoftware() <em>Software</em>}' containment reference.
@@ -263,17 +273,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * @generated
 	 * @ordered
 	 */
-	protected Id fhirVersion;
-
-	/**
-	 * The cached value of the '{@link #getAcceptUnknown() <em>Accept Unknown</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAcceptUnknown()
-	 * @generated
-	 * @ordered
-	 */
-	protected UnknownContentCode acceptUnknown;
+	protected FHIRVersion fhirVersion;
 
 	/**
 	 * The cached value of the '{@link #getFormat() <em>Format</em>}' containment reference list.
@@ -303,7 +303,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> implementationGuide;
+	protected EList<Canonical> implementationGuide;
 
 	/**
 	 * The cached value of the '{@link #getRest() <em>Rest</em>}' containment reference list.
@@ -911,11 +911,23 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
+	public EList<Canonical> getInstantiates() {
 		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES);
+			instantiates = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES);
 		}
 		return instantiates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Canonical> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CAPABILITY_STATEMENT__IMPORTS);
+		}
+		return imports;
 	}
 
 	/**
@@ -1009,7 +1021,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Id getFhirVersion() {
+	public FHIRVersion getFhirVersion() {
 		return fhirVersion;
 	}
 
@@ -1018,8 +1030,8 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFhirVersion(Id newFhirVersion, NotificationChain msgs) {
-		Id oldFhirVersion = fhirVersion;
+	public NotificationChain basicSetFhirVersion(FHIRVersion newFhirVersion, NotificationChain msgs) {
+		FHIRVersion oldFhirVersion = fhirVersion;
 		fhirVersion = newFhirVersion;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION, oldFhirVersion, newFhirVersion);
@@ -1033,7 +1045,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFhirVersion(Id newFhirVersion) {
+	public void setFhirVersion(FHIRVersion newFhirVersion) {
 		if (newFhirVersion != fhirVersion) {
 			NotificationChain msgs = null;
 			if (fhirVersion != null)
@@ -1045,49 +1057,6 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION, newFhirVersion, newFhirVersion));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnknownContentCode getAcceptUnknown() {
-		return acceptUnknown;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAcceptUnknown(UnknownContentCode newAcceptUnknown, NotificationChain msgs) {
-		UnknownContentCode oldAcceptUnknown = acceptUnknown;
-		acceptUnknown = newAcceptUnknown;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN, oldAcceptUnknown, newAcceptUnknown);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAcceptUnknown(UnknownContentCode newAcceptUnknown) {
-		if (newAcceptUnknown != acceptUnknown) {
-			NotificationChain msgs = null;
-			if (acceptUnknown != null)
-				msgs = ((InternalEObject)acceptUnknown).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN, null, msgs);
-			if (newAcceptUnknown != null)
-				msgs = ((InternalEObject)newAcceptUnknown).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN, null, msgs);
-			msgs = basicSetAcceptUnknown(newAcceptUnknown, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN, newAcceptUnknown, newAcceptUnknown));
 	}
 
 	/**
@@ -1119,9 +1088,9 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getImplementationGuide() {
+	public EList<Canonical> getImplementationGuide() {
 		if (implementationGuide == null) {
-			implementationGuide = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION_GUIDE);
+			implementationGuide = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION_GUIDE);
 		}
 		return implementationGuide;
 	}
@@ -1202,14 +1171,14 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				return basicSetKind(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES:
 				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.CAPABILITY_STATEMENT__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__SOFTWARE:
 				return basicSetSoftware(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION:
 				return basicSetImplementation(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION:
 				return basicSetFhirVersion(null, msgs);
-			case FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN:
-				return basicSetAcceptUnknown(null, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__FORMAT:
 				return ((InternalEList<?>)getFormat()).basicRemove(otherEnd, msgs);
 			case FhirPackage.CAPABILITY_STATEMENT__PATCH_FORMAT:
@@ -1266,14 +1235,14 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				return getKind();
 			case FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES:
 				return getInstantiates();
+			case FhirPackage.CAPABILITY_STATEMENT__IMPORTS:
+				return getImports();
 			case FhirPackage.CAPABILITY_STATEMENT__SOFTWARE:
 				return getSoftware();
 			case FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION:
 				return getImplementation();
 			case FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION:
 				return getFhirVersion();
-			case FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN:
-				return getAcceptUnknown();
 			case FhirPackage.CAPABILITY_STATEMENT__FORMAT:
 				return getFormat();
 			case FhirPackage.CAPABILITY_STATEMENT__PATCH_FORMAT:
@@ -1349,7 +1318,11 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES:
 				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+				getInstantiates().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.CAPABILITY_STATEMENT__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__SOFTWARE:
 				setSoftware((CapabilityStatementSoftware)newValue);
@@ -1358,10 +1331,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				setImplementation((CapabilityStatementImplementation)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION:
-				setFhirVersion((Id)newValue);
-				return;
-			case FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN:
-				setAcceptUnknown((UnknownContentCode)newValue);
+				setFhirVersion((FHIRVersion)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__FORMAT:
 				getFormat().clear();
@@ -1373,7 +1343,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION_GUIDE:
 				getImplementationGuide().clear();
-				getImplementationGuide().addAll((Collection<? extends Uri>)newValue);
+				getImplementationGuide().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__REST:
 				getRest().clear();
@@ -1447,6 +1417,9 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 			case FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES:
 				getInstantiates().clear();
 				return;
+			case FhirPackage.CAPABILITY_STATEMENT__IMPORTS:
+				getImports().clear();
+				return;
 			case FhirPackage.CAPABILITY_STATEMENT__SOFTWARE:
 				setSoftware((CapabilityStatementSoftware)null);
 				return;
@@ -1454,10 +1427,7 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				setImplementation((CapabilityStatementImplementation)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION:
-				setFhirVersion((Id)null);
-				return;
-			case FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN:
-				setAcceptUnknown((UnknownContentCode)null);
+				setFhirVersion((FHIRVersion)null);
 				return;
 			case FhirPackage.CAPABILITY_STATEMENT__FORMAT:
 				getFormat().clear();
@@ -1521,14 +1491,14 @@ public class CapabilityStatementImpl extends DomainResourceImpl implements Capab
 				return kind != null;
 			case FhirPackage.CAPABILITY_STATEMENT__INSTANTIATES:
 				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.CAPABILITY_STATEMENT__IMPORTS:
+				return imports != null && !imports.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT__SOFTWARE:
 				return software != null;
 			case FhirPackage.CAPABILITY_STATEMENT__IMPLEMENTATION:
 				return implementation != null;
 			case FhirPackage.CAPABILITY_STATEMENT__FHIR_VERSION:
 				return fhirVersion != null;
-			case FhirPackage.CAPABILITY_STATEMENT__ACCEPT_UNKNOWN:
-				return acceptUnknown != null;
 			case FhirPackage.CAPABILITY_STATEMENT__FORMAT:
 				return format != null && !format.isEmpty();
 			case FhirPackage.CAPABILITY_STATEMENT__PATCH_FORMAT:

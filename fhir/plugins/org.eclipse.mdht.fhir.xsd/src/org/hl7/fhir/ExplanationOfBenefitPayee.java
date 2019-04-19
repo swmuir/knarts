@@ -17,7 +17,6 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getType <em>Type</em>}</li>
- *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResource <em>Resource</em>}</li>
  *   <li>{@link org.hl7.fhir.ExplanationOfBenefitPayee#getParty <em>Party</em>}</li>
  * </ul>
  *
@@ -53,37 +52,11 @@ public interface ExplanationOfBenefitPayee extends BackboneElement {
 	void setType(CodeableConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Resource</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * organization | patient | practitioner | relatedperson.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Resource</em>' containment reference.
-	 * @see #setResource(Coding)
-	 * @see org.hl7.fhir.FhirPackage#getExplanationOfBenefitPayee_Resource()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Coding getResource();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.ExplanationOfBenefitPayee#getResource <em>Resource</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource</em>' containment reference.
-	 * @see #getResource()
-	 * @generated
-	 */
-	void setResource(Coding value);
-
-	/**
 	 * Returns the value of the '<em><b>Party</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Party to be reimbursed: Subscriber, provider, other.
+	 * Reference to the individual or organization to whom any payment will be made.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Party</em>' containment reference.
 	 * @see #setParty(Reference)

@@ -21,9 +21,9 @@ import org.hl7.fhir.ActivityDefinition;
 import org.hl7.fhir.ActivityDefinitionDynamicValue;
 import org.hl7.fhir.ActivityDefinitionParticipant;
 import org.hl7.fhir.Age;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
-import org.hl7.fhir.Contributor;
 import org.hl7.fhir.Date;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.Dosage;
@@ -37,7 +37,9 @@ import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
 import org.hl7.fhir.Reference;
 import org.hl7.fhir.RelatedArtifact;
-import org.hl7.fhir.ResourceType;
+import org.hl7.fhir.RequestIntent;
+import org.hl7.fhir.RequestPriority;
+import org.hl7.fhir.RequestResourceType;
 import org.hl7.fhir.Timing;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
@@ -55,26 +57,35 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getSubtitle <em>Subtitle</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getExperimental <em>Experimental</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getSubjectCodeableConcept <em>Subject Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getSubjectReference <em>Subject Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPublisher <em>Publisher</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getUseContext <em>Use Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPurpose <em>Purpose</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getUsage <em>Usage</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getApprovalDate <em>Approval Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLastReviewDate <em>Last Review Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getEffectivePeriod <em>Effective Period</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getUseContext <em>Use Context</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTopic <em>Topic</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getContributor <em>Contributor</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getEditor <em>Editor</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getReviewer <em>Reviewer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getEndorser <em>Endorser</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getRelatedArtifact <em>Related Artifact</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getIntent <em>Intent</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDoNotPerform <em>Do Not Perform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingTiming <em>Timing Timing</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTimingDateTime <em>Timing Date Time</em>}</li>
@@ -90,6 +101,8 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDosage <em>Dosage</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getBodySite <em>Body Site</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getSpecimenRequirement <em>Specimen Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getObservationRequirement <em>Observation Requirement</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getObservationResultRequirement <em>Observation Result Requirement</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getTransform <em>Transform</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ActivityDefinitionImpl#getDynamicValue <em>Dynamic Value</em>}</li>
  * </ul>
@@ -148,6 +161,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected org.hl7.fhir.String title;
 
 	/**
+	 * The cached value of the '{@link #getSubtitle() <em>Subtitle</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubtitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String subtitle;
+
+	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,6 +189,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected org.hl7.fhir.Boolean experimental;
+
+	/**
+	 * The cached value of the '{@link #getSubjectCodeableConcept() <em>Subject Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectCodeableConcept()
+	 * @generated
+	 * @ordered
+	 */
+	protected CodeableConcept subjectCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getSubjectReference() <em>Subject Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference subjectReference;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
@@ -188,6 +231,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected org.hl7.fhir.String publisher;
 
 	/**
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContact()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContactDetail> contact;
+
+	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +249,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected Markdown description;
+
+	/**
+	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUseContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UsageContext> useContext;
+
+	/**
+	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJurisdiction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CodeableConcept> jurisdiction;
 
 	/**
 	 * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' containment reference.
@@ -216,6 +289,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String usage;
+
+	/**
+	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCopyright()
+	 * @generated
+	 * @ordered
+	 */
+	protected Markdown copyright;
 
 	/**
 	 * The cached value of the '{@link #getApprovalDate() <em>Approval Date</em>}' containment reference.
@@ -248,26 +331,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected Period effectivePeriod;
 
 	/**
-	 * The cached value of the '{@link #getUseContext() <em>Use Context</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUseContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<UsageContext> useContext;
-
-	/**
-	 * The cached value of the '{@link #getJurisdiction() <em>Jurisdiction</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getJurisdiction()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CodeableConcept> jurisdiction;
-
-	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,34 +341,44 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected EList<CodeableConcept> topic;
 
 	/**
-	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' containment reference list.
+	 * The cached value of the '{@link #getAuthor() <em>Author</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContributor()
+	 * @see #getAuthor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Contributor> contributor;
+	protected EList<ContactDetail> author;
 
 	/**
-	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference list.
+	 * The cached value of the '{@link #getEditor() <em>Editor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContact()
+	 * @see #getEditor()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ContactDetail> contact;
+	protected EList<ContactDetail> editor;
 
 	/**
-	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
+	 * The cached value of the '{@link #getReviewer() <em>Reviewer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCopyright()
+	 * @see #getReviewer()
 	 * @generated
 	 * @ordered
 	 */
-	protected Markdown copyright;
+	protected EList<ContactDetail> reviewer;
+
+	/**
+	 * The cached value of the '{@link #getEndorser() <em>Endorser</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndorser()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ContactDetail> endorser;
 
 	/**
 	 * The cached value of the '{@link #getRelatedArtifact() <em>Related Artifact</em>}' containment reference list.
@@ -325,7 +398,7 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> library;
+	protected EList<Canonical> library;
 
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' containment reference.
@@ -335,7 +408,17 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceType kind;
+	protected RequestResourceType kind;
+
+	/**
+	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected Canonical profile;
 
 	/**
 	 * The cached value of the '{@link #getCode() <em>Code</em>}' containment reference.
@@ -346,6 +429,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @ordered
 	 */
 	protected CodeableConcept code;
+
+	/**
+	 * The cached value of the '{@link #getIntent() <em>Intent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIntent()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestIntent intent;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected RequestPriority priority;
 
 	/**
 	 * The cached value of the '{@link #getDoNotPerform() <em>Do Not Perform</em>}' containment reference.
@@ -498,6 +601,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	protected EList<Reference> specimenRequirement;
 
 	/**
+	 * The cached value of the '{@link #getObservationRequirement() <em>Observation Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservationRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> observationRequirement;
+
+	/**
+	 * The cached value of the '{@link #getObservationResultRequirement() <em>Observation Result Requirement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObservationResultRequirement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> observationResultRequirement;
+
+	/**
 	 * The cached value of the '{@link #getTransform() <em>Transform</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,7 +628,7 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference transform;
+	protected Canonical transform;
 
 	/**
 	 * The cached value of the '{@link #getDynamicValue() <em>Dynamic Value</em>}' containment reference list.
@@ -725,6 +848,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getSubtitle() {
+		return subtitle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubtitle(org.hl7.fhir.String newSubtitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldSubtitle = subtitle;
+		subtitle = newSubtitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBTITLE, oldSubtitle, newSubtitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubtitle(org.hl7.fhir.String newSubtitle) {
+		if (newSubtitle != subtitle) {
+			NotificationChain msgs = null;
+			if (subtitle != null)
+				msgs = ((InternalEObject)subtitle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBTITLE, null, msgs);
+			if (newSubtitle != null)
+				msgs = ((InternalEObject)newSubtitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBTITLE, null, msgs);
+			msgs = basicSetSubtitle(newSubtitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBTITLE, newSubtitle, newSubtitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PublicationStatus getStatus() {
 		return status;
 	}
@@ -804,6 +970,92 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL, newExperimental, newExperimental));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CodeableConcept getSubjectCodeableConcept() {
+		return subjectCodeableConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept, NotificationChain msgs) {
+		CodeableConcept oldSubjectCodeableConcept = subjectCodeableConcept;
+		subjectCodeableConcept = newSubjectCodeableConcept;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT, oldSubjectCodeableConcept, newSubjectCodeableConcept);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectCodeableConcept(CodeableConcept newSubjectCodeableConcept) {
+		if (newSubjectCodeableConcept != subjectCodeableConcept) {
+			NotificationChain msgs = null;
+			if (subjectCodeableConcept != null)
+				msgs = ((InternalEObject)subjectCodeableConcept).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			if (newSubjectCodeableConcept != null)
+				msgs = ((InternalEObject)newSubjectCodeableConcept).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT, null, msgs);
+			msgs = basicSetSubjectCodeableConcept(newSubjectCodeableConcept, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT, newSubjectCodeableConcept, newSubjectCodeableConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getSubjectReference() {
+		return subjectReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubjectReference(Reference newSubjectReference, NotificationChain msgs) {
+		Reference oldSubjectReference = subjectReference;
+		subjectReference = newSubjectReference;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE, oldSubjectReference, newSubjectReference);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubjectReference(Reference newSubjectReference) {
+		if (newSubjectReference != subjectReference) {
+			NotificationChain msgs = null;
+			if (subjectReference != null)
+				msgs = ((InternalEObject)subjectReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE, null, msgs);
+			if (newSubjectReference != null)
+				msgs = ((InternalEObject)newSubjectReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE, null, msgs);
+			msgs = basicSetSubjectReference(newSubjectReference, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE, newSubjectReference, newSubjectReference));
 	}
 
 	/**
@@ -897,6 +1149,18 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ContactDetail> getContact() {
+		if (contact == null) {
+			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__CONTACT);
+		}
+		return contact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Markdown getDescription() {
 		return description;
 	}
@@ -933,6 +1197,30 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION, newDescription, newDescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UsageContext> getUseContext() {
+		if (useContext == null) {
+			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT);
+		}
+		return useContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CodeableConcept> getJurisdiction() {
+		if (jurisdiction == null) {
+			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__JURISDICTION);
+		}
+		return jurisdiction;
 	}
 
 	/**
@@ -1019,6 +1307,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__USAGE, newUsage, newUsage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Markdown getCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
+		Markdown oldCopyright = copyright;
+		copyright = newCopyright;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, oldCopyright, newCopyright);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCopyright(Markdown newCopyright) {
+		if (newCopyright != copyright) {
+			NotificationChain msgs = null;
+			if (copyright != null)
+				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, null, msgs);
+			if (newCopyright != null)
+				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, null, msgs);
+			msgs = basicSetCopyright(newCopyright, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, newCopyright, newCopyright));
 	}
 
 	/**
@@ -1155,30 +1486,6 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<UsageContext> getUseContext() {
-		if (useContext == null) {
-			useContext = new EObjectContainmentEList<UsageContext>(UsageContext.class, this, FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT);
-		}
-		return useContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CodeableConcept> getJurisdiction() {
-		if (jurisdiction == null) {
-			jurisdiction = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__JURISDICTION);
-		}
-		return jurisdiction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<CodeableConcept> getTopic() {
 		if (topic == null) {
 			topic = new EObjectContainmentEList<CodeableConcept>(CodeableConcept.class, this, FhirPackage.ACTIVITY_DEFINITION__TOPIC);
@@ -1191,11 +1498,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Contributor> getContributor() {
-		if (contributor == null) {
-			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR);
+	public EList<ContactDetail> getAuthor() {
+		if (author == null) {
+			author = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__AUTHOR);
 		}
-		return contributor;
+		return author;
 	}
 
 	/**
@@ -1203,11 +1510,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ContactDetail> getContact() {
-		if (contact == null) {
-			contact = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__CONTACT);
+	public EList<ContactDetail> getEditor() {
+		if (editor == null) {
+			editor = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__EDITOR);
 		}
-		return contact;
+		return editor;
 	}
 
 	/**
@@ -1215,8 +1522,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Markdown getCopyright() {
-		return copyright;
+	public EList<ContactDetail> getReviewer() {
+		if (reviewer == null) {
+			reviewer = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__REVIEWER);
+		}
+		return reviewer;
 	}
 
 	/**
@@ -1224,33 +1534,11 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCopyright(Markdown newCopyright, NotificationChain msgs) {
-		Markdown oldCopyright = copyright;
-		copyright = newCopyright;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, oldCopyright, newCopyright);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<ContactDetail> getEndorser() {
+		if (endorser == null) {
+			endorser = new EObjectContainmentEList<ContactDetail>(ContactDetail.class, this, FhirPackage.ACTIVITY_DEFINITION__ENDORSER);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCopyright(Markdown newCopyright) {
-		if (newCopyright != copyright) {
-			NotificationChain msgs = null;
-			if (copyright != null)
-				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, null, msgs);
-			if (newCopyright != null)
-				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, null, msgs);
-			msgs = basicSetCopyright(newCopyright, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT, newCopyright, newCopyright));
+		return endorser;
 	}
 
 	/**
@@ -1270,9 +1558,9 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getLibrary() {
+	public EList<Canonical> getLibrary() {
 		if (library == null) {
-			library = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACTIVITY_DEFINITION__LIBRARY);
+			library = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.ACTIVITY_DEFINITION__LIBRARY);
 		}
 		return library;
 	}
@@ -1282,7 +1570,7 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceType getKind() {
+	public RequestResourceType getKind() {
 		return kind;
 	}
 
@@ -1291,8 +1579,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetKind(ResourceType newKind, NotificationChain msgs) {
-		ResourceType oldKind = kind;
+	public NotificationChain basicSetKind(RequestResourceType newKind, NotificationChain msgs) {
+		RequestResourceType oldKind = kind;
 		kind = newKind;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__KIND, oldKind, newKind);
@@ -1306,7 +1594,7 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setKind(ResourceType newKind) {
+	public void setKind(RequestResourceType newKind) {
 		if (newKind != kind) {
 			NotificationChain msgs = null;
 			if (kind != null)
@@ -1318,6 +1606,49 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__KIND, newKind, newKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Canonical getProfile() {
+		return profile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProfile(Canonical newProfile, NotificationChain msgs) {
+		Canonical oldProfile = profile;
+		profile = newProfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PROFILE, oldProfile, newProfile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProfile(Canonical newProfile) {
+		if (newProfile != profile) {
+			NotificationChain msgs = null;
+			if (profile != null)
+				msgs = ((InternalEObject)profile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PROFILE, null, msgs);
+			if (newProfile != null)
+				msgs = ((InternalEObject)newProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PROFILE, null, msgs);
+			msgs = basicSetProfile(newProfile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PROFILE, newProfile, newProfile));
 	}
 
 	/**
@@ -1361,6 +1692,92 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__CODE, newCode, newCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequestIntent getIntent() {
+		return intent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIntent(RequestIntent newIntent, NotificationChain msgs) {
+		RequestIntent oldIntent = intent;
+		intent = newIntent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__INTENT, oldIntent, newIntent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIntent(RequestIntent newIntent) {
+		if (newIntent != intent) {
+			NotificationChain msgs = null;
+			if (intent != null)
+				msgs = ((InternalEObject)intent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__INTENT, null, msgs);
+			if (newIntent != null)
+				msgs = ((InternalEObject)newIntent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__INTENT, null, msgs);
+			msgs = basicSetIntent(newIntent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__INTENT, newIntent, newIntent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequestPriority getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(RequestPriority newPriority, NotificationChain msgs) {
+		RequestPriority oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(RequestPriority newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.ACTIVITY_DEFINITION__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__PRIORITY, newPriority, newPriority));
 	}
 
 	/**
@@ -1889,7 +2306,31 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getTransform() {
+	public EList<Reference> getObservationRequirement() {
+		if (observationRequirement == null) {
+			observationRequirement = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT);
+		}
+		return observationRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getObservationResultRequirement() {
+		if (observationResultRequirement == null) {
+			observationResultRequirement = new EObjectContainmentEList<Reference>(Reference.class, this, FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT);
+		}
+		return observationResultRequirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Canonical getTransform() {
 		return transform;
 	}
 
@@ -1898,8 +2339,8 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTransform(Reference newTransform, NotificationChain msgs) {
-		Reference oldTransform = transform;
+	public NotificationChain basicSetTransform(Canonical newTransform, NotificationChain msgs) {
+		Canonical oldTransform = transform;
 		transform = newTransform;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.ACTIVITY_DEFINITION__TRANSFORM, oldTransform, newTransform);
@@ -1913,7 +2354,7 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTransform(Reference newTransform) {
+	public void setTransform(Canonical newTransform) {
 		if (newTransform != transform) {
 			NotificationChain msgs = null;
 			if (transform != null)
@@ -1957,46 +2398,64 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return basicSetName(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TITLE:
 				return basicSetTitle(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__SUBTITLE:
+				return basicSetSubtitle(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL:
 				return basicSetExperimental(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT:
+				return basicSetSubjectCodeableConcept(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE:
+				return basicSetSubjectReference(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return basicSetDate(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
 				return basicSetPublisher(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
+				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return basicSetDescription(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
+				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
+				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
 				return basicSetPurpose(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__USAGE:
 				return basicSetUsage(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
+				return basicSetCopyright(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__APPROVAL_DATE:
 				return basicSetApprovalDate(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__LAST_REVIEW_DATE:
 				return basicSetLastReviewDate(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__EFFECTIVE_PERIOD:
 				return basicSetEffectivePeriod(null, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
-				return ((InternalEList<?>)getUseContext()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
-				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TOPIC:
 				return ((InternalEList<?>)getTopic()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
-				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
-				return ((InternalEList<?>)getContact()).basicRemove(otherEnd, msgs);
-			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
-				return basicSetCopyright(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__AUTHOR:
+				return ((InternalEList<?>)getAuthor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__EDITOR:
+				return ((InternalEList<?>)getEditor()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__REVIEWER:
+				return ((InternalEList<?>)getReviewer()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__ENDORSER:
+				return ((InternalEList<?>)getEndorser()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT:
 				return ((InternalEList<?>)getRelatedArtifact()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__KIND:
 				return basicSetKind(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__PROFILE:
+				return basicSetProfile(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return basicSetCode(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__INTENT:
+				return basicSetIntent(null, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__PRIORITY:
+				return basicSetPriority(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
 				return basicSetDoNotPerform(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
@@ -2027,6 +2486,10 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return ((InternalEList<?>)getBodySite()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
 				return ((InternalEList<?>)getSpecimenRequirement()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT:
+				return ((InternalEList<?>)getObservationRequirement()).basicRemove(otherEnd, msgs);
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT:
+				return ((InternalEList<?>)getObservationResultRequirement()).basicRemove(otherEnd, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return basicSetTransform(null, msgs);
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
@@ -2053,46 +2516,64 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getName();
 			case FhirPackage.ACTIVITY_DEFINITION__TITLE:
 				return getTitle();
+			case FhirPackage.ACTIVITY_DEFINITION__SUBTITLE:
+				return getSubtitle();
 			case FhirPackage.ACTIVITY_DEFINITION__STATUS:
 				return getStatus();
 			case FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL:
 				return getExperimental();
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT:
+				return getSubjectCodeableConcept();
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE:
+				return getSubjectReference();
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return getDate();
 			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
 				return getPublisher();
+			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
+				return getContact();
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return getDescription();
+			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
+				return getUseContext();
+			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
+				return getJurisdiction();
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
 				return getPurpose();
 			case FhirPackage.ACTIVITY_DEFINITION__USAGE:
 				return getUsage();
+			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
+				return getCopyright();
 			case FhirPackage.ACTIVITY_DEFINITION__APPROVAL_DATE:
 				return getApprovalDate();
 			case FhirPackage.ACTIVITY_DEFINITION__LAST_REVIEW_DATE:
 				return getLastReviewDate();
 			case FhirPackage.ACTIVITY_DEFINITION__EFFECTIVE_PERIOD:
 				return getEffectivePeriod();
-			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
-				return getUseContext();
-			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
-				return getJurisdiction();
 			case FhirPackage.ACTIVITY_DEFINITION__TOPIC:
 				return getTopic();
-			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
-				return getContributor();
-			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
-				return getContact();
-			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
-				return getCopyright();
+			case FhirPackage.ACTIVITY_DEFINITION__AUTHOR:
+				return getAuthor();
+			case FhirPackage.ACTIVITY_DEFINITION__EDITOR:
+				return getEditor();
+			case FhirPackage.ACTIVITY_DEFINITION__REVIEWER:
+				return getReviewer();
+			case FhirPackage.ACTIVITY_DEFINITION__ENDORSER:
+				return getEndorser();
 			case FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT:
 				return getRelatedArtifact();
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return getLibrary();
 			case FhirPackage.ACTIVITY_DEFINITION__KIND:
 				return getKind();
+			case FhirPackage.ACTIVITY_DEFINITION__PROFILE:
+				return getProfile();
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return getCode();
+			case FhirPackage.ACTIVITY_DEFINITION__INTENT:
+				return getIntent();
+			case FhirPackage.ACTIVITY_DEFINITION__PRIORITY:
+				return getPriority();
 			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
 				return getDoNotPerform();
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
@@ -2123,6 +2604,10 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return getBodySite();
 			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
 				return getSpecimenRequirement();
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT:
+				return getObservationRequirement();
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT:
+				return getObservationResultRequirement();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return getTransform();
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
@@ -2156,11 +2641,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__TITLE:
 				setTitle((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBTITLE:
+				setSubtitle((org.hl7.fhir.String)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__STATUS:
 				setStatus((PublicationStatus)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				setDate((DateTime)newValue);
@@ -2168,14 +2662,29 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
+				getContact().clear();
+				getContact().addAll((Collection<? extends ContactDetail>)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
+				getUseContext().clear();
+				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
+				getJurisdiction().clear();
+				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
 				setPurpose((Markdown)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__USAGE:
 				setUsage((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
+				setCopyright((Markdown)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__APPROVAL_DATE:
 				setApprovalDate((Date)newValue);
@@ -2186,28 +2695,25 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
-				getUseContext().clear();
-				getUseContext().addAll((Collection<? extends UsageContext>)newValue);
-				return;
-			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
-				getJurisdiction().clear();
-				getJurisdiction().addAll((Collection<? extends CodeableConcept>)newValue);
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TOPIC:
 				getTopic().clear();
 				getTopic().addAll((Collection<? extends CodeableConcept>)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
-				getContributor().clear();
-				getContributor().addAll((Collection<? extends Contributor>)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__AUTHOR:
+				getAuthor().clear();
+				getAuthor().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
-				getContact().clear();
-				getContact().addAll((Collection<? extends ContactDetail>)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__EDITOR:
+				getEditor().clear();
+				getEditor().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
-				setCopyright((Markdown)newValue);
+			case FhirPackage.ACTIVITY_DEFINITION__REVIEWER:
+				getReviewer().clear();
+				getReviewer().addAll((Collection<? extends ContactDetail>)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__ENDORSER:
+				getEndorser().clear();
+				getEndorser().addAll((Collection<? extends ContactDetail>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT:
 				getRelatedArtifact().clear();
@@ -2215,13 +2721,22 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				getLibrary().clear();
-				getLibrary().addAll((Collection<? extends Reference>)newValue);
+				getLibrary().addAll((Collection<? extends Canonical>)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__KIND:
-				setKind((ResourceType)newValue);
+				setKind((RequestResourceType)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PROFILE:
+				setProfile((Canonical)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__INTENT:
+				setIntent((RequestIntent)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PRIORITY:
+				setPriority((RequestPriority)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)newValue);
@@ -2272,8 +2787,16 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				getSpecimenRequirement().clear();
 				getSpecimenRequirement().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT:
+				getObservationRequirement().clear();
+				getObservationRequirement().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT:
+				getObservationResultRequirement().clear();
+				getObservationResultRequirement().addAll((Collection<? extends Reference>)newValue);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
-				setTransform((Reference)newValue);
+				setTransform((Canonical)newValue);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
 				getDynamicValue().clear();
@@ -2306,11 +2829,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__TITLE:
 				setTitle((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBTITLE:
+				setSubtitle((org.hl7.fhir.String)null);
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__STATUS:
 				setStatus((PublicationStatus)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL:
 				setExperimental((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT:
+				setSubjectCodeableConcept((CodeableConcept)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE:
+				setSubjectReference((Reference)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				setDate((DateTime)null);
@@ -2318,14 +2850,26 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
 				setPublisher((org.hl7.fhir.String)null);
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
+				getContact().clear();
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				setDescription((Markdown)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
+				getUseContext().clear();
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
+				getJurisdiction().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
 				setPurpose((Markdown)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__USAGE:
 				setUsage((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
+				setCopyright((Markdown)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__APPROVAL_DATE:
 				setApprovalDate((Date)null);
@@ -2336,23 +2880,20 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__EFFECTIVE_PERIOD:
 				setEffectivePeriod((Period)null);
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
-				getUseContext().clear();
-				return;
-			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
-				getJurisdiction().clear();
-				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TOPIC:
 				getTopic().clear();
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
-				getContributor().clear();
+			case FhirPackage.ACTIVITY_DEFINITION__AUTHOR:
+				getAuthor().clear();
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
-				getContact().clear();
+			case FhirPackage.ACTIVITY_DEFINITION__EDITOR:
+				getEditor().clear();
 				return;
-			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
-				setCopyright((Markdown)null);
+			case FhirPackage.ACTIVITY_DEFINITION__REVIEWER:
+				getReviewer().clear();
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__ENDORSER:
+				getEndorser().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT:
 				getRelatedArtifact().clear();
@@ -2361,10 +2902,19 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				getLibrary().clear();
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__KIND:
-				setKind((ResourceType)null);
+				setKind((RequestResourceType)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PROFILE:
+				setProfile((Canonical)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				setCode((CodeableConcept)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__INTENT:
+				setIntent((RequestIntent)null);
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__PRIORITY:
+				setPriority((RequestPriority)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
 				setDoNotPerform((org.hl7.fhir.Boolean)null);
@@ -2411,8 +2961,14 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
 				getSpecimenRequirement().clear();
 				return;
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT:
+				getObservationRequirement().clear();
+				return;
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT:
+				getObservationResultRequirement().clear();
+				return;
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
-				setTransform((Reference)null);
+				setTransform((Canonical)null);
 				return;
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:
 				getDynamicValue().clear();
@@ -2439,46 +2995,64 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return name != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TITLE:
 				return title != null;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBTITLE:
+				return subtitle != null;
 			case FhirPackage.ACTIVITY_DEFINITION__STATUS:
 				return status != null;
 			case FhirPackage.ACTIVITY_DEFINITION__EXPERIMENTAL:
 				return experimental != null;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_CODEABLE_CONCEPT:
+				return subjectCodeableConcept != null;
+			case FhirPackage.ACTIVITY_DEFINITION__SUBJECT_REFERENCE:
+				return subjectReference != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DATE:
 				return date != null;
 			case FhirPackage.ACTIVITY_DEFINITION__PUBLISHER:
 				return publisher != null;
+			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
+				return contact != null && !contact.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__DESCRIPTION:
 				return description != null;
+			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
+				return useContext != null && !useContext.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
+				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__PURPOSE:
 				return purpose != null;
 			case FhirPackage.ACTIVITY_DEFINITION__USAGE:
 				return usage != null;
+			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
+				return copyright != null;
 			case FhirPackage.ACTIVITY_DEFINITION__APPROVAL_DATE:
 				return approvalDate != null;
 			case FhirPackage.ACTIVITY_DEFINITION__LAST_REVIEW_DATE:
 				return lastReviewDate != null;
 			case FhirPackage.ACTIVITY_DEFINITION__EFFECTIVE_PERIOD:
 				return effectivePeriod != null;
-			case FhirPackage.ACTIVITY_DEFINITION__USE_CONTEXT:
-				return useContext != null && !useContext.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__JURISDICTION:
-				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__TOPIC:
 				return topic != null && !topic.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__CONTRIBUTOR:
-				return contributor != null && !contributor.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__CONTACT:
-				return contact != null && !contact.isEmpty();
-			case FhirPackage.ACTIVITY_DEFINITION__COPYRIGHT:
-				return copyright != null;
+			case FhirPackage.ACTIVITY_DEFINITION__AUTHOR:
+				return author != null && !author.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__EDITOR:
+				return editor != null && !editor.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__REVIEWER:
+				return reviewer != null && !reviewer.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__ENDORSER:
+				return endorser != null && !endorser.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__RELATED_ARTIFACT:
 				return relatedArtifact != null && !relatedArtifact.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__LIBRARY:
 				return library != null && !library.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__KIND:
 				return kind != null;
+			case FhirPackage.ACTIVITY_DEFINITION__PROFILE:
+				return profile != null;
 			case FhirPackage.ACTIVITY_DEFINITION__CODE:
 				return code != null;
+			case FhirPackage.ACTIVITY_DEFINITION__INTENT:
+				return intent != null;
+			case FhirPackage.ACTIVITY_DEFINITION__PRIORITY:
+				return priority != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DO_NOT_PERFORM:
 				return doNotPerform != null;
 			case FhirPackage.ACTIVITY_DEFINITION__TIMING_TIMING:
@@ -2509,6 +3083,10 @@ public class ActivityDefinitionImpl extends DomainResourceImpl implements Activi
 				return bodySite != null && !bodySite.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__SPECIMEN_REQUIREMENT:
 				return specimenRequirement != null && !specimenRequirement.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_REQUIREMENT:
+				return observationRequirement != null && !observationRequirement.isEmpty();
+			case FhirPackage.ACTIVITY_DEFINITION__OBSERVATION_RESULT_REQUIREMENT:
+				return observationResultRequirement != null && !observationResultRequirement.isEmpty();
 			case FhirPackage.ACTIVITY_DEFINITION__TRANSFORM:
 				return transform != null;
 			case FhirPackage.ACTIVITY_DEFINITION__DYNAMIC_VALUE:

@@ -20,15 +20,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.ContactDetail;
 import org.hl7.fhir.DateTime;
+import org.hl7.fhir.FHIRVersion;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.Id;
 import org.hl7.fhir.ImplementationGuide;
-import org.hl7.fhir.ImplementationGuideDependency;
+import org.hl7.fhir.ImplementationGuideDefinition;
+import org.hl7.fhir.ImplementationGuideDependsOn;
 import org.hl7.fhir.ImplementationGuideGlobal;
-import org.hl7.fhir.ImplementationGuidePackage;
-import org.hl7.fhir.ImplementationGuidePage;
+import org.hl7.fhir.ImplementationGuideManifest;
 import org.hl7.fhir.Markdown;
 import org.hl7.fhir.PublicationStatus;
+import org.hl7.fhir.SPDXLicense;
 import org.hl7.fhir.Uri;
 import org.hl7.fhir.UsageContext;
 
@@ -43,6 +45,7 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getExperimental <em>Experimental</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDate <em>Date</em>}</li>
@@ -52,12 +55,13 @@ import org.hl7.fhir.UsageContext;
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getUseContext <em>Use Context</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getCopyright <em>Copyright</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getPackageId <em>Package Id</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getLicense <em>License</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getFhirVersion <em>Fhir Version</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDependency <em>Dependency</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getPackage <em>Package</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getGlobal <em>Global</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getBinary <em>Binary</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getPage <em>Page</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getDefinition <em>Definition</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ImplementationGuideImpl#getManifest <em>Manifest</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +96,16 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * @ordered
 	 */
 	protected org.hl7.fhir.String name;
+
+	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String title;
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
@@ -184,34 +198,44 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	protected Markdown copyright;
 
 	/**
-	 * The cached value of the '{@link #getFhirVersion() <em>Fhir Version</em>}' containment reference.
+	 * The cached value of the '{@link #getPackageId() <em>Package Id</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageId()
+	 * @generated
+	 * @ordered
+	 */
+	protected Id packageId;
+
+	/**
+	 * The cached value of the '{@link #getLicense() <em>License</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLicense()
+	 * @generated
+	 * @ordered
+	 */
+	protected SPDXLicense license;
+
+	/**
+	 * The cached value of the '{@link #getFhirVersion() <em>Fhir Version</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFhirVersion()
 	 * @generated
 	 * @ordered
 	 */
-	protected Id fhirVersion;
+	protected EList<FHIRVersion> fhirVersion;
 
 	/**
-	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference list.
+	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependency()
+	 * @see #getDependsOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ImplementationGuideDependency> dependency;
-
-	/**
-	 * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPackage()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ImplementationGuidePackage> package_;
+	protected EList<ImplementationGuideDependsOn> dependsOn;
 
 	/**
 	 * The cached value of the '{@link #getGlobal() <em>Global</em>}' containment reference list.
@@ -224,24 +248,24 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	protected EList<ImplementationGuideGlobal> global;
 
 	/**
-	 * The cached value of the '{@link #getBinary() <em>Binary</em>}' containment reference list.
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBinary()
+	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> binary;
+	protected ImplementationGuideDefinition definition;
 
 	/**
-	 * The cached value of the '{@link #getPage() <em>Page</em>}' containment reference.
+	 * The cached value of the '{@link #getManifest() <em>Manifest</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPage()
+	 * @see #getManifest()
 	 * @generated
 	 * @ordered
 	 */
-	protected ImplementationGuidePage page;
+	protected ImplementationGuideManifest manifest;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -389,6 +413,49 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__NAME, newName, newName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTitle(org.hl7.fhir.String newTitle, NotificationChain msgs) {
+		org.hl7.fhir.String oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(org.hl7.fhir.String newTitle) {
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__TITLE, newTitle, newTitle));
 	}
 
 	/**
@@ -690,8 +757,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Id getFhirVersion() {
-		return fhirVersion;
+	public Id getPackageId() {
+		return packageId;
 	}
 
 	/**
@@ -699,11 +766,11 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFhirVersion(Id newFhirVersion, NotificationChain msgs) {
-		Id oldFhirVersion = fhirVersion;
-		fhirVersion = newFhirVersion;
+	public NotificationChain basicSetPackageId(Id newPackageId, NotificationChain msgs) {
+		Id oldPackageId = packageId;
+		packageId = newPackageId;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION, oldFhirVersion, newFhirVersion);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID, oldPackageId, newPackageId);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -714,18 +781,18 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFhirVersion(Id newFhirVersion) {
-		if (newFhirVersion != fhirVersion) {
+	public void setPackageId(Id newPackageId) {
+		if (newPackageId != packageId) {
 			NotificationChain msgs = null;
-			if (fhirVersion != null)
-				msgs = ((InternalEObject)fhirVersion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION, null, msgs);
-			if (newFhirVersion != null)
-				msgs = ((InternalEObject)newFhirVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION, null, msgs);
-			msgs = basicSetFhirVersion(newFhirVersion, msgs);
+			if (packageId != null)
+				msgs = ((InternalEObject)packageId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID, null, msgs);
+			if (newPackageId != null)
+				msgs = ((InternalEObject)newPackageId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID, null, msgs);
+			msgs = basicSetPackageId(newPackageId, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION, newFhirVersion, newFhirVersion));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID, newPackageId, newPackageId));
 	}
 
 	/**
@@ -733,11 +800,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImplementationGuideDependency> getDependency() {
-		if (dependency == null) {
-			dependency = new EObjectContainmentEList<ImplementationGuideDependency>(ImplementationGuideDependency.class, this, FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY);
-		}
-		return dependency;
+	public SPDXLicense getLicense() {
+		return license;
 	}
 
 	/**
@@ -745,11 +809,57 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ImplementationGuidePackage> getPackage() {
-		if (package_ == null) {
-			package_ = new EObjectContainmentEList<ImplementationGuidePackage>(ImplementationGuidePackage.class, this, FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE);
+	public NotificationChain basicSetLicense(SPDXLicense newLicense, NotificationChain msgs) {
+		SPDXLicense oldLicense = license;
+		license = newLicense;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__LICENSE, oldLicense, newLicense);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return package_;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLicense(SPDXLicense newLicense) {
+		if (newLicense != license) {
+			NotificationChain msgs = null;
+			if (license != null)
+				msgs = ((InternalEObject)license).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__LICENSE, null, msgs);
+			if (newLicense != null)
+				msgs = ((InternalEObject)newLicense).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__LICENSE, null, msgs);
+			msgs = basicSetLicense(newLicense, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__LICENSE, newLicense, newLicense));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FHIRVersion> getFhirVersion() {
+		if (fhirVersion == null) {
+			fhirVersion = new EObjectContainmentEList<FHIRVersion>(FHIRVersion.class, this, FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION);
+		}
+		return fhirVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ImplementationGuideDependsOn> getDependsOn() {
+		if (dependsOn == null) {
+			dependsOn = new EObjectContainmentEList<ImplementationGuideDependsOn>(ImplementationGuideDependsOn.class, this, FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON);
+		}
+		return dependsOn;
 	}
 
 	/**
@@ -769,11 +879,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getBinary() {
-		if (binary == null) {
-			binary = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.IMPLEMENTATION_GUIDE__BINARY);
-		}
-		return binary;
+	public ImplementationGuideDefinition getDefinition() {
+		return definition;
 	}
 
 	/**
@@ -781,20 +888,11 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationGuidePage getPage() {
-		return page;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPage(ImplementationGuidePage newPage, NotificationChain msgs) {
-		ImplementationGuidePage oldPage = page;
-		page = newPage;
+	public NotificationChain basicSetDefinition(ImplementationGuideDefinition newDefinition, NotificationChain msgs) {
+		ImplementationGuideDefinition oldDefinition = definition;
+		definition = newDefinition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__PAGE, oldPage, newPage);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION, oldDefinition, newDefinition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -805,18 +903,61 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPage(ImplementationGuidePage newPage) {
-		if (newPage != page) {
+	public void setDefinition(ImplementationGuideDefinition newDefinition) {
+		if (newDefinition != definition) {
 			NotificationChain msgs = null;
-			if (page != null)
-				msgs = ((InternalEObject)page).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__PAGE, null, msgs);
-			if (newPage != null)
-				msgs = ((InternalEObject)newPage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__PAGE, null, msgs);
-			msgs = basicSetPage(newPage, msgs);
+			if (definition != null)
+				msgs = ((InternalEObject)definition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION, null, msgs);
+			if (newDefinition != null)
+				msgs = ((InternalEObject)newDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION, null, msgs);
+			msgs = basicSetDefinition(newDefinition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__PAGE, newPage, newPage));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION, newDefinition, newDefinition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationGuideManifest getManifest() {
+		return manifest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetManifest(ImplementationGuideManifest newManifest, NotificationChain msgs) {
+		ImplementationGuideManifest oldManifest = manifest;
+		manifest = newManifest;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST, oldManifest, newManifest);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setManifest(ImplementationGuideManifest newManifest) {
+		if (newManifest != manifest) {
+			NotificationChain msgs = null;
+			if (manifest != null)
+				msgs = ((InternalEObject)manifest).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST, null, msgs);
+			if (newManifest != null)
+				msgs = ((InternalEObject)newManifest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST, null, msgs);
+			msgs = basicSetManifest(newManifest, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST, newManifest, newManifest));
 	}
 
 	/**
@@ -833,6 +974,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return basicSetVersion(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__NAME:
 				return basicSetName(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__TITLE:
+				return basicSetTitle(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
 				return basicSetStatus(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
@@ -851,18 +994,20 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return ((InternalEList<?>)getJurisdiction()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return basicSetCopyright(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID:
+				return basicSetPackageId(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__LICENSE:
+				return basicSetLicense(null, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
-				return basicSetFhirVersion(null, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY:
-				return ((InternalEList<?>)getDependency()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE:
-				return ((InternalEList<?>)getPackage()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getFhirVersion()).basicRemove(otherEnd, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON:
+				return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.IMPLEMENTATION_GUIDE__GLOBAL:
 				return ((InternalEList<?>)getGlobal()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE__BINARY:
-				return ((InternalEList<?>)getBinary()).basicRemove(otherEnd, msgs);
-			case FhirPackage.IMPLEMENTATION_GUIDE__PAGE:
-				return basicSetPage(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION:
+				return basicSetDefinition(null, msgs);
+			case FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST:
+				return basicSetManifest(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -881,6 +1026,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return getVersion();
 			case FhirPackage.IMPLEMENTATION_GUIDE__NAME:
 				return getName();
+			case FhirPackage.IMPLEMENTATION_GUIDE__TITLE:
+				return getTitle();
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
 				return getStatus();
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
@@ -899,18 +1046,20 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return getJurisdiction();
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return getCopyright();
+			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID:
+				return getPackageId();
+			case FhirPackage.IMPLEMENTATION_GUIDE__LICENSE:
+				return getLicense();
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
 				return getFhirVersion();
-			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY:
-				return getDependency();
-			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE:
-				return getPackage();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON:
+				return getDependsOn();
 			case FhirPackage.IMPLEMENTATION_GUIDE__GLOBAL:
 				return getGlobal();
-			case FhirPackage.IMPLEMENTATION_GUIDE__BINARY:
-				return getBinary();
-			case FhirPackage.IMPLEMENTATION_GUIDE__PAGE:
-				return getPage();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION:
+				return getDefinition();
+			case FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST:
+				return getManifest();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -932,6 +1081,9 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__NAME:
 				setName((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__TITLE:
+				setTitle((org.hl7.fhir.String)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
 				setStatus((PublicationStatus)newValue);
@@ -963,27 +1115,29 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				setCopyright((Markdown)newValue);
 				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID:
+				setPackageId((Id)newValue);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__LICENSE:
+				setLicense((SPDXLicense)newValue);
+				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
-				setFhirVersion((Id)newValue);
+				getFhirVersion().clear();
+				getFhirVersion().addAll((Collection<? extends FHIRVersion>)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY:
-				getDependency().clear();
-				getDependency().addAll((Collection<? extends ImplementationGuideDependency>)newValue);
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE:
-				getPackage().clear();
-				getPackage().addAll((Collection<? extends ImplementationGuidePackage>)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON:
+				getDependsOn().clear();
+				getDependsOn().addAll((Collection<? extends ImplementationGuideDependsOn>)newValue);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__GLOBAL:
 				getGlobal().clear();
 				getGlobal().addAll((Collection<? extends ImplementationGuideGlobal>)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__BINARY:
-				getBinary().clear();
-				getBinary().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION:
+				setDefinition((ImplementationGuideDefinition)newValue);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__PAGE:
-				setPage((ImplementationGuidePage)newValue);
+			case FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST:
+				setManifest((ImplementationGuideManifest)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1005,6 +1159,9 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__NAME:
 				setName((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__TITLE:
+				setTitle((org.hl7.fhir.String)null);
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
 				setStatus((PublicationStatus)null);
@@ -1033,23 +1190,26 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				setCopyright((Markdown)null);
 				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID:
+				setPackageId((Id)null);
+				return;
+			case FhirPackage.IMPLEMENTATION_GUIDE__LICENSE:
+				setLicense((SPDXLicense)null);
+				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
-				setFhirVersion((Id)null);
+				getFhirVersion().clear();
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY:
-				getDependency().clear();
-				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE:
-				getPackage().clear();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON:
+				getDependsOn().clear();
 				return;
 			case FhirPackage.IMPLEMENTATION_GUIDE__GLOBAL:
 				getGlobal().clear();
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__BINARY:
-				getBinary().clear();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION:
+				setDefinition((ImplementationGuideDefinition)null);
 				return;
-			case FhirPackage.IMPLEMENTATION_GUIDE__PAGE:
-				setPage((ImplementationGuidePage)null);
+			case FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST:
+				setManifest((ImplementationGuideManifest)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1069,6 +1229,8 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return version != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__NAME:
 				return name != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__TITLE:
+				return title != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__STATUS:
 				return status != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__EXPERIMENTAL:
@@ -1087,18 +1249,20 @@ public class ImplementationGuideImpl extends DomainResourceImpl implements Imple
 				return jurisdiction != null && !jurisdiction.isEmpty();
 			case FhirPackage.IMPLEMENTATION_GUIDE__COPYRIGHT:
 				return copyright != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE_ID:
+				return packageId != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__LICENSE:
+				return license != null;
 			case FhirPackage.IMPLEMENTATION_GUIDE__FHIR_VERSION:
-				return fhirVersion != null;
-			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDENCY:
-				return dependency != null && !dependency.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE__PACKAGE:
-				return package_ != null && !package_.isEmpty();
+				return fhirVersion != null && !fhirVersion.isEmpty();
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEPENDS_ON:
+				return dependsOn != null && !dependsOn.isEmpty();
 			case FhirPackage.IMPLEMENTATION_GUIDE__GLOBAL:
 				return global != null && !global.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE__BINARY:
-				return binary != null && !binary.isEmpty();
-			case FhirPackage.IMPLEMENTATION_GUIDE__PAGE:
-				return page != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__DEFINITION:
+				return definition != null;
+			case FhirPackage.IMPLEMENTATION_GUIDE__MANIFEST:
+				return manifest != null;
 		}
 		return super.eIsSet(featureID);
 	}

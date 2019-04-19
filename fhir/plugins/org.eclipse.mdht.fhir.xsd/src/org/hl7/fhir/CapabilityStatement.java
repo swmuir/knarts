@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *
@@ -34,10 +34,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getCopyright <em>Copyright</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getKind <em>Kind</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.CapabilityStatement#getImports <em>Imports</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getSoftware <em>Software</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getFhirVersion <em>Fhir Version</em>}</li>
- *   <li>{@link org.hl7.fhir.CapabilityStatement#getAcceptUnknown <em>Accept Unknown</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getFormat <em>Format</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getPatchFormat <em>Patch Format</em>}</li>
  *   <li>{@link org.hl7.fhir.CapabilityStatement#getImplementationGuide <em>Implementation Guide</em>}</li>
@@ -56,7 +56,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.
+	 * An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
 	 * @see #setUrl(Uri)
@@ -186,7 +186,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+	 * A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Experimental</em>' containment reference.
 	 * @see #setExperimental(org.hl7.fhir.Boolean)
@@ -212,7 +212,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The date  (and optionally time) when the capability statement was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes.
+	 * The date  (and optionally time) when the capability statement was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(DateTime)
@@ -238,7 +238,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The name of the individual or organization that published the capability statement.
+	 * The name of the organization or individual that published the capability statement.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Publisher</em>' containment reference.
 	 * @see #setPublisher(org.hl7.fhir.String)
@@ -307,7 +307,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate capability statement instances.
+	 * The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate capability statement instances.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Use Context</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_UseContext()
@@ -338,7 +338,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Explaination of why this capability statement is needed and why it has been designed as it has.
+	 * Explanation of why this capability statement is needed and why it has been designed as it has.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Purpose</em>' containment reference.
 	 * @see #setPurpose(Markdown)
@@ -390,7 +390,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
+	 * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Kind</em>' containment reference.
 	 * @see #setKind(CapabilityStatementKind)
@@ -413,11 +413,11 @@ public interface CapabilityStatement extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Instantiates</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.
+	 * Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Instantiates</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_Instantiates()
@@ -425,7 +425,23 @@ public interface CapabilityStatement extends DomainResource {
 	 *        extendedMetaData="kind='element' name='instantiates' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getInstantiates();
+	EList<Canonical> getInstantiates();
+
+	/**
+	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Imports</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_Imports()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='imports' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<Canonical> getImports();
 
 	/**
 	 * Returns the value of the '<em><b>Software</b></em>' containment reference.
@@ -484,16 +500,16 @@ public interface CapabilityStatement extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The version of the FHIR specification on which this capability statement is based.
+	 * The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Fhir Version</em>' containment reference.
-	 * @see #setFhirVersion(Id)
+	 * @see #setFhirVersion(FHIRVersion)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_FhirVersion()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='fhirVersion' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Id getFhirVersion();
+	FHIRVersion getFhirVersion();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatement#getFhirVersion <em>Fhir Version</em>}' containment reference.
@@ -503,33 +519,7 @@ public interface CapabilityStatement extends DomainResource {
 	 * @see #getFhirVersion()
 	 * @generated
 	 */
-	void setFhirVersion(Id value);
-
-	/**
-	 * Returns the value of the '<em><b>Accept Unknown</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Accept Unknown</em>' containment reference.
-	 * @see #setAcceptUnknown(UnknownContentCode)
-	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatement_AcceptUnknown()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='acceptUnknown' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	UnknownContentCode getAcceptUnknown();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatement#getAcceptUnknown <em>Accept Unknown</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Accept Unknown</em>' containment reference.
-	 * @see #getAcceptUnknown()
-	 * @generated
-	 */
-	void setAcceptUnknown(UnknownContentCode value);
+	void setFhirVersion(FHIRVersion value);
 
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' containment reference list.
@@ -565,7 +555,7 @@ public interface CapabilityStatement extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Implementation Guide</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Uri}.
+	 * The list contents are of type {@link org.hl7.fhir.Canonical}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -577,7 +567,7 @@ public interface CapabilityStatement extends DomainResource {
 	 *        extendedMetaData="kind='element' name='implementationGuide' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Uri> getImplementationGuide();
+	EList<Canonical> getImplementationGuide();
 
 	/**
 	 * Returns the value of the '<em><b>Rest</b></em>' containment reference list.

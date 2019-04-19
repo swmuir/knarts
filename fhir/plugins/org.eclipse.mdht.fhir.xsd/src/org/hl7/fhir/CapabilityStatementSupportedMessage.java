@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+ * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -59,13 +59,13 @@ public interface CapabilityStatementSupportedMessage extends BackboneElement {
 	 * Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Definition</em>' containment reference.
-	 * @see #setDefinition(Reference)
+	 * @see #setDefinition(Canonical)
 	 * @see org.hl7.fhir.FhirPackage#getCapabilityStatementSupportedMessage_Definition()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='definition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getDefinition();
+	Canonical getDefinition();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.CapabilityStatementSupportedMessage#getDefinition <em>Definition</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface CapabilityStatementSupportedMessage extends BackboneElement {
 	 * @see #getDefinition()
 	 * @generated
 	 */
-	void setDefinition(Reference value);
+	void setDefinition(Canonical value);
 
 } // CapabilityStatementSupportedMessage

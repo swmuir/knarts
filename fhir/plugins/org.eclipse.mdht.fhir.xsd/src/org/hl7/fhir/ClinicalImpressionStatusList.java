@@ -21,14 +21,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ClinicalImpressionStatusList implements Enumerator {
 	/**
-	 * The '<em><b>Draft</b></em>' literal object.
+	 * The '<em><b>In Progress</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DRAFT_VALUE
+	 * @see #IN_PROGRESS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DRAFT(0, "draft", "draft"),
+	IN_PROGRESS(0, "inProgress", "in-progress"),
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal object.
@@ -51,18 +51,18 @@ public enum ClinicalImpressionStatusList implements Enumerator {
 	ENTERED_IN_ERROR(2, "enteredInError", "entered-in-error");
 
 	/**
-	 * The '<em><b>Draft</b></em>' literal value.
+	 * The '<em><b>In Progress</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * In progress
+	 * In Progress
 	 * <!-- end-model-doc -->
-	 * @see #DRAFT
-	 * @model name="draft"
+	 * @see #IN_PROGRESS
+	 * @model name="inProgress" literal="in-progress"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DRAFT_VALUE = 0;
+	public static final int IN_PROGRESS_VALUE = 0;
 
 	/**
 	 * The '<em><b>Completed</b></em>' literal value.
@@ -100,7 +100,7 @@ public enum ClinicalImpressionStatusList implements Enumerator {
 	 */
 	private static final ClinicalImpressionStatusList[] VALUES_ARRAY =
 		new ClinicalImpressionStatusList[] {
-			DRAFT,
+			IN_PROGRESS,
 			COMPLETED,
 			ENTERED_IN_ERROR,
 		};
@@ -159,7 +159,7 @@ public enum ClinicalImpressionStatusList implements Enumerator {
 	 */
 	public static ClinicalImpressionStatusList get(int value) {
 		switch (value) {
-			case DRAFT_VALUE: return DRAFT;
+			case IN_PROGRESS_VALUE: return IN_PROGRESS;
 			case COMPLETED_VALUE: return COMPLETED;
 			case ENTERED_IN_ERROR_VALUE: return ENTERED_IN_ERROR;
 		}

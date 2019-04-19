@@ -19,8 +19,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getSubject <em>Subject</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getCountry <em>Country</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getJurisdiction <em>Jurisdiction</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getStatus <em>Status</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getStatusDate <em>Status Date</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getRestoreDate <em>Restore Date</em>}</li>
@@ -28,11 +29,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getDataExclusivityPeriod <em>Data Exclusivity Period</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getDateOfFirstAuthorization <em>Date Of First Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getInternationalBirthDate <em>International Birth Date</em>}</li>
+ *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getLegalBasis <em>Legal Basis</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getJurisdictionalAuthorization <em>Jurisdictional Authorization</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getHolder <em>Holder</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getRegulator <em>Regulator</em>}</li>
  *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getProcedure <em>Procedure</em>}</li>
- *   <li>{@link org.hl7.fhir.MedicinalProductAuthorization#getMarketingStatus <em>Marketing Status</em>}</li>
  * </ul>
  *
  * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization()
@@ -41,30 +42,46 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MedicinalProductAuthorization extends DomainResource {
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Identifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Business identifier for the marketing authorization, as assigned by a regulator.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' containment reference.
-	 * @see #setIdentifier(Identifier)
+	 * @return the value of the '<em>Identifier</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Identifier()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='identifier' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Identifier getIdentifier();
+	EList<Identifier> getIdentifier();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorization#getIdentifier <em>Identifier</em>}' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' containment reference.
-	 * @see #getIdentifier()
+	 * <!-- begin-model-doc -->
+	 * The medicinal product that is being authorized.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Subject</em>' containment reference.
+	 * @see #setSubject(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Subject()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	void setIdentifier(Identifier value);
+	Reference getSubject();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorization#getSubject <em>Subject</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' containment reference.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(Reference value);
 
 	/**
 	 * Returns the value of the '<em><b>Country</b></em>' containment reference list.
@@ -76,37 +93,27 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Country</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Country()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='country' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<CodeableConcept> getCountry();
 
 	/**
-	 * Returns the value of the '<em><b>Legal Status Of Supply</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Jurisdiction</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The legal status of supply of the medicinal product as classified by the regulator.
+	 * Jurisdiction within a country.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Legal Status Of Supply</em>' containment reference.
-	 * @see #setLegalStatusOfSupply(CodeableConcept)
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_LegalStatusOfSupply()
-	 * @model containment="true" required="true"
-	 *        extendedMetaData="kind='element' name='legalStatusOfSupply' namespace='##targetNamespace'"
+	 * @return the value of the '<em>Jurisdiction</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Jurisdiction()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='jurisdiction' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getLegalStatusOfSupply();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorization#getLegalStatusOfSupply <em>Legal Status Of Supply</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Legal Status Of Supply</em>' containment reference.
-	 * @see #getLegalStatusOfSupply()
-	 * @generated
-	 */
-	void setLegalStatusOfSupply(CodeableConcept value);
+	EList<CodeableConcept> getJurisdiction();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' containment reference.
@@ -118,7 +125,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(CodeableConcept)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Status()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -144,7 +151,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Status Date</em>' containment reference.
 	 * @see #setStatusDate(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_StatusDate()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='statusDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -196,7 +203,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Validity Period</em>' containment reference.
 	 * @see #setValidityPeriod(Period)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_ValidityPeriod()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='validityPeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -274,7 +281,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>International Birth Date</em>' containment reference.
 	 * @see #setInternationalBirthDate(DateTime)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_InternationalBirthDate()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='internationalBirthDate' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -289,6 +296,32 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @generated
 	 */
 	void setInternationalBirthDate(DateTime value);
+
+	/**
+	 * Returns the value of the '<em><b>Legal Basis</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The legal framework against which this authorization is granted.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Legal Basis</em>' containment reference.
+	 * @see #setLegalBasis(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_LegalBasis()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='legalBasis' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getLegalBasis();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.MedicinalProductAuthorization#getLegalBasis <em>Legal Basis</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Legal Basis</em>' containment reference.
+	 * @see #getLegalBasis()
+	 * @generated
+	 */
+	void setLegalBasis(CodeableConcept value);
 
 	/**
 	 * Returns the value of the '<em><b>Jurisdictional Authorization</b></em>' containment reference list.
@@ -316,7 +349,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Holder</em>' containment reference.
 	 * @see #setHolder(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Holder()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='holder' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -342,7 +375,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Regulator</em>' containment reference.
 	 * @see #setRegulator(Reference)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Regulator()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='regulator' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -368,7 +401,7 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @return the value of the '<em>Procedure</em>' containment reference.
 	 * @see #setProcedure(MedicinalProductAuthorizationProcedure)
 	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_Procedure()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='procedure' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -383,21 +416,5 @@ public interface MedicinalProductAuthorization extends DomainResource {
 	 * @generated
 	 */
 	void setProcedure(MedicinalProductAuthorizationProcedure value);
-
-	/**
-	 * Returns the value of the '<em><b>Marketing Status</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.MarketingStatus}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Marketing status of the medicinal product, in contrast to marketing authorizaton.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Marketing Status</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getMedicinalProductAuthorization_MarketingStatus()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='marketingStatus' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<MarketingStatus> getMarketingStatus();
 
 } // MedicinalProductAuthorization

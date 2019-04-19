@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+ * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -20,13 +20,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.ContractTerm#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getIssued <em>Issued</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getApplies <em>Applies</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractTerm#getTopicCodeableConcept <em>Topic Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractTerm#getTopicReference <em>Topic Reference</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getSubType <em>Sub Type</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractTerm#getText <em>Text</em>}</li>
+ *   <li>{@link org.hl7.fhir.ContractTerm#getSecurityLabel <em>Security Label</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getOffer <em>Offer</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getAsset <em>Asset</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractTerm#getAgent <em>Agent</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getAction <em>Action</em>}</li>
- *   <li>{@link org.hl7.fhir.ContractTerm#getActionReason <em>Action Reason</em>}</li>
  *   <li>{@link org.hl7.fhir.ContractTerm#getGroup <em>Group</em>}</li>
  * </ul>
  *
@@ -114,11 +116,65 @@ public interface ContractTerm extends BackboneElement {
 	void setApplies(Period value);
 
 	/**
+	 * Returns the value of the '<em><b>Topic Codeable Concept</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Topic Codeable Concept</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Topic Codeable Concept</em>' containment reference.
+	 * @see #setTopicCodeableConcept(CodeableConcept)
+	 * @see org.hl7.fhir.FhirPackage#getContractTerm_TopicCodeableConcept()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='topicCodeableConcept' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	CodeableConcept getTopicCodeableConcept();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractTerm#getTopicCodeableConcept <em>Topic Codeable Concept</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Topic Codeable Concept</em>' containment reference.
+	 * @see #getTopicCodeableConcept()
+	 * @generated
+	 */
+	void setTopicCodeableConcept(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Topic Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Topic Reference</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Topic Reference</em>' containment reference.
+	 * @see #setTopicReference(Reference)
+	 * @see org.hl7.fhir.FhirPackage#getContractTerm_TopicReference()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='topicReference' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Reference getTopicReference();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractTerm#getTopicReference <em>Topic Reference</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Topic Reference</em>' containment reference.
+	 * @see #getTopicReference()
+	 * @generated
+	 */
+	void setTopicReference(Reference value);
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
+	 * A legal clause or condition contained within a contract that requires one or both parties to perform a particular requirement by some specified time or prevents one or both parties from performing a particular requirement by some specified time.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(CodeableConcept)
@@ -144,7 +200,7 @@ public interface ContractTerm extends BackboneElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
+	 * A specialized legal clause or condition based on overarching contract type.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Type</em>' containment reference.
 	 * @see #setSubType(CodeableConcept)
@@ -164,6 +220,48 @@ public interface ContractTerm extends BackboneElement {
 	 * @generated
 	 */
 	void setSubType(CodeableConcept value);
+
+	/**
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Statement of a provision in a policy or a contract.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Text</em>' containment reference.
+	 * @see #setText(org.hl7.fhir.String)
+	 * @see org.hl7.fhir.FhirPackage#getContractTerm_Text()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='text' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	org.hl7.fhir.String getText();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.ContractTerm#getText <em>Text</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Text</em>' containment reference.
+	 * @see #getText()
+	 * @generated
+	 */
+	void setText(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Label</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractSecurityLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Security labels that protect the handling of information about the term and its elements, which may be specifically identified..
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Security Label</em>' containment reference list.
+	 * @see org.hl7.fhir.FhirPackage#getContractTerm_SecurityLabel()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='securityLabel' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	EList<ContractSecurityLabel> getSecurityLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Offer</b></em>' containment reference.
@@ -208,28 +306,12 @@ public interface ContractTerm extends BackboneElement {
 	EList<ContractAsset> getAsset();
 
 	/**
-	 * Returns the value of the '<em><b>Agent</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.ContractAgent}.
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.ContractAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Agent</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContractTerm_Agent()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='agent' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<ContractAgent> getAgent();
-
-	/**
-	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Action stipulated by this Contract Provision.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Action</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getContractTerm_Action()
@@ -237,23 +319,7 @@ public interface ContractTerm extends BackboneElement {
 	 *        extendedMetaData="kind='element' name='action' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<CodeableConcept> getAction();
-
-	/**
-	 * Returns the value of the '<em><b>Action Reason</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Reason or purpose for the action stipulated by this Contract Provision.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Action Reason</em>' containment reference list.
-	 * @see org.hl7.fhir.FhirPackage#getContractTerm_ActionReason()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='actionReason' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	EList<CodeableConcept> getActionReason();
+	EList<ContractAction> getAction();
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' containment reference list.

@@ -41,6 +41,16 @@ public enum RequestIntentList implements Enumerator {
 	PLAN(1, "plan", "plan"),
 
 	/**
+	 * The '<em><b>Directive</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DIRECTIVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DIRECTIVE(2, "directive", "directive"),
+
+	/**
 	 * The '<em><b>Order</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORDER(2, "order", "order"),
+	ORDER(3, "order", "order"),
 
 	/**
 	 * The '<em><b>Original Order</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORIGINAL_ORDER(3, "originalOrder", "original-order"),
+	ORIGINAL_ORDER(4, "originalOrder", "original-order"),
 
 	/**
 	 * The '<em><b>Reflex Order</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REFLEX_ORDER(4, "reflexOrder", "reflex-order"),
+	REFLEX_ORDER(5, "reflexOrder", "reflex-order"),
 
 	/**
 	 * The '<em><b>Filler Order</b></em>' literal object.
@@ -78,7 +88,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILLER_ORDER(5, "fillerOrder", "filler-order"),
+	FILLER_ORDER(6, "fillerOrder", "filler-order"),
 
 	/**
 	 * The '<em><b>Instance Order</b></em>' literal object.
@@ -88,7 +98,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INSTANCE_ORDER(6, "instanceOrder", "instance-order"),
+	INSTANCE_ORDER(7, "instanceOrder", "instance-order"),
 
 	/**
 	 * The '<em><b>Option</b></em>' literal object.
@@ -98,7 +108,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPTION(7, "option", "option");
+	OPTION(8, "option", "option");
 
 	/**
 	 * The '<em><b>Proposal</b></em>' literal value.
@@ -129,6 +139,20 @@ public enum RequestIntentList implements Enumerator {
 	public static final int PLAN_VALUE = 1;
 
 	/**
+	 * The '<em><b>Directive</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Directive
+	 * <!-- end-model-doc -->
+	 * @see #DIRECTIVE
+	 * @model name="directive"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DIRECTIVE_VALUE = 2;
+
+	/**
 	 * The '<em><b>Order</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,7 +164,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORDER_VALUE = 2;
+	public static final int ORDER_VALUE = 3;
 
 	/**
 	 * The '<em><b>Original Order</b></em>' literal value.
@@ -154,7 +178,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORIGINAL_ORDER_VALUE = 3;
+	public static final int ORIGINAL_ORDER_VALUE = 4;
 
 	/**
 	 * The '<em><b>Reflex Order</b></em>' literal value.
@@ -168,7 +192,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REFLEX_ORDER_VALUE = 4;
+	public static final int REFLEX_ORDER_VALUE = 5;
 
 	/**
 	 * The '<em><b>Filler Order</b></em>' literal value.
@@ -182,7 +206,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FILLER_ORDER_VALUE = 5;
+	public static final int FILLER_ORDER_VALUE = 6;
 
 	/**
 	 * The '<em><b>Instance Order</b></em>' literal value.
@@ -196,7 +220,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INSTANCE_ORDER_VALUE = 6;
+	public static final int INSTANCE_ORDER_VALUE = 7;
 
 	/**
 	 * The '<em><b>Option</b></em>' literal value.
@@ -210,7 +234,7 @@ public enum RequestIntentList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OPTION_VALUE = 7;
+	public static final int OPTION_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Request Intent List</b></em>' enumerators.
@@ -222,6 +246,7 @@ public enum RequestIntentList implements Enumerator {
 		new RequestIntentList[] {
 			PROPOSAL,
 			PLAN,
+			DIRECTIVE,
 			ORDER,
 			ORIGINAL_ORDER,
 			REFLEX_ORDER,
@@ -286,6 +311,7 @@ public enum RequestIntentList implements Enumerator {
 		switch (value) {
 			case PROPOSAL_VALUE: return PROPOSAL;
 			case PLAN_VALUE: return PLAN;
+			case DIRECTIVE_VALUE: return DIRECTIVE;
 			case ORDER_VALUE: return ORDER;
 			case ORIGINAL_ORDER_VALUE: return ORIGINAL_ORDER;
 			case REFLEX_ORDER_VALUE: return REFLEX_ORDER;

@@ -235,7 +235,7 @@ public interface ResearchStudy extends DomainResource {
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-	 * The list contents are of type {@link org.hl7.fhir.Reference}.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -247,7 +247,7 @@ public interface ResearchStudy extends DomainResource {
 	 *        extendedMetaData="kind='element' name='condition' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	EList<Reference> getCondition();
+	EList<CodeableConcept> getCondition();
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference list.

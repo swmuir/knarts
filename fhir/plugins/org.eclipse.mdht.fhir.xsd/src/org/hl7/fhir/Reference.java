@@ -18,6 +18,7 @@ package org.hl7.fhir;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.Reference#getReference <em>Reference</em>}</li>
+ *   <li>{@link org.hl7.fhir.Reference#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Reference#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.hl7.fhir.Reference#getDisplay <em>Display</em>}</li>
  * </ul>
@@ -52,6 +53,34 @@ public interface Reference extends Element {
 	 * @generated
 	 */
 	void setReference(org.hl7.fhir.String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.
+	 * 
+	 * The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. "Patient" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' containment reference.
+	 * @see #setType(Uri)
+	 * @see org.hl7.fhir.FhirPackage#getReference_Type()
+	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='type' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	Uri getType();
+
+	/**
+	 * Sets the value of the '{@link org.hl7.fhir.Reference#getType <em>Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' containment reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(Uri value);
 
 	/**
 	 * Returns the value of the '<em><b>Identifier</b></em>' containment reference.

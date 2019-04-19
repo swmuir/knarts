@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.StructureMapModelMode;
 import org.hl7.fhir.StructureMapStructure;
-import org.hl7.fhir.Uri;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * @generated
 	 * @ordered
 	 */
-	protected Uri url;
+	protected Canonical url;
 
 	/**
 	 * The cached value of the '{@link #getMode() <em>Mode</em>}' containment reference.
@@ -96,7 +96,7 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Uri getUrl() {
+	public Canonical getUrl() {
 		return url;
 	}
 
@@ -105,8 +105,8 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetUrl(Uri newUrl, NotificationChain msgs) {
-		Uri oldUrl = url;
+	public NotificationChain basicSetUrl(Canonical newUrl, NotificationChain msgs) {
+		Canonical oldUrl = url;
 		url = newUrl;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.STRUCTURE_MAP_STRUCTURE__URL, oldUrl, newUrl);
@@ -120,7 +120,7 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUrl(Uri newUrl) {
+	public void setUrl(Canonical newUrl) {
 		if (newUrl != url) {
 			NotificationChain msgs = null;
 			if (url != null)
@@ -312,7 +312,7 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__URL:
-				setUrl((Uri)newValue);
+				setUrl((Canonical)newValue);
 				return;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				setMode((StructureMapModelMode)newValue);
@@ -336,7 +336,7 @@ public class StructureMapStructureImpl extends BackboneElementImpl implements St
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__URL:
-				setUrl((Uri)null);
+				setUrl((Canonical)null);
 				return;
 			case FhirPackage.STRUCTURE_MAP_STRUCTURE__MODE:
 				setMode((StructureMapModelMode)null);

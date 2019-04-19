@@ -89,7 +89,7 @@ public interface Attachment extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
+	 * The actual data of the attachment - a sequence of bytes, base64 encoded.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Data</em>' containment reference.
 	 * @see #setData(Base64Binary)
@@ -115,16 +115,16 @@ public interface Attachment extends Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * An alternative location where the data can be accessed.
+	 * A location where the data can be accessed.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Url</em>' containment reference.
-	 * @see #setUrl(Uri)
+	 * @see #setUrl(Url)
 	 * @see org.hl7.fhir.FhirPackage#getAttachment_Url()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='url' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Uri getUrl();
+	Url getUrl();
 
 	/**
 	 * Sets the value of the '{@link org.hl7.fhir.Attachment#getUrl <em>Url</em>}' containment reference.
@@ -134,7 +134,7 @@ public interface Attachment extends Element {
 	 * @see #getUrl()
 	 * @generated
 	 */
-	void setUrl(Uri value);
+	void setUrl(Url value);
 
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' containment reference.

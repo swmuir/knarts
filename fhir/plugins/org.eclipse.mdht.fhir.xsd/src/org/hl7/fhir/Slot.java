@@ -53,30 +53,20 @@ public interface Slot extends DomainResource {
 	EList<Identifier> getIdentifier();
 
 	/**
-	 * Returns the value of the '<em><b>Service Category</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Service Category</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.CodeableConcept}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A broad categorisation of the service that is to be performed during this appointment.
+	 * A broad categorization of the service that is to be performed during this appointment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Category</em>' containment reference.
-	 * @see #setServiceCategory(CodeableConcept)
+	 * @return the value of the '<em>Service Category</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getSlot_ServiceCategory()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='serviceCategory' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	CodeableConcept getServiceCategory();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Slot#getServiceCategory <em>Service Category</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Category</em>' containment reference.
-	 * @see #getServiceCategory()
-	 * @generated
-	 */
-	void setServiceCategory(CodeableConcept value);
+	EList<CodeableConcept> getServiceCategory();
 
 	/**
 	 * Returns the value of the '<em><b>Service Type</b></em>' containment reference list.

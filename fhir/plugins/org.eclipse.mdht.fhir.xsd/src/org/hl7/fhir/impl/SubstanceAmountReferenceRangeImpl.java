@@ -28,7 +28,7 @@ import org.hl7.fhir.SubstanceAmountReferenceRange;
  *
  * @generated
  */
-public class SubstanceAmountReferenceRangeImpl extends ElementImpl implements SubstanceAmountReferenceRange {
+public class SubstanceAmountReferenceRangeImpl extends BackboneElementImpl implements SubstanceAmountReferenceRange {
 	/**
 	 * The cached value of the '{@link #getLowLimit() <em>Low Limit</em>}' containment reference.
 	 * <!-- begin-user-doc -->

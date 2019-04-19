@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.hl7.fhir.Age;
 import org.hl7.fhir.Annotation;
+import org.hl7.fhir.Canonical;
 import org.hl7.fhir.CodeableConcept;
 import org.hl7.fhir.DateTime;
 import org.hl7.fhir.EventStatus;
@@ -41,7 +42,8 @@ import org.hl7.fhir.Uri;
  * </p>
  * <ul>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getInstantiates <em>Instantiates</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getInstantiatesCanonical <em>Instantiates Canonical</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getInstantiatesUri <em>Instantiates Uri</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getBasedOn <em>Based On</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPartOf <em>Part Of</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getStatus <em>Status</em>}</li>
@@ -49,12 +51,14 @@ import org.hl7.fhir.Uri;
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getCode <em>Code</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getEncounter <em>Encounter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedDateTime <em>Performed Date Time</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedPeriod <em>Performed Period</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedString <em>Performed String</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedAge <em>Performed Age</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformedRange <em>Performed Range</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getRecorder <em>Recorder</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getAsserter <em>Asserter</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getPerformer <em>Performer</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.ProcedureImpl#getReasonCode <em>Reason Code</em>}</li>
@@ -85,14 +89,24 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	protected EList<Identifier> identifier;
 
 	/**
-	 * The cached value of the '{@link #getInstantiates() <em>Instantiates</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstantiatesCanonical() <em>Instantiates Canonical</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstantiates()
+	 * @see #getInstantiatesCanonical()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Uri> instantiates;
+	protected EList<Canonical> instantiatesCanonical;
+
+	/**
+	 * The cached value of the '{@link #getInstantiatesUri() <em>Instantiates Uri</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInstantiatesUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Uri> instantiatesUri;
 
 	/**
 	 * The cached value of the '{@link #getBasedOn() <em>Based On</em>}' containment reference list.
@@ -165,14 +179,14 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	protected Reference subject;
 
 	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * The cached value of the '{@link #getEncounter() <em>Encounter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContext()
+	 * @see #getEncounter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference context;
+	protected Reference encounter;
 
 	/**
 	 * The cached value of the '{@link #getPerformedDateTime() <em>Performed Date Time</em>}' containment reference.
@@ -223,6 +237,26 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * @ordered
 	 */
 	protected Range performedRange;
+
+	/**
+	 * The cached value of the '{@link #getRecorder() <em>Recorder</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecorder()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference recorder;
+
+	/**
+	 * The cached value of the '{@link #getAsserter() <em>Asserter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAsserter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Reference asserter;
 
 	/**
 	 * The cached value of the '{@link #getPerformer() <em>Performer</em>}' containment reference list.
@@ -400,11 +434,23 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Uri> getInstantiates() {
-		if (instantiates == null) {
-			instantiates = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROCEDURE__INSTANTIATES);
+	public EList<Canonical> getInstantiatesCanonical() {
+		if (instantiatesCanonical == null) {
+			instantiatesCanonical = new EObjectContainmentEList<Canonical>(Canonical.class, this, FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL);
 		}
-		return instantiates;
+		return instantiatesCanonical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Uri> getInstantiatesUri() {
+		if (instantiatesUri == null) {
+			instantiatesUri = new EObjectContainmentEList<Uri>(Uri.class, this, FhirPackage.PROCEDURE__INSTANTIATES_URI);
+		}
+		return instantiatesUri;
 	}
 
 	/**
@@ -651,8 +697,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference getContext() {
-		return context;
+	public Reference getEncounter() {
+		return encounter;
 	}
 
 	/**
@@ -660,11 +706,11 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContext(Reference newContext, NotificationChain msgs) {
-		Reference oldContext = context;
-		context = newContext;
+	public NotificationChain basicSetEncounter(Reference newEncounter, NotificationChain msgs) {
+		Reference oldEncounter = encounter;
+		encounter = newEncounter;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__CONTEXT, oldContext, newContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__ENCOUNTER, oldEncounter, newEncounter);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -675,18 +721,18 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContext(Reference newContext) {
-		if (newContext != context) {
+	public void setEncounter(Reference newEncounter) {
+		if (newEncounter != encounter) {
 			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
+			if (encounter != null)
+				msgs = ((InternalEObject)encounter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__ENCOUNTER, null, msgs);
+			if (newEncounter != null)
+				msgs = ((InternalEObject)newEncounter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__ENCOUNTER, null, msgs);
+			msgs = basicSetEncounter(newEncounter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__CONTEXT, newContext, newContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__ENCOUNTER, newEncounter, newEncounter));
 	}
 
 	/**
@@ -902,6 +948,92 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__PERFORMED_RANGE, newPerformedRange, newPerformedRange));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getRecorder() {
+		return recorder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRecorder(Reference newRecorder, NotificationChain msgs) {
+		Reference oldRecorder = recorder;
+		recorder = newRecorder;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__RECORDER, oldRecorder, newRecorder);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecorder(Reference newRecorder) {
+		if (newRecorder != recorder) {
+			NotificationChain msgs = null;
+			if (recorder != null)
+				msgs = ((InternalEObject)recorder).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__RECORDER, null, msgs);
+			if (newRecorder != null)
+				msgs = ((InternalEObject)newRecorder).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__RECORDER, null, msgs);
+			msgs = basicSetRecorder(newRecorder, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__RECORDER, newRecorder, newRecorder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference getAsserter() {
+		return asserter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAsserter(Reference newAsserter, NotificationChain msgs) {
+		Reference oldAsserter = asserter;
+		asserter = newAsserter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__ASSERTER, oldAsserter, newAsserter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAsserter(Reference newAsserter) {
+		if (newAsserter != asserter) {
+			NotificationChain msgs = null;
+			if (asserter != null)
+				msgs = ((InternalEObject)asserter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__ASSERTER, null, msgs);
+			if (newAsserter != null)
+				msgs = ((InternalEObject)newAsserter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.PROCEDURE__ASSERTER, null, msgs);
+			msgs = basicSetAsserter(newAsserter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.PROCEDURE__ASSERTER, newAsserter, newAsserter));
 	}
 
 	/**
@@ -1144,8 +1276,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 		switch (featureID) {
 			case FhirPackage.PROCEDURE__IDENTIFIER:
 				return ((InternalEList<?>)getIdentifier()).basicRemove(otherEnd, msgs);
-			case FhirPackage.PROCEDURE__INSTANTIATES:
-				return ((InternalEList<?>)getInstantiates()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL:
+				return ((InternalEList<?>)getInstantiatesCanonical()).basicRemove(otherEnd, msgs);
+			case FhirPackage.PROCEDURE__INSTANTIATES_URI:
+				return ((InternalEList<?>)getInstantiatesUri()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__BASED_ON:
 				return ((InternalEList<?>)getBasedOn()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__PART_OF:
@@ -1160,8 +1294,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return basicSetCode(null, msgs);
 			case FhirPackage.PROCEDURE__SUBJECT:
 				return basicSetSubject(null, msgs);
-			case FhirPackage.PROCEDURE__CONTEXT:
-				return basicSetContext(null, msgs);
+			case FhirPackage.PROCEDURE__ENCOUNTER:
+				return basicSetEncounter(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMED_DATE_TIME:
 				return basicSetPerformedDateTime(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
@@ -1172,6 +1306,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return basicSetPerformedAge(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMED_RANGE:
 				return basicSetPerformedRange(null, msgs);
+			case FhirPackage.PROCEDURE__RECORDER:
+				return basicSetRecorder(null, msgs);
+			case FhirPackage.PROCEDURE__ASSERTER:
+				return basicSetAsserter(null, msgs);
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return ((InternalEList<?>)getPerformer()).basicRemove(otherEnd, msgs);
 			case FhirPackage.PROCEDURE__LOCATION:
@@ -1214,8 +1352,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 		switch (featureID) {
 			case FhirPackage.PROCEDURE__IDENTIFIER:
 				return getIdentifier();
-			case FhirPackage.PROCEDURE__INSTANTIATES:
-				return getInstantiates();
+			case FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL:
+				return getInstantiatesCanonical();
+			case FhirPackage.PROCEDURE__INSTANTIATES_URI:
+				return getInstantiatesUri();
 			case FhirPackage.PROCEDURE__BASED_ON:
 				return getBasedOn();
 			case FhirPackage.PROCEDURE__PART_OF:
@@ -1230,8 +1370,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return getCode();
 			case FhirPackage.PROCEDURE__SUBJECT:
 				return getSubject();
-			case FhirPackage.PROCEDURE__CONTEXT:
-				return getContext();
+			case FhirPackage.PROCEDURE__ENCOUNTER:
+				return getEncounter();
 			case FhirPackage.PROCEDURE__PERFORMED_DATE_TIME:
 				return getPerformedDateTime();
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
@@ -1242,6 +1382,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return getPerformedAge();
 			case FhirPackage.PROCEDURE__PERFORMED_RANGE:
 				return getPerformedRange();
+			case FhirPackage.PROCEDURE__RECORDER:
+				return getRecorder();
+			case FhirPackage.PROCEDURE__ASSERTER:
+				return getAsserter();
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return getPerformer();
 			case FhirPackage.PROCEDURE__LOCATION:
@@ -1287,9 +1431,13 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				getIdentifier().clear();
 				getIdentifier().addAll((Collection<? extends Identifier>)newValue);
 				return;
-			case FhirPackage.PROCEDURE__INSTANTIATES:
-				getInstantiates().clear();
-				getInstantiates().addAll((Collection<? extends Uri>)newValue);
+			case FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				getInstantiatesCanonical().addAll((Collection<? extends Canonical>)newValue);
+				return;
+			case FhirPackage.PROCEDURE__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
+				getInstantiatesUri().addAll((Collection<? extends Uri>)newValue);
 				return;
 			case FhirPackage.PROCEDURE__BASED_ON:
 				getBasedOn().clear();
@@ -1314,8 +1462,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__SUBJECT:
 				setSubject((Reference)newValue);
 				return;
-			case FhirPackage.PROCEDURE__CONTEXT:
-				setContext((Reference)newValue);
+			case FhirPackage.PROCEDURE__ENCOUNTER:
+				setEncounter((Reference)newValue);
 				return;
 			case FhirPackage.PROCEDURE__PERFORMED_DATE_TIME:
 				setPerformedDateTime((DateTime)newValue);
@@ -1331,6 +1479,12 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return;
 			case FhirPackage.PROCEDURE__PERFORMED_RANGE:
 				setPerformedRange((Range)newValue);
+				return;
+			case FhirPackage.PROCEDURE__RECORDER:
+				setRecorder((Reference)newValue);
+				return;
+			case FhirPackage.PROCEDURE__ASSERTER:
+				setAsserter((Reference)newValue);
 				return;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				getPerformer().clear();
@@ -1401,8 +1555,11 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__IDENTIFIER:
 				getIdentifier().clear();
 				return;
-			case FhirPackage.PROCEDURE__INSTANTIATES:
-				getInstantiates().clear();
+			case FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL:
+				getInstantiatesCanonical().clear();
+				return;
+			case FhirPackage.PROCEDURE__INSTANTIATES_URI:
+				getInstantiatesUri().clear();
 				return;
 			case FhirPackage.PROCEDURE__BASED_ON:
 				getBasedOn().clear();
@@ -1425,8 +1582,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 			case FhirPackage.PROCEDURE__SUBJECT:
 				setSubject((Reference)null);
 				return;
-			case FhirPackage.PROCEDURE__CONTEXT:
-				setContext((Reference)null);
+			case FhirPackage.PROCEDURE__ENCOUNTER:
+				setEncounter((Reference)null);
 				return;
 			case FhirPackage.PROCEDURE__PERFORMED_DATE_TIME:
 				setPerformedDateTime((DateTime)null);
@@ -1442,6 +1599,12 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return;
 			case FhirPackage.PROCEDURE__PERFORMED_RANGE:
 				setPerformedRange((Range)null);
+				return;
+			case FhirPackage.PROCEDURE__RECORDER:
+				setRecorder((Reference)null);
+				return;
+			case FhirPackage.PROCEDURE__ASSERTER:
+				setAsserter((Reference)null);
 				return;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				getPerformer().clear();
@@ -1499,8 +1662,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 		switch (featureID) {
 			case FhirPackage.PROCEDURE__IDENTIFIER:
 				return identifier != null && !identifier.isEmpty();
-			case FhirPackage.PROCEDURE__INSTANTIATES:
-				return instantiates != null && !instantiates.isEmpty();
+			case FhirPackage.PROCEDURE__INSTANTIATES_CANONICAL:
+				return instantiatesCanonical != null && !instantiatesCanonical.isEmpty();
+			case FhirPackage.PROCEDURE__INSTANTIATES_URI:
+				return instantiatesUri != null && !instantiatesUri.isEmpty();
 			case FhirPackage.PROCEDURE__BASED_ON:
 				return basedOn != null && !basedOn.isEmpty();
 			case FhirPackage.PROCEDURE__PART_OF:
@@ -1515,8 +1680,8 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return code != null;
 			case FhirPackage.PROCEDURE__SUBJECT:
 				return subject != null;
-			case FhirPackage.PROCEDURE__CONTEXT:
-				return context != null;
+			case FhirPackage.PROCEDURE__ENCOUNTER:
+				return encounter != null;
 			case FhirPackage.PROCEDURE__PERFORMED_DATE_TIME:
 				return performedDateTime != null;
 			case FhirPackage.PROCEDURE__PERFORMED_PERIOD:
@@ -1527,6 +1692,10 @@ public class ProcedureImpl extends DomainResourceImpl implements Procedure {
 				return performedAge != null;
 			case FhirPackage.PROCEDURE__PERFORMED_RANGE:
 				return performedRange != null;
+			case FhirPackage.PROCEDURE__RECORDER:
+				return recorder != null;
+			case FhirPackage.PROCEDURE__ASSERTER:
+				return asserter != null;
 			case FhirPackage.PROCEDURE__PERFORMER:
 				return performer != null && !performer.isEmpty();
 			case FhirPackage.PROCEDURE__LOCATION:

@@ -23,8 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.hl7.fhir.Account#getType <em>Type</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getName <em>Name</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getSubject <em>Subject</em>}</li>
- *   <li>{@link org.hl7.fhir.Account#getPeriod <em>Period</em>}</li>
- *   <li>{@link org.hl7.fhir.Account#getActive <em>Active</em>}</li>
+ *   <li>{@link org.hl7.fhir.Account#getServicePeriod <em>Service Period</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.hl7.fhir.Account#getDescription <em>Description</em>}</li>
@@ -63,7 +62,7 @@ public interface Account extends DomainResource {
 	 * @return the value of the '<em>Status</em>' containment reference.
 	 * @see #setStatus(AccountStatus)
 	 * @see org.hl7.fhir.FhirPackage#getAccount_Status()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='status' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -132,83 +131,46 @@ public interface Account extends DomainResource {
 	void setName(org.hl7.fhir.String value);
 
 	/**
-	 * Returns the value of the '<em><b>Subject</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Subject</b></em>' containment reference list.
+	 * The list contents are of type {@link org.hl7.fhir.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the patient, device, practitioner, location or other object the account is associated with.
+	 * Identifies the entity which incurs the expenses. While the immediate recipients of services or goods might be entities related to the subject, the expenses were ultimately incurred by the subject of the Account.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Subject</em>' containment reference.
-	 * @see #setSubject(Reference)
+	 * @return the value of the '<em>Subject</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAccount_Subject()
 	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='subject' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Reference getSubject();
+	EList<Reference> getSubject();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Account#getSubject <em>Subject</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subject</em>' containment reference.
-	 * @see #getSubject()
-	 * @generated
-	 */
-	void setSubject(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Service Period</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.
+	 * The date range of services associated with this account.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Period</em>' containment reference.
-	 * @see #setPeriod(Period)
-	 * @see org.hl7.fhir.FhirPackage#getAccount_Period()
+	 * @return the value of the '<em>Service Period</em>' containment reference.
+	 * @see #setServicePeriod(Period)
+	 * @see org.hl7.fhir.FhirPackage#getAccount_ServicePeriod()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='period' namespace='##targetNamespace'"
+	 *        extendedMetaData="kind='element' name='servicePeriod' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Period getPeriod();
+	Period getServicePeriod();
 
 	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Account#getPeriod <em>Period</em>}' containment reference.
+	 * Sets the value of the '{@link org.hl7.fhir.Account#getServicePeriod <em>Service Period</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' containment reference.
-	 * @see #getPeriod()
+	 * @param value the new value of the '<em>Service Period</em>' containment reference.
+	 * @see #getServicePeriod()
 	 * @generated
 	 */
-	void setPeriod(Period value);
-
-	/**
-	 * Returns the value of the '<em><b>Active</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates the period of time over which the account is allowed to have transactions posted to it.
-	 * This period may be different to the coveragePeriod which is the duration of time that services may occur.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Active</em>' containment reference.
-	 * @see #setActive(Period)
-	 * @see org.hl7.fhir.FhirPackage#getAccount_Active()
-	 * @model containment="true"
-	 *        extendedMetaData="kind='element' name='active' namespace='##targetNamespace'"
-	 * @generated
-	 */
-	Period getActive();
-
-	/**
-	 * Sets the value of the '{@link org.hl7.fhir.Account#getActive <em>Active</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Active</em>' containment reference.
-	 * @see #getActive()
-	 * @generated
-	 */
-	void setActive(Period value);
+	void setServicePeriod(Period value);
 
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference list.
@@ -231,7 +193,7 @@ public interface Account extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates the organization, department, etc. with responsibility for the account.
+	 * Indicates the service area, hospital, department, etc. with responsibility for managing the Account.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Owner</em>' containment reference.
 	 * @see #setOwner(Reference)
@@ -284,7 +246,7 @@ public interface Account extends DomainResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Parties financially responsible for the account.
+	 * The parties responsible for balancing the account if other payment options fall short.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Guarantor</em>' containment reference list.
 	 * @see org.hl7.fhir.FhirPackage#getAccount_Guarantor()

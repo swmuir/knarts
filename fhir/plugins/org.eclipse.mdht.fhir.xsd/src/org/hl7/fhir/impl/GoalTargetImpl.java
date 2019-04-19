@@ -17,6 +17,7 @@ import org.hl7.fhir.FhirPackage;
 import org.hl7.fhir.GoalTarget;
 import org.hl7.fhir.Quantity;
 import org.hl7.fhir.Range;
+import org.hl7.fhir.Ratio;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +31,10 @@ import org.hl7.fhir.Range;
  *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailQuantity <em>Detail Quantity</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailRange <em>Detail Range</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailCodeableConcept <em>Detail Codeable Concept</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailString <em>Detail String</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailBoolean <em>Detail Boolean</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailInteger <em>Detail Integer</em>}</li>
+ *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDetailRatio <em>Detail Ratio</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDueDate <em>Due Date</em>}</li>
  *   <li>{@link org.hl7.fhir.impl.GoalTargetImpl#getDueDuration <em>Due Duration</em>}</li>
  * </ul>
@@ -76,6 +81,46 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 	 * @ordered
 	 */
 	protected CodeableConcept detailCodeableConcept;
+
+	/**
+	 * The cached value of the '{@link #getDetailString() <em>Detail String</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDetailString()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.String detailString;
+
+	/**
+	 * The cached value of the '{@link #getDetailBoolean() <em>Detail Boolean</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDetailBoolean()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Boolean detailBoolean;
+
+	/**
+	 * The cached value of the '{@link #getDetailInteger() <em>Detail Integer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDetailInteger()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.hl7.fhir.Integer detailInteger;
+
+	/**
+	 * The cached value of the '{@link #getDetailRatio() <em>Detail Ratio</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDetailRatio()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ratio detailRatio;
 
 	/**
 	 * The cached value of the '{@link #getDueDate() <em>Due Date</em>}' containment reference.
@@ -293,6 +338,178 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.hl7.fhir.String getDetailString() {
+		return detailString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDetailString(org.hl7.fhir.String newDetailString, NotificationChain msgs) {
+		org.hl7.fhir.String oldDetailString = detailString;
+		detailString = newDetailString;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_STRING, oldDetailString, newDetailString);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDetailString(org.hl7.fhir.String newDetailString) {
+		if (newDetailString != detailString) {
+			NotificationChain msgs = null;
+			if (detailString != null)
+				msgs = ((InternalEObject)detailString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_STRING, null, msgs);
+			if (newDetailString != null)
+				msgs = ((InternalEObject)newDetailString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_STRING, null, msgs);
+			msgs = basicSetDetailString(newDetailString, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_STRING, newDetailString, newDetailString));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Boolean getDetailBoolean() {
+		return detailBoolean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDetailBoolean(org.hl7.fhir.Boolean newDetailBoolean, NotificationChain msgs) {
+		org.hl7.fhir.Boolean oldDetailBoolean = detailBoolean;
+		detailBoolean = newDetailBoolean;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN, oldDetailBoolean, newDetailBoolean);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDetailBoolean(org.hl7.fhir.Boolean newDetailBoolean) {
+		if (newDetailBoolean != detailBoolean) {
+			NotificationChain msgs = null;
+			if (detailBoolean != null)
+				msgs = ((InternalEObject)detailBoolean).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN, null, msgs);
+			if (newDetailBoolean != null)
+				msgs = ((InternalEObject)newDetailBoolean).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN, null, msgs);
+			msgs = basicSetDetailBoolean(newDetailBoolean, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN, newDetailBoolean, newDetailBoolean));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.hl7.fhir.Integer getDetailInteger() {
+		return detailInteger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDetailInteger(org.hl7.fhir.Integer newDetailInteger, NotificationChain msgs) {
+		org.hl7.fhir.Integer oldDetailInteger = detailInteger;
+		detailInteger = newDetailInteger;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_INTEGER, oldDetailInteger, newDetailInteger);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDetailInteger(org.hl7.fhir.Integer newDetailInteger) {
+		if (newDetailInteger != detailInteger) {
+			NotificationChain msgs = null;
+			if (detailInteger != null)
+				msgs = ((InternalEObject)detailInteger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_INTEGER, null, msgs);
+			if (newDetailInteger != null)
+				msgs = ((InternalEObject)newDetailInteger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_INTEGER, null, msgs);
+			msgs = basicSetDetailInteger(newDetailInteger, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_INTEGER, newDetailInteger, newDetailInteger));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ratio getDetailRatio() {
+		return detailRatio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDetailRatio(Ratio newDetailRatio, NotificationChain msgs) {
+		Ratio oldDetailRatio = detailRatio;
+		detailRatio = newDetailRatio;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_RATIO, oldDetailRatio, newDetailRatio);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDetailRatio(Ratio newDetailRatio) {
+		if (newDetailRatio != detailRatio) {
+			NotificationChain msgs = null;
+			if (detailRatio != null)
+				msgs = ((InternalEObject)detailRatio).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_RATIO, null, msgs);
+			if (newDetailRatio != null)
+				msgs = ((InternalEObject)newDetailRatio).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FhirPackage.GOAL_TARGET__DETAIL_RATIO, null, msgs);
+			msgs = basicSetDetailRatio(newDetailRatio, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.GOAL_TARGET__DETAIL_RATIO, newDetailRatio, newDetailRatio));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -390,6 +607,14 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 				return basicSetDetailRange(null, msgs);
 			case FhirPackage.GOAL_TARGET__DETAIL_CODEABLE_CONCEPT:
 				return basicSetDetailCodeableConcept(null, msgs);
+			case FhirPackage.GOAL_TARGET__DETAIL_STRING:
+				return basicSetDetailString(null, msgs);
+			case FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN:
+				return basicSetDetailBoolean(null, msgs);
+			case FhirPackage.GOAL_TARGET__DETAIL_INTEGER:
+				return basicSetDetailInteger(null, msgs);
+			case FhirPackage.GOAL_TARGET__DETAIL_RATIO:
+				return basicSetDetailRatio(null, msgs);
 			case FhirPackage.GOAL_TARGET__DUE_DATE:
 				return basicSetDueDate(null, msgs);
 			case FhirPackage.GOAL_TARGET__DUE_DURATION:
@@ -414,6 +639,14 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 				return getDetailRange();
 			case FhirPackage.GOAL_TARGET__DETAIL_CODEABLE_CONCEPT:
 				return getDetailCodeableConcept();
+			case FhirPackage.GOAL_TARGET__DETAIL_STRING:
+				return getDetailString();
+			case FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN:
+				return getDetailBoolean();
+			case FhirPackage.GOAL_TARGET__DETAIL_INTEGER:
+				return getDetailInteger();
+			case FhirPackage.GOAL_TARGET__DETAIL_RATIO:
+				return getDetailRatio();
 			case FhirPackage.GOAL_TARGET__DUE_DATE:
 				return getDueDate();
 			case FhirPackage.GOAL_TARGET__DUE_DURATION:
@@ -441,6 +674,18 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 				return;
 			case FhirPackage.GOAL_TARGET__DETAIL_CODEABLE_CONCEPT:
 				setDetailCodeableConcept((CodeableConcept)newValue);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_STRING:
+				setDetailString((org.hl7.fhir.String)newValue);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN:
+				setDetailBoolean((org.hl7.fhir.Boolean)newValue);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_INTEGER:
+				setDetailInteger((org.hl7.fhir.Integer)newValue);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_RATIO:
+				setDetailRatio((Ratio)newValue);
 				return;
 			case FhirPackage.GOAL_TARGET__DUE_DATE:
 				setDueDate((Date)newValue);
@@ -472,6 +717,18 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 			case FhirPackage.GOAL_TARGET__DETAIL_CODEABLE_CONCEPT:
 				setDetailCodeableConcept((CodeableConcept)null);
 				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_STRING:
+				setDetailString((org.hl7.fhir.String)null);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN:
+				setDetailBoolean((org.hl7.fhir.Boolean)null);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_INTEGER:
+				setDetailInteger((org.hl7.fhir.Integer)null);
+				return;
+			case FhirPackage.GOAL_TARGET__DETAIL_RATIO:
+				setDetailRatio((Ratio)null);
+				return;
 			case FhirPackage.GOAL_TARGET__DUE_DATE:
 				setDueDate((Date)null);
 				return;
@@ -498,6 +755,14 @@ public class GoalTargetImpl extends BackboneElementImpl implements GoalTarget {
 				return detailRange != null;
 			case FhirPackage.GOAL_TARGET__DETAIL_CODEABLE_CONCEPT:
 				return detailCodeableConcept != null;
+			case FhirPackage.GOAL_TARGET__DETAIL_STRING:
+				return detailString != null;
+			case FhirPackage.GOAL_TARGET__DETAIL_BOOLEAN:
+				return detailBoolean != null;
+			case FhirPackage.GOAL_TARGET__DETAIL_INTEGER:
+				return detailInteger != null;
+			case FhirPackage.GOAL_TARGET__DETAIL_RATIO:
+				return detailRatio != null;
 			case FhirPackage.GOAL_TARGET__DUE_DATE:
 				return dueDate != null;
 			case FhirPackage.GOAL_TARGET__DUE_DURATION:

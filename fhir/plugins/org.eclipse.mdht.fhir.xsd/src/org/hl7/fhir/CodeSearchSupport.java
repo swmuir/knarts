@@ -9,7 +9,7 @@ package org.hl7.fhir;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The degree to which the the server supports the code search parameter on ValueSet, if it is supported
+ * The degree to which the server supports the code search parameter on ValueSet, if it is supported.
  * If the element is present, it must have either a @value, an @id, or extensions
  * <!-- end-model-doc -->
  *

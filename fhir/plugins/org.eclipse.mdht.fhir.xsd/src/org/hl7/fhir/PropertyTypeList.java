@@ -78,7 +78,17 @@ public enum PropertyTypeList implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATE_TIME(5, "dateTime", "dateTime");
+	DATE_TIME(5, "dateTime", "dateTime"),
+
+	/**
+	 * The '<em><b>Decimal</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DECIMAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DECIMAL(6, "decimal", "decimal");
 
 	/**
 	 * The '<em><b>Code</b></em>' literal value.
@@ -165,6 +175,20 @@ public enum PropertyTypeList implements Enumerator {
 	public static final int DATE_TIME_VALUE = 5;
 
 	/**
+	 * The '<em><b>Decimal</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * decimal
+	 * <!-- end-model-doc -->
+	 * @see #DECIMAL
+	 * @model name="decimal"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DECIMAL_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Property Type List</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +202,7 @@ public enum PropertyTypeList implements Enumerator {
 			INTEGER,
 			BOOLEAN,
 			DATE_TIME,
+			DECIMAL,
 		};
 
 	/**
@@ -240,6 +265,7 @@ public enum PropertyTypeList implements Enumerator {
 			case INTEGER_VALUE: return INTEGER;
 			case BOOLEAN_VALUE: return BOOLEAN;
 			case DATE_TIME_VALUE: return DATE_TIME;
+			case DECIMAL_VALUE: return DECIMAL;
 		}
 		return null;
 	}
