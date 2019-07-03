@@ -181,8 +181,11 @@ public class SpreadsheetSerializer {
 
 		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(act.getEffectiveTime()));
 		if (d != null) {
+
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(act.getEffectiveTime()));
 		} else {
+			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 		}
 
@@ -234,7 +237,9 @@ public class SpreadsheetSerializer {
 		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(observation.getEffectiveTime()));
 		if (d != null) {
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(observation.getEffectiveTime()));
 		} else {
+			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 		}
 
@@ -287,7 +292,9 @@ public class SpreadsheetSerializer {
 		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(organizer.getEffectiveTime()));
 		if (d != null) {
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(organizer.getEffectiveTime()));
 		} else {
+			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 		}
 
@@ -384,10 +391,12 @@ public class SpreadsheetSerializer {
 		sb = new StringBuffer();
 
 		String time = "";
+		EObject source = null;
 		for (SXCM_TS t : substanceAdministration.getEffectiveTimes()) {
-
+			source = t;
 			if (!StringUtils.isEmpty(t.getValue())) {
 				time = t.getValue();
+
 			}
 
 			if (t instanceof IVL_TS) {
@@ -402,16 +411,11 @@ public class SpreadsheetSerializer {
 
 		if (d != null) {
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(source));
 		} else {
 			row.createCell(offset++).setCellValue(time);
+			row.createCell(offset++).setCellValue("");
 		}
-
-		// Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(substanceAdministration.getEffectiveTimes().get(0)));
-		// if (d != null) {
-		// row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
-		// } else {
-		// row.createCell(offset++).setCellValue("");
-		// }
 
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, substanceAdministration.getSection(), substanceAdministration.getCode(),
@@ -615,6 +619,11 @@ public class SpreadsheetSerializer {
 		}
 
 		cell.setCellValue(sb.toString());
+		if (ivlts != null) {
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
+		} else {
+			row.createCell(offset++).setCellValue("");
+		}
 
 		CD problemCode = null;
 
@@ -685,19 +694,6 @@ public class SpreadsheetSerializer {
 		return offset;
 	}
 
-	// static void appendToSubstanceAdministrationSheet(Query query, Sheet sheet, DocumentMetadata organizationAndSoftware,
-	// PatientRole patientRole, ServiceEvent serviceEvent, List<Encounter> encounters, String fileName) {
-	//
-	// // Because we were getting class cast exception - copy results to EList
-	// EList<SubstanceAdministration> elist = new BasicEList<SubstanceAdministration>();
-	//
-	// elist.addAll(query.getEObjects(org.openhealthtools.mdht.uml.cda.consol.MedicationActivity.class));
-	//
-	// appendToSubstanceAdministrationSheet(
-	// query, sheet, organizationAndSoftware, patientRole, serviceEvent, encounters, elist, fileName);
-	//
-	// }
-
 	/**
 	 * @param query
 	 * @param sheet
@@ -710,6 +706,8 @@ public class SpreadsheetSerializer {
 
 	static int appendCode(Row row, int offset, Section setion, CD cd, ED ed) {
 
+		;
+
 		if (cd != null) {
 			// If original text is not supplied - see if the ed was supplied
 			ED theED = (cd.getOriginalText() != null
@@ -719,6 +717,7 @@ public class SpreadsheetSerializer {
 			if (setion != null || ed != null) {
 				row.createCell(offset++).setCellValue(CDAValueUtil.getValue(setion, theED));
 			}
+
 			// Display Name
 			row.createCell(offset++).setCellValue(CDAValueUtil.getValueAsString(setion, cd));
 			// Code
@@ -727,6 +726,10 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue(cd.getCodeSystem());
 			// Code System Name
 			row.createCell(offset++).setCellValue(cd.getCodeSystemName());
+
+			// WHERE
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(cd));
+
 		} else {
 			if (setion != null || ed != null) {
 				row.createCell(offset++).setCellValue("");
@@ -1968,10 +1971,12 @@ public class SpreadsheetSerializer {
 		}
 
 		row.createCell(offset++).setCellValue(CDAValueUtil.getValue(substanceAdministration.getDoseQuantity()));
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(substanceAdministration.getDoseQuantity()));
 
 		String time = "";
+		EObject source = null;
 		for (SXCM_TS t : substanceAdministration.getEffectiveTimes()) {
-
+			source = t;
 			if (!StringUtils.isEmpty(t.getValue())) {
 				time = t.getValue();
 			}
@@ -1991,6 +1996,8 @@ public class SpreadsheetSerializer {
 		} else {
 			row.createCell(offset++).setCellValue(time);
 		}
+
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(source));
 
 		row.createCell(offset++).setCellValue(GenerateCDADataHandler.sigSwitch.doSwitch(substanceAdministration));
 		offset = SpreadsheetSerializer.appendOrganizationAndAuthor(row, offset, substanceAdministration.getAuthors());

@@ -1054,7 +1054,7 @@ public class GenerateCDADataHandler extends GenerateCDABaseHandler {
 
 					URI cdaURI = URI.createFileURI(file.getLocation().toOSString());
 
-					console.println("Start Load ");
+					console.println("Start Load " + cdaURI.toFileString());
 
 					ClinicalDocument clinicalDocument = null;
 					try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {

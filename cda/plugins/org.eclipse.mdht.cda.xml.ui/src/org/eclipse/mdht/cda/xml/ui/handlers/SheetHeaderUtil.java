@@ -46,7 +46,7 @@ public class SheetHeaderUtil {
 		offset = addCodeHeader2(row2, offset, "Gender");
 		offset = addCodeHeader2(row2, offset, "Marital Status");
 		offset = addCodeHeader2(row2, offset, "Langauge");
-		offset = addCodeHeader2(row2, offset, "Telephone");
+		row2.createCell(offset++).setCellValue("Telephone");
 		return offset;
 	}
 
@@ -168,7 +168,11 @@ public class SheetHeaderUtil {
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Test");
 		row2.createCell(offset++).setCellValue("Result");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		row2.createCell(offset++).setCellValue("Range");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addSectionHeader(row2, offset);
 		return offset;
 	}
@@ -178,6 +182,8 @@ public class SheetHeaderUtil {
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Observation");
 		row2.createCell(offset++).setCellValue("Value");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addSectionHeader(row2, offset);
 		return offset;
 	}
@@ -187,6 +193,8 @@ public class SheetHeaderUtil {
 		offset = addCodeHeader(row2, offset, type);
 		row2.createCell(offset++).setCellValue("Status");
 		row2.createCell(offset++).setCellValue("Quantity");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		row2.createCell(offset++).setCellValue("Expiration");
 		row2.createCell(offset++).setCellValue("Prescription");
 		row2.createCell(offset++).setCellValue("Organization");
@@ -217,6 +225,8 @@ public class SheetHeaderUtil {
 		row1.getSheet().setColumnHidden(offset - 1, true);
 		row1.createCell(offset++).setCellValue("Code System Name");
 		row1.getSheet().setColumnHidden(offset - 1, true);
+		row1.createCell(offset++).setCellValue("Location");
+		row1.getSheet().setColumnHidden(offset - 1, true);
 		return offset;
 	}
 
@@ -227,6 +237,8 @@ public class SheetHeaderUtil {
 		row1.createCell(offset++).setCellValue("Code System");
 		row1.getSheet().setColumnHidden(offset - 1, true);
 		row1.createCell(offset++).setCellValue("Code System Name");
+		row1.getSheet().setColumnHidden(offset - 1, true);
+		row1.createCell(offset++).setCellValue("Location");
 		row1.getSheet().setColumnHidden(offset - 1, true);
 		return offset;
 	}
@@ -250,7 +262,11 @@ public class SheetHeaderUtil {
 		row2.createCell(offset++).setCellValue("Date");
 		offset = addCodeHeader(row2, offset, "Vital Sign");
 		row2.createCell(offset++).setCellValue("Result");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		row2.createCell(offset++).setCellValue("Range");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addSectionHeader(row2, offset);
 		return offset;
 
@@ -294,6 +310,8 @@ public class SheetHeaderUtil {
 		row2.createCell(offset++).setCellValue("Author");
 		row2.createCell(offset++).setCellValue("Observation ID");
 		row2.createCell(offset++).setCellValue("Date");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addCodeHeader(row2, offset, "Value");
 		offset = addSectionHeader(row2, offset);
 		return offset;
@@ -313,9 +331,15 @@ public class SheetHeaderUtil {
 		row2.createCell(offset++).setCellValue("Author");
 		row2.createCell(offset++).setCellValue("Vital Sign ID");
 		row2.createCell(offset++).setCellValue("Date");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addCodeHeader(row2, offset, "Vital Sign");
 		row2.createCell(offset++).setCellValue("Result");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		row2.createCell(offset++).setCellValue("Range");
+		row2.createCell(offset++).setCellValue("Location");
+		row2.getSheet().setColumnHidden(offset - 1, true);
 		offset = addSectionHeader(row2, offset);
 		return offset;
 

@@ -754,9 +754,7 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 		int offset = SpreadsheetSerializer.serializePatient(row, 0, documentMetadata, patientRole);
 
 		row.createCell(offset++).setCellValue("NO ENCOUNTER");
-
 		row.createCell(offset++).setCellValue("NO ENTRIES");
-
 		SpreadsheetSerializer.serializeSectionAndFileName(row, emptySectionOffset.get(sheet2) - 3, section, fileName);
 	}
 

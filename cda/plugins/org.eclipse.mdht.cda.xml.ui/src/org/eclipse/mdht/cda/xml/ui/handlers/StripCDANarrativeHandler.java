@@ -40,6 +40,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -50,7 +51,11 @@ import org.eclipse.mdht.uml.cda.ClinicalDocument;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.StrucDocText;
 import org.eclipse.mdht.uml.cda.util.CDAUtil;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.Filter;
+import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.ValidationHandler;
+import org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage;
+import org.eclipse.mdht.uml.hl7.datatypes.ED;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.dnd.Clipboard;
@@ -184,9 +189,87 @@ public class StripCDANarrativeHandler extends AbstractHandler {
 
 		ClinicalDocument clinicalDocument = null;
 
+		// Use inline filters - bit simpler then setting up ctors to passing ramdomids and names
+		Filter<ED> iiFilter = new Filter<ED>() {
+
+			@Override
+			public boolean accept(ED ed) {
+
+				if (ed.getReference() != null && !StringUtils.isEmpty(ed.getReference().getValue())) {
+
+					Section section = CDAUtil.getSection(ed);
+
+					if (section != null) {
+						String result = org.eclipse.mdht.cda.xml.ui.handlers.CDAValueUtil.getValue(section, ed);
+						if (!StringUtils.isEmpty(result)) {
+							EcoreUtil.delete(ed.getReference());
+
+							// ed.getReference().eUnset(feature);
+
+							// ed.getReference().eContainingFeature()cdaURI;
+							;
+
+							ed.eUnset(
+								DatatypesPackage.eINSTANCE.eClass().getEStructuralFeature(
+									DatatypesPackage.eINSTANCE.getED_Reference().getFeatureID()));
+
+							// ed.eUnset(ed.getReference().eContainingFeature());
+
+							// ed.setReference(null);
+							// ed.addText(result);
+							// if (ed.eContainer() instanceof CD) {
+							// CD cd = (CD) ed.eContainer();
+							//
+							// cd.getOriginalText().set
+							// }
+						}
+					}
+
+					// System.out.println(ed.getReference().getValue());
+				}
+
+				// if (ii.isNullFlavorDefined()) {
+				// return false;
+				// }
+				//
+				// if ("templateId".equals(ii.eContainingFeature().getName())) {
+				// return false;
+				// }
+				//
+				// if ((!"2.16.840.1.113883.1.3".equals(ii.getRoot())) && ii.getExtension() != null &&
+				// ii.getExtension().trim().length() > 0) {
+				// String key = getKey(file.getName(), ii);
+				// if (!randomIds.containsKey(key)) {
+				// String randomString = lookForExistingAcrossFiles(getKey(ii));
+				// if (StringUtils.isEmpty(randomString)) {
+				// if (ii.getExtension() != null) {
+				// randomString = RandomStringUtils.randomNumeric(ii.getExtension().length());
+				// } else {
+				// randomString = RandomStringUtils.randomNumeric(5);
+				// }
+				// }
+				// randomIds.put(key, randomString);
+				//
+				// }
+				//
+				// if (randomIds.containsKey(key)) {
+				// ii.setExtension(randomIds.get(key));
+				// }
+				// }
+
+				return true;
+			}
+
+		};
+
 		try (InputStream is = Files.newInputStream(Paths.get(cdaURI.toFileString()))) {
 
 			clinicalDocument = CDAUtil.load(is, ((ValidationHandler) null));
+
+			Query query = new Query(clinicalDocument);
+
+			query.getEObjects(ED.class, iiFilter);
+
 			is.close();
 		} catch (IOWrappedException iowe) {
 			System.out.println("error processing " + cdaURI.toFileString());

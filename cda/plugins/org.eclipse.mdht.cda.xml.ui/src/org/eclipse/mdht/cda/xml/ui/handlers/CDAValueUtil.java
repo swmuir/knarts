@@ -343,52 +343,6 @@ public class CDAValueUtil {
 
 	}
 
-	// static String getKey1234(EN pn) {
-	//
-	// if (pn.getText() != null && pn.getText().trim().length() > 0) {
-	// GenerateCDADataHandler.names.add(pn.getText());
-	// return pn.getText();
-	// }
-	//
-	// StringBuffer b = new StringBuffer();
-	//
-	// for (ENXP e : pn.getPrefixes()) {
-	//
-	// if (b.length() > 0) {
-	// b.append(" ");
-	// }
-	// GenerateCDADataHandler.names.add(e.getText());
-	// b.append(e.getText());
-	// }
-	//
-	// for (ENXP e : pn.getGivens()) {
-	// if (b.length() > 0) {
-	// b.append(" ");
-	// }
-	// GenerateCDADataHandler.names.add(e.getText());
-	// b.append(e.getText());
-	// }
-	//
-	// for (ENXP e : pn.getFamilies()) {
-	// if (b.length() > 0) {
-	// b.append(" ");
-	// }
-	// GenerateCDADataHandler.names.add(e.getText());
-	// b.append(e.getText());
-	// }
-	//
-	// for (ENXP e : pn.getSuffixes()) {
-	// if (b.length() > 0) {
-	// b.append(" ");
-	// }
-	// GenerateCDADataHandler.names.add(e.getText());
-	// b.append(e.getText());
-	// }
-	//
-	// return b.toString();
-	//
-	// }
-
 	static String getNarrativeText(String htmlString) throws IOException {
 		Reader reader = null;
 		reader = new StringReader(htmlString);
@@ -504,15 +458,14 @@ public class CDAValueUtil {
 	}
 
 	static String getValue(Section section, ED ed) {
-		if (ed != null) {
+
+		if (section != null && ed != null) {
 			if (!StringUtils.isEmpty(StringUtils.trim(ed.getText()))) {
 				return ed.getText();
 			}
-
 			if (ed.getReference() != null) {
 				String reference = ed.getReference().getValue();
-				if (!StringUtils.isEmpty(reference)) {
-
+				if (!StringUtils.isEmpty(reference) && section.getText() != null) {
 					String result = section.getText().getText(reference.substring(1));
 					if (!StringUtils.isEmpty(result)) {
 						return StringUtils.abbreviate(result, 1000);
@@ -562,7 +515,9 @@ public class CDAValueUtil {
 			} else if (cd.getOriginalText() != null && cd.getOriginalText().getReference() != null) {
 				String s = cd.getOriginalText().getReference().getValue();
 
-				String result = section.getText().getText(s.substring(1));
+				String result = section.getText() != null
+						? section.getText().getText(s.substring(1))
+						: "";
 				if (!StringUtils.isEmpty(result)) {
 					sb.append(result);
 				} else {
