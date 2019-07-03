@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
@@ -392,6 +393,7 @@ public class CDAUtil {
 		options.put(XMLResource.OPTION_USE_PARSER_POOL, new XMLParserPoolImpl());
 		options.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
 		options.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, new HashMap<Object, Object>());
+		options.put(URIConverter.OPTION_TIMEOUT, 500);
 		return options;
 	}
 
@@ -2049,12 +2051,38 @@ public class CDAUtil {
 		return path;
 	}
 
+	public static String getDomainPath(EObject eObject) {
+		String path = "";
+		String featurePath = "";
+
+		while (eObject != null && !(eObject instanceof DocumentRoot)) {
+			EStructuralFeature feature = eObject.eContainingFeature();
+			path = eObject.eClass().getName() + "." + path;
+			featurePath = getName(feature) + "." + featurePath;
+			if (eObject instanceof ClinicalStatement) {
+				break;
+			}
+			eObject = eObject.eContainer();
+		}
+		// System.out.println(path + "(" + featurePath + ")");
+		return featurePath + "(" + path + ")";
+	}
+
 	public static String getName(ENamedElement eNamedElement) {
 		String result = EcoreUtil.getAnnotation(eNamedElement, ExtendedMetaData.ANNOTATION_URI, "name");
 		if (result != null) {
 			return result;
 		}
 		return eNamedElement.getName();
+	}
+
+	public static String getDomainName(ENamedElement eNamedElement) {
+
+		// String result = EcoreUtil.getAnnotation(eNamedElement, ExtendedMetaData.ANNOTATION_URI, "name");
+		// if (result != null) {
+		// return eNamedElement.eContainer().eClass().getName() + "." + result;
+		// }
+		return eNamedElement.eContainer().eClass().getName() + "." + eNamedElement.getName();
 	}
 
 	public static void loadPackages() {
