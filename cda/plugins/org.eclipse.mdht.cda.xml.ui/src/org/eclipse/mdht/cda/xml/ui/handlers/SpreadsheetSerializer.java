@@ -346,7 +346,9 @@ public class SpreadsheetSerializer {
 		Date d = CDAValueUtil.getDate(CDAValueUtil.getValueAsString(procedure.getEffectiveTime()));
 		if (d != null) {
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(procedure.getEffectiveTime()));
 		} else {
+			row.createCell(offset++).setCellValue("");
 			row.createCell(offset++).setCellValue("");
 		}
 
@@ -619,11 +621,8 @@ public class SpreadsheetSerializer {
 		}
 
 		cell.setCellValue(sb.toString());
-		if (ivlts != null) {
-			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
-		} else {
-			row.createCell(offset++).setCellValue("");
-		}
+
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
 
 		CD problemCode = null;
 
@@ -665,11 +664,13 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue("Missing Status");
 		}
 
+		EObject source = null;
 		String time = "";
 		for (SXCM_TS t : supply.getEffectiveTimes()) {
-
+			source = t;
 			if (!StringUtils.isEmpty(t.getValue())) {
 				time = t.getValue();
+
 			}
 
 			if (t instanceof IVL_TS) {
@@ -684,8 +685,10 @@ public class SpreadsheetSerializer {
 
 		if (d != null) {
 			row.createCell(offset++).setCellValue(CDAValueUtil.DATE_PRETTY.format(d));
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(source));
 		} else {
 			row.createCell(offset++).setCellValue(time);
+			row.createCell(offset++).setCellValue("");
 		}
 
 		// row.createCell(offset++).setCellValue(GenerateCDADataHandler.sigSwitch.doSwitch(substanceAdministration));
@@ -1181,6 +1184,8 @@ public class SpreadsheetSerializer {
 
 		cell.setCellValue(sb.toString());
 
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
+
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, encounter.getSection(), encounter.getCode(), encounter.getText());
 
@@ -1298,6 +1303,8 @@ public class SpreadsheetSerializer {
 		// Date
 		cell.setCellValue(sb.toString());
 
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
+
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, resultObservation.getSection(), resultObservation.getCode(), resultObservation.getText());
 
@@ -1312,9 +1319,11 @@ public class SpreadsheetSerializer {
 		}
 
 		String referenceRangeValue = "";
+		ANY anyRangeValue = null;
 		for (ReferenceRange rr : resultObservation.getReferenceRanges()) {
 
 			if (rr.getObservationRange() != null && rr.getObservationRange().getValue() != null) {
+				anyRangeValue = rr.getObservationRange().getValue();
 				referenceRangeValue = CDAValueUtil.getAnyValue(
 					resultObservation.getSection(), rr.getObservationRange().getValue());
 			}
@@ -1323,6 +1332,8 @@ public class SpreadsheetSerializer {
 
 		if (referenceRange) {
 			row.createCell(offset++).setCellValue(referenceRangeValue);
+			row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(anyRangeValue));
+
 		}
 
 		return offset;
@@ -1386,12 +1397,8 @@ public class SpreadsheetSerializer {
 			}
 		}
 
-		// DATE
 		cell.setCellValue(sb.toString());
-
-		// TYPE
-
-		// asdf;
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(ivlts));
 
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, resultOrganizer.getSection(), resultOrganizer.getCode(), null);
@@ -1612,6 +1619,8 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue("");
 		}
 
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(procedureActivityAct.getEffectiveTime()));
+
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, procedureActivityAct.getSection(), procedureActivityAct.getCode(),
 			procedureActivityAct.getText());
@@ -1666,6 +1675,8 @@ public class SpreadsheetSerializer {
 			row.createCell(offset++).setCellValue("");
 		}
 
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(procedureActivityObservation.getEffectiveTime()));
+
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, procedureActivityObservation.getSection(), procedureActivityObservation.getCode(),
 			procedureActivityObservation.getText());
@@ -1718,6 +1729,8 @@ public class SpreadsheetSerializer {
 		} else {
 			row.createCell(offset++).setCellValue("");
 		}
+
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(procedureActivityProcedure.getEffectiveTime()));
 
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, procedureActivityProcedure.getSection(), procedureActivityProcedure.getCode(),

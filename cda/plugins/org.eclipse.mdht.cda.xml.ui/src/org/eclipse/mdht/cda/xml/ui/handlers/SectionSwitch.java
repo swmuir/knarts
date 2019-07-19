@@ -30,6 +30,7 @@ import org.eclipse.mdht.uml.cda.PatientRole;
 import org.eclipse.mdht.uml.cda.Section;
 import org.eclipse.mdht.uml.cda.ServiceEvent;
 import org.eclipse.mdht.uml.cda.StrucDocText;
+import org.eclipse.mdht.uml.cda.util.CDAUtil;
 import org.eclipse.mdht.uml.cda.util.CDAUtil.Query;
 import org.eclipse.mdht.uml.hl7.datatypes.ANY;
 import org.eclipse.mdht.uml.hl7.datatypes.CD;
@@ -899,6 +900,8 @@ class SectionSwitch extends ConsolSwitch<Boolean> {
 		} else {
 			row.createCell(offset++).setCellValue("");
 		}
+
+		row.createCell(offset++).setCellValue(CDAUtil.getDomainPath(problemConcernAct.getEffectiveTime()));
 
 		offset = SpreadsheetSerializer.appendCode(
 			row, offset, problemConcernAct.getSection(), problemConcernAct.getCode(), problemConcernAct.getText());
