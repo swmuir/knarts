@@ -35,7 +35,7 @@
 
 	<modules>
 		<module>core</module>
-		 
+		<module>dita</module>
 		<module>cda</module>
 		<module>fhir</module>
 	 
