@@ -43,9 +43,9 @@ else
   updateZipName=MDHT-Update-${FULL_BUILD_ID}.zip
 fi
 
-rm -rf $updateSite
-rm -f *.zip
+##rm -rf $updateSite
+##rm -f *.zip
 
-mv $p2UpdateSiteDir $updateSite
-mv $p2UpdateSiteZipFile  ${WORKSPACE}/$updateZipName
+mv $p2UpdateSiteDir /home/data/httpd/download.eclipse.org/mdht/update/nightly
+##mv $p2UpdateSiteZipFile  ${WORKSPACE}/$updateZipName
 
