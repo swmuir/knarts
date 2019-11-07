@@ -97,6 +97,7 @@
         defaultValueLiteral="SHA-1" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TEL" eSuperTypes="#//URL">
+    <eOperations name="getText" ordered="false" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="useablePeriod" ordered="false"
         upperBound="-1" eType="#//SXCM_TS" containment="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -110,6 +111,8 @@
         <details key="kind" value="attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URL" abstract="true" eSuperTypes="#//ANY">
     <eOperations name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

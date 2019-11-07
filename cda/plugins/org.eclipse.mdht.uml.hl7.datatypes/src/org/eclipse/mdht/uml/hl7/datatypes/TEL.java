@@ -11,6 +11,7 @@
 package org.eclipse.mdht.uml.hl7.datatypes;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
 
 /**
@@ -24,6 +25,7 @@ import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getUseablePeriods <em>Useable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getUses <em>Use</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds <em>Mixed</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getTEL()
@@ -89,5 +91,29 @@ public interface TEL extends URL {
 	 * @generated
 	 */
 	boolean isSetUses();
+
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getTEL_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 * @generated
+	 */
+	FeatureMap getMixeds();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @generated
+	 */
+	String getText();
 
 } // TEL

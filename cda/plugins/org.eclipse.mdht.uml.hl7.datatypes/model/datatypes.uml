@@ -989,6 +989,16 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Ew5sD58Ed6cla2oXsPtlA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6Ew5sT58Ed6cla2oXsPtlA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_nOeI4AFcEeqg4I9dpN7mPg" name="mixed" visibility="private" isOrdered="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFeatureMapEntry"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nOeI4QFcEeqg4I9dpN7mPg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nOeI4gFcEeqg4I9dpN7mPg" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_qNp20AFcEeqg4I9dpN7mPg" name="getText" isQuery="true">
+        <ownedParameter xmi:id="_qNp20QFcEeqg4I9dpN7mPg" name="Parameter1" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_co8uMD53Ed6cla2oXsPtlA" name="INT">
       <ownedRule xmi:id="_d7xLME8zEeCPKdtRJ_I6Zg" name="INT">

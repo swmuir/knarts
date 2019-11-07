@@ -610,6 +610,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTEL_Mixed() {
+		return (EAttribute) telEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getURL() {
 		return urlEClass;
 	}
@@ -2013,6 +2022,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		telEClass = createEClass(TEL);
 		createEReference(telEClass, TEL__USEABLE_PERIOD);
 		createEAttribute(telEClass, TEL__USE);
+		createEAttribute(telEClass, TEL__MIXED);
 
 		urlEClass = createEClass(URL);
 		createEAttribute(urlEClass, URL__VALUE);
@@ -2390,6 +2400,12 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			getTEL_Use(), theVocabPackage.getTelecommunicationAddressUse(), "use", null, 0, -1,
 			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
 			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getTEL_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1,
+			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+			!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(telEClass, theTypesPackage.getString(), "getText", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(
 			urlEClass, org.eclipse.mdht.uml.hl7.datatypes.URL.class, "URL", IS_ABSTRACT, !IS_INTERFACE,

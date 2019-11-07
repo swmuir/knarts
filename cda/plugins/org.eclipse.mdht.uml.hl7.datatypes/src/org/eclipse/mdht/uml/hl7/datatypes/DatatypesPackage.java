@@ -323,13 +323,22 @@ public interface DatatypesPackage extends EPackage {
 	int TEL__USE = URL_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEL__MIXED = URL_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>TEL</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEL_FEATURE_COUNT = URL_FEATURE_COUNT + 2;
+	int TEL_FEATURE_COUNT = URL_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.mdht.uml.hl7.datatypes.impl.QTYImpl <em>QTY</em>}' class.
@@ -3942,6 +3951,17 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getTEL_Use();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds()
+	 * @see #getTEL()
+	 * @generated
+	 */
+	EAttribute getTEL_Mixed();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.mdht.uml.hl7.datatypes.URL <em>URL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5721,6 +5741,14 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEL__USE = eINSTANCE.getTEL_Use();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEL__MIXED = eINSTANCE.getTEL_Mixed();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.mdht.uml.hl7.datatypes.impl.URLImpl <em>URL</em>}' class.

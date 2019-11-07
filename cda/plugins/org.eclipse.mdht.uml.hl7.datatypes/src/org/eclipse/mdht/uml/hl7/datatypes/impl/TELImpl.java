@@ -16,12 +16,15 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage;
 import org.eclipse.mdht.uml.hl7.datatypes.SXCM_TS;
 import org.eclipse.mdht.uml.hl7.datatypes.TEL;
+import org.eclipse.mdht.uml.hl7.datatypes.operations.TELOperations;
 import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
 
 /**
@@ -34,6 +37,7 @@ import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUseablePeriods <em>Useable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUses <em>Use</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getMixeds <em>Mixed</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +62,16 @@ public class TELImpl extends URLImpl implements TEL {
 	 * @ordered
 	 */
 	protected EList<TelecommunicationAddressUse> uses;
+
+	/**
+	 * The cached value of the '{@link #getMixeds() <em>Mixed</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMixeds()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureMap mixeds;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,11 +143,34 @@ public class TELImpl extends URLImpl implements TEL {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixeds() {
+		if (mixeds == null) {
+			mixeds = new BasicFeatureMap(this, DatatypesPackage.TEL__MIXED);
+		}
+		return mixeds;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getText() {
+		return TELOperations.getText(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DatatypesPackage.TEL__USEABLE_PERIOD:
 				return ((InternalEList<?>) getUseablePeriods()).basicRemove(otherEnd, msgs);
+			case DatatypesPackage.TEL__MIXED:
+				return ((InternalEList<?>) getMixeds()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -150,6 +187,11 @@ public class TELImpl extends URLImpl implements TEL {
 				return getUseablePeriods();
 			case DatatypesPackage.TEL__USE:
 				return getUses();
+			case DatatypesPackage.TEL__MIXED:
+				if (coreType) {
+					return getMixeds();
+				}
+				return ((FeatureMap.Internal) getMixeds()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +213,9 @@ public class TELImpl extends URLImpl implements TEL {
 				getUses().clear();
 				getUses().addAll((Collection<? extends TelecommunicationAddressUse>) newValue);
 				return;
+			case DatatypesPackage.TEL__MIXED:
+				((FeatureMap.Internal) getMixeds()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -189,6 +234,9 @@ public class TELImpl extends URLImpl implements TEL {
 			case DatatypesPackage.TEL__USE:
 				unsetUses();
 				return;
+			case DatatypesPackage.TEL__MIXED:
+				getMixeds().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +253,8 @@ public class TELImpl extends URLImpl implements TEL {
 				return useablePeriods != null && !useablePeriods.isEmpty();
 			case DatatypesPackage.TEL__USE:
 				return isSetUses();
+			case DatatypesPackage.TEL__MIXED:
+				return mixeds != null && !mixeds.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,6 +273,8 @@ public class TELImpl extends URLImpl implements TEL {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (use: ");
 		result.append(uses);
+		result.append(", mixed: ");
+		result.append(mixeds);
 		result.append(')');
 		return result.toString();
 	}
