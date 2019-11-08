@@ -5,6 +5,7 @@ package org.eclipse.mdht.uml.hl7.datatypes.operations;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.mdht.uml.hl7.datatypes.TEL;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +23,20 @@ import org.eclipse.mdht.uml.hl7.datatypes.TEL;
  */
 public class TELOperations extends URLOperations {
 	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThreadLocal<OCL> EOCL_ENV = new ThreadLocal<OCL>() {
+		@Override
+		public OCL initialValue() {
+			return OCL.newInstance();
+		}
+	};
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -37,7 +52,7 @@ public class TELOperations extends URLOperations {
 	 */
 	public static String getText(TEL tel) {
 		StringBuffer text = new StringBuffer("");
-		for (FeatureMap.Entry entry : tel.getMixeds()) {
+		for (FeatureMap.Entry entry : tel.getMixed()) {
 			if (FeatureMapUtil.isText(entry)) {
 				text.append(entry.getValue().toString());
 			}

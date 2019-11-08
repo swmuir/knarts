@@ -3951,11 +3951,11 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getTEL_Use();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds <em>Mixed</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixed <em>Mixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
-	 * @see org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds()
+	 * @see org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixed()
 	 * @see #getTEL()
 	 * @generated
 	 */

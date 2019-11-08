@@ -2393,17 +2393,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 			telEClass, org.eclipse.mdht.uml.hl7.datatypes.TEL.class, "TEL", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getTEL_UseablePeriod(), this.getSXCM_TS(), null, "useablePeriod", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getTEL_UseablePeriod(), this.getSXCM_TS(), null, "useablePeriod", null, 0, -1, null, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			!IS_ORDERED);
 		initEAttribute(
-			getTEL_Use(), theVocabPackage.getTelecommunicationAddressUse(), "use", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE,
-			!IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+			getTEL_Use(), theVocabPackage.getTelecommunicationAddressUse(), "use", null, 0, -1, null, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(
-			getTEL_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1,
-			org.eclipse.mdht.uml.hl7.datatypes.TEL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-			!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getTEL_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(telEClass, theTypesPackage.getString(), "getText", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -3861,8 +3859,11 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addAnnotation(getED_Mixed(), source, new String[] { "name", "mixed", "kind", "elementWildcard" });
 		addAnnotation(getED_Reference(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element" });
 		addAnnotation(getED_Thumbnail(), source, new String[] { "namespace", "urn:hl7-org:v3", "kind", "element" });
+		addAnnotation(telEClass, source, new String[] { "kind", "mixed", "name", "" });
 		addAnnotation(getTEL_UseablePeriod(), source, new String[] { "namespace", "urn:hl7-org:v3" });
 		addAnnotation(getTEL_Use(), source, new String[] { "kind", "attribute" });
+		addAnnotation(
+			getTEL_Mixed(), source, new String[] { "name", "mixed", "namespace", "", "kind", "elementWildcard" });
 		addAnnotation(
 			tsTypeEDataType, source,
 			new String[] { "pattern", "[0-9]{1,8}|([0-9]{9,14}|[0-9]{14,14}\\.[0-9]+)([+\\-][0-9]{1,4})?" });

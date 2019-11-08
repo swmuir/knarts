@@ -37,7 +37,7 @@ import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUseablePeriods <em>Useable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getUses <em>Use</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getMixeds <em>Mixed</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.impl.TELImpl#getMixed <em>Mixed</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,14 +64,14 @@ public class TELImpl extends URLImpl implements TEL {
 	protected EList<TelecommunicationAddressUse> uses;
 
 	/**
-	 * The cached value of the '{@link #getMixeds() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMixeds()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap mixeds;
+	protected FeatureMap mixed;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,11 +143,11 @@ public class TELImpl extends URLImpl implements TEL {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureMap getMixeds() {
-		if (mixeds == null) {
-			mixeds = new BasicFeatureMap(this, DatatypesPackage.TEL__MIXED);
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DatatypesPackage.TEL__MIXED);
 		}
-		return mixeds;
+		return mixed;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class TELImpl extends URLImpl implements TEL {
 			case DatatypesPackage.TEL__USEABLE_PERIOD:
 				return ((InternalEList<?>) getUseablePeriods()).basicRemove(otherEnd, msgs);
 			case DatatypesPackage.TEL__MIXED:
-				return ((InternalEList<?>) getMixeds()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,9 +189,9 @@ public class TELImpl extends URLImpl implements TEL {
 				return getUses();
 			case DatatypesPackage.TEL__MIXED:
 				if (coreType) {
-					return getMixeds();
+					return getMixed();
 				}
-				return ((FeatureMap.Internal) getMixeds()).getWrapper();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,7 +214,7 @@ public class TELImpl extends URLImpl implements TEL {
 				getUses().addAll((Collection<? extends TelecommunicationAddressUse>) newValue);
 				return;
 			case DatatypesPackage.TEL__MIXED:
-				((FeatureMap.Internal) getMixeds()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,7 +235,7 @@ public class TELImpl extends URLImpl implements TEL {
 				unsetUses();
 				return;
 			case DatatypesPackage.TEL__MIXED:
-				getMixeds().clear();
+				getMixed().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -254,7 +254,7 @@ public class TELImpl extends URLImpl implements TEL {
 			case DatatypesPackage.TEL__USE:
 				return isSetUses();
 			case DatatypesPackage.TEL__MIXED:
-				return mixeds != null && !mixeds.isEmpty();
+				return mixed != null && !mixed.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,7 +274,7 @@ public class TELImpl extends URLImpl implements TEL {
 		result.append(" (use: ");
 		result.append(uses);
 		result.append(", mixed: ");
-		result.append(mixeds);
+		result.append(mixed);
 		result.append(')');
 		return result.toString();
 	}

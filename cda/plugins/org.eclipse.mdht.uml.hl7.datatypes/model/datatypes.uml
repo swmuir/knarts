@@ -1682,4 +1682,6 @@
   <Ecore:EAttribute xmi:id="_FiyloFcVEeGCdLgBm6VHOQ" isUnsettable="true" base_Property="_TrUQkE-pEd6lBqYlbulQZA"/>
   <Ecore:EAttribute xmi:id="_KS9ycAT5EeOFTql9pPvb9Q" xmlName="valueSet" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Attribute" base_Property="_8Y3PEAT4EeOFTql9pPvb9Q"/>
   <Ecore:EAttribute xmi:id="_dewR4AT5EeOFTql9pPvb9Q" xmlName="valueSetVersion" xmlNamespace="urn:hl7-org:sdtc" xmlFeatureKind="Attribute" base_Property="_T4IV4AT5EeOFTql9pPvb9Q"/>
+  <Ecore:EAttribute xmi:id="_CpgGkAGdEeqg4I9dpN7mPg" xmlName="mixed" xmlNamespace="" xmlFeatureKind="ElementWildcard" base_Property="_nOeI4AFcEeqg4I9dpN7mPg"/>
+  <Ecore:EClass xmi:id="_0urgUAIyEeq4qM3HrOJ9Gw" xmlName="" base_Class="_22o_kD52Ed6cla2oXsPtlA" xmlContentKind="Mixed"/>
 </xmi:XMI>

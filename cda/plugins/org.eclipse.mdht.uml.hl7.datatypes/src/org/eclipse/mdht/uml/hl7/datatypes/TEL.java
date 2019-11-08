@@ -25,11 +25,11 @@ import org.eclipse.mdht.uml.hl7.vocab.TelecommunicationAddressUse;
  * <ul>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getUseablePeriods <em>Useable Period</em>}</li>
  *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getUses <em>Use</em>}</li>
- *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixeds <em>Mixed</em>}</li>
+ *   <li>{@link org.eclipse.mdht.uml.hl7.datatypes.TEL#getMixed <em>Mixed</em>}</li>
  * </ul>
  *
  * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getTEL()
- * @model
+ * @model extendedMetaData="kind='mixed' name=''"
  * @generated
  */
 public interface TEL extends URL {
@@ -104,9 +104,10 @@ public interface TEL extends URL {
 	 * @return the value of the '<em>Mixed</em>' attribute list.
 	 * @see org.eclipse.mdht.uml.hl7.datatypes.DatatypesPackage#getTEL_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="name='mixed' namespace='' kind='elementWildcard'"
 	 * @generated
 	 */
-	FeatureMap getMixeds();
+	FeatureMap getMixed();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -13,6 +13,7 @@ Export-Package: org.eclipse.mdht.uml.hl7.datatypes,
  org.eclipse.mdht.uml.hl7.datatypes.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.uml2.types;visibility:=reexport,
  org.eclipse.ocl.ecore;visibility:=reexport,
  org.eclipse.mdht.uml.hl7.vocab;visibility:=reexport

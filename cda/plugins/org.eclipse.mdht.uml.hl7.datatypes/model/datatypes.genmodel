@@ -91,7 +91,8 @@
           createChild="true" ecoreFeature="ecore:EReference datatypes.ecore#//TEL/useablePeriod"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//TEL/use"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EAttribute datatypes.ecore#//TEL/mixed"/>
+          createChild="true" ecoreFeature="ecore:EAttribute datatypes.ecore#//TEL/mixed"
+          pluralizationException="true"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="datatypes.ecore#//TEL/getText"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="datatypes.ecore#//URL">
