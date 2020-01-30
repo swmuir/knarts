@@ -17,25 +17,39 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FHIR-Core -->
       <package
-            uri="http://www.eclipse.org/mdht/schema/fhir/core/valueset/1.0.0"
-            class="org.eclipse.mdht.uml.fhir.core.valueset.FhirValuesetPackage"
+            uri="http:///fhiRCore/valueSets.ecore"
+            class="fhiRCore.valueSets.ValueSetsPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FHIR-Core -->
       <package
-            uri="http://www.eclipse.org/mdht/schema/fhir/core/datatype/1.0.0"
-            class="org.eclipse.mdht.uml.fhir.core.datatype.FhirDatatypePackage"
+            uri="http:///fhiRCore/dataTypes.ecore"
+            class="fhiRCore.dataTypes.DataTypesPackage"
+            genModel="model/FHIR-Core.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated FHIR-Core -->
+      <parser
+            type="datatypes"
+            class="fhiRCore.dataTypes.util.DataTypesResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FHIR-Core -->
+      <package
+            uri="http:///fhiRCore/resources.ecore"
+            class="fhiRCore.resources.ResourcesPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated FHIR-Core -->
       <package
-            uri="http://www.eclipse.org/mdht/schema/fhir/core/resource/1.0.0"
-            class="org.eclipse.mdht.uml.fhir.core.resource.FhirResourcePackage"
+            uri="http:///fhiRCore/profiles.ecore"
+            class="fhiRCore.profiles.ProfilesPackage"
             genModel="model/FHIR-Core.genmodel"/>
    </extension>
-   
 </plugin>

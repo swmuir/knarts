@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.mdht.uml.fhir.transform;
 
+ 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,11 +62,14 @@ import org.hl7.fhir.ContactPointSystemList;
 import org.hl7.fhir.ContactPointUse;
 import org.hl7.fhir.ContactPointUseList;
 import org.hl7.fhir.ElementDefinition;
+import org.hl7.fhir.ElementDefinitionBase;
 import org.hl7.fhir.ElementDefinitionBinding;
 import org.hl7.fhir.ElementDefinitionConstraint;
 import org.hl7.fhir.ElementDefinitionDiscriminator;
+import org.hl7.fhir.ElementDefinitionMapping;
 import org.hl7.fhir.ElementDefinitionSlicing;
 import org.hl7.fhir.ElementDefinitionType;
+import org.hl7.fhir.Extension;
 import org.hl7.fhir.ExtensionContextType;
 import org.hl7.fhir.ExtensionContextTypeList;
 import org.hl7.fhir.FHIRVersion;
@@ -88,10 +92,12 @@ import org.hl7.fhir.StructureDefinitionDifferential;
 import org.hl7.fhir.StructureDefinitionKind;
 import org.hl7.fhir.StructureDefinitionKindList;
 import org.hl7.fhir.StructureDefinitionMapping;
+import org.hl7.fhir.StructureDefinitionSnapshot;
 import org.hl7.fhir.TypeDerivationRule;
 import org.hl7.fhir.TypeDerivationRuleList;
 import org.hl7.fhir.UnsignedInt;
 import org.hl7.fhir.Uri;
+ 
 import org.w3._1999.xhtml.DivType;
 import org.w3._1999.xhtml.TableType;
 import org.w3._1999.xhtml.XhtmlFactory;
@@ -107,15 +113,37 @@ public class ModelExporter implements ModelConstants {
 	public StructureDefinition createStrucureDefinition(Class umlClass) {
 		org.eclipse.mdht.uml.fhir.StructureDefinition structureDefStereotype = FhirModelUtil.getStructureDefinition(umlClass);
 		
+		boolean isForFHIM = false;
 		if (structureDefStereotype == null) {
-			System.err.println("Skipping class without <<StructureDefinition>>");
-			return null;
+			
+			structureDefStereotype = org.eclipse.mdht.uml.fhir.FHIRFactory.eINSTANCE.createStructureDefinition();
+			
+			isForFHIM = true;
+//			System.err.println("Skipping class without <<StructureDefinition>>");
+//			return null;
 		}
 
 		// This map is used at end to create FHIR constraints and condition references.
 		Map<NamedElement,ElementDefinition> elementMap = new HashMap<NamedElement,ElementDefinition>();
 		
 		StructureDefinition structureDef = FhirFactory.eINSTANCE.createStructureDefinition();
+		
+		
+	 
+		structureDef.setName(createFhirString(umlClass.getName()));
+		
+		structureDef.setTitle(createFhirString(umlClass.getName()));
+		structureDef.setVersion(createFhirString("0.90"));
+		
+		if (isForFHIM) {
+			structureDef.setType(createFhirUri("http://fhims.org/fhim/template"));		
+		}
+	
+		
+		
+		
+		
+		
 		structureDef.setAbstract(createFhirBoolean(umlClass.isAbstract()));
 
 		String id = structureDefStereotype.getId() != null 
@@ -204,6 +232,14 @@ public class ModelExporter implements ModelConstants {
 		structureDef.setFhirVersion(version);
 		
 		StructureDefinitionMapping sdm  = FhirFactory.eINSTANCE.createStructureDefinitionMapping();
+		
+	 
+		
+		sdm.setIdentity(createFhirId("fhim"));
+		sdm.setUri(createFhirUri("http://onc.gov/fhim"));
+		sdm.setName(createFhirString("FHIM"));
+		
+		 
 		structureDef.getMapping().add(sdm);
 
 		if (structureDefStereotype.getName() != null) {
@@ -229,13 +265,16 @@ public class ModelExporter implements ModelConstants {
 		// TODO this does not work if target profile is also a core type, e.g. AllergyIntolerance isa DomainResource
 		//		Exclude self from search for core base type?
 		Classifier baseType = getCoreBaseType(umlClass);
-		if (!umlClass.equals(baseType)) {
-Uri foo = FhirFactory.eINSTANCE.createUri();
-foo.setValue(baseType.getName());
-			//			structureDef.sett
-			//createFhirCode(baseType.getName())
-			structureDef.setType(foo);
+		if (baseType != null) {
+			if (!umlClass.equals(baseType)) {
+				Uri foo = FhirFactory.eINSTANCE.createUri();
+				foo.setValue(baseType.getName());
+							//			structureDef.sett
+							//createFhirCode(baseType.getName())
+							structureDef.setType(foo);
+						}		
 		}
+	
 		
 		// Set 'kind'
 		// TODO does not handle datatype: primitive-type vs complex-type, but primitive-type cannot be used by profile developers
@@ -302,29 +341,53 @@ Object contextType;
 		}
 		
 		
-		FhirFactory.eINSTANCE.createStructureDefinitionSnapshot();
+	
 		
-		// Add differential ElementDefinitions
-		StructureDefinitionDifferential differential = FhirFactory.eINSTANCE.createStructureDefinitionDifferential();
-		structureDef.setDifferential(differential);
-		
-		// Add profile element definition for the Class
-		ElementDefinition elementDef = FhirFactory.eINSTANCE.createElementDefinition();
-		differential.getElement().add(elementDef);
-		String path = baseType.getName();
-		elementDef.setPath(createFhirString(path));
-		elementDef.setMin(createFhirUnsignedInt(0));
-		elementDef.setMax(createFhirString("*"));
-		if (!umlClass.getName().equals(baseType.getName())) {
-			elementDef.setSliceName(createFhirString(umlClass.getName()));
-		}
-		ElementDefinitionType elementDefType = FhirFactory.eINSTANCE.createElementDefinitionType();
-		elementDefType.setCode(createFhirUri(baseType.getName()));
-		elementDef.getType().add(elementDefType);
-		elementMap.put(umlClass, elementDef);
 
-		// Add element definition for each Property
-		addElementDefinitions(umlClass, differential, elementMap);
+		
+		if (isForFHIM) {
+			
+			StructureDefinitionSnapshot structureDefinitionSnapshot = FhirFactory.eINSTANCE.createStructureDefinitionSnapshot();
+			
+			structureDef.setSnapshot(structureDefinitionSnapshot);
+			
+			
+			ElementDefinition elementDef = FhirFactory.eINSTANCE.createElementDefinition();
+			structureDefinitionSnapshot.getElement().add(elementDef);
+			String path = baseType != null ?  baseType.getName() : umlClass.getName();
+			elementDef.setPath(createFhirString(path));
+			elementDef.setMin(createFhirUnsignedInt(0));
+			elementDef.setMax(createFhirString("*"));
+			if (baseType != null && !umlClass.getName().equals(baseType.getName())) {
+				elementDef.setSliceName(createFhirString(umlClass.getName()));
+			}
+			
+			addElementDefinitions(umlClass, structureDefinitionSnapshot, elementMap);
+			
+		} else {
+
+			// Add differential ElementDefinitions
+			StructureDefinitionDifferential differential = FhirFactory.eINSTANCE.createStructureDefinitionDifferential();
+			structureDef.setDifferential(differential);
+			
+			// Add profile element definition for the Class
+			ElementDefinition elementDef = FhirFactory.eINSTANCE.createElementDefinition();
+			differential.getElement().add(elementDef);
+			String path = baseType != null ?  baseType.getName() : umlClass.getName();
+			elementDef.setPath(createFhirString(path));
+			elementDef.setMin(createFhirUnsignedInt(0));
+			elementDef.setMax(createFhirString("*"));
+			if (baseType != null && !umlClass.getName().equals(baseType.getName())) {
+				elementDef.setSliceName(createFhirString(umlClass.getName()));
+			}
+//			ElementDefinitionType elementDefType = FhirFactory.eINSTANCE.createElementDefinitionType();
+//			elementDefType.setCode(createFhirUri(baseType.getName()));
+//			elementDef.getType().add(elementDefType);
+//			elementMap.put(umlClass, elementDef);
+
+			// Add element definition for each Property
+			addElementDefinitions(umlClass, differential, elementMap);
+		}
 		
 		//TODO if only constrainedElement is a Class, add to first profile elementDef
 		addConstraints(umlClass, elementMap);
@@ -348,6 +411,36 @@ Object contextType;
 		}
 	}
 
+	private void addElementDefinitions(Class umlClass, StructureDefinitionSnapshot structureDefinitionSnapshot,
+			Map<NamedElement,ElementDefinition> elementMap) {
+		for (Property property : umlClass.getOwnedAttributes()) {
+			ElementDefinition elementDef = createElementDefinition(property);
+			
+			Extension extension =  FhirFactory.eINSTANCE.createExtension();
+			
+			extension.setUrl("http://fhims.org/fhim/usage");
+			
+			
+			extension.setValueString(createFhirString(  "mandatory"));
+			
+if (property.getLower() == 0) {
+	extension.setValueString(createFhirString(  "optional"));
+			}
+ 			elementDef.getExtension().add(extension );
+			
+			structureDefinitionSnapshot.getElement().add(elementDef);
+			elementMap.put(property, elementDef);
+			
+			// TODO if this is first ElementDefinition, add 'definition' and 'short' from Class comments
+			
+			// Recursive, only if type is nested in this class, not nested class inherited from superclass.
+			if (FhirModelUtil.hasNestedType(property) && property.getType().getOwner() == umlClass) {
+				addElementDefinitions((Class) property.getType(), structureDefinitionSnapshot, elementMap);
+			}
+		}
+	}
+
+	
 	private ElementDefinition createElementDefinition(Property property) {
 		org.eclipse.mdht.uml.fhir.ElementDefinition elementDefStereotype = 
 				(org.eclipse.mdht.uml.fhir.ElementDefinition) EcoreUtil.getObjectByType(
@@ -356,7 +449,40 @@ Object contextType;
 		
 		Property inheritedProperty = UMLUtil.getInheritedProperty(property);
 
-		String path = getPath(property);
+		ElementDefinitionMapping sdm  = FhirFactory.eINSTANCE.createElementDefinitionMapping();
+		
+//		Boolean vvv = new BooleanDt();
+		
+		Boolean vvv;
+		Boolean ffff = FhirFactory.eINSTANCE.createBoolean();
+		ffff.setValue(true);
+		
+		elementDef.setMustSupport(ffff ) ;
+		
+//		elementDef.set
+		 
+		
+		NamedElement owner = (NamedElement)property.getOwner();
+		
+		String path =   owner.getName() +  getPath(property);
+		sdm.setIdentity(createFhirId("fhim"));
+		
+		//FHIM::
+		String fhimpath = "UNKNOWN";
+		for (Comment comment : property.getOwnedComments()) {
+			if (comment.getBody() != null && comment.getBody().startsWith("FHIM::")) {
+				fhimpath = comment.getBody();
+			}
+			
+		}
+		
+		sdm.setMap(createFhirString(fhimpath));
+//		sdm.setUri(createFhirUri("http://onc.gov/fhim"));
+//		sdm.setName(createFhirString("FHIM"));
+//		ElementDefinitionMapping xxx;
+		elementDef.getMapping().add(sdm);
+		
+		elementDef.setId(path);
 		elementDef.setPath(createFhirString(path));
 		
 		// Add cardinality
@@ -373,6 +499,12 @@ Object contextType;
 			if (inheritedProperty.getUpper() != property.getUpper()) {
 				maxOccurs = property.getUpper();
 			}
+			
+			ElementDefinitionBase edb =  FhirFactory.eINSTANCE.createElementDefinitionBase();
+			edb.setMin(createFhirUnsignedInt(inheritedProperty.getLower()));
+			edb.setMax(createFhirString(inheritedProperty.getUpper() == -1 ? "*" : Integer.toString(inheritedProperty.getUpper())));
+			edb.setPath(createFhirString(path));
+			elementDef.setBase(edb);
 		}
 		
 		if (minOccurs != null) {
@@ -433,9 +565,9 @@ Object contextType;
 
 		// Add other element metadata
 		if (elementDefStereotype != null) {
-			if (elementDefStereotype.getId() != null) {
-				elementDef.setId(elementDefStereotype.getId());
-			}
+//			if (elementDefStereotype.getId() != null) {
+//				elementDef.setId(elementDefStereotype.getId());
+//			}
 			if (elementDefStereotype.getName() != null) {
 				elementDef.setSliceName(createFhirString(elementDefStereotype.getName()));
 			}
@@ -551,7 +683,7 @@ Object contextType;
 			if (i == 0) {
 				// This must be a Class for top-level classifier
 				Classifier constrainedType = getCoreBaseType((Classifier)pathSegment);
-				pathNames[i] = constrainedType.getName();
+				pathNames[i] =  constrainedType != null ? constrainedType.getName() : "";
 				continue;
 			}
 
@@ -610,6 +742,10 @@ Object contextType;
 		}
 		else {
 			elementType = getCoreBaseType(type);
+		}
+		
+		if (elementType == null ) {
+			elementType = type;
 		}
 		elementDefType.setCode(createFhirUri(elementType.getName()));
 		
@@ -692,11 +828,14 @@ Object contextType;
 	
 	private String upperCaseName(NamedElement element) {
 		String typeName = element.getName();
+		if (typeName != null) {
 		StringBuffer camelCaseNameBuffer = new StringBuffer();
 		camelCaseNameBuffer.append(typeName.substring(0, 1).toUpperCase());
 		camelCaseNameBuffer.append(typeName.substring(1));
 		typeName = camelCaseNameBuffer.toString();
 		return typeName;
+		}
+		return "NULL";
 	}
 
 	private ElementDefinitionBinding createBinding(Property property) {
