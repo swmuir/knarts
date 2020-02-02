@@ -1,0 +1,759 @@
+modeltype knart uses 'urn:hl7-org:knowledgeartifact:r2';
+modeltype fhir uses 'http:///fhiRCore/resources.ecore';
+modeltype datatypes uses 'http:///fhiRCore/dataTypes.ecore';
+modeltype elm uses 'urn:hl7-org:elm:r1';
+
+
+
+transformation Knart2FHIR(in knartdocument : knart,out fhirbundle :fhir);
+
+ 
+
+main() {
+
+	knartdocument.objectsOfType(knart::DocumentRoot)->map toFHIR();
+	
+}
+
+mapping knart::DocumentRoot::toFHIR() : fhir::Bundle {	
+log('Start Mapping KnowledgeDocument');
+//result.entry += self -> map toPlanDefinition();
+
+result.entry += self.compositeKnowledgeDocument -> map toPlanDefinition();
+
+//result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::Rule).knowledgeDocument -> map toPlanDefinition();
+
+//result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::DocumentationTemplate).knowledgeDocument -> map toPlanDefinition();
+
+//result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::OrderSet).knowledgeDocument -> map toPlanDefinition();
+
+
+//var planDefinition : fhir::PlanDefinition  := object  fhir::PlanDefinition {};
+
+
+//result.entry += result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::Rule).knowledgeDocument.actionGroup->go(result);
+//result.entry += result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::DocumentationTemplate).knowledgeDocument.actionGroup->go(result);
+//result.entry += result.entry += self.compositeKnowledgeDocument.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::OrderSet).knowledgeDocument.actionGroup->go(result);
+
+//result.entry += self -> map toQuestionaire();
+log('End Mapping KnowledgeDocument');
+}
+
+
+mapping knart::Composite::toPlanDefinition() : fhir::BundleEntry {
+	
+log('Start Mapping Composite to Pland Defniition');
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+
+result.resource :=  object Entry_Resource{ };
+
+result.resource.planDefinition :=  self.metadata ->map toPlanDefinition()->asSequence()->first();
+
+result.resource.planDefinition.action += self.containedArtifacts.artifact->select(a|a.artifactType.value = CompondArtifactType::DocumentationTemplate).knowledgeDocument.actionGroup -> map mapToActions();
+ 
+//object fhir::PlanDefinition {};
+//result.entry += map toPlanDefinition();
+log('End Composite to Pland Defniition');
+}
+
+
+
+mapping knart::ActionGroup::go(inout bundle :fhir::Bundle) {
+log('Start knart::ActionGroup::go');
+self.subElements->map go(bundle);	
+self.subElements->map goCollectInformationAction(bundle);
+self.subElements->map goFireEventAction(bundle);
+log('End knart::ActionGroup::go');
+}
+mapping knart::SubElementsType::go(inout bundle :fhir::Bundle) when { self.actionGroup.subElements.actionGroup.subElements.simpleAction[CollectInformationAction]->isEmpty()  } {
+	self.actionGroup->map go(bundle);
+	self.simpleAction[CreateAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go();
+}
+
+mapping knart::SubElementsType::goCollectInformationAction(inout bundle :fhir::Bundle) when { not self.actionGroup.subElements.actionGroup.subElements.simpleAction[CollectInformationAction]->isEmpty()  } {
+
+log('goCollectInformationActiongoCollectInformationAction');
+
+bundle.entry += self.actionGroup->map toQuestionnaire2();
+
+//	self.actionGroup->map go(bundle);
+//	self.simpleAction[CreateAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go();
+}
+
+mapping knart::SubElementsType::goFireEventAction(inout bundle :fhir::Bundle) when { not self.simpleAction[FireEventAction]->isEmpty()  } {
+
+log('goFireEventAction');
+self.simpleAction[FireEventAction]->map go(bundle);
+//bundle.entry += self.actionGroup->map toQuestionnaire2();
+
+//	self.actionGroup->map go(bundle);
+//	self.simpleAction[CreateAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go(bundle);
+//	self.simpleAction[CollectInformationAction]->map go();
+}
+
+
+mapping knart::CollectInformationAction::go(inout bundle :fhir::Bundle) {
+log('CollectInformationAction Create corresponding FHIR::AcvitityDefinition');
+//log (self.textEquivalent.value.toString());
+bundle.entry += self ->map toQuestionnaire();
+}
+
+mapping knart::CreateAction::go(inout bundle :fhir::Bundle) {
+log('Create corresponding FHIR::AcvitityDefinition');
+log (self.textEquivalent.value.toString());
+bundle.entry += self ->map toActivityDefinition()
+}
+
+mapping knart::FireEventAction::go(inout bundle :fhir::Bundle) {
+log('Create corresponding FHIR::AcvitityDefinition');
+log (self.textEquivalent.value.toString());
+bundle.entry += self ->map toActivityDefinition()
+}
+
+mapping knart::CollectInformationAction::go() {
+	log('Create corresponding FHIR::Questioniare');
+	log (self.textEquivalent.value.toString());
+}
+
+mapping Coverage ::applicabilityToUseContext() : UsageContext {
+
+log('applicabilityToUseContext');
+
+ 
+
+result.code :=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 			 
+ 				 value := self.focus.value.toString();
+ 				 display := object datatypes::String {
+						value := self.description.value;
+				};
+ 			};
+ 		};
+ 		if (not self.value.oclIsUndefined()) then {
+result.valueCodeableConcept := object CodeableConcept {
+		coding +=  object datatypes::Coding {
+		
+		
+		
+			self.value.code.tokenize("//|")->forEach(elmCodeComponent) {
+ 
+ 	if (code.oclIsUndefined()) then {
+ 		code := object datatypes::Code {
+  			value := elmCodeComponent.replaceFirst('\\[','');
+  		};
+ 	} else {
+ 		display := object datatypes::Code {
+  			value := elmCodeComponent;
+  		};
+ 	} endif;
+ 	};
+		
+// 			code :=  object datatypes::Code {
+// 			 
+// 				 value := self.value.code;
+// 				 
+// 			};
+// 			 display := object datatypes::String {
+//						value := self.value.code;
+//				};
+//				
+			 system := object datatypes::Url {
+						value := self.value.codeSystem;
+				};	
+ 		};
+
+}; 		
+ 		
+ 		} endif;
+ 		
+
+	
+}
+ 
+  
+
+
+mapping knart::Metadata::toPlanDefinition() : fhir::PlanDefinition {	
+log('toPlanDefinitionaaaaa');
+
+result.name := object datatypes::String {
+	value := self.title.value;
+};
+
+result.title := object datatypes::String {
+	value := self.title.value;
+};
+
+result.description := object datatypes::Markdown {
+	value := self.description.value;
+}; 
+log('applicabilityapplicabilityapplicabilityapplicabilityapplicabilityapplicabilityapplicability');
+
+result.useContext +=    self.applicability.coverage->map applicabilityToUseContext();
+log('applicabilityapplicabilityapplicabilityapplicabilityapplicabilityapplicabilityapplicability');
+
+	
+result.type := object datatypes::CodeableConcept {
+ 		coding +=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 			 
+ 				 value := self.artifactType.value.toString();
+ 			};
+ 		};
+ 	};
+ result.status :=  object datatypes::Code {
+ 				 value := self.status.value.toString().toLower();
+ 			};
+}
+
+mapping VersionedIdentifier::addIdentifiers() : Identifier {	
+	result.value := object datatypes::String {
+						value := self.extension;
+				};
+	result.assigner:= object dataTypes::Reference{ display:= object  datatypes::String{ value:= self.root} };
+}
+mapping knart::KnowledgeDocument::toPlanDefinition2() : fhir::PlanDefinition {	
+log('toPlanDefinition');
+
+ 
+result.identifier += self.metadata.identifiers.identifier->map addIdentifiers(); 
+
+
+
+
+result.name := object datatypes::String {
+	value := self.metadata.title.value;
+};
+
+result.title := object datatypes::String {
+	value := self.metadata.title.value;
+};
+
+result.description := object datatypes::Markdown {
+	value := self.metadata.description.value;
+}; 
+	
+result.type := object datatypes::CodeableConcept {
+ 		coding +=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 			 
+ 				 value := self.metadata.artifactType.value.toString();
+ 			};
+ 		};
+ 	};
+ result.status :=  object datatypes::Code {
+ 				 value := self.metadata.status.value.toString().toLower();
+ 			};
+
+
+ 
+result.useContext +=    self.metadata.applicability.coverage->map applicabilityToUseContext();
+
+ 			
+ result.action += self.actionGroup->mapToActions();
+}
+
+mapping knart::ActionGroup::mapToActions() : fhir::PlanDefinitionAction {
+
+if (not self.title.value.oclIsInvalid()) then {
+	result.title :=  object  datatypes::String{ value:= self.title.value};	
+} endif;
+
+
+if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+	result.selectionBehavior :=  object datatypes::Code {
+ 				value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+ 				
+ 				
+ 				if ('AtMostOne'.equalsIgnoreCase(value)) then 
+ 					{ value := 'at-most-one' }
+ 				else if ('Any'.equalsIgnoreCase(value)) then 
+ 						{ value := 'any' } 
+ 					else 
+ 						{ value := 'any' } 
+ 					endif 
+ 				endif; 
+ 				
+ 			 
+ 	};
+ 	
+ 	
+ 		 
+ 	
+ 	
+ 	
+} endif;
+
+if (not self.description.value.oclIsInvalid()) then {
+result.description :=  object  datatypes::String{ value:= self.description.value};
+} endif;	
+
+
+result.action += self.subElements.actionGroup->mapToActions();
+result.action += self.subElements.simpleAction[CreateAction]->mapToActions();
+
+	
+}
+
+mapping knart::CreateAction::mapToActions() : fhir::PlanDefinitionAction {
+	if (not self.textEquivalent.value.oclIsInvalid()) then {
+	result.title :=  object  datatypes::String{ value:=  value := self.actionSentence[elm::Instance].element->select(name='topic').value[elm::Code].code->asSequence()->first();};	
+} endif;
+
+if (not self.textEquivalent.value.oclIsInvalid()) then {
+result.description :=  object  datatypes::String{ value:= self.textEquivalent.value};
+} endif;
+	
+	 result.definitionCanonical:= object dataTypes::Reference{ display:= object  datatypes::String{ value:= self.textEquivalent.value} };
+	
+	
+	 
+	result.condition += self.conditions.condition -> map mapCondition();
+}
+
+mapping knart::Condition::mapCondition() : fhir::PlanDefinitionActionCondition {
+ 
+	result.kind := object Code {
+		value := 'applicability';
+	};
+
+	result.expression := object Expression {
+		language := object Code {
+			value := 'text/cql';
+		};	
+	};
+	expression.expression := object datatypes::String {
+		value := '';
+	};
+	self.logic-> map mapExpression (expression);
+	log (expression.expression.value);
+
+}
+
+mapping r1::Expression::mapExpression ( inout expression : datatypes::Expression ) {
+log('here ' + self.toString());
+	expression.expression.value := expression.expression.value + ' ' + createExpression(self); 
+	if (self.oclIsTypeOf(r1::Not)) then self.oclAsType(r1::Not).operand->map mapExpression(expression) endif;
+	if (self.oclIsTypeOf(r1::Exists)) then self.oclAsType(r1::Exists).operand->map mapExpression(expression)  endif;
+
+	 
+}
+
+helper createExpression(in expression :r1::Expression ) :String {
+
+
+	if expression.oclIsTypeOf(r1::Not) then return "NOT"  endif;
+	if expression.oclIsTypeOf(r1::Exists) then return "EXISTS"  endif;
+	if (expression.oclIsTypeOf(r1::ExpressionRef)) then return "'" + expression.oclAsType(r1::ExpressionRef).name + "'" endif;
+	
+	return expression.toString();
+}
+ 
+
+ 
+
+
+
+mapping knart::ActionGroup::mapToAction() : fhir::PlanDefinitionAction {
+
+result.action += self.subElements.actionGroup->mapToAction2();
+
+	
+}
+
+
+mapping knart::ActionGroup::mapToAction2() : fhir::PlanDefinitionAction {
+
+ result.title :=  object  datatypes::String{ value:= self.title.value};
+ 
+ result.action += self.subElements.actionGroup->mapToAction3(); 
+
+	
+}
+
+mapping knart::ActionGroup::mapToAction3() : fhir::PlanDefinitionAction {
+
+ result.title :=  object  datatypes::String{ value:= self.title.value};
+ 
+ result.selectionBehavior :=  object datatypes::Code {
+ 			value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+ 		};
+ 		
+ 
+// result.action += self.subElements.actionGroup->mapToAction3(); 
+
+	
+}
+
+
+
+
+mapping knart::KnowledgeDocument::toPlanDefinition() : fhir::BundleEntry {
+	
+log('Start Mapping PlanDefinition');
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+
+result.resource :=  object Entry_Resource{ };
+
+result.resource.planDefinition :=  self ->map toPlanDefinition2()->asSequence()->first(); 
+
+
+ 
+//object fhir::PlanDefinition {};
+//result.entry += map toPlanDefinition();
+log('End Mapping PlanDefinition');
+}
+
+mapping knart::ActionGroup::toQuestionnaire2() : fhir::BundleEntry {	
+log('Start Mapping to Questionnaire');
+//log(self.textEquivalent.value);
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+
+var questionnaire := object fhir::Questionnaire
+ {
+ 
+ };
+ 
+ //self.documentationConcept.
+ 
+  questionnaire.title :=  object  datatypes::String{ value:= self.title.value };
+  
+  questionnaire.item += self.subElements.actionGroup->map toItem();
+  
+// self.documentationConcept.
+ 
+ result.resource := object Entry_Resource {};
+ 
+ result.resource.questionnaire :=  questionnaire;
+ log('End Mapping to Questionnaire');
+}
+
+mapping knart::ActionGroup::toItem() : fhir::QuestionnaireItem {	
+	//result.text.value := self.title.value;
+	
+	result.text :=  object  datatypes::String{ value:= self.title.value; };
+	
+	if (not self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().oclIsInvalid()) then {
+	
+	 
+	result.type  :=  object datatypes::Code {
+ 				value := self.behaviors.behavior[GroupSelectionBehavior].value->asSequence()->first().toString();
+ 				
+ 				
+ 				if ('AtMostOne'.equalsIgnoreCase(value)) then 
+ 					{ value := 'choice' }
+ 				else if ('Any'.equalsIgnoreCase(value)) then 
+ 						{ value := 'any' } 
+ 					else 
+ 						{ value := 'any' } 
+ 					endif 
+ 				endif; 
+ 				
+ 			 
+ 	};
+ 	
+ 	
+ 		 
+ 	
+ 	
+ 	
+} endif;
+	
+	result.item += self.subElements.actionGroup->map toItem();
+	
+	result.item +=  self.subElements.actionGroup.subElements.simpleAction[CollectInformationAction].documentationConcept->map toItem();
+	
+}
+
+mapping knart::DocumentationItem::toItem() : fhir::QuestionnaireItem {
+	
+	result.text :=   object datatypes::String {
+						value := self.description.value;
+				};
+	
+	
+}
+
+mapping knart::CollectInformationAction::toQuestionnaire() : fhir::BundleEntry {	
+log('Start Mapping to Questionnaire');
+//log(self.textEquivalent.value);
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+
+var questionnaire := object fhir::Questionnaire
+ {
+ 
+ };
+ 
+ //self.documentationConcept.
+ 
+  questionnaire.title :=  object  datatypes::String{ value:= self.textEquivalent.value; };
+  
+// self.documentationConcept.
+ 
+ result.resource := object Entry_Resource {};
+ 
+ result.resource.questionnaire :=  questionnaire;
+ log('End Mapping to Questionnaire');
+}
+
+
+mapping knart::CollectInformationAction::toActivityDefinition() : fhir::BundleEntry {
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+	
+log('Start Mapping CollectInformationAction');
+log(self.textEquivalent.value);
+
+ var activityDefinition := object fhir::ActivityDefinition
+ {
+ 
+ };
+ 
+ activityDefinition.title :=  object  datatypes::String{ value:= self.textEquivalent.value};
+
+}
+
+mapping knart::FireEventAction::toActivityDefinition() : fhir::BundleEntry {
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+	
+log('Start Mapping FireEventAction aaaaaaaaaaa');
+log(self.textEquivalent.value);
+
+ var activityDefinition := object fhir::ActivityDefinition
+ {
+ 
+ };
+ 
+ activityDefinition.title :=  object  datatypes::String{ value:= self.actionSentence[elm::Instance].element->select(e | e.name.equalsIgnoreCase('EventName')).value[elm::Literal].value->asSequence()->first().toString()};
+ 
+ 
+// activityDefinition.title :=  object  datatypes::String{ value:= self.textEquivalent.value};
+
+}
+
+mapping knart::CreateAction::toActivityDefinition() : fhir::BundleEntry {
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+	
+log('Start Mapping ActivityDefinition');
+log(self.textEquivalent.value);
+
+ var activityDefinition := object fhir::ActivityDefinition
+ {
+ 
+ };
+ 
+ activityDefinition.title :=  object  datatypes::String{ value:= self.textEquivalent.value};
+ 
+ 
+ if (not self.actionSentence[elm::Instance].element->select(name='repetition[0].periodDuration.measureSemantic').value[elm::Code].code->asSequence()->first().oclIsInvalid()) then {
+ 	
+ 
+ activityDefinition.dosage += object  dataTypes::Dosage{
+ 
+ timing := object datatypes::Timing {
+	repeat := object TimingElement1 {
+ 		durationUnit :=  object datatypes::Code {
+ 			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].periodDuration.measureSemantic').value[elm::Code].code->asSequence()->first();
+ 		};
+	
+		duration := object datatypes::Decimal {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].periodDuration.lowerBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+		};
+			
+		durationMax := object datatypes::Decimal {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].periodDuration.upperBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+		};
+		
+		frequency := object datatypes::PositiveInt {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].eventFrequency.lowerBound').value[elm::Literal].value[String]->asSequence()->first().toInteger();
+		};
+			
+		frequencyMax := object datatypes::PositiveInt {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].eventFrequency.upperBound').value[elm::Literal].value[String]->asSequence()->first().toInteger();
+		};
+		
+		period := object datatypes::Decimal {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].eventFrequency.lowerBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+		};
+			
+		periodMax := object datatypes::Decimal {
+			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].eventFrequency.upperBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+		};  
+		
+		periodUnit :=  object datatypes::Code {
+ 			value := self.actionSentence[elm::Instance].element->select(name='repetition[0].eventFrequency.measureSemantic').value[elm::Code].code->asSequence()->first();
+ 		};
+	};
+};
+ 
+ 
+ 
+ asNeededx  := object datatypes::CodeableConcept {
+ 		coding +=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 				 value := self.actionSentence[elm::Instance].element->select(name='purpose[0]').value[elm::Code].code->asSequence()->first();
+ 			};
+ 		};
+ 	};
+ 
+ 	route := object datatypes::CodeableConcept {
+ 		coding +=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 				 value := self.actionSentence[elm::Instance].element->select(name='requestedResult.measureSemantic').value[elm::Code].code->asSequence()->first();
+ 			};
+ 		};
+ 	};
+ 	
+ 	doseAndRate := object DosageElement1 {
+ 	dosex := object datatypes::Range {
+ 	low := object datatypes::SimpleQuantity {
+ 	  value := object datatypes::Decimal {
+ 	  
+ 	  
+ 	  log(self.actionSentence[elm::Instance].element->select(name='requestedResult.lowerBound').value[elm::Literal].value[String]->asSequence()->first().toString());
+ 	  //log(.value->asSequence()->first());//
+			value := self.actionSentence[elm::Instance].element->select(name='requestedResult.lowerBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+			};
+ 	};
+ 	high := object datatypes::SimpleQuantity {
+ 	
+ 	  value := object datatypes::Decimal {
+ 	value := self.actionSentence[elm::Instance].element->select(name='requestedResult.upperBound').value[elm::Literal].value[String]->asSequence()->first().toReal();
+   };
+ 	};
+ 	}
+ 	};
+ 	
+ };
+ 
+ activityDefinition.productx := object  dataTypes::	CodeableConcept{
+ 
+ 		coding +=  object datatypes::Coding {
+ 			code :=  object datatypes::Code {
+ 				 value := self.actionSentence[elm::Instance].element->select(name='topic').value[elm::Code].code->asSequence()->first();
+ 			};
+ 		};
+ 
+ };
+ 
+ } endif;
+ 
+ activityDefinition.kind := object datatypes::Code {
+ 	value := createAcvityKind(self.actionSentence[elm::Instance].element->select(name='topic').value[elm::Code]->asSequence()->first());
+ };
+ 
+ 
+ 
+ activityDefinition.code := object datatypes::CodeableConcept {
+ 
+ var elmExpression  := self.actionSentence[elm::Instance].element->select(name='topic').value[elm::Code].code->asSequence()->first();
+ 
+ elmExpression.tokenize('->')->forEach(elmCode) {
+ 
+  var theCode : datatypes::Coding := object datatypes::Coding { };
+ 	
+ 	elmCode.tokenize("//|")->forEach(elmCodeComponent) {
+ 	log (elmExpression + ' ' + elmCode + ' tokenized ' + elmCodeComponent );
+ 	if (theCode.code.oclIsUndefined()) then {
+ 		theCode.code := object datatypes::Code {
+  			value := elmCodeComponent.replaceFirst('\\[','');
+  		};
+ 	} else {
+ 		theCode.display := object datatypes::Code {
+  			value := elmCodeComponent;
+  		};
+ 	} endif;
+ 	};
+ 
+ 	
+ 	coding += theCode;
+ 	 
+ };
+ 
+ 		
+ };
+ 
+ 
+ activityDefinition.intent := object datatypes::Code {
+ 	 value := 'plan';
+ };
+  activityDefinition.priority := object datatypes::Code {
+  	value := 'routine';
+  };
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ // Need to set text 
+ //activityDefinition.text :=  object  dataTypes::Narrative{ div:=  object dataTypes::Xhtml{ value:= self.textEquivalent.value };   };
+ 
+ result.resource :=  object Entry_Resource{ };
+ 
+result.resource.activityDefinition := activityDefinition;
+//result.entry += map toPlanDefinition();
+log('End Mapping ActivityDefinition');
+}
+
+
+helper createAcvityKind(in topicCode :r1::Code ) :String {
+
+if (topicCode.code.indexOf('Administration') > 0) then 
+return 'MedicationRequest'
+else
+return 'ServiceRequest'
+endif;
+
+
+	 
+}
+
+mapping knart::KnowledgeDocument::toQuestionaire() : fhir::BundleEntry {
+
+result.request := object BundleEntryRequest {
+method :=  object datatypes::Code { value := 'POST'};
+};
+	
+log('Start Mapping Questionnaire');
+result.resource :=  object Entry_Resource{ };
+
+result.resource.questionnaire := object fhir::Questionnaire{};
+//result.entry += map toPlanDefinition();
+log('End Mapping Questionnaire');
+}
+
+mapping elm::Instance::mapELMInstance() {
+self.element->select(name='topic');
+
+	
+}
+
+mapping elm::InstanceElement::elmTopic() {
+self.value[elm::Code].code;
+}

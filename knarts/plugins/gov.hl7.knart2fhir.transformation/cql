@@ -1,0 +1,49 @@
+      <condition>
+                                                <logic xsi:type="elm:Not">
+                                                    <elm:operand xsi:type="elm:Exists">
+                                                        <elm:operand xsi:type="elm:ExpressionRef" name="completeBloodCountLabPerformance"/>
+                                                    </elm:operand>
+                                                </logic>
+                                                <conditionRole/>
+                                            </condition>
+                                            
+      <def name="cReactiveProteinLabPerformance">
+            <elm:expression xsi:type="elm:Query">
+             
+                <elm:source alias="labQuery">
+                    <elm:expression xsi:type="elm:ExpressionRef" name="cReactiveProteinLab"/>
+                </elm:source>
+                <elm:where xsi:type="elm:Equal">
+                    <elm:operand path="statementType" xsi:type="elm:Property"/>
+                    <elm:operand xsi:type="elm:Code" code="398166005 |Performed (qualifier value)|" display="Precoordinated Expression">
+                        <elm:system name="SNOMED CT"/>
+                    </elm:operand>
+                </elm:where>
+            </elm:expression>
+        </def>
+        
+               <def name="cReactiveProteinLab">
+            <elm:expression xsi:type="elm:Retrieve" dataType="anf:ClinicalStatement" codeProperty="topic" dateProperty="dateTime">
+                <elm:codes xsi:type="elm:List">
+                    <elm:element xsi:type="elm:Code" code="55235003 |C-reactive protein measurement (procedure)|" display="Precoordinated Expression">
+                        <elm:system name="SNOMED CT"/>
+                    </elm:element>
+                </elm:codes>
+                <elm:dateRange xsi:type="elm:Interval">
+                    <elm:low xsi:type="elm:Add">
+                        <elm:operand xsi:type="elm:Today"/>
+                        <elm:operand xsi:type="elm:Quantity" unit="Month" value="-3"/>
+                    </elm:low>
+                    <elm:high xsi:type="elm:Today"/>
+                </elm:dateRange>
+            </elm:expression>
+        </def>
+        
+
+define "cReactiveProteinLab": ["Observation": "C-reactive protein measurement (procedure)"] O where O.effectiveDateTime > (Today() - 3 Months)                                                 
+
+define "cReactiveProteinLabPerformance" : ["cReactiveProteinLab":"Performed (qualifier value)"]
+
+CONDITION
+NOT EXIST "cReactiveProteinLabPerformance"
+

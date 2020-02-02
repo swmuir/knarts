@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+ 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated knowledgedocument -->
+      <package
+            uri="urn:hl7-org:knowledgeartifact:r1"
+            class="org.hl7.knowledgeartifact.r1.R1Package"
+            genModel="model/knowledgedocument.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated knowledgedocument -->
+      <parser
+            type="r1"
+            class="org.hl7.knowledgeartifact.r1.util.R1ResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated knowledgedocument -->
+      <package
+            uri="urn:hl7-org:cdsdt:r2"
+            class="org.hl7.cdsdt.r2.R2Package"
+            genModel="model/knowledgedocument.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated knowledgedocument -->
+      <parser
+            type="r2"
+            class="org.hl7.cdsdt.r2.util.R2ResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated knowledgedocument -->
+      <package
+            uri="urn:hl7-org:elm:r1"
+            class="org.hl7.elm.r1.R1Package"
+            genModel="model/knowledgedocument.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated knowledgedocument -->
+      <parser
+            type="r1"
+            class="org.hl7.elm.r1.util.R1ResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
