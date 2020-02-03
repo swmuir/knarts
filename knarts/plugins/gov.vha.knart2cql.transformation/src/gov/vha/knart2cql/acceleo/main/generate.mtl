@@ -1,0 +1,66 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('urn:hl7-org:cdsdt:r2', 'urn:hl7-org:elm:r1', 'urn:hl7-org:knowledgeartifact:r1',  'urn:hl7-org:v3')]
+
+
+[**
+ * The documentation of the template generateElement.
+ * @param aKnowledgeDocument
+ * 
+ * 
+ * code "Venous foot pump, device (physical object)": '442023007' from "SNOMED-CT:March 2016" 
+  display 'Venous foot pump, device (physical object)'
+ */]
+[template public generateElement(aKnowledgeDocument : KnowledgeDocument)]
+[comment @main/]
+[file (aKnowledgeDocument.metadata.title.value+'.cql', false, 'UTF-8')]
+
+library [aKnowledgeDocument.metadata.title.value/]
+
+using ANF
+
+codesystem "SNOMED": 'http://snomed.info/sct'
+
+[for ( edt : ExternalDataType | aKnowledgeDocument.externalData ) ]
+[for ( expressionDef : ExpressionDef | edt._def ) ]
+[if (expressionDef.expression.oclIsKindOf(Retrieve))]
+
+
+[for (code : r1::Code |  expressionDef.expression.oclAsType(Retrieve).codes.oclAsType(List).element) ]
+code '[code.code.tokenize('//|')->asSequence()->at(2)/]': '[code.code.tokenize('//|')->asSequence()->at(1)/]' from '[code.system.name/]' display '[code.code.tokenize('//|')->asSequence()->at(2)/]'   
+[/for]
+[/if]
+[/for]
+[/for]
+
+
+[for ( edt : ExternalDataType | aKnowledgeDocument.externalData ) ]
+[for ( expressionDef : ExpressionDef | edt._def ) ]
+[if (expressionDef.expression.oclIsKindOf(Retrieve))]
+valueset "VS[ expressionDef.name /]" : [for (code : r1::Code |  expressionDef.expression.oclAsType(Retrieve).codes.oclAsType(List).element) ] '[code.code.tokenize('//|')->asSequence()->at(2)/]' [/for]
+[/if]
+[/for]
+[/for]
+
+
+
+[for ( edt : ExternalDataType | aKnowledgeDocument.externalData ) ]
+[for ( expressionDef : ExpressionDef | edt._def ) ]
+[if (expressionDef.expression.oclIsKindOf(Retrieve)  and not expressionDef.expression.oclAsType(Retrieve).dateProperty.oclIsUndefined()  )]
+define "[ expressionDef.name /]" exists (  [ '[' /] [ expressionDef.expression.oclAsType(Retrieve).dataType  /] : VS[ expressionDef.name /]  [ ']' /]  S where S.[ expressionDef.expression.oclAsType(Retrieve).dateProperty/] during Interval [ '[' /] Today(), Today() [ expressionDef.expression.oclAsType(Retrieve).dateRange.oclAsType(Interval).low.oclAsType(Add).operand->at(2).oclAsType(Quantity).value/]  [ expressionDef.expression.oclAsType(Retrieve).dateRange.oclAsType(Interval).low.oclAsType(Add).operand->at(2).oclAsType(Quantity).unit/] [ ']' /] )
+[/if]
+[/for]
+[/for]
+
+[for ( edt : ExternalDataType | aKnowledgeDocument.externalData ) ]
+[for ( expressionDef : ExpressionDef | edt._def ) ]
+[if (expressionDef.expression.oclIsKindOf(Query) )]
+define "[ expressionDef.name /]" exists (  [ '[' /] ClinicalStatement :  [ expressionDef.expression.oclAsType(Query).source->at(1).expression.oclAsType(ExpressionRef).name /]   [ ']' /] S where S.[ expressionDef.expression.oclAsType(Query).where.oclAsType(Equal).operand->at(1).oclAsType(Property).path /] =  [ expressionDef.expression.oclAsType(Query).where.oclAsType(Equal).operand->at(2).oclAsType(r1::Code).code /] )  
+[/if]
+[/for]
+[/for]
+
+[/file]
+[/template]
