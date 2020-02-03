@@ -186,7 +186,7 @@
                     <kind value="applicability"/>
                     <expression>
                       <language value="text/cql"/>
-                      <expression value=" org.hl7.elm.r1.impl.PropertyImpl@1f2f960f (localId: null) (path: Diabetic Retinopathy, scope: null)"/>
+                      <expression value=" org.hl7.elm.r1.impl.PropertyImpl@85df0ce (localId: null) (path: Diabetic Retinopathy, scope: null)"/>
                     </expression>
                   </condition>
                   <definitionCanonical>
@@ -2020,7 +2020,7 @@
                       <kind value="applicability"/>
                       <expression>
                         <language value="text/cql"/>
-                        <expression value=" org.hl7.elm.r1.impl.EqualImpl@1da6c808 (localId: null)"/>
+                        <expression value=" org.hl7.elm.r1.impl.EqualImpl@2109c0aa (localId: null)"/>
                       </expression>
                     </condition>
                     <definitionCanonical>
@@ -2034,7 +2034,7 @@
                       <kind value="applicability"/>
                       <expression>
                         <language value="text/cql"/>
-                        <expression value=" org.hl7.elm.r1.impl.EqualImpl@5a1e96f6 (localId: null)"/>
+                        <expression value=" org.hl7.elm.r1.impl.EqualImpl@45e98b4e (localId: null)"/>
                       </expression>
                     </condition>
                     <definitionCanonical>
